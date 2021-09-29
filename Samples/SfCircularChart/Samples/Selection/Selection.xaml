@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.SfCircularChart.Selection"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:local="clr-namespace:SampleBrowser.Maui.SfCircularChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                       xmlns:chart="http://schemas.syncfusion.com/maui"
+    BackgroundColor="White">
+    <localCore:SampleView.Content>
+        <localCore:ScrollViewExt>
+            <VerticalStackLayout BackgroundColor="White">
+                <localCore:CardViewExt Title="Segment Selection" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
+                    <localCore:CardViewExt.MainContent>
+                        <chart:SfCircularChart MinimumHeightRequest ="310" x:Name="chart">
+                            <chart:SfCircularChart.BindingContext>
+                                <local:SelectionViewModel x:Name="viewModel"/>
+                            </chart:SfCircularChart.BindingContext>
+                            <chart:SfCircularChart.Title>
+                                <Label Text="Age distribution by country" Margin="0,0,6,10" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                            </chart:SfCircularChart.Title>
+                            <chart:SfCircularChart.Legend>
+                                <chart:ChartLegend/>
+                            </chart:SfCircularChart.Legend>
+                            <chart:SfCircularChart.Series>
+                                <chart:PieSeries x:Name="series" SelectedIndex="0" ShowTooltip="True" ItemsSource="{Binding CircularData}" XBindingPath="Name" YBindingPath="Value" Palette="Custom" CustomBrushes="{Binding SelectionBrushes}" Stroke="White" SelectionBrush="#314A6E" StrokeWidth="2">
+                                </chart:PieSeries>
+                            </chart:SfCircularChart.Series>
+                        </chart:SfCircularChart>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+       </VerticalStackLayout>
+        </localCore:ScrollViewExt>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
