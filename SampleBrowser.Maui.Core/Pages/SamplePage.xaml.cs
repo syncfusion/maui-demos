@@ -187,7 +187,6 @@ namespace SampleBrowser.Maui.Core
             if (SampleType != null)
             {
                 previousSample = SampleType;
-                SampleLoaded?.Invoke(null, new SampleLoadedEventArgs(SampleType!.FullName!));
                 sampleView = Activator.CreateInstance(SampleType!) as SampleView;
                 Microsoft.Maui.Controls.Grid.SetRow(sampleView, 4);
 
@@ -285,46 +284,5 @@ namespace SampleBrowser.Maui.Core
         }
 
         #endregion
-
-        #region events
-
-        /// <summary>
-        /// Triggered when loading a sample.
-        /// </summary>
-        public static event EventHandler<SampleLoadedEventArgs> SampleLoaded;
-
-
-        #endregion
     }
-
-    #region SampleLoadedEventArgs
-
-    /// <summary>
-    /// Event argument for sample loaded event.
-    /// </summary>
-    public class SampleLoadedEventArgs : EventArgs
-    {
-        #region ctor
-
-        /// <summary>
-        /// Event hooked when Samples Loaded in HockeyApp Integration.
-        /// </summary>
-        public SampleLoadedEventArgs(string sampleName)
-        {
-            SampleName = sampleName;
-        }
-
-        #endregion
-
-        #region properties
-
-        /// <summary>
-        /// Gets or sets SampleName.
-        /// </summary>
-        public string SampleName { get; set; }
-
-        #endregion
-    }
-
-    #endregion
 }

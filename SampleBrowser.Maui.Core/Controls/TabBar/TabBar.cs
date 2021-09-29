@@ -177,16 +177,20 @@ namespace SampleBrowser.Maui.Core
             {
                 double selectedViewX = this.tabHeaderItemContent.Children[(int)this.SelectedIndex].Frame.X;
 
-                if ((this.tabHeaderItemContent.Children[(int)this.SelectedIndex] as Grid).Width > 0)
+                if (this.tabHeaderItemContent?.Children[(int)this.SelectedIndex] is Grid)
                 {
-                    this.tabSelectionIndicator.WidthRequest = (this.tabHeaderItemContent.Children[(int)this.SelectedIndex] as Grid).Width;
+                    var child = this.tabHeaderItemContent?.Children[(int)this.SelectedIndex] as Grid;
+                    if (child != null && child.Width > 0)
+                    {
+                        this.tabSelectionIndicator.WidthRequest = child.Width;
+                    }
                 }
                 else
                 {
                     this.tabSelectionIndicator.WidthRequest = 0.1d;
                 }
 
-                if (this.SelectedIndex < this.tabHeaderItemContent.Children.Count)
+                if (this.SelectedIndex < this.tabHeaderItemContent?.Children.Count)
                 {
                     this.UpdateTabIndicatorPosition(selectedViewX);
                 }

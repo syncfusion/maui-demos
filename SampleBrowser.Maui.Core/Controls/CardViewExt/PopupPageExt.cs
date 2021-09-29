@@ -9,8 +9,8 @@ namespace SampleBrowser.Maui.Core
     {
         private Grid? rootGrid;
 
-        SampleView SampleView;
-        public PopUpPageExt(View view, CardViewExt card)
+        SampleView? SampleView;
+        public PopUpPageExt(View? view, CardViewExt? card)
         {       
             this.BackgroundColor = Colors.White;
             this.Padding = new Thickness(10);
@@ -36,8 +36,8 @@ namespace SampleBrowser.Maui.Core
                         if ((item as CardViewExt)?.Title == card?.Title)
                         {
 
-                           CardViewExt  duplicatedCardView = (item as CardViewExt);
-                            newView.OnExpandedViewAppearing(duplicatedCardView.MainContent as View);
+                            CardViewExt duplicatedCardView = (CardViewExt)item;
+                            newView?.OnExpandedViewAppearing(duplicatedCardView!.MainContent as View);
                             return duplicatedCardView.MainContent;
                         }
                     }
@@ -62,7 +62,11 @@ namespace SampleBrowser.Maui.Core
 
         protected override void OnDisappearing()
         {
-            SampleView.OnExpandedViewDisappearing(this.rootGrid.Children[0] as View);
+            if (this.rootGrid?.Children[0] is View)
+            {
+                var child = this.rootGrid.Children[0] as View;
+                SampleView?.OnExpandedViewDisappearing(child!);
+            }
             this.rootGrid?.Children.Clear();
             this.rootGrid = null;
             this.Content = null;
