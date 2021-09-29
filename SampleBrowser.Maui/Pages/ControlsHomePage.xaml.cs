@@ -12,8 +12,6 @@ namespace SampleBrowser.Maui
 
         private Label loadingLabel;
 
-        private bool isListItemClicked;
-
         #endregion
 
         #region ctor
