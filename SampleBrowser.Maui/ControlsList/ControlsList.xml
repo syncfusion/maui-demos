@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+	<Group Title="Cartesian Chart" CategoryName="Data Visualization" ImageId="cartesianchart" ControlName="SfCartesianChart" Description="Plot over 7 chart types with extensive features like data label, tooltip, selection and zooming."  />
+	<Group Title="Circular Chart" CategoryName="Data Visualization" ImageId="circularchart" ControlName="SfCircularChart" Description="Visualize the data using pie and doughnut charts."  />
+	<Group Title="Tab View" CategoryName="Navigation" ImageId="tabview" ControlName="SfTabView" Description="A simple tab navigation interface that allows users to explore and switch tabs." />
+	<Group Title="Radial Gauge" CategoryName="Data Visualization" ImageId="radialgauge" ControlName="SfRadialGauge" Description="Visualize numeric data using circular gauge control."  />
+</Samples>

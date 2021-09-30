@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:local="clr-namespace:SampleBrowser.Maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.ControlsHomePage"
+             Title=".NET MAUI Controls Demo"
+             BackgroundColor="White"
+             Padding="0" >
+    <ContentPage.BindingContext>
+        <local:ControlPageViewModel x:Name="viewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <VerticalStackLayout>
+
+            <Grid HeightRequest="60">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#E5E5E5"
+                          Offset="0.1" />
+                        <GradientStop Color="#EAEAEA"
+                          Offset="0.2" />
+                        <GradientStop Color="#FFFFFF"
+                          Offset="1.0" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+            </Grid>
+            <Grid BackgroundColor="#E5E5E5" Margin="0,-40,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <BoxView BackgroundColor="White" CornerRadius="20,20,0,0" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                <VerticalStackLayout Spacing="40" Padding="0,25,0,15">
+                    <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                        <Grid>
+                            <Grid WidthRequest="{OnPlatform iOS='190',macOS='190', Default='170'}">
+                                <Frame HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="0" Margin="50,20,0,0"  HeightRequest="20"  BorderColor="#B3BEC4" HorizontalOptions="Fill"/>
+                                <Frame HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="20" HeightRequest="40" x:Name="dataVisualizationView" BorderColor="#B3BEC4" HorizontalOptions="Fill"/>
+                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" BackgroundColor="Transparent" Text="Data Visualization" />
+                                <Frame HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="0" Margin="0" WidthRequest="20"  HeightRequest="20"  BorderColor="#F5F5F5" HorizontalOptions="End" VerticalOptions="End"/>
+                                <BoxView Margin="20,0,0,0" WidthRequest="1" HeightRequest="20" BackgroundColor="#B3BEC4" HorizontalOptions="End" VerticalOptions="End"/>
+                            </Grid>
+                            <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                        </Grid>
+                        <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,7,0,0" >
+                            <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                            <VerticalStackLayout BindableLayout.ItemsSource="{Binding DataVisualizationControlsList}" >
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                            </Grid.GestureRecognizers>
+                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                </VerticalStackLayout>
+                                            </Grid>
+                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Grid>
+
+                    <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                        <Grid>
+                            <Grid WidthRequest="{ OnPlatform iOS='135', Default='115'}">
+                                <Frame HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="0" Margin="50,20,0,0"  HeightRequest="20"  BorderColor="#B3BEC4" HorizontalOptions="Fill"/>
+                                <Frame HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="20" HeightRequest="40" x:Name="layoutView" BorderColor="#B3BEC4" HorizontalOptions="Fill"/>
+                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" BackgroundColor="Transparent" Text="Navigation" />
+                                <Frame HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="0" Margin="0" WidthRequest="20"  HeightRequest="20"  BorderColor="#F5F5F5" HorizontalOptions="End" VerticalOptions="End"/>
+                                <BoxView Margin="20,0,0,0" WidthRequest="1" HeightRequest="20" BackgroundColor="#B3BEC4" HorizontalOptions="End" VerticalOptions="End"/>
+                            </Grid>
+                            <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                        </Grid>
+                        <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                            <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                            <VerticalStackLayout x:Name="layoutStack" BindableLayout.ItemsSource="{Binding LayoutControlsList}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                            </Grid.GestureRecognizers>
+                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                </VerticalStackLayout>
+                                            </Grid>
+                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

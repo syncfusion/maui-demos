@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+	<Sample SearchTags="clock"  Name="Showcase" Title="Showcase" Description="This sample showcases the radial gauge feature."/>
+	
+	<Sample Name="Axis" Title="Axis" Description="This sample showcases the radial gauge axis feature."/>
+	
+	<Sample Name="Pointers"  Title="Pointers" Description="This sample showcases the radial gauge pointers feature."/>
+	
+	<Sample Name="Range" Title="Range" Description="This sample showcases the radial gauge range feature." />
+	
+	<Sample Name="Annotation" Title="Annotation" Description="This sample showcases the radial gauge annotation feature."/>
+	
+	<Sample Name="Interaction" Title="Interaction" Description="This sample showcases the radial gauge interactive feature."/>
+	
+	<Sample Name="Animation" Title="Animation" Description="This sample showcases the radial gauge animation feature."/>
+</Samples>
