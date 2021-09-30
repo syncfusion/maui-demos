@@ -35,8 +35,8 @@ If you download the examples using the "Download ZIP" option then please follow 
 | .NET MAUI Controls | 
 | ------------- | 
 | <b><center>**DATA VISUALIZATION**</center></b> |
-| [Cartesian Chart](SampleBrowser.Maui/Samples/SfCartesianChart) |
-| [Circular Chart](SampleBrowser.Maui/Samples/SfCircularChart) |
+| [Cartesian Charts](SampleBrowser.Maui/Samples/SfCartesianChart) |
+| [Circular Charts](SampleBrowser.Maui/Samples/SfCircularChart) |
 | [Radial Gauge](SampleBrowser.Maui/Samples/SfRadialGauge) |
 | <b><center>**NAVIGATION**</center><b> |
 | [Tab View](SampleBrowser.Maui/Samples/SfTabView) |
