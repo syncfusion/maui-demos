@@ -70,10 +70,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Syncfusion.Maui.Core" Version="*" />
-		<PackageReference Include="Syncfusion.Maui.TabView" Version="*" />
-		<PackageReference Include="Syncfusion.Maui.Charts" Version="*" />
-		<PackageReference Include="Syncfusion.Maui.Gauges" Version="*" />
+		<PackageReference Include="Syncfusion.Maui.Core" Version="19.3.43-preview" />
+		<PackageReference Include="Syncfusion.Maui.TabView" Version="19.3.43-preview" />
+		<PackageReference Include="Syncfusion.Maui.Charts" Version="19.3.43-preview" />
+		<PackageReference Include="Syncfusion.Maui.Gauges" Version="19.3.43-preview" />
 	</ItemGroup>
 
 
