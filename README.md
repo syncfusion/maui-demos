@@ -33,7 +33,7 @@ If you download the examples using the "Download ZIP" option then please follow 
 ## Controls Catalog
 
 
-| <b><center>**DATA VISUALIZATION**</center></b> |
+| DATA VISUALIZATION |
 | [Cartesian Charts](SampleBrowser.Maui/Samples/SfCartesianChart) |
 | [Circular Charts](SampleBrowser.Maui/Samples/SfCircularChart) |
 | [Radial Gauge](SampleBrowser.Maui/Samples/SfRadialGauge) |
