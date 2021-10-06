@@ -32,7 +32,7 @@ If you download the examples using the "Download ZIP" option then please follow 
 
 ## Controls Catalog
 
-|  | 
+|           | 
 |-----------|
 | <b><center>**DATA VISUALIZATION**</center><b> |
 | [Cartesian Charts](SampleBrowser.Maui/Samples/SfCartesianChart) |
