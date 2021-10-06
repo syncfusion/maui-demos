@@ -32,7 +32,8 @@ If you download the examples using the "Download ZIP" option then please follow 
 
 ## Controls Catalog
 
-
+| .NET MAUI Controls | 
+| ------------- | 
 | DATA VISUALIZATION |
 | [Cartesian Charts](SampleBrowser.Maui/Samples/SfCartesianChart) |
 | [Circular Charts](SampleBrowser.Maui/Samples/SfCircularChart) |
