@@ -32,9 +32,9 @@ If you download the examples using the "Download ZIP" option then please follow 
 
 ## Controls Catalog
 
-| .NET MAUI Controls | 
+| <b><center>**DATA VISUALIZATION**</center><b> | 
 | ------------- | 
-| DATA VISUALIZATION |
+| <b><center>**DATA VISUALIZATION**</center><b> |
 | [Cartesian Charts](SampleBrowser.Maui/Samples/SfCartesianChart) |
 | [Circular Charts](SampleBrowser.Maui/Samples/SfCircularChart) |
 | [Radial Gauge](SampleBrowser.Maui/Samples/SfRadialGauge) |
