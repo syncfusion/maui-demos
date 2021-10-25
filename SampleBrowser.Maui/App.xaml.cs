@@ -18,7 +18,8 @@ namespace SampleBrowser.Maui
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new ControlsHomePage()) { BarBackgroundColor = Colors.White, BarTextColor = Colors.Black };
+			//MainPage = new NavigationPage(new ControlsHomePage()) { BarBackgroundColor = Colors.White, BarTextColor = Colors.Black };
+			MainPage = new ControlsHomePage() ;
 		}
 	}
 }
