@@ -16,7 +16,7 @@
 		<ApplicationId>com.syncfusion.SampleBrowser.Maui</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationVersion>19.2.0.1</ApplicationVersion>
+		<ApplicationVersion>1</ApplicationVersion>
 		<AndroidVersionCode>1</AndroidVersionCode>
 
 		<!-- Required for C# Hot Reload -->
@@ -70,10 +70,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Syncfusion.Maui.Core" Version="19.3.43-preview" />
-		<PackageReference Include="Syncfusion.Maui.TabView" Version="19.3.43-preview" />
-		<PackageReference Include="Syncfusion.Maui.Charts" Version="19.3.43-preview" />
-		<PackageReference Include="Syncfusion.Maui.Gauges" Version="19.3.43-preview" />
+		<PackageReference Include="Syncfusion.Maui.Core" Version="19.3.47-preview" />
+		<PackageReference Include="Syncfusion.Maui.TabView" Version="19.3.47-preview" />
+		<PackageReference Include="Syncfusion.Maui.Charts" Version="19.3.47-preview" />
+		<PackageReference Include="Syncfusion.Maui.Gauges" Version="19.3.47-preview" />
 	</ItemGroup>
 
 

@@ -34,10 +34,11 @@ namespace SampleBrowser.Maui
         }
 
         #endregion
-
+        View pageContent;
         #region methods
         private async void TapGestureTapped(object sender, System.EventArgs eventArgs )
         {
+            this.backButton.Source = "back";
             ControlModel cModel = (sender as Grid).BindingContext as ControlModel;
             
             if (cModel is ControlModel controlModel)
@@ -58,17 +59,22 @@ namespace SampleBrowser.Maui
                 page = Core.SampleBrowser.GetSamplesPage(samplesData, assemblyName, controlModel.ControlName, controlModel.Title);
 
                 page.Title = controlModel.Title;
+                this.titleLabel.Text = controlModel.Title;
                 page.BackgroundColor = Colors.White;
                 if (Device.RuntimePlatform == "Android")
                 {
-                    var content = page.Content;
-                    page.Content = loadingLabel;
-                    await Navigation.PushAsync(page);
-                    page.Content = content;
+                    pageContent = page.Content;
+                    //  page.Content = loadingLabel;
+                    //   await Navigation.PushAsync(page);
+
+                    this.controlsStack.IsVisible = false;
+                    this.ContentArea.Children.Add(pageContent);
+                    //this.Content = pageContent;
                 }
                 else
                 {
-                    await Navigation.PushAsync(page);
+                    //await Navigation.PushAsync(page);
+                    this.ContentArea.Children.Add(pageContent);
                 }
             }
         }
@@ -79,5 +85,13 @@ namespace SampleBrowser.Maui
         }
 
         #endregion
+
+        private void Button_Clicked(object sender, System.EventArgs e)
+        {
+            this.controlsStack.IsVisible = true;
+            this.backButton.Source = "logo";
+            this.titleLabel.Text = " .NET MAUI Controls";
+            this.ContentArea.Children.Remove(pageContent);
+        }
     }
 }

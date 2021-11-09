@@ -10,6 +10,7 @@ using Android.App;
 using Android.Runtime;
 using Microsoft.Maui;
 using System;
+using Microsoft.Maui.Hosting;
 
 namespace SampleBrowser.Maui
 {

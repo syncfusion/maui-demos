@@ -72,6 +72,7 @@ namespace SampleBrowser.Maui.Core
             this.expandImageButton = new Image();
             this.expandImageButton.WidthRequest = 25;
             this.expandImageButton.HeightRequest = 25;
+            this.expandImageButton.IsVisible = false;
             this.expandImageButton.Source = "expandicon";
             if (Device.RuntimePlatform == "Android")
             {
@@ -129,8 +130,8 @@ namespace SampleBrowser.Maui.Core
 
         private void TapGestureRecognizer_Tapped(object? sender, EventArgs e)
         {
-            this.parentStack.Children.Remove(this.MainContent);
-            Navigation.PushAsync(new PopUpPageExt(this.MainContent, this) { Title = this.Title }, true);
+            //this.parentStack.Children.Remove(this.MainContent);
+            //Navigation.PushAsync(new PopUpPageExt(this.MainContent, this) { Title = this.Title }, true);
         }
 
         public void OnAppearing()
