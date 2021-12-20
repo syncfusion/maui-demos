@@ -8,10 +8,10 @@
     BackgroundColor="White">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Tooltip template" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCircularChart MinimumHeightRequest ="310" x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCircularChart x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCircularChart.Resources>
                                 <ResourceDictionary>
                                     <DataTemplate x:Key="template1">
@@ -34,14 +34,14 @@
                                 <chart:ChartLegend/>
                             </chart:SfCircularChart.Legend>
                             <chart:SfCircularChart.Series>
-                                <chart:PieSeries CircularCoefficient="0.9" ShowTooltip="True" TooltipTemplate="{StaticResource template1}" x:Name="pieSeries" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" StrokeWidth="2" Stroke="White" EnableAnimation="True" ItemsSource="{Binding PieSeriesData}" XBindingPath="Name" YBindingPath="Value">
+                                <chart:PieSeries CircularCoefficient="0.9" ShowTooltip="True" TooltipTemplate="{StaticResource template1}" x:Name="pieSeries" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" StrokeWidth="2" Stroke="White" EnableAnimation="{Binding EnableAnimation}" ItemsSource="{Binding PieSeriesData}" XBindingPath="Name" YBindingPath="Value">
                                 </chart:PieSeries>
                             </chart:SfCircularChart.Series>
                         </chart:SfCircularChart>
 
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-       </VerticalStackLayout>
+       </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

@@ -8,10 +8,10 @@
     BackgroundColor="White">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Segment Selection" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCircularChart MinimumHeightRequest ="310" x:Name="chart">
+                        <chart:SfCircularChart x:Name="chart">
                             <chart:SfCircularChart.BindingContext>
                                 <local:SelectionViewModel x:Name="viewModel"/>
                             </chart:SfCircularChart.BindingContext>
@@ -28,7 +28,7 @@
                         </chart:SfCircularChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-       </VerticalStackLayout>
+       </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

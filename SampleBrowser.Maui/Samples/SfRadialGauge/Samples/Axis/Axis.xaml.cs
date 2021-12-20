@@ -24,6 +24,53 @@ namespace SampleBrowser.Maui.SfRadialGauge
         {
             InitializeComponent();
         }
+
+        private void RadialAxis_LabelCreated(object sender, LabelCreatedEventArgs e)
+        {
+            if (e.Text == "90")
+            {
+                e.Text = "E";
+            }
+            else if (e.Text == "360")
+            {
+                e.Text = string.Empty;
+            }
+            else
+            {
+                if (e.Text == "0")
+                {
+                    e.Text = "N";
+                }
+                else if (e.Text == "180")
+                {
+                    e.Text = "S";
+                }
+                else if (e.Text == "270")
+                {
+                    e.Text = "W";
+                }
+            }
+        }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            axisBackgroundGauge.Handler?.DisconnectHandler();
+            defaultViewGauge.Handler?.DisconnectHandler();
+            multipleAxisGauge.Handler?.DisconnectHandler();
+            labelCustomizationGauge.Handler?.DisconnectHandler();
+            tickCustomizationGauge.Handler?.DisconnectHandler();
+            customScaleGauge.Handler?.DisconnectHandler();
+            rangeColorGauge.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(Microsoft.Maui.Controls.View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
+        }
     }
 
     public class RadialAxisExt : RadialAxis

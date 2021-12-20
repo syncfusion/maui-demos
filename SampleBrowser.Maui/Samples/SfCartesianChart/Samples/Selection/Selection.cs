@@ -29,7 +29,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
             chart.SelectionChanging += Chart_SelectionChanging;
         }
 
-        private void Chart_SelectionChanging(object sender, Syncfusion.Maui.Charts.SelectionChangingEventArgs e)
+        private void Chart_SelectionChanging(object sender, Syncfusion.Maui.Charts.ChartSelectionChangingEventArgs e)
         {
             if (e.CurrentIndex == e.PreviousIndex || e.CurrentIndex == -1)
             {
@@ -39,6 +39,20 @@ namespace SampleBrowser.Maui.SfCartesianChart
             {
                 series2.Background = new SolidColorBrush(Color.FromArgb("#40314A6E"));
             }
+        }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            chart.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
         }
     }
 

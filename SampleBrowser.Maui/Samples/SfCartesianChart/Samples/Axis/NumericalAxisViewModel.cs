@@ -26,6 +26,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
         public ObservableCollection<ChartDataModel> InverseData { get; set; }
         public ObservableCollection<ChartDataModel> InverseData1 { get; set; }
+
+        public ObservableCollection<ChartDataModel> CrossAxisData { get; set; }
+
         public NumericalAxisViewModel()
         {
             var date = new DateTime(2017, 01, 01);
@@ -114,6 +117,19 @@ namespace SampleBrowser.Maui.SfCartesianChart
               new ChartDataModel( new DateTime(2019, 2, 1), 1.5),
               new ChartDataModel( new DateTime(2019, 3, 1), 1.9),
               new ChartDataModel( new DateTime(2019, 4, 1), 2),
+            };
+
+            CrossAxisData = new ObservableCollection<ChartDataModel>()
+            {
+                new ChartDataModel( -7,  -3),
+                new ChartDataModel( -4.5,  -2),
+                new ChartDataModel( -3.5,  0),
+                new ChartDataModel( -3,  2),
+                new ChartDataModel( 0,  7),
+                new ChartDataModel( 3,  2),
+                new ChartDataModel( 3.5,  0),
+                new ChartDataModel( 4.5,  -2),
+                new ChartDataModel( 7,  -3),
             };
 
         }

@@ -4,7 +4,7 @@
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
-# endregion
+#endregion
 
 using System;
 using Microsoft.Maui.Controls;
@@ -19,14 +19,17 @@ namespace SampleBrowser.Maui.SfCartesianChart
 		public ScatterChart()
 		{
 			InitializeComponent();
-        }
+
+			if (!RunTimeDevice.IsMobileDevice())
+				viewModel.StartTimer();
+		}
 
 		public override void OnExpandedViewAppearing(View view)
 		{
 			base.OnExpandedViewAppearing(view);
 
 			var content = view as Chart.SfCartesianChart;
-			if (content != null && content.BindingContext is DynamicAnimationViewModel)
+			if (RunTimeDevice.IsMobileDevice() && content != null && content.BindingContext is DynamicAnimationViewModel)
 			{
 				viewModel.StopTimer();
 				viewModel.StartTimer();
@@ -37,10 +40,12 @@ namespace SampleBrowser.Maui.SfCartesianChart
 		{
 			base.OnExpandedViewDisappearing(view);
 			var content = view as Chart.SfCartesianChart;
-			if (content != null && content.BindingContext is DynamicAnimationViewModel)
+			if (RunTimeDevice.IsMobileDevice() && content != null && content.BindingContext is DynamicAnimationViewModel)
 			{
 				viewModel.StopTimer();
 			}
+
+			view.Handler?.DisconnectHandler();
 		}
 
 
@@ -64,6 +69,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
             base.OnDisappearing();
             if (viewModel != null)
                 viewModel.StopTimer();
+
+			Chart.Handler?.DisconnectHandler();
+			Chart1.Handler?.DisconnectHandler();
         }
     }
 }

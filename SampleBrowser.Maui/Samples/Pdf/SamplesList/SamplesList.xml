@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+  <SampleGroup Title="Product Showcase">
+    <Sample SearchTags="pdf, invoice, table" Name="Invoice" Title="Invoice" Description="This demo shows how to create simple invoice report using PDF grid with built-in styles."/>
+    <Sample SearchTags="pdf, certificate, insert, image, text" Name="Certificate" Title="Course Completion Certificate" Description="This demo shows how to dynamically generates the course completion certificate for online learning portal with participant name, course name and date of completion."/>
+  </SampleGroup>
+  <SampleGroup Title="Graphics">
+    <Sample SearchTags="pdf, image, insertion, graphics" Name="ImageInsertion" Title="Image Insertion" Description="This demo shows how to insert images in a PDF document."/>
+  </SampleGroup>
+  <SampleGroup Title="Security">
+    <Sample SearchTags="pdf, encyption, security" Name="Encryption" Title="Encryption" Description="This demo shows how to encrypt the existing PDF document to protect documents against unauthorized access." />
+    <Sample SearchTags="pdf, digital, signature, security" Name="DigitalSignature" Title="Digital Signature" Description="This demo shows how to digitally sign the PDF document with .pfx certificates."/>
+  </SampleGroup>
+</Samples>

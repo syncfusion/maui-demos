@@ -37,6 +37,8 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
         public ColumnSeriesViewModel()
         {
+            EnableAnimation = true;
+
             ColumnData1 = new ObservableCollection<ChartDataModel>
             {
                 new ChartDataModel("China", 0.541),

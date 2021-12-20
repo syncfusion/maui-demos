@@ -88,6 +88,21 @@ namespace SampleBrowser.Maui.SfRadialGauge
             string minutesValue = isMinuteSingleDigit ? "0" + min : min.ToString(CultureInfo.CurrentCulture);
             this.viewModel.AnnotationString = hourValue + "hr " + minutesValue + "m";
         }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            radialSliderGauge.Handler?.DisconnectHandler();
+            radialRangeSlider.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(Microsoft.Maui.Controls.View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
+        }
     }
     public class RadialRangeSliderViewModel : INotifyPropertyChanged
     {

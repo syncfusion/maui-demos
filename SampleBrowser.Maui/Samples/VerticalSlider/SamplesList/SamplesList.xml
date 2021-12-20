@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+	<SampleGroup Title="Basic Features">
+		<Sample SearchTags="Default, slider" Name="DefaultSlider" Title="Default" Description="This sample showcases the deafult vertical slider." />
+		<Sample SearchTags="Dividers, labels, ticks, minor ticks" Name="SliderDividerLabelTick" Title="Dividers, labels, and ticks" Description="This sample showcases the divider, labels and ticks features." />
+		<Sample SearchTags="interval" Name="SliderDateInterval" Title="Date interval" Description="This sample showcases the date interval feature." />
+		<Sample SearchTags="step, discrete" Name="SliderDiscrete" Title="Step" Description="This sample showcases the step size feature." />
+	</SampleGroup>
+
+	<SampleGroup Title="Customization">
+		<Sample SearchTags="color" Name="SliderColorCustomization" Title="Color customization" Description="This sample showcases the color customization." />
+		<Sample SearchTags="size" Name="SliderSizeCustomization" Title="Size customization" Description="This sample showcases the size customization." />
+	</SampleGroup>
+</Samples>

@@ -26,5 +26,19 @@ namespace SampleBrowser.Maui.SfCartesianChart
         {
             InitializeComponent();
         }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            tooltipChart.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
+        }
     }
 }

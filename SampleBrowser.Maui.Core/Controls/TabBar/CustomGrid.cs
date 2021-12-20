@@ -7,6 +7,7 @@
 #endregion
 
 using Microsoft.Maui.Controls;
+using Syncfusion.Maui.Core.Internals;
 using Syncfusion.Maui.Graphics.Internals;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,14 @@ namespace SampleBrowser.Maui.Core
     internal class CustomGrid : Grid, ITouchListener
     {
 
-        public event EventHandler<TouchListenerEventArgs>? Touched;
+        public event EventHandler<TouchEventArgs>? Touched;
 
         public CustomGrid()
         {
-            new TouchListener(this);
+            this.AddTouchListener(this);
         }
 
-        public void OnTouchAction(TouchListenerEventArgs e)
+        public void OnTouch(TouchEventArgs e)
         {
             this.Touched?.Invoke(this, e);
         }

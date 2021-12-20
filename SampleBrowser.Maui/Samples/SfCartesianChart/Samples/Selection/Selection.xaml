@@ -8,7 +8,7 @@
     BackgroundColor="White">
     <localCore:SampleView.Content>
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
-            <chart:SfCartesianChart MinimumHeightRequest="310" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="chart">
+            <chart:SfCartesianChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="chart">
                 <chart:SfCartesianChart.Resources>
                     <ResourceDictionary>
                         <local:SelectionValueConverter x:Key="valueconvert"/>
@@ -58,7 +58,7 @@
                     </chart:NumericalAxis>
                 </chart:SfCartesianChart.SecondaryAxis>
                 <chart:SfCartesianChart.Series>
-                    <chart:ColumnSeries EnableAnimation="True" Label="Steps" x:Name="series2" TooltipTemplate="{StaticResource template}" ShowTooltip="True" CornerRadius="5,5,0,0" ItemsSource="{Binding SelectionData}" XBindingPath="Date" YBindingPath="Value" SelectedIndex="6" Background="#40314A6E" SelectionBrush="#314A6E"/>
+                    <chart:ColumnSeries EnableAnimation="{Binding EnableAnimation}" Label="Steps" x:Name="series2" TooltipTemplate="{StaticResource template}" ShowTooltip="True" CornerRadius="5,5,0,0" ItemsSource="{Binding SelectionData}" XBindingPath="Date" YBindingPath="Value" SelectedIndex="6" Background="#40314A6E" SelectionBrush="#314A6E"/>
                 </chart:SfCartesianChart.Series>
                 <chart:SfCartesianChart.ChartBehaviors>
                     <chart:ChartZoomPanBehavior EnableDoubleTap="False" EnablePinchZooming="False" EnablePanning="True" ZoomMode="X"/>

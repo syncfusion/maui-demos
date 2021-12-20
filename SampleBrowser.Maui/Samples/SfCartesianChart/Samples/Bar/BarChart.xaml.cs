@@ -22,13 +22,16 @@ namespace SampleBrowser.Maui.SfCartesianChart
 		public BarChart()
 		{
 			InitializeComponent();
-		}
+
+            if (!RunTimeDevice.IsMobileDevice())
+                viewModel.StartTimer();
+        }
 
         public override void OnExpandedViewAppearing(View view)
         {
             base.OnExpandedViewAppearing(view);
             var content = view as Chart.SfCartesianChart;
-            if (content != null && content.BindingContext is DynamicAnimationViewModel)
+            if (RunTimeDevice.IsMobileDevice() && content != null && content.BindingContext is DynamicAnimationViewModel)
             {
                 viewModel.StopTimer();
                 viewModel.StartTimer();
@@ -39,25 +42,30 @@ namespace SampleBrowser.Maui.SfCartesianChart
         {
             base.OnExpandedViewDisappearing(view);
             var content = view as Chart.SfCartesianChart;
-            if (content != null && content.BindingContext is DynamicAnimationViewModel)
+            if (RunTimeDevice.IsMobileDevice() && content != null && content.BindingContext is DynamicAnimationViewModel)
             {
                 viewModel.StopTimer();
             }
+
+            view.Handler?.DisconnectHandler();
         }
 
 
         public override void OnScrollingToNewCardViewExt(CardViewExt cardViewExt)
 		{
-			if (cardViewExt.Title == "Dynamic update animation" && viewModel != null)
-			{
-                viewModel.StopTimer();
-                viewModel.StartTimer();
-			}
-            else
+            if (RunTimeDevice.IsMobileDevice())
             {
-                viewModel.StopTimer();
-                var content = cardViewExt.MainContent as Syncfusion.Maui.Charts.SfCartesianChart;
-                content.AnimateSeries();
+                if (cardViewExt.Title == "Dynamic update animation" && viewModel != null)
+                {
+                    viewModel.StopTimer();
+                    viewModel.StartTimer();
+                }
+                else
+                {
+                    viewModel.StopTimer();
+                    var content = cardViewExt.MainContent as Syncfusion.Maui.Charts.SfCartesianChart;
+                    content.AnimateSeries();
+                }
             }
         }
 
@@ -66,7 +74,12 @@ namespace SampleBrowser.Maui.SfCartesianChart
 			base.OnDisappearing();
 			if (viewModel != null)
 				viewModel.StopTimer();
-		}
+
+            Chart1.Handler?.DisconnectHandler();
+            Chart2.Handler?.DisconnectHandler();
+            Chart3.Handler?.DisconnectHandler();
+            Chart4.Handler?.DisconnectHandler();
+        }
 	}
 
     public class CustomBarChart : ColumnSeries

@@ -8,11 +8,11 @@
                       Background="White">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout Background="White">
+            <localCore:WrapLayout Background="White">
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Radial slider">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="radialSliderGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis ShowTicks="False"
                                                   RadiusFactor="0.75"
@@ -72,18 +72,60 @@
                                                   StartAngle="270"
                                                   EndAngle="270">
                                     <gauge:RadialAxis.AxisLineStyle>
-                                        <gauge:RadialLineStyle ThicknessUnit="Factor"
-                                                             Thickness="0.08" />
+                                        <gauge:RadialLineStyle >
+                                            <gauge:RadialLineStyle.ThicknessUnit>
+                                                <OnPlatform x:TypeArguments="gauge:SizeUnit">
+                                                    <On Platform="Android, UWP" Value="Factor"/>
+                                                    <On Platform="iOS" >
+                                                        <OnIdiom x:TypeArguments="gauge:SizeUnit" 
+                                                                     Phone="Factor" Tablet="Pixel"/>
+                                                    </On>
+                                                </OnPlatform>
+                                            </gauge:RadialLineStyle.ThicknessUnit>
+                                            <gauge:RadialLineStyle.Thickness>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="Android, UWP" Value="0.08"/>
+                                                    <On Platform="iOS" >
+                                                        <OnIdiom x:TypeArguments="x:Double" 
+                                                                     Phone="0.08" Tablet="15"/>
+                                                    </On>
+                                                </OnPlatform>
+                                            </gauge:RadialLineStyle.Thickness>
+                                        </gauge:RadialLineStyle>
                                     </gauge:RadialAxis.AxisLineStyle>
 
                                     <gauge:RadialAxis.Ranges>
                                         <gauge:RadialRange x:Name="range"
                                                           Fill="#D83B01"
-                                                          WidthUnit="Factor"
-                                                          StartWidth="0.08"
-                                                          EndWidth="0.08"
                                                           StartValue="2"
                                                           EndValue="8">
+                                            <gauge:RadialRange.WidthUnit>
+                                                <OnPlatform x:TypeArguments="gauge:SizeUnit">
+                                                    <On Platform="Android, UWP" Value="Factor"/>
+                                                    <On Platform="iOS" >
+                                                        <OnIdiom x:TypeArguments="gauge:SizeUnit" 
+                                                                     Phone="Factor" Tablet="Pixel"/>
+                                                    </On>
+                                                </OnPlatform>
+                                            </gauge:RadialRange.WidthUnit>
+                                            <gauge:RadialRange.StartWidth>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="Android, UWP" Value="0.08"/>
+                                                    <On Platform="iOS" >
+                                                        <OnIdiom x:TypeArguments="x:Double" 
+                                                                     Phone="0.08" Tablet="15"/>
+                                                    </On>
+                                                </OnPlatform>
+                                            </gauge:RadialRange.StartWidth>
+                                            <gauge:RadialRange.EndWidth>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="Android, UWP" Value="0.08"/>
+                                                    <On Platform="iOS" >
+                                                        <OnIdiom x:TypeArguments="x:Double" 
+                                                                     Phone="0.08" Tablet="15"/>
+                                                    </On>
+                                                </OnPlatform>
+                                            </gauge:RadialRange.EndWidth>
                                         </gauge:RadialRange>
                                     </gauge:RadialAxis.Ranges>
 
@@ -129,7 +171,7 @@
                         </gauge:SfRadialGauge>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

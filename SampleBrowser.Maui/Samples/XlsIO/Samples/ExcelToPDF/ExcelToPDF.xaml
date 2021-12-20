@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.XlsIO.ExcelToPDF"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+             >
+    <localCore:SampleView.Content>
+        <StackLayout Margin="10">
+            <Label x:Name="SampleDescription" Text="This example demonstrates how to convert an Excel workbook to PDF."
+                 VerticalOptions="Center" TextColor="Black">
+            </Label>
+            <Label Text=" "/>
+            <Label x:Name="textBlock1" Text="Click the &quot;Input Template&quot; button to view the input Excel workbook. Please note that an Excel-compatible viewer is required to open and view the Excel file." TextColor="Black"/>
+            <Label Text=" "></Label>
+            <Label x:Name="textBlock2"   Text="Click the &quot;Convert to PDF&quot; button will convert the Excel workbook to PDF. Please note that PDF compatible viewer is required to open and view the PDF document." TextColor="Black"/>
+            <Label Text=" "></Label>   
+            <Button x:Name="btnInput"  Text="Input Template" Clicked="btnInput_Click" VerticalOptions="Center" HorizontalOptions="Start" />
+            <Label Text=" "></Label>
+            <Button x:Name="btnConvertToPdf" Text="Convert To PDF"  Clicked="btnConvertToPDF_Click"  VerticalOptions="Center" HorizontalOptions="Start" />
+        </StackLayout>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>
+
+
+  
+  

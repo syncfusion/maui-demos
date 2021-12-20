@@ -22,5 +22,20 @@ namespace SampleBrowser.Maui.SfRadialGauge
         {
             InitializeComponent();
         }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            compassGauge.Handler?.DisconnectHandler();
+            imageAnnotationGauge.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(Microsoft.Maui.Controls.View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
+        }
     }
 }

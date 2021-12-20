@@ -1,0 +1,46 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SfScheduler.RecursiveAppointments"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SfScheduler"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <schedule:SfScheduler x:Name="Scheduler" 
+                                 GridLayout.Column="1" 
+                                 AppointmentsSource="{Binding RecursiveEvents}"
+                                 DisplayDate="{Binding DisplayDate}"
+                                 AllowedViews="Day,Week,WorkWeek,Month"
+                                 View="Week" >
+                <schedule:SfScheduler.AppointmentMapping>
+                    <schedule:SchedulerAppointmentMapping
+                Subject="EventName"
+                StartTime="From"
+                EndTime="To"
+                Background="Background"
+                IsAllDay="IsAllDay"
+                StartTimeZone="StartTimeZone"
+                EndTimeZone="EndTimeZone"
+                RecurrenceExceptionDates="RecurrenceExceptions"
+                RecurrenceRule="RecurrenceRule"
+                RecurrenceId="RecurrenceId"/>
+                </schedule:SfScheduler.AppointmentMapping>
+                <schedule:SfScheduler.MonthViewSettings>
+                    <schedule:SchedulerMonthViewSettings 
+                                AppointmentDisplayMode="Text" />
+                </schedule:SfScheduler.MonthViewSettings>
+                <schedule:SfScheduler.DaysViewSettings>
+                    <schedule:SchedulerDaysViewSettings 
+                                MinimumAppointmentDuration="0:30:0" />
+                </schedule:SfScheduler.DaysViewSettings>
+                <schedule:SfScheduler.BindingContext>
+                    <local:SchedulerDataBindingViewModel/>
+                </schedule:SfScheduler.BindingContext>
+            </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

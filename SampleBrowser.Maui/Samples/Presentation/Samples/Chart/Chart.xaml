@@ -1,0 +1,18 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Presentation.Chart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core">
+    <localCore:SampleView.Content>
+        <StackLayout Margin="10">
+            <Label x:Name="description" Text="This example demonstrates how to create a chart in a PowerPoint presentation file."
+                  VerticalOptions="Center" TextColor="Black" Margin="0,0,10,0">
+            </Label>
+            <Label x:Name="label1" Text=" "></Label>
+            <Label x:Name="buttonDescription" Text="Click the &quot;Generate Document&quot; button to view the generated PowerPoint presentation. Please note that a PowerPoint-compatible viewer is required to open and view the PowerPoint presentation file."
+                  VerticalOptions="Center" TextColor="Black" Margin="0,0,10,0">
+            </Label>
+            <Label x:Name="label2" Text=" "></Label>
+            <Button x:Name="btnGenerateDocument" Clicked ="OnButtonClicked" Text ="Generate Document" HorizontalOptions="Start"></Button>
+        </StackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -4,7 +4,7 @@
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
-# endregion
+#endregion
 
 using System;
 using Microsoft.Maui.Controls;
@@ -27,7 +27,37 @@ namespace SampleBrowser.Maui.SfCircularChart
 
 			//content.AnimateSeries();
 		}
-	}
+
+        public override void OnExpandedViewAppearing(View view)
+        {
+            base.OnExpandedViewAppearing(view);
+
+			if (RunTimeDevice.IsMobileDevice())
+			{
+				pieSeries1.CircularCoefficient = pieSeries.CircularCoefficient = 0.6;
+			}
+        }
+
+        public override void OnExpandedViewDisappearing(View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+			if (RunTimeDevice.IsMobileDevice())
+			{
+				pieSeries1.CircularCoefficient = pieSeries.CircularCoefficient = 0.8;
+			}
+
+			view.Handler?.DisconnectHandler();
+		}
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+			Chart.Handler?.DisconnectHandler();
+			Chart1.Handler?.DisconnectHandler();
+        }
+    }
 
 	
 

@@ -6,6 +6,7 @@
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.Graphics;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
     
@@ -31,6 +32,10 @@ namespace SampleBrowser.Maui.Core
         private string[]? tags;
 
         private string? categoryName;
+
+        private string? tagType;
+
+        private Color? tagColor = Color.FromArgb("#D9644A");
 
         #endregion
 
@@ -185,6 +190,34 @@ namespace SampleBrowser.Maui.Core
 				OnPropertyChanged("Tags");
 			}
 		}
+
+        public string? TagType
+        {
+            get
+            {
+                return tagType;
+            }
+
+            set
+            {
+                tagType = value;
+                OnPropertyChanged("TagType");
+            }
+        }
+
+        public Color? TagColor
+        {
+            get
+            {
+                return tagColor;
+            }
+
+            set
+            {
+                tagColor = value;
+                OnPropertyChanged("TagColor");
+            }
+        }
 
         public string? Type { get; set; } = "Controls";
 

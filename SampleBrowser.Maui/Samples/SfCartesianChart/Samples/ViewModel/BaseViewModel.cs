@@ -8,6 +8,7 @@
 
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
+using SampleBrowser.Maui.Core;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,6 +28,17 @@ namespace SampleBrowser.Maui.SfCartesianChart
         public ObservableCollection<Brush> CustomColor2 { get; set; }
         public ObservableCollection<Brush> AlterColor1 { get; set; }
 
+        private bool enableAnimation = true;
+        public bool EnableAnimation
+        {
+            get { return enableAnimation; }
+            set
+            {
+                enableAnimation = value;
+                OnPropertyChanged("EnableAnimation");
+            }
+        }
+
         public void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -34,6 +46,11 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
         public BaseViewModel()
         {
+            if (!RunTimeDevice.IsMobileDevice())
+            {
+                EnableAnimation = false;
+            }
+
             CustomBrushes = new ObservableCollection<Brush>()
             {
                new SolidColorBrush(Color.FromArgb("#314A6E")),

@@ -72,7 +72,10 @@ namespace SampleBrowser.Maui.SfCartesianChart
         {
             canvas.SaveState();
 
-            Animate();
+            if ((bool)(InvokeInternalMethod(typeof(ChartSeries), Series, "CanAnimate", null)))
+            {
+                OnLayout();
+            }
 
             DrawTrackPath(canvas, trackRect);
 
@@ -134,6 +137,12 @@ namespace SampleBrowser.Maui.SfCartesianChart
         {
             freq = trackRect.Bottom - Top;
             freq = freq * AnimatedValue;
+        }
+
+        public static object InvokeInternalMethod(Type type, object obj, string methodName, params object[] args)
+        {
+            var method = type.GetTypeInfo().GetDeclaredMethod(methodName);
+            return method != null ? method.Invoke(obj, args) : null;
         }
     }
 }

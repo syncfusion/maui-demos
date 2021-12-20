@@ -6,10 +6,10 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Default Bar" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                         <chart:SfCartesianChart Palette="Custom" CustomBrushes="{Binding CustomBrushes}" IsTransposed="True" x:Name="Chart" MinimumHeightRequest ="310" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                         <chart:SfCartesianChart Palette="Custom" CustomBrushes="{Binding CustomBrushes}" IsTransposed="True" x:Name="Chart1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:BarSeriesViewModel />
                             </chart:SfCartesianChart.BindingContext>
@@ -33,7 +33,7 @@
                             </chart:SfCartesianChart.SecondaryAxis>
 
                             <chart:SfCartesianChart.Series>
-                                <chart:ColumnSeries Label="Year - 2015" EnableAnimation="True" ShowDataLabels="True" x:Name="barSeries1" ItemsSource="{Binding BarData1}" XBindingPath="Name" YBindingPath="Value">
+                                <chart:ColumnSeries Label="Year - 2015" EnableAnimation="{Binding EnableAnimation}" ShowDataLabels="True" x:Name="barSeries1" ItemsSource="{Binding BarData1}" XBindingPath="Name" YBindingPath="Value">
                                 </chart:ColumnSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
@@ -41,7 +41,7 @@
                 </localCore:CardViewExt>
                <localCore:CardViewExt x:Name="extendedCard2" Title="Bar with rounded edge" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                         <chart:SfCartesianChart IsTransposed="True"  MinimumHeightRequest ="310" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart2" IsTransposed="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.Title>
                                 <Label Text="Transportation Method (by Miles)" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
@@ -64,7 +64,7 @@
                             </chart:SfCartesianChart.SecondaryAxis>
 
                             <chart:SfCartesianChart.Series>
-                                <local:CustomBarChart Label="Maldives visit" ShowDataLabels="True" Width="0.5" EnableAnimation="True" CornerRadius="25" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" 
+                                <local:CustomBarChart Label="Maldives visit" ShowDataLabels="True" Width="0.5" EnableAnimation="{Binding EnableAnimation}" CornerRadius="25" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" 
                                                       ItemsSource="{Binding RundedBarData}" XBindingPath="Name" YBindingPath="Value">
                                     <local:CustomBarChart.DataLabelSettings>
                                         <chart:CartesianDataLabelSettings UseSeriesPalette="True" LabelPlacement="Inner">
@@ -80,7 +80,7 @@
                 </localCore:CardViewExt>
                 <localCore:CardViewExt x:Name="extendedCard3" Title="Bar width and spacing" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                            <chart:SfCartesianChart x:Name="Chart2" IsTransposed="True" MinimumHeightRequest ="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <chart:SfCartesianChart x:Name="Chart3" IsTransposed="True" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:BarSeriesViewModel/>
                             </chart:SfCartesianChart.BindingContext>
@@ -106,9 +106,9 @@
                                 </chart:NumericalAxis>
                             </chart:SfCartesianChart.SecondaryAxis>
                             <chart:SfCartesianChart.Series>
-                                <chart:ColumnSeries Label="2015" Width="0.8" ShowTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData2}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="True">
+                                <chart:ColumnSeries Label="2015" Width="0.8" ShowTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData2}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="{Binding EnableAnimation}">
                                 </chart:ColumnSeries>
-                                <chart:ColumnSeries Label="2016" Width="0.8" ShowTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData3}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="True">
+                                <chart:ColumnSeries Label="2016" Width="0.8" ShowTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData3}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="{Binding EnableAnimation}">
                                 </chart:ColumnSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
@@ -116,7 +116,7 @@
                 </localCore:CardViewExt>
                 <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard5" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart4" IsTransposed="True" MinimumHeightRequest ="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart4" IsTransposed="True" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DynamicAnimationViewModel x:Name="viewModel"/>
@@ -144,7 +144,7 @@
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

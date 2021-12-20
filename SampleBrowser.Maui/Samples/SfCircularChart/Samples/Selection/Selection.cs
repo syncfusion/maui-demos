@@ -37,7 +37,7 @@ namespace SampleBrowser.Maui.SfCircularChart
             content.AnimateSeries();
         }
 
-        private void Chart_SelectionChanging(object sender, Syncfusion.Maui.Charts.SelectionChangingEventArgs e)
+        private void Chart_SelectionChanging(object sender, Syncfusion.Maui.Charts.ChartSelectionChangingEventArgs e)
         {
             if (e.CurrentIndex == e.PreviousIndex || e.CurrentIndex == -1)
             {
@@ -48,6 +48,20 @@ namespace SampleBrowser.Maui.SfCircularChart
                 series.CustomBrushes = model.SelectionBrushes;
                 series.SelectionBrush = model.CustomBrushes[e.CurrentIndex] as SolidColorBrush;
             }
+        }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            chart.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
         }
     }
 }

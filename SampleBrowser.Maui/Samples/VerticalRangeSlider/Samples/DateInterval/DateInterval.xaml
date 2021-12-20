@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.VerticalRangeSlider.RangeSliderDateInterval"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="ShowTicks" Value="True" />
+            <Setter Property="ShowLabels" Value="True" />
+            <Setter Property="MaximumHeightRequest" Value="300" />
+        </Style>
+        
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding" Value="25,15" />
+            <Setter Property="Spacing" Value="10" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <HorizontalStackLayout Padding="15,0" Spacing="10" HorizontalOptions="Center">
+            <VerticalStackLayout>
+                <sliders:SfRangeSlider Minimum="2001-01-01"
+                                       Maximum="2005-01-01"
+                                       RangeStart="2002-04-01"
+                                       RangeEnd="2003-10-01"
+                                       DateIntervalType="Years"
+                                       LabelsPlacement="BetweenTicks"
+                                       Interval="1" />
+                <Label Text="Interval as year" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <sliders:SfRangeSlider x:Name="hourRangeSlider"
+                                       Minimum="2000-01-01T09:00:00"
+                                       Maximum="2000-01-01T21:00:00"
+                                       RangeStart="2000-01-01T13:00:00"
+                                       RangeEnd="2000-01-01T17:00:00"
+                                       DateIntervalType="Hours" 
+                                       MinorTicksPerInterval="3"
+                                       Interval="4" 
+                                       DateFormat=""
+                                       LabelCreated="OnHourLabelCreatedEvent" />
+                <Label Text="Interval as hour" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

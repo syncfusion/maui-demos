@@ -36,6 +36,8 @@ namespace SampleBrowser.Maui.Core
 
         private Color backgroundColor = Colors.White;
 
+        private double opacity = 0;
+
         #endregion
 
         #region Events
@@ -74,6 +76,21 @@ namespace SampleBrowser.Maui.Core
             {
                 backgroundColor = value;
                 OnPropertyChanged("BackgroundColor");
+            }
+        }
+
+
+        public double Opacity
+        {
+            get
+            {
+                return opacity;
+            }
+
+            set
+            {
+                opacity = value;
+                OnPropertyChanged("Opacity");
             }
         }
 

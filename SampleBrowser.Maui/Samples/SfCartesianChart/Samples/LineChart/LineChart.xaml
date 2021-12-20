@@ -6,10 +6,10 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Default Line" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                            <chart:SfCartesianChart MinimumHeightRequest="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" x:Name="Chart" 
+                            <chart:SfCartesianChart Palette="Custom" CustomBrushes="{Binding CustomBrushes}" x:Name="Chart" 
                                                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:LineSeriesViewModel/>
@@ -60,7 +60,7 @@
 
                 <localCore:CardViewExt Title="Line with dashes" x:Name="extendedCard2" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                            <chart:SfCartesianChart MinimumHeightRequest="310" x:Name="Chart1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <chart:SfCartesianChart x:Name="Chart1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:LineSeriesViewModel/>
                             </chart:SfCartesianChart.BindingContext>
@@ -124,41 +124,9 @@
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-                <localCore:CardViewExt x:Name="extendedCard3" Title="Vertical line" HorizontalOptions="FillAndExpand" HeightRequest="400">
-                    <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="chart3" MinimumHeightRequest="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" IsTransposed="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <chart:SfCartesianChart.BindingContext>
-                                <local:LineSeriesViewModel x:Name="viewModel"/>
-                            </chart:SfCartesianChart.BindingContext>
-                            <chart:SfCartesianChart.Title>
-                                <Label Text="Seismograph Analysis of Country" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
-                            </chart:SfCartesianChart.Title>
-                            <chart:SfCartesianChart.PrimaryAxis>
-                                <chart:NumericalAxis ShowMajorGridLines="False">
-                                    <chart:NumericalAxis.Title>
-                                        <chart:ChartAxisTitle Text="Time (s)" />
-                                    </chart:NumericalAxis.Title>
-                                </chart:NumericalAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
-                                <chart:NumericalAxis ShowMajorGridLines="False" Maximum="15" Minimum="-15">
-                                    <chart:NumericalAxis.Title>
-                                        <chart:ChartAxisTitle Margin="5,10,5,2" Text="Velocity (m/s)">
-                                        </chart:ChartAxisTitle>
-                                    </chart:NumericalAxis.Title>
-                                </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
-                            <chart:SfCartesianChart.Series>
-                                <chart:LineSeries Label="Indonesia" EnableAnimation="False" ItemsSource="{Binding verticalChart}" XBindingPath="Value" YBindingPath="Size"/>
-                            </chart:SfCartesianChart.Series>
-                        </chart:SfCartesianChart>
-
-                    </localCore:CardViewExt.MainContent>
-                </localCore:CardViewExt>
-
                 <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard4" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart4" MinimumHeightRequest="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart2" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DynamicAnimationViewModel x:Name="viewModel1"/>
                             </chart:SfCartesianChart.BindingContext>
@@ -179,7 +147,7 @@
                         </chart:SfCartesianChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

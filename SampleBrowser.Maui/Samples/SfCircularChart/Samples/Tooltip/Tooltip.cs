@@ -33,5 +33,19 @@ namespace SampleBrowser.Maui.SfCircularChart
 
             content.AnimateSeries();
         }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            Chart.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
+        }
     }
 }

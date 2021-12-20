@@ -6,10 +6,10 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Customized tooltip" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                            <chart:SfCircularChart MinimumHeightRequest ="310" x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <chart:SfCircularChart x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <chart:SfCircularChart.Resources>
                                     <ResourceDictionary>
                                         <DataTemplate x:Key="template1">
@@ -33,7 +33,7 @@
                                 </chart:SfCircularChart.Legend>
                                 <chart:SfCircularChart.Series>
                                     <chart:PieSeries CircularCoefficient="0.9" ShowTooltip="True" TooltipTemplate="{StaticResource template1}" 
-                                                     x:Name="pieSeries" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" StrokeWidth="2" Stroke="White" EnableAnimation="True" ItemsSource="{Binding PieSeriesData}" XBindingPath="Name" YBindingPath="Value">
+                                                     x:Name="pieSeries" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" StrokeWidth="2" Stroke="White" EnableAnimation="{Binding EnableAnimation}" ItemsSource="{Binding PieSeriesData}" XBindingPath="Name" YBindingPath="Value">
                                     </chart:PieSeries>
                                 </chart:SfCircularChart.Series>
                             </chart:SfCircularChart>
@@ -43,7 +43,7 @@
 
                 <localCore:CardViewExt Title="Selection" x:Name="extendedCard2" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                            <chart:SfCircularChart MinimumHeightRequest ="310" x:Name="chart1">
+                            <chart:SfCircularChart x:Name="chart1">
                                 <chart:SfCircularChart.BindingContext>
                                     <local:SelectionViewModel x:Name="viewModel"/>
                                 </chart:SfCircularChart.BindingContext>
@@ -54,14 +54,14 @@
                                     <chart:ChartLegend/>
                                 </chart:SfCircularChart.Legend>
                                 <chart:SfCircularChart.Series>
-                                <chart:DoughnutSeries x:Name="series1" CircularCoefficient="0.9" SelectedIndex="0" ShowTooltip="True" ItemsSource="{Binding CircularData}" XBindingPath="Name" YBindingPath="Value" Palette="Custom" CustomBrushes="{Binding SelectionBrushes}" Stroke="White" SelectionBrush="#314A6E" StrokeWidth="2">
+                                <chart:DoughnutSeries x:Name="series1" CircularCoefficient="0.9" SelectedIndex="0" ShowTooltip="True" ItemsSource="{Binding CircularData}" EnableAnimation="{Binding EnableAnimation}" XBindingPath="Name" YBindingPath="Value" Palette="Custom" CustomBrushes="{Binding SelectionBrushes}" Stroke="White" SelectionBrush="#314A6E" StrokeWidth="2">
                                     </chart:DoughnutSeries>
                                 </chart:SfCircularChart.Series>
                             </chart:SfCircularChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
                 
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

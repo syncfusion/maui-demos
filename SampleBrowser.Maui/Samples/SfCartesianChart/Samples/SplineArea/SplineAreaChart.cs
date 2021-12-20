@@ -4,9 +4,10 @@
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
-# endregion
+#endregion
 
 using System;
+using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Xaml;
 using SampleBrowser.Maui.Core;
 
@@ -26,5 +27,19 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
 			content.AnimateSeries();
 		}
-	}
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+			Chart.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
+        }
+    }
 }

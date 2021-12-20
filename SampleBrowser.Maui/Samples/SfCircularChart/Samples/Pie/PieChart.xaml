@@ -6,10 +6,10 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout  BackgroundColor="White">
+            <localCore:WrapLayout  BackgroundColor="White">
                 <localCore:CardViewExt Title="Default Pie Chart" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCircularChart x:Name="Chart" MinimumHeightRequest ="310" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCircularChart x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCircularChart.BindingContext>
                                 <local:PieSeriesViewModel/>
                             </chart:SfCircularChart.BindingContext>
@@ -20,7 +20,7 @@
                                 <chart:ChartLegend/>
                             </chart:SfCircularChart.Legend>
                             <chart:SfCircularChart.Series>
-                                <chart:PieSeries ShowDataLabels="True" x:Name="pieSeries1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" StrokeWidth="2" Stroke="White" EnableAnimation="True" ItemsSource="{Binding PieSeriesData}" XBindingPath="Name" YBindingPath="Value">
+                                <chart:PieSeries ShowDataLabels="True" x:Name="pieSeries1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" StrokeWidth="2" Stroke="White" EnableAnimation="{Binding EnableAnimation}" ItemsSource="{Binding PieSeriesData}" XBindingPath="Name" YBindingPath="Value">
                                     <chart:PieSeries.DataLabelSettings>
                                         <chart:CircularDataLabelSettings LabelPlacement="Outer">
                                             <chart:CircularDataLabelSettings.LabelStyle>
@@ -36,7 +36,7 @@
                 
                 <localCore:CardViewExt Title="Semi-Pie Chart" x:Name="extendedCard5" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCircularChart x:Name="Chart1" MinimumHeightRequest ="310"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCircularChart x:Name="Chart1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCircularChart.BindingContext>
                                 <local:PieSeriesViewModel/>
                             </chart:SfCircularChart.BindingContext>
@@ -62,7 +62,7 @@
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

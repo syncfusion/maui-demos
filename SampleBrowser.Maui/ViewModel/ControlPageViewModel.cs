@@ -1,11 +1,3 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Reflection;
@@ -13,31 +5,56 @@ using System.Xml;
 using System.Linq;
 using System.Collections.Generic;
 using SampleBrowser.Maui.Core;
+using System;
+using Microsoft.Maui.Controls;
+using System.Globalization;
+using Microsoft.Maui.Graphics;
 
 namespace SampleBrowser.Maui
 {
-    public class ControlPageViewModel 
+    public class ControlPageViewModel
     {
         #region fields
-        
+
         private ObservableCollection<ControlModel> dataVisualizationControlsList;
 
         private ObservableCollection<ControlModel> layoutControlsList;
+
+        private ObservableCollection<ControlModel> notificationControlsList;
+
+        private ObservableCollection<ControlModel> miscellaneousControlsList;
+
+        private ObservableCollection<ControlModel> navigationControlsList;
+
+        private ObservableCollection<ControlModel> editorsControlsList;
+
+        private ObservableCollection<ControlModel> slidersControlsList;
+
+        private ObservableCollection<ControlModel> calendarControlsList;
+
+        private ObservableCollection<ControlModel> fileFormatControlsList;
 
         private List<string> categoryList;
 
         private IEnumerable<SampleModel> samplesList;
 
         private AssemblyName controlName;
-        
+
         #endregion
 
-        #region ctor
+        #region constructor
 
         public ControlPageViewModel()
         {
             dataVisualizationControlsList = new ObservableCollection<ControlModel>();
             layoutControlsList = new ObservableCollection<ControlModel>();
+            navigationControlsList = new ObservableCollection<ControlModel>();
+            editorsControlsList = new ObservableCollection<ControlModel>();
+            slidersControlsList = new ObservableCollection<ControlModel>();
+            miscellaneousControlsList = new ObservableCollection<ControlModel>();
+            calendarControlsList = new ObservableCollection<ControlModel>();
+            fileFormatControlsList = new ObservableCollection<ControlModel>();
+            notificationControlsList = new ObservableCollection<ControlModel>();
 
 
             samplesList = new ObservableCollection<SampleModel>();
@@ -63,6 +80,49 @@ namespace SampleBrowser.Maui
             set { layoutControlsList = value; }
         }
 
+        public ObservableCollection<ControlModel> NavigationControlsList
+        {
+            get { return navigationControlsList; }
+            set { navigationControlsList = value; }
+        }
+
+        public ObservableCollection<ControlModel> MiscellaneousControlsList
+        {
+            get { return miscellaneousControlsList; }
+            set { miscellaneousControlsList = value; }
+        }
+
+
+        public ObservableCollection<ControlModel> CalendarControlsList
+        {
+            get { return calendarControlsList; }
+            set { calendarControlsList = value; }
+        }
+
+        public ObservableCollection<ControlModel> EditorsControlsList
+        {
+            get { return editorsControlsList; }
+            set { editorsControlsList = value; }
+        }
+
+        public ObservableCollection<ControlModel> SlidersControlsList
+        {
+            get { return slidersControlsList; }
+            set { slidersControlsList = value; }
+        }
+
+        public ObservableCollection<ControlModel> NotificationControlsList
+        {
+            get { return notificationControlsList; }
+            set { notificationControlsList = value; }
+        }
+
+        public ObservableCollection<ControlModel> FileFormatControlsList
+        {
+            get { return fileFormatControlsList; }
+            set { fileFormatControlsList = value; }
+        }
+
         public IEnumerable<SampleModel> SamplesList
         {
             get { return samplesList; }
@@ -84,57 +144,66 @@ namespace SampleBrowser.Maui
             var assembly = typeof(App).GetTypeInfo().Assembly;
             var stream = assembly.GetManifestResourceStream("SampleBrowser.Maui.ControlsList.ControlsList.xml");
             string currentControlTitle = string.Empty;
-            using (var reader = new StreamReader(stream))
+            if (stream != null)
             {
-                var xmlReader = XmlReader.Create(reader);
-                xmlReader.Read();
-
-                while (!xmlReader.EOF)
+                using (var reader = new StreamReader(stream))
                 {
-                    if (xmlReader.Name == "Group" && xmlReader.IsStartElement())
+                    var xmlReader = XmlReader.Create(reader);
+                    xmlReader.Read();
+
+                    while (!xmlReader.EOF)
                     {
-                        if (xmlReader.HasAttributes)
+                        if (xmlReader.Name == "Group" && xmlReader.IsStartElement())
                         {
-                            string displayName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Title").Substring(2);
-                            var controlModel = new ControlModel
+                            if (xmlReader.HasAttributes)
                             {
-                                ImageId = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "ImageId"),
-                                Title = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Title"),
-                                ControlName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "ControlName"),
-                                CategoryName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "CategoryName"),
-                            };
-                            try
-                            {
-                                controlName = new AssemblyName("SampleBrowser.Maui" + ", Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
-                                var samples = Maui.Core.SampleBrowser.GetSamplesData("SampleBrowser.Maui.Samples." + controlModel.ControlName + ".SamplesList.SamplesList.xml", "SampleBrowser.Maui." + controlModel.ControlName);
-
-                                if (samples.Count > 0 && samples != null)
+                                string displayName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Title").Substring(2);
+                                var controlModel = new ControlModel
                                 {
-                                    controlModel.Samples = samples;
-                                    controlModel.SamplesCount = samples.Count;
-                                    samplesList = samplesList.Concat(samples);
+                                    ImageId = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "ImageId"),
+                                    Title = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Title"),
+                                    ControlName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "ControlName"),
+                                    CategoryName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "CategoryName"),
+                                };
+                                try
+                                {
+                                    controlName = new AssemblyName("SampleBrowser.Maui" + ", Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
+                                    var samples = Maui.Core.SampleBrowser.GetSamplesData("SampleBrowser.Maui.Samples." + controlModel.ControlName + ".SamplesList.SamplesList.xml", "SampleBrowser.Maui." + controlModel.ControlName);
+
+                                    if (samples.Count > 0 && samples != null)
+                                    {
+                                        controlModel.Samples = samples;
+                                        controlModel.SamplesCount = samples.Count;
+                                        samplesList = samplesList.Concat(samples);
+                                    }
                                 }
-                            }
-                            catch
-                            {
-                            }
-
-                            controlModel.Description = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Description");
-                            controlModel.Tags = GetControlSearchTags(xmlReader);
-                            
-                            currentControlTitle = controlModel.Title;
-                            if (controlModel != null)
-                            {
-                                AddControls(xmlReader, controlModel);
-                                if(controlModel.CategoryName !="" && !categoryList.Contains(controlModel.CategoryName))
+                                catch
                                 {
-                                    categoryList.Add(controlModel.CategoryName);
+                                }
+
+                                controlModel.Description = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Description");
+                                controlModel.Tags = GetControlSearchTags(xmlReader);
+                                controlModel.TagType = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "TagType");
+
+                                if(controlModel.TagType == "New")
+                                {
+                                    controlModel.TagColor = Color.FromArgb("#608C1B");
+                                }
+
+                                currentControlTitle = controlModel.Title;
+                                if (controlModel != null)
+                                {
+                                    AddControls(xmlReader, controlModel);
+                                    if (controlModel.CategoryName != "" && !categoryList.Contains(controlModel.CategoryName))
+                                    {
+                                        categoryList.Add(controlModel.CategoryName);
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    xmlReader.Read();
+                        xmlReader.Read();
+                    }
                 }
             }
         }
@@ -152,10 +221,35 @@ namespace SampleBrowser.Maui
             {
                 DataVisualizationControlsList.Add(control);
             }
-            else
+            else if (control.CategoryName.Equals("Layout"))
             {
                 LayoutControlsList.Add(control);
             }
+            else if (control.CategoryName.Equals("Calendar"))
+            {
+                CalendarControlsList.Add(control);
+            }
+            else if (control.CategoryName.Equals("Editors"))
+            {
+                EditorsControlsList.Add(control);
+            }
+            else if (control.CategoryName.Equals("Notification"))
+            {
+                NotificationControlsList.Add(control);
+            }
+            else if (control.CategoryName.Equals("Navigation"))
+            {
+                NavigationControlsList.Add(control);
+            }
+            else if (control.CategoryName.Equals("Miscellaneous"))
+            {
+                MiscellaneousControlsList.Add(control);
+            }
+            else
+            {
+                FileFormatControlsList.Add(control);
+            }
+
         }
 
         private string[] GetControlSearchTags(XmlReader xmlReader)
@@ -200,4 +294,5 @@ namespace SampleBrowser.Maui
 
         #endregion
     }
+
 }

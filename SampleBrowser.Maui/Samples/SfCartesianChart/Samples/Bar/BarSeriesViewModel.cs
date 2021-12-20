@@ -35,6 +35,8 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
         public BarSeriesViewModel()
         {
+            EnableAnimation = true;
+
             RundedBarData = new ObservableCollection<ChartDataModel>()
             {
                 new ChartDataModel("Boat", 9.872),

@@ -66,6 +66,10 @@ namespace SampleBrowser.Maui.SfCircularChart
             Size = size;
         }
 
+        public ChartDataModel()
+        {
+
+        }
         public ChartDataModel(DateTime date, double value, double size)
         {
             Date = date;

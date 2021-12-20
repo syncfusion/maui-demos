@@ -14,14 +14,14 @@ namespace SampleBrowser.Maui.Core
 {
     public class CardViewExt : ContentView
     {
-        private Image expandImageButton;
+        internal Image expandImageButton;
         private Label titleLabel;
 
         private Frame outerFrame;
         private Grid parentGrid;
 
         private VerticalStackLayout parentStack;
-        private Grid titleLayout;
+        internal Grid titleLayout;
         private TapGestureRecognizer tapGestureRecognizer;
 
         /// <summary>
@@ -72,16 +72,17 @@ namespace SampleBrowser.Maui.Core
             this.expandImageButton = new Image();
             this.expandImageButton.WidthRequest = 25;
             this.expandImageButton.HeightRequest = 25;
-            this.expandImageButton.IsVisible = false;
-            this.expandImageButton.Source = "expandicon";
+            this.expandImageButton.Source = "expandicon.png";
+
             if (Device.RuntimePlatform == "Android")
             {
                 this.expandImageButton.Margin = new Microsoft.Maui.Thickness(0, 3, 5, 0);
             }
-            else
+            else if (RunTimeDevice.PlatformInfo.EqualsIgnoresCase("ios") || RunTimeDevice.PlatformInfo.EqualsIgnoresCase("MacCatalyst"))
             {
                 this.expandImageButton.Margin = new Microsoft.Maui.Thickness(0, 3, -18, 0);
             }
+			
             this.expandImageButton.HorizontalOptions = LayoutOptions.End;
             this.expandImageButton.BackgroundColor = Colors.Transparent;
 
@@ -92,6 +93,14 @@ namespace SampleBrowser.Maui.Core
             this.titleLabel.TextColor = Colors.Black;
             this.titleLabel.FontFamily = "Roboto";
             this.titleLabel.FontSize = 16;
+			if (RunTimeDevice.PlatformInfo.EqualsIgnoresCase("ios") || RunTimeDevice.PlatformInfo.EqualsIgnoresCase("MacCatalyst"))
+			{
+				this.titleLabel.Margin = new Microsoft.Maui.Thickness(0,-18,0,0);
+			}
+			else if(RunTimeDevice.PlatformInfo.EqualsIgnoresCase("Android"))
+			{
+				this.titleLabel.Margin = new Microsoft.Maui.Thickness(0,-3,0,0);
+			}
 
             this.MainContent = new ContentView();
             this.MainContent.VerticalOptions = LayoutOptions.Fill;
@@ -121,17 +130,34 @@ namespace SampleBrowser.Maui.Core
 
             this.parentGrid = new Grid()
             {
-                Padding = new Microsoft.Maui.Thickness(9,10,9,4),
                 Children = { this.outerFrame, this.parentStack },
             };
 
+            if(RunTimeDevice.IsMobileDevice())
+            {
+                this.parentGrid.Padding = new Microsoft.Maui.Thickness(9, 10, 9, 4);
+            }
+            else
+            {
+                this.parentGrid.Padding = new Microsoft.Maui.Thickness(5);
+            }
+
             this.Content = this.parentGrid;
+
+            if (!RunTimeDevice.IsMobileDevice())
+            {
+                this.WidthRequest = 450;
+            }
         }
 
         private void TapGestureRecognizer_Tapped(object? sender, EventArgs e)
         {
-            //this.parentStack.Children.Remove(this.MainContent);
-            //Navigation.PushAsync(new PopUpPageExt(this.MainContent, this) { Title = this.Title }, true);
+
+            if (RunTimeDevice.IsMobileDevice())
+            {
+                this.parentStack.Children.Remove(this.MainContent);
+                Navigation.PushAsync(new PopUpPageExt(this.MainContent, this) { Title = this.Title }, true);
+            }
         }
 
         public void OnAppearing()
@@ -139,7 +165,6 @@ namespace SampleBrowser.Maui.Core
             if (this.MainContent != null && !this.parentStack.Children.Contains(this.MainContent))
             {
                 this.parentStack.Children.Add(this.MainContent);
-                this.InvalidateLayout();
             }
         }
     }

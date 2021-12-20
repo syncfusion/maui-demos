@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Samples>
-	<Group Title="Cartesian Chart" CategoryName="Data Visualization" ImageId="cartesianchart" ControlName="SfCartesianChart" Description="Plot over 7 chart types with extensive features like data label, tooltip, selection and zooming."  />
-	<Group Title="Circular Chart" CategoryName="Data Visualization" ImageId="circularchart" ControlName="SfCircularChart" Description="Visualize the data using pie and doughnut charts."  />
-	<Group Title="Tab View" CategoryName="Navigation" ImageId="tabview" ControlName="SfTabView" Description="A simple tab navigation interface that allows users to explore and switch tabs." />
-	<Group Title="Radial Gauge" CategoryName="Data Visualization" ImageId="radialgauge" ControlName="SfRadialGauge" Description="Visualize numeric data using circular gauge control."  />
+    <Group Title="Cartesian Chart" CategoryName="Data Visualization" ImageId="cartesianchart.png" ControlName="SfCartesianChart" Description="Plot over 7 chart types with extensive features like data label, and zooming." TagType="" />
+    <Group Title="Circular Chart" CategoryName="Data Visualization" ImageId="circularchart.png" ControlName="SfCircularChart" Description="Visualize the data using pie and doughnut charts." TagType="" />
+    <Group Title="Tab View" CategoryName="Navigation" ImageId="tabview.png" ControlName="SfTabView" Description="A simple tab navigation interface that allows users to explore and switch tabs." TagType="" />
+    <Group Title="Radial Gauge" CategoryName="Data Visualization" ImageId="radialgauge.png" ControlName="SfRadialGauge" Description="Visualize numeric data using circular gauge control." TagType="" />
+    <Group Title="ListView" CategoryName="Layout" ImageId="listview.png" ControlName="SfListView" Description="Displays the set of data items in different layouts or views and in groups."  TagType="New"  />
+    <Group Title="Slider" CategoryName="Editors" ImageId="slider.png" ControlName="Slider" Description="The horizontal slider enables you to select a date or a numeric value." TagType="New"  />
+    <Group Title="Range Slider" CategoryName="Editors" ImageId="rangeslider.png" ControlName="RangeSlider" Description="The horizontal range slider enables you to select a date or a numeric range." TagType="New"  />
+    <Group Title="Vertical Slider" CategoryName="Editors" ImageId="verticalslider.png" ControlName="VerticalSlider" Description="The vertical slider enables you to select a date or a numeric value."  TagType="New"  />
+    <Group Title="Vertical Range Slider" CategoryName="Editors" ImageId="verticalrangeslider.png" ControlName="VerticalRangeSlider" Description="The vertical range slider enables you to select a date or a numeric range." TagType="New" />
+    <Group Title="Scheduler" CategoryName="Calendar" ImageId="scheduler.png" ControlName="SfScheduler" Description="Allows you to easily visualize and schedule appointments."  TagType="New"  />
+    <Group Title="Effects View" CategoryName="Miscellaneous" ImageId="effectsview.png" ControlName="SfEffectsView" Description="Provides ripple, highlight, scaling and rotation effects for any view."  TagType="New"  />
+    <Group Title="Badge View" CategoryName="Notification" ImageId="badgeview.png" ControlName="SfBadgeView" Description="Badge shows a circle or rectangle which contain a number or message."  TagType="New"  />
+    <Group Title="DocIO" CategoryName="File Formats" ImageId="docio.png" ControlName="DocIO" Description="A .NET Word library to create, read, and edit Word documents programmatically."  TagType="New"  />
+  <Group Title="PDF" CategoryName="File Formats" ImageId="essentialpdf.png" ControlName="Pdf" Description="A .NET PDF library to create, read, and edit PDF files programmatically." TagType="New"  />
+  <Group Title="Presentation" CategoryName="File Formats" ImageId="presentation.png" ControlName="Presentation" Description="A .NET PowerPoint library to create, read, and edit PowerPoint files programmatically." TagType="New"  />
+  <Group Title="XlsIO" CategoryName="File Formats" ImageId="xlsio.png" ControlName="XlsIO" Description="A .NET Excel library to create, read, and edit Excel documents programmatically." TagType="New" />
 </Samples>

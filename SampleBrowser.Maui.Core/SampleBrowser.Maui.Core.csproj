@@ -1,33 +1,32 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>net6.0-ios;net6.0-android;net6.0-maccatalyst</TargetFrameworks>
-		<!-- <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks> -->
-		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
-		<UseMaui>true</UseMaui>
-		<Nullable>enable</Nullable>
-		<SingleProject>true</SingleProject>
-		<Configurations>Debug;Release;Release-Xml</Configurations>
-		<RootNamespace>SampleBrowser.Maui.Core</RootNamespace>
-		<RuntimeIdentifier Condition="$(TargetFramework.Contains('-ios'))">iossimulator-x64</RuntimeIdentifier>
-		<RuntimeIdentifier Condition="$(TargetFramework.Contains('-maccatalyst'))">maccatalyst-x64</RuntimeIdentifier>
-	</PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net6.0;net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
+        <UseMaui>true</UseMaui>
+        <SingleProject>true</SingleProject>
 
-	<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
-		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-experimental1" />
-	</ItemGroup>
+        <SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-ios'">14.2</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-maccatalyst'">14.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
+        <TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
+        <AssemblyName>SampleBrowser.Maui.Core</AssemblyName>
+        <RootNamespace>SampleBrowser.Maui.Core</RootNamespace>
+    </PropertyGroup>
 
-	<ItemGroup>
-	  <MauiFont Include="Resources\Fonts\Roboto-Medium.ttf" />
-	  <MauiFont Include="Resources\Fonts\Roboto-Regular.ttf" />
-	</ItemGroup>
+    <ItemGroup>
+        <MauiFont Include="Resources\Fonts\Roboto-Medium.ttf" />
+        <MauiFont Include="Resources\Fonts\Roboto-Regular.ttf" />
+    </ItemGroup>
 
-	<ItemGroup>
-	  <MauiImage Include="Resources\Images\expandicon.svg" />
-	</ItemGroup>
+    <ItemGroup>
+        <MauiImage Include="Resources\Images\expandicon.svg" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Syncfusion.Maui.Core" Version="19.3.47-preview" />
-	</ItemGroup>
+    <ItemGroup>
+		<PackageReference Include="Syncfusion.Maui.Core" Version="19.4.38-preview" />
+		<PackageReference Include="Syncfusion.Maui.TabView" Version="19.4.38-preview" />
+    </ItemGroup>
 
 </Project>

@@ -8,6 +8,7 @@
 
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
+using SampleBrowser.Maui.Core;
 using System.Collections.ObjectModel;
 
 namespace SampleBrowser.Maui.SfCircularChart
@@ -38,7 +39,6 @@ namespace SampleBrowser.Maui.SfCircularChart
                 new ChartDataModel("Product D", 697),
                 new ChartDataModel("Product E", 251)
             };
-
         }
 
     }

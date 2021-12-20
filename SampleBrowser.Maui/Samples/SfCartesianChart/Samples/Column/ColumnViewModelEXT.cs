@@ -21,6 +21,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
         public ColumnViewModelEXT()
         {
+            EnableAnimation = true;
             ColumnData = new ObservableCollection<ChartDataModel>()
             {
                 //new ChartDataModel("HP Inc", 12.54),

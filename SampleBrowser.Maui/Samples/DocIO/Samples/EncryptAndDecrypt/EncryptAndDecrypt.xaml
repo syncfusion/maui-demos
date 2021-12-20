@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      x:Class="SampleBrowser.Maui.DocIO.EncryptAndDecrypt">
+	<localCore:SampleView.Content>
+		<StackLayout Margin="10">
+			<Label x:Name="description" Text="This example demonstrates how to encrypt and decrypt a Word document."
+                 VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0"/>
+			<Label x:Name="label1" Text=" "></Label>
+			<Label x:Name="note" Text="Use the password &quot;syncfusion&quot; to open an encrypted Word document."
+                 VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0"/>
+			<Label x:Name="label2" Text=" "></Label>
+			<Label x:Name="encryptButtonDescription" Text="Click the &quot;Encrypt Document&quot; button to view the encrypted Word document."
+                  VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0">
+			</Label>
+			<Label x:Name="label3" Text=" "></Label>
+			<Label x:Name="decryptButtonDescription" Text="Click the &quot;Decrypt Document&quot; button to view the decrypted Word document. Please note that a Word-compatible viewer is required to open and view the Word document."
+                  VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0">
+			</Label>
+			<Label x:Name="label4" Text=" "></Label>
+            <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">
+				<Button x:Name="btnEncryptDocument" Clicked ="EncryptButton_Click" Text ="Encrypt Document" HorizontalOptions="Start"/>
+				<Button x:Name="btnDecryptDocument" Clicked ="DecryptButton_Click" Text ="Decrypt Document" HorizontalOptions="Start"/>
+			</StackLayout>
+		</StackLayout>
+	</localCore:SampleView.Content>
+</localCore:SampleView>

@@ -6,6 +6,7 @@
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,22 @@ namespace SampleBrowser.Maui.SfRadialGauge
         public Pointers()
         {
             InitializeComponent();
+        }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            rangePointerGauge.Handler?.DisconnectHandler();
+            multipleNeedleGauge.Handler?.DisconnectHandler();
+            markerPointerGauge.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
         }
     }
 }

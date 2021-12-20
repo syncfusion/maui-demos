@@ -16,16 +16,16 @@
                                BackgroundColor="White"
                                IndicatorPlacement="Fill">
                 <tabView:SfTabView.Items>
-                    <tabView:SfTabItem Header="Alexandar" ImageSource="alexandar" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Alexandar" ImageSource="alexandar.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20" >
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="alexandar" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="alexandar.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -37,16 +37,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Gabriella" ImageSource="gabriella" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Gabriella" ImageSource="gabriella.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20" >
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="gabriella" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="gabriella.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -58,16 +58,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Clara" ImageSource="clara" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Clara" ImageSource="clara.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20" >
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="clara" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="clara.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -79,16 +79,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Tye" ImageSource="tye" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Tye" ImageSource="tye.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20" >
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="tye" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="tye.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -100,16 +100,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Nora" ImageSource="nora" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Nora" ImageSource="nora.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20" >
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="nora" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="nora.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -121,16 +121,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Sebastian" ImageSource="sebastian" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Sebastian" ImageSource="sebastian.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20" >
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="sebastian" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="sebastian.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -142,16 +142,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Lita" ImageSource="lita" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Lita" ImageSource="lita.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20" >
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="lita" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="lita.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -163,16 +163,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Jackson" ImageSource="jackson" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Jackson" ImageSource="jackson.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20">
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="jackson" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="jackson.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -184,16 +184,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Liam" ImageSource="liam" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Liam" ImageSource="liam.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20" >
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="liam" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="liam.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
@@ -205,16 +205,16 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Washington" ImageSource="washington" ImagePosition="Left">
+                    <tabView:SfTabItem Header="Washington" ImageSource="washington.png" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             <Grid Padding="20">
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="200"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                                        <Image Source="washington" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+                                        <Image Source="washington.png" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
                                     </Grid>
                                     <StackLayout Grid.Row="1">
                                         <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author"/>
