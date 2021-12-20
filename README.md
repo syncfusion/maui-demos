@@ -32,7 +32,7 @@ If you download the examples using the "Download ZIP" option then please follow 
 
 ## Controls Catalog
 
-Platforms supported by each .NET MAUI control as below.
+Platforms supported by each .NET MAUI control is listed below.
 
 
 <table>
@@ -249,7 +249,7 @@ Platforms supported by each .NET MAUI control as below.
 	</tr>	
 </table>
 
-Platforms supported by each .NET MAUI file-format library as below.
+Platforms supported by each .NET MAUI file-format library is listed below.
 
 | Control           | Android | iOS  | Mac Catalyst | WinUI |
 |-------------------|---------|------|--------------|-------|
