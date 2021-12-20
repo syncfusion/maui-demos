@@ -32,14 +32,232 @@ If you download the examples using the "Download ZIP" option then please follow 
 
 ## Controls Catalog
 
-|             | 
-| ----------- |
-| <b><center>**DATA VISUALIZATION**</center><b> |
-| [Cartesian Charts](SampleBrowser.Maui/Samples/SfCartesianChart) |
-| [Circular Charts](SampleBrowser.Maui/Samples/SfCircularChart) |
-| [Radial Gauge](SampleBrowser.Maui/Samples/SfRadialGauge) |
-| <b><center>**NAVIGATION**</center><b> |
-| [Tab View](SampleBrowser.Maui/Samples/SfTabView) |
+Platforms supported by each .NET MAUI control are listed below.
+
+
+<table>
+	<tr>
+		<th align="center">
+			Category<br/>
+		</th>
+		<th align="center">
+			Control<br/>
+		</th>
+		<th align="center">
+			Android<br/>
+		</th>
+		<th align="center">
+			iOS<br/>
+		</th>
+		<th align="center">
+			Mac Catalyst<br/>
+		</th>
+		<th align="center">
+			WinUI<br/>
+		</th>
+	</tr>
+	<tr>
+		<td rowspan="3" valign="top">
+			DATA VISUALIZATION<br/>
+		</td>
+		<td>
+			<a href="/maui/cartesian-charts/overview">Cartesian Charts</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="/maui/circular-charts/overview">Circular Charts</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="/maui/radialgauge/overview">Radial Gauge</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+	    <td rowspan="1" valign="top">
+			NAVIGATION<br/>
+		</td>
+		<td>
+			<a href="/maui/tabview/overview">Tab View</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+    <tr>
+	    <td rowspan="1" valign="top">
+			LAYOUT<br/>
+		</td>	
+		<td>
+			<a href="/maui/listview/overview">ListView</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Underway<br/>
+		</td>
+	</tr>
+	<tr>
+	    <td rowspan="2" valign="top">
+			EDITORS<br/>
+		</td>	
+		<td>
+			<a href="/maui/slider/overview">Slider</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="/maui/range-slider/overview">Range Slider</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+    <tr>
+	    <td rowspan="1" valign="top">
+		CALENDAR<br/>
+		</td>
+		<td>
+			<a href="/maui/scheduler/overview">Scheduler</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>	
+    <tr>
+	    <td rowspan="1" valign="top">
+		NOTIFICATION<br/>
+		</td>
+		<td>
+			<a href="/maui/badge-view/overview">Badge View</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>	
+    <tr>  
+	    <td rowspan="1" valign="top">
+	    MISCELLANEOUS<br/>
+		</td>
+		<td>
+			<a href="/maui/effects-view/overview">Effects View</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>	
+</table>
+
+Platforms supported by each .NET MAUI file-format library are listed below.
+
+| Control           | Android | iOS  | Mac Catalyst | WinUI |
+|-------------------|---------|------|--------------|-------|
+| [Excel](https://help.syncfusion.com/file-formats/xlsio/overview)             | Yes     | Yes  | Underway | Yes  |
+| [PDF](https://help.syncfusion.com/file-formats/pdf/overview)               | Yes     | Yes  | Underway | Yes  |
+| [Word](https://help.syncfusion.com/file-formats/docio/overview)              | Yes     | Yes  | Underway | Yes  |
+| [PowerPoint](https://help.syncfusion.com/file-formats/presentation/overview)        | Yes     | Yes  | Underway | Yes  |
+
 
 
 
@@ -54,4 +272,4 @@ If you download the examples using the "Download ZIP" option then please follow 
 
 * To renew the subscription, click [here](https://www.syncfusion.com/sales/products?utm_source=github&utm_medium=listing) or contact our sales team at <salessupport@syncfusion.com>.
   
-<p>Copyright © 2001-2021 Syncfusion, Inc. Updated on 2021-09-30 at precisely 12:23:35 EST.</p> 
+<p>Copyright © 2001-2021 Syncfusion, Inc. Updated on 2021-12-20 at precisely 12:23:35 EST.</p> 
