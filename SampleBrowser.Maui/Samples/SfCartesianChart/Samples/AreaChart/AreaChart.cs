@@ -1,12 +1,4 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-# endregion
-
-using System;
+﻿using System;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Xaml;
 using SampleBrowser.Maui.Core;
@@ -19,14 +11,17 @@ namespace SampleBrowser.Maui.SfCartesianChart
 		public AreaChart()
 		{
 			InitializeComponent();
-        }
+
+			if (!RunTimeDevice.IsMobileDevice())
+				viewModel1.StartTimer();
+		}
 
         public override void OnExpandedViewAppearing(View view)
         {
             base.OnExpandedViewAppearing(view);
 
 			var content = view as Chart.SfCartesianChart;
-			if (content != null && content.BindingContext is DynamicAnimationViewModel)
+			if (RunTimeDevice.IsMobileDevice() && content != null && content.BindingContext is DynamicAnimationViewModel)
 			{
 				viewModel1.StopTimer();
 				viewModel1.StartTimer();
@@ -38,10 +33,12 @@ namespace SampleBrowser.Maui.SfCartesianChart
             base.OnExpandedViewDisappearing(view);
 			var content = view as Chart.SfCartesianChart;
 			
-			if (content != null && content.BindingContext is DynamicAnimationViewModel)
+			if (RunTimeDevice.IsMobileDevice() && content != null && content.BindingContext is DynamicAnimationViewModel)
 			{
 				viewModel1.StopTimer();
 			}
+
+			view.Handler?.DisconnectHandler();
 		}
 
         public override void OnScrollingToNewCardViewExt(CardViewExt cardViewExt)
@@ -64,6 +61,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
 			base.OnDisappearing();
 			if (viewModel1 != null)
 				viewModel1.StopTimer();
+
+			Chart.Handler?.DisconnectHandler();
+			Chart1.Handler?.DisconnectHandler();
 		}
 	}
 }

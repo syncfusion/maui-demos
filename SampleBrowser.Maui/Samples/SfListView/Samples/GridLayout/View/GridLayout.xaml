@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.SfListView.GridLayout"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SfListView"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"   
+    BackgroundColor="White">
+    <localCore:SampleView.Behaviors>
+        <local:SfListViewGridLayoutBehavior/>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Resources>
+        <OnPlatform x:TypeArguments="x:String" x:Key="ListViewFontIconFamily">
+            <On Platform="Android" Value="UIFontIcons.ttf#UIFontIcons"/>
+            <On Platform="iOS" Value="UIFontIcons" />
+        </OnPlatform>
+        <local:ListViewMultiSelectionConverter x:Key="MultiSelectionConverter"/>
+        <local:FavoriteIconConverter x:Key="favoriteIconConverter"/>
+        <local:DeleteIconVisibilityConverter x:Key="visibilityConverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid BackgroundColor="White">
+            <Grid.BindingContext>
+                <local:GridLayoutViewModel x:Name="viewModel"/>
+            </Grid.BindingContext>
+
+            <ListView:SfListView x:Name="listView" SelectionMode="Multiple" IsStickyGroupHeader="True" ItemSpacing="1"
+                     ItemsSource="{Binding Gallerynfo}" SelectedItems="{Binding SelectedItems}"
+                     ItemSize="{Binding ImageHeightRequest}" HeaderSize="45">
+
+
+                <ListView:SfListView.ItemsLayout>
+                    <ListView:GridLayout SpanCount="{OnPlatform Default=2, iOS={OnIdiom Phone=2,Tablet=4}}">
+                    </ListView:GridLayout>
+                </ListView:SfListView.ItemsLayout>
+
+                <ListView:SfListView.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="headerGrid" BackgroundColor="#FFEEEEF2" HeightRequest="45">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" LineBreakMode="NoWrap"  Text="{Binding HeaderStatus}" Padding="10,0,0,0"
+                 FontSize="16" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center"/>
+
+                            <Grid Grid.Column="1" Padding='{OnPlatform iOS ="0,8,0,10" , Android="0,18,0,0"}' >
+                                <Label Text="&#xe735;" HeightRequest="40" WidthRequest="40" Margin="5,10,10,5" FontSize="20" TextColor="Grey"
+                                   FontFamily="{OnPlatform iOS=Sync FontIcons, Android=Sync FontIcons.ttf#}" IsVisible="true"
+                                    Opacity="{Binding ShowDeleteIcon,Converter={StaticResource visibilityConverter}}"
+                                   HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="CenterAndExpand"/>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding DeleteImageCommand}"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.HeaderTemplate>
+
+                <ListView:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="{Binding BindingContext.ImageHeightRequest,Source={x:Reference listView}}"></RowDefinition>
+
+                            </Grid.RowDefinitions>
+                            <StackLayout GridLayout.Column="0" GridLayout.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                                <Image HeightRequest="{Binding BindingContext.ImageHeightRequest,Source={x:Reference listView}}" Source="{Binding Image}" Aspect="Fill" />
+
+                            </StackLayout>
+
+                            <Image WidthRequest="20" HeightRequest="20" Margin="0,5,5,0" HorizontalOptions="End" VerticalOptions="Start"
+                               Source="selected.png"
+                              Opacity="{Binding IsSelected}"
+                               IsVisible="True"/>
+
+                            <Grid VerticalOptions="End" BackgroundColor="#80000000"
+                    HeightRequest="30">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding ImageTitle}" GridLayout.Row="0"  TextColor="White" VerticalTextAlignment="Center" Margin="5,0,0,0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="StartAndExpand"
+                             FontSize="{OnPlatform Android={OnIdiom Phone=11, Tablet=14}, iOS=11}"/>
+                                <Grid Grid.Column="1" VerticalOptions="FillAndExpand">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.FavoriteImageCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+                                    <Label FontFamily="{StaticResource ListViewFontIconFamily}" Text="{Binding IsFavorite, Converter={StaticResource favoriteIconConverter}}"
+                        FontSize="Medium" TextColor="White" Margin="0,0,7,0"
+                        VerticalOptions="Center" HorizontalOptions="End">
+                                    </Label>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.ItemTemplate>
+            </ListView:SfListView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

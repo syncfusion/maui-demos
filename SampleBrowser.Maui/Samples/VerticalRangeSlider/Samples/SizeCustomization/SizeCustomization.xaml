@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.VerticalRangeSlider.RangeSliderSizeCustomization"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="MaximumHeightRequest" Value="300" />
+        </Style>
+        
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding" Value="25,15" />
+            <Setter Property="Spacing" Value="10" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <HorizontalStackLayout Padding="15,0" Spacing="20" HorizontalOptions="Center">
+            <VerticalStackLayout>
+                <sliders:SfRangeSlider Minimum="-20" 
+                                       Maximum="20" 
+                                       RangeStart="-10"
+                                       RangeEnd="10"
+                                       Interval="10" 
+                                       StepSize="10"
+                                       ShowLabels="True">
+                    <sliders:SfRangeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveSize="10" InactiveSize="4" />
+                    </sliders:SfRangeSlider.TrackStyle>
+                </sliders:SfRangeSlider>
+                <Label Text="Track" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <sliders:SfRangeSlider Minimum="2000-01-01"
+                                       Maximum="2020-01-01"
+                                       RangeStart="2005-01-01"
+                                       RangeEnd="2015-01-01"
+                                       StepDuration="5"
+                                       DateIntervalType="Years"  
+                                       Interval="5"
+                                       ShowDividers="True"
+                                       ShowLabels="True">
+
+                    <sliders:SfRangeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="#FF6E40" InactiveFill="#3DFF6E40"/>
+                    </sliders:SfRangeSlider.TrackStyle>
+
+                    <sliders:SfRangeSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="#FFFF6E40" />
+                    </sliders:SfRangeSlider.ThumbStyle>
+
+                    <sliders:SfRangeSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="#1FFF6E40" />
+                    </sliders:SfRangeSlider.ThumbOverlayStyle>
+
+                    <sliders:SfRangeSlider.DividerStyle>
+                        <sliders:SliderDividerStyle ActiveRadius="6" 
+                                                    InactiveRadius="3"
+                                                    ActiveFill="#FF6E40"
+                                                    InactiveFill="#66FF6E40"/>
+                    </sliders:SfRangeSlider.DividerStyle>
+                </sliders:SfRangeSlider>
+                <Label Text="Divider" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

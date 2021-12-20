@@ -1,11 +1,4 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-
+﻿using Microsoft.Maui.Graphics;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
     
@@ -31,6 +24,10 @@ namespace SampleBrowser.Maui.Core
         private string[]? tags;
 
         private string? categoryName;
+
+        private string? tagType;
+
+        private Color? tagColor = Color.FromArgb("#D9644A");
 
         #endregion
 
@@ -185,6 +182,34 @@ namespace SampleBrowser.Maui.Core
 				OnPropertyChanged("Tags");
 			}
 		}
+
+        public string? TagType
+        {
+            get
+            {
+                return tagType;
+            }
+
+            set
+            {
+                tagType = value;
+                OnPropertyChanged("TagType");
+            }
+        }
+
+        public Color? TagColor
+        {
+            get
+            {
+                return tagColor;
+            }
+
+            set
+            {
+                tagColor = value;
+                OnPropertyChanged("TagColor");
+            }
+        }
 
         public string? Type { get; set; } = "Controls";
 

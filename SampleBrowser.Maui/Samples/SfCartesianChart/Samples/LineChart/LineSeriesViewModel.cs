@@ -1,12 +1,4 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -37,14 +29,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
             }
         }
 
-        public ObservableCollection<ChartDataModel> verticalChart { get; set; }
-
-        private int count;
-        private int index;
-
         public LineSeriesViewModel()
         {
-            verticalChart = new ObservableCollection<ChartDataModel>();
+            
             LineData1 = new ObservableCollection<ChartDataModel>
             {
                 new ChartDataModel("2005", 21),
@@ -84,53 +71,6 @@ namespace SampleBrowser.Maui.SfCartesianChart
             {
                 MotionAnimation.Add(new ChartDataModel(i, r.Next(5, 90)));
             }
-
-            count = 0;
-            for (; count <= 165;)
-            {
-                UpdateVerticalData();
-            }
-            count = 0;
-        }
-
-
-        private bool UpdateVerticalData()
-        {
-            count = count + 1;
-
-            Random random = new Random();
-            if (count > 165)
-            {
-                return false;
-            }
-            else if (count > 150)
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(0, 0)));
-            }
-            else if (count > 120)
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(-2, 1)));
-            }
-            else if (count > 80)
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(-3, 2)));
-            }
-            else if (count > 25)
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(-7, 6)));
-            }
-            else
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(-9, 9)));
-            }
-            index++;
-            return true;
-        }
-
-        public void StartVerticalTimer()
-        {
-            verticalChart.Clear();
-            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 10), UpdateVerticalData);
         }
 
         public void StopTimer()

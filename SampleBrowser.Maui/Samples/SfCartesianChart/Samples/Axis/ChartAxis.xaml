@@ -8,11 +8,11 @@
                       BackgroundColor="White">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
             
                 <localCore:CardViewExt Title="Category" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart MinimumHeightRequest ="310">
+                        <chart:SfCartesianChart x:Name="categoryChart">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:CategoryAxisViewModel/>
                             </chart:SfCartesianChart.BindingContext>
@@ -26,15 +26,15 @@
                                 <chart:NumericalAxis IsVisible="False" ShowMajorGridLines="False"/>
                             </chart:SfCartesianChart.SecondaryAxis>
                             <chart:SfCartesianChart.Series>
-                                <chart:ColumnSeries ShowDataLabels="True" EnableAnimation="True" Label="Year - 2013" ShowTooltip="True" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" ItemsSource="{Binding DataCollection1}" XBindingPath="Name" YBindingPath="Value"/>
+                                <chart:ColumnSeries ShowDataLabels="True" EnableAnimation="{Binding EnableAnimation}" Label="Year - 2013" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" ItemsSource="{Binding DataCollection1}" XBindingPath="Name" YBindingPath="Value"/>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-                <localCore:CardViewExt Title="Date time" x:Name="extendedCard2" HeightRequest="400" HorizontalOptions="FillAndExpand">
+                <localCore:CardViewExt Title="Date Time" x:Name="extendedCard2" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart MinimumHeightRequest ="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart Palette="Custom" CustomBrushes="{Binding CustomBrushes}" x:Name="dateTimeChart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DateTimeAxisViewModel/>
                             </chart:SfCartesianChart.BindingContext>
@@ -59,11 +59,11 @@
                                 </chart:NumericalAxis>
                             </chart:SfCartesianChart.SecondaryAxis>
                             <chart:SfCartesianChart.ChartBehaviors>
-                                <chart:ChartZoomPanBehavior EnablePinchZooming="False" EnableDoubleTap="False" EnablePanning="True" ZoomMode="X" />
+                                <chart:ChartZoomPanBehavior x:Name="zooming1" EnablePinchZooming="False" EnableDoubleTap="False" EnablePanning="False" ZoomMode="X" />
                             </chart:SfCartesianChart.ChartBehaviors>
                             <chart:SfCartesianChart.Series>
-                                <chart:LineSeries EnableAnimation="True" ShowTooltip="True" ItemsSource="{Binding DateTimeData}" XBindingPath="Date" YBindingPath="Growth">
-                                </chart:LineSeries>
+                                <chart:FastLineSeries EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" ItemsSource="{Binding DateTimeData}" XBindingPath="Date" YBindingPath="Growth">
+                                </chart:FastLineSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
 
@@ -72,7 +72,7 @@
 
                 <localCore:CardViewExt Title="Numeric" x:Name="extendedCard3" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart Palette="Custom" CustomBrushes="{Binding CustomBrushes}" MinimumHeightRequest ="310">
+                        <chart:SfCartesianChart x:Name="numericChart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:NumericalAxisViewModel/>
                             </chart:SfCartesianChart.BindingContext>
@@ -99,7 +99,7 @@
                                 </chart:NumericalAxis>
                             </chart:SfCartesianChart.SecondaryAxis>
                             <chart:SfCartesianChart.Series>
-                                <chart:ColumnSeries ShowDataLabels="True" EnableAnimation="True" Label="Australia" Spacing="0.075" ItemsSource="{Binding DataCollection1}" XBindingPath="Value1" YBindingPath="Value">
+                                <chart:ColumnSeries ShowDataLabels="True" EnableAnimation="{Binding EnableAnimation}" Label="Australia" Spacing="0.075" ItemsSource="{Binding DataCollection1}" XBindingPath="Value1" YBindingPath="Value">
                                     <chart:ColumnSeries.DataLabelSettings>
                                         <chart:CartesianDataLabelSettings>
                                             <chart:CartesianDataLabelSettings.LabelStyle>
@@ -108,7 +108,7 @@
                                         </chart:CartesianDataLabelSettings>
                                     </chart:ColumnSeries.DataLabelSettings>
                                 </chart:ColumnSeries>
-                                <chart:ColumnSeries ShowDataLabels="True" EnableAnimation="True" Label="India" Spacing="0.075" ItemsSource="{Binding DataCollection1}" XBindingPath="Value1" YBindingPath="Size">
+                                <chart:ColumnSeries ShowDataLabels="True" EnableAnimation="{Binding EnableAnimation}" Label="India" Spacing="0.075" ItemsSource="{Binding DataCollection1}" XBindingPath="Value1" YBindingPath="Size">
                                     <chart:ColumnSeries.DataLabelSettings>
                                         <chart:CartesianDataLabelSettings>
                                             <chart:CartesianDataLabelSettings.LabelStyle>
@@ -122,7 +122,32 @@
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-            </VerticalStackLayout>
+                <localCore:CardViewExt Title="Axis Crossing" x:Name="extendedCard4" HeightRequest="400" HorizontalOptions="FillAndExpand">
+                    <localCore:CardViewExt.MainContent>
+                        <chart:SfCartesianChart x:Name="axisCrossingChart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}">
+                            <chart:SfCartesianChart.BindingContext>
+                                <local:NumericalAxisViewModel/>
+                            </chart:SfCartesianChart.BindingContext>
+                            <chart:SfCartesianChart.Title>
+                                <Label Text="Spline Interpolation" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                            </chart:SfCartesianChart.Title>
+                            <chart:SfCartesianChart.PrimaryAxis>
+                                <chart:NumericalAxis CrossesAt="0" Minimum="-8" Maximum="8" ShowMinorGridLines="True" MinorTicksPerInterval="4"/>
+                            </chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.SecondaryAxis>
+                                <chart:NumericalAxis CrossesAt="0" Minimum="-8" Maximum="8"  ShowMinorGridLines="True" MinorTicksPerInterval="4"/>
+                            </chart:SfCartesianChart.SecondaryAxis>
+                            <chart:SfCartesianChart.Series>
+                                <chart:SplineSeries ItemsSource="{Binding CrossAxisData}" XBindingPath="Value" YBindingPath="Size"/>
+                            </chart:SfCartesianChart.Series>
+                            <chart:SfCartesianChart.ChartBehaviors>
+                                <chart:ChartZoomPanBehavior x:Name="zooming" EnableDoubleTap="False" EnablePanning="False" EnablePinchZooming="False"/>
+                            </chart:SfCartesianChart.ChartBehaviors>
+                        </chart:SfCartesianChart>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

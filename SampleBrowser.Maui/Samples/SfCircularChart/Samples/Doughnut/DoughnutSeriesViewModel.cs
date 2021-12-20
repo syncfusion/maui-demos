@@ -1,13 +1,6 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
+using SampleBrowser.Maui.Core;
 using System.Collections.ObjectModel;
 
 namespace SampleBrowser.Maui.SfCircularChart
@@ -38,7 +31,6 @@ namespace SampleBrowser.Maui.SfCircularChart
                 new ChartDataModel("Product D", 697),
                 new ChartDataModel("Product E", 251)
             };
-
         }
 
     }

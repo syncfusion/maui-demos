@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Samples>
+	<Sample SearchTags="GettingStarted" Name="GettingStarted" Title="Getting Started" Description="This sample illustrates about getting started with ListView by loading a set of data items with predefined template."/>
+	<Sample SearchTags="Grouping" Name="Grouping" Title="Grouping" Description="This sample showcases the grouping capability of ListView which also provides support to freeze the group headers in view when grouped."/>
+	<Sample SearchTags="Selection" Name="Selection" Title="Selection" Description="This sample showcases the selection capability of ListView which provides selection mode options like Single, Multiple and None."/>
+  <Sample SearchTags="GridLayout" Name="GridLayout" Title="Grid Layout" Description="This sample showcases the grid layout which arranges the items in a predefined number of columns."/>
+</Samples>

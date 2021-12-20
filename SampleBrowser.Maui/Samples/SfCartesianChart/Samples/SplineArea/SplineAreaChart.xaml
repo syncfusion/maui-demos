@@ -7,10 +7,10 @@
     <localCore:SampleView.Content>
 
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Default Spline Area" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" MinimumHeightRequest ="310" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:SplineAreaSeriesViewModel/>
                             </chart:SfCartesianChart.BindingContext>
@@ -42,17 +42,17 @@
                             </chart:SfCartesianChart.SecondaryAxis>
 
                             <chart:SfCartesianChart.Series>
-                                <chart:SplineAreaSeries Label="India" ShowTooltip="True" EnableAnimation="True" Stroke="#314A6E" StrokeWidth="2" ItemsSource="{Binding SplineAreaData1}" XBindingPath="Value1" YBindingPath="Value" >
+                                <chart:SplineAreaSeries Label="India" ShowTooltip="True" EnableAnimation="{Binding EnableAnimation}" Stroke="#314A6E" StrokeWidth="2" ItemsSource="{Binding SplineAreaData1}" XBindingPath="Value1" YBindingPath="Value" >
                                 </chart:SplineAreaSeries>
 
-                                <chart:SplineAreaSeries Label="China" ShowTooltip="True" EnableAnimation="True" Stroke="#48988B" StrokeWidth="2" ItemsSource="{Binding SplineAreaData1}" XBindingPath="Value1" YBindingPath="Size">
+                                <chart:SplineAreaSeries Label="China" ShowTooltip="True" EnableAnimation="{Binding EnableAnimation}" Stroke="#48988B" StrokeWidth="2" ItemsSource="{Binding SplineAreaData1}" XBindingPath="Value1" YBindingPath="Size">
                                 </chart:SplineAreaSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
 
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-        </VerticalStackLayout>
+        </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Slider.SliderDateInterval"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="ShowTicks" Value="True" />
+            <Setter Property="ShowLabels" Value="True" />
+            <Setter Property="DateFormat" Value="" />
+            <Setter Property="ToolTipShape" Value="Rectangle" />
+            <Setter Property="MaximumWidthRequest" Value="400" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="MaximumWidthRequest" Value="400" />
+            <!--To align the label and track vertically, used the slider thumb overlay radius on the label.-->
+            <Setter Property="Padding" Value="24,10,0,0" />
+            <Setter Property="TranslationY" Value="30" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <VerticalStackLayout Padding="10,0" VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="Interval as year" />
+            <sliders:SfSlider x:Name="yearSlider"
+                              Minimum="2016-01-01"
+                              Maximum="2020-01-01"
+                              Value="2018-01-01"
+                              DateIntervalType="Years"
+                              LabelsPlacement="BetweenTicks"
+                              Interval="1" 
+                              LabelCreated="OnYearLabelCreatedEvent"
+                              ToolTipLabelCreated="OnYearToolTipLabelCreatedEvent" />
+
+            <BoxView>
+                <BoxView.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS" Value="20"/>
+                        <On Platform="Android" Value="5"/>
+                        <On Platform="UWP" Value="5"/>
+                    </OnPlatform>
+                </BoxView.HeightRequest>
+            </BoxView>
+            
+            <Label Text="Interval as hour" />
+            <sliders:SfSlider x:Name="hourSlider"
+                              Minimum="2000-01-01T09:00:00"
+                              Maximum="2000-01-01T21:00:00"
+                              Value="2000-01-01T15:00:00"
+                              DateIntervalType="Hours"
+                              MinorTicksPerInterval="3"
+                              Interval="4" 
+                              LabelCreated="OnHourLabelCreatedEvent"
+                              ToolTipLabelCreated="OnHourToolTipLabelCreatedEvent" />
+        </VerticalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

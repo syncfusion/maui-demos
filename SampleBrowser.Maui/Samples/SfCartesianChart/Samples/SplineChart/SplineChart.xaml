@@ -6,10 +6,10 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Default Spline" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart" MinimumHeightRequest="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:SplineSeriesViewModel />
                             </chart:SfCartesianChart.BindingContext>
@@ -56,7 +56,7 @@
 
                 <localCore:CardViewExt Title="Spline with dashes" x:Name="extendedCard2" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" MinimumHeightRequest="310"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:SplineSeriesViewModel x:Name="viewModel"/>
                             </chart:SfCartesianChart.BindingContext>
@@ -114,7 +114,7 @@
                 </localCore:CardViewExt>
                 <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard4" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart4" MinimumHeightRequest="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart2" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DynamicAnimationViewModel x:Name="viewModel1"/>
                             </chart:SfCartesianChart.BindingContext>
@@ -135,7 +135,7 @@
                         </chart:SfCartesianChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
     </localCore:SampleView>

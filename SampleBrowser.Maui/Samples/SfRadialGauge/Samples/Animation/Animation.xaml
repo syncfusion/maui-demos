@@ -7,11 +7,11 @@
                       Background="White">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout Background="White">
+            <localCore:WrapLayout Background="White">
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Linear">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="linearAnimationGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis RadiusFactor="0.6"
                                                   ShowAxisLine="False"
@@ -52,7 +52,7 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="SpringIn">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="springInAnimationGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis StartAngle="180"
                                                   EndAngle="360"
@@ -99,7 +99,7 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="SpringOut">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="springOutAnimationGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis StartAngle="180"
                                                   ShowAxisLine="False"
@@ -158,7 +158,7 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="BounceIn">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="bounceInAnimationGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis ShowTicks="False">
                                     <gauge:RadialAxis.Pointers>
@@ -184,7 +184,7 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="BounceOut">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="bounceOutAnimationGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis RadiusFactor="0.85"
                                                   Interval="2"
@@ -229,7 +229,7 @@
                         </gauge:SfRadialGauge>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

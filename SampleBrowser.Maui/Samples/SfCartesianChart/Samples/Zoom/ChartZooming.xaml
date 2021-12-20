@@ -8,7 +8,7 @@
     BackgroundColor="White">
     <localCore:SampleView.Content>
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
-            <chart:SfCartesianChart x:Name="chart3" MinimumHeightRequest ="310" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <chart:SfCartesianChart x:Name="chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.BindingContext>
                     <local:ZoomViewModel/>
                 </chart:SfCartesianChart.BindingContext>

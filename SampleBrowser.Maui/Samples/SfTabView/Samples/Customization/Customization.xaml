@@ -10,20 +10,7 @@
         <Grid >
             <Grid.Resources>
                 <local:TextToFormatTextConverter x:Key="TextToFileNameConverter"/>
-                <Style TargetType="ListView">
-                    <Setter Property="ItemsSource">
-                        <Setter.Value>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Content 1</x:String>
-                                <x:String>Content 2</x:String>
-                                <x:String>Content 3</x:String>
-                                <x:String>Content 4</x:String>
-                                <x:String>Content 5</x:String>
-                            </x:Array>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="Margin" Value="10"/>
-                </Style>
+
                 <Style TargetType="Image">
                     <Setter Property="VerticalOptions" Value="Center"/>
                     <Setter Property="HorizontalOptions" Value="Center"/>
@@ -62,64 +49,100 @@
                                TabBarHeight="72"
                                SelectionChanged="SfTabView_SelectionChanged">
                 <tabView:SfTabItem Header="Document" 
-                                   ImageSource="document">
-                    <ListView>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <HorizontalStackLayout >
-                                        <Image Source="document"/>
-                                        <Label Margin="10,0,0,0" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.docx}"/>
+                                   ImageSource="document.png">
+                    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                        <VerticalStackLayout>
+                            <BindableLayout.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Content 1</x:String>
+                                    <x:String>Content 2</x:String>
+                                    <x:String>Content 3</x:String>
+                                    <x:String>Content 4</x:String>
+                                    <x:String>Content 5</x:String>
+                                </x:Array>
+                            </BindableLayout.ItemsSource>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <HorizontalStackLayout>
+                                        <Image Source="document.png"/>
+                                        <Label Margin="10,20,0,20" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.docx}"/>
                                     </HorizontalStackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+                    </ScrollView>
                 </tabView:SfTabItem>
                 <tabView:SfTabItem Header="Excel"
-                                   ImageSource="excel">
-                    <ListView>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
+                                   ImageSource="excel.png">
+                    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                        <VerticalStackLayout>
+                            <BindableLayout.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Content 1</x:String>
+                                    <x:String>Content 2</x:String>
+                                    <x:String>Content 3</x:String>
+                                    <x:String>Content 4</x:String>
+                                    <x:String>Content 5</x:String>
+                                </x:Array>
+                            </BindableLayout.ItemsSource>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
                                     <HorizontalStackLayout >
-                                        <Image Source="excel"/>
-                                        <Label Margin="10,0,0,0" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.xlsx}"/>
+                                        <Image Source="excel.png"/>
+                                        <Label Margin="10,20,0,20" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.xlsx}"/>
                                     </HorizontalStackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+                    </ScrollView>
                 </tabView:SfTabItem>
                 <tabView:SfTabItem Header="PDF" 
-                                   ImageSource="pdf">
-                    <ListView>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
+                                   ImageSource="pdf.png">
+                    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                        <VerticalStackLayout>
+                            <BindableLayout.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Content 1</x:String>
+                                    <x:String>Content 2</x:String>
+                                    <x:String>Content 3</x:String>
+                                    <x:String>Content 4</x:String>
+                                    <x:String>Content 5</x:String>
+                                </x:Array>
+                            </BindableLayout.ItemsSource>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
                                     <HorizontalStackLayout >
-                                        <Image Source="pdf"/>
-                                        <Label Margin="10,0,0,0" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.pdf}"/>
+                                        <Image Source="pdf.png"/>
+                                        <Label Margin="10,20,0,20" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.pdf}"/>
                                     </HorizontalStackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+                    </ScrollView>
                 </tabView:SfTabItem>
                 <tabView:SfTabItem Header="PowerPoint" 
-                                   ImageSource="powerpoint">
-                    <ListView>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
+                                   ImageSource="powerpoint.png">
+                    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                        <VerticalStackLayout>
+                            <BindableLayout.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Content 1</x:String>
+                                    <x:String>Content 2</x:String>
+                                    <x:String>Content 3</x:String>
+                                    <x:String>Content 4</x:String>
+                                    <x:String>Content 5</x:String>
+                                </x:Array>
+                            </BindableLayout.ItemsSource>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
                                     <HorizontalStackLayout >
-                                        <Image Source="powerpoint"/>
-                                        <Label Margin="10,0,0,0" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.pptx}"/>
+                                        <Image Source="powerpoint.png"/>
+                                        <Label Margin="10,20,0,20" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.pptx}"/>
                                     </HorizontalStackLayout>
-                                </ViewCell>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                            </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+                            </ScrollView>
                 </tabView:SfTabItem>
             </tabView:SfTabView>
         </Grid>

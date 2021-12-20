@@ -1,13 +1,6 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
+using SampleBrowser.Maui.Core;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,6 +22,17 @@ namespace SampleBrowser.Maui.SfCircularChart
         public ObservableCollection<Brush> CustomColor2 { get; set; }
         public ObservableCollection<Brush> AlterColor1 { get; set; }
 
+        private bool enableAnimation = true;
+        public bool EnableAnimation
+        {
+            get { return enableAnimation; }
+            set
+            {
+                enableAnimation = value;
+                OnPropertyChanged("EnableAnimation");
+            }
+        }
+
         public void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -36,6 +40,11 @@ namespace SampleBrowser.Maui.SfCircularChart
 
         public BaseViewModel()
         {
+            if (!RunTimeDevice.IsMobileDevice())
+            {
+                EnableAnimation = false;
+            }
+
             CustomBrushes = new ObservableCollection<Brush>()
             {
                new SolidColorBrush(Color.FromArgb("#314A6E")),

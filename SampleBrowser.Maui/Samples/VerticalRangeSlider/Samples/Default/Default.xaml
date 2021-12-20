@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.VerticalRangeSlider.DefaultRangeSlider"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Minimum" Value="0" />
+            <Setter Property="Maximum" Value="100" />
+            <Setter Property="RangeStart" Value="25" />
+            <Setter Property="RangeEnd" Value="75" />
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="MaximumHeightRequest" Value="300" />
+        </Style>
+        
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding" Value="20,15" />
+            <Setter Property="Spacing" Value="10" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <HorizontalStackLayout Padding="15,0" HorizontalOptions="Center">
+            <VerticalStackLayout>
+                    <sliders:SfRangeSlider ToolTipShape="Rectangle"
+                                           NumberFormat="#0" />
+                    <Label Text="Enabled" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <sliders:SfRangeSlider IsEnabled="False">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Default">
+                                    <VisualState.Setters>
+                                        <Setter Property="TrackStyle">
+                                            <Setter.Value>
+                                                <sliders:SliderTrackStyle ActiveSize="6" InactiveSize="4"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Disabled">
+                                    <VisualState.Setters>
+
+                                        <Setter Property="TrackStyle">
+                                            <Setter.Value>
+                                                <sliders:SliderTrackStyle ActiveFill="Grey" InactiveFill="LightGrey" />
+                                            </Setter.Value>
+                                        </Setter>
+
+                                        <Setter Property="ThumbStyle">
+                                            <Setter.Value>
+                                                <sliders:SliderThumbStyle Fill="Grey" />
+                                            </Setter.Value>
+                                        </Setter>
+
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </sliders:SfRangeSlider>
+                    <Label Text="Disabled" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

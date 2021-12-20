@@ -6,10 +6,10 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Default Scatter" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart MinimumHeightRequest ="310" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="Chart">
+                        <chart:SfCartesianChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="Chart">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:ScatterSeriesViewModel/>
                             </chart:SfCartesianChart.BindingContext>
@@ -36,8 +36,8 @@
                                 </chart:NumericalAxis>
                             </chart:SfCartesianChart.SecondaryAxis>
                             <chart:SfCartesianChart.Series>
-                                <chart:ScatterSeries Label="Male" ShowTooltip="True" EnableAnimation="True" x:Name="scatterSeries1" Opacity="0.6" Width="8" Height="8" ItemsSource="{Binding MaleData}" XBindingPath="Value" YBindingPath="Size" />
-                                <chart:ScatterSeries Label="Female" ShowTooltip="True" EnableAnimation="True" x:Name="scatterSeries2" Opacity="0.6" Width="8" Height="8" ItemsSource="{Binding FemaleData}" XBindingPath="Value" YBindingPath="Size" />
+                                <chart:ScatterSeries Label="Male" ShowTooltip="True" EnableAnimation="{Binding EnableAnimation}" x:Name="scatterSeries1" Opacity="0.6" Width="8" Height="8" ItemsSource="{Binding MaleData}" XBindingPath="Value" YBindingPath="Size" />
+                                <chart:ScatterSeries Label="Female" ShowTooltip="True" EnableAnimation="{Binding EnableAnimation}" x:Name="scatterSeries2" Opacity="0.6" Width="8" Height="8" ItemsSource="{Binding FemaleData}" XBindingPath="Value" YBindingPath="Size" />
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
 
@@ -46,7 +46,7 @@
 
                 <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard4" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart1" MinimumHeightRequest ="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DynamicAnimationViewModel x:Name="viewModel"/>
@@ -70,7 +70,7 @@
                         </chart:SfCartesianChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

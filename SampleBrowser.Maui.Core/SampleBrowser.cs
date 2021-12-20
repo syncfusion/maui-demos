@@ -164,7 +164,7 @@ namespace SampleBrowser.Maui.Core
                                 Description = GetDataFromXmlReader(xmlReader, "Description"),
                                 Name = GetDataFromXmlReader(xmlReader, "Name"),
                                 Icon = assemblyName + "." + GetDataFromXmlReader(xmlReader, "Icon"),
-                                Category = category,
+                                Category = category == "" ? "None" : category,
                                 SearchTags = GetSampleSearchTags(xmlReader),
                                 Control = controlName
                             };
@@ -240,9 +240,16 @@ namespace SampleBrowser.Maui.Core
 
             if (Device.RuntimePlatform == Device.Android && value.Contains("Android"))
                 samplesCollection.Add(sample);
-            else if (Device.RuntimePlatform == Device.iOS && value.Contains("iOS"))
+            else if (Device.RuntimePlatform == Device.iOS)
+            {
+                if(RunTimeDevice.IsMobileDevice() && value.Contains("iOS"))
+                    samplesCollection.Add(sample);
+                else if(!RunTimeDevice.IsMobileDevice() && value.Contains("MacCatalyst"))
+                    samplesCollection.Add(sample);
+            }
+            else if (Device.RuntimePlatform == Device.UWP && value.Contains("Windows"))
                 samplesCollection.Add(sample);
-            else if (value.Contains("All"))
+            if (value.Contains("All"))
                 samplesCollection.Add(sample);
         }
 

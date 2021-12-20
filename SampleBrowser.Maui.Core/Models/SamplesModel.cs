@@ -1,12 +1,4 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-
-using Microsoft.Maui.Graphics;
+﻿using Microsoft.Maui.Graphics;
 using System.ComponentModel;
 
 namespace SampleBrowser.Maui.Core
@@ -35,6 +27,8 @@ namespace SampleBrowser.Maui.Core
 		private bool isSelected = false;
 
         private Color backgroundColor = Colors.White;
+
+        private double opacity = 0;
 
         #endregion
 
@@ -74,6 +68,21 @@ namespace SampleBrowser.Maui.Core
             {
                 backgroundColor = value;
                 OnPropertyChanged("BackgroundColor");
+            }
+        }
+
+
+        public double Opacity
+        {
+            get
+            {
+                return opacity;
+            }
+
+            set
+            {
+                opacity = value;
+                OnPropertyChanged("Opacity");
             }
         }
 

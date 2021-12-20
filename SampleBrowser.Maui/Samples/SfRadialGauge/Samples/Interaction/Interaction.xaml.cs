@@ -1,12 +1,4 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-
-using SampleBrowser.Maui.Core;
+﻿using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.Gauges;
 using System;
 using System.Collections.Generic;
@@ -87,6 +79,21 @@ namespace SampleBrowser.Maui.SfRadialGauge
             string hourValue = isHourSingleDigit ? "0" + hour : hour.ToString(CultureInfo.CurrentCulture);
             string minutesValue = isMinuteSingleDigit ? "0" + min : min.ToString(CultureInfo.CurrentCulture);
             this.viewModel.AnnotationString = hourValue + "hr " + minutesValue + "m";
+        }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            radialSliderGauge.Handler?.DisconnectHandler();
+            radialRangeSlider.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(Microsoft.Maui.Controls.View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
         }
     }
     public class RadialRangeSliderViewModel : INotifyPropertyChanged

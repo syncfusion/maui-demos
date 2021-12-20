@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.VerticalSlider.SliderDiscrete"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="ShowTicks" Value="True" />
+            <Setter Property="ShowLabels" Value="True" />
+            <Setter Property="ToolTipShape" Value="Rectangle" />
+            <Setter Property="MaximumHeightRequest" Value="300" />
+        </Style>
+        
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding" Value="25,15" />
+            <Setter Property="Spacing" Value="10" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <HorizontalStackLayout Padding="15,0" Spacing="10" HorizontalOptions="Center">
+            <VerticalStackLayout>
+                <sliders:SfSlider Minimum="-10" 
+                                  Maximum="10" 
+                                  Value="0" 
+                                  Interval="5" 
+                                  StepSize="5" />
+                <Label Text="Numeric" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <sliders:SfSlider Minimum="2010-01-01"
+                                  Maximum="2018-01-01"
+                                  Value="2014-01-01"
+                                  StepDuration="2"
+                                  DateIntervalType="Years"
+                                  Interval="2" />
+                <Label Text="Date" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

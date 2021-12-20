@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+	<Sample SearchTags="create, word, document" Name="GettingStarted" Title="Getting Started" Description="This example demonstrates how to create a simple Word document with text, images, and tables."/>
+	<SampleGroup Title="Mail Merge">
+	<Sample SearchTags="mail, merge, template" Name="EmployeeReport" Title="Employee Report" Description="This example demonstrates how to generate employees’ addresses using the mail merge feature."/>
+		<Sample SearchTags="mail, merge, template" Name="OrdersReport" Title="Orders Report" Description="This example demonstrates how to generate order details of customers using the nested mail merge functionality with hierarchical data."/>
+	</SampleGroup>
+	<SampleGroup Title="Insert Content">
+		<Sample SearchTags="bookmark, insert, word" Name="Bookmarks" Title="Bookmarks" Description="This example demonstrates how to add bookmarks to a Word document."/>
+		<Sample SearchTags="header, footer, insert, word" Name="HeaderAndFooter" Title="Header and Footer" Description="This example demonstrates how to insert headers and footers in a Word document."/>
+		<Sample SearchTags="image, insert, word" Name="ImageInsertion" Title="Image Insertion" Description="This example demonstrates how to insert images in a Word document."/>
+	</SampleGroup>
+	<SampleGroup Title="Conversions">
+		<Sample SearchTags="pdf, word, convert, word-to-pdf" Name="WordToPDF" Title="Word to PDF" Description="This example demonstrates how to convert a Word document to a PDF file."/>
+		<Sample SearchTags="rtf, word, convert, rtf-to-word" Name="RTFToWord" Title="RTF to Word" Description="This example demonstrates how to convert a RTF file to a Word document."/>
+	</SampleGroup>
+	<Sample SearchTags="table, content" Name="TableOfContents" Title="Table of Contents" Description="This example demonstrates how to insert and update a table of contents (TOC) in a Word document."/>
+	<Sample SearchTags="encrypt, decrypt, security" Name="EncryptAndDecrypt" Title="Encrypt and Decrypt" Description="This example demonstrates how to encrypt and decrypt a Word document."/>
+</Samples>

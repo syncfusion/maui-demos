@@ -8,7 +8,7 @@
     BackgroundColor="White">
     <localCore:SampleView.Content>
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
-            <chart:SfCartesianChart MinimumHeightRequest ="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}">
+            <chart:SfCartesianChart x:Name="tooltipChart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}">
                 <chart:SfCartesianChart.Title>
                     <Label Text="Labor Force" Margin="0" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                 </chart:SfCartesianChart.Title>
@@ -23,7 +23,6 @@
                         <DataTemplate x:Key="template1">
                             <StackLayout Padding="3">
                                 <Label Text="Germany" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
-                                <BoxView Color="White" HeightRequest="0.75" Margin="0,2,0,2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
                                 <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" Spacing="0" Padding="3" Margin="0">
                                     <Label Text="{Binding Item.Value1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="#CCCCCC" FontAttributes="Bold" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
                                     <Label Text="{Binding Item.Value,StringFormat=' :  {0}%'}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,0,3,0" FontSize="12" />
@@ -33,7 +32,6 @@
                         <DataTemplate x:Key="template2">
                             <StackLayout Padding="3">
                                 <Label Text="England" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
-                                <BoxView Color="White" HeightRequest="0.75" Margin="0,2,0,2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
                                 <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" Spacing="0" Padding="3" Margin="0">
                                     <Label Text="{Binding Item.Value1}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" TextColor="#CCCCCC" FontAttributes="Bold" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
                                     <Label Text="{Binding Item.Size,StringFormat=' :  {0}%'}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,0,3,0" FontSize="12" />
@@ -73,9 +71,9 @@
                     <chart:LineSeries x:Name="lineSeries2"  Label="England" StrokeWidth="1" ItemsSource="{Binding ChartData1}" XBindingPath="Value1" YBindingPath="Size">
                     </chart:LineSeries>
 
-                    <chart:ScatterSeries x:Name="scatter1" TooltipTemplate="{StaticResource template1}" ShowTooltip="True" IsVisible="{Binding IsVisible, Source={x:Reference lineSeries1}}" IsVisibleOnLegend="False" EnableAnimation="False" Width="10" ItemsSource="{Binding ChartData1}" Height="10" Background="white" Stroke="#314A6E" XBindingPath="Value1" YBindingPath="Value" StrokeWidth="1">
+                    <chart:ScatterSeries x:Name="scatter1" TooltipTemplate="{StaticResource template1}" ShowTooltip="True" IsVisible="{Binding IsVisible, Source={x:Reference lineSeries1}}" IsVisibleOnLegend="False" Width="10" ItemsSource="{Binding ChartData1}" Height="10" Background="white" Stroke="#314A6E" XBindingPath="Value1" YBindingPath="Value" StrokeWidth="1">
                     </chart:ScatterSeries>
-                    <chart:ScatterSeries x:Name="scatter2" TooltipTemplate="{StaticResource template2}" ShowTooltip="True" IsVisible="{Binding IsVisible, Source={x:Reference lineSeries2}}" IsVisibleOnLegend="False" EnableAnimation="False" Width="10" ItemsSource="{Binding ChartData1}" Height="10" Background="white" Stroke="#48988B" XBindingPath="Value1" YBindingPath="Size" StrokeWidth="1">
+                    <chart:ScatterSeries x:Name="scatter2" TooltipTemplate="{StaticResource template2}" ShowTooltip="True" IsVisible="{Binding IsVisible, Source={x:Reference lineSeries2}}" IsVisibleOnLegend="False" Width="10" ItemsSource="{Binding ChartData1}" Height="10" Background="white" Stroke="#48988B" XBindingPath="Value1" YBindingPath="Size" StrokeWidth="1">
                     </chart:ScatterSeries>
 
                 </chart:SfCartesianChart.Series>

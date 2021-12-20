@@ -7,11 +7,11 @@
                       Background="White">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout Background="White">
+            <localCore:WrapLayout Background="White">
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Direction compass">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="compassGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis ShowAxisLine="False"
                                                   TickPosition="Outside"
@@ -109,7 +109,7 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Image annotation">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="imageAnnotationGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis Interval="10"
                                                   StartAngle="0"
@@ -159,7 +159,7 @@
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

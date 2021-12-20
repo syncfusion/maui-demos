@@ -1,0 +1,145 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SfCartesianChart.FastLineChart"
+                 xmlns:local="clr-namespace:SampleBrowser.Maui.SfCartesianChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                       xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Content>
+        <localCore:ScrollViewExt>
+            <localCore:WrapLayout BackgroundColor="White">
+                
+                <localCore:CardViewExt Title="Default fast line" x:Name="extendedCard1" 
+                                       HeightRequest="400" HorizontalOptions="FillAndExpand">
+                    <localCore:CardViewExt.MainContent>
+                        <chart:SfCartesianChart x:Name="fastLineChart" HorizontalOptions="FillAndExpand" Palette="Custom" CustomBrushes="{Binding CustomBrushes}"
+                                                VerticalOptions="FillAndExpand">
+                            <chart:SfCartesianChart.BindingContext>
+                                <local:FastLineSeriesViewModel/>
+                            </chart:SfCartesianChart.BindingContext>
+                            <chart:SfCartesianChart.Title>
+                                <Label Text="Loaded 100K Points" Margin="0,0,0,5" 
+                                       HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                                       VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                            </chart:SfCartesianChart.Title>
+                            <chart:SfCartesianChart.PrimaryAxis>
+                                <chart:DateTimeAxis ShowMinorGridLines="False"
+                                                    ShowMajorGridLines="False" 
+                                                    IntervalType="Years"
+                                                    Interval="15">
+                                    <chart:DateTimeAxis.Title>
+                                        <chart:ChartAxisTitle Text="X-Axis"/>
+                                    </chart:DateTimeAxis.Title>
+                                    <chart:DateTimeAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle LabelFormat="yyyy"/>
+                                    </chart:DateTimeAxis.LabelStyle>
+                                </chart:DateTimeAxis>
+                            </chart:SfCartesianChart.PrimaryAxis>
+
+                            <chart:SfCartesianChart.SecondaryAxis>
+                                <chart:NumericalAxis>
+                                    <chart:NumericalAxis.Title>
+                                        <chart:ChartAxisTitle Text="Y-Axis"/>
+                                    </chart:NumericalAxis.Title>
+                                </chart:NumericalAxis>
+                            </chart:SfCartesianChart.SecondaryAxis>
+
+                            <chart:SfCartesianChart.ChartBehaviors>
+                                <chart:ChartZoomPanBehavior EnablePinchZooming="True" EnableDoubleTap="True" 
+                                                            EnablePanning="True"/>
+                            </chart:SfCartesianChart.ChartBehaviors>
+
+                            <chart:SfCartesianChart.Series>
+                                <chart:FastLineSeries ItemsSource="{Binding Data}"
+                                                      EnableAntiAliasing="True"
+                                                      XBindingPath="Date" YBindingPath="Value"/>
+                            </chart:SfCartesianChart.Series>
+                        </chart:SfCartesianChart>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt Title="Real-time line chart" x:Name="extendedCard2" 
+                                       HorizontalOptions="FillAndExpand" HeightRequest="400">
+                    <localCore:CardViewExt.MainContent>
+                        <chart:SfCartesianChart x:Name="realTimeChart" HorizontalOptions="FillAndExpand" CustomBrushes="{Binding CustomBrushes}" Palette="Custom"
+                                                VerticalOptions="FillAndExpand">
+                            <chart:SfCartesianChart.BindingContext>
+                                <local:RealTimeChartViewModel x:Name="realTimeChartViewModel"/>
+                            </chart:SfCartesianChart.BindingContext>
+                            <chart:SfCartesianChart.Title>
+                                <Label Text="Live ECG Monitor (100Hz)" Margin="0,0,0,5" 
+                                       HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                                       VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                            </chart:SfCartesianChart.Title>
+                            <chart:SfCartesianChart.PrimaryAxis>
+                                <chart:NumericalAxis ShowMajorGridLines="false" EdgeLabelsDrawingMode="Center">
+                                    <chart:NumericalAxis.Title>
+                                        <chart:ChartAxisTitle Text="Samples"/>
+                                    </chart:NumericalAxis.Title>
+                                    <chart:NumericalAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle/>
+                                    </chart:NumericalAxis.LabelStyle>
+                                </chart:NumericalAxis>
+                            </chart:SfCartesianChart.PrimaryAxis>
+
+                            <chart:SfCartesianChart.SecondaryAxis>
+                                <chart:NumericalAxis ShowMajorGridLines="false" Minimum="500" Maximum="1100">
+                                    <chart:NumericalAxis.Title>
+                                        <chart:ChartAxisTitle Text="Amplitude"/>
+                                    </chart:NumericalAxis.Title>
+                                </chart:NumericalAxis>
+                            </chart:SfCartesianChart.SecondaryAxis>
+
+                            <chart:SfCartesianChart.Series>
+                                <chart:FastLineSeries ItemsSource="{Binding LiveData}" 
+                                                      EnableAntiAliasing="True"
+                                                      XBindingPath="Value" YBindingPath="Size">
+                                </chart:FastLineSeries>
+                            </chart:SfCartesianChart.Series>
+                        </chart:SfCartesianChart>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt x:Name="extendedCard3" Title="Vertical live chart" 
+                                       HorizontalOptions="FillAndExpand" HeightRequest="400">
+                    <localCore:CardViewExt.MainContent>
+                        <chart:SfCartesianChart IsTransposed="True" HorizontalOptions="FillAndExpand" 
+                                                x:Name="verticalLiveChart"
+                                               Palette="Custom" CustomBrushes="{Binding CustomBrushes}" VerticalOptions="FillAndExpand">
+
+                            <chart:SfCartesianChart.BindingContext>
+                                <local:RealTimeVerticalChartViewModel x:Name="realTimeVerticalChartViewModel"/>
+                            </chart:SfCartesianChart.BindingContext>
+                            
+                            <chart:SfCartesianChart.Title>
+                                <Label Text="Seismograph Analysis of Country" Margin="0,0,0,5" 
+                                       HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+                                       VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                            </chart:SfCartesianChart.Title>
+                            <chart:SfCartesianChart.PrimaryAxis>
+                                <chart:NumericalAxis ShowMajorGridLines="False">
+                                    <chart:NumericalAxis.Title>
+                                        <chart:ChartAxisTitle Text="Time (s)" />
+                                    </chart:NumericalAxis.Title>
+                                </chart:NumericalAxis>
+                            </chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.SecondaryAxis>
+                                <chart:NumericalAxis ShowMajorGridLines="False" Maximum="15" Minimum="-15">
+                                    <chart:NumericalAxis.Title>
+                                        <chart:ChartAxisTitle Margin="5,10,5,2" Text="Velocity (m/s)">
+                                        </chart:ChartAxisTitle>
+                                    </chart:NumericalAxis.Title>
+                                </chart:NumericalAxis>
+                            </chart:SfCartesianChart.SecondaryAxis>
+                            <chart:SfCartesianChart.Series>
+                                <chart:FastLineSeries ItemsSource="{Binding VerticalLiveChartData}" 
+                                                      EnableAntiAliasing="True"
+                                                      XBindingPath="Value" YBindingPath="Size"/>
+                            </chart:SfCartesianChart.Series>
+                        </chart:SfCartesianChart>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+            </localCore:WrapLayout>
+        </localCore:ScrollViewExt>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

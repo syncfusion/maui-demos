@@ -1,12 +1,4 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-# endregion
-
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.Maui.Controls;
@@ -26,7 +18,7 @@ namespace SampleBrowser.Maui.SfCircularChart
 
 		}
 
-        private void Chart_SelectionChanged(object sender, SelectionEventArgs e)
+        private void Chart_SelectionChanged(object sender, ChartSelectionChangedEventArgs e)
         {
             if (e.CurrentIndex == e.PreviousIndex)
             {
@@ -43,7 +35,37 @@ namespace SampleBrowser.Maui.SfCircularChart
 
 			//content.AnimateSeries();
 		}
-	}
+
+		public override void OnExpandedViewAppearing(View view)
+		{
+			base.OnExpandedViewAppearing(view);
+
+			if (RunTimeDevice.IsMobileDevice())
+			{
+				doughnutSeries1.CircularCoefficient = 0.6;
+			}
+		}
+
+		public override void OnExpandedViewDisappearing(View view)
+		{
+			base.OnExpandedViewDisappearing(view);
+
+			if (RunTimeDevice.IsMobileDevice())
+			{
+				doughnutSeries1.CircularCoefficient = 0.8;
+			}
+
+			view.Handler?.DisconnectHandler();
+		}
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+			chart.Handler?.DisconnectHandler();
+			Chart1.Handler?.DisconnectHandler();
+        }
+    }
 
 	public class DoughnutSeriesExt : DoughnutSeries
 	{

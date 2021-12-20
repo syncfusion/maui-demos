@@ -1,12 +1,4 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using Syncfusion.Maui.Charts;
 using System;
@@ -72,7 +64,10 @@ namespace SampleBrowser.Maui.SfCartesianChart
         {
             canvas.SaveState();
 
-            Animate();
+            if ((bool)(InvokeInternalMethod(typeof(ChartSeries), Series, "CanAnimate", null)))
+            {
+                OnLayout();
+            }
 
             DrawTrackPath(canvas, trackRect);
 
@@ -134,6 +129,12 @@ namespace SampleBrowser.Maui.SfCartesianChart
         {
             freq = trackRect.Bottom - Top;
             freq = freq * AnimatedValue;
+        }
+
+        public static object InvokeInternalMethod(Type type, object obj, string methodName, params object[] args)
+        {
+            var method = type.GetTypeInfo().GetDeclaredMethod(methodName);
+            return method != null ? method.Invoke(obj, args) : null;
         }
     }
 }

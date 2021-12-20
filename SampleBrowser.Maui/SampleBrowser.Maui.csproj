@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net6.0-ios;net6.0-android;net6.0-maccatalyst</TargetFrameworks>
-		<!-- <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks> -->
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>SampleBrowser.Maui</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -28,70 +28,388 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiImage Include="Resources\appicon.svg" ForegroundFile="Resources\appsyncicon.svg" IsAppIcon="true" Color="#512BD4" />
+		<MauiImage Include="Resources\appicon.svg" ForegroundFile="Resources\appsyncicon.svg" IsAppIcon="true" Color="#8B71F6" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\appsplashscreen.svg" Color="#512BD4" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Include="Resources\Images\ListView\*" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="ControlsList\ControlsList.xml" />
-		<EmbeddedResource Include="Samples\SfCartesianChart\SamplesList\SamplesList.xml" />
-		<EmbeddedResource Include="Samples\SfTabView\SamplesList\SamplesList.xml" />
-		<EmbeddedResource Include="Samples\SfRadialGauge\SamplesList\SamplesList.xml" />
-		<EmbeddedResource Include="Samples\SfCircularChart\SamplesList\SamplesList.xml" />
+	<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
+	  <Compile Remove="Samples\SfListView\Samples\GettingStarted\View\GettingStarted.xaml.cs" />
+	  <Compile Remove="Samples\SfListView\Samples\GridLayout\View\GridLayout.xaml.cs" />
+	  <Compile Remove="Samples\SfListView\Samples\Grouping\View\Grouping.xaml.cs" />
+	  <Compile Remove="Samples\SfListView\Samples\Selection\View\Selection.xaml.cs" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<MauiXaml Update="Samples\SfCartesianChart\Samples\CategoryAxis\CategoryAxis.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Samples\SfCartesianChart\Samples\MultipleCircle\MultipleCircle.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Samples\SfCartesianChart\Samples\NumericAxis\NumericAxis.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Samples\SfTabView\Samples\SizeToContent\SizeToContent.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Samples\SfTabView\Samples\Customization\Customization.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Samples\SfTabView\Samples\TabViewGettingStarted\TabViewGettingStarted.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
+	<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
+	  <MauiXaml Remove="Samples\SfListView\Samples\GettingStarted\View\GettingStarted.xaml" />
+	  <MauiXaml Remove="Samples\SfListView\Samples\GridLayout\View\GridLayout.xaml" />
+	  <MauiXaml Remove="Samples\SfListView\Samples\Grouping\View\Grouping.xaml" />
+	  <MauiXaml Remove="Samples\SfListView\Samples\Selection\View\Selection.xaml" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Syncfusion.Maui.Core" Version="19.3.47-preview" />
-		<PackageReference Include="Syncfusion.Maui.TabView" Version="19.3.47-preview" />
-		<PackageReference Include="Syncfusion.Maui.Charts" Version="19.3.47-preview" />
-		<PackageReference Include="Syncfusion.Maui.Gauges" Version="19.3.47-preview" />
+    <ItemGroup Condition="$(TargetFramework.Contains('-android')) or $(TargetFramework.Contains('-ios')) or $(TargetFramework.Contains('-windows'))">
+    <EmbeddedResource Include="Resources\XlsIO\CLRObjects.xml" />	
+    <EmbeddedResource Include="Resources\XlsIO\ExpenseReport.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\ExcelTopdfwithChart.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\ExportData.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\FormulaTemplate.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\ChartData.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\TemplateMarker.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man1.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man10.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man11.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man12.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man13.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man14.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man15.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man16.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man17.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man18.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man2.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man3.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man4.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man5.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man6.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man7.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man8.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man9.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman1.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman10.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman11.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman12.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman13.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman14.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman2.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman3.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman4.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman5.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman6.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman7.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman8.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman9.jpg" />
+    <EmbeddedResource Include="Samples\XlsIO\SamplesList\SamplesList.xml" />
+	  <EmbeddedResource Include="Samples\Pdf\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\DocIO\SamplesList\SamplesList.xml" />
+	  <EmbeddedResource Include="Samples\Presentation\SamplesList\SamplesList.xml" />
+  </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+      <BundleResource Remove="Resources\DocIO\**" />
+      <BundleResource Remove="Resources\Pdf\**" />
+      <BundleResource Remove="Resources\Presentation\**" />
+      <BundleResource Remove="Resources\XlsIO\**" />
+      <Compile Remove="Resources\DocIO\**" />
+      <Compile Remove="Resources\Pdf\**" />
+      <Compile Remove="Resources\Presentation\**" />
+      <Compile Remove="Resources\XlsIO\**" />
+      <EmbeddedResource Remove="Resources\DocIO\**" />
+      <EmbeddedResource Remove="Resources\Pdf\**" />
+      <EmbeddedResource Remove="Resources\Presentation\**" />
+      <EmbeddedResource Remove="Resources\XlsIO\**" />
+      <ImageAsset Remove="Resources\DocIO\**" />
+      <ImageAsset Remove="Resources\Pdf\**" />
+      <ImageAsset Remove="Resources\Presentation\**" />
+      <ImageAsset Remove="Resources\XlsIO\**" />
+      <InterfaceDefinition Remove="Resources\DocIO\**" />
+      <InterfaceDefinition Remove="Resources\Pdf\**" />
+      <InterfaceDefinition Remove="Resources\Presentation\**" />
+      <InterfaceDefinition Remove="Resources\XlsIO\**" />
+      <MauiCss Remove="Resources\DocIO\**" />
+      <MauiCss Remove="Resources\Pdf\**" />
+      <MauiCss Remove="Resources\Presentation\**" />
+      <MauiCss Remove="Resources\XlsIO\**" />
+      <MauiXaml Remove="Resources\DocIO\**" />
+      <MauiXaml Remove="Resources\Pdf\**" />
+      <MauiXaml Remove="Resources\Presentation\**" />
+      <MauiXaml Remove="Resources\XlsIO\**" />
+      <None Remove="Resources\DocIO\**" />
+      <None Remove="Resources\Pdf\**" />
+      <None Remove="Resources\Presentation\**" />
+      <None Remove="Resources\XlsIO\**" />
+      <SceneKitAsset Remove="Resources\DocIO\**" />
+      <SceneKitAsset Remove="Resources\Pdf\**" />
+      <SceneKitAsset Remove="Resources\Presentation\**" />
+      <SceneKitAsset Remove="Resources\XlsIO\**" />
+    </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework.Contains('-android')) or $(TargetFramework.Contains('-ios')) or $(TargetFramework.Contains('-windows'))">
+    <EmbeddedResource Include="Resources\Pdf\AdventureWork.png" />
+    <EmbeddedResource Include="Resources\Pdf\arial.ttf" />
+    <EmbeddedResource Include="Resources\Pdf\certificate.jpg" />
+    <EmbeddedResource Include="Resources\Pdf\certificate.pfx" />
+    <EmbeddedResource Include="Resources\Pdf\credit_card_statement.pdf" />
+    <EmbeddedResource Include="Resources\Pdf\digital_signature_template.pdf" />
+    <EmbeddedResource Include="Resources\Pdf\Xamarin_JPEG.jpg" />
+    <EmbeddedResource Include="Resources\Pdf\Xamarin_PNG.png" />
+    <EmbeddedResource Include="Resources\Pdf\signature.png" />
+    <EmbeddedResource Include="Resources\DocIO\OrderTotals.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\RTFtoWord.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\Employees.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\EmployeesList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\EmployeesReportDemo.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\Mountain200.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\Mountain300.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\Northwindlogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\Road550W.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\Adventure.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\Decrypt.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\TemplateLetter.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\TestOrder.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\TestOrderDetails.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\HeaderFooterTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\WordtoPDF.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\AdventureCycle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\HeaderImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DocIO\Mountain300.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Presentation\EmbeddedOleObject.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\HeaderFooter.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\HelloWorld.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\Images.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\OlePicture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\OleTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\Products.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\Slides.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\SyncfusionPresentation.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\TableData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\tablet.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Presentation\Template.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+    <ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+      <None Remove="Samples\XlsIO\SamplesList\SamplesList.xml" />
+      <None Remove="Samples\Pdf\SamplesList\SamplesList.xml" />
+      <None Remove="Samples\DocIO\SamplesList\SamplesList.xml" />
+      <None Remove="Samples\Presentation\SamplesList\SamplesList.xml" />
+    </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ControlsList\ControlsList.xml" /> 
+    <EmbeddedResource Include="Samples\SfCartesianChart\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfCircularChart\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfEffectsView\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfRadialGauge\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfTabView\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfListView\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfScheduler\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\SfBadgeView\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\Slider\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\RangeSlider\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\VerticalSlider\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\VerticalRangeSlider\SamplesList\SamplesList.xml" />	
+  </ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <Compile Remove="Samples\DocIO\Samples\Bookmarks\Bookmarks.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\EmployeeReport\EmployeeReport.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\EncryptAndDecrypt\EncryptAndDecrypt.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\GettingStarted\GettingStarted.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\HeaderAndFooter\HeaderAndFooter.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\ImageInsertion\ImageInsertion.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\OrdersReport\OrdersReport.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\RTFToWord\RTFToWord.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\TableOfContents\TableOfContents.xaml.cs" />
+	  <Compile Remove="Samples\DocIO\Samples\WordToPDF\WordToPDF.xaml.cs" />
+	  <Compile Remove="Samples\Presentation\Samples\Chart\Chart.xaml.cs" />
+	  <Compile Remove="Samples\Presentation\Samples\EncryptAndDecrypt\EncryptAndDecrypt.xaml.cs" />
+	  <Compile Remove="Samples\Presentation\Samples\GettingStarted\GettingStarted.xaml.cs" />
+	  <Compile Remove="Samples\Presentation\Samples\HeaderAndFooter\HeaderAndFooter.xaml.cs" />
+	  <Compile Remove="Samples\Presentation\Samples\PPTXToImage\PPTXToImage.xaml.cs" />
+	  <Compile Remove="Samples\Presentation\Samples\PPTXToPDF\PPTXToPDF.xaml.cs" />
+	  <Compile Remove="Samples\Presentation\Samples\Slide\Slide.xaml.cs" />
+	  <Compile Remove="Samples\Presentation\Samples\Table\Table.xaml.cs" />	  
+	  <Compile Remove="Samples\XlsIO\Samples\AttendanceTracker\AttendanceTracker.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\AutoShapes\AutoShapes.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\Chart\Chart.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\CreateSpreadsheet\CreateSpreadsheet.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\DataValidation\DataValidation.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\ExcelToPDF\ExcelToPDF.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\ExpensesReport\ExpensesReport.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\Formula\Formula.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\Table\Table.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\TemplateMarker\TemplateMarker.xaml.cs" />
+	  <Compile Remove="Samples\XlsIO\Samples\WorksheetToImage\WorksheetToImage.xaml.cs" />
+     <Compile Remove="Samples\XlsIO\Samples\Customer.cs" /> 	  
+	  <Compile Remove="Samples\Pdf\Samples\Certificate\Certificate.xaml.cs" />
+	  <Compile Remove="Samples\Pdf\Samples\DigitalSignature\DigitalSignature.xaml.cs" />
+	  <Compile Remove="Samples\Pdf\Samples\Encryption\Encryption.xaml.cs" />
+	  <Compile Remove="Samples\Pdf\Samples\ImageInsertion\ImageInsertion.xaml.cs" />
+	  <Compile Remove="Samples\Pdf\Samples\Invoice\Invoice.xaml.cs" />	
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <MauiXaml Remove="Samples\DocIO\Samples\Bookmarks\Bookmarks.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\EmployeeReport\EmployeeReport.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\EncryptAndDecrypt\EncryptAndDecrypt.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\GettingStarted\GettingStarted.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\HeaderAndFooter\HeaderAndFooter.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\ImageInsertion\ImageInsertion.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\OrdersReport\OrdersReport.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\RTFToWord\RTFToWord.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\TableOfContents\TableOfContents.xaml" />
+	  <MauiXaml Remove="Samples\DocIO\Samples\WordToPDF\WordToPDF.xaml" />
+	  <MauiXaml Remove="Samples\Presentation\Samples\Chart\Chart.xaml" />
+	  <MauiXaml Remove="Samples\Presentation\Samples\EncryptAndDecrypt\EncryptAndDecrypt.xaml" />
+	  <MauiXaml Remove="Samples\Presentation\Samples\GettingStarted\GettingStarted.xaml" />
+	  <MauiXaml Remove="Samples\Presentation\Samples\HeaderAndFooter\HeaderAndFooter.xaml" />
+	  <MauiXaml Remove="Samples\Presentation\Samples\PPTXToImage\PPTXToImage.xaml" />
+	  <MauiXaml Remove="Samples\Presentation\Samples\PPTXToPDF\PPTXToPDF.xaml" />
+	  <MauiXaml Remove="Samples\Presentation\Samples\Slide\Slide.xaml" />
+	  <MauiXaml Remove="Samples\Presentation\Samples\Table\Table.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\AttendanceTracker\AttendanceTracker.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\AutoShapes\AutoShapes.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\Chart\Chart.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\CreateSpreadsheet\CreateSpreadsheet.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\DataValidation\DataValidation.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\ExcelToPDF\ExcelToPDF.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\ExpensesReport\ExpensesReport.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\Formula\Formula.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\Table\Table.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\TemplateMarker\TemplateMarker.xaml" />
+	  <MauiXaml Remove="Samples\XlsIO\Samples\WorksheetToImage\WorksheetToImage.xaml" />	  
+	  <MauiXaml Remove="Samples\Pdf\Samples\Certificate\Certificate.xaml" />
+	  <MauiXaml Remove="Samples\Pdf\Samples\DigitalSignature\DigitalSignature.xaml" />
+	  <MauiXaml Remove="Samples\Pdf\Samples\Encryption\Encryption.xaml" />
+	  <MauiXaml Remove="Samples\Pdf\Samples\ImageInsertion\ImageInsertion.xaml" />
+	  <MauiXaml Remove="Samples\Pdf\Samples\Invoice\Invoice.xaml" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Maui.Core" Version="19.4.38-preview" />
+    <PackageReference Include="Syncfusion.Maui.TabView" Version="19.4.38-preview" />
+    <PackageReference Include="Syncfusion.Maui.Charts" Version="19.4.38-preview" />
+    <PackageReference Include="Syncfusion.Maui.Gauges" Version="19.4.38-preview" />
+    <PackageReference Include="Syncfusion.Maui.Scheduler" Version="19.4.38-preview" />
+	<PackageReference Include="Syncfusion.Maui.Sliders" Version="19.4.38-preview" />
+  </ItemGroup>
+	
+	<ItemGroup Condition="$(TargetFramework.Contains('-android')) or $(TargetFramework.Contains('-ios')) or $(TargetFramework.Contains('-maccatalyst'))">
+		<PackageReference Include="Syncfusion.Maui.ListView" Version="19.4.38-preview" />
+		<PackageReference Include="Syncfusion.Maui.GridCommon" Version="19.4.38-preview" />
+		<PackageReference Include="Syncfusion.Maui.DataSource" Version="19.4.38-preview" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="$(TargetFramework.Contains('-android')) or $(TargetFramework.Contains('-ios')) or $(TargetFramework.Contains('-windows'))">
+	   <PackageReference Include="Syncfusion.DocIORenderer.NET" Version="19.4.38-preview" />
+	   <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="19.4.38-preview" />	
+	   <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="19.4.38-preview" />
+	   <PackageReference Include="Syncfusion.Pdf.NET" Version="19.4.38-preview" />
 	</ItemGroup>
 
 
 	<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<!-- Required - WinUI does not yet have buildTransitive for everything -->
-		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-experimental1" />
-		<PackageReference Include="Microsoft.WindowsAppSDK.Foundation" Version="1.0.0-experimental1" />
-		<PackageReference Include="Microsoft.WindowsAppSDK.WinUI" Version="1.0.0-experimental1" />
-		<PackageReference Include="Microsoft.WindowsAppSDK.InteractiveExperiences" Version="1.0.0-experimental1" NoWarn="NU1701" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\SampleBrowser.Maui.Core\SampleBrowser.Maui.Core.csproj" />
+        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-preview3" />
+        <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.29-preview3" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SampleBrowser.Maui.Core\SampleBrowser.Maui.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <_MauiCompileToAdd Remove="Resources\Pdf\**" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <_MauiXamlToRemove Remove="Resources\Pdf\**" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <_MauiCompileToAdd Remove="Resources\Presentation\**" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <_MauiXamlToRemove Remove="Resources\Presentation\**" />
+	</ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <_MauiCompileToAdd Remove="Resources\DocIO\**" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <_MauiXamlToRemove Remove="Resources\DocIO\**" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <_MauiCompileToAdd Remove="Resources\XlsIO\**" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <_MauiXamlToRemove Remove="Resources\XlsIO\**" />
+	</ItemGroup>
 
 </Project>

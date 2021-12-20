@@ -7,10 +7,10 @@
     <localCore:SampleView.Content>
 
         <localCore:ScrollViewExt>
-            <VerticalStackLayout BackgroundColor="White">
+            <localCore:WrapLayout BackgroundColor="White">
                 <localCore:CardViewExt Title="Default Area Chart" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" MinimumHeightRequest ="310" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.Legend>
                                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
                             </chart:SfCartesianChart.Legend>
@@ -44,13 +44,13 @@
                             </chart:SfCartesianChart.SecondaryAxis>
 
                             <chart:SfCartesianChart.Series>
-                                <chart:AreaSeries Label="Product A" EnableAnimation="True" ShowTooltip="True" Stroke="#74BD6F" Background="#C474BD6F" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="High">
+                                <chart:AreaSeries Label="Product A" EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" Stroke="#74BD6F" Background="#C474BD6F" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="High">
                                 </chart:AreaSeries>
-                                <chart:AreaSeries Label="Product B" EnableAnimation="True" ShowTooltip="True" Stroke="#5E498C" Background="#C45E498C" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Low">
+                                <chart:AreaSeries Label="Product B" EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" Stroke="#5E498C" Background="#C45E498C" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Low">
                                 </chart:AreaSeries>
-                                <chart:AreaSeries Label="Product C" EnableAnimation="True" ShowTooltip="True" Stroke="#48988B" Background="#C448988B" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Value">
+                                <chart:AreaSeries Label="Product C" EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" Stroke="#48988B" Background="#C448988B" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Value">
                                 </chart:AreaSeries>
-                                <chart:AreaSeries Label="Product D" EnableAnimation="True" ShowTooltip="True" Stroke="#314A6E" Background="#C4314A6E" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Size">
+                                <chart:AreaSeries Label="Product D" EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" Stroke="#314A6E" Background="#C4314A6E" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Size">
                                 </chart:AreaSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
@@ -60,7 +60,7 @@
 
                 <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard4" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart1" MinimumHeightRequest ="310" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DynamicAnimationViewModel x:Name="viewModel1"/>
                             </chart:SfCartesianChart.BindingContext>
@@ -93,7 +93,7 @@
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>
