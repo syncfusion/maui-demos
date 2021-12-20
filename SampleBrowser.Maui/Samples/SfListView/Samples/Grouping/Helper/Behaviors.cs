@@ -5,6 +5,7 @@
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
+
 #if __ANDROID__ || __IOS__ || __MACCATALYST__
 using Syncfusion.DataSource;
 using System;

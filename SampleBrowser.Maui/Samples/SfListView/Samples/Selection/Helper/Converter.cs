@@ -5,6 +5,7 @@
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
+
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using System;
