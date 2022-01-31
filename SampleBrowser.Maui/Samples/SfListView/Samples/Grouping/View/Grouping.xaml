@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.SfListView"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
              xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
-             xmlns:data="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.Maui.DataSource"    
+             xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"    
     BackgroundColor="White">
     <localCore:SampleView.Content>
         <ListView:SfListView x:Name="listView"

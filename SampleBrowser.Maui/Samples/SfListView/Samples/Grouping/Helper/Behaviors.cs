@@ -7,7 +7,6 @@
 #endregion
 
 #if __ANDROID__ || __IOS__ || __MACCATALYST__
-using Syncfusion.DataSource;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,7 @@ using System.Text;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
+using Syncfusion.Maui.DataSource;
 
 namespace SampleBrowser.Maui.SfListView
 {
