@@ -20,10 +20,10 @@
                 </Grid.ColumnDefinitions>
                 <CheckBox x:Name="SingleRadioCheckBox" IsChecked="True" IsVisible="{OnPlatform Android=false, iOS= true, macOS=true, UWP=false}"/>
                 <RadioButton x:Name="SingleRadioButton" IsVisible="{OnPlatform Android=true, iOS=false, macOS= false, UWP=true}" GroupName="Recurrence"  IsChecked="True" HorizontalOptions="Center" WidthRequest="20" 
-                         GridLayout.Column="0"
+                         Grid.Column="0"
                          VerticalOptions="Center"/>
                 <Label Text="Just this one" Margin="0" 
-                   GridLayout.Column="1" Padding="0" HorizontalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                   Grid.Column="1" Padding="0" HorizontalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
                    VerticalOptions="Center" WidthRequest="150" TextColor="Black" />
             </Grid>
 
@@ -38,7 +38,7 @@
                 <Label Text="The entire series" HorizontalTextAlignment="Start" HorizontalOptions="Start" 
                    VerticalTextAlignment="Center"
                    VerticalOptions="Center" Margin="0" TextColor="Black" WidthRequest="150"
-                   GridLayout.Column="1"/>
+                   Grid.Column="1"/>
             </Grid>
 
             <Grid HorizontalOptions="CenterAndExpand" Margin="0,8,0,24" Padding="0">
@@ -47,11 +47,11 @@
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="RecurrenceOkButton"
-                    GridLayout.Column="0" Text="OK" Padding="0"
+                    Grid.Column="0" Text="OK" Padding="0"
                      WidthRequest="70" HeightRequest="30" HorizontalOptions="Center"
                      />
                 <Button x:Name="RecurrenceCancelButton" Margin="12,0,0,0" 
-                    Text="CANCEL" Padding="0" GridLayout.Column="1"
+                    Text="CANCEL" Padding="0" Grid.Column="1"
                     HorizontalOptions="Center"
                      WidthRequest="70" HeightRequest="30"  />
             </Grid>

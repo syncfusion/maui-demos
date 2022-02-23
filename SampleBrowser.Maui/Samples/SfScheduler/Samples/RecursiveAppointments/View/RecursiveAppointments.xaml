@@ -11,7 +11,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <schedule:SfScheduler x:Name="Scheduler" 
-                                 GridLayout.Column="1" 
+                                 Grid.Column="1" 
                                  AppointmentsSource="{Binding RecursiveEvents}"
                                  DisplayDate="{Binding DisplayDate}"
                                  AllowedViews="Day,Week,WorkWeek,Month"

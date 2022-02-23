@@ -343,25 +343,25 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Maui.Core" Version="19.4.48-preview" />
-    <PackageReference Include="Syncfusion.Maui.TabView" Version="19.4.48-preview" />
-    <PackageReference Include="Syncfusion.Maui.Charts" Version="19.4.48-preview" />
-    <PackageReference Include="Syncfusion.Maui.Gauges" Version="19.4.48-preview" />
-    <PackageReference Include="Syncfusion.Maui.Scheduler" Version="19.4.48-preview" />
-	<PackageReference Include="Syncfusion.Maui.Sliders" Version="19.4.48-preview" />
+    <PackageReference Include="Syncfusion.Maui.Core" Version="19.4.53-preview" />
+    <PackageReference Include="Syncfusion.Maui.TabView" Version="19.4.53-preview" />
+    <PackageReference Include="Syncfusion.Maui.Charts" Version="19.4.53-preview" />
+    <PackageReference Include="Syncfusion.Maui.Gauges" Version="19.4.53-preview" />
+    <PackageReference Include="Syncfusion.Maui.Scheduler" Version="19.4.53-preview" />
+	<PackageReference Include="Syncfusion.Maui.Sliders" Version="19.4.53-preview" />
   </ItemGroup>
 	
 	<ItemGroup Condition="$(TargetFramework.Contains('-android')) or $(TargetFramework.Contains('-ios')) or $(TargetFramework.Contains('-maccatalyst'))">
-		<PackageReference Include="Syncfusion.Maui.ListView" Version="19.4.48-preview" />
-		<PackageReference Include="Syncfusion.Maui.GridCommon" Version="19.4.48-preview" />
-		<PackageReference Include="Syncfusion.Maui.DataSource" Version="19.4.48-preview" />
+		<PackageReference Include="Syncfusion.Maui.ListView" Version="19.4.53-preview" />
+		<PackageReference Include="Syncfusion.Maui.GridCommon" Version="19.4.53-preview" />
+		<PackageReference Include="Syncfusion.Maui.DataSource" Version="19.4.53-preview" />
 	</ItemGroup>
 	
 	<ItemGroup Condition="$(TargetFramework.Contains('-android')) or $(TargetFramework.Contains('-ios')) or $(TargetFramework.Contains('-windows'))">
-	   <PackageReference Include="Syncfusion.DocIORenderer.NET" Version="19.4.0.48" />
-	   <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="19.4.0.48" />	
-	   <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="19.4.0.48" />
-	   <PackageReference Include="Syncfusion.Pdf.NET" Version="19.4.0.48" />
+	   <PackageReference Include="Syncfusion.DocIORenderer.NET" Version="19.4.0.53" />
+	   <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="19.4.0.53" />	
+	   <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="19.4.0.53" />
+	   <PackageReference Include="Syncfusion.Pdf.NET" Version="19.4.0.53" />
 	</ItemGroup>
 
 

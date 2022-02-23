@@ -41,7 +41,7 @@
         <Grid x:Name="MainGrid" BackgroundColor="#E5E5E5">
 
             <Grid x:Name="SamplePageViewGrid"
-                  GridLayout.Column="1"
+                  Grid.Column="1"
                   IsVisible="False">
                 <BoxView BackgroundColor="White" CornerRadius="0,20,0,0" Margin="0,5,5,0" HorizontalOptions="Fill" VerticalOptions="Fill"/>
                 <Grid 
@@ -59,7 +59,7 @@
              
                 <Grid x:Name="SamplePageView"
                       Margin="0,0,5,5"
-                      GridLayout.Row="1">
+                      Grid.Row="1">
                     
                 </Grid>
                 
@@ -98,7 +98,7 @@
                                             </Grid>
                                             <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                         </Grid>
-                                        <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,7,0,0" >
+                                        <Grid Grid.Row="1" RowDefinitions="*" Margin="0,7,0,0" >
                                             <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                             <VerticalStackLayout BindableLayout.ItemsSource="{Binding DataVisualizationControlsList}" >
                                                 <BindableLayout.ItemTemplate>
@@ -110,7 +110,7 @@
                                                             </Grid.GestureRecognizers>
                                                             <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
@@ -136,7 +136,7 @@
                                             </Grid>
                                             <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                         </Grid>
-                                        <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                        <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
                                             <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                             <VerticalStackLayout  BindableLayout.ItemsSource="{Binding LayoutControlsList}">
                                                 <BindableLayout.ItemTemplate>
@@ -148,7 +148,7 @@
                                                             </Grid.GestureRecognizers>
                                                             <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
@@ -174,7 +174,7 @@
                                         </Grid>
                                         <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout  BindableLayout.ItemsSource="{Binding CalendarControlsList}">
                                             <BindableLayout.ItemTemplate>
@@ -186,7 +186,7 @@
                                                             </Grid.GestureRecognizers>
                                                             <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
@@ -212,7 +212,7 @@
                                         </Grid>
                                         <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout  BindableLayout.ItemsSource="{Binding NavigationControlsList}">
                                             <BindableLayout.ItemTemplate>
@@ -224,7 +224,7 @@
                                                             </Grid.GestureRecognizers>
                                                             <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
@@ -250,7 +250,7 @@
                                         </Grid>
                                         <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout  BindableLayout.ItemsSource="{Binding EditorsControlsList}">
                                             <BindableLayout.ItemTemplate>
@@ -262,7 +262,7 @@
                                                             </Grid.GestureRecognizers>
                                                             <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
@@ -289,7 +289,7 @@
                                         </Grid>
                                         <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout  BindableLayout.ItemsSource="{Binding NotificationControlsList}">
                                             <BindableLayout.ItemTemplate>
@@ -301,7 +301,7 @@
                                                             </Grid.GestureRecognizers>
                                                             <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
@@ -327,7 +327,7 @@
                                         </Grid>
                                         <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout  BindableLayout.ItemsSource="{Binding MiscellaneousControlsList}">
                                             <BindableLayout.ItemTemplate>
@@ -339,7 +339,7 @@
                                                             </Grid.GestureRecognizers>
                                                             <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
@@ -365,7 +365,7 @@
                                         </Grid>
                                         <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout  BindableLayout.ItemsSource="{Binding FileFormatControlsList}">
                                             <BindableLayout.ItemTemplate>
@@ -377,7 +377,7 @@
                                                             </Grid.GestureRecognizers>
                                                             <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
@@ -417,7 +417,7 @@
                                         </Grid>
                                         <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" x:Name="dataVisualization" RowDefinitions="*" Margin="0,7,0,0" >
+                                    <Grid Grid.Row="1" x:Name="dataVisualization" RowDefinitions="*" Margin="0,7,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout x:Name="DataVisualizationLayout" BindableLayout.ItemsSource="{Binding DataVisualizationControlsList}" >
                                             <BindableLayout.ItemTemplate>
@@ -430,7 +430,7 @@
                                                             <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
                                                             <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>
@@ -457,7 +457,7 @@
                                         </Grid>
                                         <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" x:Name="layouts" RowDefinitions="*" Margin="0,7,0,0" >
+                                    <Grid Grid.Row="1" x:Name="layouts" RowDefinitions="*" Margin="0,7,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout BindableLayout.ItemsSource="{Binding LayoutControlsList}" >
                                             <BindableLayout.ItemTemplate>
@@ -470,7 +470,7 @@
                                                             <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
                                                             <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>
@@ -497,7 +497,7 @@
                                         </Grid>
                                         <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" x:Name="calendar" RowDefinitions="*" Margin="0,7,0,0" >
+                                    <Grid Grid.Row="1" x:Name="calendar" RowDefinitions="*" Margin="0,7,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout BindableLayout.ItemsSource="{Binding CalendarControlsList}" >
                                             <BindableLayout.ItemTemplate>
@@ -510,7 +510,7 @@
                                                             <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
                                                             <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>
@@ -536,7 +536,7 @@
                                         </Grid>
                                         <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" x:Name="navigation" RowDefinitions="*" Margin="0,7,0,0" >
+                                    <Grid Grid.Row="1" x:Name="navigation" RowDefinitions="*" Margin="0,7,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout BindableLayout.ItemsSource="{Binding NavigationControlsList}" >
                                             <BindableLayout.ItemTemplate>
@@ -549,7 +549,7 @@
                                                             <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
                                                             <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>
@@ -575,7 +575,7 @@
                                         </Grid>
                                         <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" x:Name="editors" RowDefinitions="*" Margin="0,0,0,0" >
+                                    <Grid Grid.Row="1" x:Name="editors" RowDefinitions="*" Margin="0,0,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout  BindableLayout.ItemsSource="{Binding EditorsControlsList}">
                                             <BindableLayout.ItemTemplate>
@@ -588,7 +588,7 @@
                                                             <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
                                                             <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>
@@ -614,7 +614,7 @@
                                         </Grid>
                                         <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" x:Name="notification"  RowDefinitions="*" Margin="0,7,0,0" >
+                                    <Grid Grid.Row="1" x:Name="notification"  RowDefinitions="*" Margin="0,7,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout BindableLayout.ItemsSource="{Binding NotificationControlsList}" >
                                             <BindableLayout.ItemTemplate>
@@ -627,7 +627,7 @@
                                                             <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
                                                             <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>
@@ -653,7 +653,7 @@
                                         </Grid>
                                         <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" x:Name="micellaneous" RowDefinitions="*" Margin="0,7,0,0" >
+                                    <Grid Grid.Row="1" x:Name="micellaneous" RowDefinitions="*" Margin="0,7,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout BindableLayout.ItemsSource="{Binding MiscellaneousControlsList}" >
                                             <BindableLayout.ItemTemplate>
@@ -666,7 +666,7 @@
                                                             <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
                                                             <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>
@@ -693,7 +693,7 @@
                                         </Grid>
                                         <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
                                     </Grid>
-                                    <Grid GridLayout.Row="1" x:Name="fileFormat" RowDefinitions="*" Margin="0,7,0,0" >
+                                    <Grid Grid.Row="1" x:Name="fileFormat" RowDefinitions="*" Margin="0,7,0,0" >
                                         <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
                                         <VerticalStackLayout BindableLayout.ItemsSource="{Binding FileFormatControlsList}" >
                                             <BindableLayout.ItemTemplate>
@@ -706,7 +706,7 @@
                                                             <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
                                                             <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
                                                                 <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
-                                                                <VerticalStackLayout GridLayout.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
                                                                     <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>

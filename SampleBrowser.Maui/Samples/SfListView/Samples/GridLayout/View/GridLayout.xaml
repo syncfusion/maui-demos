@@ -69,7 +69,7 @@
                                 <RowDefinition Height="{Binding BindingContext.ImageHeightRequest,Source={x:Reference listView}}"></RowDefinition>
 
                             </Grid.RowDefinitions>
-                            <StackLayout GridLayout.Column="0" GridLayout.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
                                 <Image HeightRequest="{Binding BindingContext.ImageHeightRequest,Source={x:Reference listView}}" Source="{Binding Image}" Aspect="Fill" />
 
@@ -87,7 +87,7 @@
                                     <ColumnDefinition Width="40" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding ImageTitle}" GridLayout.Row="0"  TextColor="White" VerticalTextAlignment="Center" Margin="5,0,0,0"
+                                <Label Text="{Binding ImageTitle}" Grid.Row="0"  TextColor="White" VerticalTextAlignment="Center" Margin="5,0,0,0"
                              VerticalOptions="Center"
                              HorizontalOptions="StartAndExpand"
                              FontSize="{OnPlatform Android={OnIdiom Phone=11, Tablet=14}, iOS=11}"/>

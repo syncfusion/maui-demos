@@ -108,7 +108,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
 			canvas.StrokeDashPattern = new float[] { 15, 6, 5, 3 };
 
 			canvas.FontColor = color;
-			canvas.SetToBoldSystemFont();
+			//canvas.SetToBoldSystemFont();
 			canvas.FontSize = 15;
 			canvas.DrawString(text, textx, texty, HorizontalAlignment.Center);
 			canvas.DrawLine(x, y, clipRect.Right, y);

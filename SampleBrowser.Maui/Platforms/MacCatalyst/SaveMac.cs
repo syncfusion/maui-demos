@@ -54,14 +54,14 @@ public class QLPreviewItemFileSystem : QLPreviewItem
         _filePath = filePath;
     }
 
-    public override string ItemTitle
+    public override string PreviewItemTitle
     {
         get
         {
             return _fileName;
         }
     }
-    public override NSUrl ItemUrl
+    public override NSUrl PreviewItemUrl
     {
         get
         {
@@ -79,14 +79,14 @@ public class QLPreviewItemBundle : QLPreviewItem
         _filePath = filePath;
     }
 
-    public override string ItemTitle
+    public override string PreviewItemTitle
     {
         get
         {
             return _fileName;
         }
     }
-    public override NSUrl ItemUrl
+    public override NSUrl PreviewItemUrl
     {
         get
         {

@@ -25,8 +25,8 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Button x:Name="CancelButton" ImageSource="{OnPlatform iOS=close.png,macOS=close.png}" FontFamily="{OnPlatform Android=SchedulerIcons}" Text="{OnPlatform Android=&#xe701;}" TextColor="{OnPlatform Android=#1E1180}" BackgroundColor="White" FontSize="20" HorizontalOptions="Start" VerticalOptions="Center" />
-                <Button x:Name="DeleteButton" ImageSource="{OnPlatform iOS=delete.png,macOS=delete.png}" FontFamily="{OnPlatform Android=SchedulerIcons}" Text="{OnPlatform Android=&#xe706;}" TextColor="{OnPlatform Android=#1E1180}"  BackgroundColor="White" FontSize="20" GridLayout.Column="4" Margin="0,0,5,0" HorizontalOptions="End" VerticalOptions="Center" IsVisible="false"/>
-                <Button x:Name="SaveButton"   ImageSource="{OnPlatform iOS=tick.png,macOS=tick.png}" FontFamily="{OnPlatform Android=SchedulerIcons}" Text="{OnPlatform Android=&#xe700;}" TextColor="{OnPlatform Android=#1E1180}"  BackgroundColor="White" FontSize="20" GridLayout.Column="5" HorizontalOptions="End" Margin="5,0,0,0" VerticalOptions="Center" />
+                <Button x:Name="DeleteButton" ImageSource="{OnPlatform iOS=delete.png,macOS=delete.png}" FontFamily="{OnPlatform Android=SchedulerIcons}" Text="{OnPlatform Android=&#xe706;}" TextColor="{OnPlatform Android=#1E1180}"  BackgroundColor="White" FontSize="20" Grid.Column="4" Margin="0,0,5,0" HorizontalOptions="End" VerticalOptions="Center" IsVisible="false"/>
+                <Button x:Name="SaveButton"   ImageSource="{OnPlatform iOS=tick.png,macOS=tick.png}" FontFamily="{OnPlatform Android=SchedulerIcons}" Text="{OnPlatform Android=&#xe700;}" TextColor="{OnPlatform Android=#1E1180}"  BackgroundColor="White" FontSize="20" Grid.Column="5" HorizontalOptions="End" Margin="5,0,0,0" VerticalOptions="Center" />
             </Grid>
 
             <Grid  VerticalOptions="Start">
@@ -40,7 +40,7 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Entry  x:Name="SubjectText"
-                                GridLayout.Column="1"
+                                Grid.Column="1"
                                 Background="Transparent" 
                                 VerticalTextAlignment="Center"
                                 TextColor="Black"
@@ -62,14 +62,14 @@
                         <Label IsVisible="{OnPlatform Android=true, iOS=false,macOS=false}"  FontFamily="SchedulerIcons" Text="&#xe704;" TextColor="Black" FontSize="20" HeightRequest="20" WidthRequest="20" Margin="10,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" />
                         <Label x:Name="AllDayLabel"
                                Text="All-day" 
-                               GridLayout.Column="1"
+                               Grid.Column="1"
                                VerticalTextAlignment="Center"
                                Background="Transparent"
                                TextColor="Black"
                                FontSize="15"/>
                         <CheckBox 
                                 x:Name="SwitchAllDay" 
-                                GridLayout.Column="2" 
+                                Grid.Column="2" 
                                 Margin="30,0,0,0"
                                 Color="#1E1180"
                                 BackgroundColor="{x:DynamicResource PrimaryTextColor}"
@@ -86,8 +86,8 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <DatePicker x:Name="StartDatePicker" TextColor="Black" Format="ddd, MMM d yyyy" Background="Transparent" FontSize="15"  GridLayout.Column="1" HeightRequest="40" />
-                        <TimePicker x:Name="StartTimePicker" TextColor="Black" Margin="0,0,15,0" Background="Transparent" FontSize="15" HorizontalOptions="End" GridLayout.Column="2" HeightRequest="40" />
+                        <DatePicker x:Name="StartDatePicker" TextColor="Black" Format="ddd, MMM d yyyy" Background="Transparent" FontSize="15"  Grid.Column="1" HeightRequest="40" />
+                        <TimePicker x:Name="StartTimePicker" TextColor="Black" Margin="0,0,15,0" Background="Transparent" FontSize="15" HorizontalOptions="End" Grid.Column="2" HeightRequest="40" />
                     </Grid>
 
                     <Grid x:Name="EndDateTimePickerGrid"
@@ -100,7 +100,7 @@
                         </Grid.ColumnDefinitions>
                         <DatePicker
                             x:Name="EndDatePicker"
-                            GridLayout.Column="1"
+                            Grid.Column="1"
                             Format="ddd, MMM d yyyy"
                             FontSize="15"
                             Background="Transparent"
@@ -109,7 +109,7 @@
                             VerticalOptions="Start" />
                         <TimePicker
                             x:Name="EndTimePicker" 
-                            GridLayout.Column="2"
+                            Grid.Column="2"
                             Background="Transparent"
                             TextColor="Black"
                             FontSize="15"
@@ -137,7 +137,7 @@
                                 TextColor="Black"
                                 FontSize="15"
                                 HeightRequest="40"
-                                GridLayout.Column="1"
+                                Grid.Column="1"
                                 VerticalTextAlignment="Center"
                                 SelectedIndex="0"
                                 HorizontalOptions="FillAndExpand"/>
@@ -152,7 +152,7 @@
                         </Grid.ColumnDefinitions>
                         <Image IsVisible="{OnPlatform Android=false, iOS=true,macOS=true}" Source="" HeightRequest="20" WidthRequest="20" Margin="10,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" />
                         <Label IsVisible="{OnPlatform Android=true, iOS=false,macOS=false}" FontFamily="SchedulerIcons" Text="&#xe702;" TextColor="Black" FontSize="20"  HeightRequest="20" WidthRequest="20" Margin="10,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" />
-                        <Picker x:Name="RrulePicker" TextColor="Black" Background="Transparent" GridLayout.Column="1" FontSize="15" HeightRequest="40" VerticalTextAlignment="Center" SelectedIndex="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                        <Picker x:Name="RrulePicker" TextColor="Black" Background="Transparent" Grid.Column="1" FontSize="15" HeightRequest="40" VerticalTextAlignment="Center" SelectedIndex="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
                     </Grid>
 
                     <StackLayout HeightRequest="1" Margin="0,8,0,2" BackgroundColor="LightGray"/>
@@ -168,10 +168,10 @@
                                VerticalOptions="Center"
                                HeightRequest="20" 
                                WidthRequest="20" />
-                        <Picker GridLayout.Column="1" TextColor="Black" Background="Transparent" VerticalTextAlignment="Center" Margin="-10,0,0,0" SelectedIndex="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FontSize="15"  x:Name="ColorPicker"/>
+                        <Picker Grid.Column="1" TextColor="Black" Background="Transparent" VerticalTextAlignment="Center" Margin="-10,0,0,0" SelectedIndex="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FontSize="15"  x:Name="ColorPicker"/>
                     </Grid>
 
-                    <StackLayout HeightRequest="1" GridLayout.Column="1" Margin="0,4,0,2" BackgroundColor="LightGray"/>
+                    <StackLayout HeightRequest="1" Grid.Column="1" Margin="0,4,0,2" BackgroundColor="LightGray"/>
 
                     <Grid
                         Padding="0,4,20,0"
@@ -188,7 +188,7 @@
                                Background="Transparent"
                                VerticalTextAlignment="Center"
                                HeightRequest="40"
-                               GridLayout.Column="1"
+                               Grid.Column="1"
                                FontSize="15" HorizontalOptions="FillAndExpand"
                                TextColor="Black" />
                     </Grid>

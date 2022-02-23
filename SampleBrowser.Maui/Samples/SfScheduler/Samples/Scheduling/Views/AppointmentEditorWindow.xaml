@@ -22,7 +22,7 @@
                        HorizontalOptions="Start"/>
 
                     <Button x:Name="HeaderCancelIconButton"
-                        GridLayout.Column="1"
+                        Grid.Column="1"
                         HorizontalOptions="End"
                         Margin="0"
                         Padding="0"
@@ -66,12 +66,12 @@
 
                             <Label x:Name="LocationLabel" 
                                        TextColor="Black"
-                                       GridLayout.Column="2" 
+                                       Grid.Column="2" 
                                        Margin="0,16,0,0"
                                        HeightRequest="14"/>
 
                             <Entry x:Name="SubjectTextBox" 
-                                     GridLayout.Row="1"
+                                     Grid.Row="1"
                                      TextColor="Black" 
                                      WidthRequest="242"
                                      HorizontalOptions="Start" 
@@ -79,8 +79,8 @@
                                    HorizontalTextAlignment="Start"
                                    VerticalTextAlignment="Center"/>
                             <Entry x:Name="LocationTextBox"        
-                                    GridLayout.Row="1" 
-                                    GridLayout.Column="2" 
+                                    Grid.Row="1" 
+                                    Grid.Column="2" 
                                     TextColor="Black"  
                                     WidthRequest="242"
                                     HorizontalOptions="Start" 
@@ -88,7 +88,7 @@
                                    HorizontalTextAlignment="Start"
                                    VerticalTextAlignment="Center"/>
 
-                            <Grid GridLayout.Row="2" GridLayout.Column="0" GridLayout.RowSpan="2" WidthRequest="242" Margin="0, 8, 0, 0">
+                            <Grid Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" WidthRequest="242" Margin="0, 8, 0, 0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="0.3*"/>
                                     <ColumnDefinition Width="0.7*"/>
@@ -99,27 +99,27 @@
                                     <RowDefinition Height="40"/>
                                 </Grid.RowDefinitions>
                                 <Label x:Name="StartLabel"
-                                GridLayout.Column="0"
+                                Grid.Column="0"
                                 Text="Start time"
                                 TextColor="Black"
                                 Margin="0,8,0,0" 
                                 HeightRequest="14"/>
 
                                 <DatePicker x:Name="Start_DatePicker" 
-                                        GridLayout.Column="1"
+                                        Grid.Column="1"
                                         VerticalOptions="Start"
                                         WidthRequest="150"
                                         HorizontalOptions="End" />
 
                                 <TimePicker x:Name="Start_TimePicker"
-                                        GridLayout.Row="1"
-                                        GridLayout.ColumnSpan="2"
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
                                         TextColor="Black"  
                                         VerticalOptions="Start"
                                         HorizontalOptions="Start" />
                             </Grid>
 
-                            <Grid GridLayout.Row="2" GridLayout.Column="2" GridLayout.RowSpan="2" WidthRequest="242" Margin="0, 8,0, 0">
+                            <Grid Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" WidthRequest="242" Margin="0, 8,0, 0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="0.3*"/>
                                     <ColumnDefinition Width="0.7*"/>
@@ -130,28 +130,28 @@
                                     <RowDefinition Height="40"/>
                                 </Grid.RowDefinitions>
                                 <Label x:Name="EndLabel" 
-                                    GridLayout.Row="0" 
-                                    GridLayout.Column="0" 
+                                    Grid.Row="0" 
+                                    Grid.Column="0" 
                                     Text="End time"
                                     Margin="0,8,0,0" 
                                     HeightRequest="14"
                                     TextColor="Black"/>
 
                                 <DatePicker x:Name="End_DatePicker" 
-                                        GridLayout.Column="1"
+                                        Grid.Column="1"
                                         VerticalOptions="Start"
                                         WidthRequest="150"
                                         HorizontalOptions="End"/>
 
                                 <TimePicker x:Name="End_TimePicker" 
-                                        GridLayout.Row="1"
-                                        GridLayout.ColumnSpan="2"
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
                                         TextColor="Black"
                                         VerticalOptions="Start"
                                         HorizontalOptions="Start"/>
                             </Grid>
 
-                            <Grid x:Name="RecurrenceTypeGrid"  GridLayout.Row="4" GridLayout.Column="0" VerticalOptions="Center" Margin="0, 8, 0, 0">
+                            <Grid x:Name="RecurrenceTypeGrid"  Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Margin="0, 8, 0, 0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="0.3*"/>
                                     <ColumnDefinition Width="0.7*"/>
@@ -165,22 +165,22 @@
                                 HeightRequest="25"
                                 TextColor="Black" />
 
-                                <Picker x:Name="RecurrenceTypesPicker" GridLayout.Column="1" Margin="0, 0, 10, 0"
+                                <Picker x:Name="RecurrenceTypesPicker" Grid.Column="1" Margin="0, 0, 10, 0"
                                             WidthRequest="150"
                                         HorizontalOptions="End" >
                                 </Picker>
                             </Grid>
 
-                            <Grid GridLayout.Row="4" x:Name="AllDayGrid"  GridLayout.Column="2" VerticalOptions="Center"
+                            <Grid Grid.Row="4" x:Name="AllDayGrid"  Grid.Column="2" VerticalOptions="Center"
                                               Padding="0" Margin="0, 8, 0, 0">
-                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" GridLayout.Column="1" Margin="10, 0, 0, 0">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" Grid.Column="1" Margin="10, 0, 0, 0">
                                     <CheckBox HorizontalOptions="Start" VerticalOptions="Center" x:Name="AllDayCheckBox"  />
                                     <Label HorizontalOptions="Center" VerticalOptions="Center" Text="All day" TextColor="Black"/>
                                 </StackLayout>
                             </Grid>
                         </Grid>
 
-                        <Grid Margin="24, 8, 24, 0" x:Name="colorGrid" GridLayout.Row="2" WidthRequest="242" HeightRequest="70">
+                        <Grid Margin="24, 8, 24, 0" x:Name="colorGrid" Grid.Row="2" WidthRequest="242" HeightRequest="70">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50"/>
                                 <ColumnDefinition Width="30"/>
@@ -194,7 +194,7 @@
 
                             <Label x:Name="colorLabel"
                                Text="Color"
-                               GridLayout.Column="0"
+                               Grid.Column="0"
                                VerticalOptions="End"
                                HorizontalOptions="Start"
                                WidthRequest="50"
@@ -205,7 +205,7 @@
 
                             <Frame x:Name="frameColor"
                                CornerRadius="12"
-                               GridLayout.Column="1"
+                               Grid.Column="1"
                                Margin="0"
                                Padding="0"
                                HorizontalOptions="Start" 
@@ -213,14 +213,14 @@
                                HeightRequest="12" 
                                WidthRequest="12" />
 
-                            <Picker GridLayout.Row="1" GridLayout.ColumnSpan="3" 
+                            <Picker Grid.Row="1" Grid.ColumnSpan="3" 
                                 VerticalTextAlignment="Center"  
                                 WidthRequest="242"
                                 SelectedIndex="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  
                                 x:Name="Color_Picker"/>
                         </Grid>
 
-                        <Grid GridLayout.Column="2" VerticalOptions="Start" Margin="300, 8, 24, 0" GridLayout.Row="2" WidthRequest="242" HeightRequest="70">
+                        <Grid Grid.Column="2" VerticalOptions="Start" Margin="300, 8, 24, 0" Grid.Row="2" WidthRequest="242" HeightRequest="70">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="40"/>
@@ -228,12 +228,12 @@
                             <Label Text="Time zone" HorizontalOptions="Start" VerticalOptions="Start" VerticalTextAlignment="Center" TextColor="Black" HeightRequest="20"/>
                             <Picker HorizontalOptions="Start" VerticalOptions="Start" 
                                         x:Name="TimeZonePicker" 
-                                        GridLayout.Row="1" 
+                                        Grid.Row="1" 
                                         WidthRequest="242"
-                                        GridLayout.ColumnSpan="2"/>
+                                        Grid.ColumnSpan="2"/>
                         </Grid>
 
-                        <StackLayout x:Name="NotesPanel" GridLayout.Row="4"
+                        <StackLayout x:Name="NotesPanel" Grid.Row="4"
                                     Margin="24, 0, 24, 0" Orientation="Vertical" >
 
                             <Label x:Name="DescriptionLabel"  Text="Description" Margin="0,0,0,0" 
@@ -255,7 +255,7 @@
                     </Grid>
                 </ScrollView>
                 <Grid Margin="24, 0, 24, 24" WidthRequest="516" HeightRequest="50"
-                      GridLayout.Row="2" >
+                      Grid.Row="2" >
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="75"/>
@@ -277,7 +277,7 @@
 
                     <Button x:Name="SaveAppointmentButton" 
                         Text="SAVE"
-                        GridLayout.Column="2"
+                        Grid.Column="2"
                         Padding="0"
                         Margin="5, 10, 0, 10"
                         WidthRequest="70" 
@@ -288,7 +288,7 @@
                         Background="Transparent"
                         TextColor="Black"
                         Margin="5, 10, 0, 10"
-                        GridLayout.Column="3"
+                        Grid.Column="3"
                         Padding="0"
                         Text="CANCEL"
                         WidthRequest="70" 

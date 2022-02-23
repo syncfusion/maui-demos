@@ -55,10 +55,10 @@
                 </VerticalStackLayout>
             </HorizontalStackLayout>
 
-            <GridLayout ColumnDefinitions="Auto, Auto" HorizontalOptions="Center">
-                <Label GridLayout.Column="0" Text="Inversed" Padding="5" VerticalOptions="Center" VerticalTextAlignment="Center" />
-                <CheckBox x:Name="inversedCheckBox" GridLayout.Column="1" Color="#2196F3" />
-            </GridLayout>
+            <Grid ColumnDefinitions="Auto, Auto" HorizontalOptions="Center">
+                <Label Grid.Column="0" Text="Inversed" Padding="5" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                <CheckBox x:Name="inversedCheckBox" Grid.Column="1" Color="#2196F3" />
+            </Grid>
         </VerticalStackLayout>
     </localCore:SampleView.Content>
 </localCore:SampleView>

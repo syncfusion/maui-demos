@@ -78,7 +78,7 @@ namespace SampleBrowser.Maui.Core
             {
                 this.expandImageButton.Margin = new Microsoft.Maui.Thickness(0, 3, 5, 0);
             }
-            else if (RunTimeDevice.PlatformInfo.EqualsIgnoresCase("ios") || RunTimeDevice.PlatformInfo.EqualsIgnoresCase("MacCatalyst"))
+            else if (RunTimeDevice.PlatformInfo.Equals("ios",StringComparison.OrdinalIgnoreCase) || RunTimeDevice.PlatformInfo.Equals("MacCatalyst", StringComparison.OrdinalIgnoreCase))
             {
                 this.expandImageButton.Margin = new Microsoft.Maui.Thickness(0, 3, -18, 0);
             }
@@ -93,11 +93,11 @@ namespace SampleBrowser.Maui.Core
             this.titleLabel.TextColor = Colors.Black;
             this.titleLabel.FontFamily = "Roboto";
             this.titleLabel.FontSize = 16;
-			if (RunTimeDevice.PlatformInfo.EqualsIgnoresCase("ios") || RunTimeDevice.PlatformInfo.EqualsIgnoresCase("MacCatalyst"))
+			if (RunTimeDevice.PlatformInfo.Equals("ios", StringComparison.OrdinalIgnoreCase) || RunTimeDevice.PlatformInfo.Equals("MacCatalyst", StringComparison.OrdinalIgnoreCase))
 			{
 				this.titleLabel.Margin = new Microsoft.Maui.Thickness(0,-18,0,0);
 			}
-			else if(RunTimeDevice.PlatformInfo.EqualsIgnoresCase("Android"))
+			else if(RunTimeDevice.PlatformInfo.Equals("Android", StringComparison.OrdinalIgnoreCase))
 			{
 				this.titleLabel.Margin = new Microsoft.Maui.Thickness(0,-3,0,0);
 			}
