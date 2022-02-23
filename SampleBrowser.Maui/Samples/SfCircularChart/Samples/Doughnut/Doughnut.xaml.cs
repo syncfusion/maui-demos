@@ -91,7 +91,7 @@ namespace SampleBrowser.Maui.SfCircularChart
 			if (selectedModel != null)
 			{
 				canvas.FontSize = 12;
-				canvas.SetToBoldSystemFont();
+				//canvas.SetToBoldSystemFont();
 				var txt1 = selectedModel.Name;
 				var size = txt1.Measure(12);
 

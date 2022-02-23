@@ -120,7 +120,7 @@
 
                 <localCore:CardViewExt Title="Customized column chart" x:Name="extendedCard4" HorizontalOptions="FillAndExpand" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart GridLayout.Row="0" x:Name="Chart3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart Grid.Row="0" x:Name="Chart3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:ColumnViewModelEXT/>
                             </chart:SfCartesianChart.BindingContext>

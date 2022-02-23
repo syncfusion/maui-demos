@@ -28,15 +28,15 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <Image GridLayout.Column="0" GridLayout.Row="0" Source="{Binding CategoryImage}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="{OnPlatform Android=105, Default=100}" WidthRequest="{OnPlatform Android=105, Default=100}" Aspect="Fill"/>
+                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding CategoryImage}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="{OnPlatform Android=105, Default=100}" WidthRequest="{OnPlatform Android=105, Default=100}" Aspect="Fill"/>
 
-                            <Grid GridLayout.Row="0" GridLayout.Column="1" Padding="10,0,0,0">
+                            <Grid Grid.Row="0" Grid.Column="1" Padding="10,0,0,0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Label GridLayout.Row="0" Text="{Binding CategoryName}" Margin='{OnPlatform Default="0,5,0,0", Android="0"}' LineBreakMode="WordWrap" TextColor="#DE000000" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16}" />
-                                <Label GridLayout.Row="1" LineBreakMode="WordWrap" Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}' TextColor="#99000000" LineHeight="1.2" Text="{Binding CategoryDescription}" FontFamily="Roboto-Regular" FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14}" />
+                                <Label Grid.Row="0" Text="{Binding CategoryName}" Margin='{OnPlatform Default="0,5,0,0", Android="0"}' LineBreakMode="WordWrap" TextColor="#DE000000" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16}" />
+                                <Label Grid.Row="1" LineBreakMode="WordWrap" Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}' TextColor="#99000000" LineHeight="1.2" Text="{Binding CategoryDescription}" FontFamily="Roboto-Regular" FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14}" />
                             </Grid>
                         </Grid>
                     </DataTemplate>

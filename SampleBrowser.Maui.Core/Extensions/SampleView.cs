@@ -305,7 +305,7 @@ namespace SampleBrowser.Maui.Core
                     {
                         var sampleContentView = (item as CardViewExt).MainContent;
                         expandedCardViewContent = sampleContentView;
-                        GridLayout.SetRow(sampleContentView, 1);
+                        Grid.SetRow(sampleContentView, 1);
                         this.OnExpandedViewAppearing(sampleContentView as View);
                         sampleGrid.Children.Add(sampleContentView);
                         this.Content = sampleGrid;

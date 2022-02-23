@@ -11,7 +11,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <schedule:SfScheduler x:Name="Schedule" 
-                                  GridLayout.Column="1"
+                                  Grid.Column="1"
                                  AppointmentsSource="{Binding Events}"
                                  DisplayDate="{Binding DisplayDate}"
                                  AllowedViews="Day,Week,WorkWeek,Month" 
@@ -44,15 +44,15 @@
                 </schedule:SfScheduler.BindingContext>
             </schedule:SfScheduler>
             
-                <local:AppointmentEditorView GridLayout.Column="1"
+                <local:AppointmentEditorView Grid.Column="1"
                     x:Name="AppointmentEditorView"
                     IsVisible="False" />
             
-                <local:AppointmentEditorWindow  GridLayout.Column="1"
+                <local:AppointmentEditorWindow  Grid.Column="1"
                     x:Name="AppointmentEditorWindow"
                     IsVisible="False" />
 
-            <local:RecurrenceEditingOptionView GridLayout.Column="1"
+            <local:RecurrenceEditingOptionView Grid.Column="1"
                     x:Name="RecurrenceEditingOptionView"
                     IsVisible="False" />
 
