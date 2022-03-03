@@ -25,7 +25,16 @@ namespace SampleBrowser.Maui
 			InitializeComponent();
 
 			RunTimeDeviceInfo info = new RunTimeDeviceInfo();
-			RunTimeDevice.PlatformInfo = info.GetPlatform();
+
+#if __ANDROID__
+			RunTimeDevice.PlatformInfo = "Android";
+#elif __IOS__ && __MOBILE__
+			RunTimeDevice.PlatformInfo = "iOS";
+#elif _WINDOWS_
+			RunTimeDevice.PlatformInfo = "Windows";
+#else
+			RunTimeDevice.PlatformInfo = "MacCatalyst";
+#endif
 
 #if AppCenter
             AppCenter.Start("android=40246674-ab0e-4097-92b5-dabe814e848e;" +
