@@ -24,21 +24,20 @@ namespace SampleBrowser.Maui
 		{
 			InitializeComponent();
 
-			RunTimeDeviceInfo info = new RunTimeDeviceInfo();
-
 #if __ANDROID__
 			RunTimeDevice.PlatformInfo = "Android";
-#elif __IOS__ && __MOBILE__
-			RunTimeDevice.PlatformInfo = "iOS";
-#elif _WINDOWS_
+#elif __MACCATALYST__
+			RunTimeDevice.PlatformInfo = "MACCATALYST";
+#elif WINDOWS
 			RunTimeDevice.PlatformInfo = "Windows";
 #else
-			RunTimeDevice.PlatformInfo = "MacCatalyst";
+			RunTimeDevice.PlatformInfo = "iOS";
 #endif
+
 
 #if AppCenter
             AppCenter.Start("android=40246674-ab0e-4097-92b5-dabe814e848e;" +
-                  "uwp=1b84315a-5e41-4518-a649-e533866358da;" +
+                  "uwp=4e277dd0-01f4-4746-96db-d13459b02498;" +
                  "ios=f1553bca-16a7-4e6d-b41b-097bfb39399c",
                 typeof(Analytics), typeof(Crashes));
 #endif
