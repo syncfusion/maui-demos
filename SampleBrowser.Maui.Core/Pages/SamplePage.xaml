@@ -2,9 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="SampleBrowser.Maui.Core.SamplePage" 
-             xmlns:localTabBar="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+			 xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:tab="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:localFrame="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Core">
-
+	<ContentPage.Resources>
+		<local:TextToTagsConverter x:Key="textToTagsConverter"/>
+		<local:TextToMarginConverter x:Key="textToMarginConverter"/>
+		<local:TextToPaddingConverter x:Key="textToPaddingConverter"/>
+	</ContentPage.Resources>
     <ContentPage.Content>
         <Grid x:Name="mainGrid" RowSpacing="0" ColumnSpacing="0" 
               VerticalOptions="FillAndExpand" 
@@ -16,34 +22,16 @@
                 <RowDefinition x:Name="bottomBoxView" Height="0" />
                 <RowDefinition x:Name="sampleRow" Height="*" />
             </Grid.RowDefinitions>
-            <Grid BackgroundColor="White" HorizontalOptions="FillAndExpand" 
+            <Grid x:Name="tabBarGrid"
+                  BackgroundColor="White" 
+                  HorizontalOptions="FillAndExpand" 
                   VerticalOptions="FillAndExpand">
-                <localTabBar:TabBar x:Name="TabBar"
-                                      Margin="10,0,0,0"
-                                      SelectedIndexChanged="TabBar_SelectedIndexChanged">
-                    <localTabBar:TabBar.ItemDataTemplate>
-                        <DataTemplate>
-                            <Grid Padding="15,0,15,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <Label FontSize="16" 
-                                       FontFamily="Roboto Medium"
-                                       Text="{Binding Title}" 
-                                       TextColor="#6200EE" 
-                                       HorizontalOptions="CenterAndExpand" 
-                                       VerticalOptions="CenterAndExpand"
-                                       Grid.Column="1" 
-                                       HorizontalTextAlignment="Center" 
-                                       VerticalTextAlignment="Center" 
-                                       LineBreakMode="TailTruncation" />
-                            </Grid>
-                        </DataTemplate>
-                    </localTabBar:TabBar.ItemDataTemplate>
-                </localTabBar:TabBar>
+                <tab:SfTabView x:Name="tabView" 
+                               TabWidthMode="SizeToContent" 
+                               IndicatorBackground="#6200EE" 
+                               SelectionChanged="TabBar_SelectedIndexChanged" />
             </Grid>
-            <Grid GridLayout.Row="1" HeightRequest="20" >
+            <Grid Grid.Row="1" HeightRequest="20" >
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#F2F2F2"
@@ -53,41 +41,45 @@
                     </LinearGradientBrush>
                 </Grid.Background>
             </Grid>
-            <Grid GridLayout.Row="2" Padding="7,0,0,0" >
-                <CollectionView x:Name="bottomSampleListView" 
+            <Grid Grid.Row="2" Padding="7,0,0,0" >
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" >
+                <HorizontalStackLayout x:Name="bottomSampleListView" 
                             BackgroundColor="Transparent"
                             HeightRequest="38"
                             HorizontalOptions="FillAndExpand"
-					        VerticalOptions="FillAndExpand"
-                            ItemsUpdatingScrollMode="KeepItemsInView"
-                            SelectionMode="None" >
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Horizontal" />
-                    </CollectionView.ItemsLayout>
-
-                    <CollectionView.ItemTemplate>
+					        VerticalOptions="FillAndExpand">
+                    <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="8,0,7,0" HorizontalOptions="Center" HeightRequest="38" VerticalOptions="Center">
+                            <Grid Padding="8,0,7,0" HorizontalOptions="Center" HeightRequest="36" VerticalOptions="Center">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureTapped" />
                                 </Grid.GestureRecognizers>
-                                <BoxView BackgroundColor="White" Margin="-15,0,-15,0"/>
-                                <BoxView BackgroundColor="{Binding BackgroundColor}" CornerRadius="20" />
-                                <Frame HasShadow="False" BackgroundColor="Transparent" BorderColor="#CCCCCC" CornerRadius="20" />
-                                <Label FontSize="16" Padding="15,5,15,5"
-                                   FontFamily="Roboto Medium"
-                                   Text="{Binding Title}" 
-                                   TextColor="#666666" 
-                                   HorizontalOptions="Center" 
-                                   VerticalOptions="Center"
-                                   HorizontalTextAlignment="Center" 
-                                   VerticalTextAlignment="Center"  />
+                                
+                                <Frame HasShadow="False" BackgroundColor="{Binding BackgroundColor}" BorderColor="#CCCCCC" CornerRadius="20" />
+								<Frame HasShadow="False" BackgroundColor="Transparent"  BorderColor="#CCCCCC" CornerRadius="20" />
+									<core:SfBadgeView x:Name="badgeView" BadgeText="{Binding UpdateType, Converter={StaticResource textToTagsConverter}}">
+											<core:SfBadgeView.BadgeSettings>
+										<core:BadgeSettings Type="None" Background="#6200EE" Offset="-7,0" Position="Right" FontSize="{OnPlatform Default='12', UWP='10' }" TextPadding="{OnPlatform Default='5', UWP='1' }"/>
+									</core:SfBadgeView.BadgeSettings>
+									<local:CustomLabel FontSize="16" Padding="{Binding UpdateType, Converter={StaticResource textToPaddingConverter}}" 
+										Margin="{Binding UpdateType, Converter={StaticResource textToMarginConverter}}"
+										FontFamily="Roboto Medium"
+										Text="{Binding Title}"
+					                    LineBreakMode="NoWrap"
+										TextColor="#666666" 
+										HorizontalOptions="Center" 
+										VerticalOptions="Center"
+										HorizontalTextAlignment="Center" 
+										VerticalTextAlignment="Center"  />
+										
+									</core:SfBadgeView>
                             </Grid>
                         </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+                </ScrollView>
             </Grid>
-            <Grid BackgroundColor="White" HorizontalOptions="FillAndExpand" GridLayout.Row="3" />
+            <Grid BackgroundColor="White" HorizontalOptions="FillAndExpand" Grid.Row="3" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
