@@ -1,49 +1,24 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using Microsoft.Maui.Controls;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfCartesianChart
 {
     public class SplineSeriesViewModel : BaseViewModel
     {
-        private bool canStopTimer;
         public ObservableCollection<ChartDataModel> SplineData1 { get; set; }
         public ObservableCollection<ChartDataModel> DashedData { get; set; }
 
-        private ObservableCollection<ChartDataModel> motionAnimation;
-        public ObservableCollection<ChartDataModel> MotionAnimation
-        {
-            get { return motionAnimation; }
-            set
-            {
-                motionAnimation = value;
-                OnPropertyChanged("MotionAnimation");
-            }
-        }
-
         public SplineSeriesViewModel()
         {
-            var r = new Random();
-            var data = new ObservableCollection<ChartDataModel>();
-            for (int i = 0; i < 10; i++)
-            {
-                data.Add(new ChartDataModel(i, r.Next(5, 90)));
-            }
-
-            MotionAnimation = data;
-
             DashedData = new ObservableCollection<ChartDataModel>()
             {
                  new ChartDataModel(1997,
@@ -99,36 +74,6 @@ namespace SampleBrowser.Maui.SfCartesianChart
                  new ChartDataModel("Nov", 50, 43),
                  new ChartDataModel("Dec", 45, 37),
             };
-        }
-
-        public void StopTimer()
-        {
-            canStopTimer = true;
-        }
-
-        public async void StartTimer()
-        {
-            StopTimer();
-            await Task.Delay(500);
-            Device.StartTimer(new TimeSpan(0, 0, 0, 2, 0), UpdateData);
-
-            canStopTimer = false;
-        }
-
-        private bool UpdateData()
-        {
-            if (canStopTimer) return false;
-
-            var r = new Random();
-            var data = new ObservableCollection<ChartDataModel>();
-            for (int i = 0; i < 10; i++)
-            {
-                data.Add(new ChartDataModel(i, r.Next(5, 90)));
-            }
-
-            MotionAnimation = data;
-
-            return true;
         }
     }
 }

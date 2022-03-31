@@ -1,31 +1,28 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.Gauges;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace SampleBrowser.Maui.SfRadialGauge
 {
     public partial class Interaction : SampleView
     {
-        private RadialRangeSliderViewModel viewModel;
+        private readonly RadialRangeSliderViewModel? viewModel;
         public Interaction()
         {
             InitializeComponent();
-            viewModel = radialRangeSlider.BindingContext as RadialRangeSliderViewModel;
+
+            if (radialRangeSlider != null && radialRangeSlider.BindingContext is RadialRangeSliderViewModel)
+                viewModel = radialRangeSlider.BindingContext as RadialRangeSliderViewModel;
         }
 
         private void rangePointer_ValueChanging(object sender, ValueChangingEventArgs e)
@@ -44,33 +41,43 @@ namespace SampleBrowser.Maui.SfRadialGauge
 
         private void firstMarker_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            this.range.StartValue = this.viewModel.FirstMarkerValue = e.Value;
-            double value = Math.Abs(this.viewModel.FirstMarkerValue - this.viewModel.SecondMarkerValue);
-            this.CalculateMinutes(value);
+            if (this.viewModel != null)
+            {
+                this.range.StartValue = this.viewModel.FirstMarkerValue = e.Value;
+                double value = Math.Abs(this.viewModel.FirstMarkerValue - this.viewModel.SecondMarkerValue);
+                this.CalculateMinutes(value);
+            }
         }
 
         private void firstMarker_ValueChanging(object sender, ValueChangingEventArgs e)
         {
-            var context = (sender as MarkerPointer).BindingContext as RadialRangeSliderViewModel;
-            if (e.NewValue >= context.SecondMarkerValue || Math.Abs(e.NewValue - context.FirstMarkerValue) > 1)
+            if (sender is MarkerPointer pointer && pointer.BindingContext is RadialRangeSliderViewModel context)
             {
-                e.Cancel = true;
+                if (e.NewValue >= context.SecondMarkerValue || Math.Abs(e.NewValue - context.FirstMarkerValue) > 1)
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
         private void secondMarker_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            this.range.EndValue = this.viewModel.SecondMarkerValue = e.Value;
-            double value = Math.Abs(this.viewModel.SecondMarkerValue - this.viewModel.FirstMarkerValue);
-            this.CalculateMinutes(value);
+            if (this.viewModel != null)
+            {
+                this.range.EndValue = this.viewModel.SecondMarkerValue = e.Value;
+                double value = Math.Abs(this.viewModel.SecondMarkerValue - this.viewModel.FirstMarkerValue);
+                this.CalculateMinutes(value);
+            }
         }
 
         private void secondMarker_ValueChanging(object sender, ValueChangingEventArgs e)
         {
-            var context = (sender as MarkerPointer).BindingContext as RadialRangeSliderViewModel;
-            if (e.NewValue <= context.FirstMarkerValue || Math.Abs(e.NewValue - context.SecondMarkerValue) > 1)
+            if (sender is MarkerPointer pointer && pointer.BindingContext is RadialRangeSliderViewModel context)
             {
-                e.Cancel = true;
+                if (e.NewValue <= context.FirstMarkerValue || Math.Abs(e.NewValue - context.SecondMarkerValue) > 1)
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
@@ -86,7 +93,23 @@ namespace SampleBrowser.Maui.SfRadialGauge
 
             string hourValue = isHourSingleDigit ? "0" + hour : hour.ToString(CultureInfo.CurrentCulture);
             string minutesValue = isMinuteSingleDigit ? "0" + min : min.ToString(CultureInfo.CurrentCulture);
-            this.viewModel.AnnotationString = hourValue + "hr " + minutesValue + "m";
+            if (this.viewModel != null)
+                this.viewModel.AnnotationString = hourValue + "hr " + minutesValue + "m";
+        }
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            radialSliderGauge.Handler?.DisconnectHandler();
+            radialRangeSlider.Handler?.DisconnectHandler();
+        }
+
+        public override void OnExpandedViewDisappearing(Microsoft.Maui.Controls.View view)
+        {
+            base.OnExpandedViewDisappearing(view);
+
+            view.Handler?.DisconnectHandler();
         }
     }
     public class RadialRangeSliderViewModel : INotifyPropertyChanged
@@ -126,11 +149,13 @@ namespace SampleBrowser.Maui.SfRadialGauge
             set
             {
                 this.annotationString = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AnnotationString"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AnnotationString)));
             }
         }
 
+#nullable disable
         public event PropertyChangedEventHandler PropertyChanged;
+#nullable enable
     }
 
 }

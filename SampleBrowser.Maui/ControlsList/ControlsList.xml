@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Samples>
-	<Group Title="Cartesian Chart" CategoryName="Data Visualization" ImageId="cartesianchart" ControlName="SfCartesianChart" Description="Plot over 7 chart types with extensive features like data label, tooltip, selection and zooming."  />
-	<Group Title="Circular Chart" CategoryName="Data Visualization" ImageId="circularchart" ControlName="SfCircularChart" Description="Visualize the data using pie and doughnut charts."  />
-	<Group Title="Tab View" CategoryName="Navigation" ImageId="tabview" ControlName="SfTabView" Description="A simple tab navigation interface that allows users to explore and switch tabs." />
-	<Group Title="Radial Gauge" CategoryName="Data Visualization" ImageId="radialgauge" ControlName="SfRadialGauge" Description="Visualize numeric data using circular gauge control."  />
+  <Group Title="Cartesian Chart" CategoryName="Data Visualization" ImageId="cartesianchart.png" ControlName="SfCartesianChart" Description="Plot over 7 chart types with extensive features like data label, and zooming." TagType="" />
+  <Group Title="Circular Chart" CategoryName="Data Visualization" ImageId="circularchart.png" ControlName="SfCircularChart" Description="Visualize the data using pie and doughnut charts." TagType="" />
+  <Group Title="Tab View" CategoryName="Navigation" ImageId="tabview.png" ControlName="SfTabView" Description="A simple tab navigation interface that allows users to explore and switch tabs." TagType="" />
+  <Group Title="Radial Gauge" CategoryName="Data Visualization" ImageId="radialgauge.png" ControlName="SfRadialGauge" Description="Visualize one or multiple measures on a circular scale with pointers and ranges." TagType="" />
+  <Group Title="Linear Gauge" CategoryName="Data Visualization" ImageId="lineargauge.png" ControlName="SfLinearGauge" Description="Visualize one or multiple measures on a linear scale with pointers and ranges." TagType="New" />
+  <Group Title="Barcode Generator" CategoryName="Data Visualization" ImageId="barcode.png" ControlName="Barcodes" Description="Generate and display data in machine-readable 1D and 2D barcodes." TagType="New" />
+  <Group Title="ListView" CategoryName="Layout" ImageId="listview.png" ControlName="SfListView" Description="Displays the set of data items in different layouts or views and in groups."  TagType="Updated"  />
+  <Group Title="Range Selector" CategoryName="Sliders" ImageId="rangeselector.png" ControlName="RangeSelector" Description="Visualize data and select a date or numeric range." TagType="New"  />
+  <Group Title="Slider" CategoryName="Sliders" ImageId="slider.png" ControlName="Slider" Description="The horizontal slider enables you to select a date or a numeric value." TagType="Updated"  />
+  <Group Title="Range Slider" CategoryName="Sliders" ImageId="rangeslider.png" ControlName="RangeSlider" Description="The horizontal range slider enables you to select a date or a numeric range." TagType="Updated"  />
+  <Group Title="Vertical Slider" CategoryName="Sliders" ImageId="verticalslider.png" ControlName="VerticalSlider" Description="The vertical slider enables you to select a date or a numeric value."  TagType="Updated"  />
+  <Group Title="Vertical Range Slider" CategoryName="Sliders" ImageId="verticalrangeslider.png" ControlName="VerticalRangeSlider" Description="The vertical range slider enables you to select a date or a numeric range." TagType="Updated" />
+  <Group Title="Radial Slider" CategoryName="Sliders" ImageId="radialslider.png" ControlName="RadialSlider" Description="Selects a numeric value in a radial scale. Designed using radial gauge control."  TagType="New"  />
+  <Group Title="Radial Range Slider" CategoryName="Sliders" ImageId="radialrangeslider.png" ControlName="RadialRangeSlider" Description="Selects a numeric range in a radial scale. Designed using radial gauge control." TagType="New" />
+  <Group Title="Scheduler" CategoryName="Calendar" ImageId="scheduler.png" ControlName="SfScheduler" Description="Allows you to easily visualize and schedule appointments."  TagType="Updated"  />
+  <Group Title="Effects View" CategoryName="Miscellaneous" ImageId="effectsview.png" ControlName="SfEffectsView" Description="Provides ripple, highlight, scaling and rotation effects for any view." TagType="" />
+  <Group Title="Badge View" CategoryName="Notification" ImageId="badgeview.png" ControlName="SfBadgeView" Description="Badge shows a circle or rectangle which contain a number or message."  TagType="Updated"  />
+  <Group Title="DocIO" CategoryName="File Formats" ImageId="docio.png" ControlName="DocIO" Description="A .NET Word library to create, read, and edit Word documents programmatically."  TagType=""  />
+  <Group Title="PDF" CategoryName="File Formats" ImageId="essentialpdf.png" ControlName="Pdf" Description="A .NET PDF library to create, read, and edit PDF files programmatically." TagType="Updated"  />
+  <Group Title="Presentation" CategoryName="File Formats" ImageId="presentation.png" ControlName="Presentation" Description="A .NET PowerPoint library to create, read, and edit PowerPoint files programmatically." TagType=""  />
+  <Group Title="XlsIO" CategoryName="File Formats" ImageId="xlsio.png" ControlName="XlsIO" Description="A .NET Excel library to create, read, and edit Excel documents programmatically." TagType="" />
 </Samples>

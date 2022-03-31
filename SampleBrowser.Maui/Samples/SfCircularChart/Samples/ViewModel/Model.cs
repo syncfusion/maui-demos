@@ -1,26 +1,22 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfCircularChart
 {
     public class ChartDataModel
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public double Data { get; set; }
 
-        public string Label { get; set; }
+        public string? Label { get; set; }
         public DateTime Date { get; set; }
 
         public double Value { get; set; }
@@ -35,9 +31,9 @@ namespace SampleBrowser.Maui.SfCircularChart
 
         public bool IsSummary { get; set; }
 
-        public string Department { get; set; }
+        public string? Department { get; set; }
 
-        public List<double> EmployeeAges { get; set; }
+        public List<double>? EmployeeAges { get; set; }
 
         public ChartDataModel(string department, List<double> employeeAges)
         {
@@ -66,6 +62,10 @@ namespace SampleBrowser.Maui.SfCircularChart
             Size = size;
         }
 
+        public ChartDataModel()
+        {
+
+        }
         public ChartDataModel(DateTime date, double value, double size)
         {
             Date = date;

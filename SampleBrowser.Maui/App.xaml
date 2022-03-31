@@ -3,7 +3,7 @@
              xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
              xmlns:local="clr-namespace:SampleBrowser.Maui"
              x:Class="SampleBrowser.Maui.App"
-             windows:Application.ImageDirectory="Assets">
+             >
     <Application.Resources>
         <ResourceDictionary>
 
@@ -13,6 +13,7 @@
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
                 <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontAutoScalingEnabled" Value="False"/>
             </Style>
 
             <Style TargetType="Button">
@@ -20,6 +21,11 @@
                 <Setter Property="FontFamily" Value="Roboto" />
                 <Setter Property="BackgroundColor" Value="#2b0b98" />
                 <Setter Property="Padding" Value="14,10" />
+                <Setter Property="FontAutoScalingEnabled" Value="False"/>
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="FontAutoScalingEnabled" Value="False"/>
             </Style>
 
         </ResourceDictionary>

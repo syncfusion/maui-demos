@@ -8,17 +8,80 @@
                       Background="White">
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
-            <VerticalStackLayout Background="White">
+            <localCore:WrapLayout Background="White">
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Axis background">
+                    <localCore:CardViewExt.MainContent>
+                        <gauge:SfRadialGauge x:Name="axisBackgroundGauge">
+                            <gauge:SfRadialGauge.Axes>
+                                <gauge:RadialAxis ShowAxisLine="False"
+                                          RadiusFactor="1"
+                                          CanRotateLabels="True"
+                                          TickOffset="0.32"
+                                          OffsetUnit="Factor"
+                                          LabelCreated="RadialAxis_LabelCreated"
+                                          StartAngle="270"
+                                          EndAngle="270"
+                                          LabelOffset="0.05"
+                                          Maximum="360"
+                                          Minimum="0"
+                                          Interval="30"
+                                          MinorTicksPerInterval="4">
+                                    <gauge:RadialAxis.AxisLabelStyle>
+                                        <gauge:GaugeLabelStyle TextColor="White" FontSize="11"/>
+                                    </gauge:RadialAxis.AxisLabelStyle>
+                                    <gauge:RadialAxis.MajorTickStyle>
+                                        <gauge:RadialTickStyle Length="0.087" LengthUnit="Factor" 
+                                               Stroke="#FF949494" StrokeThickness="2.3"/>
+                                    </gauge:RadialAxis.MajorTickStyle>
+                                    <gauge:RadialAxis.MinorTickStyle>
+                                        <gauge:RadialTickStyle Length="0.058" LengthUnit="Factor"
+                                               Stroke="#FF616161" StrokeThickness="1.6"/>
+                                    </gauge:RadialAxis.MinorTickStyle>
+
+                                    <gauge:RadialAxis.BackgroundContent>
+                                        <Image  Source="gaugebackground.png"/>
+                                    </gauge:RadialAxis.BackgroundContent>
+
+                                    <gauge:RadialAxis.Pointers>
+                                        <gauge:ShapePointer Value="90"
+                                                     Fill="#FFDF5F2D"
+                                                     EnableAnimation="True"
+                                                     AnimationDuration="1200"
+                                                      AnimationEasing="{x:Static Easing.SpringOut}"
+                                                     Offset="0.71"
+                                                     OffsetUnit="Factor"
+                                                     ShapeType="Triangle"
+                                                     ShapeHeight="10"
+                                                     ShapeWidth="15">
+                                        </gauge:ShapePointer>
+                                    </gauge:RadialAxis.Pointers>
+
+                                    <gauge:RadialAxis.Annotations>
+                                        <gauge:GaugeAnnotation DirectionValue="270">
+                                            <gauge:GaugeAnnotation.Content>
+                                                <Label Text="90" TextColor="#FFDF5F2D"
+                                                   FontAttributes="Bold"
+                                                   FontSize="22" />
+                                            </gauge:GaugeAnnotation.Content>
+                                        </gauge:GaugeAnnotation>
+                                    </gauge:RadialAxis.Annotations>
+                                </gauge:RadialAxis>
+                            </gauge:SfRadialGauge.Axes>
+                        </gauge:SfRadialGauge>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+                
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Default view">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="defaultViewGauge">
                             <gauge:SfRadialGauge.Axes>
-                                <gauge:RadialAxis Interval="10">
+                                <gauge:RadialAxis Interval="10" EnableLoadingAnimation="True">
                                    
                                     <gauge:RadialAxis.Pointers>
                                         <gauge:NeedlePointer x:Name="defaultViewAxisNeedlePointer"
-                                                             EnableAnimation="True"
                                                              NeedleLengthUnit="Factor"
                                                              NeedleLength="0.7"
                                                              Value="70"
@@ -39,7 +102,7 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Multiple axis">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="multipleAxisGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis Minimum="32"
                                                   Maximum="212"
@@ -125,7 +188,7 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Label customization">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="labelCustomizationGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis StartAngle="180"
                                                   EndAngle="360"
@@ -133,6 +196,7 @@
                                                   Maximum="1"
                                                   RadiusFactor="0.7"
                                                   LabelPosition="Outside"
+                                                  LabelOffset="15" OffsetUnit="Pixel"
                                                   MinorTicksPerInterval="5"
                                                   LabelFormat="p0">
                                     <gauge:RadialAxis.AxisLineStyle>
@@ -177,7 +241,7 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Tick customization">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="tickCustomizationGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis ShowAxisLine="False"
                                                   ShowLastLabel="False"
@@ -228,19 +292,18 @@
                 <localCore:CardViewExt HeightRequest="425"
                                        Title="Custom scale">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="customScaleGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <local:RadialAxisExt Minimum="0"
                                                      Maximum="150"
-                                                     ShowTicks="False">
+                                                     ShowTicks="False" 
+                                                     EnableLoadingAnimation="True">
                                     <gauge:RadialAxis.AxisLineStyle>
                                         <gauge:RadialLineStyle ThicknessUnit="Factor"
                                                              Thickness="0.15" />
                                     </gauge:RadialAxis.AxisLineStyle>
                                     <gauge:RadialAxis.Pointers>
-                                        <gauge:NeedlePointer EnableAnimation="True"
-                                                             AnimationEasing="{x:Static Easing.CubicInOut}"
-                                                             Value="60"
+                                        <gauge:NeedlePointer Value="60"
                                                              NeedleLengthUnit="Factor"
                                                              NeedleLength="0.8"
                                                              NeedleStartWidth="10"
@@ -256,9 +319,7 @@
                                                 </LinearGradientBrush>
                                             </gauge:NeedlePointer.NeedleFill>
                                         </gauge:NeedlePointer>
-                                        <gauge:RangePointer EnableAnimation="True"
-                                                            AnimationEasing="{x:Static Easing.CubicInOut}"
-                                                            Value="60"
+                                        <gauge:RangePointer Value="60"
                                                             PointerWidth="0.15"
                                                             WidthUnit="Factor">
                                             <gauge:RangePointer.GradientStops>
@@ -276,9 +337,57 @@
                 </localCore:CardViewExt>
 
                 <localCore:CardViewExt HeightRequest="425"
+                                       Title="Custom labels">
+                    <localCore:CardViewExt.MainContent>
+                        <gauge:SfRadialGauge x:Name="customlabelsGauge">
+                            <gauge:SfRadialGauge.Axes>
+                                <gauge:RadialAxis StartAngle="270" EndAngle="270" ShowFirstLabel="False" 
+                                                  Minimum="0" Maximum="80" Interval="10"
+                                                  CanRotateLabels="True" MinorTicksPerInterval="0"
+                                                  LabelCreated="RadialAxis_LabelCreated1">
+                                    <gauge:RadialAxis.AxisLineStyle>
+                                        <gauge:RadialLineStyle Thickness="0.1" ThicknessUnit="Factor"/>
+                                    </gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialAxis.Pointers>
+                                        <gauge:NeedlePointer x:Name="compassPointer1" Value="70" NeedleLengthUnit="Factor" NeedleLength="0.55"
+                                                             NeedleEndWidth="25"  KnobRadius="16" KnobSizeUnit="Pixel"
+                                                             KnobFill="White" >
+                                            <gauge:NeedlePointer.NeedleFill>
+                                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                                    <LinearGradientBrush.GradientStops>
+                                                        <GradientStop Color="#FFFF6B78" Offset="0"/>
+                                                        <GradientStop Color="#FFFF6B78" Offset="0.5"/>
+                                                        <GradientStop Color="#FFE20A22" Offset="0.5"/>
+                                                        <GradientStop Color="#FFE20A22" Offset="1"/>
+                                                    </LinearGradientBrush.GradientStops>
+                                                </LinearGradientBrush>
+                                            </gauge:NeedlePointer.NeedleFill>
+                                        </gauge:NeedlePointer>
+                                        <gauge:NeedlePointer x:Name="compassPointer2" Value="30" NeedleLengthUnit="Factor" NeedleLength="0.55"
+                                                             NeedleEndWidth="25" KnobRadius="16" KnobSizeUnit="Pixel"
+                                                             KnobFill="White">
+                                            <gauge:NeedlePointer.NeedleFill>
+                                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                                    <LinearGradientBrush.GradientStops>
+                                                        <GradientStop Color="#FFE3DFDF" Offset="0"/>
+                                                        <GradientStop Color="#FFE3DFDF" Offset="0.5"/>
+                                                        <GradientStop Color="#FF7A7A7A" Offset="0.5"/>
+                                                        <GradientStop Color="#FF7A7A7A" Offset="1"/>
+                                                    </LinearGradientBrush.GradientStops>
+                                                </LinearGradientBrush>
+                                            </gauge:NeedlePointer.NeedleFill>
+                                        </gauge:NeedlePointer>
+                                    </gauge:RadialAxis.Pointers>
+                                </gauge:RadialAxis>
+                            </gauge:SfRadialGauge.Axes>
+                        </gauge:SfRadialGauge>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
                                        Title="Range color for axis">
                     <localCore:CardViewExt.MainContent>
-                        <gauge:SfRadialGauge>
+                        <gauge:SfRadialGauge x:Name="rangeColorGauge">
                             <gauge:SfRadialGauge.Axes>
                                 <gauge:RadialAxis ShowAxisLine="False"
                                                   TickPosition="Outside"
@@ -337,7 +446,7 @@
                         </gauge:SfRadialGauge>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-            </VerticalStackLayout>
+            </localCore:WrapLayout>
         </localCore:ScrollViewExt>
     </localCore:SampleView.Content>
 </localCore:SampleView>

@@ -48,8 +48,15 @@
                 <tabView:SfTabView.Items>
                     <tabView:SfTabItem Header="FAVOURITES">
                         <tabView:SfTabItem.Content>
-                            <Grid Padding="16,8,16,32" HorizontalOptions="Center" RowDefinitions="*,*,*" ColumnDefinitions="*,*" RowSpacing="10" ColumnSpacing="10">
-                                <Grid GridLayout.Row="0" GridLayout.Column="0" >
+                            <Grid HorizontalOptions="Center" RowDefinitions="*,*,*" ColumnDefinitions="*,*" RowSpacing="10" ColumnSpacing="10">
+                                <Grid.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="UWP" Value="16,0,32,48"/>
+                                        <On Platform="Android" Value="16,8,16,44"/>
+                                        <On Platform="iOS" Value="16,8,24,44"/>
+                                    </OnPlatform>
+                                </Grid.Padding>
+                                <Grid Grid.Row="0" Grid.Column="0" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -59,9 +66,9 @@
                                                VerticalOptions="Center" 
                                                HorizontalOptions="Center" 
                                                Padding="0" >
-                                            <Image Source="alexandar" />
+                                            <Image Source="alexandar.png" />
                                         </Frame>
-                                        <Label GridLayout.Row="1" 
+                                        <Label Grid.Row="1" 
                                                FontSize="Medium" 
                                                FontAttributes="Bold" 
                                                Text="James" 
@@ -70,7 +77,7 @@
                                                HorizontalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
-                                <Grid GridLayout.Row="0" GridLayout.Column="1" >
+                                <Grid Grid.Row="0" Grid.Column="1" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -80,9 +87,9 @@
                                                VerticalOptions="Center" 
                                                HorizontalOptions="Center" 
                                                Padding="0" >
-                                            <Image Source="clara" />
+                                            <Image Source="clara.png" />
                                         </Frame>
-                                        <Label GridLayout.Row="1" 
+                                        <Label Grid.Row="1" 
                                                FontSize="Medium" 
                                                FontAttributes="Bold" 
                                                Text="Clara" 
@@ -91,7 +98,7 @@
                                                HorizontalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
-                                <Grid GridLayout.Row="1" GridLayout.Column="0" >
+                                <Grid Grid.Row="1" Grid.Column="0" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -100,16 +107,16 @@
                                                HeightRequest="76" 
                                                VerticalOptions="Center" 
                                                HorizontalOptions="Center" Padding="0" >
-                                            <Image Source="jackson" />
+                                            <Image Source="jackson.png" />
                                         </Frame>
-                                        <Label GridLayout.Row="1" 
+                                        <Label Grid.Row="1" 
                                                FontSize="Medium" 
                                                FontAttributes="Bold" 
                                                Text="Michael" 
                                                TextColor="Black" VerticalOptions="End" HorizontalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
-                                <Grid GridLayout.Row="1" GridLayout.Column="1" >
+                                <Grid Grid.Row="1" Grid.Column="1" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -119,9 +126,9 @@
                                                VerticalOptions="Center" 
                                                HorizontalOptions="Center" 
                                                Padding="0" >
-                                            <Image Source="nora" />
+                                            <Image Source="nora.png" />
                                         </Frame>
-                                        <Label GridLayout.Row="1" 
+                                        <Label Grid.Row="1" 
                                                FontSize="Medium" 
                                                FontAttributes="Bold" 
                                                Text="Nora" 
@@ -130,7 +137,7 @@
                                                HorizontalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
-                                <Grid GridLayout.Row="2" GridLayout.Column="0" >
+                                <Grid Grid.Row="2" Grid.Column="0" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -140,9 +147,9 @@
                                                VerticalOptions="Center" 
                                                HorizontalOptions="Center" 
                                                Padding="0" >
-                                            <Image Source="tye" />
+                                            <Image Source="tye.png" />
                                         </Frame>
-                                        <Label GridLayout.Row="1" 
+                                        <Label Grid.Row="1" 
                                                FontSize="Medium" 
                                                FontAttributes="Bold" 
                                                Text="Alex" 
@@ -157,84 +164,71 @@
                     <tabView:SfTabItem Header="RECENTS">
                         <tabView:SfTabItem.Content>
                             <Grid>
-                                <Grid GridLayout.Row="1" VerticalOptions="End"  HeightRequest="20">
-                                    <Grid.Background>
-                                        <LinearGradientBrush EndPoint="0,1">
-                                            <GradientStop Color="#FFFFFF" Offset="0.1" />
-                                            <GradientStop Color="#EAEAEA" Offset="0.8" />
-                                            <GradientStop Color="#E5E5E5" Offset="1.0" />
-                                        </LinearGradientBrush>
-                                    </Grid.Background>
+                                <Grid Grid.Row="1" VerticalOptions="End"  HeightRequest="20">
                                 </Grid>
-                                <ListView RowHeight="50" SelectionMode="None">
-                                    <ListView.ItemsSource>
-                                        <x:Array Type="{x:Type x:String}">
-                                            <x:String>James</x:String>
-                                            <x:String>Richard</x:String>
-                                            <x:String>Michael</x:String>
-                                            <x:String>Alex</x:String>
-                                            <x:String>Clara</x:String>
-                                            <x:String>Steve</x:String>
-                                            <x:String>James</x:String>
-                                            <x:String>Alex</x:String>
-                                            <x:String>James</x:String>
-                                            <x:String>James</x:String>
-                                            <x:String>Richard</x:String>
-                                            <x:String>Michael</x:String>
-                                            <x:String>Alex</x:String>
-                                            <x:String>Clara</x:String>
-                                            <x:String>Steve</x:String>
-                                            <x:String>James</x:String>
-                                            <x:String>Alex</x:String>
-                                            <x:String>James</x:String>
-                                        </x:Array>
-                                    </ListView.ItemsSource>
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <ViewCell>
+                                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                    <VerticalStackLayout>
+                                        <BindableLayout.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>James</x:String>
+                                                <x:String>Richard</x:String>
+                                                <x:String>Michael</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>Clara</x:String>
+                                                <x:String>Steve</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Richard</x:String>
+                                                <x:String>Michael</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>Clara</x:String>
+                                                <x:String>Steve</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>James</x:String>
+                                            </x:Array>
+                                        </BindableLayout.ItemsSource>
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
                                                 <Grid ColumnDefinitions="48,*,48" Margin="10,5">
-                                                    <Image GridLayout.Column="0" 
+                                                    <Image Grid.Column="0" 
                                                            WidthRequest="35" 
                                                            HeightRequest="35"
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Center" 
                                                            Aspect="AspectFit"
-                                                           Source="incoming"/>
-                                                    <Label GridLayout.Column="1" 
+                                                           Source="incoming.png"/>
+                                                    <Label Grid.Column="1" 
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Start" 
                                                            TextColor="#666666"
                                                            FontSize="16" 
                                                            Text="{Binding}"/>
-                                                    <Image GridLayout.Column="2" 
+                                                    <Image Grid.Column="2" 
                                                            WidthRequest="40" 
                                                            HeightRequest="40"
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Center" 
                                                            Aspect="AspectFit"
-                                                           Source="sim"/>
+                                                           Source="sim.png"/>
                                                 </Grid>
-                                            </ViewCell>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </VerticalStackLayout>
+                                </ScrollView>
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
                     <tabView:SfTabItem Header="CONTACTS">
                         <tabView:SfTabItem.Content>
                             <Grid>
-                                <Grid GridLayout.Row="1" VerticalOptions="End"  HeightRequest="20">
-                                    <Grid.Background>
-                                        <LinearGradientBrush EndPoint="0,1">
-                                            <GradientStop Color="Transparent" Offset="0.1" />
-                                            <GradientStop Color="#EAEAEA" Offset="0.8" />
-                                            <GradientStop Color="#E5E5E5" Offset="1.0" />
-                                        </LinearGradientBrush>
-                                    </Grid.Background>
+                                <Grid Grid.Row="1" VerticalOptions="End"  HeightRequest="20">
                                 </Grid>
-                                <ListView RowHeight="50" SelectionMode="None">
-                                    <ListView.ItemsSource>
+                                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                    <VerticalStackLayout>
+                                        <BindableLayout.ItemsSource>
                                         <x:Array Type="{x:Type x:String}">
                                             <x:String>James</x:String>
                                             <x:String>Richard</x:String>
@@ -255,44 +249,43 @@
                                             <x:String>Alex</x:String>
                                             <x:String>James</x:String>
                                         </x:Array>
-                                    </ListView.ItemsSource>
-                                    <ListView.ItemTemplate>
+                                    </BindableLayout.ItemsSource>
+                                        <BindableLayout.ItemTemplate>
                                         <DataTemplate>
-                                            <ViewCell>
                                                 <Grid ColumnDefinitions="48,*,48,48" Margin="10,5">
-                                                    <Image GridLayout.Column="0" 
+                                                    <Image Grid.Column="0" 
                                                            WidthRequest="35" 
                                                            HeightRequest="35"
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Center" 
                                                            Aspect="AspectFit"
-                                                           Source="contact_image"/>
-                                                    <Label GridLayout.Column="1" 
+                                                           Source="contact_image.png"/>
+                                                    <Label Grid.Column="1" 
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Start" 
                                                            Margin="5,0"
                                                            TextColor="#666666"
                                                            FontSize="16" 
                                                            Text="{Binding}"/>
-                                                    <Image GridLayout.Column="2" 
+                                                    <Image Grid.Column="2" 
                                                            WidthRequest="35" 
                                                            HeightRequest="35"
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Center" 
                                                            Aspect="AspectFit"
-                                                           Source="mail"/>
-                                                    <Image GridLayout.Column="3" 
+                                                           Source="mail.png"/>
+                                                    <Image Grid.Column="3" 
                                                            WidthRequest="35" 
                                                            HeightRequest="35"
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Center" 
                                                            Aspect="AspectFit"
-                                                           Source="call1"/>
+                                                           Source="call1.png"/>
                                                 </Grid>
-                                            </ViewCell>
                                         </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
+                                    </BindableLayout.ItemTemplate>
+                                    </VerticalStackLayout>
+                                </ScrollView>
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>

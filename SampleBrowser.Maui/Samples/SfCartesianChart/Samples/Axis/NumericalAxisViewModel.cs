@@ -1,17 +1,12 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfCartesianChart
 {
@@ -26,6 +21,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
         public ObservableCollection<ChartDataModel> InverseData { get; set; }
         public ObservableCollection<ChartDataModel> InverseData1 { get; set; }
+
+        public ObservableCollection<ChartDataModel> CrossAxisData { get; set; }
+
         public NumericalAxisViewModel()
         {
             var date = new DateTime(2017, 01, 01);
@@ -114,6 +112,19 @@ namespace SampleBrowser.Maui.SfCartesianChart
               new ChartDataModel( new DateTime(2019, 2, 1), 1.5),
               new ChartDataModel( new DateTime(2019, 3, 1), 1.9),
               new ChartDataModel( new DateTime(2019, 4, 1), 2),
+            };
+
+            CrossAxisData = new ObservableCollection<ChartDataModel>()
+            {
+                new ChartDataModel( -7,  -3),
+                new ChartDataModel( -4.5,  -2),
+                new ChartDataModel( -3.5,  0),
+                new ChartDataModel( -3,  2),
+                new ChartDataModel( 0,  7),
+                new ChartDataModel( 3,  2),
+                new ChartDataModel( 3.5,  0),
+                new ChartDataModel( 4.5,  -2),
+                new ChartDataModel( 7,  -3),
             };
 
         }

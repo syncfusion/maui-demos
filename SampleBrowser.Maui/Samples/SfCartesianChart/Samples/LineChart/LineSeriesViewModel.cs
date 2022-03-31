@@ -1,50 +1,28 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using Microsoft.Maui.Controls;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfCartesianChart
 {
     public class LineSeriesViewModel : BaseViewModel
     {
-        private bool canStopTimer;
-
         public ObservableCollection<ChartDataModel> LineData1 { get; set; }
 
         public ObservableCollection<ChartDataModel> LineData2 { get; set; }
 
         public ObservableCollection<ChartDataModel> DashedLine { get; set; }
 
-        private ObservableCollection<ChartDataModel> motionAnimation;
-        public ObservableCollection<ChartDataModel> MotionAnimation
-        {
-            get { return motionAnimation; }
-            set
-            {
-                motionAnimation = value;
-                OnPropertyChanged("MotionAnimation");
-            }
-        }
-
-        public ObservableCollection<ChartDataModel> verticalChart { get; set; }
-
-        private int count;
-        private int index;
-
         public LineSeriesViewModel()
         {
-            verticalChart = new ObservableCollection<ChartDataModel>();
+
             LineData1 = new ObservableCollection<ChartDataModel>
             {
                 new ChartDataModel("2005", 21),
@@ -77,91 +55,6 @@ namespace SampleBrowser.Maui.SfCartesianChart
                 new ChartDataModel(2015, 6.8, 9.3, 13.4, 18.9),
                 new ChartDataModel(2016, 7.7, 10.1, 14.2, 19.4),
             };
-
-            var r = new Random();
-            MotionAnimation = new ObservableCollection<ChartDataModel>();
-            for (int i = 0; i < 10; i++)
-            {
-                MotionAnimation.Add(new ChartDataModel(i, r.Next(5, 90)));
-            }
-
-            count = 0;
-            for (; count <= 165;)
-            {
-                UpdateVerticalData();
-            }
-            count = 0;
         }
-
-
-        private bool UpdateVerticalData()
-        {
-            count = count + 1;
-
-            Random random = new Random();
-            if (count > 165)
-            {
-                return false;
-            }
-            else if (count > 150)
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(0, 0)));
-            }
-            else if (count > 120)
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(-2, 1)));
-            }
-            else if (count > 80)
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(-3, 2)));
-            }
-            else if (count > 25)
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(-7, 6)));
-            }
-            else
-            {
-                verticalChart.Add(new ChartDataModel(index, random.Next(-9, 9)));
-            }
-            index++;
-            return true;
-        }
-
-        public void StartVerticalTimer()
-        {
-            verticalChart.Clear();
-            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 10), UpdateVerticalData);
-        }
-
-        public void StopTimer()
-        {
-            canStopTimer = true;
-        }
-
-
-        public async void StartTimer()
-        {
-            await Task.Delay(500);
-            Device.StartTimer(new TimeSpan(0, 0, 0, 2, 0), UpdateData);
-
-            canStopTimer = false;
-        }
-
-        private bool UpdateData()
-        {
-            if (canStopTimer) return false;
-
-            var r = new Random();
-            var data = new ObservableCollection<ChartDataModel>();
-            for (int i = 0; i < 10; i++)
-            {
-                data.Add(new ChartDataModel(i, r.Next(5, 90)));
-            }
-
-            MotionAnimation = data;
-
-            return true;
-        }
-
     }
 }

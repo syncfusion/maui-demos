@@ -1,13 +1,13 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
+using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.Charts;
 using System;
 using System.Collections.ObjectModel;
@@ -22,13 +22,13 @@ namespace SampleBrowser.Maui.SfCartesianChart
             return new ColumnSegmentExt();
         }
 
-        
-        protected override void DrawDataLabel(ICanvas canvas, Brush fillcolor, string label, PointF point, int index)
+
+        protected override void DrawDataLabel(ICanvas canvas, Brush? fillcolor, string label, PointF point, int index)
         {
             var items = ItemsSource as ObservableCollection<ChartDataModel>;
-            if(items != null)
+            if (items != null)
             {
-                var text = items[index].Name;
+                var text = items[index].Name ?? "";
                 base.DrawDataLabel(canvas, new SolidColorBrush(Colors.Transparent), label, point, index);
                 base.DrawDataLabel(canvas, new SolidColorBrush(Colors.Transparent), text, new PointF(point.X, point.Y - 30), index);
             }
@@ -37,59 +37,49 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
     public class ColumnSegmentExt : ColumnSegment
     {
-        RectangleF trackRect = RectangleF.Zero;
-        RectangleF waveRect = RectangleF.Zero;
         float curveHeight;
-        float waveLeft;
-        float waveRight;
-        float waveTop;
-        float waveBottom;
-        float freq;
-        protected override void OnLayout()
-        {
-            base.OnLayout();
-
-            if (Series != null)
-            {
-                var yAxis = (Series as CartesianSeries).ActualYAxis as NumericalAxis;
-                var top = yAxis.ValueToPoint((double)yAxis.Maximum);
-
-                trackRect = new RectangleF() { Left = Left, Top = (float)top, Right = Right, Bottom = Bottom };
-                curveHeight = (float)trackRect.Height / 20;
-                var width = (float)trackRect.Width + (float)Math.Sqrt((trackRect.Width * trackRect.Width) + (trackRect.Height * trackRect.Height));
-                waveLeft = trackRect.Left;
-                waveRight = waveLeft + width;
-                waveTop = trackRect.Bottom;
-                waveBottom = trackRect.Bottom + trackRect.Height;
-
-                waveRect = new Rectangle() { Left = waveLeft, Top = waveTop, Right = waveRight, Bottom = waveBottom };
-
-                Animate();
-            }
-        }
+        float curveXGape = 30;
+        float curveYGape = 20;
 
         protected override void Draw(ICanvas canvas)
         {
-            canvas.SaveState();
+            base.Draw(canvas);
 
-            Animate();
+            if (Series is CartesianSeries series && series.ActualYAxis is NumericalAxis yAxis)
+            {
+                var top = yAxis.ValueToPoint(Convert.ToDouble(yAxis.Maximum ?? double.NaN));
 
-            DrawTrackPath(canvas, trackRect);
+                var trackRect = new RectF() { Left = Left, Top = (float)top, Right = Right, Bottom = Bottom };
+                curveHeight = (float)trackRect.Height / curveYGape;
+                var width = (float)trackRect.Width + (float)Math.Sqrt((trackRect.Width * trackRect.Width) + (trackRect.Height * trackRect.Height));
+                var waveLeft = trackRect.Left;
+                var waveRight = waveLeft + width;
+                var waveTop = trackRect.Bottom;
+                var waveBottom = trackRect.Bottom + trackRect.Height;
 
-            var color = (Background as SolidColorBrush).Color;
+                var waveRect = new Rect() { Left = waveLeft, Top = waveTop, Right = waveRight, Bottom = waveBottom };
 
-            canvas.SetFillPaint(new SolidColorBrush(color.MultiplyAlpha(0.6f)), waveRect);
-            DrawWave(canvas, new Rectangle(new Point(waveLeft - 30 - freq, waveTop - freq), waveRect.Size));
+                float freq = trackRect.Bottom - Top;
 
-            canvas.SetFillPaint(Background, waveRect);
-            DrawWave(canvas, new Rectangle(new Point(waveLeft - freq, waveTop - freq), waveRect.Size));
+                canvas.SaveState();
 
-            canvas.RestoreState();
+                DrawTrackPath(canvas, trackRect);
+
+                var color = (Fill is SolidColorBrush brush) ? brush.Color : Colors.Transparent;
+
+                canvas.SetFillPaint(new SolidColorBrush(color.MultiplyAlpha(0.6f)), waveRect);
+                DrawWave(canvas, new Rect(new Point(waveLeft - curveXGape - freq, waveTop - freq), waveRect.Size));
+
+                canvas.SetFillPaint(Fill, waveRect);
+                DrawWave(canvas, new Rect(new Point(waveLeft - freq, waveTop - freq), waveRect.Size));
+
+                canvas.RestoreState();
+            }
         }
 
-        private void DrawTrackPath(ICanvas canvas, RectangleF trackRect)
+        private void DrawTrackPath(ICanvas canvas, RectF trackRect)
         {
-            PathF path = new PathF();
+            PathF path = new();
             path.MoveTo(trackRect.Left, trackRect.Bottom);
             path.LineTo(trackRect.Left, trackRect.Top);
             path.LineTo(trackRect.Right, trackRect.Top);
@@ -102,9 +92,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
             canvas.FillPath(path);
         }
 
-        private void DrawWave(ICanvas canvas, RectangleF rectangle)
+        private void DrawWave(ICanvas canvas, RectF rectangle)
         {
-            PathF path = new PathF();
+            PathF path = new();
 
             path.MoveTo(rectangle.Left, rectangle.Bottom);
             path.LineTo(rectangle.Left, rectangle.Top);
@@ -128,12 +118,6 @@ namespace SampleBrowser.Maui.SfCartesianChart
             path.LineTo(rectangle.Right, rectangle.Bottom);
             path.Close();
             canvas.FillPath(path);
-        }
-
-        private void Animate()
-        {
-            freq = trackRect.Bottom - Top;
-            freq = freq * AnimatedValue;
         }
     }
 }

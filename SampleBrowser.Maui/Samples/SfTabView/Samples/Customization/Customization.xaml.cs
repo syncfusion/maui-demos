@@ -1,22 +1,17 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Xaml;
-using SampleBrowser.Maui.Core;
 using Microsoft.Maui.Graphics;
+using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.TabView;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Globalization;
 
 namespace SampleBrowser.Maui.SfTabView
@@ -32,7 +27,7 @@ namespace SampleBrowser.Maui.SfTabView
 
         // Using a DependencyProperty as the backing store for SelectedItemColor.  This enables animation, styling, binding, etc...
         public static readonly BindableProperty SelectedItemColorProperty =
-            BindableProperty.Create("SelectedItemColor", typeof(Color), typeof(Customization), Colors.RoyalBlue);
+            BindableProperty.Create(nameof(SelectedItemColor), typeof(Color), typeof(Customization), Colors.RoyalBlue);
 
 
         public Customization()
@@ -41,17 +36,17 @@ namespace SampleBrowser.Maui.SfTabView
             this.BindingContext = this;
 
             this.TabView.IndicatorBackground = new SolidColorBrush(Colors.RoyalBlue);
-            this.SelectedItemColor = (this.TabView.IndicatorBackground as SolidColorBrush).Color;
-            byte r = Convert.ToByte(this.SelectedItemColor.Red * 255);
-            byte g = Convert.ToByte(this.SelectedItemColor.Green * 255);
-            byte b = Convert.ToByte(this.SelectedItemColor.Blue * 255);
+            this.SelectedItemColor = ((SolidColorBrush)this.TabView.IndicatorBackground).Color;
+            int r = Convert.ToInt32(this.SelectedItemColor.Red * 255);
+            int g = Convert.ToInt32(this.SelectedItemColor.Green * 255);
+            int b = Convert.ToInt32(this.SelectedItemColor.Blue * 255);
 
             this.TabView.TabBarBackground = new SolidColorBrush(Color.FromRgba(r, g, b, 25));
         }
 
         private void SfTabView_SelectionChanged(object sender, Syncfusion.Maui.TabView.TabSelectionChangedEventArgs e)
         {
-            var view = (sender as Syncfusion.Maui.TabView.SfTabView);
+            var view = (Syncfusion.Maui.TabView.SfTabView)sender;
 
             SfTabItem item = view.Items[(int)e.NewIndex];
 
@@ -74,10 +69,10 @@ namespace SampleBrowser.Maui.SfTabView
                 view.IndicatorBackground = new SolidColorBrush(Colors.Red);
             }
 
-            this.SelectedItemColor = (view.IndicatorBackground as SolidColorBrush).Color;
-            byte r = Convert.ToByte(this.SelectedItemColor.Red * 255);
-            byte g = Convert.ToByte(this.SelectedItemColor.Green * 255);
-            byte b = Convert.ToByte(this.SelectedItemColor.Blue * 255);
+            this.SelectedItemColor = ((SolidColorBrush)view.IndicatorBackground).Color;
+            int r = Convert.ToInt32(this.SelectedItemColor.Red * 255);
+            int g = Convert.ToInt32(this.SelectedItemColor.Green * 255);
+            int b = Convert.ToInt32(this.SelectedItemColor.Blue * 255);
 
             view.TabBarBackground = new SolidColorBrush(Color.FromRgba(r, g, b, 25));
         }
@@ -87,9 +82,9 @@ namespace SampleBrowser.Maui.SfTabView
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string fileName = (value as string);
+            string fileName = (string)value;
 
-            string format = (parameter as string);
+            string format = (string)parameter;
 
             if (format == ".docx")
             {
@@ -111,7 +106,7 @@ namespace SampleBrowser.Maui.SfTabView
             return fileName += format;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return null;
         }
