@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+	<SampleGroup Title="Basic Features">
+		<Sample SearchTags="radial slider, slider" Name="StateRadialSlider" Title="State"/>
+		<Sample SearchTags="slider, labels, ticks, minor ticks" Name="LabelsAndTicksRadialSlider" Title="Labels and Ticks"  />
+		<Sample SearchTags="angles, slider" Name="AnglesRadialSlider" Title="Angles" />
+	</SampleGroup>
+
+	<SampleGroup Title="Customization">
+		<Sample SearchTags="slider, styles" Name="StylesRadialSlider" Title="Styles" />
+		<Sample SearchTags="slider, thump" Name="ThumpRadialSlider" Title="Thumb" />
+		<Sample SearchTags="slider, custom, custom text, customization" Name="CustomTextRadialSlider" Title="Custom Text" />
+		<Sample SearchTags="slider, gradient, customization" Name="GradientFillRadialSlider" Title="Gradient Fill" />
+	</SampleGroup>
+</Samples>

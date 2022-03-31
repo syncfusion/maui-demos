@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.VerticalSlider.DefaultSlider"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="Minimum"
+                    Value="0" />
+            <Setter Property="Maximum"
+                    Value="100" />
+            <Setter Property="Value"
+                    Value="50" />
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding"
+                    Value="20,15" />
+            <Setter Property="Spacing"
+                    Value="10" />
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <HorizontalStackLayout Padding="15,0"
+                               HorizontalOptions="Center">
+            <VerticalStackLayout>
+                <sliders:SfSlider NumberFormat="#0">
+                    <sliders:SfSlider.Tooltip>
+                        <sliders:SliderTooltip NumberFormat="#0"
+                                               Position="Right" />
+                    </sliders:SfSlider.Tooltip>
+                </sliders:SfSlider>
+                <Label Text="Enabled" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <sliders:SfSlider IsEnabled="False">
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="Gray"
+                                                  InactiveFill="LightGray" />
+                    </sliders:SfSlider.TrackStyle>
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="Gray" />
+                    </sliders:SfSlider.ThumbStyle>
+                </sliders:SfSlider>
+                <Label Text="Disabled"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

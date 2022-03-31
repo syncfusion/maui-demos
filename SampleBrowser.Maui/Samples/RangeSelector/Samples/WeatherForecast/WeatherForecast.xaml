@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.RangeSelector.RangeSelectorWeatherForecastSample"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Content>
+
+        <Grid RowDefinitions="Auto,400,Auto"
+              VerticalOptions="Center"
+              HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{OnPlatform 50, iOS=0.005*, Android=0.005*}" />
+                <ColumnDefinition Width="{OnPlatform 650, iOS=0.99*, Android=0.99*}" />
+                <ColumnDefinition Width="{OnPlatform 50, iOS=0.005*, Android=0.005*}" />
+            </Grid.ColumnDefinitions>
+
+            <sliders:SfDateTimeRangeSelector x:Name="weatherSelector"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Minimum="2000-01-01"
+                                             Maximum="2000-01-02"
+                                             RangeStart="2000-01-01T09:00:00"
+                                             RangeEnd="2000-01-01T15:00:00"
+                                             IntervalType="Hours"
+                                             ShowTicks="True"
+                                             ShowLabels="True"
+                                             DateFormat="HH:mm"
+                                             EnableIntervalSelection="True"
+                                             VerticalOptions="Center"
+                                             DragBehavior="Both">
+
+                <sliders:SfDateTimeRangeSelector.LabelStyle>
+                    <sliders:SliderLabelStyle InactiveFontSize="{OnPlatform 14, Android=10, iOS=10}"
+                                              ActiveFontSize="{OnPlatform 14, Android=10, iOS=10}" />
+                </sliders:SfDateTimeRangeSelector.LabelStyle>
+
+                <sliders:SfDateTimeRangeSelector.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double"
+                                Default="220">
+                        <On Platform="iOS"
+                            Value="150" />
+                        <On Platform="Android"
+                            Value="150" />
+                    </OnPlatform>
+                </sliders:SfDateTimeRangeSelector.HeightRequest>
+
+                <sliders:SfDateTimeRangeSelector.Interval>
+                    <OnPlatform x:TypeArguments="x:Double"
+                                Default="3">
+                        <On Platform="iOS"
+                            Value="4" />
+                        <On Platform="Android"
+                            Value="4" />
+                    </OnPlatform>
+                </sliders:SfDateTimeRangeSelector.Interval>
+
+                <Image Source="rangeselector_weather_image.png"
+                       Aspect="Fill" />
+
+            </sliders:SfDateTimeRangeSelector>
+        </Grid>
+
+    </localCore:SampleView.Content>
+</localCore:SampleView> 

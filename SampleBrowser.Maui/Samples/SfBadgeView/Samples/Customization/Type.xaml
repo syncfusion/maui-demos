@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      x:Class="SampleBrowser.Maui.SfBadgeView.Type">
+    <localCore:SampleView.Content>
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             MaximumWidthRequest="300">
+            <Grid RowDefinitions="120,120,120"
+                  ColumnSpacing="20"
+                  ColumnDefinitions="Auto,Auto,Auto">
+                <badge:SfBadgeView Grid.Row="0"
+                                           Grid.Column="0"
+                                           WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                           HeightRequest="80"
+                                           BadgeText="99"
+                                           BackgroundColor="White">
+                        <Grid RowDefinitions="*,20">
+                            <Image Source="facebook.png" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Start" />
+                            <Label Grid.Row="1"
+                                           Text="Success"  
+                                           TextColor="Black"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"/>
+                        </Grid>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Type="Success"
+                                                     Stroke="White"
+                                                     BorderWidth="2"
+                                                     FontSize="15"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <badge:SfBadgeView Grid.Row="0"
+                                           Grid.Column="1"
+                                           WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                           HeightRequest="80"
+                                           BadgeText="99"
+                                           BackgroundColor="White">
+                    <Grid RowDefinitions="*,20">
+                        <Image Source="facebook.png" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Start" />
+                        <Label Grid.Row="1"
+                                           Text="Dark"  
+                                           TextColor="Black"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"/>
+                    </Grid>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Type="Dark"
+                                                     Stroke="White"
+                                                     BorderWidth="2"
+                                                     FontSize="15"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <badge:SfBadgeView Grid.Row="0"
+                                           Grid.Column="2"
+                                           WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                           HeightRequest="80"
+                                           BadgeText="99"
+                                           BackgroundColor="White">
+                        <Grid RowDefinitions="*,20">
+                            <Image Source="facebook.png" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Start" />
+                            <Label Grid.Row="1"
+                                           Text="Info"  
+                                           TextColor="Black"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"/>
+                        </Grid>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Type="Info"
+                                                     Stroke="White"
+                                                     BorderWidth="2"
+                                                     FontSize="15"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <badge:SfBadgeView Grid.Row="1"
+                                           Grid.Column="0"
+                                           WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                           HeightRequest="80"
+                                           BadgeText="99"
+                                           BackgroundColor="White">
+                        <Grid RowDefinitions="*,20">
+                            <Image Source="facebook.png" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Start" />
+                            <Label Grid.Row="1"
+                                           Text="Light"  
+                                           TextColor="Black"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"/>
+                        </Grid>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings TextColor="Black"
+                                                     Type="Light"
+                                                     Stroke="Black"
+                                                     BorderWidth="1"
+                                                     FontSize="15"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <badge:SfBadgeView Grid.Row="1"
+                                           Grid.Column="1"
+                                           WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                           HeightRequest="80"
+                                           BadgeText="99"
+                                           BackgroundColor="White">
+                        <Grid RowDefinitions="*,20">
+                            <Image Source="facebook.png" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Start" />
+                            <Label Grid.Row="1"
+                                           Text="Primary"  
+                                           TextColor="Black"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"/>
+                        </Grid>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Type="Primary"
+                                                     Stroke="White"
+                                                     BorderWidth="2"
+                                                     FontSize="15"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <VerticalStackLayout Grid.Row="1" 
+                                     Grid.Column="2"
+                                     Spacing="0">
+                    <badge:SfBadgeView WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                       HeightRequest="60"
+                                       BadgeText="99"
+                                       BackgroundColor="White">
+                        <Image Source="facebook.png" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="50"
+                               HeightRequest="50"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Type="Secondary"
+                                                 Stroke="White"
+                                                 BorderWidth="2"
+                                                 FontSize="15"/>
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Secondary" 
+                           TextColor="Black" />
+                </VerticalStackLayout>
+
+                <badge:SfBadgeView Grid.Row="2"
+                                           Grid.Column="0"
+                                           WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                           HeightRequest="80"
+                                           BadgeText="99"
+                                           BackgroundColor="White">
+                        <Grid RowDefinitions="*,20">
+                            <Image Source="facebook.png" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Start" />
+                            <Label Grid.Row="1"
+                                           Text="Warning" 
+                                           TextColor="Black" 
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"/>
+                        </Grid>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Type="Warning"
+                                                     Stroke="White"
+                                                     BorderWidth="2"
+                                                     FontSize="15"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <badge:SfBadgeView Grid.Row="2"
+                                           Grid.Column="1"
+                                           WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                           HeightRequest="80"
+                                           BadgeText="99"
+                                           BackgroundColor="White">
+                        <Grid RowDefinitions="*,20">
+                            <Image Source="facebook.png" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Start" />
+                            <Label Grid.Row="1"
+                                           Text="Error" 
+                                           TextColor="Black"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"/>
+                        </Grid>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Type="Error"
+                                                     Stroke="White"
+                                                     BorderWidth="2"
+                                                     FontSize="15"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <badge:SfBadgeView Grid.Row="2"
+                                           Grid.Column="2"
+                                           WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
+                                           HeightRequest="80"
+                                           BadgeText="99"
+                                           BackgroundColor="White">
+                        <Grid RowDefinitions="*,20">
+                            <Image Source="facebook.png" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Start" />
+                            <Label Grid.Row="1"
+                                           Text="None" 
+                                           TextColor="Black" 
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"/>
+                        </Grid>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Type="None"
+                                                     Background="DeepPink"
+                                                     Stroke="White"
+                                                     BorderWidth="2"
+                                                     FontSize="15"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+            </Grid>
+        </VerticalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
