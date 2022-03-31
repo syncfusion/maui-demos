@@ -34,8 +34,8 @@
                                                              Length="0.12" />
                                     </gauge:RadialAxis.MinorTickStyle>
                                     <gauge:RadialAxis.Pointers>
-                                        <gauge:MarkerPointer Value="90"
-                                                             MarkerType="Triangle" />
+                                        <gauge:ShapePointer Value="90"
+                                                             ShapeType="Triangle" />
                                         <gauge:NeedlePointer Value="310"
                                                              NeedleLengthUnit="Factor"
                                                              NeedleLength="0.9"

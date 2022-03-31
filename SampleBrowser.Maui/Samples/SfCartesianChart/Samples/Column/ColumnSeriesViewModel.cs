@@ -1,11 +1,10 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using System;
@@ -22,7 +21,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
         public ObservableCollection<ChartDataModel> OlympicMedals { get; set; }
 
 
-        private ObservableCollection<ChartDataModel> motionAnimation;
+        private ObservableCollection<ChartDataModel> motionAnimation = new ObservableCollection<ChartDataModel>();
         public ObservableCollection<ChartDataModel> MotionAnimation
         {
             get { return motionAnimation; }
@@ -82,7 +81,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
             var r = new Random();
             MotionAnimation = new ObservableCollection<ChartDataModel>();
-            for(int i= 0; i<7;i++)
+            for (int i = 0; i < 7; i++)
             {
                 MotionAnimation.Add(new ChartDataModel(i, r.Next(5, 90)));
             }
@@ -97,8 +96,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
         {
             StopTimer();
             await Task.Delay(500);
+#pragma warning disable CS0618 // Type or member is obsolete
             Device.StartTimer(new TimeSpan(0, 0, 0, 2, 0), UpdateData);
-
+#pragma warning restore CS0618 // Type or member is obsolete
             canStopTimer = false;
         }
 
@@ -107,7 +107,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
             if (canStopTimer) return false;
 
             var r = new Random();
-           var data = new ObservableCollection<ChartDataModel>();
+            var data = new ObservableCollection<ChartDataModel>();
             for (int i = 0; i < 7; i++)
             {
                 data.Add(new ChartDataModel(i, r.Next(5, 90)));

@@ -38,7 +38,7 @@
                                        BadgeText="5">
                             <Grid BackgroundColor="#EEEEEE" 
                                   Margin="10">
-                                <Label Text="Attributes"
+                                <Label Text="Font Attributes"
                                        Style="{StaticResource DemoLabelStyle}"/>
                             </Grid>
                         <badge:SfBadgeView.BadgeSettings>

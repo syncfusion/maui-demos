@@ -1,15 +1,16 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using SampleBrowser.Maui.Core;
-using System;
-using Syncfusion.Presentation;
 using Microsoft.Maui.Controls;
+using SampleBrowser.Maui.Core;
+using SampleBrowser.Maui.Services;
+using Syncfusion.Presentation;
+using System;
 using System.IO;
 using System.Reflection;
 
@@ -42,7 +43,7 @@ namespace SampleBrowser.Maui.Presentation
             //Gets the input PowerPoint Presentation file.
             Assembly assembly = typeof(GettingStarted).GetTypeInfo().Assembly;
             string resourcePath = "SampleBrowser.Maui.Resources.Presentation.HelloWorld.pptx";
-            using Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
+            using Stream? fileStream = assembly.GetManifestResourceStream(resourcePath);
             //Opens an existing PowerPoint Presentation file.
             using IPresentation presentation = Syncfusion.Presentation.Presentation.Open(fileStream);
             //Creates slides in PowerPoint Presentation file.
@@ -53,7 +54,8 @@ namespace SampleBrowser.Maui.Presentation
             presentation.Save(stream);
             stream.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("GettingStarted.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+            SaveService saveService = new();
+            saveService.SaveAndView("GettingStarted.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
         }
         #endregion
 
@@ -64,17 +66,18 @@ namespace SampleBrowser.Maui.Presentation
         private static void CreateDefaultSlide(IPresentation presentation)
         {
             //Retrieves the first slide of the presentation.
-            ISlide slide1 = presentation.Slides[0];
+            ISlide? slide1 = presentation.Slides[0];
+
             //Retrieves the first shape of the slide.
-            IShape titleShape = slide1.Shapes[0] as IShape;
+            IShape? titleShape = slide1!.Shapes[0] as IShape;
             //Sets the size and position of the shape.
-            titleShape.Left = 0.33 * 72;
+            titleShape!.Left = 0.33 * 72;
             titleShape.Top = 0.58 * 72;
             titleShape.Width = 12.5 * 72;
             titleShape.Height = 1.75 * 72;
 
             //Retrieves the text body of the shape.
-            ITextBody textFrame1 = (slide1.Shapes[0] as IShape).TextBody;
+            ITextBody textFrame1 = (slide1!.Shapes[0] as IShape)!.TextBody;
             IParagraphs paragraphs1 = textFrame1.Paragraphs;
             //Adds a new paragraph.
             IParagraph paragraph = paragraphs1.Add();
@@ -91,15 +94,15 @@ namespace SampleBrowser.Maui.Presentation
             textPart1.Font.FontSize = 40;
 
             //Retrieves the second shape of the slide.
-            IShape subtitle = slide1.Shapes[1] as IShape;
+            IShape? subtitle = slide1.Shapes[1] as IShape;
             //Sets the size and position of the shape.
-            subtitle.Left = 1.33 * 72;
+            subtitle!.Left = 1.33 * 72;
             subtitle.Top = 2.67 * 72;
             subtitle.Width = 10 * 72;
             subtitle.Height = 1.7 * 72;
 
             //Retrieves the text body of the shape.
-            ITextBody textFrame2 = (slide1.Shapes[1] as IShape).TextBody;
+            ITextBody textFrame2 = (slide1!.Shapes[1] as IShape)!.TextBody;
             textFrame2.VerticalAlignment = VerticalAlignmentType.Top;
             IParagraphs paragraphs2 = textFrame2.Paragraphs;
             //Adds a new paragraph.
@@ -124,7 +127,8 @@ namespace SampleBrowser.Maui.Presentation
             //Sets the font properties.
             textPart2.Font.FontName = "Adobe Garamond Pro";
             textPart2.Font.FontSize = 21;
+
         }
-        #endregion
     }
+    #endregion
 }

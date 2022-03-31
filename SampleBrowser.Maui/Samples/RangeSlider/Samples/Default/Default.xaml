@@ -7,63 +7,60 @@
 
     <localCore:SampleView.Resources>
         <Style TargetType="sliders:SfRangeSlider">
-            <Setter Property="Minimum" Value="0" />
-            <Setter Property="Maximum" Value="100" />
-            <Setter Property="RangeStart" Value="25" />
-            <Setter Property="RangeEnd" Value="75" />
-            <Setter Property="NumberFormat" Value="#0" />
-            <Setter Property="TranslationY" Value="-30" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="Minimum"
+                    Value="0" />
+            <Setter Property="Maximum"
+                    Value="100" />
+            <Setter Property="RangeStart"
+                    Value="25" />
+            <Setter Property="RangeEnd"
+                    Value="75" />
+            <Setter Property="NumberFormat"
+                    Value="#0" />
+            <Setter Property="TranslationY"
+                    Value="-30" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
         </Style>
 
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="Black" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
             <!--To align the label and track vertically, used the slider thumb overlay radius on the label.-->
-            <Setter Property="Padding" Value="24,0,0,0" />
+            <Setter Property="Padding"
+                    Value="24,0,0,0" />
         </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <VerticalStackLayout Padding="10,0" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Enabled" />
-            <sliders:SfRangeSlider ToolTipShape="Rectangle" />
-            
-            <BoxView HeightRequest="15" />
+        <Grid ColumnDefinitions="10,*,10">
+            <VerticalStackLayout Grid.Column="1"
+                                 Spacing="10"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                <Label Text="Enabled" />
+                <sliders:SfRangeSlider>
+                    <sliders:SfRangeSlider.Tooltip>
+                        <sliders:SliderTooltip />
+                    </sliders:SfRangeSlider.Tooltip>
+                </sliders:SfRangeSlider>
 
-            <Label Text="Disabled" TranslationY="-30" />
-            <sliders:SfRangeSlider IsEnabled="False" >
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup x:Name="CommonStates">
-                        <VisualState x:Name="Default">
-                            <VisualState.Setters>
-                                <Setter Property="TrackStyle">
-                                    <Setter.Value>
-                                        <sliders:SliderTrackStyle ActiveSize="6" InactiveSize="4"/>
-                                    </Setter.Value>
-                                </Setter>
-                            </VisualState.Setters>
-                        </VisualState>
+                <BoxView HeightRequest="15" />
 
-                        <VisualState x:Name="Disabled">
-                            <VisualState.Setters>
-
-                                <Setter Property="TrackStyle">
-                                    <Setter.Value>
-                                        <sliders:SliderTrackStyle ActiveFill="Grey" InactiveFill="LightGrey" />
-                                    </Setter.Value>
-                                </Setter>
-
-                                <Setter Property="ThumbStyle">
-                                    <Setter.Value>
-                                        <sliders:SliderThumbStyle Fill="Grey" />
-                                    </Setter.Value>
-                                </Setter>
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
-            </sliders:SfRangeSlider>
-        </VerticalStackLayout>
+                <Label Text="Disabled"
+                       TranslationY="-30" />
+                <sliders:SfRangeSlider IsEnabled="False">
+                    <sliders:SfRangeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="Gray"
+                                                  InactiveFill="LightGray" />
+                    </sliders:SfRangeSlider.TrackStyle>
+                    <sliders:SfRangeSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="Gray" />
+                    </sliders:SfRangeSlider.ThumbStyle>
+                </sliders:SfRangeSlider>
+            </VerticalStackLayout>
+        </Grid>
     </localCore:SampleView.Content>
 </localCore:SampleView>

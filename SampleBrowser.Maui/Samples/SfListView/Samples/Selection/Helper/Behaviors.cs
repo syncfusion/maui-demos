@@ -1,17 +1,17 @@
-#if __ANDROID__ || __IOS__ || __MACCATALYST__
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
-using System.Threading.Tasks;
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
+// Use of this code is subject to the terms of our license.
+// A copy of the current license can be obtained at any time by e-mailing
+// licensing@syncfusion.com. Any infringement will be prosecuted under
+// applicable laws. 
+#endregion
+
 using Microsoft.Maui.Controls;
-using Microsoft.Maui;
+using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.ListView;
 using SelectionMode = Syncfusion.Maui.ListView.SelectionMode;
-using System.Drawing;
-using SampleBrowser.Maui.Core;
 
+#nullable disable
 namespace SampleBrowser.Maui.SfListView
 {
     #region SelectionBehavior
@@ -33,7 +33,7 @@ namespace SampleBrowser.Maui.SfListView
             ListView = bindable.FindByName<Syncfusion.Maui.ListView.SfListView>("listView");
             ListView.SelectionChanged += ListView_SelectionChanged;
 
-           
+
 
             SelectionViewModel = new ListViewSelectionViewModel();
             ListView.BindingContext = SelectionViewModel;
@@ -88,7 +88,7 @@ namespace SampleBrowser.Maui.SfListView
 
         private void selectAllIconTapped_Tapped()
         {
-            if(ListView.SelectedItems.Count == SelectionViewModel.MusicInfo.Count)
+            if (ListView.SelectedItems.Count == SelectionViewModel.MusicInfo.Count)
             {
                 this.ListView.SelectedItems.Clear();
             }
@@ -153,4 +153,3 @@ namespace SampleBrowser.Maui.SfListView
     }
     #endregion
 }
-#endif

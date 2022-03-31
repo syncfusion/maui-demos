@@ -1,18 +1,20 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using System;
 using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
+using SampleBrowser.Maui.Services;
 using Syncfusion.Presentation;
-using System.Reflection;
+using System;
 using System.Data;
 using System.IO;
+using System.Reflection;
+using System.Xml;
 
 namespace SampleBrowser.Maui.Presentation
 {
@@ -48,9 +50,13 @@ namespace SampleBrowser.Maui.Presentation
             DataSet dataSet = new();
             Assembly assembly = typeof(Table).GetTypeInfo().Assembly;
             string resourcePath = "SampleBrowser.Maui.Resources.Presentation.TableData.xml";
-            using (Stream fileStream = assembly.GetManifestResourceStream(resourcePath))
+            using (Stream? fileStream = assembly.GetManifestResourceStream(resourcePath))
             {
-                dataSet.ReadXml(fileStream);
+                if (fileStream != null)
+                {
+                    XmlReader reader = XmlReader.Create(fileStream);
+                    dataSet.ReadXml(reader);
+                }
             }
             int columnCount = dataSet.Tables[0].Rows.Count + 1;
             int rowCount = dataSet.Tables.Count - 1;
@@ -76,7 +82,8 @@ namespace SampleBrowser.Maui.Presentation
             presentation.Save(stream);
             stream.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+            SaveService saveService = new();
+            saveService.SaveAndView("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
         }
         #endregion
 
@@ -86,8 +93,8 @@ namespace SampleBrowser.Maui.Presentation
         /// </summary>
         private static void SetTableTitle(ISlide slide)
         {
-            IShape shape = slide.Shapes[0] as IShape;
-            shape.Left = 84.24;
+            IShape? shape = slide.Shapes[0] as IShape;
+            shape!.Left = 84.24;
             shape.Top = 0;
             shape.Width = 792;
             shape.Height = 126.72;
@@ -148,7 +155,7 @@ namespace SampleBrowser.Maui.Presentation
                 if (cellIndex == 0)
                     textPart.Text = dataTable.TableName;
                 else
-                    textPart.Text = dataRowCollection[cellIndex - 1].ItemArray[0].ToString();
+                    textPart.Text = dataRowCollection![cellIndex - 1]!.ItemArray![0]!.ToString();
                 IFont font = textPart.Font;
                 font.FontName = "Arial";
                 font.FontSize = 14;
@@ -176,7 +183,7 @@ namespace SampleBrowser.Maui.Presentation
 
                 //Creates a textpart and assigns value to it.
                 ITextPart textPart = textParts[0];
-                textPart.Text = dataRowCollections[cellIndex - 1].ItemArray[0].ToString();
+                textPart.Text = dataRowCollections![cellIndex - 1]!.ItemArray![0]!.ToString();
                 IFont font = textPart.Font;
                 font.FontName = "Arial";
                 font.FontSize = 14;

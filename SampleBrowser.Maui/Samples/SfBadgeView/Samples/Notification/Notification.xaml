@@ -135,8 +135,8 @@
                                                  FontSize="28">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String" >
-                                <On Platform="iOS" Value="FONT Sf Badge view" />
-                                <On Platform="UWP" Value="Assets/BadgeViewFont.ttf#FONT Sf Badge view" />
+                                <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
+                                <On Platform="UWP" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                                 <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                             </OnPlatform>
                         </Label.FontFamily>
@@ -154,31 +154,34 @@
                     </Grid.RowDefinitions>
 
                     <badge:SfBadgeView x:Name="callsBadge"
+                                       WidthRequest="60"
+                                       HorizontalOptions="Center"
                                        BadgeText="3">
+                        <Grid>
                             <Label Text="&#xe700;" 
-                                                 FontAttributes="Bold"  
-                                                 HorizontalOptions="FillAndExpand"
-                                                 HorizontalTextAlignment="Center"
-                                                 VerticalOptions="End" 
-                                                 TextColor="#777777" 
-                                                 FontSize="28">
+                                   FontAttributes="Bold"  
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End" 
+                                   TextColor="#777777" 
+                                   FontSize="28">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String" >
-                                        <On Platform="iOS" Value="FONT Sf Badge view" />
-                                        <On Platform="UWP" Value="Assets/BadgeViewFont.ttf#FONT Sf Badge view" />
+                                        <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
+                                        <On Platform="UWP" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                                         <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                                     </OnPlatform>
                                 </Label.FontFamily>
                             </Label>
+                        </Grid>
                         <badge:SfBadgeView.BadgeSettings>
                             <badge:BadgeSettings FontSize="12" 
-                                                 Offset="18,15"
+                                                 Offset="-8,14"
                                                  Type="Error">
                             </badge:BadgeSettings>
                         </badge:SfBadgeView.BadgeSettings>
                     </badge:SfBadgeView>
 
-                    <Label Text="Calls" Grid.Row="1" Margin="0,-5,0,0" 
+                    <Label Text="Calls" Grid.Row="1" Margin="-8,-5,0,0"
                            FontSize="12" HorizontalTextAlignment="Center" 
                            VerticalTextAlignment="Center" TextColor="#777777"/>
                 </Grid>
@@ -190,31 +193,34 @@
                     </Grid.RowDefinitions>
 
                     <badge:SfBadgeView x:Name="chatBadge"
+                                       WidthRequest="60"
+                                       HorizontalOptions="Center"
                                        BadgeText="8">
+                        <Grid>
                             <Label Text="&#xe701;" 
-                                                 FontAttributes="Bold"  
-                                                 HorizontalOptions="FillAndExpand"
-                                                 HorizontalTextAlignment="Center"
-                                                 VerticalOptions="End" 
-                                                 TextColor="#777777" 
-                                                 FontSize="28">
+                                   FontAttributes="Bold"  
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End" 
+                                   TextColor="#777777" 
+                                   FontSize="28">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String" >
-                                        <On Platform="iOS" Value="FONT Sf Badge view" />
-                                        <On Platform="UWP" Value="Assets/BadgeViewFont.ttf#FONT Sf Badge view" />
+                                        <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
+                                        <On Platform="UWP" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                                         <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                                     </OnPlatform>
                                 </Label.FontFamily>
                             </Label>
+                        </Grid>
                         <badge:SfBadgeView.BadgeSettings>
                             <badge:BadgeSettings FontSize="12" 
-                                                 Offset="16,15"
+                                                 Offset="-6,15"
                                                  Type="Error">
                             </badge:BadgeSettings>
                         </badge:SfBadgeView.BadgeSettings>
                     </badge:SfBadgeView>
 
-                    <Label Text="Chats" Grid.Row="1" Margin="0,-5,0,0" 
+                    <Label Text="Chats" Grid.Row="1" Margin="-8,-5,0,0" 
                            FontSize="12" HorizontalTextAlignment="Center" 
                            VerticalTextAlignment="Center" TextColor="#777777"/>
                 </Grid>
@@ -232,8 +238,8 @@
                                          VerticalOptions="End">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String" >
-                                <On Platform="iOS" Value="FONT Sf Badge view" />
-                                <On Platform="UWP" Value="Assets/BadgeViewFont.ttf#FONT Sf Badge view" />
+                                <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
+                                <On Platform="UWP" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                                 <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                             </OnPlatform>
                         </Label.FontFamily>
@@ -258,8 +264,8 @@
                                          VerticalOptions="End">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String" >
-                                <On Platform="iOS" Value="FONT Sf Badge view" />
-                                <On Platform="UWP" Value="Assets/BadgeViewFont.ttf#FONT Sf Badge view" />
+                                <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
+                                <On Platform="UWP" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                                 <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
                             </OnPlatform>
                         </Label.FontFamily>

@@ -7,41 +7,62 @@
 
     <localCore:SampleView.Resources>
         <Style TargetType="sliders:SfRangeSlider">
-            <Setter Property="EnableIntervalSelection" Value="True" />
-            <Setter Property="ShowTicks" Value="True" />
-            <Setter Property="ShowLabels" Value="True" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="EnableIntervalSelection"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeRangeSlider">
+            <Setter Property="EnableIntervalSelection"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
         </Style>
 
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="Black" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
             <!--To align the label and track vertically, used the slider thumb overlay radius on the label.-->
-            <Setter Property="Padding" Value="24,0,0,0" />
+            <Setter Property="Padding"
+                    Value="24,0,0,0" />
         </Style>
 
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <VerticalStackLayout Padding="10,0" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+        <VerticalStackLayout Padding="10,0"
+                             Spacing="10"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
             <Label Text="Numeric" />
-            <sliders:SfRangeSlider Minimum="0" 
-                                   Maximum="100" 
-                                   RangeStart="25" 
+            <sliders:SfRangeSlider Minimum="0"
+                                   Maximum="100"
+                                   RangeStart="25"
                                    RangeEnd="75"
-                                   Interval="25" 
+                                   Interval="25"
                                    StepSize="25" />
 
             <BoxView HeightRequest="15" />
-            
+
             <Label Text="Date" />
-            <sliders:SfRangeSlider Minimum="2010-01-01"
-                                   Maximum="2018-01-01"
-                                   RangeStart="2012-01-01"
-                                   RangeEnd="2016-01-01"
-                                   StepDuration="2"
-                                   DateIntervalType="Years"  
-                                   Interval="2" />
+            <sliders:SfDateTimeRangeSlider Minimum="2010-01-01"
+                                           Maximum="2018-01-01"
+                                           RangeStart="2012-01-01"
+                                           RangeEnd="2016-01-01"
+                                           StepDuration="2"
+                                           IntervalType="Years"
+                                           Interval="2" />
         </VerticalStackLayout>
     </localCore:SampleView.Content>
 </localCore:SampleView>

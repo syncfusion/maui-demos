@@ -1,17 +1,18 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using System;
 using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
+using SampleBrowser.Maui.Services;
 using Syncfusion.Presentation;
-using System.Reflection;
+using System;
 using System.IO;
+using System.Reflection;
 
 namespace SampleBrowser.Maui.Presentation
 {
@@ -39,7 +40,7 @@ namespace SampleBrowser.Maui.Presentation
             //Gets the input PowerPoint Presentation file.
             Assembly assembly = typeof(Slide).GetTypeInfo().Assembly;
             string resourcePath = "SampleBrowser.Maui.Resources.Presentation.Slides.pptx";
-            using Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
+            using Stream? fileStream = assembly.GetManifestResourceStream(resourcePath);
             //Opens an existing PowerPoint Presentation file.
             using IPresentation presentation = Syncfusion.Presentation.Presentation.Open(fileStream);
             //Creates slides in PowerPoint Presentation file.
@@ -53,7 +54,8 @@ namespace SampleBrowser.Maui.Presentation
             presentation.Save(stream);
             stream.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Slide.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+            SaveService saveService = new();
+            saveService.SaveAndView("Slide.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
         }
         #endregion
 
@@ -65,8 +67,8 @@ namespace SampleBrowser.Maui.Presentation
         private static void CreateFirstSlide(IPresentation presentation)
         {
             ISlide slide1 = presentation.Slides[0];
-            IShape shape1 = slide1.Shapes[0] as IShape;
-            shape1.Left = 1.5 * 72;
+            IShape? shape1 = slide1.Shapes[0] as IShape;
+            shape1!.Left = 1.5 * 72;
             shape1.Top = 1.94 * 72;
             shape1.Width = 10.32 * 72;
             shape1.Height = 2 * 72;
@@ -93,8 +95,8 @@ namespace SampleBrowser.Maui.Presentation
         private static void CreateSecondSlide(IPresentation presentation)
         {
             ISlide slide2 = presentation.Slides.Add(SlideLayoutType.SectionHeader);
-            IShape shape1 = slide2.Shapes[0] as IShape;
-            shape1.Left = 0.77 * 72;
+            IShape? shape1 = slide2!.Shapes[0] as IShape;
+            shape1!.Left = 0.77 * 72;
             shape1.Top = 0.32 * 72;
             shape1.Width = 7.96 * 72;
             shape1.Height = 0.99 * 72;
@@ -110,8 +112,8 @@ namespace SampleBrowser.Maui.Presentation
             textpart1.Font.FontName = "Helvetica CE 35 Thin";
             textpart1.Font.FontSize = 40;
 
-            IShape shape2 = slide2.Shapes[1] as IShape;
-            shape2.Left = 1.21 * 72;
+            IShape? shape2 = slide2.Shapes[1] as IShape;
+            shape2!.Left = 1.21 * 72;
             shape2.Top = 1.66 * 72;
             shape2.Width = 10.08 * 72;
             shape2.Height = 4.93 * 72;
@@ -174,8 +176,8 @@ namespace SampleBrowser.Maui.Presentation
         private static void CreateThirdSlide(IPresentation presentation)
         {
             ISlide slide2 = presentation.Slides.Add(SlideLayoutType.TwoContent);
-            IShape shape1 = slide2.Shapes[0] as IShape;
-            shape1.Left = 0.36 * 72;
+            IShape? shape1 = slide2.Shapes[0] as IShape;
+            shape1!.Left = 0.36 * 72;
             shape1.Top = 0.51 * 72;
             shape1.Width = 11.32 * 72;
             shape1.Height = 1.06 * 72;
@@ -193,8 +195,8 @@ namespace SampleBrowser.Maui.Presentation
             textpart1.Font.FontName = "Helvetica CE 35 Thin";
 
             //Adds a shape in slide.
-            IShape shape2 = slide2.Shapes[1] as IShape;
-            shape2.Left = 8.03 * 72;
+            IShape ?shape2 = slide2.Shapes[1] as IShape;
+            shape2!.Left = 8.03 * 72;
             shape2.Top = 1.96 * 72;
             shape2.Width = 4.39 * 72;
             shape2.Height = 4.53 * 72;
@@ -217,9 +219,9 @@ namespace SampleBrowser.Maui.Presentation
             //Adds a picture to the slide.
             Assembly assembly = typeof(Slide).GetTypeInfo().Assembly;
             string resourcePath = "SampleBrowser.Maui.Resources.Presentation.tablet.jpg";
-            Stream imageStream = assembly.GetManifestResourceStream(resourcePath);
+            Stream? imageStream = assembly.GetManifestResourceStream(resourcePath);
             slide2.Shapes.AddPicture(imageStream, 0.81 * 72, 1.96 * 72, 6.63 * 72, 4.43 * 72);
-            imageStream.Dispose();
+            imageStream!.Dispose();
         }
 
         /// <summary>
@@ -245,8 +247,8 @@ namespace SampleBrowser.Maui.Presentation
         private static void CreateFourthSlide(IPresentation presentation)
         {
             ISlide slide4 = presentation.Slides.Add(SlideLayoutType.TwoContent);
-            IShape shape1 = slide4.Shapes[0] as IShape;
-            shape1.Left = 0.51 * 72;
+            IShape? shape1 = slide4.Shapes[0] as IShape;
+            shape1!.Left = 0.51 * 72;
             shape1.Top = 0.34 * 72;
             shape1.Width = 11.32 * 72;
             shape1.Height = 1.06 * 72;
@@ -265,7 +267,7 @@ namespace SampleBrowser.Maui.Presentation
             textpart1.Font.FontName = "Helvetica CE 35 Thin";
 
             //Removes the shape.
-            IShape shape2 = slide4.Shapes[1] as IShape;
+            IShape? shape2 = slide4.Shapes[1] as IShape;
             slide4.Shapes.Remove(shape2);
 
             //Adds a new table to the shape collection with the specified number of rows and columns.

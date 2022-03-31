@@ -1,24 +1,20 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Xaml;
 using SampleBrowser.Maui.Core;
+using SampleBrowser.Maui.Services;
 using Syncfusion.Drawing;
-using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
-using Syncfusion.Pdf.Interactive;
 using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Security;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace SampleBrowser.Maui.Pdf
 {
@@ -43,24 +39,24 @@ namespace SampleBrowser.Maui.Pdf
             //Get the document file stream from assembly. 
             Assembly assembly = typeof(Encryption).GetTypeInfo().Assembly;
             string basePath = "SampleBrowser.Maui.Resources.Pdf.";
-            Stream documentStream = assembly.GetManifestResourceStream(basePath + "digital_signature_template.pdf");
-            
+            Stream? documentStream = assembly.GetManifestResourceStream(basePath + "digital_signature_template.pdf");
+
             //Load the PDF document from stream.
-            PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+            PdfLoadedDocument loadedDocument = new(documentStream);
 
             //Get the .pfx certificate file stream.
-            Stream certificateStream = assembly.GetManifestResourceStream(basePath + "certificate.pfx");
+            Stream? certificateStream = assembly.GetManifestResourceStream(basePath + "certificate.pfx");
 
             //Get the signature field to add digital signature. 
-            PdfLoadedSignatureField signatureField = loadedDocument.Form.Fields[6] as PdfLoadedSignatureField;
+            PdfLoadedSignatureField? signatureField = loadedDocument.Form.Fields[6] as PdfLoadedSignatureField;
             //Get the signature bounds. 
-            RectangleF bounds = signatureField.Bounds;
+            RectangleF bounds = signatureField!.Bounds;
 
             //Create PDF certificate using certificate stream and password.
-            PdfCertificate pdfCertificate = new PdfCertificate(certificateStream, "password123");
+            PdfCertificate pdfCertificate = new(certificateStream, "password123");
 
             //Add certificate to first page of the document.
-            PdfSignature signature = new PdfSignature(loadedDocument, loadedDocument.Pages[0], pdfCertificate, "", signatureField);
+            PdfSignature signature = new(loadedDocument, loadedDocument.Pages[0], pdfCertificate, "", signatureField);
             signature.ContactInfo = "johndoe@owned.us";
             signature.LocationInfo = "Honolulu, Hawaii";
             signature.Reason = "I am author of this document.";
@@ -78,10 +74,10 @@ namespace SampleBrowser.Maui.Pdf
                 graphics.DrawRectangle(PdfPens.Black, bounds);
 
                 //Get the image file stream from assembly. 
-                Stream imageStream = assembly.GetManifestResourceStream(basePath + "signature.png");
+                Stream? imageStream = assembly.GetManifestResourceStream(basePath + "signature.png");
 
                 //Create the PDF bitmap image from stream. 
-                PdfBitmap bitmap = new PdfBitmap(imageStream, true);
+                PdfBitmap bitmap = new(imageStream, true);
                 //Draw image to appearance graphics. 
                 graphics.DrawImage(bitmap, new RectangleF(2, 1, 30, 30));
 
@@ -90,8 +86,8 @@ namespace SampleBrowser.Maui.Pdf
 
                 //Create a new font instance and draw a text to appearance graphics. 
                 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
-                RectangleF textRect = new RectangleF(45, 0, bounds.Width - 45, bounds.Height);
-                PdfStringFormat format = new PdfStringFormat(PdfTextAlignment.Justify);
+                RectangleF textRect = new(45, 0, bounds.Width - 45, bounds.Height);
+                PdfStringFormat format = new(PdfTextAlignment.Justify);
                 graphics.DrawString("Digitally signed by " + subject + " \r\nReason: Testing signature \r\nLocation: USA", font, PdfBrushes.Black, textRect, format);
             }
 
@@ -99,13 +95,14 @@ namespace SampleBrowser.Maui.Pdf
             signatureField.Signature = signature;
 
             using MemoryStream stream = new();
-            //Saves the presentation to the memory stream.
+            //Saves the PDF to the memory stream.
             loadedDocument.Save(stream);
             loadedDocument.Close();
 
             stream.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("DigitalSignature.pdf", "application/pdf", stream);
+            SaveService saveService = new();
+            saveService.SaveAndView("DigitalSignature.pdf", "application/pdf", stream);
         }
         #endregion
 

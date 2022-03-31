@@ -1,24 +1,16 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace SampleBrowser.Maui.Core
 {
     public class WrapLayout : VerticalStackLayout
     {
-        List<View> processChildren = new List<View>();
+        private readonly List<View> processChildren = new();
 
         bool isLoaded = false;
 
@@ -28,27 +20,28 @@ namespace SampleBrowser.Maui.Core
 
         public WrapLayout()
         {
-            if(!RunTimeDevice.IsMobileDevice())
+            if (!RunTimeDevice.IsMobileDevice())
             {
                 this.Margin = new Microsoft.Maui.Thickness(5);
                 this.Opacity = 0;
             }
         }
 
-        internal  void PerformAnimation()
+        internal void PerformAnimation()
         {
-            if (this.Parent is ScrollViewExt)
+            if (this.Parent is ScrollViewExt ext)
             {
-                if((this.Parent as ScrollViewExt).Parent is SampleView)
+                if (this.Parent is ScrollViewExt scrollViewExt && scrollViewExt.Parent is SampleView)
                 {
-                    ((this.Parent as ScrollViewExt).Parent as SampleView).AnimateChildrenDeskTop(0);
+                    Element parent = ext.Parent;
+                    ((SampleView)parent).AnimateChildrenDeskTop(0);
                 }
             }
         }
 
         public async void CallRefresh()
         {
-          //  this.Opacity = 0;
+            //  this.Opacity = 0;
             await Task.Delay(100);
             this.RearrangeChildren();
             await Task.Delay(500);
@@ -59,9 +52,9 @@ namespace SampleBrowser.Maui.Core
         }
 
 
-        
 
-        protected override Size ArrangeOverride(Rectangle bounds)
+
+        protected override Size ArrangeOverride(Rect bounds)
         {
             this.widthPreview = bounds.Width;
             if (canRefresh)
@@ -92,7 +85,8 @@ namespace SampleBrowser.Maui.Core
                 if (currentWidth > 0)
                 {
                     item.WidthRequest = currentWidth;
-                    ((item as Grid).Children[0] as CardViewExt).WidthRequest = currentWidth;
+                    CardViewExt cardViewExt = (CardViewExt)((Grid)item).Children[0];
+                    cardViewExt.WidthRequest = currentWidth;
                 }
                 this.AddChild(item);
             }
@@ -106,14 +100,42 @@ namespace SampleBrowser.Maui.Core
                 foreach (var item in this.Children)
                 {
                     isLoaded = true;
-                    processChildren.Add(this.WrapChildWithPadding(item as View));
+
+                    /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-maccatalyst)'
+                    Before:
+                                        processChildren.Add(this.WrapChildWithPadding((View)item));
+                    After:
+                                        processChildren.Add(WrapLayout.WrapChildWithPadding((View)item));
+                    */
+
+                    /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-ios)'
+                    Before:
+                                        processChildren.Add(this.WrapChildWithPadding((View)item));
+                    After:
+                                        processChildren.Add(WrapLayout.WrapChildWithPadding((View)item));
+                    */
+
+                    /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-android)'
+                    Before:
+                                        processChildren.Add(this.WrapChildWithPadding((View)item));
+                    After:
+                                        processChildren.Add(WrapLayout.WrapChildWithPadding((View)item));
+                    */
+
+                    /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-windows10.0.19041)'
+                    Before:
+                                        processChildren.Add(this.WrapChildWithPadding((View)item));
+                    After:
+                                        processChildren.Add(WrapLayout.WrapChildWithPadding((View)item));
+                    */
+                    processChildren.Add(WrapChildWithPadding((View)item));
                 }
             }
             foreach (var item in this.Children)
             {
-                if (item is HorizontalStackLayout)
+                if (item is HorizontalStackLayout layout)
                 {
-                    (item as HorizontalStackLayout).Children.Clear();
+                    layout.Children.Clear();
                 }
 
             }
@@ -122,23 +144,51 @@ namespace SampleBrowser.Maui.Core
 
         public void AddChild(View view)
         {
-            (view as Grid).IsVisible = false;
+            ((Grid)view).IsVisible = false;
             if (this.Children.Count <= 0)
             {
-                this.Children.Add(this.CreateHorizontalLayout(view));
+
+                /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-maccatalyst)'
+                Before:
+                                this.Children.Add(this.CreateHorizontalLayout(view));
+                After:
+                                this.Children.Add(WrapLayout.CreateHorizontalLayout(view));
+                */
+
+                /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-ios)'
+                Before:
+                                this.Children.Add(this.CreateHorizontalLayout(view));
+                After:
+                                this.Children.Add(WrapLayout.CreateHorizontalLayout(view));
+                */
+
+                /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-android)'
+                Before:
+                                this.Children.Add(this.CreateHorizontalLayout(view));
+                After:
+                                this.Children.Add(WrapLayout.CreateHorizontalLayout(view));
+                */
+
+                /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-windows10.0.19041)'
+                Before:
+                                this.Children.Add(this.CreateHorizontalLayout(view));
+                After:
+                                this.Children.Add(WrapLayout.CreateHorizontalLayout(view));
+                */
+                this.Children.Add(CreateHorizontalLayout(view));
             }
             else
             {
                 var lastHorizontalStackLayout = this.Children[this.Children.Count - 1];
-                if (lastHorizontalStackLayout is HorizontalStackLayout)
+                if (lastHorizontalStackLayout is HorizontalStackLayout layout)
                 {
-                    this.AllocateSpaceBasedOnSize(view, lastHorizontalStackLayout as HorizontalStackLayout);
+                    this.AllocateSpaceBasedOnSize(view, layout);
                 }
             }
-            (view as Grid).IsVisible = true;
+            ((Grid)view).IsVisible = true;
         }
 
-        public HorizontalStackLayout CreateHorizontalLayout(View view)
+        public static HorizontalStackLayout CreateHorizontalLayout(View view)
         {
             var newStackLayout = new HorizontalStackLayout();
             newStackLayout.Children.Add(view);
@@ -160,7 +210,7 @@ namespace SampleBrowser.Maui.Core
             {
                 if (item is Grid)
                 {
-                    totalWidth = totalWidth + currentWidth;
+                    totalWidth += currentWidth;
                 }
             }
 
@@ -170,14 +220,42 @@ namespace SampleBrowser.Maui.Core
             }
             else
             {
-                var createdView = this.CreateHorizontalLayout(view);
+
+                /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-maccatalyst)'
+                Before:
+                                var createdView = this.CreateHorizontalLayout(view);
+                After:
+                                var createdView = WrapLayout.CreateHorizontalLayout(view);
+                */
+
+                /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-ios)'
+                Before:
+                                var createdView = this.CreateHorizontalLayout(view);
+                After:
+                                var createdView = WrapLayout.CreateHorizontalLayout(view);
+                */
+
+                /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-android)'
+                Before:
+                                var createdView = this.CreateHorizontalLayout(view);
+                After:
+                                var createdView = WrapLayout.CreateHorizontalLayout(view);
+                */
+
+                /* Unmerged change from project 'SampleBrowser.Maui.Core (net6.0-windows10.0.19041)'
+                Before:
+                                var createdView = this.CreateHorizontalLayout(view);
+                After:
+                                var createdView = WrapLayout.CreateHorizontalLayout(view);
+                */
+                var createdView = CreateHorizontalLayout(view);
                 this.Children.Add(createdView);
             }
         }
 
-        public Grid WrapChildWithPadding(View view)
+        public static Grid WrapChildWithPadding(View view)
         {
-            Grid grid = new Grid();
+            Grid grid = new();
             grid.Children.Add(view);
             grid.WidthRequest = view.WidthRequest;
             grid.HeightRequest = view.HeightRequest;

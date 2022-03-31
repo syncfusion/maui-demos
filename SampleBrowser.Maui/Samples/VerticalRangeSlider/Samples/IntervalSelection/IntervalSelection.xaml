@@ -7,44 +7,69 @@
 
     <localCore:SampleView.Resources>
         <Style TargetType="sliders:SfRangeSlider">
-            <Setter Property="Orientation" Value="Vertical" />
-            <Setter Property="ShowLabels" Value="True" />
-            <Setter Property="ShowTicks" Value="True" />
-            <Setter Property="EnableIntervalSelection" Value="True" />
-            <Setter Property="MaximumHeightRequest" Value="300" />
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="EnableIntervalSelection"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
         </Style>
-        
+
+        <Style TargetType="sliders:SfDateTimeRangeSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="EnableIntervalSelection"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
         <Style TargetType="VerticalStackLayout">
-            <Setter Property="Padding" Value="25,15" />
-            <Setter Property="Spacing" Value="10" />
-            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Padding"
+                    Value="25,15" />
+            <Setter Property="Spacing"
+                    Value="10" />
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
         </Style>
 
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="Black" />
-            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
         </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <HorizontalStackLayout Padding="15,0" Spacing="10" HorizontalOptions="Center">
+        <HorizontalStackLayout Padding="15,0"
+                               Spacing="10"
+                               HorizontalOptions="Center">
             <VerticalStackLayout>
-                <sliders:SfRangeSlider Minimum="0" 
-                                       Maximum="100" 
-                                       RangeStart="25" 
+                <sliders:SfRangeSlider Minimum="0"
+                                       Maximum="100"
+                                       RangeStart="25"
                                        StepSize="25"
                                        RangeEnd="75"
                                        Interval="25" />
                 <Label Text="Numeric" />
             </VerticalStackLayout>
             <VerticalStackLayout>
-                <sliders:SfRangeSlider Minimum="2010-01-01"
-                                       Maximum="2018-01-01"
-                                       RangeStart="2012-01-01"
-                                       RangeEnd="2016-01-01"
-                                       StepDuration="2"
-                                       DateIntervalType="Years"  
-                                       Interval="2"  />
+                <sliders:SfDateTimeRangeSlider Minimum="2010-01-01"
+                                               Maximum="2018-01-01"
+                                               RangeStart="2012-01-01"
+                                               RangeEnd="2016-01-01"
+                                               StepDuration="2"
+                                               IntervalType="Years"
+                                               Interval="2" />
                 <Label Text="Date" />
             </VerticalStackLayout>
         </HorizontalStackLayout>

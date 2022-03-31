@@ -1,21 +1,20 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using System;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Xaml;
 using SampleBrowser.Maui.Core;
-using System.Reflection;
-using System.IO;
+using SampleBrowser.Maui.Services;
 using Syncfusion.Drawing;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Grid;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace SampleBrowser.Maui.Pdf
 {
@@ -40,7 +39,7 @@ namespace SampleBrowser.Maui.Pdf
         private void OnButtonClicked(object sender, EventArgs e)
         {
             //Create a new PDF document.
-            PdfDocument document = new PdfDocument();
+            PdfDocument document = new();
             //Add a page to the document.
             PdfPage page = document.Pages.Add();
             //Create PDF graphics for the page.
@@ -64,15 +63,15 @@ namespace SampleBrowser.Maui.Pdf
             //Get the font file stream from assembly. 
             Assembly assembly = typeof(Invoice).GetTypeInfo().Assembly;
             string basePath = "SampleBrowser.Maui.Resources.Pdf.";
-            Stream fontStream = assembly.GetManifestResourceStream(basePath + "arial.ttf");
+            Stream? fontStream = assembly.GetManifestResourceStream(basePath + "arial.ttf");
 
             //Create PdfTrueTypeFont from stream with different size. 
-            PdfTrueTypeFont headerFont = new PdfTrueTypeFont(fontStream, 30, PdfFontStyle.Regular);
-            PdfTrueTypeFont arialRegularFont = new PdfTrueTypeFont(fontStream, 18, PdfFontStyle.Regular);
-            PdfTrueTypeFont arialBoldFont = new PdfTrueTypeFont(fontStream, 9, PdfFontStyle.Bold);
+            PdfTrueTypeFont headerFont = new(fontStream, 30, PdfFontStyle.Regular);
+            PdfTrueTypeFont arialRegularFont = new(fontStream, 18, PdfFontStyle.Regular);
+            PdfTrueTypeFont arialBoldFont = new(fontStream, 9, PdfFontStyle.Bold);
 
             //Create string format.
-            PdfStringFormat format = new PdfStringFormat();
+            PdfStringFormat format = new();
             format.Alignment = PdfTextAlignment.Center;
             format.LineAlignment = PdfVerticalAlignment.Middle;
 
@@ -87,11 +86,11 @@ namespace SampleBrowser.Maui.Pdf
 
             //Create border pen and draw the border to PDF page. 
             PdfColor borderColor = Color.FromArgb(255, 142, 170, 219);
-            PdfPen borderPen = new PdfPen(borderColor, 1f);
+            PdfPen borderPen = new(borderColor, 1f);
             graphics.DrawRectangle(borderPen, new RectangleF(0, 0, pageWidth, pageHeight));
 
             //Create a new PdfGrid 
-            PdfGrid grid = new PdfGrid();
+            PdfGrid grid = new();
 
             //Add five columns to the grid.
             grid.Columns.Add(5);
@@ -125,7 +124,7 @@ namespace SampleBrowser.Maui.Pdf
             string title = "INVOICE";
 
             //Specificy the bounds for total value. 
-            RectangleF headerTotalBounds = new RectangleF(400, 0, pageWidth - 400, headerHeight);
+            RectangleF headerTotalBounds = new(400, 0, pageWidth - 400, headerHeight);
 
             //Measure the string size using font. 
             SizeF textSize = headerFont.MeasureString(title);
@@ -181,7 +180,7 @@ namespace SampleBrowser.Maui.Pdf
                 for (int j = 0; j < grid.Columns.Count; j++)
                 {
                     //Create string format for header cell. 
-                    PdfStringFormat pdfStringFormat = new PdfStringFormat();
+                    PdfStringFormat pdfStringFormat = new();
                     pdfStringFormat.LineAlignment = PdfVerticalAlignment.Middle;
                     pdfStringFormat.Alignment = PdfTextAlignment.Left;
 
@@ -204,7 +203,7 @@ namespace SampleBrowser.Maui.Pdf
                 for (int j = 0; j < grid.Columns.Count; j++)
                 {
                     //Create string format for grid row. 
-                    PdfStringFormat pdfStringFormat = new PdfStringFormat();
+                    PdfStringFormat pdfStringFormat = new();
                     pdfStringFormat.LineAlignment = PdfVerticalAlignment.Middle;
                     pdfStringFormat.Alignment = PdfTextAlignment.Left;
 
@@ -227,9 +226,11 @@ namespace SampleBrowser.Maui.Pdf
 
             //Using the layout result, continue to draw the text. 
             y = result.Bounds.Bottom + lineSpace;
-            format = new PdfStringFormat();
-            format.Alignment = PdfTextAlignment.Center;
-            RectangleF bounds = new RectangleF(QuantityCellBounds.X, y, QuantityCellBounds.Width, QuantityCellBounds.Height);
+            format = new PdfStringFormat
+            {
+                Alignment = PdfTextAlignment.Center
+            };
+            RectangleF bounds = new(QuantityCellBounds.X, y, QuantityCellBounds.Width, QuantityCellBounds.Height);
             //Draw text to PDF page based on the layout result. 
             page.Graphics.DrawString("Grand Total:", arialBoldFont, PdfBrushes.Black, bounds, format);
             //Draw the total amount value to PDF page based on the layout result. 
@@ -242,10 +243,10 @@ namespace SampleBrowser.Maui.Pdf
             graphics.DrawLine(borderPen, new PointF(0, pageHeight - 100), new PointF(pageWidth, pageHeight - 100));
 
             //Get the image file stream from assembly.
-            Stream imageStream = assembly.GetManifestResourceStream(basePath + "AdventureWork.png");
+            Stream? imageStream = assembly.GetManifestResourceStream(basePath + "AdventureWork.png");
 
             //Create PDF bitmap image from stream.
-            PdfBitmap bitmap = new PdfBitmap(imageStream);
+            PdfBitmap bitmap = new(imageStream);
             //Draw the image to PDF page. 
             graphics.DrawImage(bitmap, new RectangleF(10, pageHeight - 90, 80, 80));
 
@@ -268,17 +269,20 @@ namespace SampleBrowser.Maui.Pdf
             graphics.DrawString("Any Questions? support@adventure-works.com", arialRegularFont, PdfBrushes.Black, new PointF(x, y));
 
             using MemoryStream ms = new();
-            //Saves the presentation to the memory stream.
+            //Saves the PDF to the memory stream.
             document.Save(ms);
+            //Close the PDF document
+            document.Close(true);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Invoice.pdf", "application/pdf", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Invoice.pdf", "application/pdf", ms);
         }
 
         private void Grid_BeginCellLayout(object sender, PdfGridBeginCellLayoutEventArgs args)
         {
-            PdfGrid grid = sender as PdfGrid;
-            if (args.CellIndex == grid.Columns.Count - 1)
+            PdfGrid? grid = sender as PdfGrid;
+            if (args.CellIndex == grid!.Columns.Count - 1)
             {
                 //Get the bounds of price cell in grid row. 
                 TotalPriceCellBounds = args.Bounds;
@@ -312,7 +316,7 @@ namespace SampleBrowser.Maui.Pdf
             float Total = 0f;
             for (int i = 0; i < grid.Rows.Count; i++)
             {
-                string cellValue = grid.Rows[i].Cells[grid.Columns.Count - 1].Value.ToString();
+                string cellValue = (grid.Rows[i].Cells[grid.Columns.Count - 1].Value as string)!.ToString();
                 float result = float.Parse(cellValue, System.Globalization.CultureInfo.InvariantCulture);
                 Total += result;
             }

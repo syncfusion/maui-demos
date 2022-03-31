@@ -7,47 +7,77 @@
 
     <localCore:SampleView.Resources>
         <Style TargetType="sliders:SfSlider">
-            <Setter Property="ToolTipShape" Value="Rectangle" />
-            <Setter Property="ShowLabels" Value="True" />
-            <Setter Property="ShowTicks" Value="True" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="Tooltip">
+                <Setter.Value>
+                    <sliders:SliderTooltip />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeSlider">
+            <Setter Property="Tooltip">
+                <Setter.Value>
+                    <sliders:SliderTooltip />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
         </Style>
 
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="Black" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
             <!--To align the label and track vertically, used the slider thumb overlay radius on the label.-->
-            <Setter Property="Padding" Value="24,0,0,0" />
-            <Setter Property="TranslationY" Value="30" />
+            <Setter Property="Padding"
+                    Value="24,0,0,0" />
+            <Setter Property="TranslationY"
+                    Value="30" />
         </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <VerticalStackLayout Padding="10,0" VerticalOptions="Center" HorizontalOptions="Center">
+        <VerticalStackLayout Padding="10,0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
             <Label Text="Numeric" />
-            <sliders:SfSlider Minimum="-10" 
-                              Maximum="10" 
-                              Value="0" 
-                              Interval="5" 
+            <sliders:SfSlider Minimum="-10"
+                              Maximum="10"
+                              Value="0"
+                              Interval="5"
                               StepSize="5" />
 
             <BoxView>
                 <BoxView.HeightRequest>
                     <OnPlatform x:TypeArguments="x:Double">
-                        <On Platform="iOS" Value="20"/>
-                        <On Platform="Android" Value="0"/>
-                        <On Platform="UWP" Value="0"/>
+                        <On Platform="iOS"
+                            Value="20" />
+                        <On Platform="Android"
+                            Value="0" />
+                        <On Platform="UWP"
+                            Value="0" />
                     </OnPlatform>
                 </BoxView.HeightRequest>
             </BoxView>
-            
+
             <Label Text="Date" />
-            <sliders:SfSlider Minimum="2010-01-01"
-                              Maximum="2018-01-01"
-                              Value="2014-01-01"
-                              StepDuration="2"
-                              DateIntervalType="Years"
-                              Interval="2" />
+            <sliders:SfDateTimeSlider Minimum="2010-01-01"
+                                      Maximum="2018-01-01"
+                                      Value="2014-01-01"
+                                      StepDuration="2"
+                                      IntervalType="Years"
+                                      Interval="2" />
         </VerticalStackLayout>
     </localCore:SampleView.Content>
 </localCore:SampleView>

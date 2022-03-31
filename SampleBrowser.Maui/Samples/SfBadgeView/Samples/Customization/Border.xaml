@@ -41,7 +41,10 @@
                                Style="{StaticResource DemoLabelStyle}"/>
                     </Grid>
                 <badge:SfBadgeView.BadgeSettings>
-                    <badge:BadgeSettings Stroke="DarkBlue" 
+                    <badge:BadgeSettings Stroke="DeepPink" 
+                                         Type="None"
+                                         Background="White"
+                                         TextColor="DeepPink"
                                          BorderWidth="4"/>
                 </badge:SfBadgeView.BadgeSettings>
             </badge:SfBadgeView>
@@ -56,6 +59,9 @@
                     </Grid>
                 <badge:SfBadgeView.BadgeSettings>
                     <badge:BadgeSettings Stroke="Red" 
+                                         Type="None"
+                                         Background="White"
+                                         TextColor="Red"
                                          BorderWidth="2"/>
                 </badge:SfBadgeView.BadgeSettings>
             </badge:SfBadgeView>

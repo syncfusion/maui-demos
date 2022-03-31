@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.RangeSelector.DefaultRangeSelector"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.RangeSelector"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:charts="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
+
+    <localCore:SampleView.BindingContext>
+        <local:ViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <Grid RowDefinitions="100,300,30,50"
+              VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{OnPlatform 0.125*, iOS=0.005*, Android=0.005*}" />
+                <ColumnDefinition Width="{OnPlatform 0.75*, iOS=0.99*, Android=0.99*}" />
+                <ColumnDefinition Width="{OnPlatform 0.125*, iOS=0.005*, Android=0.005*}" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Inflation Rate In Percentage"
+                   Grid.ColumnSpan="3"
+                   HorizontalOptions="Center"
+                   VerticalOptions="End"
+                   TextColor="Black"
+                   FontSize="18" />
+
+            <sliders:SfDateTimeRangeSelector x:Name="rangeSelector"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Minimum="2002-01-01"
+                                             Maximum="2011-01-01"
+                                             RangeStart="{Binding RangeStart}"
+                                             RangeEnd="{Binding RangeEnd}"
+                                             Interval="1"
+                                             IntervalType="Years"
+                                             DateFormat="yyyy"
+                                             ShowTicks="True"
+                                             ShowLabels="True"
+                                             VerticalOptions="Center"
+                                             LabelsPlacement="BetweenTicks">
+
+                <sliders:SfDateTimeRangeSelector.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double"
+                                Default="300">
+                        <On Platform="iOS"
+                            Value="250" />
+                        <On Platform="Android"
+                            Value="250" />
+                    </OnPlatform>
+                </sliders:SfDateTimeRangeSelector.HeightRequest>
+
+                <sliders:SfDateTimeRangeSelector.LabelStyle>
+                    <sliders:SliderLabelStyle Offset="0"
+                                              InactiveFontSize="{OnPlatform 14, Android=10, iOS=10}"
+                                              ActiveFontSize="{OnPlatform 14, Android=10, iOS=10}" />
+                </sliders:SfDateTimeRangeSelector.LabelStyle>
+
+                <sliders:SfDateTimeRangeSelector.Tooltip>
+                    <sliders:SliderTooltip DateFormat="MMM d, yyyy" />
+                </sliders:SfDateTimeRangeSelector.Tooltip>
+
+                <charts:SfCartesianChart>
+                    <charts:SfCartesianChart.XAxes>
+                        <charts:DateTimeAxis IsVisible="False"
+                                             ShowMajorGridLines="False" />
+                    </charts:SfCartesianChart.XAxes>
+
+                    <charts:SfCartesianChart.YAxes>
+                        <charts:NumericalAxis IsVisible="False"
+                                              ShowMajorGridLines="False" />
+                    </charts:SfCartesianChart.YAxes>
+
+                    <charts:SfCartesianChart.Series>
+                        <charts:SplineAreaSeries ItemsSource="{Binding Source}"
+                                                 XBindingPath="X"
+                                                 YBindingPath="Y">
+
+                            <charts:SplineAreaSeries.Fill>
+                                <LinearGradientBrush StartPoint="0,0"
+                                                     EndPoint="1,0">
+                                    <GradientStop Color="#66FF7D1E"
+                                                  Offset="0.0" />
+                                    <GradientStop Color="#FF7D1E"
+                                                  Offset="0.25" />
+                                </LinearGradientBrush>
+                            </charts:SplineAreaSeries.Fill>
+
+                        </charts:SplineAreaSeries>
+                    </charts:SfCartesianChart.Series>
+                </charts:SfCartesianChart>
+            </sliders:SfDateTimeRangeSelector>
+
+            <Label Grid.Row="3"
+                   Grid.Column="1"
+                   Text="{Binding AverageInflationRate, StringFormat='Average rate  :  {0:0.##}%'}"
+                   TextColor="Black"
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start" />
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,18 +1,19 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
-using System;
+using SampleBrowser.Maui.Services;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Microsoft.Maui.Controls;
-using System.Reflection;
+using System;
 using System.IO;
+using System.Reflection;
 
 namespace SampleBrowser.Maui.DocIO
 {
@@ -55,7 +56,7 @@ namespace SampleBrowser.Maui.DocIO
             paragraph.ParagraphFormat.BeforeSpacing = 12f;
             Assembly assembly = typeof(ImageInsertion).GetTypeInfo().Assembly;
             string basePath = "SampleBrowser.Maui.Resources.DocIO.";
-            Stream imageStream = assembly.GetManifestResourceStream(basePath + "AdventureCycle.png");
+            Stream? imageStream = assembly.GetManifestResourceStream(basePath + "AdventureCycle.png");
 
             //Inserts .png image.
             WPicture picture = (WPicture)paragraph.AppendPicture(imageStream);
@@ -102,7 +103,8 @@ namespace SampleBrowser.Maui.DocIO
             document.Save(ms, FormatType.Docx);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Image Insertion.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Image Insertion.docx", "application/msword", ms);
             #endregion Document SaveOption
         }
         #endregion

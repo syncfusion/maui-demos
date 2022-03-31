@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -10,11 +10,8 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using Syncfusion.Maui.Scheduler;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace SampleBrowser.Maui.SfScheduler
 {
@@ -46,10 +43,15 @@ namespace SampleBrowser.Maui.SfScheduler
         internal static int GetColorIndex(Brush background)
         {
             var selectedAppointmentbackground = background as SolidColorBrush;
+            if (selectedAppointmentbackground == null)
+            {
+                return 0;
+            }
+
             int i = 0;
             foreach (var backgroundBrush in BackgroundCollection.Values)
             {
-                if (selectedAppointmentbackground.Color.Equals((backgroundBrush as SolidColorBrush).Color))
+                if (selectedAppointmentbackground.Color.Equals(((SolidColorBrush)backgroundBrush).Color))
                 {
                     return i;
                 }
@@ -66,8 +68,10 @@ namespace SampleBrowser.Maui.SfScheduler
         /// <returns>The scheduler recurrence properties.</returns>
         internal static SchedulerRecurrenceInfo GetRecurrenceInfo(int selectedIndex, DateTime selectedDate)
         {
-            var recInfo = new SchedulerRecurrenceInfo();
-            recInfo.Interval = 1;
+            var recInfo = new SchedulerRecurrenceInfo
+            {
+                Interval = 1
+            };
 
             if (selectedIndex == 1)
             {

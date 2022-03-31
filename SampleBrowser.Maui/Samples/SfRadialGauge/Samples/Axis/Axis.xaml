@@ -45,17 +45,17 @@
                                     </gauge:RadialAxis.BackgroundContent>
 
                                     <gauge:RadialAxis.Pointers>
-                                        <gauge:MarkerPointer Value="90"
+                                        <gauge:ShapePointer Value="90"
                                                      Fill="#FFDF5F2D"
                                                      EnableAnimation="True"
                                                      AnimationDuration="1200"
                                                       AnimationEasing="{x:Static Easing.SpringOut}"
-                                                     MarkerOffset="0.71"
+                                                     Offset="0.71"
                                                      OffsetUnit="Factor"
-                                                     MarkerType="Triangle"
-                                                     MarkerHeight="10"
-                                                     MarkerWidth="15">
-                                        </gauge:MarkerPointer>
+                                                     ShapeType="Triangle"
+                                                     ShapeHeight="10"
+                                                     ShapeWidth="15">
+                                        </gauge:ShapePointer>
                                     </gauge:RadialAxis.Pointers>
 
                                     <gauge:RadialAxis.Annotations>
@@ -196,6 +196,7 @@
                                                   Maximum="1"
                                                   RadiusFactor="0.7"
                                                   LabelPosition="Outside"
+                                                  LabelOffset="15" OffsetUnit="Pixel"
                                                   MinorTicksPerInterval="5"
                                                   LabelFormat="p0">
                                     <gauge:RadialAxis.AxisLineStyle>
@@ -330,6 +331,54 @@
                                         </gauge:RangePointer>
                                     </gauge:RadialAxis.Pointers>
                                 </local:RadialAxisExt>
+                            </gauge:SfRadialGauge.Axes>
+                        </gauge:SfRadialGauge>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Custom labels">
+                    <localCore:CardViewExt.MainContent>
+                        <gauge:SfRadialGauge x:Name="customlabelsGauge">
+                            <gauge:SfRadialGauge.Axes>
+                                <gauge:RadialAxis StartAngle="270" EndAngle="270" ShowFirstLabel="False" 
+                                                  Minimum="0" Maximum="80" Interval="10"
+                                                  CanRotateLabels="True" MinorTicksPerInterval="0"
+                                                  LabelCreated="RadialAxis_LabelCreated1">
+                                    <gauge:RadialAxis.AxisLineStyle>
+                                        <gauge:RadialLineStyle Thickness="0.1" ThicknessUnit="Factor"/>
+                                    </gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialAxis.Pointers>
+                                        <gauge:NeedlePointer x:Name="compassPointer1" Value="70" NeedleLengthUnit="Factor" NeedleLength="0.55"
+                                                             NeedleEndWidth="25"  KnobRadius="16" KnobSizeUnit="Pixel"
+                                                             KnobFill="White" >
+                                            <gauge:NeedlePointer.NeedleFill>
+                                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                                    <LinearGradientBrush.GradientStops>
+                                                        <GradientStop Color="#FFFF6B78" Offset="0"/>
+                                                        <GradientStop Color="#FFFF6B78" Offset="0.5"/>
+                                                        <GradientStop Color="#FFE20A22" Offset="0.5"/>
+                                                        <GradientStop Color="#FFE20A22" Offset="1"/>
+                                                    </LinearGradientBrush.GradientStops>
+                                                </LinearGradientBrush>
+                                            </gauge:NeedlePointer.NeedleFill>
+                                        </gauge:NeedlePointer>
+                                        <gauge:NeedlePointer x:Name="compassPointer2" Value="30" NeedleLengthUnit="Factor" NeedleLength="0.55"
+                                                             NeedleEndWidth="25" KnobRadius="16" KnobSizeUnit="Pixel"
+                                                             KnobFill="White">
+                                            <gauge:NeedlePointer.NeedleFill>
+                                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                                    <LinearGradientBrush.GradientStops>
+                                                        <GradientStop Color="#FFE3DFDF" Offset="0"/>
+                                                        <GradientStop Color="#FFE3DFDF" Offset="0.5"/>
+                                                        <GradientStop Color="#FF7A7A7A" Offset="0.5"/>
+                                                        <GradientStop Color="#FF7A7A7A" Offset="1"/>
+                                                    </LinearGradientBrush.GradientStops>
+                                                </LinearGradientBrush>
+                                            </gauge:NeedlePointer.NeedleFill>
+                                        </gauge:NeedlePointer>
+                                    </gauge:RadialAxis.Pointers>
+                                </gauge:RadialAxis>
                             </gauge:SfRadialGauge.Axes>
                         </gauge:SfRadialGauge>
                     </localCore:CardViewExt.MainContent>

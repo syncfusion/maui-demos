@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -7,9 +7,10 @@
 #endregion
 
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Essentials;
 using Microsoft.Maui.Graphics;
-using Application = Microsoft.Maui.Controls.Application;
 using SampleBrowser.Maui.Core;
+using Application = Microsoft.Maui.Controls.Application;
 #if AppCenter
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -18,20 +19,20 @@ using Microsoft.AppCenter.Crashes;
 
 namespace SampleBrowser.Maui
 {
-	public partial class App : Application
-	{
-		public App()
-		{
-			InitializeComponent();
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
 
 #if __ANDROID__
-			RunTimeDevice.PlatformInfo = "Android";
+            RunTimeDevice.PlatformInfo = "Android";
 #elif __MACCATALYST__
-			RunTimeDevice.PlatformInfo = "MACCATALYST";
+            RunTimeDevice.PlatformInfo = "MACCATALYST";
 #elif WINDOWS
-			RunTimeDevice.PlatformInfo = "Windows";
+            RunTimeDevice.PlatformInfo = "Windows";
 #else
-			RunTimeDevice.PlatformInfo = "iOS";
+            RunTimeDevice.PlatformInfo = "iOS";
 #endif
 
 
@@ -42,9 +43,17 @@ namespace SampleBrowser.Maui
                 typeof(Analytics), typeof(Crashes));
 #endif
 
-			//MainPage = new MainPage();
-			Application.Current.UserAppTheme = OSAppTheme.Light;
-			MainPage = new NavigationPage(new ControlsHomePage()) { BarBackgroundColor = Colors.White, BarTextColor = Colors.Black };
-		}
-	}
+            //MainPage = new MainPage();
+            if (Application.Current != null)
+            {
+                Application.Current.UserAppTheme = AppTheme.Light;
+            }
+
+#if WINDOWS
+            MainPage = new ControlsHomePage();
+#else
+            MainPage = new NavigationPage(new ControlsHomePage()) { BarBackgroundColor = Colors.White, BarTextColor = Colors.Black };
+#endif
+        }
+    }
 }

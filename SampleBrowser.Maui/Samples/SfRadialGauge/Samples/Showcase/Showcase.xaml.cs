@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -37,7 +37,9 @@ namespace SampleBrowser.Maui.SfRadialGauge
         private async void StartTimer()
         {
             await Task.Delay(500);
+#pragma warning disable CS0618 // Type or member is obsolete
             Device.StartTimer(new TimeSpan(0, 0, 0, 1, 0), UpdateTick);
+#pragma warning restore CS0618 // Type or member is obsolete
             canStopTimer = false;
         }
 
@@ -71,7 +73,7 @@ namespace SampleBrowser.Maui.SfRadialGauge
             temperatureMonitorGauge.Handler?.DisconnectHandler();
             distanceTrackerGauge.Handler?.DisconnectHandler();
         }
-         
+
         public override void OnExpandedViewDisappearing(Microsoft.Maui.Controls.View view)
         {
             base.OnExpandedViewDisappearing(view);
@@ -83,7 +85,7 @@ namespace SampleBrowser.Maui.SfRadialGauge
         {
             base.OnExpandedViewAppearing(view);
 #if __MACCATALYST__
-            if (view is Syncfusion.Maui.Gauges.SfRadialGauge gauge && gauge.Axes.Count > 0 && 
+            if (view is Syncfusion.Maui.Gauges.SfRadialGauge gauge && gauge.Axes.Count > 0 &&
                 gauge.Axes[0].Pointers.Count > 1 && gauge.Axes[0].Pointers[1].Value == 138)
                 gauge.Axes[0].Pointers[1].Value = 140;
 #endif
@@ -94,13 +96,14 @@ namespace SampleBrowser.Maui.SfRadialGauge
         bool isStartPointer;
         private void StartPointer_ValueChangeStarted(object sender, ValueChangedEventArgs e)
         {
-            if(AnimationExtensions.AnimationIsRunning(this.sleepTracker, "DragStartAnimation"))
+            if (AnimationExtensions.AnimationIsRunning(this.sleepTracker, "DragStartAnimation"))
             {
                 this.OnAnimationFinished(0, true);
             }
 
             isStartPointer = true;
-            startPointer.MarkerHeight = startPointer.MarkerWidth = 30d;
+            if (startPointer.Content != null)
+                startPointer.Content.HeightRequest = startPointer.Content.WidthRequest = 30d;
             this.DragAnimation(false);
         }
 
@@ -122,7 +125,9 @@ namespace SampleBrowser.Maui.SfRadialGauge
                 this.OnAnimationFinished(0, true);
             }
             isStartPointer = false;
-            endPointer.MarkerHeight = endPointer.MarkerWidth = 30d;
+
+            if (endPointer.Content != null)
+                endPointer.Content.HeightRequest = endPointer.Content.WidthRequest = 30d;
             this.DragAnimation(false);
         }
 
@@ -170,8 +175,10 @@ namespace SampleBrowser.Maui.SfRadialGauge
 
         private void OnMarkerSizeAnimationUpdate(double value)
         {
-            MarkerPointer markerPointer = isStartPointer ? startPointer : endPointer;
-            markerPointer.MarkerHeight = markerPointer.MarkerWidth = value;
+            ContentPointer pointer = isStartPointer ? startPointer : endPointer;
+
+            if (pointer.Content != null)
+                pointer.Content.HeightRequest = pointer.Content.WidthRequest = value;
         }
 
         private void OnAnnotationFadeOutUpdate(double value)
@@ -275,8 +282,8 @@ namespace SampleBrowser.Maui.SfRadialGauge
 
     public class ClockViewModel
     {
-        private double hour;
-        private double minute;
+        private readonly double hour;
+        private readonly double minute;
 
         public ClockViewModel()
         {

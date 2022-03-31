@@ -1,20 +1,19 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
+using SampleBrowser.Maui.Core;
+using SampleBrowser.Maui.Services;
+using Syncfusion.Drawing;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
 using System;
 using System.IO;
 using System.Reflection;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Xaml;
-using SampleBrowser.Maui.Core;
-using Syncfusion.Pdf;
-using Syncfusion.Drawing;
-using Syncfusion.Pdf.Graphics;
 
 namespace SampleBrowser.Maui.Pdf
 {
@@ -37,7 +36,7 @@ namespace SampleBrowser.Maui.Pdf
         private void OnButtonClicked(object sender, EventArgs e)
         {
             //Create a new PDF document.
-            PdfDocument document = new PdfDocument();
+            PdfDocument document = new();
             //Set PDF landscape page orientiation. 
             document.PageSettings.Orientation = PdfPageOrientation.Landscape;
             //Set page margins. 
@@ -50,10 +49,10 @@ namespace SampleBrowser.Maui.Pdf
             //Get the image file stream from assembly.
             Assembly assembly = typeof(Certificate).GetTypeInfo().Assembly;
             string basePath = "SampleBrowser.Maui.Resources.Pdf.";
-            Stream imageStream = assembly.GetManifestResourceStream(basePath + "certificate.jpg");
+            Stream? imageStream = assembly.GetManifestResourceStream(basePath + "certificate.jpg");
 
             //Load the PDF document from stream.
-            PdfBitmap bitmapImage = new PdfBitmap(imageStream);
+            PdfBitmap bitmapImage = new(imageStream);
             //Draw the PDF bitmap image to PDF page with provided size. 
             page.Graphics.DrawImage(bitmapImage, new RectangleF(0, 0, pageSize.Width, pageSize.Height));
 
@@ -86,13 +85,17 @@ namespace SampleBrowser.Maui.Pdf
             x = calculateXPosition(formatedDate, dateFont, pageSize.Width);
             //Draw the string to specified location. 
             page.Graphics.DrawString(formatedDate, dateFont, textBrush, new RectangleF(x, 385, 0, 0));
-            
+
             using MemoryStream stream = new();
-            //Saves the presentation to the memory stream.
+            //Saves the PDF to the memory stream.
             document.Save(stream);
+            //Close the PDF document
+            document.Close(true);
+
             stream.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Certificate.pdf", "application/pdf", stream);
+            SaveService saveService = new();
+            saveService.SaveAndView("Certificate.pdf", "application/pdf", stream);
         }
         #endregion
 

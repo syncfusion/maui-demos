@@ -35,18 +35,18 @@
                                                 <gauge:RadialLineStyle.ThicknessUnit>
                                                     <OnPlatform x:TypeArguments="gauge:SizeUnit">
                                                         <On Platform="Android, UWP" Value="Factor"/>
-                                                        <On Platform="iOS" >
+                                                        <On Platform="iOS, MacCatalyst" >
                                                             <OnIdiom x:TypeArguments="gauge:SizeUnit" 
-                                                                     Phone="Factor" Tablet="Pixel"/>
+                                                                     Phone="Factor" Tablet="Pixel" Desktop="Pixel"/>
                                                         </On>
                                                     </OnPlatform>
                                                 </gauge:RadialLineStyle.ThicknessUnit>
                                                 <gauge:RadialLineStyle.Thickness>
                                                     <OnPlatform x:TypeArguments="x:Double">
                                                         <On Platform="Android, UWP" Value="0.03"/>
-                                                        <On Platform="iOS" >
+                                                        <On Platform="iOS, MacCatalyst" >
                                                             <OnIdiom x:TypeArguments="x:Double" 
-                                                                     Phone="0.03" Tablet="7"/>
+                                                                     Phone="0.03" Tablet="7" Desktop="7"/>
                                                         </On>
                                                     </OnPlatform>
                                                 </gauge:RadialLineStyle.Thickness>
@@ -65,27 +65,27 @@
                                                 <gauge:RadialRange.WidthUnit>
                                                     <OnPlatform x:TypeArguments="gauge:SizeUnit">
                                                         <On Platform="Android, UWP" Value="Factor"/>
-                                                        <On Platform="iOS" >
+                                                        <On Platform="iOS, MacCatalyst" >
                                                             <OnIdiom x:TypeArguments="gauge:SizeUnit" 
-                                                                     Phone="Factor" Tablet="Pixel"/>
+                                                                     Phone="Factor" Tablet="Pixel" Desktop="Pixel"/>
                                                         </On>
                                                     </OnPlatform>
                                                 </gauge:RadialRange.WidthUnit>
                                                 <gauge:RadialRange.StartWidth>
                                                     <OnPlatform x:TypeArguments="x:Double">
                                                         <On Platform="Android, UWP" Value="0.03"/>
-                                                        <On Platform="iOS" >
+                                                        <On Platform="iOS, MacCatalyst" >
                                                             <OnIdiom x:TypeArguments="x:Double" 
-                                                                     Phone="0.03" Tablet="7"/>
+                                                                     Phone="0.03" Tablet="7" Desktop="7"/>
                                                         </On>
                                                     </OnPlatform>
                                                 </gauge:RadialRange.StartWidth>
                                                 <gauge:RadialRange.EndWidth>
                                                     <OnPlatform x:TypeArguments="x:Double">
                                                         <On Platform="Android, UWP" Value="0.03"/>
-                                                        <On Platform="iOS" >
+                                                        <On Platform="iOS, MacCatalyst" >
                                                             <OnIdiom x:TypeArguments="x:Double" 
-                                                                     Phone="0.03" Tablet="7"/>
+                                                                     Phone="0.03" Tablet="7" Desktop="7"/>
                                                         </On>
                                                     </OnPlatform>
                                                 </gauge:RadialRange.EndWidth>
@@ -142,81 +142,54 @@
                                         </gauge:RadialAxis.Annotations>
 
                                         <gauge:RadialAxis.Pointers>
-                                            <gauge:MarkerPointer x:Name="startPointer"
+                                            <gauge:ContentPointer x:Name="startPointer"
                                                      Value="20"
                                                      IsInteractive="True"
-                                                     Fill="#2194f3"
-                                                     MarkerHeight="30"
-                                                     MarkerWidth="30"
-                                                     Stroke="LightGray"
                                                       ValueChangeStarted="StartPointer_ValueChangeStarted"
                                                      ValueChanging="StartPointer_ValueChanging"
                                                      ValueChangeCompleted="ValueChangeCompleted"
                                                      >
-                                                <gauge:MarkerPointer.MarkerTemplate>
-                                                    <DataTemplate>
-                                                        <Grid HeightRequest="{Binding MarkerHeight}"
-                                                  WidthRequest="{Binding MarkerWidth}" >
-                                                            <Ellipse  Fill="{Binding Fill}"
-                                                         Stroke="{Binding Stroke}"
+                                                <gauge:ContentPointer.Content>
+                                                    <Grid HeightRequest="30"
+                                                  WidthRequest="30" >
+                                                        <Ellipse  Fill="#2194f3"
+                                                         Stroke="LightGray"
                                                          StrokeThickness="1" />
-                                                            <Label FontFamily="FontGaugeIcons" 
+                                                        <Label FontFamily="FontGaugeIcons" 
+                                                              Text="&#xe701;" 
                                                                    TextColor="White"
                                                                    FontSize="14"
                                                                    HorizontalOptions="Center"
                                                                    HorizontalTextAlignment="Center"
                                                                    VerticalOptions="Center"
-                                                                   VerticalTextAlignment="Center">
-                                                                <Label.Text>
-                                                                    <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android, UWP" Value="&#xe701;"/>
-                                                                        <On Platform="iOS" >
-                                                                            <OnIdiom x:TypeArguments="x:String" Phone="&#xe701;"/>
-                                                                        </On>
-                                                                    </OnPlatform>
-                                                                </Label.Text>
-                                                            </Label>
-                                                        </Grid>
-                                                    </DataTemplate>
-                                                </gauge:MarkerPointer.MarkerTemplate>
-                                            </gauge:MarkerPointer>
-                                            <gauge:MarkerPointer x:Name="endPointer"
+                                                                   VerticalTextAlignment="Center" />
+
+                                                    </Grid>
+                                                </gauge:ContentPointer.Content>
+                                            </gauge:ContentPointer>
+                                            <gauge:ContentPointer x:Name="endPointer"
                                                      IsInteractive="True"
                                                      Value="6"
-                                                     MarkerHeight="30"
-                                                     MarkerWidth="30"
-                                                     Fill="#2194f3"
-                                                     Stroke="LightGray"
                                                      ValueChangeStarted="EndPointer_ValueChangeStarted"
                                                      ValueChanging="EndPointer_ValueChanging"
                                                      ValueChangeCompleted="ValueChangeCompleted">
-                                                <gauge:MarkerPointer.MarkerTemplate>
-                                                    <DataTemplate>
-                                                        <Grid HeightRequest="{Binding MarkerHeight}" 
-                                                              WidthRequest="{Binding MarkerWidth}" >
-                                                        <Ellipse  Fill="{Binding Fill}"
-                                                         Stroke="{Binding Stroke}"
+                                                <gauge:ContentPointer.Content>
+                                                        <Grid HeightRequest="30" 
+                                                              WidthRequest="30" >
+                                                        <Ellipse  Fill="#2194f3"
+                                                         Stroke="LightGray"
                                                          StrokeThickness="1" />
-                                                            <Label FontFamily="FontGaugeIcons"  
-                                                                   Text="" TextColor="White"
+                                                        <Label FontFamily="FontGaugeIcons"  
+                                                                   Text="&#xe700;"  TextColor="White"
                                                                    FontSize="14"
                                                                    HorizontalOptions="Center"
                                                                    HorizontalTextAlignment="Center"
                                                                    VerticalOptions="Center"
-                                                                   VerticalTextAlignment="Center">
-                                                                <Label.Text>
-                                                                    <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android, UWP" Value="&#xe700;"/>
-                                                                        <On Platform="iOS" >
-                                                                            <OnIdiom x:TypeArguments="x:String" Phone="&#xe700;"/>
-                                                                        </On>
-                                                                    </OnPlatform>
-                                                                </Label.Text>
-                                                            </Label>
-                                                        </Grid>
-                                                    </DataTemplate>
-                                                </gauge:MarkerPointer.MarkerTemplate>
-                                            </gauge:MarkerPointer>
+                                                                   VerticalTextAlignment="Center" />
+
+                                                    </Grid>
+                                                </gauge:ContentPointer.Content>
+                                            </gauge:ContentPointer>
                                         </gauge:RadialAxis.Pointers>
 
                                     </gauge:RadialAxis>
@@ -565,8 +538,8 @@
                                                                          Color="#FFF54EA2" />
                                             </gauge:RangePointer.GradientStops>
                                         </gauge:RangePointer>
-                                        <gauge:MarkerPointer Value="138"
-                                                             MarkerType="Circle"
+                                        <gauge:ShapePointer Value="138"
+                                                             ShapeType="Circle"
                                                              Fill="White" />
                                     </gauge:RadialAxis.Pointers>
                                 </gauge:RadialAxis>

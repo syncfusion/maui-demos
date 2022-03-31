@@ -1,31 +1,29 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
-using Microsoft.Maui.Graphics;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-    
+
 namespace SampleBrowser.Maui.Core
 {
-	/// <summary>
-	/// Model file which has Control Details.
-	/// </summary>
+    /// <summary>
+    /// Model file which has Control Details.
+    /// </summary>
     public class ControlModel : INotifyPropertyChanged
-	{
+    {
         #region fields
 
         private string? imageId;
 
         private string? title;
 
-		private string? description;
+        private string? description;
 
-		private int samplesCount;
+        private int samplesCount;
 
         private string? controlName;
 
@@ -65,28 +63,28 @@ namespace SampleBrowser.Maui.Core
         /// <summary>
         /// Gets or sets list of Samples in the control.
         /// </summary>
-        public ObservableCollection<SampleModel> Samples 
-		{ 
-			get; 
-			set; 
-		}
+        public ObservableCollection<SampleModel> Samples
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets Samples Count in Control.
         /// </summary>
         public int SamplesCount
-		{
-			get
+        {
+            get
             {
                 return samplesCount;
             }
 
-			set
-			{
-				samplesCount = value;
-				OnPropertyChanged("SamplesCount");
-			}
-		}
+            set
+            {
+                samplesCount = value;
+                OnPropertyChanged("SamplesCount");
+            }
+        }
 
         /// <summary>
         /// Gets or sets Category name of the Control.
@@ -109,87 +107,87 @@ namespace SampleBrowser.Maui.Core
         /// Gets or sets Controls Images in ControlsHomePage
         /// </summary>
         public string? ImageId
-		{
-			get
+        {
+            get
             {
                 return imageId;
             }
 
-			set
-			{
-				imageId = value;
-				OnPropertyChanged("ImageId");
-			}
-		}
+            set
+            {
+                imageId = value;
+                OnPropertyChanged("ImageId");
+            }
+        }
 
 
         /// <summary>
         /// Gets or sets Control Title to be displayed in ControlsHomePage
         /// </summary>
         public string? Title
-		{
-			get
+        {
+            get
             {
                 return title;
             }
 
-			set
-			{
-				title = value;
-				OnPropertyChanged("Title");
-			}
-		}
+            set
+            {
+                title = value;
+                OnPropertyChanged("Title");
+            }
+        }
 
         /// <summary>
         /// Gets or sets Control Description in ControlsHomePage
         /// </summary>
         public string? Description
-		{
-			get
+        {
+            get
             {
                 return description;
             }
 
-			set
-			{
-				description = value;
-				OnPropertyChanged("Description");
-			}
-		}
+            set
+            {
+                description = value;
+                OnPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// Gets or sets Controls Name in ControlsHomePage
         /// </summary>
         public string? ControlName
-		{
-			get
+        {
+            get
             {
                 return controlName;
             }
 
-			set
-			{
-				controlName = value;
-				OnPropertyChanged("ControlName");
-			}
-		}
+            set
+            {
+                controlName = value;
+                OnPropertyChanged("ControlName");
+            }
+        }
 
         /// <summary>
         /// Gets or sets Control search tags in SamplesListPage
         /// </summary>
         public string[]? Tags
-		{
-			get
+        {
+            get
             {
                 return tags;
             }
 
-			set
-			{
-				tags = value;
-				OnPropertyChanged("Tags");
-			}
-		}
+            set
+            {
+                tags = value;
+                OnPropertyChanged("Tags");
+            }
+        }
 
         public string? TagType
         {
@@ -226,7 +224,7 @@ namespace SampleBrowser.Maui.Core
         #region methods
 
         private void OnPropertyChanged(string name)
-		{
+        {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 

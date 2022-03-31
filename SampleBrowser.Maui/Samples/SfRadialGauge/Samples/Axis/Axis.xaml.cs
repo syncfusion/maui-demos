@@ -1,19 +1,14 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.Gauges;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace SampleBrowser.Maui.SfRadialGauge
@@ -52,6 +47,46 @@ namespace SampleBrowser.Maui.SfRadialGauge
             }
         }
 
+        private void RadialAxis_LabelCreated1(object sender, LabelCreatedEventArgs e)
+        {
+            if (e.Text == "10")
+            {
+                e.Text = "NE";
+            }
+            else if (e.Text == "20")
+            {
+                e.Text = "E";
+            }
+            else if (e.Text == "30")
+            {
+                e.Text = "SE";
+            }
+            else if (e.Text == "40")
+            {
+                e.Text = "S";
+            }
+            else if (e.Text == "50")
+            {
+                e.Text = "SW";
+            }
+            else if (e.Text == "60")
+            {
+                e.Text = "W";
+            }
+            else if (e.Text == "70")
+            {
+                e.Text = "NW";
+            }
+            else if (e.Text == "80")
+            {
+                e.Text = "N";
+                e.Style = new GaugeLabelStyle()
+                {
+                    FontAttributes = Microsoft.Maui.Controls.FontAttributes.Bold
+                };
+            }
+        }
+
         public override void OnDisappearing()
         {
             base.OnDisappearing();
@@ -60,6 +95,7 @@ namespace SampleBrowser.Maui.SfRadialGauge
             defaultViewGauge.Handler?.DisconnectHandler();
             multipleAxisGauge.Handler?.DisconnectHandler();
             labelCustomizationGauge.Handler?.DisconnectHandler();
+            customlabelsGauge.Handler?.DisconnectHandler();
             tickCustomizationGauge.Handler?.DisconnectHandler();
             customScaleGauge.Handler?.DisconnectHandler();
             rangeColorGauge.Handler?.DisconnectHandler();
@@ -77,11 +113,11 @@ namespace SampleBrowser.Maui.SfRadialGauge
     {
         protected override List<GaugeLabelInfo> GenerateVisibleLabels()
         {
-            List<GaugeLabelInfo> customLabels = new List<GaugeLabelInfo>();
+            List<GaugeLabelInfo> customLabels = new();
             for (int i = 0; i < 9; i++)
             {
                 double value = CalculateLabelValue(i);
-                GaugeLabelInfo label = new GaugeLabelInfo
+                GaugeLabelInfo label = new()
                 {
                     Value = value,
                     Text = value.ToString(CultureInfo.CurrentCulture)

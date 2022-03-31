@@ -16,9 +16,10 @@
                  VerticalOptions="Center" TextColor="Black">
             </Label>
             <Label Text=" "/>
-            <Button x:Name="btnInput" Clicked ="btnInput_Click" WidthRequest="170" Text ="Input Template" HorizontalOptions="Start" VerticalOptions="Center"></Button>
-            <Label Text=" "/>
-            <Button x:Name="btnCreate" Clicked ="btnCreate_Click" WidthRequest="170" Text ="Generate Document" HorizontalOptions="Start" VerticalOptions="Center"></Button>            
+            <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">
+                <Button x:Name="btnInput" Clicked ="btnInput_Click" Text ="Input Template" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+                <Button x:Name="btnCreate" Clicked ="btnCreate_Click" Text ="Generate Document" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+            </StackLayout>
         </StackLayout>
     </localCore:SampleView.Content>
 

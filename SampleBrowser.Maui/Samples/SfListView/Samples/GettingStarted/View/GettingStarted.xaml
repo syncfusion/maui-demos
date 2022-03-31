@@ -35,8 +35,8 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Label Grid.Row="0" Text="{Binding CategoryName}" Margin='{OnPlatform Default="0,5,0,0", Android="0"}' LineBreakMode="WordWrap" TextColor="#DE000000" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16}" />
-                                <Label Grid.Row="1" LineBreakMode="WordWrap" Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}' TextColor="#99000000" LineHeight="1.2" Text="{Binding CategoryDescription}" FontFamily="Roboto-Regular" FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14}" />
+                                <Label Grid.Row="0" Text="{Binding CategoryName}" Margin='{OnPlatform Default="0,5,0,0", Android="0"}' LineBreakMode="WordWrap" TextColor="#DE000000" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                                <Label Grid.Row="1" LineBreakMode="WordWrap" Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}' TextColor="#99000000" LineHeight="{OnPlatform iOS={OnIdiom Tablet=1.2, Default=1.025}, Default=1.2}" Text="{Binding CategoryDescription}" FontFamily="Roboto-Regular" FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
                             </Grid>
                         </Grid>
                     </DataTemplate>

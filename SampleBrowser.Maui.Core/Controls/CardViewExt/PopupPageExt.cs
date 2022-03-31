@@ -1,54 +1,44 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
-using System;
-
 namespace SampleBrowser.Maui.Core
 {
     public class PopUpPageExt : ContentPage
     {
         private Grid? rootGrid;
-
-        SampleView? SampleView;
-
-        CardViewExt? cardViewExt;
+        private readonly SampleView? SampleView;
+        private readonly CardViewExt? cardViewExt;
 
         public PopUpPageExt(View? view, CardViewExt? card)
-        {       
+        {
             this.BackgroundColor = Colors.White;
             this.Padding = new Thickness(10);
             this.rootGrid = new Grid() { Padding = 10 };
             var samplePageType = GetSamplePage(card);
-            SampleView = Activator.CreateInstance(samplePageType!.SampleType) as SampleView;
-            var newView = GetSampleView(SampleView, view, card);
+            SampleView = Activator.CreateInstance(samplePageType!.SampleType!) as SampleView;
+            var newView = PopUpPageExt.GetSampleView(SampleView, view, card);
             this.cardViewExt = card;
             this.rootGrid.Children.Add(newView);
             this.Content = this.rootGrid;
         }
 
 
-        private View? GetSampleView(SampleView? newView, View? view, CardViewExt? card)
+        private static View? GetSampleView(SampleView? newView, View? view, CardViewExt? card)
         {
-            var verticalStackLayout = newView?.ScrollView?.Content as VerticalStackLayout;
-
-            if (verticalStackLayout != null && verticalStackLayout.Children.Count > 0)
+            if (newView?.ScrollView?.Content is VerticalStackLayout verticalStackLayout && verticalStackLayout.Children.Count > 0)
             {
                 foreach (var item in verticalStackLayout.Children)
                 {
-                    if (item is CardViewExt)
+                    if (item is CardViewExt ext)
                     {
                         if ((item as CardViewExt)?.Title == card?.Title)
                         {
 
-                            CardViewExt duplicatedCardView = (CardViewExt)item;
+                            CardViewExt duplicatedCardView = ext;
                             newView?.OnExpandedViewAppearing(duplicatedCardView!.MainContent as View);
                             return duplicatedCardView.MainContent;
                         }
@@ -76,7 +66,7 @@ namespace SampleBrowser.Maui.Core
         {
             this.rootGrid?.Children.Clear();
 
-            if(this.cardViewExt !=null && this.SampleView!=null && this.cardViewExt.MainContent != null)
+            if (this.cardViewExt != null && this.SampleView != null && this.cardViewExt.MainContent != null)
             {
                 this.SampleView.OnExpandedViewDisappearing(this.cardViewExt.MainContent);
             }

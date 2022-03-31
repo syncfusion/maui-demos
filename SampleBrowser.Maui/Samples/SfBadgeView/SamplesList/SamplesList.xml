@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Samples>
-	<SampleGroup Title="Customization">
+	<SampleGroup Title="Features" UpdateType="Updated">
 		<Sample SearchTags="customize" Name="Offset" Description="Showcases the badge offset customization in SfBadgeView." Title="Offset" />
 		<Sample SearchTags="customize" Name="Type" Description="Showcases the badge type customization in SfBadgeView. " Title="Type" />
-		<Sample SearchTags="customize" Name="Position" Description="Showcases the badge position customization in SfBadgeView. " Title="Position" />
+		<Sample SearchTags="customize" Name="Position" Description="Showcases the badge position customization in SfBadgeView. " Title="Position" IsUpdated="true" />
 		<Sample SearchTags="customize" Name="Border" Description="Showcases the border customization in SfBadgeView. " Title="Border" />
 		<Sample SearchTags="customize" Name="Font" Description="Showcases the font customization in SfBadgeView. " Title="Font" />
+		<Sample SearchTags="customize" Name="Alignment" Description="Showcases the alignment customization in SfBadgeView." Title="Alignment" IsNew="true"/>
+		<Sample SearchTags="customize" Name="Icon" Description="Showcases the icon customization in SfBadgeView." Title="Icon" IsNew="true"/>
 	</SampleGroup>
 		
 	<Sample SearchTags="notify" Name="Notification" Description="This sample shows a simple SfBadgeView with ListView. " Title="Notification"/>

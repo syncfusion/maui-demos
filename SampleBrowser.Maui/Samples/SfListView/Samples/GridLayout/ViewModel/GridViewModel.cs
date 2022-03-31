@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -7,14 +7,11 @@
 #endregion
 
 using Microsoft.Maui.Controls;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+#nullable disable
 namespace SampleBrowser.Maui.SfListView
 {
     public class GridLayoutViewModel : INotifyPropertyChanged
@@ -26,7 +23,7 @@ namespace SampleBrowser.Maui.SfListView
         private bool deleteIcon;
         private double imageHeightRequest;
 
-        private ObservableCollection<object> _selectedItems = new ObservableCollection<object>();
+        private ObservableCollection<object> _selectedItems = new();
 
         #endregion
 
@@ -47,7 +44,9 @@ namespace SampleBrowser.Maui.SfListView
         public ObservableCollection<object> SelectedItems
         {
             get { return _selectedItems; }
-            set { _selectedItems = value;
+            set
+            {
+                _selectedItems = value;
                 OnPropertyChanged("SelectedItems");
             }
         }
@@ -137,8 +136,11 @@ namespace SampleBrowser.Maui.SfListView
 
         private void SetFavorite(object obj)
         {
-            var item = obj as ListViewGalleryInfo;
-            item.IsFavorite = !item.IsFavorite;
+            if (obj != null)
+            {
+                var item = obj as ListViewGalleryInfo;
+                item!.IsFavorite = !item.IsFavorite;
+            }
         }
 
         private void SelectedItems_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -146,12 +148,12 @@ namespace SampleBrowser.Maui.SfListView
             for (int i = 0; e.NewItems != null && i < e.NewItems.Count; i++)
             {
                 var item = e.NewItems[i];
-                (item as ListViewGalleryInfo).IsSelected = true;
+                (item as ListViewGalleryInfo)!.IsSelected = true;
             }
             for (int i = 0; e.OldItems != null && i < e.OldItems.Count; i++)
             {
                 var item = e.OldItems[i];
-                (item as ListViewGalleryInfo).IsSelected = false;
+                (item as ListViewGalleryInfo )!.IsSelected = false;
             }
             UpdateHeaderStatus();
         }

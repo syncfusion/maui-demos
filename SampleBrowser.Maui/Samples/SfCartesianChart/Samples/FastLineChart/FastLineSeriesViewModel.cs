@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -9,18 +9,15 @@
 using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.Maui.Dispatching;
 namespace SampleBrowser.Maui.SfCartesianChart
 {
     public class FastLineSeriesViewModel : BaseViewModel
     {
         public int DataCount = 100000;
-        private Random randomNumber;
+        private readonly Random randomNumber;
 
         public ObservableCollection<ChartDataModel> Data { get; set; }
 
@@ -32,8 +29,8 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
         private ObservableCollection<ChartDataModel> GenerateData()
         {
-            ObservableCollection<ChartDataModel> collection = new ObservableCollection<ChartDataModel>();
-            DateTime date = new DateTime(1900, 1, 1);
+            ObservableCollection<ChartDataModel> collection = new();
+            DateTime date = new(1900, 1, 1);
             double value = 100;
 
             for (int i = 0; i < this.DataCount; i++)
@@ -60,7 +57,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
     {
         private int count;
         private int index;
-        Random random = new Random();
+        readonly Random random = new();
 
         public ObservableCollection<ChartDataModel> VerticalLiveChartData { get; set; }
 
@@ -106,7 +103,8 @@ namespace SampleBrowser.Maui.SfCartesianChart
         {
             VerticalLiveChartData.Clear();
             count = VerticalLiveChartData.Count;
-            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 10), UpdateVerticalData);
+            if (Application.Current != null)
+                Application.Current.Dispatcher.StartTimer(new TimeSpan(0, 0, 0, 0, 10), UpdateVerticalData);
         }
     }
 
@@ -115,8 +113,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
         private bool canStopTimer;
         private static int count = 0;
         private static int value = 0;
-
-        float[] datas1 = new float[]
+        readonly float[] datas1 = new float[]
         {
             762,772,762,772,772,770,766,763,765,772,763,768,764,772,762,
             766,768,766,762,772,774,766,770,767,777,772,762,772,765,766,
@@ -188,7 +185,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
         public async void StartTimer()
         {
             await Task.Delay(500);
-            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 25), UpdateData);
+
+            if (Application.Current != null)
+                Application.Current.Dispatcher.StartTimer(new TimeSpan(0, 0, 0, 0, 25), UpdateData);
 
             canStopTimer = false;
         }

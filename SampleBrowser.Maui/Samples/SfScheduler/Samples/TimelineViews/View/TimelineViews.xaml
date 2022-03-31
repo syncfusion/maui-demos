@@ -6,18 +6,14 @@
              xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
     <localCore:SampleView.Content>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <schedule:SfScheduler x:Name="Scheduler" 
-                                  Grid.Column="1"
                                   ViewChanged="OnViewChanged"
                                   AppointmentsSource="{Binding TimelineEvents}"
                                   MinimumDateTime="{Binding MinDateTime}"
                                   MaximumDateTime="{Binding MaxDateTime}"
                                   DisplayDate="{Binding DisplayDate}"
-                                  AllowedViews="TimelineDay,TimelineWeek,TimelineWorkWeek,TimelineMonth"
+                                  AllowViewNavigation="True"
+                                  AllowedViews="TimelineDay,TimelineWeek,TimelineWorkWeek,TimelineMonth,Agenda"
                                   View="TimelineMonth" >
                 <schedule:SfScheduler.AppointmentMapping>
                     <schedule:SchedulerAppointmentMapping
@@ -32,11 +28,13 @@
                 RecurrenceRule="RecurrenceRule"
                 RecurrenceId="RecurrenceId"/>
                 </schedule:SfScheduler.AppointmentMapping>
-                <schedule:SfScheduler.TimelineViewSettings>
-                    <schedule:SchedulerTimelineViewSettings
+                <schedule:SfScheduler.TimelineView>
+                    <schedule:SchedulerTimelineView
+                        StartHour="9"
+                        EndHour="18"
                         TimeIntervalWidth="150" 
                         MinimumAppointmentDuration="0:30:0" />
-                </schedule:SfScheduler.TimelineViewSettings>
+                </schedule:SfScheduler.TimelineView>
                 <schedule:SfScheduler.BindingContext>
                     <local:SchedulerDataBindingViewModel/>
                 </schedule:SfScheduler.BindingContext>

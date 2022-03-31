@@ -1,21 +1,23 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
-using System;
-using System.Collections.Generic;
+using SampleBrowser.Maui.Services;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Xml;
 using System.Xml.Serialization;
-using Microsoft.Maui.Controls;
-using System.Collections;
 
 namespace SampleBrowser.Maui.DocIO
 {
@@ -55,10 +57,10 @@ namespace SampleBrowser.Maui.DocIO
             string dataPath = basePath + @"TemplateLetter.docx";
             //Creates a new Word document instance.
             using WordDocument document = new();
-            Stream fileStream = assembly.GetManifestResourceStream(dataPath);
+            Stream? fileStream = assembly.GetManifestResourceStream(dataPath);
             //Opens an existing Word document.
             document.Open(fileStream, FormatType.Doc);
-            fileStream.Dispose();
+            fileStream!.Dispose();
 
             //Inserts page break at last paragraph, to populate each employee details in new page.
             Break pageBreak = new(document, BreakType.PageBreak);
@@ -92,7 +94,8 @@ namespace SampleBrowser.Maui.DocIO
             document.Save(ms, FormatType.Docx);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Orders Report.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Orders Report.docx", "application/msword", ms);
             #endregion Document SaveOption
         }
         /// <summary>
@@ -103,12 +106,13 @@ namespace SampleBrowser.Maui.DocIO
             //Gets the input Word document.
             string dataPath = "SampleBrowser.Maui.Resources.DocIO.TemplateLetter.docx";
             //Loads template document stream.
-            using Stream fileStream = assembly.GetManifestResourceStream(dataPath);
+            using Stream? fileStream = assembly.GetManifestResourceStream(dataPath);
             using MemoryStream ms = new();
-            fileStream.CopyTo(ms);
+            fileStream!.CopyTo(ms);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("TemplateLetter.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("TemplateLetter.docx", "application/msword", ms);
         }
         #endregion
 
@@ -122,23 +126,37 @@ namespace SampleBrowser.Maui.DocIO
             List<CustomerDetails> customers = new();
             List<OrderDetails> orders = new();
             //Reads data from xml.
-            Stream stream = assembly.GetManifestResourceStream(basePath + @"Employees.xml");
+            Stream? stream = assembly.GetManifestResourceStream(basePath + @"Employees.xml");
 
-            XmlSerializer serializer = new(typeof(EmployeesList));
-            //Deserializes XML into DOM.
-            EmployeesList employeesList = (EmployeesList)serializer.Deserialize(stream);
-            //Gets list of employees.
-            foreach (EmployeeDetails employee in employeesList.Employees)
+            XmlSerializer? serializer = new(typeof(EmployeesList));
+
+            if (stream != null)
             {
-                employees.Add(employee);
-                //Gets list of customers.
-                foreach (CustomerDetails customer in employee.Customers)
+                XmlReader reader = XmlReader.Create(stream);
+                //Deserializes XML into DOM.
+                EmployeesList? employeesList = serializer.Deserialize(reader) as EmployeesList;
+                if (employeesList != null && employeesList.Employees != null)
                 {
-                    customers.Add(customer);
-                    //Gets list of orders.
-                    foreach (OrderDetails order in customer.Orders)
+                    //Gets list of employees.
+                    foreach (EmployeeDetails employee in employeesList.Employees)
                     {
-                        orders.Add(order);
+                        employees.Add(employee);
+                        if (employee != null && employee.Customers != null)
+                        {
+                            //Gets list of customers.
+                            foreach (CustomerDetails customer in employee.Customers)
+                            {
+                                customers.Add(customer);
+                                if (customer != null && customer.Orders != null)
+                                {
+                                    //Gets list of orders.
+                                    foreach (OrderDetails order in customer.Orders)
+                                    {
+                                        orders.Add(order);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -159,12 +177,12 @@ namespace SampleBrowser.Maui.DocIO
     public class EmployeesList
     {
         #region Fields
-        private EmployeeDetails[] employees;
+        private EmployeeDetails[]? employees;
         #endregion
 
         #region Properties
         [System.Xml.Serialization.XmlElementAttribute("Employees")]
-        public EmployeeDetails[] Employees
+        public EmployeeDetails[]? Employees
         {
             get
             {
@@ -183,18 +201,18 @@ namespace SampleBrowser.Maui.DocIO
     public class EmployeeDetails
     {
         #region Fields
-        private string firstName;
-        private string lastName;
-        private string employeeID;
-        private string extension;
-        private string address;
-        private string city;
-        private string country;
-        private CustomerDetails[] customers;
+        private string? firstName;
+        private string? lastName;
+        private string? employeeID;
+        private string? extension;
+        private string? address;
+        private string? city;
+        private string? country;
+        private CustomerDetails[]? customers;
         #endregion
 
         #region Properties
-        public string FirstName
+        public string? FirstName
         {
             get
             {
@@ -205,7 +223,7 @@ namespace SampleBrowser.Maui.DocIO
                 firstName = value;
             }
         }
-        public string LastName
+        public string? LastName
         {
             get
             {
@@ -216,7 +234,7 @@ namespace SampleBrowser.Maui.DocIO
                 lastName = value;
             }
         }
-        public string EmployeeID
+        public string? EmployeeID
         {
             get
             {
@@ -227,7 +245,7 @@ namespace SampleBrowser.Maui.DocIO
                 employeeID = value;
             }
         }
-        public string Extension
+        public string? Extension
         {
             get
             {
@@ -238,7 +256,7 @@ namespace SampleBrowser.Maui.DocIO
                 extension = value;
             }
         }
-        public string Address
+        public string? Address
         {
             get
             {
@@ -249,7 +267,7 @@ namespace SampleBrowser.Maui.DocIO
                 address = value;
             }
         }
-        public string City
+        public string? City
         {
             get
             {
@@ -260,7 +278,7 @@ namespace SampleBrowser.Maui.DocIO
                 city = value;
             }
         }
-        public string Country
+        public string? Country
         {
             get
             {
@@ -272,7 +290,7 @@ namespace SampleBrowser.Maui.DocIO
             }
         }
         [System.Xml.Serialization.XmlElementAttribute("Customers")]
-        public CustomerDetails[] Customers
+        public CustomerDetails[]? Customers
         {
             get
             {
@@ -291,17 +309,17 @@ namespace SampleBrowser.Maui.DocIO
     public class CustomerDetails
     {
         #region Fields
-        private string customerID;
-        private string employeeID;
-        private string companyName;
-        private string contactName;
-        private string city;
-        private string country;
-        private OrderDetails[] orders;
+        private string? customerID;
+        private string? employeeID;
+        private string? companyName;
+        private string? contactName;
+        private string? city;
+        private string? country;
+        private OrderDetails[]? orders;
         #endregion
 
         #region Properties
-        public string CustomerID
+        public string? CustomerID
         {
             get
             {
@@ -312,7 +330,7 @@ namespace SampleBrowser.Maui.DocIO
                 customerID = value;
             }
         }
-        public string EmployeeID
+        public string? EmployeeID
         {
             get
             {
@@ -323,7 +341,7 @@ namespace SampleBrowser.Maui.DocIO
                 employeeID = value;
             }
         }
-        public string CompanyName
+        public string? CompanyName
         {
             get
             {
@@ -334,7 +352,7 @@ namespace SampleBrowser.Maui.DocIO
                 companyName = value;
             }
         }
-        public string ContactName
+        public string? ContactName
         {
             get
             {
@@ -345,7 +363,7 @@ namespace SampleBrowser.Maui.DocIO
                 contactName = value;
             }
         }
-        public string City
+        public string? City
         {
             get
             {
@@ -356,7 +374,7 @@ namespace SampleBrowser.Maui.DocIO
                 city = value;
             }
         }
-        public string Country
+        public string? Country
         {
             get
             {
@@ -368,7 +386,7 @@ namespace SampleBrowser.Maui.DocIO
             }
         }
         [System.Xml.Serialization.XmlElementAttribute("Orders")]
-        public OrderDetails[] Orders
+        public OrderDetails[]? Orders
         {
             get
             {
@@ -387,15 +405,15 @@ namespace SampleBrowser.Maui.DocIO
     public class OrderDetails
     {
         #region Fields
-        private string orderID;
-        private string customerID;
-        private string orderDate;
-        private string shippedDate;
-        private string requiredDate;
+        private string? orderID;
+        private string? customerID;
+        private string? orderDate;
+        private string? shippedDate;
+        private string? requiredDate;
         #endregion
 
         #region Properties
-        public string OrderID
+        public string? OrderID
         {
             get
             {
@@ -406,7 +424,7 @@ namespace SampleBrowser.Maui.DocIO
                 orderID = value;
             }
         }
-        public string CustomerID
+        public string? CustomerID
         {
             get
             {
@@ -417,7 +435,7 @@ namespace SampleBrowser.Maui.DocIO
                 customerID = value;
             }
         }
-        public string OrderDate
+        public string? OrderDate
         {
             get
             {
@@ -428,7 +446,7 @@ namespace SampleBrowser.Maui.DocIO
                 orderDate = value;
             }
         }
-        public string ShippedDate
+        public string? ShippedDate
         {
             get
             {
@@ -439,7 +457,7 @@ namespace SampleBrowser.Maui.DocIO
                 shippedDate = value;
             }
         }
-        public string RequiredDate
+        public string? RequiredDate
         {
             get
             {

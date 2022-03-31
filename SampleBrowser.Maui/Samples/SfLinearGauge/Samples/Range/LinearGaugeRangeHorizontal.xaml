@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SfLinearGauge"
+             xmlns:gauge="http://schemas.syncfusion.com/maui" HorizontalOptions="Center"
+             x:Class="SampleBrowser.Maui.SfLinearGauge.LinearGaugeRangeHorizontal">
+    <ContentView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#CC000000" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="0,30,0,15" />
+            <Setter Property="HorizontalOptions" Value="Start"/>
+        </Style>
+        <Style TargetType="gauge:SfLinearGauge">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="MaximumWidthRequest" Value="380"/>
+        </Style>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <ScrollView MaximumWidthRequest="420">
+            <VerticalStackLayout Margin="20,0,15,50">
+            <Label Text="Default"/>
+            <gauge:SfLinearGauge EnableAxisAnimation="True" EnableRangeAnimation="True">
+                <gauge:SfLinearGauge.Ranges>
+                    <gauge:LinearRange/>
+                </gauge:SfLinearGauge.Ranges>
+            </gauge:SfLinearGauge>
+            
+            <Label Text="Exponential"/>
+            <gauge:SfLinearGauge EnableAxisAnimation="True" EnableRangeAnimation="True">
+                <gauge:SfLinearGauge.Ranges>
+                    <gauge:LinearRange StartWidth="0" MidWidth="10" EndWidth="50"/>
+                </gauge:SfLinearGauge.Ranges>
+            </gauge:SfLinearGauge>
+
+            <Label Text="Concave"/>
+            <gauge:SfLinearGauge EnableAxisAnimation="True" EnableRangeAnimation="True">
+                <gauge:SfLinearGauge.Ranges>
+                    <local:CustomLinearRange StartWidth="70" EndWidth="70" MidWidth="-20"/>
+                </gauge:SfLinearGauge.Ranges>
+            </gauge:SfLinearGauge>
+
+            <Label Text="Gradient shader"/>
+            <gauge:SfLinearGauge EnableAxisAnimation="True" EnableRangeAnimation="True">
+                <gauge:SfLinearGauge.Ranges>
+                    <gauge:LinearRange StartWidth="40" EndWidth="40">
+                        <gauge:LinearRange.GradientStops>
+                            <gauge:GaugeGradientStop Value="0" Color="#42c09a"/>
+                            <gauge:GaugeGradientStop Value="50" Color="#e8da5d"/>
+                            <gauge:GaugeGradientStop Value="100" Color="#fb7d55"/>
+                        </gauge:LinearRange.GradientStops>
+                    </gauge:LinearRange>
+                </gauge:SfLinearGauge.Ranges>
+            </gauge:SfLinearGauge>
+
+            <Label Text="Multiple ranges"/>
+            <gauge:SfLinearGauge EnableAxisAnimation="True" EnableRangeAnimation="True">
+                <gauge:SfLinearGauge.Ranges>
+                    <gauge:LinearRange StartWidth="40" EndWidth="40" StartValue="0"
+                                       EndValue="30" Fill="#fb7d55">
+                        <gauge:LinearRange.Child>
+                            <Label Text="Bad" HorizontalOptions="Center"
+                                   VerticalOptions="Center" TextColor="Black"/>
+                        </gauge:LinearRange.Child>
+                    </gauge:LinearRange>
+                    <gauge:LinearRange StartWidth="40" EndWidth="40" StartValue="30"
+                                       EndValue="70" Fill="#e8da5d">
+                        <gauge:LinearRange.Child>
+                            <Label Text="Good" HorizontalOptions="Center"
+                                   VerticalOptions="Center" TextColor="Black"/>
+                        </gauge:LinearRange.Child>
+                    </gauge:LinearRange>
+                    <gauge:LinearRange StartWidth="40" EndWidth="40" StartValue="70"
+                                       EndValue="100" Fill="#42c09a">
+                        <gauge:LinearRange.Child>
+                            <Label Text="Excellent"  HorizontalOptions="Center"
+                                   VerticalOptions="Center" TextColor="Black"/>
+                        </gauge:LinearRange.Child>
+                    </gauge:LinearRange>
+                </gauge:SfLinearGauge.Ranges>
+            </gauge:SfLinearGauge>
+
+        </VerticalStackLayout>
+        </ScrollView>
+
+    </ContentView.Content>
+</ContentView>

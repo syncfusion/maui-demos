@@ -1,52 +1,53 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-
 namespace SampleBrowser.Maui.Core
 {
-	/// <summary>
-	/// Content View from which all samples has been inherited
-	/// </summary>
-	public class SampleView : ContentView
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="SampleView"/> class.
-		/// </summary>
-		public SampleView()
-		{
-			this.BackgroundColor = Color.FromArgb("#FFFFFF");
+    /// <summary>
+    /// Content View from which all samples has been inherited
+    /// </summary>
+    public class SampleView : ContentView
+    {
+        CardViewExt? oldCardView = null;
+        CardViewExt? currentCardView = null;
+        View? previousContent = null;
+        View? expandedCardViewContent = null;
+        private TapGestureRecognizer? tapGestureRecognizer;
+        private List<CardViewExt> oldListItems = new();
+        private readonly List<CardViewExt> newCards = new();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SampleView"/> class.
+        /// </summary>
+        public SampleView()
+        {
+            this.BackgroundColor = Color.FromArgb("#FFFFFF");
         }
 
         /// <summary>
         /// Gets or sets the view from which property view for samples has been included
         /// </summary>
         public View? PropertyView
-		{
-			get;
-			set;
-		}
+        {
+            get;
+            set;
+        }
 
         private ScrollViewExt? scrollView;
 
         public ScrollViewExt? ScrollView
         {
             get { return scrollView; }
-            set {
-				scrollView = value;
+            set
+            {
+                scrollView = value;
                 scrollView!.Scrolled += ScrollView_Scrolled;
                 scrollView.ChildAdded += ScrollView_ChildAdded;
-			}
+            }
         }
 
         private void ScrollView_ChildAdded(object? sender, ElementEventArgs e)
@@ -59,12 +60,8 @@ namespace SampleBrowser.Maui.Core
             {
                 AnimateChildrenDeskTop(0);
             }
-            
+
         }
-
-        CardViewExt? oldCardView = null;
-        CardViewExt? currentCardView = null;
-
 
         private void ScrollView_Scrolled(object? sender, ScrolledEventArgs e)
         {
@@ -90,16 +87,12 @@ namespace SampleBrowser.Maui.Core
                     OnScrollingToNewCardViewExt(item);
                 }
             }
-		}
+        }
 
         private void ScrollviewExt_ChildAdded(object? sender, ElementEventArgs e)
         {
-            
+
         }
-
-        List<CardViewExt> oldListItems = new List<CardViewExt>();
-
-        List<CardViewExt> newCards = new List<CardViewExt>();
 
         internal void AnimateChildren(double y)
         {
@@ -135,7 +128,7 @@ namespace SampleBrowser.Maui.Core
         private List<CardViewExt> GetChildrenPosition(double y)
         {
             VerticalStackLayout? child = this.ScrollView!.Content as VerticalStackLayout;
-            List<CardViewExt> positions = new List<CardViewExt>();
+            List<CardViewExt> positions = new();
 
             if (RunTimeDevice.IsMobileDevice())
             {
@@ -145,7 +138,7 @@ namespace SampleBrowser.Maui.Core
                     {
                         CardViewExt? card = item as CardViewExt;
                         int hitAreaValue = 50;
-                        Point point = new Point(card!.Y, card!.Y + hitAreaValue);
+                        Point point = new(card!.Y, card!.Y + hitAreaValue);
                         if (y <= point.X && (y + this.ScrollView.Height) >= point.Y)
                         {
                             positions.Add(card);
@@ -169,16 +162,15 @@ namespace SampleBrowser.Maui.Core
 
                             var card = item as HorizontalStackLayout;
                             int hitAreaValue = 100;
-                            Point point = new Point(card!.Y, card!.Y + hitAreaValue);
+                            Point point = new(card!.Y, card!.Y + hitAreaValue);
                             if (y <= point.X && (y + this.ScrollView.Height) >= point.Y)
                             {
-                                //  positions.Add(card);
                                 foreach (var itemGrid in card.Children)
                                 {
-                                    if (itemGrid is Grid)
+                                    if (itemGrid is Grid grid)
                                     {
-                                        var cardloaded = (itemGrid as Grid).Children[0];
-                                        positions.Add(cardloaded as CardViewExt);
+                                        var cardloaded = grid.Children[0];
+                                        positions.Add((CardViewExt)cardloaded);
                                     }
                                 }
                             }
@@ -187,13 +179,12 @@ namespace SampleBrowser.Maui.Core
                             {
                                 foreach (var itemGrid in card.Children)
                                 {
-                                    if(itemGrid is Grid)
+                                    if (itemGrid is Grid grid)
                                     {
-                                        var cardloaded = (itemGrid as Grid).Children[0];
-                                        positions.Add(cardloaded as CardViewExt);
+                                        var cardloaded = grid.Children[0];
+                                        positions.Add((CardViewExt)cardloaded);
                                     }
                                 }
-                              //  positions.Add(card);
                             }
 
                         }
@@ -211,10 +202,10 @@ namespace SampleBrowser.Maui.Core
         {
         }
 
-		public virtual void OnScrollingToNewCardViewExt(CardViewExt cardViewExt)
+        public virtual void OnScrollingToNewCardViewExt(CardViewExt cardViewExt)
         {
 
-		}
+        }
 
         public virtual void OnExpandedViewAppearing(View view)
         {
@@ -231,49 +222,49 @@ namespace SampleBrowser.Maui.Core
         /// </summary>
         public virtual void OnAppearing()
         {
-			if (this.Content != null)
-			{
-				var content = this.Content as ScrollView;
-
-				if (content != null)
-				{
-					var item = content.Content as VerticalStackLayout;
-					if (item != null)
-					{
-						foreach (var view in item.Children)
-						{
-							if (view is CardViewExt)
+            if (this.Content != null)
+            {
+                if (this.Content is ScrollView content)
+                {
+                    if (content.Content is VerticalStackLayout item)
+                    {
+                        foreach (var view in item.Children)
+                        {
+                            if (view is CardViewExt ext)
                             {
-                                ((CardViewExt)view)?.OnAppearing();
-                                if (!RunTimeDevice.IsMobileDevice())
+                                ext?.OnAppearing();
+                                if (!RunTimeDevice.IsMobileDevice() && view != null)
                                 {
-                                    this.UpdateExpandIcon(view as CardViewExt);
+                                    var cardView = ext;
+                                    if (cardView != null)
+                                    {
+                                        this.UpdateExpandIcon(cardView);
+                                    }
                                 }
                             }
-						}
-					}
-				}
-			}
+                        }
+                    }
+                }
+            }
         }
 
 
-        View previousContent = null;
-        View expandedCardViewContent = null;
+
         private void LoadDesktopExpandedView(CardViewExt sampleViewContent)
         {
             this.previousContent = this.Content;
 
-            var type =  SamplePage.GetAssembliesType(SamplePage.CurrentBrowser, SamplePage.CurrentSampleName, SamplePage.CurrentControlName);
+            var type = SamplePage.GetAssembliesType(SamplePage.CurrentBrowser!, SamplePage.CurrentSampleName!, SamplePage.CurrentControlName!);
 
             var sampleView = Activator.CreateInstance(type!) as SampleView;
 
-            var wrapLayout = (sampleView.Content as ScrollViewExt).Content as VerticalStackLayout;
+            var scrollViewExt = (ScrollViewExt)sampleView!.Content;
 
             var sampleGrid = new Grid();
             sampleGrid.RowDefinitions.Add(new RowDefinition() { Height = 50 });
             sampleGrid.RowDefinitions.Add(new RowDefinition() { Height = Microsoft.Maui.GridLength.Star });
 
-            Label sampleTitle = new Label();
+            Label sampleTitle = new();
             sampleTitle.Text = sampleViewContent.Title;
             sampleTitle.TextColor = Colors.Black;
             sampleTitle.VerticalTextAlignment = Microsoft.Maui.TextAlignment.Center;
@@ -281,9 +272,9 @@ namespace SampleBrowser.Maui.Core
             sampleTitle.Margin = new Microsoft.Maui.Thickness(10, 0);
             sampleTitle.HorizontalOptions = LayoutOptions.Start;
 
-            Grid collapseGrid = new Grid();
+            Grid collapseGrid = new();
 
-            Image collapseButton = new Image();
+            Image collapseButton = new();
             collapseButton.Source = "Close";
             collapseButton.WidthRequest = 25;
             collapseButton.HeightRequest = 25;
@@ -293,22 +284,25 @@ namespace SampleBrowser.Maui.Core
 
             collapseGrid.Children.Add(collapseButton);
 
-            TapGestureRecognizer buttonTapGestureRecognizer = new TapGestureRecognizer();
+            TapGestureRecognizer buttonTapGestureRecognizer = new();
             buttonTapGestureRecognizer.Tapped += TapGestureRecognizer_Tapped1;
             collapseGrid.GestureRecognizers.Add(buttonTapGestureRecognizer);
 
-            foreach (var item in wrapLayout.Children)
+            if (scrollViewExt.Content is VerticalStackLayout wrapLayout)
             {
-                if (item is CardViewExt)
+                foreach (var item in wrapLayout.Children)
                 {
-                    if ((item as CardViewExt).Title == sampleViewContent.Title)
+                    if (item is CardViewExt cardViewExt)
                     {
-                        var sampleContentView = (item as CardViewExt).MainContent;
-                        expandedCardViewContent = sampleContentView;
-                        Grid.SetRow(sampleContentView, 1);
-                        this.OnExpandedViewAppearing(sampleContentView as View);
-                        sampleGrid.Children.Add(sampleContentView);
-                        this.Content = sampleGrid;
+                        if (cardViewExt.Title == sampleViewContent.Title)
+                        {
+                            var sampleContentView = cardViewExt.MainContent;
+                            expandedCardViewContent = sampleContentView;
+                            Grid.SetRow(sampleContentView, 1);
+                            this.OnExpandedViewAppearing(sampleContentView as View);
+                            sampleGrid.Children.Add(sampleContentView);
+                            this.Content = sampleGrid;
+                        }
                     }
                 }
             }
@@ -317,7 +311,7 @@ namespace SampleBrowser.Maui.Core
             sampleGrid.Add(collapseGrid);
         }
 
-        private void TapGestureRecognizer_Tapped1(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped1(object? sender, EventArgs e)
         {
             this.LoadDesktopCollapseView();
         }
@@ -328,11 +322,11 @@ namespace SampleBrowser.Maui.Core
             {
                 this.OnExpandedViewDisappearing(expandedCardViewContent);
             }
-            
+
             this.Content = previousContent;
         }
 
-        private TapGestureRecognizer tapGestureRecognizer;
+
         public void UpdateExpandIcon(CardViewExt cardView)
         {
             this.tapGestureRecognizer = new TapGestureRecognizer();
@@ -340,12 +334,12 @@ namespace SampleBrowser.Maui.Core
             cardView.titleLayout.GestureRecognizers.Add(this.tapGestureRecognizer);
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        private void TapGestureRecognizer_Tapped(object? sender, System.EventArgs e)
         {
-            var parentStackLayput = (sender as Grid).Parent;
-            var parentGrid = (parentStackLayput as VerticalStackLayout).Parent;
-            var expanedCardViewExt = (parentGrid as Grid).Parent as CardViewExt;
-            this.LoadDesktopExpandedView(expanedCardViewExt);
+            var parentStackLayout = ((Grid)sender!).Parent;
+            var parentGrid = ((Grid)parentStackLayout).Parent;
+            var expanedCardViewExt = ((Grid)parentGrid).Parent as CardViewExt;
+            this.LoadDesktopExpandedView(expanedCardViewExt!);
         }
     }
 }

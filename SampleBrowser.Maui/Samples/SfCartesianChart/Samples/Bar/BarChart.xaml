@@ -7,20 +7,20 @@
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
             <localCore:WrapLayout BackgroundColor="White">
-                <localCore:CardViewExt Title="Default Bar" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
+                <localCore:CardViewExt Title="Default Bar" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="Fill">
                     <localCore:CardViewExt.MainContent>
-                         <chart:SfCartesianChart Palette="Custom" CustomBrushes="{Binding CustomBrushes}" IsTransposed="True" x:Name="Chart1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart PaletteBrushes="{Binding PaletteBrushes}" IsTransposed="True" x:Name="Chart1" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:BarSeriesViewModel />
                             </chart:SfCartesianChart.BindingContext>
                             <chart:SfCartesianChart.Title>
-                                <Label Text="Popular Android Apps in the Google Play Store" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="Popular Android Apps in the Google Play Store" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:CategoryAxis EdgeLabelsDrawingMode="Shift" LabelPlacement="BetweenTicks" ShowMajorGridLines="false">
                                 </chart:CategoryAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis Minimum="0" Maximum="4.5" Interval="0.5" IsVisible="false" EdgeLabelsDrawingMode="Shift" ShowMajorGridLines="false" ShowMinorGridLines="false">
                                     <chart:NumericalAxis.Title>
                                         <chart:ChartAxisTitle Text="Downloads in Billion"/>
@@ -30,25 +30,29 @@
                                         </chart:ChartAxisTickStyle>
                                     </chart:NumericalAxis.MajorTickStyle>
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
 
                             <chart:SfCartesianChart.Series>
                                 <chart:ColumnSeries Label="Year - 2015" EnableAnimation="{Binding EnableAnimation}" ShowDataLabels="True" x:Name="barSeries1" ItemsSource="{Binding BarData1}" XBindingPath="Name" YBindingPath="Value">
+                                    <chart:ColumnSeries.DataLabelSettings>
+                                        <chart:CartesianDataLabelSettings LabelPlacement="Inner">
+                                        </chart:CartesianDataLabelSettings>
+                                    </chart:ColumnSeries.DataLabelSettings>
                                 </chart:ColumnSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-               <localCore:CardViewExt x:Name="extendedCard2" Title="Bar with rounded edge" HorizontalOptions="FillAndExpand" HeightRequest="400">
+               <localCore:CardViewExt x:Name="extendedCard2" Title="Bar with rounded edge" HorizontalOptions="Fill" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart2" IsTransposed="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart2" IsTransposed="True" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <chart:SfCartesianChart.Title>
-                                <Label Text="Transportation Method (by Miles)" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="Transportation Method (by Miles)" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
                             <chart:SfCartesianChart.BindingContext>
                                 <local:BarSeriesViewModel/>
                             </chart:SfCartesianChart.BindingContext>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:CategoryAxis x:Name="primary" LabelPlacement="BetweenTicks" ShowMajorGridLines="false">
                                     <chart:CategoryAxis.AxisLineStyle>
                                         <chart:ChartLineStyle StrokeWidth="0"/>
@@ -57,14 +61,14 @@
                                         <chart:ChartAxisTickStyle StrokeWidth="0"/>
                                     </chart:CategoryAxis.MajorTickStyle>
                                 </chart:CategoryAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis Maximum="12" ShowMajorGridLines="False" IsVisible="False" EdgeLabelsDrawingMode="Shift" ShowMinorGridLines="false">
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
 
                             <chart:SfCartesianChart.Series>
-                                <local:CustomBarChart Label="Maldives visit" ShowDataLabels="True" Width="0.5" EnableAnimation="{Binding EnableAnimation}" CornerRadius="25" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" 
+                                <local:CustomBarChart Label="Maldives visit" ShowDataLabels="True" Width="0.5" EnableAnimation="{Binding EnableAnimation}" CornerRadius="25"  PaletteBrushes="{Binding PaletteBrushes}" 
                                                       ItemsSource="{Binding RundedBarData}" XBindingPath="Name" YBindingPath="Value">
                                     <local:CustomBarChart.DataLabelSettings>
                                         <chart:CartesianDataLabelSettings UseSeriesPalette="True" LabelPlacement="Inner">
@@ -78,64 +82,64 @@
                         </chart:SfCartesianChart>
                    </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-                <localCore:CardViewExt x:Name="extendedCard3" Title="Bar width and spacing" HorizontalOptions="FillAndExpand" HeightRequest="400">
+                <localCore:CardViewExt x:Name="extendedCard3" Title="Bar width and spacing" HorizontalOptions="Fill" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                            <chart:SfCartesianChart x:Name="Chart3" IsTransposed="True" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <chart:SfCartesianChart x:Name="Chart3" IsTransposed="True"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:BarSeriesViewModel/>
                             </chart:SfCartesianChart.BindingContext>
                             <chart:SfCartesianChart.Title>
-                                <Label Text="UK Trade in Food Groups - 2015" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="UK Trade in Food Groups - 2015" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
                             <chart:SfCartesianChart.Legend>
                                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
                             </chart:SfCartesianChart.Legend>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:CategoryAxis EdgeLabelsDrawingMode="Shift" ShowMajorGridLines="false">
                                     <chart:CategoryAxis.Title>
                                         <chart:ChartAxisTitle Text="Food" />
                                     </chart:CategoryAxis.Title>
                                 </chart:CategoryAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis IsVisible="false" EdgeLabelsDrawingMode="Shift" ShowMajorGridLines="false" ShowMinorGridLines="false">
                                     <chart:NumericalAxis.MajorTickStyle>
                                         <chart:ChartAxisTickStyle TickSize="8">
                                         </chart:ChartAxisTickStyle>
                                     </chart:NumericalAxis.MajorTickStyle>
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
                             <chart:SfCartesianChart.Series>
-                                <chart:ColumnSeries Label="2015" Width="0.8" ShowTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData2}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="{Binding EnableAnimation}">
+                                <chart:ColumnSeries Label="2015" Width="0.8" EnableTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData2}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="{Binding EnableAnimation}">
                                 </chart:ColumnSeries>
-                                <chart:ColumnSeries Label="2016" Width="0.8" ShowTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData3}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="{Binding EnableAnimation}">
+                                <chart:ColumnSeries Label="2016" Width="0.8" EnableTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData3}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="{Binding EnableAnimation}">
                                 </chart:ColumnSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-                <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard5" HorizontalOptions="FillAndExpand" HeightRequest="400">
+                <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard5" HorizontalOptions="Fill" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart4" IsTransposed="True" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart4" IsTransposed="True"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
 
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DynamicAnimationViewModel x:Name="viewModel"/>
                             </chart:SfCartesianChart.BindingContext>
                             <chart:SfCartesianChart.Title>
-                                <Label Text="Bar Dynamic Animation" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="Bar Dynamic Animation" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:CategoryAxis LabelPlacement="BetweenTicks" ShowMajorGridLines="false">
                                 </chart:CategoryAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis Maximum="100" Interval="20" EdgeLabelsDrawingMode="Shift" ShowMajorGridLines="false" ShowMinorGridLines="false">
                                     <chart:NumericalAxis.MajorTickStyle>
                                         <chart:ChartAxisTickStyle TickSize="8">
                                         </chart:ChartAxisTickStyle>
                                     </chart:NumericalAxis.MajorTickStyle>
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
                             <chart:SfCartesianChart.Series>
                                 <chart:ColumnSeries x:Name="barSeries2" ItemsSource="{Binding MotionAnimation}" XBindingPath="Value" YBindingPath="Size" EnableAnimation="True">
                                 </chart:ColumnSeries>

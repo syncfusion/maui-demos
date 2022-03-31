@@ -27,7 +27,7 @@
                         <Image Source="skyblue.png" HeightRequest="40" WidthRequest="40"
                             Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center"/>
                         <Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"
-                   FontSize="{OnPlatform macOS=Large, Android=Large, iOS=Large, UWP=Medium, WPF=Medium}" Text ="&#xe718;" TextColor="White" FontFamily="{OnPlatform iOS=SB Icons, macOS=SB Icons, Android=SB Icons.ttf#}"/>
+                   FontSize="{OnPlatform MacCatalyst=Large, Android=Large, iOS=Large, UWP=Medium}" Text ="&#xe718;" TextColor="White" FontFamily="{OnPlatform iOS=SB Icons, MacCatalyst=SB Icons, Android=SB Icons.ttf#, UWP=SB Icons.ttf#SB Icons}"/>
                         <Grid Grid.Column="1" Grid.Row="0" Padding="10,10,15,10" RowSpacing="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
@@ -38,7 +38,7 @@
                      TextColor="#DE000000"
                      Text="{Binding SongTitle}" 
                                    FontFamily="Roboto"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=18}, iOS={OnIdiom Phone=16, Tablet=20}, macOS=20}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=18}, iOS={OnIdiom Phone=16, Tablet=20}, UWP=20, MacCatalyst=20}" />
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -49,23 +49,23 @@
                                        LineBreakMode="NoWrap"                               
                                        FontFamily="Roboto"
                                        Text="{Binding SongAuther}"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=14}, iOS={OnIdiom Phone=12, Tablet=14}, macOS=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=14}, iOS={OnIdiom Phone=12, Tablet=14}, UWP=14, MacCatalyst=14}" />
                                 <Label TextColor="#99000000"
                        Grid.Column="1"
                        LineBreakMode="NoWrap"
-                                       HorizontalOptions="End"
+                       HorizontalOptions="FillAndExpand"
                        HorizontalTextAlignment="End"
                         FontFamily="Roboto"
                        Text="{Binding SongSize}"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=14}, iOS={OnIdiom Phone=12, Tablet=14}, macOS=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=14}, iOS={OnIdiom Phone=12, Tablet=14}, UWP=14, MacCatalyst=14}" />
                             </Grid>
                         </Grid>
-                        <Label Grid.Row="0" Grid.Column="2" WidthRequest="40" HeightRequest="40" HorizontalOptions="Start" HorizontalTextAlignment="Start" VerticalOptions="Center" VerticalTextAlignment="Center"
-                               FontSize="{OnPlatform Android=Large, UWP=Medium, WPF=Medium, iOS=Large, macOS=Large}"
+                        <Label Grid.Row="0" Grid.Column="2" Padding='{OnPlatform UWP="0,10,0,0"}' WidthRequest="40" HeightRequest="40" HorizontalOptions="Start" HorizontalTextAlignment="Start" VerticalOptions="Center" VerticalTextAlignment="Center"
+                               FontSize="{OnPlatform Android=Large, UWP=Medium, iOS=Large, MacCatalyst=Large}"
                                Text="{Binding IsSelected, Converter={StaticResource SelectionIconConverter}}" TextColor="{Binding Path=IsSelected, Converter={StaticResource IconColorConverter}}"
-                               FontFamily="{OnPlatform iOS=Sync FontIcons, macOS=Sync FontIcons, Android=Sync FontIcons.ttf#}"/>
+                               FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, UWP=Sync FontIcons.ttf#Sync FontIcons}"/>
                     </Grid>
-                    <StackLayout Grid.Row="1" BackgroundColor="#b3b3b3" HeightRequest="1"/>
+                    <BoxView Grid.Row="1" BackgroundColor="#b3b3b3" HeightRequest="1" />
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>
@@ -82,12 +82,12 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="40" />
                 </Grid.ColumnDefinitions>
-                <Grid x:Name="selectAllIconParent" Grid.Column="1" HorizontalOptions="End" HeightRequest="50">
+                <Grid x:Name="selectAllIconParent" Padding='{OnPlatform MacCatalyst="0,12,10,0", UWP="0,12,10,0"}' Grid.Column="1" HorizontalOptions="End" HeightRequest="50">
                     <Label x:Name="selectAllIcon"
-                           FontSize="{OnPlatform Android=Large, UWP=Medium, WPF=Medium, iOS=Large, macOS=Large}"
+                           FontSize="{OnPlatform Android=Large, UWP=Medium, iOS=Large, MacCatalyst=Large}"
                                 Text="{Binding IsAllSelected, Converter={StaticResource SelectionIconConverter}}" 
                                TextColor="{Binding Path=IsAllSelected, Converter={StaticResource IconColorConverter}}"
-                               FontFamily="{OnPlatform iOS=Sync FontIcons, macOS=Sync FontIcons, Android=Sync FontIcons.ttf#}"
+                               FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, UWP=Sync FontIcons.ttf#Sync FontIcons}"
             WidthRequest="30" HeightRequest="30"  VerticalTextAlignment="Center"       
             HorizontalOptions="Start" VerticalOptions="{OnPlatform Android=Center, iOS=Center}"
             />
@@ -104,7 +104,7 @@
             SelectedItems="{Binding SelectedItems}"
             SelectionBackground ="#E4E4E4"
             ItemTemplate="{StaticResource ItemTemplate}"
-            ItemSize="65"
+            ItemSize="65" ItemSpacing="0,0,0,1"
             IsStickyHeader="True" ItemsSource="{Binding MusicInfo}">
                 </ListView:SfListView>
             </Grid>

@@ -1,5 +1,5 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -8,11 +8,7 @@
 
 using Microsoft.Maui.Controls;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace SampleBrowser.Maui.SfListView
@@ -21,10 +17,10 @@ namespace SampleBrowser.Maui.SfListView
     {
         #region Fields
 
-        private string contactName;
-        private string contactNo;
-        private ImageSource image;
-        private string contactType;
+        private string? contactName;
+        private string? contactNo;
+        private ImageSource? image;
+        private string? contactType;
 
         #endregion
 
@@ -32,14 +28,14 @@ namespace SampleBrowser.Maui.SfListView
 
         public ListViewContactsInfo()
         {
-          
+
         }
 
         #endregion
 
         #region Public Properties
 
-        public string ContactName
+        public string? ContactName
         {
             get { return this.contactName; }
             set
@@ -49,7 +45,7 @@ namespace SampleBrowser.Maui.SfListView
             }
         }
 
-        public string ContactNumber
+        public string? ContactNumber
         {
             get { return contactNo; }
             set
@@ -59,7 +55,7 @@ namespace SampleBrowser.Maui.SfListView
             }
         }
 
-        public string ContactType
+        public string? ContactType
         {
             get { return contactType; }
             set
@@ -69,17 +65,16 @@ namespace SampleBrowser.Maui.SfListView
             }
         }
 
-        public ImageSource ContactImage
+        public ImageSource? ContactImage
         {
             get { return this.image; }
             set
             {
-                if(value == null || value.IsEmpty)
+                if (value != null)
                 {
-
+                    this.image = value;
+                    this.RaisePropertyChanged("ContactImage");
                 }
-                this.image = value;
-                this.RaisePropertyChanged("ContactImage");
             }
         }
 
@@ -87,7 +82,7 @@ namespace SampleBrowser.Maui.SfListView
 
         #region INotifyPropertyChanged implementation
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         private void RaisePropertyChanged(String name)
         {
