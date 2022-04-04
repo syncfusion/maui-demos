@@ -57,9 +57,26 @@ Platforms supported by each .NET MAUI control are listed below.
 		</th>
 	</tr>
 	<tr>
-		<td rowspan="3" valign="top">
+		<td rowspan="5" valign="top">
 			DATA VISUALIZATION<br/>
 		</td>
+		<td>
+			<a href="/maui/barcode-generator/overview">Barcode Generator</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
 		<td>
 			<a href="/maui/cartesian-charts/overview">Cartesian Charts</a><br/>
 		</td>
@@ -95,7 +112,24 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
-			<a href="/maui/radialgauge/overview">Radial Gauge</a><br/>
+			<a href="/maui/linear-gauge/overview">Linear Gauge</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="/maui/radial-gauge/overview">Radial Gauge</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -147,15 +181,15 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 		<td>
-		Underway<br/>
+		Yes<br/>
 		</td>
 	</tr>
 	<tr>
-	    <td rowspan="2" valign="top">
-			EDITORS<br/>
+	    <td rowspan="3" valign="top">
+			SLIDERS<br/>
 		</td>	
 		<td>
-			<a href="/maui/slider/overview">Slider</a><br/>
+			<a href="/maui/range-selector/overview">Range Selector</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -173,6 +207,23 @@ Platforms supported by each .NET MAUI control are listed below.
 	<tr>
 		<td>
 			<a href="/maui/range-slider/overview">Range Slider</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="/maui/slider/overview">Slider</a><br/>
 		</td>
 		<td>
 		Yes<br/>
