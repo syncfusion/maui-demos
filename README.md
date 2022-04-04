@@ -253,10 +253,10 @@ Platforms supported by each .NET MAUI file-format library are listed below.
 
 | Control           | Android | iOS  | Mac Catalyst | WinUI |
 |-------------------|---------|------|--------------|-------|
-| [Excel](https://help.syncfusion.com/file-formats/xlsio/overview)             | Yes     | Yes  | Underway | Yes  |
-| [PDF](https://help.syncfusion.com/file-formats/pdf/overview)               | Yes     | Yes  | Underway | Yes  |
-| [Word](https://help.syncfusion.com/file-formats/docio/overview)              | Yes     | Yes  | Underway | Yes  |
-| [PowerPoint](https://help.syncfusion.com/file-formats/presentation/overview)        | Yes     | Yes  | Underway | Yes  |
+| [Excel](https://help.syncfusion.com/file-formats/xlsio/overview)             | Yes     | Yes  | Yes | Yes  |
+| [PDF](https://help.syncfusion.com/file-formats/pdf/overview)               | Yes     | Yes  | Yes | Yes  |
+| [Word](https://help.syncfusion.com/file-formats/docio/overview)              | Yes     | Yes  | Yes | Yes  |
+| [PowerPoint](https://help.syncfusion.com/file-formats/presentation/overview)        | Yes     | Yes  | Yes | Yes  |
 
 
 
@@ -272,4 +272,4 @@ Platforms supported by each .NET MAUI file-format library are listed below.
 
 * To renew the subscription, click [here](https://www.syncfusion.com/sales/products?utm_source=github&utm_medium=listing) or contact our sales team at <salessupport@syncfusion.com>.
   
-<p>Copyright © 2001-2021 Syncfusion, Inc. Updated on 2021-12-20 at precisely 12:23:35 EST.</p> 
+<p>Copyright © 2001-2022 Syncfusion, Inc. Updated on 2022-04-04 at precisely 12:23:35 EST.</p> 
