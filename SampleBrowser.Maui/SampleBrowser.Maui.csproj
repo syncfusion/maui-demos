@@ -194,20 +194,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Maui.Core" Version="*" />
-    <PackageReference Include="Syncfusion.Maui.TabView" Version="*" />
-    <PackageReference Include="Syncfusion.Maui.Charts" Version="*" />
-    <PackageReference Include="Syncfusion.Maui.Gauges" Version="*" />
-	<PackageReference Include="Syncfusion.Maui.Scheduler" Version="*" />
-	<PackageReference Include="Syncfusion.Maui.Sliders" Version="*" />
-	<PackageReference Include="Syncfusion.Maui.ListView" Version="*" />
-    <PackageReference Include="Syncfusion.Maui.GridCommon" Version="*" />
-	<PackageReference Include="Syncfusion.Maui.DataSource" Version="*" />
-	<PackageReference Include="Syncfusion.Maui.Barcode" Version="*" />
-    <PackageReference Include="Syncfusion.DocIORenderer.NET" Version="*" />
-    <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="*" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="*" />
-    <PackageReference Include="Syncfusion.Pdf.Imaging.NET" Version="*" />
+    <PackageReference Include="Syncfusion.Maui.Core" Version="20.1.47-preview" />
+    <PackageReference Include="Syncfusion.Maui.TabView" Version="20.1.47-preview" />
+    <PackageReference Include="Syncfusion.Maui.Charts" Version="20.1.47-preview" />
+    <PackageReference Include="Syncfusion.Maui.Gauges" Version="20.1.47-preview" />
+	<PackageReference Include="Syncfusion.Maui.Scheduler" Version="20.1.47-preview" />
+	<PackageReference Include="Syncfusion.Maui.Sliders" Version="20.1.47-preview" />
+	<PackageReference Include="Syncfusion.Maui.ListView" Version="20.1.47-preview" />
+    <PackageReference Include="Syncfusion.Maui.GridCommon" Version="20.1.47-preview" />
+	<PackageReference Include="Syncfusion.Maui.DataSource" Version="20.1.47-preview" />
+	<PackageReference Include="Syncfusion.Maui.Barcode" Version="20.1.47-preview" />
+    <PackageReference Include="Syncfusion.DocIORenderer.NET" Version="20.1.0.47" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="20.1.0.47" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="20.1.0.47" />
+    <PackageReference Include="Syncfusion.Pdf.Imaging.NET" Version="20.1.0.47" />
   </ItemGroup>
 
 
