@@ -161,15 +161,17 @@
                                     </gauge:RadialAxis.Ranges>
                                     
                                     <gauge:RadialAxis.Pointers>
-                                        <gauge:MarkerPointer Value="70"
+                                        <gauge:ShapePointer Value="70"
                                                              x:Name="markerPointer"
                                                              IsInteractive="True"
+                                                             OverlayRadius="0"
+                                                             HasShadow="True"
                                                              Fill="#FFF67280"
-                                                             MarkerHeight="25"
-                                                             MarkerWidth="25"
-                                                             MarkerOffset="-10"
+                                                             ShapeHeight="25"
+                                                             ShapeWidth="25"
+                                                             Offset="-10"
                                                              >
-                                        </gauge:MarkerPointer>
+                                        </gauge:ShapePointer>
                                     </gauge:RadialAxis.Pointers>
 
                                     <gauge:RadialAxis.Annotations>

@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -22,20 +22,30 @@ namespace SampleBrowser.Maui.SfScheduler
         private Brush background;
         private ObservableCollection<DateTime> recurrenceExceptionDates;
         private string rRUle;
-        private object recurrenceId;
-        private object id;
         private string notes;
         private string location;
+        private object? recurrenceId;
+        private object? id;
 
         public Meeting()
         {
-            recurrenceExceptionDates = new ObservableCollection<DateTime>();
+            this.from = DateTime.Now;
+            this.to = DateTime.Now;
+            this.eventName = string.Empty;
+            this.isAllDay = false;
+            this.background = Brush.Transparent;
+            this.rRUle = string.Empty;
+            this.notes = string.Empty;
+            this.location = string.Empty;
+            this.startTimeZone = TimeZoneInfo.Local;
+            this.endTimeZone = TimeZoneInfo.Local;
+            this.recurrenceExceptionDates = new ObservableCollection<DateTime>();
         }
 
         /// <summary>
         /// Property changed event handler
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
         /// Gets or sets the value to display the start date.
@@ -144,7 +154,7 @@ namespace SampleBrowser.Maui.SfScheduler
         /// <summary>
         /// Gets or sets the value to display the recurrence id.
         /// </summary>
-        public object RecurrenceId
+        public object? RecurrenceId
         {
             get { return recurrenceId; }
             set
@@ -157,7 +167,7 @@ namespace SampleBrowser.Maui.SfScheduler
         /// <summary>
         /// Gets or sets the value to display the id.
         /// </summary>
-        public object Id
+        public object? Id
         {
             get { return id; }
             set

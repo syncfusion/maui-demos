@@ -1,5 +1,5 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -7,11 +7,7 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfListView
 {
@@ -19,9 +15,9 @@ namespace SampleBrowser.Maui.SfListView
     {
         #region Fields
 
-        private string songTitle;
-        private string songAuther;
-        private string songSize;
+        private string? songTitle;
+        private string? songAuther;
+        private string? songSize;
         private bool isSelected;
 
         #endregion
@@ -31,7 +27,7 @@ namespace SampleBrowser.Maui.SfListView
         /// <summary>
         /// Gets or sets a value that indicates song title. 
         /// </summary>
-        public string SongTitle
+        public string? SongTitle
         {
             get
             {
@@ -47,7 +43,7 @@ namespace SampleBrowser.Maui.SfListView
         /// <summary>
         /// Gets or sets the value that indicates the song auther.
         /// </summary>
-        public string SongAuther
+        public string? SongAuther
         {
             get
             {
@@ -63,7 +59,7 @@ namespace SampleBrowser.Maui.SfListView
         /// <summary>
         /// Gets or sets a value that indicates song size. 
         /// </summary>
-        public string SongSize
+        public string? SongSize
         {
             get
             {
@@ -90,7 +86,7 @@ namespace SampleBrowser.Maui.SfListView
 
         #region INotifyPropertyChanged implementation
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         private void RaisePropertyChanged(String name)
         {

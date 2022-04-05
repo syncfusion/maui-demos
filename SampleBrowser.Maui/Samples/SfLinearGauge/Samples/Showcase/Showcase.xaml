@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.SfLinearGauge"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      x:Class="SampleBrowser.Maui.SfLinearGauge.Showcase"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      Background="White">
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+        <local:GraphicsDrawable x:Key="GraphicsDrawable" />
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <localCore:ScrollViewExt>
+            <localCore:WrapLayout Background="White">
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Thermometer">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HorizontalOptions="Center"  WidthRequest="100" HeightRequest="350"
+                              VerticalOptions="Center" Padding="0,0,0,30">
+
+                            <local:ThermometerGauge1 x:Name="thermometerGauge1" Orientation="Vertical" HorizontalOptions="Center"
+                                     Minimum="-25" Maximum="60" Interval="10"
+                                     IsMirrored="True" TickOffset="5" 
+                                     ShowLine="False" MinorTicksPerInterval="0">
+                                <gauge:SfLinearGauge.MajorTickStyle>
+                                    <gauge:LinearTickStyle Stroke="#d6d6d6"/>
+                                </gauge:SfLinearGauge.MajorTickStyle>
+                                <gauge:SfLinearGauge.BarPointers>
+                                    <gauge:BarPointer Value="60" CornerStyle="EndCurve"
+                                          Fill="#d6d6d6" PointerSize="13"/>
+                                    <gauge:BarPointer  Value="59.5" PointerSize="10" CornerStyle="EndCurve"
+                                          Fill="White"/>
+                                    <gauge:BarPointer Value="{Binding Source={x:Reference thermoMeterShape}, Path=Value}"
+                                          PointerSize="5" CornerStyle="EndCurve"
+                                          Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}"/>
+                                </gauge:SfLinearGauge.BarPointers>
+                                <gauge:SfLinearGauge.MarkerPointers>
+                                    <gauge:LinearShapePointer x:Name="thermoMeterShape" Value="35" Position="Inside" ShapeType="Triangle"
+                                            IsInteractive="True" ValueChanging="thermoMeterShape_ValueChanging"
+                                            OffsetX="5" Fill="#ff0074E3" ShapeWidth="10" ShapeHeight="12"/>
+
+                                    <gauge:LinearShapePointer Value="-20" Position="Cross" ShapeType="Circle"
+                                             Fill="White" Stroke="#d6d6d6" OffsetY="-1"
+                                            ShapeHeight="25" ShapeWidth="25" Alignment="End"
+                                            StrokeThickness="1.5" />
+                                    <gauge:LinearShapePointer Value="-20" Position="Cross" ShapeType="Circle" Alignment="End"
+                                             Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}"
+                                            ShapeHeight="18" ShapeWidth="18" OffsetY="3"/>
+
+                                   <gauge:LinearShapePointer Value="-20" ShapeType="Rectangle" Fill="White" Position="Cross"
+                                            ShapeHeight="2" ShapeWidth="11" OffsetY="1"/>
+                                     <gauge:LinearShapePointer Value="-20" ShapeType="Rectangle" 
+                                            Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}" 
+                                            Position="Cross"
+                                            ShapeHeight="5" ShapeWidth="5" OffsetY="1"/>
+
+                                    <gauge:LinearContentPointer Value="60" Position="Inside" OffsetX="19" OffsetY="1">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Label Text="°C"
+                                                   TextColor="Black"/>
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+                                </gauge:SfLinearGauge.MarkerPointers>
+                            </local:ThermometerGauge1>
+                            <local:ThermometerGauge2 x:Name="thermometerGauge2" Orientation="Vertical" HorizontalOptions="End"
+                                     ShowLine="False" WidthRequest="33"
+                                     MinorTicksPerInterval="0" 
+                                     Minimum="-25" Maximum="60" Interval="10">
+                                <gauge:SfLinearGauge.MajorTickStyle>
+                                    <gauge:LinearTickStyle Stroke="#d6d6d6"/>
+                                </gauge:SfLinearGauge.MajorTickStyle>
+                                <gauge:SfLinearGauge.MarkerPointers>
+                                    <gauge:LinearContentPointer Value="60" OffsetX="10" Position="Inside">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Label Text="°F"
+                                                   TextColor="Black" />
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+                                </gauge:SfLinearGauge.MarkerPointers>
+                            </local:ThermometerGauge2>
+                        </Grid>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+                
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Height calculator">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HorizontalOptions="Center"  HeightRequest="350" VerticalOptions="Center">
+                            <gauge:SfLinearGauge x:Name="heightCalculatorGauge" Minimum="0" Maximum="200"
+                                                 Interval="50"
+                                    HorizontalOptions="Center" 
+                                     MinorTicksPerInterval="0"
+                                     Orientation="Vertical" TickPosition="Outside"
+                                     LabelCreated="SfLinearGauge_LabelCreated"
+                                     LabelPosition="Outside">
+                                <gauge:SfLinearGauge.MarkerPointers>
+                                    <gauge:LinearShapePointer Value="130"  x:Name="heightCalculatorShape"
+                                            ValueChanged="Pointer1_ValueChanged"
+                                            ShapeType="Rectangle"
+                                            Position="Outside" IsInteractive="True"
+                                            ShapeHeight="1.5" ShapeWidth="265"
+                                            Fill="#ff0074E3"/>
+                                    <gauge:LinearContentPointer Value="{Binding Source={x:Reference heightCalculatorShape}, Path=Value}"
+                                              IsInteractive="True"
+                                               ValueChanged="Pointer1_ValueChanged"
+                                              Position="Cross">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Image Source="rectangle_pointer.png" WidthRequest="24" HeightRequest="16"/>
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+                                    <gauge:LinearContentPointer x:Name="heightCalculatorPointer" 
+                                                                Value="{Binding Source={x:Reference heightCalculatorShape}, Path=Value}"
+                                              IsInteractive="True"
+                                               ValueChanged="Pointer1_ValueChanged"
+                                              OffsetX="-265">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Grid HeightRequest="30"
+                                                                WidthRequest="60">
+                                                <RoundRectangle HorizontalOptions="Center"  
+                                                                StrokeThickness="1" HeightRequest="30"
+                                                                WidthRequest="60"
+                                                                CornerRadius="5"
+                                                                Stroke="LightGray" Background="White">
+                                                    <RoundRectangle.Shadow>
+                                                        <Shadow Brush="Gray" Offset="3,3" Opacity="0.4" Radius="5"/>
+                                                    </RoundRectangle.Shadow>
+                                                </RoundRectangle>
+                                                <Label x:Name="heightAnnotationLabel" Text="130 cm"
+                                                       HorizontalOptions="Center" VerticalOptions="Center"
+                                                       TextColor="#ff0074E3" Background="Transparent"/>
+                                            </Grid>
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+
+                                </gauge:SfLinearGauge.MarkerPointers>
+                                <gauge:SfLinearGauge.Ranges>
+                                    <gauge:LinearRange x:Name="heightCalculatorRange" EndValue="{Binding Source={x:Reference heightCalculatorShape}, Path=Value}"
+                                           StartWidth="265" EndWidth="265" Fill="Transparent">
+                                        <gauge:LinearRange.Child>
+                                            <Image Source="bmi_dark.png"/>
+                                        </gauge:LinearRange.Child>
+                                    </gauge:LinearRange>
+                                </gauge:SfLinearGauge.Ranges>
+
+                            </gauge:SfLinearGauge>
+                        </Grid>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Water level indicator">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HorizontalOptions="Center"  HeightRequest="350"
+                              VerticalOptions="Center">
+                            <gauge:SfLinearGauge x:Name="waterLevelGauge" Orientation="Vertical" HorizontalOptions="Center"
+                                     Maximum="500" Interval="100"
+                                                 WidthRequest="310">
+                                <gauge:SfLinearGauge.LineStyle>
+                                    <gauge:LinearLineStyle Thickness="2"/>
+                                </gauge:SfLinearGauge.LineStyle>
+                                <gauge:SfLinearGauge.BarPointers>
+                                    <gauge:BarPointer Position="Outside" Value="500"
+                                          PointerSize="250"
+                                          Offset="18" Fill="Transparent">
+                                        <gauge:BarPointer.Child>
+                                            <GraphicsView x:Name="graphicsView" Drawable="{StaticResource GraphicsDrawable}"/>
+                                        </gauge:BarPointer.Child>
+                                    </gauge:BarPointer>
+                                </gauge:SfLinearGauge.BarPointers>
+                                <gauge:SfLinearGauge.MarkerPointers>
+                                    <gauge:LinearShapePointer x:Name="waterLevelShapePointer" ShapeType="Circle"
+                                            Position="Cross" Value="150"
+                                            IsInteractive="True"
+                                            ValueChanged="waterLevelShapePointer_ValueChanged"
+                                            HasShadow="True" Fill="#00a2ed"
+                                            ShapeHeight="32" ShapeWidth="32"/>
+                                    <gauge:LinearContentPointer Value="{Binding Source={x:Reference waterLevelShapePointer},Path=Value}" 
+                                              OffsetX="-125" Alignment="Start">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Label Text="150 ml" x:Name="waterLevelLabel" TextColor="Black"
+                                       FontAttributes="Bold"/>
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+                                    <gauge:LinearContentPointer Value="{Binding Source={x:Reference waterLevelShapePointer},Path=Value}" 
+                                               Position="Cross" OffsetY="-5">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Label FontFamily="FontGaugeIcons" TextColor="White"
+                                                    FontSize="18" HorizontalOptions="Center" 
+                                                    VerticalOptions="Center" HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center" Text="&#xe704;" />
+
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+                                    <gauge:LinearContentPointer Value="{Binding Source={x:Reference waterLevelShapePointer},Path=Value}" 
+                                               Position="Cross" OffsetY="5">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Label FontFamily="FontGaugeIcons" TextColor="White"  
+                                                    FontSize="18" HorizontalOptions="Center" 
+                                                    VerticalOptions="Center" HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center" Text="&#xe705;" />
+
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+                                </gauge:SfLinearGauge.MarkerPointers>
+                               
+                            </gauge:SfLinearGauge>
+                        </Grid>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Volume settings">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HorizontalOptions="Center"  HeightRequest="350"
+                              VerticalOptions="Center" Padding="0,50,0,50">
+
+                            <HorizontalStackLayout HorizontalOptions="Center">
+                                <gauge:SfLinearGauge x:Name="volumeSettingsGauge1" ShowLabels="False" ShowTicks="False"
+                                                     HorizontalOptions="Center" VerticalOptions="Center" 
+                                                     MinorTicksPerInterval="0" Orientation="Vertical">
+                                    <gauge:SfLinearGauge.LineStyle>
+                                        <gauge:LinearLineStyle Thickness="40" CornerStyle="BothCurve" Fill="#d6d6d6"/>
+                                    </gauge:SfLinearGauge.LineStyle>
+                                    <gauge:SfLinearGauge.BarPointers>
+                                        <gauge:BarPointer PointerSize="40" Value="100" CornerStyle="BothCurve" Fill="#00a2ed" 
+                                                          IsInteractive="True"
+                                                          AutomationProperties.HelpText="firstVolumeLabel"
+                                                      ValueChanging="BarPointer_ValueChanging"/>
+                                    </gauge:SfLinearGauge.BarPointers>
+                                    <gauge:SfLinearGauge.MarkerPointers>
+                                        <gauge:LinearContentPointer Alignment="Start" Value="5" Position="Cross">
+                                            <gauge:LinearContentPointer.Content>
+                                                <Label x:Name="firstLabelIcon" FontFamily="FontGaugeIcons" TextColor="White"
+                                                    FontSize="Medium" HorizontalOptions="Center"
+                                                    VerticalOptions="Center" Text="&#xe706;" />
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                        <gauge:LinearContentPointer Alignment="Start" Value="100" OffsetY="-10" Position="Cross">
+                                            <gauge:LinearContentPointer.Content>
+                                                <Label x:Name="firstVolumeLabel" Text="100%" TextColor="Black" WidthRequest="55" HorizontalTextAlignment="Center"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                    </gauge:SfLinearGauge.MarkerPointers>
+                                </gauge:SfLinearGauge>
+
+                                <gauge:SfLinearGauge x:Name="volumeSettingsGauge2" ShowLabels="False" ShowTicks="False"
+                                                     HorizontalOptions="Center" VerticalOptions="Center" 
+                                                     MinorTicksPerInterval="0" Orientation="Vertical">
+                                    <gauge:SfLinearGauge.LineStyle>
+                                        <gauge:LinearLineStyle Thickness="40" CornerStyle="BothCurve" Fill="#d6d6d6"/>
+                                    </gauge:SfLinearGauge.LineStyle>
+                                    <gauge:SfLinearGauge.BarPointers>
+                                        <gauge:BarPointer PointerSize="40" Value="85" CornerStyle="BothCurve" 
+                                                          Fill="#00a2ed" IsInteractive="True"
+                                                          AutomationProperties.HelpText="secondVolumeLabel"
+                                                      ValueChanging="BarPointer_ValueChanging"/>
+                                    </gauge:SfLinearGauge.BarPointers>
+                                    <gauge:SfLinearGauge.MarkerPointers>
+                                        <gauge:LinearContentPointer Alignment="Start" Value="5" Position="Cross">
+                                            <gauge:LinearContentPointer.Content>
+                                                <Label x:Name="secondLabelIcon" FontFamily="FontGaugeIcons" TextColor="White"
+                                                    FontSize="Medium" HorizontalOptions="Center"
+                                                    VerticalOptions="Center" Text="&#xe709;"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                        <gauge:LinearContentPointer Alignment="Start" Value="100" OffsetY="-10" Position="Cross">
+                                            <gauge:LinearContentPointer.Content>
+                                                <Label x:Name="secondVolumeLabel" Text="85%" TextColor="Black" WidthRequest="55" HorizontalTextAlignment="Center"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                    </gauge:SfLinearGauge.MarkerPointers>
+                                </gauge:SfLinearGauge>
+
+                                <gauge:SfLinearGauge x:Name="volumeSettingsGauge3" ShowLabels="False" ShowTicks="False"
+                                                     HorizontalOptions="Center" VerticalOptions="Center" 
+                                                     MinorTicksPerInterval="0" Orientation="Vertical">
+                                    <gauge:SfLinearGauge.LineStyle>
+                                        <gauge:LinearLineStyle Thickness="40" CornerStyle="BothCurve" Fill="#d6d6d6"/>
+                                    </gauge:SfLinearGauge.LineStyle>
+                                    <gauge:SfLinearGauge.BarPointers>
+                                        <gauge:BarPointer PointerSize="40" Value="65" CornerStyle="BothCurve" 
+                                                            AutomationProperties.HelpText="thirdVolumeLabel"
+                                                      ValueChanging="BarPointer_ValueChanging"
+                                                          Fill="#00a2ed" IsInteractive="True"/>
+                                    </gauge:SfLinearGauge.BarPointers>
+                                    <gauge:SfLinearGauge.MarkerPointers>
+                                        <gauge:LinearContentPointer Alignment="Start" Value="5" Position="Cross">
+                                            <gauge:LinearContentPointer.Content>
+                                                <Label x:Name="thirdLabelIcon" FontFamily="FontGaugeIcons" TextColor="White"
+                                                    FontSize="Medium" HorizontalOptions="Center"
+                                                    VerticalOptions="Center" Text="&#xe707;"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                        <gauge:LinearContentPointer Alignment="Start" Value="100" OffsetY="-10" Position="Cross">
+                                            <gauge:LinearContentPointer.Content>
+                                                <Label x:Name="thirdVolumeLabel" Text="65%" TextColor="Black" WidthRequest="55" HorizontalTextAlignment="Center"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                    </gauge:SfLinearGauge.MarkerPointers>
+                                </gauge:SfLinearGauge>
+
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Progress bar">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HeightRequest="350" x:Name="progressBarLayout">
+                            <gauge:SfLinearGauge x:Name="progressBarGauge" Minimum="0" Maximum="100" 
+                                             WidthRequest="340"  EnableAxisAnimation="True"
+                                             HorizontalOptions="Center" 
+                                             VerticalOptions="Center"
+                                     ShowLabels="False" ShowTicks="False">
+                                <gauge:SfLinearGauge.LineStyle>
+                                    <gauge:LinearLineStyle CornerStyle="BothCurve" Fill="#d6d6d6" Thickness="40"/>
+                                </gauge:SfLinearGauge.LineStyle>
+                                <gauge:SfLinearGauge.BarPointers>
+
+                                    <gauge:BarPointer Value="41.47" PointerSize="40" EnableAnimation="True"
+                                                       AnimationEasing="{x:Static Easing.CubicOut}"
+                                          CornerStyle="BothCurve" Fill="#00a2ed"/>
+
+                                </gauge:SfLinearGauge.BarPointers>
+                                <gauge:SfLinearGauge.MarkerPointers>
+                                    <gauge:LinearContentPointer Value="3" Position="Cross" Alignment="End">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Label Text="41.47%" TextColor="White" FontAttributes="Bold"/>
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+                                </gauge:SfLinearGauge.MarkerPointers>
+
+                            </gauge:SfLinearGauge>
+                        </Grid>
+                       
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Task tracker">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HeightRequest="350" x:Name="taskTrackerLayout">
+                            <local:TaskTrackerGauge x:Name="taskTrackerGauge" Minimum="0" Maximum="100" 
+                                                    Interval="20"  WidthRequest="340"
+                                                    IsMirrored="True" EnableAxisAnimation="True"
+                                                    EnableRangeAnimation="True"
+                                                    HorizontalOptions="Center" 
+                                                    VerticalOptions="Center"
+                                    ShowLine="False">
+                                <gauge:SfLinearGauge.Ranges>
+                                    <gauge:LinearRange Fill="#F45656" StartWidth="16" EndWidth="16"/>
+                                    <gauge:LinearRange EndValue="80" Fill="#0DC9AB" StartWidth="16" EndWidth="16"/>
+                                </gauge:SfLinearGauge.Ranges>
+                                <gauge:SfLinearGauge.MarkerPointers>
+                                    <gauge:LinearShapePointer Value="60" EnableAnimation="True" 
+                                                         AnimationEasing="{x:Static Easing.CubicOut}"
+                                            ShapeWidth="24" Fill="#06589C"/>
+                                </gauge:SfLinearGauge.MarkerPointers>
+
+                            </local:TaskTrackerGauge>
+                        </Grid>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Sleep watch score">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HeightRequest="350" x:Name="sleepScoreLayout">
+                            <VerticalStackLayout x:Name="gauge6"  HorizontalOptions="Center" 
+                                             VerticalOptions="Center" HeightRequest="200">
+                                <HorizontalStackLayout Margin="10,20,0,0">
+                                    <VerticalStackLayout WidthRequest="60" HorizontalOptions="Center">
+                                        <Label Text="TODAY" TextColor="Black" FontSize="12"/>
+                                        <Label Text="280" TextColor="#FFBF00" FontAttributes="Bold"
+                                       FontSize="Large"/>
+                                    </VerticalStackLayout>
+                                    <local:SleepWatchScoreGauge  x:Name="sleepWatchScoreGauge1"  
+                                                                 Minimum="100" Maximum="500"  LabelOffset="10"
+                                    HorizontalOptions="Center"  LabelPosition="Outside" 
+                                                                 WidthRequest="{OnPlatform MacCatalyst=330,Default=300}"
+                                                                 EnableAxisAnimation="True"
+                                                                 EnableRangeAnimation="True"
+                                     ShowTicks="False">
+                                        <gauge:SfLinearGauge.LineStyle>
+                                            <gauge:LinearLineStyle Thickness="15"/>
+                                        </gauge:SfLinearGauge.LineStyle>
+                                        <gauge:SfLinearGauge.Ranges>
+                                            <gauge:LinearRange Fill="#0DC9AB" StartValue="100" Position="Cross" EndValue="500" StartWidth="8" EndWidth="8"/>
+                                            <gauge:LinearRange Fill="#FB7D55" StartValue="100" Position="Cross"  EndValue="400" StartWidth="8" EndWidth="8"/>
+                                            <gauge:LinearRange Fill="#FFBF00" StartValue="100" Position="Cross"  EndValue="300" StartWidth="8" EndWidth="8"/>
+                                            <gauge:LinearRange Fill="Red" StartValue="100" Position="Cross"  EndValue="200" StartWidth="8" EndWidth="8"/>
+                                        </gauge:SfLinearGauge.Ranges>
+                                        <gauge:SfLinearGauge.MarkerPointers>
+                                            <gauge:LinearShapePointer Value="280" EnableAnimation="True" 
+                                                                 AnimationEasing="{x:Static Easing.CubicOut}"
+                                                                Position="Cross" HasShadow="True"
+                                            ShapeType="Circle" Fill="#FFBF00"
+                                            ShapeWidth="20" ShapeHeight="20" />
+                                        </gauge:SfLinearGauge.MarkerPointers>
+
+                                    </local:SleepWatchScoreGauge>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Margin="10,20,0,0">
+                                    <VerticalStackLayout WidthRequest="60" HorizontalOptions="Center">
+                                        <Label Text="OVERALL" TextColor="Black" FontSize="12"/>
+                                        <Label Text="410" TextColor="#0DC9AB" FontAttributes="Bold"
+                                       FontSize="Large"/>
+                                    </VerticalStackLayout>
+                                    <local:SleepWatchScoreGauge x:Name="sleepWatchScoreGauge2"  
+                                                                Minimum="100" Maximum="500"  LabelOffset="10"
+                                    HorizontalOptions="Center"  LabelPosition="Outside"  
+                                                                WidthRequest="{OnPlatform MacCatalyst=330,Default=300}"
+                                    ShowTicks="False"  EnableAxisAnimation="True"
+                                                                 EnableRangeAnimation="True">
+                                        <gauge:SfLinearGauge.LineStyle>
+                                            <gauge:LinearLineStyle Thickness="15"/>
+                                        </gauge:SfLinearGauge.LineStyle>
+                                        <gauge:SfLinearGauge.Ranges>
+                                            <gauge:LinearRange Fill="#0DC9AB" StartValue="100" Position="Cross" EndValue="500" StartWidth="8" EndWidth="8"/>
+                                            <gauge:LinearRange Fill="#FB7D55" StartValue="100" Position="Cross"  EndValue="400" StartWidth="8" EndWidth="8"/>
+                                            <gauge:LinearRange Fill="#FFBF00" StartValue="100" Position="Cross"  EndValue="300" StartWidth="8" EndWidth="8"/>
+                                            <gauge:LinearRange Fill="Red" StartValue="100" Position="Cross"  EndValue="200" StartWidth="8" EndWidth="8"/>
+                                        </gauge:SfLinearGauge.Ranges>
+                                        <gauge:SfLinearGauge.MarkerPointers>
+                                            <gauge:LinearShapePointer Value="410" EnableAnimation="True"
+                                                                 AnimationEasing="{x:Static Easing.CubicOut}"
+                                                                Position="Cross"  HasShadow="True"
+                                            ShapeType="Circle" Fill="#0DC9AB"
+                                            ShapeWidth="20" ShapeHeight="20" />
+                                        </gauge:SfLinearGauge.MarkerPointers>
+
+                                    </local:SleepWatchScoreGauge>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Temperature meter">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HeightRequest="350" x:Name="temperatureLayout" HorizontalOptions="Center">
+                            <gauge:SfLinearGauge x:Name="temperatureMeterGauge" 
+                                                 Minimum="0" Maximum="80" HorizontalOptions="Center"
+                                             VerticalOptions="Center"  EnableAxisAnimation="True"
+                                             LabelCreated="SfLinearGauge_LabelCreated_1"
+                                             Interval="20" MinorTicksPerInterval="0">
+                                <gauge:SfLinearGauge.LineStyle>
+                                    <gauge:LinearLineStyle Thickness="1"/>
+                                </gauge:SfLinearGauge.LineStyle>
+                                <gauge:SfLinearGauge.BarPointers>
+                                    <gauge:BarPointer Value="80" EnableAnimation="True"
+                                                       AnimationEasing="{x:Static Easing.CubicOut}"
+                                                  Position="Outside" PointerSize="24">
+                                        <gauge:BarPointer.GradientStops>
+                                            <gauge:GaugeGradientStop Value="0" Color="Green"/>
+                                            <gauge:GaugeGradientStop Value="30" Color="Orange"/>
+                                            <gauge:GaugeGradientStop Value="60" Color="Red"/>
+                                        </gauge:BarPointer.GradientStops>
+                                    </gauge:BarPointer>
+                                </gauge:SfLinearGauge.BarPointers>
+                                <gauge:SfLinearGauge.MarkerPointers>
+                                    <gauge:LinearShapePointer Value="60" EnableAnimation="True"
+                                                         AnimationEasing="{x:Static Easing.CubicOut}"
+                                                    OffsetY="-24" Fill="Red"/>
+                                    <gauge:LinearContentPointer Value="60" EnableAnimation="True"
+                                                           AnimationEasing="{x:Static Easing.CubicOut}"
+                                                      OffsetY="-40">
+                                        <gauge:LinearContentPointer.Content>
+                                            <Label Text="60°C" TextColor="Red"/>
+                                        </gauge:LinearContentPointer.Content>
+                                    </gauge:LinearContentPointer>
+                                </gauge:SfLinearGauge.MarkerPointers>
+                            </gauge:SfLinearGauge>
+                        </Grid>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Active hours">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HeightRequest="350" x:Name="activeHoursLayout" HorizontalOptions="Center">
+                            <VerticalStackLayout x:Name="activeHoursVerticalLayout" HorizontalOptions="Center"
+                                             VerticalOptions="Center">
+                                <local:ActiveHoursGauge x:Name="activeHoursGauge" Maximum="18" ShowLine="False"
+                                                    ShowTicks="False" >
+                                    <gauge:SfLinearGauge.LabelStyle>
+                                        <gauge:GaugeLabelStyle TextColor="Black" FontSize="13"/>
+                                    </gauge:SfLinearGauge.LabelStyle>
+                                </local:ActiveHoursGauge>
+                                <Label HorizontalOptions="End" Text="Active Hours"
+                                   FontSize="Large" Margin="0,30,0,0"
+                                   TextColor="Gray"/>
+                                <Label HorizontalOptions="End" Text="13" 
+                                   FontSize="Title"
+                                   TextColor="#FF05C3DD"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425" IsVisible="{OnPlatform MacCatalyst=false, Default=true, iOS={OnIdiom Phone=true, Tablet=false}}"
+                                       Title="Battery indicator">
+                    <localCore:CardViewExt.MainContent>
+                        <Grid HeightRequest="350" x:Name="batteryIndicatorLayout">
+                            <VerticalStackLayout WidthRequest="350" VerticalOptions="Center"
+                                             HorizontalOptions="Center">
+                                <Label Text="Charged: 75%" HorizontalOptions="Center" Padding="0,0,0,20"
+                                   FontSize="Medium" TextColor="Black"/>
+                                <gauge:SfLinearGauge ShowLabels="False" x:Name="batteryIndicatorGauge" 
+                                             ShowTicks="False" Minimum="-100"
+                                                     Maximum="200" ShowLine="False">
+                                    
+                                    <gauge:SfLinearGauge.MarkerPointers>
+                                        <gauge:LinearContentPointer Position="Cross" Value="50" >
+                                            <gauge:LinearContentPointer.Content>
+                                                <RoundRectangle Fill="White" HeightRequest="70" 
+                                                                CornerRadius="10"
+                                                                Stroke="#1f000000" StrokeThickness="6"
+                                                                WidthRequest="150"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                        <gauge:LinearContentPointer Position="Cross" Value="-5" Alignment="End">
+                                            <gauge:LinearContentPointer.Content>
+                                                <RoundRectangle Fill="#66ba6a" HeightRequest="55" 
+                                                                CornerRadius="3"
+                                                                WidthRequest="30"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                        <gauge:LinearContentPointer Position="Cross" Value="25" Alignment="End">
+                                            <gauge:LinearContentPointer.Content>
+                                                <RoundRectangle Fill="#66ba6a" HeightRequest="55" 
+                                                                CornerRadius="3"
+                                                                WidthRequest="30"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                        <gauge:LinearContentPointer Position="Cross" Value="55" Alignment="End">
+                                            <gauge:LinearContentPointer.Content>
+                                                <RoundRectangle Fill="#66ba6a" HeightRequest="55" 
+                                                                CornerRadius="3"
+                                                                WidthRequest="30"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                        <gauge:LinearContentPointer Position="Cross" Value="117" Alignment="End">
+                                            <gauge:LinearContentPointer.Content>
+                                                <RoundRectangle Fill="White" HeightRequest="35" 
+                                                                CornerRadius="0,3,0,3"
+                                                                Stroke="#1f000000" StrokeThickness="6"
+                                                                WidthRequest="15"/>
+                                            </gauge:LinearContentPointer.Content>
+                                        </gauge:LinearContentPointer>
+                                       
+                                    </gauge:SfLinearGauge.MarkerPointers>
+                                </gauge:SfLinearGauge>
+
+                            </VerticalStackLayout>
+                        </Grid>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+            </localCore:WrapLayout>
+        </localCore:ScrollViewExt>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

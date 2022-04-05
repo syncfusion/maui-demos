@@ -1,27 +1,25 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
-using System;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.Charts;
-using mauiColor = Microsoft.Maui.Graphics.Color;
+using System;
 using Chart = Syncfusion.Maui.Charts;
-using System.Reflection;
+using mauiColor = Microsoft.Maui.Graphics.Color;
 
 namespace SampleBrowser.Maui.SfCartesianChart
 {
-	public partial class BarChart : SampleView
-	{
-		public BarChart()
-		{
-			InitializeComponent();
+    public partial class BarChart : SampleView
+    {
+        public BarChart()
+        {
+            InitializeComponent();
 
             if (!RunTimeDevice.IsMobileDevice())
                 viewModel.StartTimer();
@@ -52,10 +50,10 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
 
         public override void OnScrollingToNewCardViewExt(CardViewExt cardViewExt)
-		{
+        {
             if (RunTimeDevice.IsMobileDevice())
             {
-                if (cardViewExt.Title == "Dynamic update animation" && viewModel != null)
+                if (cardViewExt.Title == "Dynamic update animation")
                 {
                     viewModel.StopTimer();
                     viewModel.StartTimer();
@@ -64,23 +62,23 @@ namespace SampleBrowser.Maui.SfCartesianChart
                 {
                     viewModel.StopTimer();
                     var content = cardViewExt.MainContent as Syncfusion.Maui.Charts.SfCartesianChart;
-                    content.AnimateSeries();
+                    content?.AnimateSeries();
                 }
             }
         }
 
-		public override void OnDisappearing()
-		{
-			base.OnDisappearing();
-			if (viewModel != null)
-				viewModel.StopTimer();
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            if (viewModel != null)
+                viewModel.StopTimer();
 
             Chart1.Handler?.DisconnectHandler();
             Chart2.Handler?.DisconnectHandler();
             Chart3.Handler?.DisconnectHandler();
             Chart4.Handler?.DisconnectHandler();
         }
-	}
+    }
 
     public class CustomBarChart : ColumnSeries
     {
@@ -92,18 +90,16 @@ namespace SampleBrowser.Maui.SfCartesianChart
 
     public class BarSegmentExt : ColumnSegment
     {
-        RectangleF trackRect = RectangleF.Zero;
+        RectF trackRect = RectF.Zero;
 
         protected override void OnLayout()
         {
             base.OnLayout();
 
-            if (Series != null)
+            if (Series is CartesianSeries series && series.ActualYAxis is NumericalAxis yAxis)
             {
-                var yAxis = (Series as CartesianSeries).ActualYAxis as NumericalAxis;
-                var top = yAxis.ValueToPoint((double)yAxis.Maximum);
-
-                trackRect = new RectangleF() { Left = Left, Top = Top, Right = (float)top, Bottom = Bottom };
+                var top = yAxis.ValueToPoint(Convert.ToDouble(yAxis.Maximum ?? double.NaN));
+                trackRect = new RectF() { Left = Left, Top = Top, Right = (float)top, Bottom = Bottom };
             }
         }
 

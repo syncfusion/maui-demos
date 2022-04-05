@@ -1,22 +1,19 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
+using SampleBrowser.Maui.Core;
+using SampleBrowser.Maui.Services;
+using Syncfusion.Pdf;
+using Syncfusion.XlsIO;
+using Syncfusion.XlsIORenderer;
 using System;
 using System.IO;
-using Syncfusion.XlsIO;
-using Syncfusion.Pdf;
-using Syncfusion.XlsIO.Implementation;
 using System.Reflection;
-using Syncfusion.XlsIORenderer;
-using System.Collections.Generic;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using SampleBrowser.Maui.Core;
 
 namespace SampleBrowser.Maui.XlsIO
 {
@@ -33,6 +30,7 @@ namespace SampleBrowser.Maui.XlsIO
         {
             this.InitializeComponent();
 #if ANDROID || IOS
+            this.stkLayout.HorizontalOptions = Microsoft.Maui.Controls.LayoutOptions.Center;
             this.btnInput.HorizontalOptions = Microsoft.Maui.Controls.LayoutOptions.Center;
             this.btnConvertToPdf.HorizontalOptions = Microsoft.Maui.Controls.LayoutOptions.Center;
 #endif
@@ -49,16 +47,20 @@ namespace SampleBrowser.Maui.XlsIO
         {
             string inputPath = "SampleBrowser.Maui.Resources.XlsIO.ExcelTopdfwithChart.xlsx";
 
-            Assembly assembly = typeof(ExcelToPDF).GetTypeInfo().Assembly;
-            Stream input = assembly.GetManifestResourceStream(inputPath);
+            Assembly? assembly = typeof(ExcelToPDF).GetTypeInfo().Assembly;
+            Stream? input = assembly.GetManifestResourceStream(inputPath);
 
-            MemoryStream stream = new MemoryStream();
+            if(input != null)
+            { 
+            MemoryStream stream = new();
             input.CopyTo(stream);
 
             stream.Position = 0;
-            DependencyService.Get<ISave>().SaveAndView("ExcelTopdfwithChart.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", stream);
+            SaveService saveService = new();
+            saveService.SaveAndView("ExcelTopdfwithChart.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", stream);
 
             input.Dispose();
+            }
         }
 
         /// <summary>
@@ -68,47 +70,49 @@ namespace SampleBrowser.Maui.XlsIO
         /// <param name="e">contains the event data</param>
         private void btnConvertToPDF_Click(object sender, EventArgs e)
         {
-            using (ExcelEngine engine = new ExcelEngine())
-            {
-                Syncfusion.XlsIO.IApplication application = engine.Excel;
-                string inputPath = "SampleBrowser.Maui.Resources.XlsIO.ExcelTopdfwithChart.xlsx";
-                Assembly assembly = typeof(ExcelToPDF).GetTypeInfo().Assembly;
-                Stream input = assembly.GetManifestResourceStream(inputPath);
-                IWorkbook book = application.Workbooks.Open(input);
+            using ExcelEngine engine = new();
+            Syncfusion.XlsIO.IApplication application = engine.Excel;
+            string inputPath = "SampleBrowser.Maui.Resources.XlsIO.ExcelTopdfwithChart.xlsx";
+            Assembly? assembly = typeof(ExcelToPDF).GetTypeInfo().Assembly;
+            Stream? input = assembly.GetManifestResourceStream(inputPath);
+            if(input != null)
+            { 
+            IWorkbook book = application.Workbooks.Open(input);
 
-                //Initialize XlsIORenderer
-                XlsIORenderer renderer = new XlsIORenderer();
+            //Initialize XlsIORenderer
+            XlsIORenderer renderer = new();
 
-                //Intialize the PDFDocument
-                PdfDocument pdfDoc = new PdfDocument();
+            //Intialize the PDFDocument
+            PdfDocument pdfDoc = new();
 
-                //Intialize the XlsIORendererSettings
-                XlsIORendererSettings settings = new XlsIORendererSettings();
+            //Intialize the XlsIORendererSettings
+            XlsIORendererSettings settings = new();
 
-                settings.LayoutOptions = Syncfusion.XlsIORenderer.LayoutOptions.FitSheetOnOnePage;
+            settings.LayoutOptions = Syncfusion.XlsIORenderer.LayoutOptions.FitSheetOnOnePage;
 
-                //Assign the PdfDocument to the templateDocument property of XlsIORendererSettings
-                settings.TemplateDocument = pdfDoc;
-                settings.DisplayGridLines = GridLinesDisplayStyle.Invisible;
+            //Assign the PdfDocument to the templateDocument property of XlsIORendererSettings
+            settings.TemplateDocument = pdfDoc;
+            settings.DisplayGridLines = GridLinesDisplayStyle.Invisible;
 
-                //Convert Excel Document into PDF document
-                pdfDoc = renderer.ConvertToPDF(book, settings);
+            //Convert Excel Document into PDF document
+            pdfDoc = renderer.ConvertToPDF(book, settings);
 
-                //Save the PDF file
-                MemoryStream stream = new MemoryStream();
-                pdfDoc.Save(stream);
-                stream.Position = 0;
-                DependencyService.Get<ISave>().SaveAndView("ExcelToPDF.pdf", "application/pdf", stream);
+            //Save the PDF file
+            MemoryStream stream = new();
+            pdfDoc.Save(stream);
+            stream.Position = 0;
+            SaveService saveService = new();
+            saveService.SaveAndView("ExcelToPDF.pdf", "application/pdf", stream);
 
-                #region Close and Dispose                
-                input.Dispose();
-                stream.Dispose();
-                #endregion
+            #region Close and Dispose                
+            input.Dispose();
+            stream.Dispose();
+            #endregion
             }
         }
 
-       #endregion
+        #endregion
 
-      
+
     }
 }

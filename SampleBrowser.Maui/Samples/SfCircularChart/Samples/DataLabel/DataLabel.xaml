@@ -5,9 +5,9 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
-        <chart:SfCircularChart x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+        <chart:SfCircularChart x:Name="Chart" HorizontalOptions="Fill" VerticalOptions="Start">
             <chart:SfCircularChart.Title>
-                <Label Text="Average Expenditures of Consumer Units - 2018" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Average Expenditures of Consumer Units - 2018" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
             </chart:SfCircularChart.Title>
             <chart:SfCircularChart.BindingContext>
                 <local:SmartLabelsViewModel/>
@@ -19,8 +19,8 @@
                 <local:DoughnutChartExt x:Name="secondarySeries" ItemsSource="{Binding SubDataSource}"
                                         StrokeWidth="1" Stroke="White" IsVisibleOnLegend="False"
                                       ShowDataLabels="True" StartAngle="180" EndAngle="540" 
-                                      SmartLabelAlignment="Shift" Palette="Custom" CustomBrushes="{Binding SubCustomBrushes}" 
-                                      CircularCoefficient="0.45"  XBindingPath="Name" YBindingPath="Value">
+                                      PaletteBrushes="{Binding SubPaletteBrushes}" 
+                                      Radius="0.45"  XBindingPath="Name" YBindingPath="Value">
                     <local:DoughnutChartExt.DataLabelSettings>
                         <chart:CircularDataLabelSettings UseSeriesPalette="False" ConnectorType="Curve" LabelPlacement="Outer">
                             <chart:CircularDataLabelSettings.LabelStyle>
@@ -32,9 +32,9 @@
 
                 <local:CenterViewDoughnut x:Name="primarySeries" ItemsSource="{Binding DataSource}" 
                                           StrokeWidth="1" Stroke="White"
-                                          SmartLabelAlignment="Hide" StartAngle="180" EndAngle="540" 
-                                          ShowDataLabels="True" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" 
-                                          CircularCoefficient="0.35" XBindingPath="Category" YBindingPath="Value">
+                                          StartAngle="180" EndAngle="540" 
+                                          ShowDataLabels="True"  PaletteBrushes="{Binding PaletteBrushes}" 
+                                          Radius="0.35" XBindingPath="Category" YBindingPath="Value">
                     <local:CenterViewDoughnut.DataLabelSettings>
                         <chart:CircularDataLabelSettings UseSeriesPalette="False" LabelPlacement="Inner">
                             <chart:CircularDataLabelSettings.LabelStyle>

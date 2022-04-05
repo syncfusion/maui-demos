@@ -28,7 +28,7 @@
       <Editor x:Name="txtboxFormula" TextColor="Black" Text="" IsReadOnly="True" VerticalOptions="Center"/>
       <Label Text=" "/>
       <Label x:Name="computedValue" TextColor="Black" FontAttributes="Bold" Text="Computed Value :  " />
-      <Editor x:Name="txtboxValue" Text="" IsReadOnly="True" VerticalOptions="Center"/>
+      <Editor x:Name="txtboxValue" TextColor="Black" Text="" IsReadOnly="True" VerticalOptions="Center"/>
       <Label Text=" "/>
       <Button x:Name="btnInput" Clicked ="btnInput_Click" WidthRequest="150" Text ="Input Template" HorizontalOptions="Start" VerticalOptions="Center"></Button>
       <Label Text=" "/>

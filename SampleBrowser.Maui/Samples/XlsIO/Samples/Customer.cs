@@ -1,5 +1,5 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -14,16 +14,16 @@ namespace SampleBrowser.Maui.XlsIO
 
     public class Hyperlink : IHyperLink
     {
-        public IApplication Application { get; private set; }
-        public object Parent { get; private set; }
+        public IApplication? Application { get; private set; }
+        public object? Parent { get; private set; }
         public string Address { get; set; }
-        public string Name { get; private set; }
-        public IRange Range { get; private set; }
+        public string? Name { get; private set; }
+        public IRange? Range { get; private set; }
         public string ScreenTip { get; set; }
         public string SubAddress { get; set; }
         public string TextToDisplay { get; set; }
         public ExcelHyperLinkType Type { get; set; }
-        public IShape Shape { get; private set; }
+        public IShape? Shape { get; private set; }
         public ExcelHyperlinkAttachedType AttachedType { get; private set; }
         public byte[] Image { get; set; }
 
@@ -40,29 +40,29 @@ namespace SampleBrowser.Maui.XlsIO
 
     public class Company
     {
-        public string Name { get; set; }
-        public Hyperlink Link { get; set; }
+        public string? Name { get; set; }
+        public Hyperlink? Link { get; set; }
     }
 
     #endregion
     /// <summary>
     /// A simple helper class
     /// </summary>
-    public class Customers 
+    public class Customers
     {
 
         #region Members
-        private string m_salesPerson;
-        private int m_salesJanJune;
-        private int m_salesJulyDec;
-        private int m_change;
-        private byte[] m_image;
-        private Hyperlink m_hyperlink;
-        private string m_imageText;
+        private string? m_salesPerson;
+        private int? m_salesJanJune;
+        private int? m_salesJulyDec;
+        private int? m_change;
+        private byte[]? m_image;
+        private Hyperlink? m_hyperlink;
+        private string? m_imageText;
         #endregion
 
         #region Properties
-        public string SalesPerson
+        public string? SalesPerson
         {
             get
             {
@@ -74,7 +74,7 @@ namespace SampleBrowser.Maui.XlsIO
             }
         }
 
-        public int SalesJanJune
+        public int? SalesJanJune
         {
             get
             {
@@ -85,7 +85,7 @@ namespace SampleBrowser.Maui.XlsIO
                 m_salesJanJune = value;
             }
         }
-        public int SalesJulyDec
+        public int? SalesJulyDec
         {
             get
             {
@@ -97,7 +97,7 @@ namespace SampleBrowser.Maui.XlsIO
             }
 
         }
-        public int Change
+        public int? Change
         {
             get
             {
@@ -109,7 +109,7 @@ namespace SampleBrowser.Maui.XlsIO
             }
 
         }
-        public string ImageText
+        public string? ImageText
         {
             get
             {
@@ -121,7 +121,7 @@ namespace SampleBrowser.Maui.XlsIO
             }
         }
 
-        public Hyperlink Hyperlink
+        public Hyperlink? Hyperlink
         {
             get
             {
@@ -133,7 +133,7 @@ namespace SampleBrowser.Maui.XlsIO
             }
 
         }
-        public byte[] Image
+        public byte[]? Image
         {
             get
             {

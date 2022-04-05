@@ -1,30 +1,25 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using SampleBrowser.Maui.Core;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfCartesianChart
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public ObservableCollection<Brush> CustomBrushes { get; set; }
+        public ObservableCollection<Brush> PaletteBrushes { get; set; }
         public ObservableCollection<Brush> CustomColor2 { get; set; }
         public ObservableCollection<Brush> AlterColor1 { get; set; }
 
@@ -51,7 +46,7 @@ namespace SampleBrowser.Maui.SfCartesianChart
                 EnableAnimation = false;
             }
 
-            CustomBrushes = new ObservableCollection<Brush>()
+            PaletteBrushes = new ObservableCollection<Brush>()
             {
                new SolidColorBrush(Color.FromArgb("#314A6E")),
                  new SolidColorBrush(Color.FromArgb("#48988B")),
@@ -73,23 +68,6 @@ namespace SampleBrowser.Maui.SfCartesianChart
                 new SolidColorBrush(Color.FromArgb("#314A6E")),
                  new SolidColorBrush(Color.FromArgb("#48988B")),
             };
-        }
-
-        public static object InvokeInternalMethod(Type type, object obj, string methodName, params object[] args)
-        {
-            var method = type.GetTypeInfo().GetDeclaredMethod(methodName);
-            return method != null ? method.Invoke(obj, args) : null;
-        }
-
-        public static object GetInternalProperty(Type type, object obj, string propertyName)
-        {
-            var property = type.GetTypeInfo().GetDeclaredProperty(propertyName);
-            if (property != null)
-            {
-                return property.GetValue(obj);
-            }
-
-            return null;
         }
     }
 }

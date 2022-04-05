@@ -1,18 +1,19 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
-using System;
+using SampleBrowser.Maui.Services;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Microsoft.Maui.Controls;
-using System.Reflection;
+using System;
 using System.IO;
+using System.Reflection;
 
 namespace SampleBrowser.Maui.DocIO
 {
@@ -50,7 +51,7 @@ namespace SampleBrowser.Maui.DocIO
             #region HeaderandFooter
             //Gets the input Word document.
             string dataPatth = @"SampleBrowser.Maui.Resources.DocIO.HeaderFooterTemplate.docx";
-            using Stream fileStream = assembly.GetManifestResourceStream(dataPatth);
+            using Stream? fileStream = assembly.GetManifestResourceStream(dataPatth);
             //Loads an existing Word document.
             using WordDocument document = new(fileStream, FormatType.Automatic);
             //Gets a last section of the document.
@@ -68,7 +69,8 @@ namespace SampleBrowser.Maui.DocIO
             document.Save(ms, FormatType.Docx);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Header and Footer.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Header and Footer.docx", "application/msword", ms);
             #endregion Document SaveOption
             #endregion HeaderandFooter
         }
@@ -79,12 +81,13 @@ namespace SampleBrowser.Maui.DocIO
         {
             //Gets the input Word document.
             string dataPath = @"SampleBrowser.Maui.Resources.DocIO.HeaderFooterTemplate.docx";
-            using Stream fileStream = assembly.GetManifestResourceStream(dataPath);
+            using Stream? fileStream = assembly.GetManifestResourceStream(dataPath);
             using MemoryStream ms = new();
-            fileStream.CopyTo(ms);
+            fileStream!.CopyTo(ms);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("HeaderFooterTemplate.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("HeaderFooterTemplate.docx", "application/msword", ms);
         }
         #endregion
 
@@ -107,16 +110,16 @@ namespace SampleBrowser.Maui.DocIO
             table.ResetCells(1, 2, format, 265);
 
             //Inserts logo image to the table first cell.
-            IWParagraph headerPara = table[0, 0].AddParagraph() as WParagraph;
-            Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.Maui.Resources.DocIO.Northwindlogo.png");
-            headerPara.AppendPicture(imageStream);
+            IWParagraph? headerPara = table[0, 0].AddParagraph() as WParagraph;
+            Stream? imageStream = assembly.GetManifestResourceStream("SampleBrowser.Maui.Resources.DocIO.Northwindlogo.png");
+            headerPara!.AppendPicture(imageStream);
             //Sets Image size
-            (headerPara.Items[0] as WPicture).Width = 232.5f;
-            (headerPara.Items[0] as WPicture).Height = 54.75f;
+            (headerPara.Items[0] as WPicture)!.Width = 232.5f;
+            (headerPara.Items[0] as WPicture)!.Height = 54.75f;
 
             //Inserts text to the table second cell.
             headerPara = table[0, 1].AddParagraph() as WParagraph;
-            IWTextRange txt = headerPara.AppendText("Company Headquarters,\n2501 Aerial Center Parkway,\nSuite 110, Morrisville, NC 27560,\nTEL 1-888-936-8638.");
+            IWTextRange? txt = headerPara!.AppendText("Company Headquarters,\n2501 Aerial Center Parkway,\nSuite 110, Morrisville, NC 27560,\nTEL 1-888-936-8638.");
             txt.CharacterFormat.FontSize = 12;
             txt.CharacterFormat.CharacterSpacing = 1.7f;
             headerPara.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
@@ -163,15 +166,15 @@ namespace SampleBrowser.Maui.DocIO
             table.ResetCells(1, 2, format, 265);
 
             //Inserts logo image to the table first cell.
-            IWParagraph headerPara = table[0, 0].AddParagraph() as WParagraph;
-            Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.Maui.Resources.DocIO.Northwindlogo.png");
-            headerPara.AppendPicture(imageStream);
+            IWParagraph? headerPara = table[0, 0].AddParagraph() as WParagraph;
+            Stream? imageStream = assembly.GetManifestResourceStream("SampleBrowser.Maui.Resources.DocIO.Northwindlogo.png");
+            headerPara!.AppendPicture(imageStream);
             //Sets Image size.
-            (headerPara.Items[0] as WPicture).Width = 232.5f;
-            (headerPara.Items[0] as WPicture).Height = 54.75f;
+            (headerPara.Items[0] as WPicture)!.Width = 232.5f;
+            (headerPara.Items[0] as WPicture)!.Height = 54.75f;
             //Inserts text to the table second cell.
             headerPara = table[0, 1].AddParagraph() as WParagraph;
-            IWTextRange txt = headerPara.AppendText("Company Headquarters,\n2501 Aerial Center Parkway,\nSuite 110, Morrisville, NC 27560,\nTEL 1-888-936-8638.");
+            IWTextRange txt = headerPara!.AppendText("Company Headquarters,\n2501 Aerial Center Parkway,\nSuite 110, Morrisville, NC 27560,\nTEL 1-888-936-8638.");
             txt.CharacterFormat.FontSize = 12;
             txt.CharacterFormat.CharacterSpacing = 1.7f;
             headerPara.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;

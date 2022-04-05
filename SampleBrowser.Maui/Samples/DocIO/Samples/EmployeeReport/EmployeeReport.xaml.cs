@@ -1,20 +1,22 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
-using System;
-using System.Collections.Generic;
+using SampleBrowser.Maui.Services;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System.Xml.Serialization;
-using Microsoft.Maui.Controls;
-using System.Reflection;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace SampleBrowser.Maui.DocIO
 {
@@ -52,7 +54,7 @@ namespace SampleBrowser.Maui.DocIO
         {
             //Gets the input Word document.
             string dataPathEmployee = @"SampleBrowser.Maui.Resources.DocIO.EmployeesReportDemo.docx";
-            using Stream fileStream = assembly.GetManifestResourceStream(dataPathEmployee);
+            using Stream? fileStream = assembly.GetManifestResourceStream(dataPathEmployee);
             //Creates a new Word document instance.
             using WordDocument document = new();
             //Opens an existing Word document.
@@ -69,7 +71,8 @@ namespace SampleBrowser.Maui.DocIO
             document.Save(ms, FormatType.Docx);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Employee Report.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Employee Report.docx", "application/msword", ms);
             #endregion Document SaveOption
         }
         /// <summary>
@@ -80,10 +83,13 @@ namespace SampleBrowser.Maui.DocIO
             //Gets the image from disk during Merge.
             if (args.FieldName == "Photo")
             {
-                string ProductFileName = args.FieldValue.ToString();
-                byte[] bytes = Convert.FromBase64String(ProductFileName);
-                MemoryStream ms = new(bytes);
-                args.ImageStream = ms;
+                string? ProductFileName = args.FieldValue.ToString();
+                if(ProductFileName != null)
+                {
+                    byte[] bytes = Convert.FromBase64String(ProductFileName);
+                    MemoryStream ms = new(bytes);
+                    args.ImageStream = ms;
+                }
             }
         }
         #endregion  EmployeeReport
@@ -94,12 +100,13 @@ namespace SampleBrowser.Maui.DocIO
         {
             //Gets the input Word document.
             string dataPathEmployee = @"SampleBrowser.Maui.Resources.DocIO.EmployeesReportDemo.docx";
-            using Stream fileStream = assembly.GetManifestResourceStream(dataPathEmployee);
+            using Stream? fileStream = assembly.GetManifestResourceStream(dataPathEmployee);
             using MemoryStream ms = new();
-            fileStream.CopyTo(ms);
+            fileStream!.CopyTo(ms);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("EmployeesReportDemo.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("EmployeesReportDemo.docx", "application/msword", ms);
         }
         #endregion
 
@@ -111,18 +118,25 @@ namespace SampleBrowser.Maui.DocIO
         {
             List<Employee> employees = new();
             //Reads data from xml.
-            Stream fileStream = assembly.GetManifestResourceStream(@"SampleBrowser.Maui.Resources.DocIO.EmployeesList.xml");
+            Stream? fileStream = assembly.GetManifestResourceStream(@"SampleBrowser.Maui.Resources.DocIO.EmployeesList.xml");
 
             XmlSerializer serializer = new(typeof(Employees));
-            //Deserializes XML into DOM.
-            Employees employeesList = (Employees)serializer.Deserialize(fileStream);
 
-            foreach (Employee employee in employeesList.Employee)
-                employees.Add(employee);
+            if (fileStream != null)
+            {
+                XmlReader reader = XmlReader.Create(fileStream);
+                //Deserializes XML into DOM.
+                Employees? employeesList = serializer.Deserialize(reader) as Employees;
 
+                if (employeesList != null && employeesList.Employee != null)
+                {
+                    foreach (Employee employee in employeesList.Employee)
+                        employees.Add(employee);
+                }
+            }
             //Creates MailMergeDataTable from xml.
             MailMergeDataTable dataTable = new("Employees", employees);
-            fileStream.Dispose();
+            fileStream!.Dispose();
             return dataTable;
         }
         #endregion
@@ -135,12 +149,12 @@ namespace SampleBrowser.Maui.DocIO
     public class Employees
     {
         #region Fields
-        private Employee[] employee;
+        private Employee[]? employee;
         #endregion
 
         #region Properties
         [System.Xml.Serialization.XmlElementAttribute("Employee")]
-        public Employee[] Employee
+        public Employee[]? Employee
         {
             get
             {
@@ -159,27 +173,27 @@ namespace SampleBrowser.Maui.DocIO
     public class Employee
     {
         #region Fields
-        private string employeeID;
-        private string lastName;
-        private string firstName;
-        private string title;
-        private string titleOfCourtesy;
-        private string birthDate;
-        private string hireDate;
-        private string address;
-        private string city;
-        private string region;
-        private string postalCode;
-        private string country;
-        private string homePhone;
-        private string extension;
-        private string photo;
-        private string notes;
-        private string reportsTo;
+        private string? employeeID;
+        private string? lastName;
+        private string? firstName;
+        private string? title;
+        private string? titleOfCourtesy;
+        private string? birthDate;
+        private string? hireDate;
+        private string? address;
+        private string? city;
+        private string? region;
+        private string? postalCode;
+        private string? country;
+        private string? homePhone;
+        private string? extension;
+        private string? photo;
+        private string? notes;
+        private string? reportsTo;
         #endregion
 
         #region Properties
-        public string EmployeeID
+        public string? EmployeeID
         {
             get
             {
@@ -190,7 +204,7 @@ namespace SampleBrowser.Maui.DocIO
                 employeeID = value;
             }
         }
-        public string LastName
+        public string? LastName
         {
             get
             {
@@ -201,7 +215,7 @@ namespace SampleBrowser.Maui.DocIO
                 lastName = value;
             }
         }
-        public string FirstName
+        public string? FirstName
         {
             get
             {
@@ -212,7 +226,7 @@ namespace SampleBrowser.Maui.DocIO
                 firstName = value;
             }
         }
-        public string Title
+        public string? Title
         {
             get
             {
@@ -223,7 +237,7 @@ namespace SampleBrowser.Maui.DocIO
                 title = value;
             }
         }
-        public string TitleOfCourtesy
+        public string? TitleOfCourtesy
         {
             get
             {
@@ -234,7 +248,7 @@ namespace SampleBrowser.Maui.DocIO
                 titleOfCourtesy = value;
             }
         }
-        public string BirthDate
+        public string? BirthDate
         {
             get
             {
@@ -245,7 +259,7 @@ namespace SampleBrowser.Maui.DocIO
                 birthDate = value;
             }
         }
-        public string HireDate
+        public string? HireDate
         {
             get
             {
@@ -256,7 +270,7 @@ namespace SampleBrowser.Maui.DocIO
                 hireDate = value;
             }
         }
-        public string Address
+        public string? Address
         {
             get
             {
@@ -267,7 +281,7 @@ namespace SampleBrowser.Maui.DocIO
                 address = value;
             }
         }
-        public string City
+        public string? City
         {
             get
             {
@@ -278,7 +292,7 @@ namespace SampleBrowser.Maui.DocIO
                 city = value;
             }
         }
-        public string Region
+        public string? Region
         {
             get
             {
@@ -289,7 +303,7 @@ namespace SampleBrowser.Maui.DocIO
                 region = value;
             }
         }
-        public string PostalCode
+        public string? PostalCode
         {
             get
             {
@@ -300,7 +314,7 @@ namespace SampleBrowser.Maui.DocIO
                 postalCode = value;
             }
         }
-        public string Country
+        public string? Country
         {
             get
             {
@@ -311,7 +325,7 @@ namespace SampleBrowser.Maui.DocIO
                 country = value;
             }
         }
-        public string HomePhone
+        public string? HomePhone
         {
             get
             {
@@ -322,7 +336,7 @@ namespace SampleBrowser.Maui.DocIO
                 homePhone = value;
             }
         }
-        public string Extension
+        public string? Extension
         {
             get
             {
@@ -333,7 +347,7 @@ namespace SampleBrowser.Maui.DocIO
                 extension = value;
             }
         }
-        public string Photo
+        public string? Photo
         {
             get
             {
@@ -344,7 +358,7 @@ namespace SampleBrowser.Maui.DocIO
                 photo = value;
             }
         }
-        public string Notes
+        public string? Notes
         {
             get
             {
@@ -355,7 +369,7 @@ namespace SampleBrowser.Maui.DocIO
                 notes = value;
             }
         }
-        public string ReportsTo
+        public string? ReportsTo
         {
             get
             {

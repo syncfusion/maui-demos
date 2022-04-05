@@ -1,5 +1,5 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -7,12 +7,7 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace SampleBrowser.Maui.SfListView
@@ -34,7 +29,7 @@ namespace SampleBrowser.Maui.SfListView
         {
             var random = new Random();
             var musiqInfo = new ObservableCollection<Musiqnfo>();
-            for (int i = 0; i < SongsNames.Count(); i++)
+            for (int i = 0; i < SongsNames.Length; i++)
             {
                 var info = new Musiqnfo()
                 {
@@ -51,7 +46,7 @@ namespace SampleBrowser.Maui.SfListView
 
         #region SongInfo
 
-        string[] SongsNames = new string[]
+        readonly string[] SongsNames = new string[]
         {
             "Adventure of a lifetime",
             "Blue moon of Kentucky",
@@ -80,8 +75,7 @@ namespace SampleBrowser.Maui.SfListView
             "Heart is a drum",
             "I'm so lonesome I could cry",
         };
-
-        string[] SongAuthers = new string[]
+        readonly string[] SongAuthers = new string[]
         {
             "Coldplay",
             "Bill Monroe",

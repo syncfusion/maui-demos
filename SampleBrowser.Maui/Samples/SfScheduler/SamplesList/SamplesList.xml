@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Samples>
-  <Sample  Name="GettingStarted" Title="Getting Started"  Description="This sample showcases the schedule views such as day, week, workweek and month views with scheduler appointments added. It also showcases the date navigation restriction within min and max schedule date range."/>
+  <Sample IsUpdated="true" Name="GettingStarted" Title="Getting Started"  Description="This sample showcases the schedule views such as day, week, workweek and month views with scheduler appointments added. It also showcases the date navigation restriction within min and max schedule date range."/>
   <Sample  Name="TimelineViews" Title="Timeline Views"  Description="This sample showcases the scheduler timeline day, timeline week, timeline work week and timeline month views. It also showcases the capabilities of creating recurring appointments on daily, weekly, monthly, and yearly intervals in timeline day, timeline week, timeline work week and timeline month views, creating the recurrence appointment with exception date and changed occurrence of recurring series appointments."/>
-  <Sample  Name="Scheduling" Title="Data Binding"  Description="This sample showcases how to use the appointment mapping concept to bind any business event object to a scheduler appointments source."/>
   <Sample  Name="RecursiveAppointments" Title="Recursive Appointments"  Description="This sample showcases the capabilities of creating recurring appointments on daily, weekly, monthly, and yearly intervals in day, week, workweek and month views."/>
+  <Sample IsNew="true" Name="AgendaView" Title="Agenda View"  Description="This sample showcases the scheduler agenda view."/>
   <Sample  Name="SpecialTimeRegion" Title="Special Time Region"  Description="This sample showcases the capabilities of highlighting specific regions in timeslot cells and restricting user interactions such as selection, appointment creations the appearance of highlighted timeslot cells."/>
+  <Sample IsNew="true" Name="LoadOnDemand" Title="Load on Demand"  Description="This sample showcases the appointment on demand loading capability of the scheduler with business event object binding"/>
+  <Sample IsNew="true" Name="HeatMap" Title="Heat Map"  Description="This sample showcases the customization capabilities of a scheduler month cell."/>
+  <Sample IsNew="true" Name="AppearanceCustomization" Title="Appearance Customization"  Description="This sample showcases the customization capabilities of the scheduler appointment view."/>
 </Samples>

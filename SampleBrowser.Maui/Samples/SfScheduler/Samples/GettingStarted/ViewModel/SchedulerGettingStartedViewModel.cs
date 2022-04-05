@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -26,6 +26,7 @@ namespace SampleBrowser.Maui.SfScheduler
         /// </summary>
         public SchedulerGettingStartedViewModel()
         {
+            this.Events = new ObservableCollection<SchedulerAppointment>();
             this.GenerateRandomAppointments();
             this.DisplayDate = DateTime.Now.Date.AddHours(8).AddMinutes(50);
             this.MinDateTime = DateTime.Now.Date.AddMonths(-3);
@@ -77,7 +78,7 @@ namespace SampleBrowser.Maui.SfScheduler
             var WeekEndOccurranceSubjects = new ObservableCollection<string>() { "FootBall Match", "TV Show" };
             var colorCollection = this.GetColorCollection();
 
-            Random ran = new Random();
+            Random ran = new();
             DateTime today = DateTime.Now;
             if (today.Month == 12)
             {
@@ -88,11 +89,10 @@ namespace SampleBrowser.Maui.SfScheduler
                 today = today.AddMonths(1);
             }
 
-            DateTime startMonth = new DateTime(today.Year, today.Month - 1, 1, 0, 0, 0);
+            DateTime startMonth = new(today.Year, today.Month - 1, 1, 0, 0, 0);
             int day = (int)startMonth.DayOfWeek;
             DateTime CurrentStart = startMonth.AddDays(-day);
 
-            this.Events = new ObservableCollection<SchedulerAppointment>();
             for (int i = 0; i < 90; i++)
             {
                 if (i % 7 == 0 || i % 7 == 6)
@@ -178,17 +178,19 @@ namespace SampleBrowser.Maui.SfScheduler
         /// <returns>The color collection.</returns>
         private ObservableCollection<Brush> GetColorCollection()
         {
-            var colorCollection = new ObservableCollection<Brush>();
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF8B1FA9")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FFD20100")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FFFC571D")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF36B37B")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF3D4FB5")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FFE47C73")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF636363")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF85461E")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF0F8644")));
-            colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF01A1EF")));
+            var colorCollection = new ObservableCollection<Brush>
+            {
+                new SolidColorBrush(Color.FromArgb("#FF8B1FA9")),
+                new SolidColorBrush(Color.FromArgb("#FFD20100")),
+                new SolidColorBrush(Color.FromArgb("#FFFC571D")),
+                new SolidColorBrush(Color.FromArgb("#FF36B37B")),
+                new SolidColorBrush(Color.FromArgb("#FF3D4FB5")),
+                new SolidColorBrush(Color.FromArgb("#FFE47C73")),
+                new SolidColorBrush(Color.FromArgb("#FF636363")),
+                new SolidColorBrush(Color.FromArgb("#FF85461E")),
+                new SolidColorBrush(Color.FromArgb("#FF0F8644")),
+                new SolidColorBrush(Color.FromArgb("#FF01A1EF"))
+            };
 
             return colorCollection;
         }

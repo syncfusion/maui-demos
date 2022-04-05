@@ -1,19 +1,20 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
-using System;
+using SampleBrowser.Maui.Services;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Microsoft.Maui.Controls;
-using System.Reflection;
-using System.IO;
 using Syncfusion.Drawing;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace SampleBrowser.Maui.DocIO
 {
@@ -49,22 +50,22 @@ namespace SampleBrowser.Maui.DocIO
             //Creates a new Word document.
             using WordDocument document = new();
             //Adds a new section to the document.
-            WSection section = document.AddSection() as WSection;
+            WSection? section = document.AddSection() as WSection;
             //Sets margin of the section.
-            section.PageSetup.Margins.All = 72;
+            section!.PageSetup.Margins.All = 72;
             //Sets page size of the section.
             section.PageSetup.PageSize = new SizeF(612, 792);
 
             //Creates normal paragraph styles.
-            WParagraphStyle style = document.AddParagraphStyle("Normal") as WParagraphStyle;
-            style.CharacterFormat.FontName = "Calibri";
+            WParagraphStyle? style = document.AddParagraphStyle("Normal") as WParagraphStyle;
+            style!.CharacterFormat.FontName = "Calibri";
             style.CharacterFormat.FontSize = 11f;
             style.ParagraphFormat.BeforeSpacing = 0;
             style.ParagraphFormat.AfterSpacing = 8;
             style.ParagraphFormat.LineSpacing = 13.8f;
             //Creates heading paragraph style.
             style = document.AddParagraphStyle("Heading 1") as WParagraphStyle;
-            style.ApplyBaseStyle("Normal");
+            style!.ApplyBaseStyle("Normal");
             style.CharacterFormat.FontName = "Calibri Light";
             style.CharacterFormat.FontSize = 16f;
             style.CharacterFormat.TextColor = Syncfusion.Drawing.Color.FromArgb(46, 116, 181);
@@ -83,7 +84,8 @@ namespace SampleBrowser.Maui.DocIO
             document.Save(ms, FormatType.Docx);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Getting Started.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Getting Started.docx", "application/msword", ms);
             #endregion Document SaveOption
         }
         #endregion
@@ -99,10 +101,10 @@ namespace SampleBrowser.Maui.DocIO
             IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
             //Gets the image.
             string resourcePath = "SampleBrowser.Maui.Resources.DocIO.HeaderImage.png";
-            Stream imageStream = assembly.GetManifestResourceStream(resourcePath);
+            Stream? imageStream = assembly.GetManifestResourceStream(resourcePath);
             //Appends image to the paragraph.
-            WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
-            picture.WidthScale = 173f;
+            WPicture? picture = paragraph.AppendPicture(imageStream) as WPicture;
+            picture!.WidthScale = 173f;
             picture.HeightScale = 149f;
             #endregion
 
@@ -120,8 +122,8 @@ namespace SampleBrowser.Maui.DocIO
             paragraph = section.AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-            WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
-            textRange.CharacterFormat.FontSize = 18f;
+            WTextRange? textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
+            textRange!.CharacterFormat.FontSize = 18f;
             textRange.CharacterFormat.FontName = "Calibri";
 
             //Appends paragraph.
@@ -129,19 +131,19 @@ namespace SampleBrowser.Maui.DocIO
             paragraph.ParagraphFormat.FirstLineIndent = 36;
             paragraph.BreakCharacterFormat.FontSize = 12f;
             textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
-            textRange.CharacterFormat.FontSize = 12f;
+            textRange!.CharacterFormat.FontSize = 12f;
 
             paragraph = section.AddParagraph();
             paragraph.ParagraphFormat.FirstLineIndent = 36;
             paragraph.BreakCharacterFormat.FontSize = 12f;
             textRange = paragraph.AppendText("In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.") as WTextRange;
-            textRange.CharacterFormat.FontSize = 12f;
+            textRange!.CharacterFormat.FontSize = 12f;
 
             paragraph = section.AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Left;
             textRange = paragraph.AppendText("Product Overview") as WTextRange;
-            textRange.CharacterFormat.FontSize = 16f;
+            textRange!.CharacterFormat.FontSize = 16f;
             textRange.CharacterFormat.FontName = "Calibri";
         }
 
@@ -164,9 +166,9 @@ namespace SampleBrowser.Maui.DocIO
             string resourcePath = "SampleBrowser.Maui.Resources.DocIO.Mountain200.jpg";
 
             //Appends picture to the paragraph.
-            Stream imageStream = assembly.GetManifestResourceStream(resourcePath);
-            WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
-            picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
+            Stream? imageStream = assembly.GetManifestResourceStream(resourcePath);
+            WPicture? picture = paragraph.AppendPicture(imageStream) as WPicture;
+            picture!.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
             picture.VerticalOrigin = VerticalOrigin.Paragraph;
             picture.VerticalPosition = 4.5f;
             picture.HorizontalOrigin = HorizontalOrigin.Column;
@@ -232,7 +234,7 @@ namespace SampleBrowser.Maui.DocIO
             //Appends picture to the paragraph.
             imageStream = assembly.GetManifestResourceStream(resourcePath);
             picture = paragraph.AppendPicture(imageStream) as WPicture;
-            picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
+            picture!.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
             picture.VerticalOrigin = VerticalOrigin.Paragraph;
             picture.VerticalPosition = 8.2f;
             picture.HorizontalOrigin = HorizontalOrigin.Column;
@@ -248,7 +250,7 @@ namespace SampleBrowser.Maui.DocIO
             //Appends picture to the paragraph.
             imageStream = assembly.GetManifestResourceStream(resourcePath);
             picture = paragraph.AppendPicture(imageStream) as WPicture;
-            picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
+            picture!.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
             picture.VerticalOrigin = VerticalOrigin.Paragraph;
             picture.VerticalPosition = 3.75f;
             picture.HorizontalOrigin = HorizontalOrigin.Column;
@@ -313,7 +315,7 @@ namespace SampleBrowser.Maui.DocIO
             //Appends picture to the paragraph.
             imageStream = assembly.GetManifestResourceStream(resourcePath);
             picture = paragraph.AppendPicture(imageStream) as WPicture;
-            picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
+            picture!.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
             picture.VerticalOrigin = VerticalOrigin.Paragraph;
             picture.VerticalPosition = 8.2f;
             picture.HorizontalOrigin = HorizontalOrigin.Column;
@@ -330,8 +332,8 @@ namespace SampleBrowser.Maui.DocIO
         /// </summary>
         private static void AddTextRange(IWParagraph paragraph, string text)
         {
-            WTextRange textRange = paragraph.AppendText(text) as WTextRange;
-            textRange.CharacterFormat.FontSize = 12f;
+            WTextRange? textRange = paragraph.AppendText(text) as WTextRange;
+            textRange!.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
         }
         #endregion

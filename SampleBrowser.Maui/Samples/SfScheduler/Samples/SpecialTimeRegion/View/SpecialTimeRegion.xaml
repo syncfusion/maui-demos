@@ -6,16 +6,13 @@
              xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
     <localCore:SampleView.Content>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <schedule:SfScheduler x:Name="Scheduler" 
-                                 Grid.Column="1" 
-                                  DisabledDateBackground="{Binding DisabledBackground}"
+                                 DisabledDateBackground="{Binding DisabledBackground}"
                                  AppointmentsSource="{Binding SpecialRegionEvents}"
                                  DisplayDate="{Binding DisplayDate}"
+                                 AllowViewNavigation="True"
                                  AllowedViews="Day,Week,WorkWeek,TimelineDay,TimelineWeek,TimelineWorkWeek"
+                                 ViewChanged="OnViewChanged"
                                  View="Week">
                 <schedule:SfScheduler.AppointmentMapping>
                     <schedule:SchedulerAppointmentMapping
@@ -30,20 +27,20 @@
                 RecurrenceRule="RecurrenceRule"
                 RecurrenceId="RecurrenceId"/>
                 </schedule:SfScheduler.AppointmentMapping>
-                <schedule:SfScheduler.MonthViewSettings>
-                    <schedule:SchedulerMonthViewSettings 
+                <schedule:SfScheduler.MonthView>
+                    <schedule:SchedulerMonthView 
                                AppointmentDisplayMode="Text" />
-                    </schedule:SfScheduler.MonthViewSettings>
-                    <schedule:SfScheduler.DaysViewSettings>
-                    <schedule:SchedulerDaysViewSettings  
+                    </schedule:SfScheduler.MonthView>
+                    <schedule:SfScheduler.DaysView>
+                    <schedule:SchedulerDaysView  
                                TimeRegions="{Binding TimeRegions}"
                                MinimumAppointmentDuration="0:30:0" />
-                </schedule:SfScheduler.DaysViewSettings>
-                <schedule:SfScheduler.TimelineViewSettings>
-                    <schedule:SchedulerTimelineViewSettings 
+                </schedule:SfScheduler.DaysView>
+                <schedule:SfScheduler.TimelineView>
+                    <schedule:SchedulerTimelineView 
                                TimeRegions="{Binding TimeRegions}"
                                MinimumAppointmentDuration="0:30:0" />
-                </schedule:SfScheduler.TimelineViewSettings>
+                </schedule:SfScheduler.TimelineView>
                 <schedule:SfScheduler.BindingContext>
                     <local:SchedulerDataBindingViewModel/>
                 </schedule:SfScheduler.BindingContext>

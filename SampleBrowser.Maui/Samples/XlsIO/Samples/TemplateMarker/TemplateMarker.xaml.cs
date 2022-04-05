@@ -1,20 +1,21 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using System;
+using Microsoft.Maui.Controls;
+using SampleBrowser.Maui.Core;
+using SampleBrowser.Maui.Services;
 using Syncfusion.XlsIO;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
-using System.Linq;
-using System.IO;
-using SampleBrowser.Maui.Core;
-using Microsoft.Maui.Controls;
 
 namespace SampleBrowser.Maui.XlsIO
 {
@@ -31,6 +32,7 @@ namespace SampleBrowser.Maui.XlsIO
         {
             InitializeComponent();
 #if ANDROID || IOS
+            this.stkLayout.HorizontalOptions = LayoutOptions.Center;
             this.btnInput.HorizontalOptions = LayoutOptions.Center;
             this.btnCreate.HorizontalOptions = LayoutOptions.Center;
 #endif
@@ -42,41 +44,45 @@ namespace SampleBrowser.Maui.XlsIO
         {
             //New instance of XlsIO is created.[Equivalent to launching MS Excel with no workbooks open].
             //The instantiation process consists of two steps.
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                Syncfusion.XlsIO.IApplication application = excelEngine.Excel;
+            using ExcelEngine excelEngine = new();
+            Syncfusion.XlsIO.IApplication application = excelEngine.Excel;
 
-                application.DefaultVersion = ExcelVersion.Xlsx;
+            application.DefaultVersion = ExcelVersion.Xlsx;
 
-                string inputPath = "SampleBrowser.Maui.Resources.XlsIO.TemplateMarker.xlsx";
-                Assembly assembly = typeof(TemplateMarker).GetTypeInfo().Assembly;
-                Stream input = assembly.GetManifestResourceStream(inputPath);
+            string inputPath = "SampleBrowser.Maui.Resources.XlsIO.TemplateMarker.xlsx";
+            Assembly? assembly = typeof(TemplateMarker).GetTypeInfo().Assembly;
+            Stream? input = assembly.GetManifestResourceStream(inputPath);
+            if(input != null)
+            { 
+            IWorkbook workbook = application.Workbooks.Open(input);
+            IWorksheet worksheet1 = workbook.Worksheets[0];
 
-                IWorkbook workbook = application.Workbooks.Open(input);
-                IWorksheet worksheet1 = workbook.Worksheets[0];
+            input = assembly.GetManifestResourceStream("SampleBrowser.Maui.Resources.XlsIO.CLRObjects.xml");
+            if(input != null)
+            { 
+            IList<Customers>? list = GetList(input);
 
-                input = assembly.GetManifestResourceStream("SampleBrowser.Maui.Resources.XlsIO.CLRObjects.xml");
-                IList<Customers> list = GetList(input);
 
+            #region Applying Marker
+            //Create Template Marker Processor
+            ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
-                #region Applying Marker
-                //Create Template Marker Processor
-                ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+            marker.AddVariable("Customers", list);
 
-                marker.AddVariable("Customers", list);
+            //Process the markers in the template.
+            marker.ApplyMarkers();
+            #endregion
 
-                //Process the markers in the template.
-                marker.ApplyMarkers();
-                #endregion
+            MemoryStream stream = new();
 
-                MemoryStream stream = new MemoryStream();
+            workbook.SaveAs(stream);
 
-                workbook.SaveAs(stream);
-
-                stream.Position = 0;
-                DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", stream);
-                input.Dispose();
-                stream.Dispose();
+            stream.Position = 0;
+            SaveService saveService = new();
+            saveService.SaveAndView("TemplateMarker.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", stream);
+            input.Dispose();
+            stream.Dispose();
+            }
             }
         }
         #endregion
@@ -86,36 +92,43 @@ namespace SampleBrowser.Maui.XlsIO
         #region View the Input file
         private void btnInput_Click(object sender, EventArgs e)
         {
-          //Launching the Input Template using the default Application.[MS Excel Or Free ExcelViewer]            
-          string inputPath = "SampleBrowser.Maui.Resources.XlsIO.TemplateMarker.xlsx";
-          Assembly assembly = typeof(TemplateMarker).GetTypeInfo().Assembly;
-          Stream input = assembly.GetManifestResourceStream(inputPath);
-          MemoryStream stream = new MemoryStream();
-          input.CopyTo(stream);
-          stream.Position = 0;
-          DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", stream);
+            //Launching the Input Template using the default Application.[MS Excel Or Free ExcelViewer]            
+            string inputPath = "SampleBrowser.Maui.Resources.XlsIO.TemplateMarker.xlsx";
+            Assembly? assembly = typeof(TemplateMarker).GetTypeInfo().Assembly;
+            Stream? input = assembly.GetManifestResourceStream(inputPath);
+            if(input != null)
+            { 
+            MemoryStream stream = new();
+            input.CopyTo(stream);
+            stream.Position = 0;
+            SaveService saveService = new();
+            saveService.SaveAndView("TemplateMarker.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", stream);
 
-          input.Dispose();
+            input.Dispose();
+            }
         }
         #endregion
         public IList<Customers> GetList(Stream fileStream)
         {
             IList<Customers> lstCustomers = new List<Customers>();
             fileStream.Position = 0;
-            StreamReader reader = new StreamReader(fileStream);
+            StreamReader reader = new(fileStream);
             IEnumerable<Customers> customers = GetData<Customers>(reader.ReadToEnd());
             //Get the Path of the Image
-            Assembly assembly = typeof(TemplateMarker).GetTypeInfo().Assembly;
-            Stream imageStream;
+            Assembly? assembly = typeof(TemplateMarker).GetTypeInfo().Assembly;
+            Stream? imageStream;
             BinaryReader binaryReader;
             foreach (Customers cust in customers)
             {
                 imageStream = assembly.GetManifestResourceStream("SampleBrowser.Maui.Resources.XlsIO.Template_Marker_Images." + cust.ImageText);
+                if(imageStream != null)
+                { 
                 binaryReader = new BinaryReader(imageStream);
                 byte[] hyperlinkImage = binaryReader.ReadBytes((int)imageStream.Length);
                 cust.Hyperlink = new Hyperlink("https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers", "", "Hyperlink", "Syncfusion", ExcelHyperLinkType.Url, hyperlinkImage);
                 lstCustomers.Add(cust);
                 imageStream.Dispose();
+                }
             }
             return lstCustomers;
         }
@@ -127,11 +140,11 @@ namespace SampleBrowser.Maui.XlsIO
                .Elements("Customers")
                .Select(c => new T
                {
-                   SalesPerson = (string)c.Element("SalesPerson"),
-                   SalesJanJune = (int)c.Element("SalesJanJune"),
-                   SalesJulyDec = (int)c.Element("SalesJulyDec"),
-                   Change = (int)c.Element("Change"),
-                   ImageText = (string)c.Element("ImageText")
+                   SalesPerson = (string?)c.Element("SalesPerson"),
+                   SalesJanJune = (int?)c.Element("SalesJanJune"),
+                   SalesJulyDec = (int?)c.Element("SalesJulyDec"),
+                   Change = (int?)c.Element("Change"),
+                   ImageText = (string?)c.Element("ImageText")
                });
         }
         #endregion

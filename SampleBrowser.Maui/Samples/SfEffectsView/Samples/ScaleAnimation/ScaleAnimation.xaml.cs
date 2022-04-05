@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -11,12 +11,8 @@ using Microsoft.Maui.Controls.Xaml;
 using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.Core;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfEffectsView
 {
@@ -30,7 +26,7 @@ namespace SampleBrowser.Maui.SfEffectsView
 
         private void AnimationCompleted(object sender, EventArgs e)
         {
-            var effectsView = sender as Syncfusion.Maui.Core.SfEffectsView;
+            var effectsView = (Syncfusion.Maui.Core.SfEffectsView)sender;
             if (effectsView.ScaleFactor == 0.85)
             {
                 effectsView.ScaleFactor = 1;
@@ -45,7 +41,7 @@ namespace SampleBrowser.Maui.SfEffectsView
 
     public class ViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         private double scaleFactorValue = 0.85;
 
@@ -60,7 +56,7 @@ namespace SampleBrowser.Maui.SfEffectsView
                 if (scaleFactorValue != value)
                 {
                     scaleFactorValue = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ScaleFactorValue"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ScaleFactorValue)));
                 }
             }
         }
@@ -78,7 +74,7 @@ namespace SampleBrowser.Maui.SfEffectsView
                 if (scaleDuration != value)
                 {
                     scaleDuration = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ScaleDuration"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ScaleDuration)));
                 }
             }
         }
@@ -93,7 +89,7 @@ namespace SampleBrowser.Maui.SfEffectsView
             set
             {
                 touchUpEffectsValue = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TouchUpEffectsValue"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TouchUpEffectsValue)));
             }
         }
     }
@@ -102,7 +98,7 @@ namespace SampleBrowser.Maui.SfEffectsView
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Syncfusion.Maui.Core.SfEffectsView effectsView = parameter as Syncfusion.Maui.Core.SfEffectsView;
+            Syncfusion.Maui.Core.SfEffectsView effectsView = (Syncfusion.Maui.Core.SfEffectsView)parameter;
             return effectsView.ScaleFactor == 1;
         }
 

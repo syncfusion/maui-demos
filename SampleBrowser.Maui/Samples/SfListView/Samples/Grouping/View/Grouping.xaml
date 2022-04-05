@@ -10,7 +10,8 @@
     <localCore:SampleView.Content>
         <ListView:SfListView x:Name="listView"
                     ItemSize="70" 
-                             IsStickyGroupHeader="True"
+                      SelectionMode="{OnPlatform Default= Single , UWP=None}"
+                       IsStickyGroupHeader="True"
                        ItemsSource="{Binding ContactsInfo}"
                        AllowGroupExpandCollapse="True" 
                        GroupHeaderSize="40">
@@ -75,7 +76,7 @@
                                                    FontFamily="Roboto"
                                                    VerticalOptions="End"
                                                    VerticalTextAlignment="End"
-                                                   FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=18}, iOS=16}" />
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=18}, iOS=16, UWP=16}" />
                                 <Label Grid.Row="1"
                                                    Grid.Column="0"
                                                    TextColor="#99000000"
@@ -84,21 +85,21 @@
                                                    VerticalOptions="Start"
                                                    VerticalTextAlignment="Start"
                                                    Text="{Binding ContactNumber}"
-                                                   FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=14}, iOS=14}" />
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=14}, iOS=14, UWP=14}" />
                             </Grid>
                             <Grid Grid.Row="0"
                           Grid.Column="2"
                           RowSpacing="0"
                           HorizontalOptions="End" VerticalOptions="Start"
                                               Padding="0,10,10,0">
-                                <Label LineBreakMode="NoWrap" WidthRequest="60"
+                                <Label LineBreakMode="NoWrap" WidthRequest="{OnPlatform Default=60,MacCatalyst=100, WinUI=70}"
                                                    TextColor="#99000000"
                                                    FontFamily="Roboto"
                                                    VerticalOptions="Start"
                                                    HorizontalOptions="EndAndExpand"
                                                    HorizontalTextAlignment="End"
                                                    Text="{Binding ContactType}"
-                                                   FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=12}, iOS=12}" />
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=12}, iOS=12, UWP=14}" />
                             </Grid>
                         </Grid>
                         <StackLayout Grid.Row="1" BackgroundColor="#E4E4E4" HeightRequest="1"/>

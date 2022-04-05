@@ -1,18 +1,19 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.Controls;
 using SampleBrowser.Maui.Core;
-using System;
+using SampleBrowser.Maui.Services;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Microsoft.Maui.Controls;
-using System.Reflection;
+using System;
 using System.IO;
+using System.Reflection;
 
 namespace SampleBrowser.Maui.DocIO
 {
@@ -45,10 +46,10 @@ namespace SampleBrowser.Maui.DocIO
             Assembly assembly = typeof(EncryptAndDecrypt).GetTypeInfo().Assembly;
             //Gets the input Word document.
             string dataPath = @"SampleBrowser.Maui.Resources.DocIO.Adventure.docx";
-            using Stream fileStream = assembly.GetManifestResourceStream(dataPath);
+            using Stream? fileStream = assembly.GetManifestResourceStream(dataPath);
             //Loads an existing encrypted Word document.
             using WordDocument document = new(fileStream, FormatType.Docx);
-            
+
             //Encrypts the document by giving password.
             document.EncryptDocument("syncfusion");
 
@@ -57,7 +58,8 @@ namespace SampleBrowser.Maui.DocIO
             document.Save(ms, FormatType.Docx);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Encrypt.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Encrypt.docx", "application/msword", ms);
         }
 
         /// <summary>
@@ -68,7 +70,7 @@ namespace SampleBrowser.Maui.DocIO
             Assembly assembly = typeof(EncryptAndDecrypt).GetTypeInfo().Assembly;
             //Gets the input Word document.
             string dataPath = @"SampleBrowser.Maui.Resources.DocIO.Decrypt.docx";
-            using Stream fileStream = assembly.GetManifestResourceStream(dataPath);
+            using Stream? fileStream = assembly.GetManifestResourceStream(dataPath);
             //Loads an existing encrypted Word document.
             using WordDocument document = new(fileStream, FormatType.Docx, "syncfusion");
             using MemoryStream ms = new();
@@ -78,7 +80,8 @@ namespace SampleBrowser.Maui.DocIO
             document.Close();
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Decrypt.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Decrypt.docx", "application/msword", ms);
         }
         #endregion
     }

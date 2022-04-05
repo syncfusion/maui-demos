@@ -28,7 +28,7 @@
                                Style="{StaticResource DemoLabelStyle}"/>
                     </Grid>
                 <badge:SfBadgeView.BadgeSettings>
-                    <badge:BadgeSettings Offset="30,30"/>
+                    <badge:BadgeSettings Offset="-20,30"/>
                 </badge:SfBadgeView.BadgeSettings>
             </badge:SfBadgeView>
 

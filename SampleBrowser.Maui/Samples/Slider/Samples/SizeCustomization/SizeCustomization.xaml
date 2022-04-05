@@ -7,61 +7,77 @@
 
     <localCore:SampleView.Resources>
         <Style TargetType="sliders:SfSlider">
-            <Setter Property="ShowLabels" Value="True" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeSlider">
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
         </Style>
 
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="Black" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
             <!--To align the label and track vertically, used the slider thumb overlay radius on the label.-->
-            <Setter Property="Padding" Value="24,0,0,0" />
+            <Setter Property="Padding"
+                    Value="24,0,0,0" />
         </Style>
     </localCore:SampleView.Resources>
-    
+
     <localCore:SampleView.Content>
-        <VerticalStackLayout Padding="10,0" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+        <VerticalStackLayout Padding="10,0"
+                             Spacing="10"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
             <Label Text="Active and inactive track height" />
-            <sliders:SfSlider Minimum="-20" 
-                              Maximum="20" 
-                              Value="0" 
-                              Interval="10" 
+            <sliders:SfSlider Minimum="-20"
+                              Maximum="20"
+                              Value="0"
+                              Interval="10"
                               StepSize="10">
                 <sliders:SfSlider.TrackStyle>
-                    <sliders:SliderTrackStyle ActiveSize="10" InactiveSize="4" />
+                    <sliders:SliderTrackStyle ActiveSize="10"
+                                              InactiveSize="4" />
                 </sliders:SfSlider.TrackStyle>
             </sliders:SfSlider>
 
             <BoxView HeightRequest="25" />
-            
+
             <Label Text="Active and inactive divider radius" />
-            <sliders:SfSlider Minimum="2000-01-01"
-                              Maximum="2020-01-01"
-                              Value="2010-01-01"
-                              StepDuration="5"
-                              DateIntervalType="Years"
-                              Interval="5"
-                              ShowDividers="True">
-                <sliders:SfSlider.TrackStyle>
+            <sliders:SfDateTimeSlider Minimum="2000-01-01"
+                                      Maximum="2020-01-01"
+                                      Value="2010-01-01"
+                                      StepDuration="5"
+                                      IntervalType="Years"
+                                      Interval="5"
+                                      ShowDividers="True">
+                <sliders:SfDateTimeSlider.TrackStyle>
                     <sliders:SliderTrackStyle ActiveFill="#FF6E40"
-                                              InactiveFill="#3DFF6E40"/>
-                </sliders:SfSlider.TrackStyle>
+                                              InactiveFill="#3DFF6E40" />
+                </sliders:SfDateTimeSlider.TrackStyle>
 
-                <sliders:SfSlider.ThumbStyle>
+                <sliders:SfDateTimeSlider.ThumbStyle>
                     <sliders:SliderThumbStyle Fill="#FFFF6E40" />
-                </sliders:SfSlider.ThumbStyle>
+                </sliders:SfDateTimeSlider.ThumbStyle>
 
-                <sliders:SfSlider.ThumbOverlayStyle>
+                <sliders:SfDateTimeSlider.ThumbOverlayStyle>
                     <sliders:SliderThumbOverlayStyle Fill="#1FFF6E40" />
-                </sliders:SfSlider.ThumbOverlayStyle>
+                </sliders:SfDateTimeSlider.ThumbOverlayStyle>
 
-                <sliders:SfSlider.DividerStyle>
-                    <sliders:SliderDividerStyle ActiveRadius="6" 
+                <sliders:SfDateTimeSlider.DividerStyle>
+                    <sliders:SliderDividerStyle ActiveRadius="6"
                                                 InactiveRadius="3"
                                                 ActiveFill="#FF6E40"
-                                                InactiveFill="#66FF6E40"/>
-                </sliders:SfSlider.DividerStyle>
-            </sliders:SfSlider>
+                                                InactiveFill="#66FF6E40" />
+                </sliders:SfDateTimeSlider.DividerStyle>
+            </sliders:SfDateTimeSlider>
         </VerticalStackLayout>
     </localCore:SampleView.Content>
 </localCore:SampleView>

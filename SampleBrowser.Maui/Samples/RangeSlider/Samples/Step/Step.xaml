@@ -7,49 +7,79 @@
 
     <localCore:SampleView.Resources>
         <Style TargetType="sliders:SfRangeSlider">
-            <Setter Property="ToolTipShape" Value="Rectangle" />
-            <Setter Property="ShowLabels" Value="True" />
-            <Setter Property="ShowTicks" Value="True" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="Tooltip">
+                <Setter.Value>
+                    <sliders:SliderTooltip />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeRangeSlider">
+            <Setter Property="Tooltip">
+                <Setter.Value>
+                    <sliders:SliderTooltip />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
         </Style>
 
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="Black" />
-            <Setter Property="MaximumWidthRequest" Value="400" />
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
             <!--To align the label and track vertically, used the slider thumb overlay radius on the label.-->
-            <Setter Property="Padding" Value="24,0,0,0" />
-            <Setter Property="TranslationY" Value="30" />
+            <Setter Property="Padding"
+                    Value="24,0,0,0" />
+            <Setter Property="TranslationY"
+                    Value="30" />
         </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <VerticalStackLayout Padding="10,0" VerticalOptions="Center" HorizontalOptions="Center">
+        <VerticalStackLayout Padding="10,0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
             <Label Text="Numeric" />
-            <sliders:SfRangeSlider Minimum="-50" 
-                                   Maximum="50" 
-                                   RangeStart="-25" 
-                                   RangeEnd="25" 
-                                   Interval="25" 
+            <sliders:SfRangeSlider Minimum="-50"
+                                   Maximum="50"
+                                   RangeStart="-25"
+                                   RangeEnd="25"
+                                   Interval="25"
                                    StepSize="25" />
 
             <BoxView>
                 <BoxView.HeightRequest>
                     <OnPlatform x:TypeArguments="x:Double">
-                        <On Platform="iOS" Value="20"/>
-                        <On Platform="Android" Value="0"/>
-                        <On Platform="UWP" Value="0"/>
+                        <On Platform="iOS"
+                            Value="20" />
+                        <On Platform="Android"
+                            Value="0" />
+                        <On Platform="UWP"
+                            Value="0" />
                     </OnPlatform>
                 </BoxView.HeightRequest>
             </BoxView>
-            
+
             <Label Text="Date" />
-            <sliders:SfRangeSlider Minimum="2000-01-01"
-                                   Maximum="2020-01-01"
-                                   RangeStart="2005-01-01"
-                                   RangeEnd="2015-01-01"
-                                   StepDuration="5"
-                                   DateIntervalType="Years"  
-                                   Interval="5" />
+            <sliders:SfDateTimeRangeSlider Minimum="2000-01-01"
+                                           Maximum="2020-01-01"
+                                           RangeStart="2005-01-01"
+                                           RangeEnd="2015-01-01"
+                                           StepDuration="5"
+                                           IntervalType="Years"
+                                           Interval="5" />
         </VerticalStackLayout>
     </localCore:SampleView.Content>
 </localCore:SampleView>

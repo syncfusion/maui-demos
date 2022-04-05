@@ -1,14 +1,19 @@
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
+// Use of this code is subject to the terms of our license.
+// A copy of the current license can be obtained at any time by e-mailing
+// licensing@syncfusion.com. Any infringement will be prosecuted under
+// applicable laws. 
+#endregion
+
+using Microsoft.Maui.Graphics;
+using SampleBrowser.Maui.Core;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Xml;
-using System.Linq;
-using System.Collections.Generic;
-using SampleBrowser.Maui.Core;
-using System;
-using Microsoft.Maui.Controls;
-using System.Globalization;
-using Microsoft.Maui.Graphics;
 
 namespace SampleBrowser.Maui
 {
@@ -37,8 +42,6 @@ namespace SampleBrowser.Maui
         private List<string> categoryList;
 
         private IEnumerable<SampleModel> samplesList;
-
-        private AssemblyName controlName;
 
         #endregion
 
@@ -143,125 +146,130 @@ namespace SampleBrowser.Maui
         {
             var assembly = typeof(App).GetTypeInfo().Assembly;
             var stream = assembly.GetManifestResourceStream("SampleBrowser.Maui.ControlsList.ControlsList.xml");
-            string currentControlTitle = string.Empty;
+            string currentControlTitle;
             if (stream != null)
             {
-                using (var reader = new StreamReader(stream))
+                using var reader = new StreamReader(stream);
+                var xmlReader = XmlReader.Create(reader);
+                xmlReader.Read();
+
+                while (!xmlReader.EOF)
                 {
-                    var xmlReader = XmlReader.Create(reader);
-                    xmlReader.Read();
-
-                    while (!xmlReader.EOF)
+                    if (xmlReader.Name == "Group" && xmlReader.IsStartElement())
                     {
-                        if (xmlReader.Name == "Group" && xmlReader.IsStartElement())
+                        if (xmlReader.HasAttributes)
                         {
-                            if (xmlReader.HasAttributes)
+                            string displayName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Title")[2..];
+                            var controlModel = new ControlModel
                             {
-                                string displayName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Title").Substring(2);
-                                var controlModel = new ControlModel
-                                {
-                                    ImageId = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "ImageId"),
-                                    Title = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Title"),
-                                    ControlName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "ControlName"),
-                                    CategoryName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "CategoryName"),
-                                };
-                                try
-                                {
-                                    controlName = new AssemblyName("SampleBrowser.Maui" + ", Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
-                                    var samples = Maui.Core.SampleBrowser.GetSamplesData("SampleBrowser.Maui.Samples." + controlModel.ControlName + ".SamplesList.SamplesList.xml", "SampleBrowser.Maui." + controlModel.ControlName);
+                                ImageId = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "ImageId"),
+                                Title = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Title"),
+                                ControlName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "ControlName"),
+                                CategoryName = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "CategoryName"),
+                            };
+                            try
+                            {
+                                bool isUpdated = false;
+                                var samples = Maui.Core.SampleBrowser.GetSamplesData("SampleBrowser.Maui.Samples." + controlModel.ControlName + ".SamplesList.SamplesList.xml", "SampleBrowser.Maui." + controlModel.ControlName, ref isUpdated);
 
-                                    if (samples.Count > 0 && samples != null)
-                                    {
-                                        controlModel.Samples = samples;
-                                        controlModel.SamplesCount = samples.Count;
-                                        samplesList = samplesList.Concat(samples);
-                                    }
+                                if (samples.Count > 0 && samples != null)
+                                {
+                                    controlModel.Samples = samples;
+                                    controlModel.SamplesCount = samples.Count;
+                                    samplesList = samplesList.Concat(samples);
                                 }
-                                catch
-                                {
-                                }
+                            }
+                            catch
+                            {
+                            }
 
-                                controlModel.Description = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Description");
-                                controlModel.Tags = GetControlSearchTags(xmlReader);
-                                controlModel.TagType = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "TagType");
+                            controlModel.Description = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "Description");
+                            controlModel.Tags = GetControlSearchTags(xmlReader);
+                            controlModel.TagType = Maui.Core.SampleBrowser.GetDataFromXmlReader(xmlReader, "TagType");
+                            // Need to remove following hard coded condiation added for List View Platform specific requirement
+#if WINDOWS
+                            if (controlModel.ControlName=="SfListView")
+                            {
+                                controlModel.TagType = "New";
+                            }
+#endif
+                            if (controlModel.TagType == "New")
+                            {
+                                controlModel.TagColor = Color.FromArgb("#608C1B");
+                            }
 
-                                if(controlModel.TagType == "New")
+                            currentControlTitle = controlModel.Title;
+                            if (controlModel != null)
+                            {
+                                AddControls(controlModel);
+                                if (controlModel.CategoryName != "" && !categoryList.Contains(controlModel.CategoryName))
                                 {
-                                    controlModel.TagColor = Color.FromArgb("#608C1B");
-                                }
-
-                                currentControlTitle = controlModel.Title;
-                                if (controlModel != null)
-                                {
-                                    AddControls(xmlReader, controlModel);
-                                    if (controlModel.CategoryName != "" && !categoryList.Contains(controlModel.CategoryName))
-                                    {
-                                        categoryList.Add(controlModel.CategoryName);
-                                    }
+                                    categoryList.Add(controlModel.CategoryName);
                                 }
                             }
                         }
-
-                        xmlReader.Read();
                     }
+
+                    xmlReader.Read();
                 }
             }
         }
 
 
-        void AddControls(XmlReader reader, ControlModel control)
+        void AddControls(ControlModel control)
         {
-            string value = "All";
-            if (reader.GetAttribute("Platforms") != null)
-            {
-                reader.MoveToAttribute("Platforms");
-                value = reader.Value;
-            }
-            if (control.CategoryName.Equals("Data Visualization"))
-            {
-                DataVisualizationControlsList.Add(control);
-            }
-            else if (control.CategoryName.Equals("Layout"))
-            {
-                LayoutControlsList.Add(control);
-            }
-            else if (control.CategoryName.Equals("Calendar"))
-            {
-                CalendarControlsList.Add(control);
-            }
-            else if (control.CategoryName.Equals("Editors"))
-            {
-                EditorsControlsList.Add(control);
-            }
-            else if (control.CategoryName.Equals("Notification"))
-            {
-                NotificationControlsList.Add(control);
-            }
-            else if (control.CategoryName.Equals("Navigation"))
-            {
-                NavigationControlsList.Add(control);
-            }
-            else if (control.CategoryName.Equals("Miscellaneous"))
-            {
-                MiscellaneousControlsList.Add(control);
-            }
-            else
-            {
-                FileFormatControlsList.Add(control);
-            }
 
+            if (control.CategoryName != null)
+            {
+                if (control.CategoryName.Equals("Data Visualization"))
+                {
+                    DataVisualizationControlsList.Add(control);
+                }
+                else if (control.CategoryName.Equals("Layout"))
+                {
+                    LayoutControlsList.Add(control);
+                }
+                else if (control.CategoryName.Equals("Calendar"))
+                {
+                    CalendarControlsList.Add(control);
+                }
+                else if (control.CategoryName.Equals("Editors"))
+                {
+                    EditorsControlsList.Add(control);
+                }
+                else if (control.CategoryName.Equals("Sliders"))
+                {
+                    SlidersControlsList.Add(control);
+                }
+                else if (control.CategoryName.Equals("Notification"))
+                {
+                    NotificationControlsList.Add(control);
+                }
+                else if (control.CategoryName.Equals("Navigation"))
+                {
+                    NavigationControlsList.Add(control);
+                }
+                else if (control.CategoryName.Equals("Miscellaneous"))
+                {
+                    MiscellaneousControlsList.Add(control);
+                }
+                else
+                {
+                    FileFormatControlsList.Add(control);
+                }
+            }
         }
 
-        private string[] GetControlSearchTags(XmlReader xmlReader)
+        private static string[]? GetControlSearchTags(XmlReader xmlReader)
         {
-            string[] tags;
+            string[]? tags;
 
             if (null != xmlReader.GetAttribute("IsUpdated"))
             {
                 if (xmlReader.GetAttribute("SearchTags") != null)
                 {
                     xmlReader.MoveToAttribute("SearchTags");
-                    tags = ((xmlReader.Value as string) + ",IsUpdated,Updated").Split(',');
+                    tags = ((string)xmlReader.Value + ",IsUpdated,Updated").Split(',');
                     return (tags.Length > 0) ? tags : null;
                 }
                 else
@@ -274,7 +282,7 @@ namespace SampleBrowser.Maui
                 if (xmlReader.GetAttribute("SearchTags") != null)
                 {
                     xmlReader.MoveToAttribute("SearchTags");
-                    tags = ((xmlReader.Value as string) + ",IsPreview,IsNew,New,Preview").Split(',');
+                    tags = ((string)xmlReader.Value + ",IsPreview,IsNew,New,Preview").Split(',');
                     return (tags.Length > 0) ? tags : null;
                 }
                 else
@@ -292,7 +300,6 @@ namespace SampleBrowser.Maui
             return null;
         }
 
-        #endregion
+#endregion
     }
-
 }

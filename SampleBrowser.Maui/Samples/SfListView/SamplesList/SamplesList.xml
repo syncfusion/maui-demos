@@ -3,5 +3,8 @@
 	<Sample SearchTags="GettingStarted" Name="GettingStarted" Title="Getting Started" Description="This sample illustrates about getting started with ListView by loading a set of data items with predefined template."/>
 	<Sample SearchTags="Grouping" Name="Grouping" Title="Grouping" Description="This sample showcases the grouping capability of ListView which also provides support to freeze the group headers in view when grouped."/>
 	<Sample SearchTags="Selection" Name="Selection" Title="Selection" Description="This sample showcases the selection capability of ListView which provides selection mode options like Single, Multiple and None."/>
-  <Sample SearchTags="GridLayout" Name="GridLayout" Title="Grid Layout" Description="This sample showcases the grid layout which arranges the items in a predefined number of columns."/>
+    <Sample SearchTags="GridLayout" Name="GridLayout" Title="Grid Layout" Description="This sample showcases the grid layout which arranges the items in a predefined number of columns."/>
+    <Sample IsNew="true" Title = "Horizontal Orientation" Name = "HorizontalOrientation" SearchTags="HorizontalOrientation" Description = "This sample showcases the horizontal orientation support in ListView where the items are arranged in a horizontal manner." />
+    <Sample IsNew="true" Title = "Autofit Items" Name = "AutoFit" SearchTags = "AutoFit" Description = "This sample showcases the autofit feature of ListView which automatically re-size the items based on its content dynamically." />
+	<Sample IsNew="true" Title = "Sorting and Filtering" Name = "SortingFiltering" SearchTags = "SortingFiltering" Description = "This sample showcases the sorting and filtering capabilities of ListView." />
 </Samples>

@@ -1,19 +1,14 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using Microsoft.Maui.Controls;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfListView
 {
@@ -21,7 +16,7 @@ namespace SampleBrowser.Maui.SfListView
     {
         #region Fields
 
-        private Random random = new Random();
+        private readonly Random random = new();
 
         #endregion
 
@@ -38,7 +33,7 @@ namespace SampleBrowser.Maui.SfListView
 
         public ObservableCollection<ListViewContactsInfo> GetContactDetails(int count)
         {
-            ObservableCollection<ListViewContactsInfo> customerDetails = new ObservableCollection<ListViewContactsInfo>();
+            ObservableCollection<ListViewContactsInfo> customerDetails = new();
             int girlsCount = 0, boysCount = 0;
             for (int i = 0; i < count; i++)
             {
@@ -46,7 +41,7 @@ namespace SampleBrowser.Maui.SfListView
                 {
                     ContactType = contactType[random.Next(0, 5)],
                     ContactNumber = random.Next(100, 400).ToString() + "-" + random.Next(500, 800).ToString() + "-" + random.Next(1000, 2000).ToString(),
-                    ContactImage = "people_circle"+(i % 19) +".png"
+                    ContactImage = "people_circle" + (i % 19) + ".png"
                 };
 
                 if (imagePosition.Contains(i % 19))
@@ -63,7 +58,7 @@ namespace SampleBrowser.Maui.SfListView
 
         #region Contacts Information
 
-        int[] imagePosition = new int[]
+        readonly int[] imagePosition = new int[]
         {
             5,
             8,
@@ -71,8 +66,7 @@ namespace SampleBrowser.Maui.SfListView
             14,
             18
         };
-
-        string[] contactType = new string[]
+        readonly string[] contactType = new string[]
         {
             "HOME",
             "WORK",
@@ -80,8 +74,7 @@ namespace SampleBrowser.Maui.SfListView
             "OTHER",
             "BUSINESS"
         };
-
-        string[] CustomerNames_Girls = new string[]
+        readonly string[] CustomerNames_Girls = new string[]
         {
             "Kyle",
             "Gina",
@@ -177,8 +170,7 @@ namespace SampleBrowser.Maui.SfListView
             "Heidi",
             "Kenzie",
         };
-
-        string[] CustomerNames_Boys = new string[]
+        readonly string[] CustomerNames_Boys = new string[]
         {
             "Irene",
             "Watson",
@@ -213,6 +205,6 @@ namespace SampleBrowser.Maui.SfListView
             "Connor ",
             "Michael",
         };
-           #endregion
-       }
+        #endregion
+    }
 }

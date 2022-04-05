@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -40,7 +40,7 @@ namespace SampleBrowser.Maui.SfScheduler
         /// <summary>
         /// Event handler.
         /// </summary>
-        internal event EventHandler<AppointmentEditorClosedEventArgs> AppointmentEditorClosed;
+        internal event EventHandler<AppointmentEditorClosedEventArgs>? AppointmentEditorClosed;
 
         #endregion
 
@@ -51,6 +51,9 @@ namespace SampleBrowser.Maui.SfScheduler
         /// </summary>
         public SchedulerDataBindingViewModel()
         {
+            this.subjectCollection = new List<string>();
+            this.colorCollection = new List<Brush>();
+            this.noteCollection = new List<string>();
             this.CreateSubjectCollection();
             this.CreateColorCollection();
             this.CreateNoteCollection();
@@ -71,27 +74,27 @@ namespace SampleBrowser.Maui.SfScheduler
         /// <summary>
         /// Gets or sets appointments.
         /// </summary>
-        public ObservableCollection<Meeting> Events { get; set; }
+        public ObservableCollection<Meeting>? Events { get; set; }
 
         /// <summary>
         /// Gets or sets recursive appointments.
         /// </summary>
-        public ObservableCollection<Meeting> RecursiveEvents { get; set; }
+        public ObservableCollection<Meeting>? RecursiveEvents { get; set; }
 
         /// <summary>
         /// Gets or sets  the timeline appointments.
         /// </summary>
-        public ObservableCollection<Meeting> TimelineEvents { get; set; }
+        public ObservableCollection<Meeting>? TimelineEvents { get; set; }
 
         /// <summary>
         /// Gets or sets  the special region appointments.
         /// </summary>
-        public ObservableCollection<Meeting> SpecialRegionEvents { get; set; }
+        public ObservableCollection<Meeting>? SpecialRegionEvents { get; set; }
 
         /// <summary>
         /// Gets or sets time regions.
         /// </summary>
-        public ObservableCollection<SchedulerTimeRegion> TimeRegions { get; set; }
+        public ObservableCollection<SchedulerTimeRegion>? TimeRegions { get; set; }
 
         /// <summary>
         /// Gets or sets the schedule display date.
@@ -111,7 +114,7 @@ namespace SampleBrowser.Maui.SfScheduler
         /// <summary>
         /// Gets or sets the schedule disabled background.
         /// </summary>
-        public Brush DisabledBackground { get; set; }
+        public Brush? DisabledBackground { get; set; }
 
         #endregion
 
@@ -122,17 +125,19 @@ namespace SampleBrowser.Maui.SfScheduler
         /// </summary>
         private void CreateNoteCollection()
         {
-            this.noteCollection = new List<string>();
-            this.noteCollection.Add("Consulting firm laws with business advisers");
-            this.noteCollection.Add("Execute Project Scope");
-            this.noteCollection.Add("Project Scope & Deliverables");
-            this.noteCollection.Add("Executive summary");
-            this.noteCollection.Add("Try to reduce the risks");
-            this.noteCollection.Add("Encourages the integration of mind, body, and spirit");
-            this.noteCollection.Add("Execute Project Scope");
-            this.noteCollection.Add("Project Scope & Deliverables");
-            this.noteCollection.Add("Executive summary");
-            this.noteCollection.Add("Try to reduce the risk");
+            this.noteCollection.AddRange(new List<string>()
+            {
+                "Consulting firm laws with business advisers",
+                "Execute Project Scope",
+                "Project Scope & Deliverables",
+                "Executive summary",
+                "Try to reduce the risks",
+                "Encourages the integration of mind, body, and spirit",
+                "Execute Project Scope",
+                "Project Scope & Deliverables",
+                "Executive summary",
+                "Try to reduce the risk"
+            });
         }
 
         /// <summary>
@@ -141,7 +146,7 @@ namespace SampleBrowser.Maui.SfScheduler
         private void IntializeAppoitments()
         {
             this.Events = new ObservableCollection<Meeting>();
-            Random randomTime = new Random();
+            Random randomTime = new();
             List<Point> randomTimeCollection = this.GettingTimeRanges();
 
             DateTime date;
@@ -172,18 +177,20 @@ namespace SampleBrowser.Maui.SfScheduler
         /// </summary>
         private void CreateSubjectCollection()
         {
-            this.subjectCollection = new List<string>();
-            this.subjectCollection.Add("General Meeting");
-            this.subjectCollection.Add("Plan Execution");
-            this.subjectCollection.Add("Project Plan");
-            this.subjectCollection.Add("Consulting");
-            this.subjectCollection.Add("Performance Check");
-            this.subjectCollection.Add("Support");
-            this.subjectCollection.Add("Development Meeting");
-            this.subjectCollection.Add("Scrum");
-            this.subjectCollection.Add("Project Completion");
-            this.subjectCollection.Add("Release updates");
-            this.subjectCollection.Add("Performance Check");
+            this.subjectCollection.AddRange(new List<string>()
+            {
+                "General Meeting",
+                "Plan Execution",
+                "Project Plan",
+                "Consulting",
+                "Performance Check",
+                "Support",
+                "Development Meeting",
+                "Scrum",
+                "Project Completion",
+                "Release updates",
+                "Performance Check"
+            });
         }
 
         /// <summary>
@@ -192,7 +199,7 @@ namespace SampleBrowser.Maui.SfScheduler
         /// <returns>return time collection</returns>
         private List<Point> GettingTimeRanges()
         {
-            List<Point> randomTimeCollection = new List<Point>();
+            List<Point> randomTimeCollection = new();
             randomTimeCollection.Add(new Point(9, 11));
             randomTimeCollection.Add(new Point(12, 14));
             randomTimeCollection.Add(new Point(15, 17));
@@ -205,18 +212,19 @@ namespace SampleBrowser.Maui.SfScheduler
         /// </summary>
         private void CreateColorCollection()
         {
-            this.colorCollection = new List<Brush>();
-
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF8B1FA9")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FFD20100")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FFFC571D")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF36B37B")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF3D4FB5")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FFE47C73")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF636363")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF85461E")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF0F8644")));
-            this.colorCollection.Add(new SolidColorBrush(Color.FromArgb("#FF01A1EF")));
+            this.colorCollection.AddRange(new List<Brush>()
+            {
+                new SolidColorBrush(Color.FromArgb("#FF8B1FA9")),
+                new SolidColorBrush(Color.FromArgb("#FFD20100")),
+                new SolidColorBrush(Color.FromArgb("#FFFC571D")),
+                new SolidColorBrush(Color.FromArgb("#FF36B37B")),
+                new SolidColorBrush(Color.FromArgb("#FF3D4FB5")),
+                new SolidColorBrush(Color.FromArgb("#FFE47C73")),
+                new SolidColorBrush(Color.FromArgb("#FF636363")),
+                new SolidColorBrush(Color.FromArgb("#FF85461E")),
+                new SolidColorBrush(Color.FromArgb("#FF0F8644")),
+                new SolidColorBrush(Color.FromArgb("#FF01A1EF"))
+            });
         }
 
         /// <summary>
@@ -283,7 +291,7 @@ namespace SampleBrowser.Maui.SfScheduler
         private void GenerateSpecialRegionAppoitments()
         {
             this.SpecialRegionEvents = new ObservableCollection<Meeting>();
-            Random randomTime = new Random();
+            Random randomTime = new();
             DateTime date;
             DateTime dateFrom = DateTime.Now.AddDays(-50);
             DateTime dateTo = DateTime.Now.AddDays(50);
@@ -299,7 +307,8 @@ namespace SampleBrowser.Maui.SfScheduler
                 {
                     var meeting = new Meeting();
                     int hour = 0;
-                    if(additionalAppointmentIndex != 0){
+                    if (additionalAppointmentIndex != 0)
+                    {
                         //// Skip the appointment on in between break time region.
                         if (date.DayOfWeek == DayOfWeek.Wednesday)
                         {
@@ -338,7 +347,7 @@ namespace SampleBrowser.Maui.SfScheduler
         private void GenerateRecurrsiveAppointments()
         {
             this.RecursiveEvents = new ObservableCollection<Meeting>();
-            Random ran = new Random();
+            Random ran = new();
             DateTime currentDate = DateTime.Now.AddMonths(-1);
 
             var dailyEvent = new Meeting
@@ -418,7 +427,7 @@ namespace SampleBrowser.Maui.SfScheduler
 
             var NonWorkingDays = new ObservableCollection<DateTime>();
 
-            Random ran = new Random();
+            Random ran = new();
             DateTime today = DateTime.Now;
             if (today.Month == 12)
             {
@@ -429,12 +438,11 @@ namespace SampleBrowser.Maui.SfScheduler
                 today = today.AddMonths(1);
             }
 
-            DateTime startMonth = new DateTime(today.Year, today.Month - 1, 1, 0, 0, 0);
+            DateTime startMonth = new(today.Year, today.Month - 1, 1, 0, 0, 0);
             int day = (int)startMonth.DayOfWeek;
             DateTime CurrentStart = startMonth.AddDays(-day);
+            this.TimelineEvents = new ObservableCollection<Meeting>(this.RecursiveEvents!);
 
-            this.TimelineEvents = new ObservableCollection<Meeting>();
-            this.TimelineEvents = this.RecursiveEvents;
             for (int i = 0; i < 90; i++)
             {
                 if (i % 7 == 0 || i % 7 == 6)
@@ -452,7 +460,7 @@ namespace SampleBrowser.Maui.SfScheduler
             for (int i = 0; i < 50; i++)
             {
                 DateTime date = WorkWeekDays[ran.Next(0, WorkWeekDays.Count)].AddHours(ran.Next(9, 17));
-                this.TimelineEvents.Add(new Meeting()
+                this.TimelineEvents?.Add(new Meeting()
                 {
                     From = date,
                     To = date.AddHours(1),

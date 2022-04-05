@@ -56,7 +56,7 @@
                                         <On Platform="iOS" Value="16,8,24,44"/>
                                     </OnPlatform>
                                 </Grid.Padding>
-                                <Grid Grid.Row="0" Grid.Column="0" >
+                                <Grid Grid.Row="0" Grid.Column="0" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -77,7 +77,7 @@
                                                HorizontalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
-                                <Grid Grid.Row="0" Grid.Column="1" >
+                                <Grid Grid.Row="0" Grid.Column="1" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -98,7 +98,7 @@
                                                HorizontalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
-                                <Grid Grid.Row="1" Grid.Column="0" >
+                                <Grid Grid.Row="1" Grid.Column="0" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -116,7 +116,7 @@
                                                TextColor="Black" VerticalOptions="End" HorizontalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
-                                <Grid Grid.Row="1" Grid.Column="1" >
+                                <Grid Grid.Row="1" Grid.Column="1" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
@@ -137,7 +137,7 @@
                                                HorizontalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
-                                <Grid Grid.Row="2" Grid.Column="0" >
+                                <Grid Grid.Row="2" Grid.Column="0" IsClippedToBounds="True">
                                     <BoxView CornerRadius="10" Background="#FCF7FF" />
                                     <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
                                         <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 

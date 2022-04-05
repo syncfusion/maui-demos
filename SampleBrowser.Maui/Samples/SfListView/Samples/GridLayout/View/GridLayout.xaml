@@ -13,6 +13,8 @@
         <OnPlatform x:TypeArguments="x:String" x:Key="ListViewFontIconFamily">
             <On Platform="Android" Value="UIFontIcons.ttf#UIFontIcons"/>
             <On Platform="iOS" Value="UIFontIcons" />
+            <On Platform="MacCatalyst" Value="UIFontIcons" />
+            <On Platform="UWP" Value="UIFontIcons.ttf#UIFontIcons"/>
         </OnPlatform>
         <local:ListViewMultiSelectionConverter x:Key="MultiSelectionConverter"/>
         <local:FavoriteIconConverter x:Key="favoriteIconConverter"/>
@@ -30,7 +32,7 @@
 
 
                 <ListView:SfListView.ItemsLayout>
-                    <ListView:GridLayout SpanCount="{OnPlatform Default=2, iOS={OnIdiom Phone=2,Tablet=4}}">
+                    <ListView:GridLayout SpanCount="{OnPlatform Default=2, iOS={OnIdiom Phone=2,Tablet=4},MacCatalyst=4, UWP=4}">
                     </ListView:GridLayout>
                 </ListView:SfListView.ItemsLayout>
 
@@ -39,15 +41,15 @@
                         <Grid x:Name="headerGrid" BackgroundColor="#FFEEEEF2" HeightRequest="45">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width='{OnPlatform Default=40, UWP=45}' />
                             </Grid.ColumnDefinitions>
 
                             <Label Grid.Column="0" LineBreakMode="NoWrap"  Text="{Binding HeaderStatus}" Padding="10,0,0,0"
                  FontSize="16" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center"/>
 
-                            <Grid Grid.Column="1" Padding='{OnPlatform iOS ="0,8,0,10" , Android="0,18,0,0"}' >
-                                <Label Text="&#xe735;" HeightRequest="40" WidthRequest="40" Margin="5,10,10,5" FontSize="20" TextColor="Grey"
-                                   FontFamily="{OnPlatform iOS=Sync FontIcons, Android=Sync FontIcons.ttf#}" IsVisible="true"
+                                              <Grid Grid.Column="1" Padding='{OnPlatform iOS ="0,8,0,10" , Android="0,18,0,0", UWP="0,15,10,0"}' >
+                                <Label Text="&#xe735;" HeightRequest="40" WidthRequest="40" Margin='{OnPlatform Default="5,10,10,5" , UWP="0,5,0,0"}' FontSize="20" TextColor="#808080"
+                                   FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, UWP=Sync FontIcons.ttf#Sync FontIcons}" IsVisible="true"
                                     Opacity="{Binding ShowDeleteIcon,Converter={StaticResource visibilityConverter}}"
                                    HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="CenterAndExpand"/>
                                 <Grid.GestureRecognizers>
@@ -96,7 +98,7 @@
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.FavoriteImageCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" />
                                     </Grid.GestureRecognizers>
                                     <Label FontFamily="{StaticResource ListViewFontIconFamily}" Text="{Binding IsFavorite, Converter={StaticResource favoriteIconConverter}}"
-                        FontSize="Medium" TextColor="White" Margin="0,0,7,0"
+                        FontSize="Medium" TextColor="White" Margin="0,0,5,0"
                         VerticalOptions="Center" HorizontalOptions="End">
                                     </Label>
                                 </Grid>

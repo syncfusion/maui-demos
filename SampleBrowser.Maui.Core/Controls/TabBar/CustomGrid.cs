@@ -1,26 +1,18 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using Microsoft.Maui.Controls;
 using Syncfusion.Maui.Core.Internals;
-using Syncfusion.Maui.Graphics.Internals;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Syncfusion.Maui.Core;
 
 namespace SampleBrowser.Maui.Core
 {
-    internal class CustomGrid : Grid, ITouchListener
+    public class CustomGrid : Grid, ITouchListener
     {
-
-        public event EventHandler<TouchEventArgs>? Touched;
 
         public CustomGrid()
         {
@@ -29,7 +21,51 @@ namespace SampleBrowser.Maui.Core
 
         public void OnTouch(TouchEventArgs e)
         {
-            this.Touched?.Invoke(this, e);
+            var parentView = this.Parent;
+            var badgeView = (SfBadgeView)((Grid)parentView).Parent;
+            
+            if (e.Action == TouchActions.Entered)
+            {
+                if (badgeView != null)
+                {
+                    //TODO: Need to replace this once EffectView highlight issue fixed
+                    badgeView.BackgroundColor = Color.FromArgb("#77f1e8ff");
+                }
+            }
+            else if (e.Action == TouchActions.Exited)
+            {
+                if (badgeView != null)
+                {
+                    //TODO: Need to replace this once EffectView highlight issue fixed
+                    badgeView.BackgroundColor = Color.FromArgb("#00ffffff");
+                }
+            }
+        }
+    }
+
+    public class CustomLabel : Label, ITouchListener
+    {
+        public CustomLabel()
+        {
+#if WINDOWS || MACCATALYST
+            this.AddTouchListener(this);
+#endif
+        }
+
+        public void OnTouch(TouchEventArgs e)
+        {
+            var badge = this.Parent.Parent;
+            var grid = badge.Parent;
+            var frame = (Frame)((Grid)grid).Children[1];
+            if (e.Action == TouchActions.Entered)
+            {
+                frame.BackgroundColor = Color.FromArgb("#F5F5F5");
+                frame.IsVisible = true;
+            }
+            else if (e.Action == TouchActions.Exited)
+            {
+                frame.BackgroundColor = Color.FromArgb("#00FFFFFF");
+            }
         }
     }
 }

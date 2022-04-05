@@ -1,20 +1,14 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using System;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Xml;
 using System.Reflection;
-using System.Collections.Generic;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
+using System.Xml;
 
 namespace SampleBrowser.Maui.Core
 {
@@ -25,39 +19,45 @@ namespace SampleBrowser.Maui.Core
     {
         #region Properties
 
-        public static bool IsIndividualSB;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool IsIndividualSB { get; set; }
 
-        public static int DeviceAndroidVersion;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static int DeviceAndroidVersion { get; set; }
 
         /// <summary>
         /// Gets or sets Landscape mode.
         /// </summary>
-        public static bool IsLandscapeMode;
+        public static bool IsLandscapeMode { get; set; }
 
         /// <summary>
         /// Gets or sets ScreenWidth of Application.
         /// </summary>
-        public static double ScreenWidth;
+        public static double ScreenWidth { get; set; }
 
         /// <summary>
         /// Gets or sets ScreenHeight of Application.
         /// </summary>
-        public static double ScreenHeight;
+        public static double ScreenHeight { get; set; }
 
         /// <summary>
         /// Gets or sets NavigationBar Height of Application.
         /// </summary>
-        public static double NavigationBarHeight;
+        public static double NavigationBarHeight { get; set; }
 
         /// <summary>
         /// Gets or sets StatusBar Height of Application.
         /// </summary>
-        public static double StatusBarHeight;
+        public static double StatusBarHeight { get; set; }
 
         /// <summary>
         /// Gets or sets Screen Density of Application.
         /// </summary>
-        public static double Density;
+        public static double Density { get; set; }
 
         #endregion
 
@@ -81,14 +81,14 @@ namespace SampleBrowser.Maui.Core
         static NavigationPage GetNavigationPage(string? controlName, string assemblyName, string? title)
         {
             ContentPage contentPage;
-            ObservableCollection<SampleModel>? samples = null;
-
+            bool isUpdated = false;
+            ObservableCollection<SampleModel>? samples;
             if (!IsIndividualSB)
-                samples = GetSamplesData("SampleBrowser.Maui.Samples." + title + ".SamplesList.SamplesList.xml", "SampleBrowser");
+                samples = GetSamplesData("SampleBrowser.Maui.Samples." + title + ".SamplesList.SamplesList.xml", "SampleBrowser", ref isUpdated);
             else
-                samples = GetSamplesData(assemblyName + ".SamplesList.SamplesList.xml", assemblyName);
+                samples = GetSamplesData(assemblyName + ".SamplesList.SamplesList.xml", assemblyName, ref isUpdated);
 
-            if (samples != null && !string.IsNullOrEmpty(assemblyName) && samples.Count() > 0)
+            if (samples != null && !string.IsNullOrEmpty(assemblyName) && samples.Count > 0)
                 contentPage = new SamplePage(samples, controlName, samples[0], title);
 
             else
@@ -106,7 +106,7 @@ namespace SampleBrowser.Maui.Core
         /// </summary>
         public static ContentPage GetSamplesPage(ObservableCollection<SampleModel> sampleList, string assemblyName, string controlName, string title)
         {
-            if (sampleList != null && !string.IsNullOrEmpty(assemblyName) && sampleList.Count() > 0)
+            if (sampleList != null && !string.IsNullOrEmpty(assemblyName) && sampleList.Count > 0)
             {
                 return new SamplePage(sampleList, controlName, sampleList[0], title);
             }
@@ -135,8 +135,9 @@ namespace SampleBrowser.Maui.Core
         /// <summary>
         /// Gets or sets Samples in the control.
         /// </summary>
-        public static ObservableCollection<SampleModel> GetSamplesData(string xmlFileName, string assemblyName)
+        public static ObservableCollection<SampleModel> GetSamplesData(string xmlFileName, string assemblyName, ref bool isUpdated)
         {
+            isUpdated = false;
             var samplesList = new ObservableCollection<SampleModel>();
             var controlName = assemblyName.Split('.').LastOrDefault();
 
@@ -146,45 +147,75 @@ namespace SampleBrowser.Maui.Core
             var stream = GetSamplesList(xmlFileName, assemblyName);
             if (stream != null)
             {
-                using (var reader = new StreamReader(stream))
+                using var reader = new StreamReader(stream);
+                var xmlReader = XmlReader.Create(reader);
+                xmlReader.Read();
+
+                string category = "";
+                string updateGroupType = "";
+                while (!xmlReader.EOF)
                 {
-                    var xmlReader = XmlReader.Create(reader);
-                    xmlReader.Read();
-
-                    string category = "";
-
-                    while (!xmlReader.EOF)
+                    if (xmlReader.Name == "SampleGroup" && xmlReader.IsStartElement())
                     {
-                        if (xmlReader.Name == "SampleGroup" && xmlReader.IsStartElement())
-                        {
-                            var title = GetDataFromXmlReader(xmlReader, "Title");
-                            category = title;                          
-                        }
-                        else if (xmlReader.Name == "SampleGroup" && !xmlReader.IsStartElement())
-                            category = "None";
-
-                        if (xmlReader.Name == "Sample" && xmlReader.IsStartElement())
-                        {
-                            var title = GetDataFromXmlReader(xmlReader, "Title");
-                            var sample = new SampleModel
-                            {
-                                Title = title,
-                                Description = GetDataFromXmlReader(xmlReader, "Description"),
-                                Name = GetDataFromXmlReader(xmlReader, "Name"),
-                                Icon = assemblyName + "." + GetDataFromXmlReader(xmlReader, "Icon"),
-                                Category = category == "" ? "None" : category,
-                                SearchTags = GetSampleSearchTags(xmlReader),
-                                Control = controlName
-                            };
-
-                            if (sample != null)
-                            {
-                                AddSamples(xmlReader, samplesList, sample);
-                            }
-                        }
-
-                        xmlReader.Read();
+                        var tag = GetDataFromXmlReader(xmlReader, "UpdateType");
+                        updateGroupType = tag;
+                        var title = GetDataFromXmlReader(xmlReader, "Title");
+                        category = title;
                     }
+                    else if (xmlReader.Name == "SampleGroup" && !xmlReader.IsStartElement())
+                    {
+                        updateGroupType = "";
+                        var tag = GetDataFromXmlReader(xmlReader, "UpdateType");
+                        updateGroupType = tag;
+                        category = "None";
+                    }
+
+                    if (xmlReader.Name == "Sample" && xmlReader.IsStartElement())
+                    {
+                        var title = GetDataFromXmlReader(xmlReader, "Title");
+                        var sample = new SampleModel
+                        {
+                            Title = title,
+                            Description = GetDataFromXmlReader(xmlReader, "Description"),
+                            Name = GetDataFromXmlReader(xmlReader, "Name"),
+                            Icon = assemblyName + "." + GetDataFromXmlReader(xmlReader, "Icon"),
+                            Category = category == "" ? "None" : category,
+                            SearchTags = GetSampleSearchTags(xmlReader),
+                            Control = controlName,
+                            UpdateGroupType = updateGroupType,
+                        };
+// Need to remove following hard coded condiation added for List View Platform specific requirement 
+                        var listTempVar = false;
+#if WINDOWS
+if(controlName == "SfListView")
+{
+listTempVar = true;
+}
+#endif
+
+                        if (null != xmlReader.GetAttribute("IsUpdated") && GetDataFromXmlReader(xmlReader, "IsUpdated").ToLower() == "true")
+                        {
+                            sample.UpdateType = GetUpdateType(GetDataFromXmlReader(xmlReader, "IsUpdated"), "IsUpdated");
+                            isUpdated = true;
+                        }
+                        else if (null != xmlReader.GetAttribute("IsNew") && GetDataFromXmlReader(xmlReader, "IsNew").ToLower() == "true")
+                        {
+
+                            if (!listTempVar)
+                            {
+                                sample.UpdateType = GetUpdateType(GetDataFromXmlReader(xmlReader, "IsNew"), "IsNew");
+                                isUpdated = true;
+                            }
+
+                    }
+
+                    if (sample != null)
+                        {
+                            AddSamples(xmlReader, samplesList, sample);
+                        }
+                    }
+
+                    xmlReader.Read();
                 }
             }
 
@@ -237,6 +268,22 @@ namespace SampleBrowser.Maui.Core
             return null;
         }
 
+        private static string GetUpdateType(string value, string type)
+        {
+            string updateTag = string.Empty;
+            string updateTypeValue = (value as string).ToLower();
+            if (updateTypeValue == "true" && type == "IsPreview")
+                updateTag = "preview";
+
+            if (updateTypeValue == "true" && type == "IsNew")
+                updateTag = "new";
+
+            if (updateTypeValue == "true" && type == "IsUpdated")
+                updateTag = "updated";
+
+            return updateTag;
+        }
+
         static void AddSamples(XmlReader reader, ObservableCollection<SampleModel> samplesCollection, SampleModel sample)
         {
             string value = "All";
@@ -246,21 +293,21 @@ namespace SampleBrowser.Maui.Core
                 value = reader.Value;
             }
 
-            if (Device.RuntimePlatform == Device.Android && value.Contains("Android"))
+            if (DeviceInfo.Platform == DevicePlatform.Android && value.Contains("Android"))
                 samplesCollection.Add(sample);
-            else if (Device.RuntimePlatform == Device.iOS)
+            else if (DeviceInfo.Platform == DevicePlatform.iOS)
             {
-                if(RunTimeDevice.IsMobileDevice() && value.Contains("iOS"))
+                if (RunTimeDevice.IsMobileDevice() && value.Contains("iOS"))
                     samplesCollection.Add(sample);
-                else if(!RunTimeDevice.IsMobileDevice() && value.Contains("MacCatalyst"))
+                else if (!RunTimeDevice.IsMobileDevice() && value.Contains("MacCatalyst"))
                     samplesCollection.Add(sample);
             }
-            else if (Device.RuntimePlatform == Device.UWP && value.Contains("Windows"))
+            else if (DeviceInfo.Platform == DevicePlatform.WinUI && value.Contains("Windows"))
                 samplesCollection.Add(sample);
             if (value.Contains("All"))
                 samplesCollection.Add(sample);
         }
 
-        #endregion
+#endregion
     }
 }

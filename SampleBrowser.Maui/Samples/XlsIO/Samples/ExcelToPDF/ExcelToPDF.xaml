@@ -14,9 +14,10 @@
             <Label Text=" "></Label>
             <Label x:Name="textBlock2"   Text="Click the &quot;Convert to PDF&quot; button will convert the Excel workbook to PDF. Please note that PDF compatible viewer is required to open and view the PDF document." TextColor="Black"/>
             <Label Text=" "></Label>   
-            <Button x:Name="btnInput"  Text="Input Template" Clicked="btnInput_Click" VerticalOptions="Center" HorizontalOptions="Start" />
-            <Label Text=" "></Label>
-            <Button x:Name="btnConvertToPdf" Text="Convert To PDF"  Clicked="btnConvertToPDF_Click"  VerticalOptions="Center" HorizontalOptions="Start" />
+            <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">
+                <Button x:Name="btnInput" Clicked ="btnInput_Click" Text ="Input Template" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+                <Button x:Name="btnConvertToPdf" Clicked ="btnConvertToPDF_Click" Text ="Convert To PDF" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+            </StackLayout>
         </StackLayout>
     </localCore:SampleView.Content>
 

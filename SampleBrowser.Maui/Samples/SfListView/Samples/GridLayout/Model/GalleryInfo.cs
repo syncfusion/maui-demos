@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -7,12 +7,7 @@
 #endregion
 
 using Microsoft.Maui.Controls;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfListView
 {
@@ -20,12 +15,13 @@ namespace SampleBrowser.Maui.SfListView
     {
         #region Fields
 
-        private ImageSource image;
-        private string imageTitle;
+        private ImageSource? image;
+        private string? imageTitle;
         private bool isSelected;
         private bool isFavorite;
 
         #endregion
+
         #region Constructor
 
         public ListViewGalleryInfo()
@@ -47,7 +43,7 @@ namespace SampleBrowser.Maui.SfListView
             }
         }
 
-        public ImageSource Image
+        public ImageSource? Image
         {
             get { return image; }
             set
@@ -57,7 +53,7 @@ namespace SampleBrowser.Maui.SfListView
             }
         }
 
-        public string ImageTitle
+        public string? ImageTitle
         {
             get { return imageTitle; }
             set
@@ -82,7 +78,7 @@ namespace SampleBrowser.Maui.SfListView
 
         #region Interface Member
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public void OnPropertyChanged(string name)
         {

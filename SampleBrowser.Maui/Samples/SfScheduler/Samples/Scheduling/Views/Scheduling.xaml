@@ -6,15 +6,20 @@
              xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
     <localCore:SampleView.Content>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <local:MonthToImageConverter x:Key="MonthToImageConverter"/>
+                <DataTemplate x:Key="AgendaHeaderTemplate">
+                    <Grid>
+                        <Image Aspect="Fill" Source="{Binding Converter={StaticResource MonthToImageConverter}}"/>
+                        <Label x:Name="label" HorizontalOptions="Start" VerticalOptions="Start" TextColor="Black" FontSize="16" Padding="55, 20, 0, 0" Text="{Binding StringFormat='{0:MMMM yyyy}'}"/>
+                    </Grid>
+                </DataTemplate>
+            </Grid.Resources>
             <schedule:SfScheduler x:Name="Schedule" 
-                                  Grid.Column="1"
                                  AppointmentsSource="{Binding Events}"
                                  DisplayDate="{Binding DisplayDate}"
-                                 AllowedViews="Day,Week,WorkWeek,Month" 
+                                 AllowedViews="Day,Week,WorkWeek,Month,Agenda"
+                                 AllowViewNavigation="True"
                                  View="Week" >
                 <schedule:SfScheduler.AppointmentMapping>
                     <schedule:SchedulerAppointmentMapping
@@ -31,34 +36,25 @@
                 RecurrenceRule="RecurrenceRule"
                 RecurrenceId="RecurrenceId"/>
                 </schedule:SfScheduler.AppointmentMapping>
-                <schedule:SfScheduler.MonthViewSettings>
-                    <schedule:SchedulerMonthViewSettings 
+                <schedule:SfScheduler.MonthView>
+                    <schedule:SchedulerMonthView 
                                 AppointmentDisplayMode="Text"/>
-                </schedule:SfScheduler.MonthViewSettings>
-                <schedule:SfScheduler.DaysViewSettings>
-                    <schedule:SchedulerDaysViewSettings 
+                </schedule:SfScheduler.MonthView>
+                <schedule:SfScheduler.DaysView>
+                    <schedule:SchedulerDaysView 
                                 MinimumAppointmentDuration="0:30:0" />
-                </schedule:SfScheduler.DaysViewSettings>
+                </schedule:SfScheduler.DaysView>
+                <schedule:SfScheduler.AgendaView>
+                    <schedule:SchedulerAgendaView MonthHeaderTemplate="{StaticResource AgendaHeaderTemplate}" />
+                </schedule:SfScheduler.AgendaView>
                 <schedule:SfScheduler.BindingContext>
                     <local:SchedulerDataBindingViewModel/>
                 </schedule:SfScheduler.BindingContext>
+                <schedule:SfScheduler.Behaviors>
+                    <local:SchedulerBehavior />
+                </schedule:SfScheduler.Behaviors>
             </schedule:SfScheduler>
-            
-                <local:AppointmentEditorView Grid.Column="1"
-                    x:Name="AppointmentEditorView"
-                    IsVisible="False" />
-            
-                <local:AppointmentEditorWindow  Grid.Column="1"
-                    x:Name="AppointmentEditorWindow"
-                    IsVisible="False" />
-
-            <local:RecurrenceEditingOptionView Grid.Column="1"
-                    x:Name="RecurrenceEditingOptionView"
-                    IsVisible="False" />
-
         </Grid>
     </localCore:SampleView.Content>
-    <localCore:SampleView.Behaviors>
-        <local:SchedulingBehavior />
-    </localCore:SampleView.Behaviors>
+    
 </localCore:SampleView>

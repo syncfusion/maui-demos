@@ -7,9 +7,9 @@
     <localCore:SampleView.Content>
         <localCore:ScrollViewExt>
             <localCore:WrapLayout BackgroundColor="White">
-                <localCore:CardViewExt Title="Default Spline" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
+                <localCore:CardViewExt Title="Default Spline" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="Fill">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:SplineSeriesViewModel />
                             </chart:SfCartesianChart.BindingContext>
@@ -17,13 +17,13 @@
                                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
                             </chart:SfCartesianChart.Legend>
                             <chart:SfCartesianChart.Title>
-                                <Label Text="Average High/Low Temperature of London" Margin="0" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="Average High/Low Temperature of London" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:CategoryAxis ShowMajorGridLines="false" PlotOffsetStart="10" PlotOffsetEnd="10" AxisLineOffset="10">
                                 </chart:CategoryAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis Maximum="80" Minimum="30" Interval="10">
                                     <chart:NumericalAxis.AxisLineStyle>
                                         <chart:ChartLineStyle StrokeWidth="0">
@@ -36,17 +36,17 @@
                                         <chart:ChartAxisLabelStyle LabelFormat="0'°F" />
                                     </chart:NumericalAxis.LabelStyle>
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
                             <chart:SfCartesianChart.Series>
 
-                                <chart:SplineSeries x:Name="splineSeries1" Label="High" ShowTooltip="True" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Value" StrokeWidth="1">
+                                <chart:SplineSeries x:Name="splineSeries1" Label="High" EnableTooltip="True" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Value" StrokeWidth="1">
                                 </chart:SplineSeries>
-                                <chart:SplineSeries x:Name="splineSeries2" Label="Low" ShowTooltip="True" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Size" StrokeWidth="1">
+                                <chart:SplineSeries x:Name="splineSeries2" Label="Low" EnableTooltip="True" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Size" StrokeWidth="1">
                                 </chart:SplineSeries>
 
-                                <chart:ScatterSeries x:Name="scatter1" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries1}}" IsVisibleOnLegend="False" Width="8" Height="8" Background="White" Stroke="#314A6E" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Value" StrokeWidth="1">
+                                <chart:ScatterSeries x:Name="scatter1" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries1}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#314A6E" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Value" StrokeWidth="1">
                                 </chart:ScatterSeries>
-                                <chart:ScatterSeries x:Name="scatter2" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries2}}" IsVisibleOnLegend="False" Width="8" Height="8" Background="White" Stroke="#48988B" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Size" StrokeWidth="1">
+                                <chart:ScatterSeries x:Name="scatter2" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries2}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#48988B" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Size" StrokeWidth="1">
                                 </chart:ScatterSeries>
 
                             </chart:SfCartesianChart.Series>
@@ -54,9 +54,9 @@
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-                <localCore:CardViewExt Title="Spline with dashes" x:Name="extendedCard2" HorizontalOptions="FillAndExpand" HeightRequest="400">
+                <localCore:CardViewExt Title="Spline with dashes" x:Name="extendedCard2" HorizontalOptions="Fill" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart1"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:SplineSeriesViewModel x:Name="viewModel"/>
                             </chart:SfCartesianChart.BindingContext>
@@ -69,16 +69,16 @@
                                 </DoubleCollection>
                             </chart:SfCartesianChart.Resources>
                             <chart:SfCartesianChart.Title>
-                                <Label Text="Total Investment (% of GDP)" Margin="0" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="Total Investment (% of GDP)" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
                             <chart:SfCartesianChart.Legend>
                                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
                             </chart:SfCartesianChart.Legend>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:CategoryAxis ShowMajorGridLines="false" PlotOffsetStart="10" PlotOffsetEnd="10" AxisLineOffset="10">
                                 </chart:CategoryAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis Maximum="28" Minimum="16" Interval="4">
                                     <chart:NumericalAxis.AxisLineStyle>
                                         <chart:ChartLineStyle StrokeWidth="0">
@@ -91,44 +91,44 @@
                                         <chart:ChartAxisLabelStyle LabelFormat="0'%" />
                                     </chart:NumericalAxis.LabelStyle>
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
                             <chart:SfCartesianChart.Series>
 
-                                <chart:SplineSeries x:Name="splineSeries3" StrokeDashArray="{StaticResource dashArray}" Label="Brazil" ShowTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="High">
+                                <chart:SplineSeries x:Name="splineSeries3" StrokeDashArray="{StaticResource dashArray}" Label="Brazil" EnableTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="High">
                                 </chart:SplineSeries>
-                                <chart:SplineSeries x:Name="splineSeries4" StrokeDashArray="{StaticResource dashArray}"  Label="Sweden" ShowTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Low">
+                                <chart:SplineSeries x:Name="splineSeries4" StrokeDashArray="{StaticResource dashArray}"  Label="Sweden" EnableTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Low">
                                 </chart:SplineSeries>
-                                <chart:SplineSeries x:Name="splineSeries5" StrokeDashArray="{StaticResource dashArray}"  Label="Greece" ShowTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Value">
+                                <chart:SplineSeries x:Name="splineSeries5" StrokeDashArray="{StaticResource dashArray}"  Label="Greece" EnableTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Value">
                                 </chart:SplineSeries>
 
-                                <chart:ScatterSeries x:Name="scatter3" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries3}}" IsVisibleOnLegend="False" Width="8" Height="8" Background="White" Stroke="#314A6E" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="High" StrokeWidth="1">
+                                <chart:ScatterSeries x:Name="scatter3" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries3}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#314A6E" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="High" StrokeWidth="1">
                                 </chart:ScatterSeries>
-                                <chart:ScatterSeries x:Name="scatter4" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries4}}" IsVisibleOnLegend="False" Width="8" Height="8" Background="White" Stroke="#48988B" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Low" StrokeWidth="1">
+                                <chart:ScatterSeries x:Name="scatter4" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries4}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#48988B" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Low" StrokeWidth="1">
                                 </chart:ScatterSeries>
-                                <chart:ScatterSeries x:Name="scatter5" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries5}}" IsVisibleOnLegend="False" Width="8" Height="8" Background="White" Stroke="#5E498C" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Value" StrokeWidth="1">
+                                <chart:ScatterSeries x:Name="scatter5" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries5}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#5E498C" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Value" StrokeWidth="1">
                                 </chart:ScatterSeries>
 
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
-                <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard4" HorizontalOptions="FillAndExpand" HeightRequest="400">
+                <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard4" HorizontalOptions="Fill" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart2" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart2"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DynamicAnimationViewModel x:Name="viewModel1"/>
                             </chart:SfCartesianChart.BindingContext>
                             <chart:SfCartesianChart.Title>
-                                <Label Text="Spline Chart Dynamic Animation" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="Spline Chart Dynamic Animation" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:NumericalAxis ShowMajorGridLines="False">
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis ShowMajorGridLines="True" Maximum="100" Interval="20" Minimum="0">
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
                             <chart:SfCartesianChart.Series>
                                 <chart:SplineSeries ItemsSource="{Binding MotionAnimation}" StrokeWidth="1" EnableAnimation="True" XBindingPath="Value" YBindingPath="Size"/>
                             </chart:SfCartesianChart.Series>

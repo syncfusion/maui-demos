@@ -6,27 +6,26 @@
              xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
     <localCore:SampleView.Content>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <schedule:SfScheduler x:Name="Scheduler" 
-                                 Grid.Column="1"
                                  AppointmentsSource="{Binding Events}"
                                  MinimumDateTime="{Binding MinDateTime}"
                                  MaximumDateTime="{Binding MaxDateTime}"
                                  DisplayDate="{Binding DisplayDate}"
-                                 ShowWeekNumber="True" 
-                                 AllowedViews="Day,Week,WorkWeek,Month"
+                                 ShowWeekNumber="True"
+                                 AllowViewNavigation="True"
+                                 AllowedViews="Day,Week,WorkWeek,Month,Agenda"
                                  View="Week" >
-                <schedule:SfScheduler.MonthViewSettings>
-                    <schedule:SchedulerMonthViewSettings 
-                                 AppointmentDisplayMode="Text" />
-                </schedule:SfScheduler.MonthViewSettings>
-                <schedule:SfScheduler.DaysViewSettings>
-                    <schedule:SchedulerDaysViewSettings 
+                <schedule:SfScheduler.MonthView>
+                    <schedule:SchedulerMonthView 
+                                 AppointmentDisplayMode="Text"/>
+                </schedule:SfScheduler.MonthView>
+                <schedule:SfScheduler.DaysView>
+                    <schedule:SchedulerDaysView 
                                  MinimumAppointmentDuration="0:30:0" />
-                </schedule:SfScheduler.DaysViewSettings>
+                </schedule:SfScheduler.DaysView>
+                <schedule:SfScheduler.Behaviors>
+                    <local:SchedulerBehavior/>
+                </schedule:SfScheduler.Behaviors>
                 <schedule:SfScheduler.BindingContext>
                     <local:SchedulerGettingStartedViewModel/>
                 </schedule:SfScheduler.BindingContext>

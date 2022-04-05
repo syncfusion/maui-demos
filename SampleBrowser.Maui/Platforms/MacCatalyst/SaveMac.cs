@@ -1,52 +1,51 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using System.Threading.Tasks;
-using System.IO;
-using Microsoft.Maui.Controls;
-using System;
-using QuickLook;
 using Foundation;
+using QuickLook;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 using UIKit;
 
-[assembly: Dependency(typeof(SaveMac))]
-
-class SaveMac : ISave
+namespace SampleBrowser.Maui.Services
 {
-    public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
+    public partial class SaveService
     {
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string filePath = Path.Combine(path, filename);
-        //Saves the document
-        using FileStream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite);
-        stream.CopyTo(fileStream);
-        fileStream.Flush();
-        fileStream.Dispose();
+        public partial void SaveAndView(string filename, string contentType, MemoryStream stream)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filePath = Path.Combine(path, filename);
+            stream.Position = 0;
+            //Saves the document
+            using FileStream fileStream = new(filePath, FileMode.Create, FileAccess.ReadWrite);
+            stream.CopyTo(fileStream);
+            fileStream.Flush();
+            fileStream.Dispose();
+#pragma warning disable CA1416 //This call site is reachable on: 'iOS' 14.2 and later, 'maccatalyst' 14.2 and later. 'UIApplication.KeyWindow.get' is unsupported on: 'ios' 13.0 and later, 'maccatalyst' 13.0 and later.
+            //Launch the file
+            UIViewController? currentController = UIApplication.SharedApplication!.KeyWindow!.RootViewController;
+#pragma warning restore CA1416 //This call site is reachable on: 'iOS' 14.2 and later, 'maccatalyst' 14.2 and later. 'UIApplication.KeyWindow.get' is unsupported on: 'ios' 13.0 and later, 'maccatalyst' 13.0 and later.
+            while (currentController!.PresentedViewController != null)
+                currentController = currentController.PresentedViewController;
+            UIView? currentView = currentController.View;
 
-        //Launch the file
-        UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-        while (currentController.PresentedViewController != null)
-            currentController = currentController.PresentedViewController;
-        UIView currentView = currentController.View;
-
-        QLPreviewController qlPreview = new QLPreviewController();
-        QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
-        qlPreview.DataSource = new PreviewControllerDS(item);
-        currentController.PresentViewController((UIViewController)qlPreview, true, (Action)null);
-
+            QLPreviewController qlPreview = new();
+            QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
+            qlPreview.DataSource = new PreviewControllerDS(item);
+            currentController.PresentViewController((UIViewController)qlPreview, true, null);
+        }
     }
-
-
 }
 
 public class QLPreviewItemFileSystem : QLPreviewItem
 {
-    string _fileName, _filePath;
+    readonly string _fileName, _filePath;
 
     public QLPreviewItemFileSystem(string fileName, string filePath)
     {
@@ -72,7 +71,7 @@ public class QLPreviewItemFileSystem : QLPreviewItem
 
 public class QLPreviewItemBundle : QLPreviewItem
 {
-    string _fileName, _filePath;
+    readonly string _fileName, _filePath;
     public QLPreviewItemBundle(string fileName, string filePath)
     {
         _fileName = fileName;
@@ -100,7 +99,7 @@ public class QLPreviewItemBundle : QLPreviewItem
 
 public class PreviewControllerDS : QLPreviewControllerDataSource
 {
-    private QLPreviewItem _item;
+    private readonly QLPreviewItem _item;
 
     public PreviewControllerDS(QLPreviewItem item)
     {
@@ -117,7 +116,3 @@ public class PreviewControllerDS : QLPreviewControllerDataSource
         return _item;
     }
 }
-
-
-
-

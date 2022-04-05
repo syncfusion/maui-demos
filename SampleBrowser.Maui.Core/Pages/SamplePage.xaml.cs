@@ -1,57 +1,53 @@
-#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using Microsoft.Maui.Controls;
-using System.Collections.ObjectModel;
-using System.Linq;
-using Microsoft.Maui.Graphics;
-using System.Reflection;
 using Syncfusion.Maui.TabView;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.Reflection;
 
 namespace SampleBrowser.Maui.Core
 {
-#nullable disable
     public partial class SamplePage : ContentPage
     {
         #region Fields
 
-        public Type SampleType;
+        public Type? SampleType;
 
-        ObservableCollection<SampleModel> topListViewItemsSource, bottomListViewItemsSource;
+        ObservableCollection<SampleModel>? topListViewItemsSource, bottomListViewItemsSource;
 
         int topScrollIndex, bottomScrollIndex;
+        private string? sampleName;
+        private readonly string? controlName;
+        Type? previousSample;
 
-        string sampleName, controlName;
-
-        Type previousSample;
-
-        SampleView sampleView;
+        SampleView? sampleView;
 
 
         #endregion
 
         #region Properties
 
-        public ObservableCollection<SampleModel> Samples { get; set; }
+        public static string? CurrentBrowser { get; set; }
+        public static string? CurrentSampleName { get; set; }
+        public static string? CurrentControlName { get; set; }
+
+        public ObservableCollection<SampleModel>? Samples { get; set; }
 
         public Dictionary<string, ObservableCollection<SampleModel>> SamplesGroupCollection { get; set; }
 
-        public Dictionary<string, ObservableCollection<SampleModel>> SubSamplesGroupCollection { get; set; }
+        public Dictionary<string, ObservableCollection<SampleModel>>? SubSamplesGroupCollection { get; set; }
 
-        private object selectedItem = null;
+        private object? selectedItem = null;
 
         /// <summary>
         /// Gets or sets selected
         /// </summary>
-        public object SelectedItem
+        public object? SelectedItem
         {
             get
             {
@@ -69,7 +65,7 @@ namespace SampleBrowser.Maui.Core
 
         #region Constructor
 
-        public SamplePage(object samples, string cntrlName, SampleModel sample, string title = null)
+        public SamplePage(object? samples, string? cntrlName, SampleModel? sample, string? title = null)
         {
             InitializeComponent();
             Title = string.IsNullOrEmpty(title) ? cntrlName : title;
@@ -84,7 +80,7 @@ namespace SampleBrowser.Maui.Core
             LoadSample();
             NavigationPage.SetBackButtonTitle(this, "Back");
 
-            Label loadingLabel = new Label() { Text = "Loading Examples...", TextColor = Colors.Black, VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center, VerticalTextAlignment = Microsoft.Maui.TextAlignment.Center, HorizontalTextAlignment = Microsoft.Maui.TextAlignment.Center };
+            Label loadingLabel = new() { Text = "Loading Examples...", TextColor = Colors.Black, VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center, VerticalTextAlignment = Microsoft.Maui.TextAlignment.Center, HorizontalTextAlignment = Microsoft.Maui.TextAlignment.Center };
             this.loadingSamplesView.Add(loadingLabel);
             this.loadingSamplesView.BackgroundColor = Colors.White;
             Grid.SetRow(this.loadingSamplesView, 4);
@@ -94,10 +90,6 @@ namespace SampleBrowser.Maui.Core
         #endregion
 
         #region Methods
-
-        public void HideOptionButton()
-        {
-        }
 
         protected override void OnAppearing()
         {
@@ -113,14 +105,14 @@ namespace SampleBrowser.Maui.Core
             base.OnDisappearing();
         }
 
-        void GenerateItemsSource(SampleModel sample)
+        void GenerateItemsSource(SampleModel? sample)
         {
-            List<string> categories = Samples.Select(X => X.Category).Distinct().ToList();
+            List<string?> categories = Samples!.Select(X => X.Category).Distinct().ToList();
 
-            foreach (string category in categories!)
+            foreach (string? category in categories!)
             {
-                var samplesGroup = Samples.Where(X => X.Category == category).ToList();
-                ObservableCollection<SampleModel> samplesList = new ObservableCollection<SampleModel>();
+                var samplesGroup = Samples!.Where(X => X.Category == category).ToList();
+                ObservableCollection<SampleModel> samplesList = new();
                 foreach (var item in samplesGroup!)
                     samplesList.Add(item);
                 SamplesGroupCollection.Add(category!, samplesList);
@@ -137,26 +129,55 @@ namespace SampleBrowser.Maui.Core
 
                     if (category == "None") continue;
 
-                    if (SamplesGroupCollection[category].Contains(sample))
+                    if (SamplesGroupCollection[category].Contains(sample!))
                     {
-                        bottomScrollIndex = SamplesGroupCollection[category].IndexOf(sample);
+                        bottomScrollIndex = SamplesGroupCollection[category].IndexOf(sample!);
                         topScrollIndex = i;
                     }
 
-                    topListViewItemsSource?.Insert(i, new SampleModel() { Title = category, Control = controlName });
+                    var uType = SamplesGroupCollection[category][0].UpdateGroupType;
+                    topListViewItemsSource?.Insert(i, new SampleModel() { Title = category, Control = controlName, UpdateType = uType });
                 }
             }
             else
                 topListViewItemsSource = Samples;
 
-            if (topListViewItemsSource!.Contains(sample))
-                topScrollIndex = topListViewItemsSource.IndexOf(sample);
+            if (topListViewItemsSource!.Contains(sample!))
+                topScrollIndex = topListViewItemsSource.IndexOf(sample!);
 
             foreach (var item in topListViewItemsSource)
             {
-                var tabItem = new Syncfusion.Maui.TabView.SfTabItem();
-                tabItem.Header = item.Title;
-                 this.tabView.Items.Add(tabItem);
+                if (item != null)
+                {
+                    var tabItem = new Syncfusion.Maui.TabView.SfTabItem
+                    {
+                        Header = item.Title!
+                    };
+                    if (!string.IsNullOrEmpty(item.UpdateType))
+                    {
+                        if (item.UpdateType.Equals("new", StringComparison.OrdinalIgnoreCase))
+                        {
+                            tabItem.BadgeText = "N";
+                        }
+                        else
+                        {
+                            tabItem.BadgeText = "U";
+                        }
+
+                        tabItem.BadgeSettings = new Syncfusion.Maui.Core.BadgeSettings()
+                        {
+                            Type = Syncfusion.Maui.Core.BadgeType.None,
+                            Background = new SolidColorBrush(Color.FromArgb("#6200EE")),
+                            Position = Syncfusion.Maui.Core.BadgePosition.Right,
+#if WINDOWS
+                        TextPadding = 1,
+                        FontSize = 10
+#endif
+                        };
+                    }
+
+                    this.tabView.Items.Add(tabItem);
+                }
             }
         }
 
@@ -169,13 +190,13 @@ namespace SampleBrowser.Maui.Core
 
                 if (sampleName == null)
                 {
-                    string category = topSampleModel.Title;
+                    string? category = topSampleModel.Title;
                     bottomListViewItemsSource = SamplesGroupCollection?[category!];
                     var bottomSampleModel = bottomListViewItemsSource?[bottomScrollIndex];
                     sampleName = bottomSampleModel?.Name;
                     BindableLayout.SetItemsSource(bottomSampleListView, bottomListViewItemsSource);
                     ClearChipSelection();
-                    bottomSampleModel.Opacity = 1;
+                    bottomSampleModel!.BackgroundColor = Color.FromArgb("#EAEAEA");
                 }
 
                 CreateInstance(sampleName);
@@ -188,18 +209,14 @@ namespace SampleBrowser.Maui.Core
             }
         }
 
-        public static Type GetAssembliesType(string assemblyName, string sampleName, string controlName)
+        public static Type? GetAssembliesType(string? assemblyName, string? sampleName, string? controlName)
         {
             Assembly assm = Assembly.Load(assemblyName + ", Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
 
             return assm.GetType(assemblyName + "." + controlName + "." + sampleName);
         }
 
-        public static string CurrentBrowser = string.Empty;
-        public static string  CurrentSampleName= string.Empty;
-        public static string CurrentControlName = string.Empty;
-
-        internal void CreateInstance(string sampleName)
+        internal void CreateInstance(string? sampleName)
         {
             if (!SampleBrowser.IsIndividualSB)
             {
@@ -218,29 +235,31 @@ namespace SampleBrowser.Maui.Core
                 Microsoft.Maui.Controls.Grid.SetRow(sampleView, 4);
                 mainGrid.Children.Remove(this.loadingSamplesView);
                 mainGrid.Children.Add(sampleView);
-                sampleView.OnAppearing();
+                sampleView!.OnAppearing();
             }
         }
 
-        Grid loadingSamplesView = new Grid();
+        readonly Grid loadingSamplesView = new();
 
         private async void TabBar_SelectedIndexChanged(object sender, TabSelectionChangedEventArgs e)
         {
             this.ClearChipSelection();
-            this.HideOptionButton();
             int index = (int)e.NewIndex;
 
             if (topScrollIndex == index) return;
 
             topScrollIndex = index;
 
-            
-            SampleModel sampleModel = null;
-            foreach (var item in topListViewItemsSource)
+
+            SampleModel? sampleModel = null;
+            if (topListViewItemsSource != null)
             {
-              if( (tabView.Items[index] as SfTabItem).Header == item.Title)
+                foreach (var item in topListViewItemsSource)
                 {
-                    sampleModel = item;
+                    if ((tabView.Items[index] as SfTabItem).Header == item.Title)
+                    {
+                        sampleModel = item;
+                    }
                 }
             }
             sampleName = sampleModel?.Name;
@@ -251,6 +270,11 @@ namespace SampleBrowser.Maui.Core
                 {
                     sampleView?.OnDisappearing();
                     mainGrid.Children.Remove(sampleView);
+                    if(this.loadingSamplesView.Parent !=null)
+                    {
+                        var parent = this.loadingSamplesView.Parent;
+                        ((Grid)parent).Remove(this.loadingSamplesView);
+                    }
                     mainGrid.Children.Add(this.loadingSamplesView);
                     if (sampleView != null)
                     {
@@ -259,61 +283,41 @@ namespace SampleBrowser.Maui.Core
                     }
                 }
 
-               
+
 
                 await Task.Delay(100);
-
-                string category = topListViewItemsSource[index].Title;
-                if (sampleName == null)
+                if (topListViewItemsSource != null)
                 {
-                    bottomListViewItemsSource = SamplesGroupCollection[category!];
-                    // Added the clear method again , its not clearing some cases, need to validate it later and remove from here.
-                    this.ClearChipSelection();
-                    var bottomSampleModel = bottomListViewItemsSource[0];
-                    sampleName = bottomSampleModel.Name;
-                    BindableLayout.SetItemsSource(bottomSampleListView, bottomListViewItemsSource);
-                    foreach (var item in bottomListViewItemsSource)
+                    string? category = topListViewItemsSource[index].Title;
+                    if (sampleName == null)
                     {
-                        (item as SampleModel).BackgroundColor = Colors.White;
+                        bottomListViewItemsSource = SamplesGroupCollection[category!];
+                        // Added the clear method again , its not clearing some cases, need to validate it later and remove from here.
+                        this.ClearChipSelection();
+                        var bottomSampleModel = bottomListViewItemsSource[0];
+                        sampleName = bottomSampleModel.Name;
+                        BindableLayout.SetItemsSource(bottomSampleListView, bottomListViewItemsSource);
+                        foreach (var item in bottomListViewItemsSource)
+                        {
+                            (item as SampleModel).BackgroundColor = Colors.White;
+                        }
+                        bottomScrollIndex = 0;
+                        bottomSampleModel.BackgroundColor = Color.FromArgb("#EAEAEA");
                     }
-                    bottomScrollIndex = 0;
-                    bottomSampleModel.Opacity = 1;
-                }
-                else
-                {
-                    BindableLayout.SetItemsSource(bottomSampleListView, null);
-                    bottomSampleLVRow.Height = bottomBoxView.Height = 0;
+                    else
+                    {
+                        BindableLayout.SetItemsSource(bottomSampleListView, null);
+                        bottomSampleLVRow.Height = bottomBoxView.Height = 0;
 
-                }
+                    }
 
-                CreateInstance(sampleName);
+                    CreateInstance(sampleName);
 
-                if (bottomListViewItemsSource != null && SamplesGroupCollection.ContainsKey(category!))
-                {
+                    if (bottomListViewItemsSource != null && SamplesGroupCollection.ContainsKey(category!))
+                    {
                         bottomSampleLVRow.Height = 38;
                         emptySpaceRow.Height = 17;
-                }
-            }
-        }
-
-        BoxView previousBoxView = null;
-
-        private void SelectionColorUpdate(Grid modelGrid)
-        {
-            //TODO: Background color property is not working in BoxView dynamically to this Workaround is added (In preivew 10)
-                   
-            if (modelGrid.Children[2] is BoxView)
-            {
-
-                var selectionBoxView = modelGrid.Children[2] as BoxView;
-                if (selectionBoxView.Opacity != 1)
-                {
-                    (selectionBoxView).Opacity = 1;
-                    if (previousBoxView != null)
-                    {
-                        previousBoxView.Opacity = 0;
                     }
-                    previousBoxView = selectionBoxView;
                 }
             }
         }
@@ -324,7 +328,7 @@ namespace SampleBrowser.Maui.Core
             {
                 foreach (var item in bottomListViewItemsSource)
                 {
-                    (item as SampleModel).Opacity = 0;
+                    (item as SampleModel).BackgroundColor = Colors.White;
                 }
             }
         }
@@ -333,11 +337,9 @@ namespace SampleBrowser.Maui.Core
         {
             this.ClearChipSelection();
 
-            this.HideOptionButton();
-
             var modelGrid = (sender as Grid);
-            SampleModel sModel = modelGrid.BindingContext as SampleModel;
-            sModel.Opacity = 1;
+            SampleModel? sModel = modelGrid!.BindingContext as SampleModel;
+            sModel!.BackgroundColor = Color.FromArgb("#EAEAEA");
             int index = bottomListViewItemsSource!.IndexOf(sModel!);
 
             if (bottomScrollIndex == index) return;

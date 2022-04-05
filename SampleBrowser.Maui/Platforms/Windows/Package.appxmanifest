@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="345F2632-A685-45D3-A283-48F68FD5066A"
-    Publisher="CN=User Name"
+    Name="Syncfusion.SampleBrowser.Maui"
+    Publisher="CN=PaulAndersonS"
     Version="1.0.0.0" />
 
   <Properties>
     <DisplayName>SampleBrowser.Maui</DisplayName>
-    <PublisherDisplayName>Microsoft</PublisherDisplayName>
-    <Logo>Assets\appiconStoreLogo.png</Logo>
+    <PublisherDisplayName>Syncfusion</PublisherDisplayName>
+    <Logo>appiconStoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -34,12 +34,12 @@
         DisplayName="SampleBrowser.Maui"
         Description="SampleBrowser.Maui"
         BackgroundColor="transparent"
-        Square150x150Logo="Assets\appiconMediumTile.png"
-        Square44x44Logo="Assets\appiconLogo.png">
+        Square150x150Logo="appiconMediumTile.png"
+        Square44x44Logo="appiconLogo.png">
         <uap:DefaultTile
-          Wide310x150Logo="Assets\appiconWideTile.png"
-          Square71x71Logo="Assets\appiconSmallTile.png"
-          Square310x310Logo="Assets\appiconLargeTile.png"
+          Wide310x150Logo="appiconWideTile.png"
+          Square71x71Logo="appiconSmallTile.png"
+          Square310x310Logo="appiconLargeTile.png"
           ShortName="SampleBrowser.Maui">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>

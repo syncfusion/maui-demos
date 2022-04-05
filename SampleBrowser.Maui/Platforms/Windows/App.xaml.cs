@@ -1,5 +1,5 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -9,7 +9,6 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.UI.Xaml;
-using Windows.ApplicationModel;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,6 +27,7 @@ namespace SampleBrowser.Maui.WinUI
         public App()
         {
             this.InitializeComponent();
+            App.Current.RequestedTheme = ApplicationTheme.Light;
         }
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
@@ -36,7 +36,9 @@ namespace SampleBrowser.Maui.WinUI
         {
             base.OnLaunched(args);
 
-            Microsoft.Maui.Essentials.Platform.OnLaunched(args);
+            var windowObj = App.Current.Application.Windows[0];
+            var virtualView = windowObj!.Handler!.VirtualView as Microsoft.Maui.Controls.Window;
+            virtualView!.Title = ".NET MAUI Controls Demo (Preview)";
         }
     }
 }

@@ -1,19 +1,13 @@
-﻿#region Copyright Syncfusion Inc. 2001-2021.
-// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+﻿#region Copyright Syncfusion Inc. 2001-2022.
+// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
 
-using Microsoft.Maui.Controls;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.SfListView
 {
@@ -38,7 +32,7 @@ namespace SampleBrowser.Maui.SfListView
             {
                 var gallery = new ListViewGalleryInfo()
                 {
-                    Image = "image"+ i +".png",
+                    Image = "image" + i + ".png",
                     ImageTitle = random.Next(1242, 5383) + ".jpg",
                     IsFavorite = i % 2 == 0 || i % 3 == 0 ? true : false
                 };

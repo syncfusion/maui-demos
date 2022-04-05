@@ -8,7 +8,7 @@
     <localCore:SampleView.Content>
         <StackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
             <Label Text="Touch the icon to rotate it" TextColor="Black" HorizontalTextAlignment="Center" />
-            <Frame HorizontalOptions="Center" HasShadow="False" CornerRadius="{OnPlatform Default='70', iOS='0'}" HeightRequest="140" WidthRequest="140" Padding="0" BackgroundColor="#F5F5F5"  >
+            <Frame HorizontalOptions="Center" IsClippedToBounds="True" HasShadow="False" CornerRadius="70" HeightRequest="140" WidthRequest="140" Padding="0" BackgroundColor="#F5F5F5"  >
             	<sfEffectsView:SfEffectsView x:Name="RotationEffectsView"
 										     TouchDownEffects="Ripple" TouchUpEffects="Rotation" 
 											 RippleAnimationDuration="150"  

@@ -8,9 +8,9 @@
 
         <localCore:ScrollViewExt>
             <localCore:WrapLayout BackgroundColor="White">
-                <localCore:CardViewExt Title="Default Area Chart" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="FillAndExpand">
+                <localCore:CardViewExt Title="Default Area Chart" x:Name="extendedCard1" HeightRequest="400" HorizontalOptions="Fill">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <chart:SfCartesianChart.Legend>
                                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
                             </chart:SfCartesianChart.Legend>
@@ -18,17 +18,17 @@
                                 <local:AreaSeriesViewModel/>
                             </chart:SfCartesianChart.BindingContext>
                             <chart:SfCartesianChart.Title>
-                                <Label Text="Average Sales Comparison" Margin="0" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="Average Sales Comparison" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:CategoryAxis EdgeLabelsDrawingMode="Shift" Interval="2" ShowMajorGridLines="false">
                                     <chart:CategoryAxis.MajorTickStyle>
                                         <chart:ChartAxisTickStyle TickSize="8">
                                         </chart:ChartAxisTickStyle>
                                     </chart:CategoryAxis.MajorTickStyle>
                                 </chart:CategoryAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis Minimum="0" Maximum="4" Interval="1">
                                     <chart:NumericalAxis.Title>
                                         <chart:ChartAxisTitle Text="Revenue in Millions" />
@@ -41,16 +41,16 @@
                                         </chart:ChartLineStyle>
                                     </chart:NumericalAxis.AxisLineStyle>
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
 
                             <chart:SfCartesianChart.Series>
-                                <chart:AreaSeries Label="Product A" EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" Stroke="#74BD6F" Background="#C474BD6F" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="High">
+                                <chart:AreaSeries Label="Product A" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="#74BD6F" Fill="#C474BD6F" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="High">
                                 </chart:AreaSeries>
-                                <chart:AreaSeries Label="Product B" EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" Stroke="#5E498C" Background="#C45E498C" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Low">
+                                <chart:AreaSeries Label="Product B" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="#5E498C" Fill="#C45E498C" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Low">
                                 </chart:AreaSeries>
-                                <chart:AreaSeries Label="Product C" EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" Stroke="#48988B" Background="#C448988B" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Value">
+                                <chart:AreaSeries Label="Product C" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="#48988B" Fill="#C448988B" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Value">
                                 </chart:AreaSeries>
-                                <chart:AreaSeries Label="Product D" EnableAnimation="{Binding EnableAnimation}" ShowTooltip="True" Stroke="#314A6E" Background="#C4314A6E" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Size">
+                                <chart:AreaSeries Label="Product D" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="#314A6E" Fill="#C4314A6E" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Size">
                                 </chart:AreaSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>
@@ -58,27 +58,27 @@
                     </localCore:CardViewExt.MainContent>
                 </localCore:CardViewExt>
 
-                <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard4" HorizontalOptions="FillAndExpand" HeightRequest="400">
+                <localCore:CardViewExt Title="Dynamic update animation" x:Name="extendedCard4" HorizontalOptions="Fill" HeightRequest="400">
                     <localCore:CardViewExt.MainContent>
-                        <chart:SfCartesianChart x:Name="Chart1" Palette="Custom" CustomBrushes="{Binding CustomBrushes}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfCartesianChart x:Name="Chart1" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <chart:SfCartesianChart.BindingContext>
                                 <local:DynamicAnimationViewModel x:Name="viewModel1"/>
                             </chart:SfCartesianChart.BindingContext>
                             <chart:SfCartesianChart.Title>
-                                <Label Text="Area Chart Dynamic Animation" Margin="0,0,0,5" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="Area Chart Dynamic Animation" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                             </chart:SfCartesianChart.Title>
-                            <chart:SfCartesianChart.PrimaryAxis>
+                            <chart:SfCartesianChart.XAxes>
                                 <chart:NumericalAxis ShowMajorGridLines="False">
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.PrimaryAxis>
-                            <chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.XAxes>
+                            <chart:SfCartesianChart.YAxes>
                                 <chart:NumericalAxis ShowMajorGridLines="True" Maximum="100" Interval="20" Minimum="0">
                                 </chart:NumericalAxis>
-                            </chart:SfCartesianChart.SecondaryAxis>
+                            </chart:SfCartesianChart.YAxes>
                             <chart:SfCartesianChart.Series>
 
                                 <chart:AreaSeries Opacity="0.7" Stroke="#FF0080DF" StrokeWidth="2" ItemsSource="{Binding MotionAnimation}" EnableAnimation="True" XBindingPath="Value" YBindingPath="Size">
-                                    <chart:AreaSeries.Background>
+                                    <chart:AreaSeries.Fill>
                                         <LinearGradientBrush StartPoint="0.5,1"
                                                              EndPoint="0.5,0">
                                             <GradientStop Color="White"
@@ -86,7 +86,7 @@
                                             <GradientStop Color="#FF0080DF"
                                                           Offset="1.0" />
                                         </LinearGradientBrush>
-                                    </chart:AreaSeries.Background>
+                                    </chart:AreaSeries.Fill>
                                 </chart:AreaSeries>
                             </chart:SfCartesianChart.Series>
                         </chart:SfCartesianChart>

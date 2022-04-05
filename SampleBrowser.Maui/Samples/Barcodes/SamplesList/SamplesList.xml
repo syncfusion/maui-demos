@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+  <SampleGroup Title="Showcase">
+    <Sample SearchTags="BoardingPass" Name="BoardingPass" Title="Boarding Pass" Description="This sample showcases the usage of one dimensional barcode."/>
+    <Sample SearchTags="Wifi" Name="Wifi" Title="Wi-Fi" Description="This sample showcases the usage of two dimensional barcode."/>
+  </SampleGroup>
+	<Sample Name="OneDimensional" Title="One Dimensional" Description="This sample showcases the one dimensional barcodes."/>
+	<Sample Name="QRCode" Title="QR Code" Description="This sample showcases the QR code."/>
+	<Sample Name="DataMatrix"  Title="Data Matrix" Description="This sample showcases the data matrix barcode."/>
+</Samples>
