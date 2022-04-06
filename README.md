@@ -61,7 +61,7 @@ Platforms supported by each .NET MAUI control are listed below.
 			DATA VISUALIZATION<br/>
 		</td>
 		<td>
-			<a href="/maui/barcode-generator/overview">Barcode Generator</a><br/>
+			<a href="https://help.syncfusion.com/maui/barcode-generator/overview">Barcode Generator</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -78,7 +78,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
-			<a href="/maui/cartesian-charts/overview">Cartesian Charts</a><br/>
+			<a href="https://help.syncfusion.com/maui/cartesian-charts/overview">Cartesian Charts</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -95,7 +95,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
-			<a href="/maui/circular-charts/overview">Circular Charts</a><br/>
+			<a href="https://help.syncfusion.com/maui/circular-charts/overview">Circular Charts</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -112,7 +112,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
-			<a href="/maui/linear-gauge/overview">Linear Gauge</a><br/>
+			<a href="https://help.syncfusion.com/maui/linear-gauge/overview">Linear Gauge</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -129,7 +129,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
-			<a href="/maui/radial-gauge/overview">Radial Gauge</a><br/>
+			<a href="https://help.syncfusion.com/maui/radial-gauge/overview">Radial Gauge</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -149,7 +149,7 @@ Platforms supported by each .NET MAUI control are listed below.
 			NAVIGATION<br/>
 		</td>
 		<td>
-			<a href="/maui/tabview/overview">Tab View</a><br/>
+			<a href="https://help.syncfusion.com/maui/tabview/overview">Tab View</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -169,7 +169,7 @@ Platforms supported by each .NET MAUI control are listed below.
 			LAYOUT<br/>
 		</td>	
 		<td>
-			<a href="/maui/listview/overview">ListView</a><br/>
+			<a href="https://help.syncfusion.com/maui/listview/overview">ListView</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -189,7 +189,7 @@ Platforms supported by each .NET MAUI control are listed below.
 			SLIDERS<br/>
 		</td>	
 		<td>
-			<a href="/maui/range-selector/overview">Range Selector</a><br/>
+			<a href="https://help.syncfusion.com/maui/range-selector/overview">Range Selector</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -206,7 +206,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
-			<a href="/maui/range-slider/overview">Range Slider</a><br/>
+			<a href="https://help.syncfusion.com/maui/range-slider/overview">Range Slider</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -223,7 +223,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
-			<a href="/maui/slider/overview">Slider</a><br/>
+			<a href="https://help.syncfusion.com/maui/slider/overview">Slider</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -243,7 +243,7 @@ Platforms supported by each .NET MAUI control are listed below.
 		CALENDAR<br/>
 		</td>
 		<td>
-			<a href="/maui/scheduler/overview">Scheduler</a><br/>
+			<a href="https://help.syncfusion.com/maui/scheduler/overview">Scheduler</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -263,7 +263,7 @@ Platforms supported by each .NET MAUI control are listed below.
 		NOTIFICATION<br/>
 		</td>
 		<td>
-			<a href="/maui/badge-view/overview">Badge View</a><br/>
+			<a href="https://help.syncfusion.com/maui/badge-view/overview">Badge View</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -283,7 +283,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	    MISCELLANEOUS<br/>
 		</td>
 		<td>
-			<a href="/maui/effects-view/overview">Effects View</a><br/>
+			<a href="https://help.syncfusion.com/maui/effects-view/overview">Effects View</a><br/>
 		</td>
 		<td>
 		Yes<br/>
