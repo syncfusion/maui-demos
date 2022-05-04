@@ -38,7 +38,9 @@ namespace SampleBrowser.Maui.SfRadialGauge
         {
             await Task.Delay(500);
 #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0612 // Type or member is obsolete
             Device.StartTimer(new TimeSpan(0, 0, 0, 1, 0), UpdateTick);
+#pragma warning restore CS0612 // Type or member is obsolete
 #pragma warning restore CS0618 // Type or member is obsolete
             canStopTimer = false;
         }

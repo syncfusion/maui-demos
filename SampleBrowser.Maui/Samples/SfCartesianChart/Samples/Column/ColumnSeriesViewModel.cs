@@ -97,7 +97,9 @@ namespace SampleBrowser.Maui.SfCartesianChart
             StopTimer();
             await Task.Delay(500);
 #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0612 // Type or member is obsolete
             Device.StartTimer(new TimeSpan(0, 0, 0, 2, 0), UpdateData);
+#pragma warning restore CS0612 // Type or member is obsolete
 #pragma warning restore CS0618 // Type or member is obsolete
             canStopTimer = false;
         }

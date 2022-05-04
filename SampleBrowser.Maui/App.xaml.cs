@@ -6,8 +6,9 @@
 // applicable laws. 
 #endregion
 
+using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+using Microsoft.Maui.Devices;
 using Microsoft.Maui.Graphics;
 using SampleBrowser.Maui.Core;
 using Application = Microsoft.Maui.Controls.Application;

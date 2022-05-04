@@ -10,6 +10,9 @@ This section guides you to use the Syncfusion .NET MAUI examples in your applica
 * [Controls Catalog](#controls-catalog)
 * [Support and Feedback](#support-and-feedback)
 
+
+> Currently the Sample Browser won't deploy in Windows platform due to Framework issues.
+
 ## <a name="requirements-to-run-the-demo"></a>Requirements to run the demo ##
 
 * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/).

@@ -117,7 +117,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                         </Grid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -155,7 +155,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                         </Grid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -193,7 +193,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                         </Grid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -231,7 +231,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                         </Grid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -269,7 +269,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                         </Grid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -308,7 +308,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                         </Grid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -346,7 +346,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                         </Grid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -384,7 +384,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                         </Grid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -437,7 +437,7 @@
                                                                         <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                     </VerticalStackLayout>
                                                                 </Grid>
-                                                                <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                             </core:CustomGrid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -477,7 +477,7 @@
                                                                         <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                     </VerticalStackLayout>
                                                                 </Grid>
-                                                                <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                             </core:CustomGrid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -517,7 +517,7 @@
                                                                         <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                     </VerticalStackLayout>
                                                                 </Grid>
-                                                                <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                             </core:CustomGrid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -556,7 +556,7 @@
                                                                         <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                     </VerticalStackLayout>
                                                                 </Grid>
-                                                                <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                             </core:CustomGrid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -595,7 +595,7 @@
                                                                         <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                     </VerticalStackLayout>
                                                                 </Grid>
-                                                                <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                             </core:CustomGrid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -634,7 +634,7 @@
                                                                         <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                     </VerticalStackLayout>
                                                                 </Grid>
-                                                                <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                             </core:CustomGrid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -673,7 +673,7 @@
                                                                         <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                     </VerticalStackLayout>
                                                                 </Grid>
-                                                                <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                             </core:CustomGrid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>
@@ -713,7 +713,7 @@
                                                                     <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
                                                                 </VerticalStackLayout>
                                                             </Grid>
-                                                            <BoxView  HeightRequest="2" BackgroundColor="White"/>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
                                                             </core:CustomGrid>
                                                     </badge:SfBadgeView>
                                                 </DataTemplate>

@@ -7,7 +7,7 @@
 #endregion
 
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+using Microsoft.Maui.Devices;
 using SampleBrowser.Maui.Core;
 using Syncfusion.Maui.ListView.Helpers;
 

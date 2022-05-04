@@ -7,7 +7,7 @@
 #endregion
 
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+using Microsoft.Maui.Devices;
 using SampleBrowser.Maui.Core;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -122,11 +122,13 @@ namespace SampleBrowser.Maui.SfListView
 
                 await Application.Current.MainPage.DisplayAlert("", "Your order has been placed.", "OK");
 #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0612 // Type or member is obsolete
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     if (obj != null)
                         (obj as ContentPage).Navigation.PopAsync();
                 });
+#pragma warning restore CS0612 // Type or member is obsolete
 #pragma warning restore CS0618 // Type or member is obsolete
             }
         }
