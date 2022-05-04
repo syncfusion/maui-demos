@@ -8,7 +8,7 @@
 
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
-using Microsoft.Maui.Essentials;
+using Microsoft.Maui.Devices;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

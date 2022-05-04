@@ -19,12 +19,12 @@ namespace SampleBrowser.Maui.Core
             this.AddTouchListener(this);
         }
 
-        public void OnTouch(TouchEventArgs e)
+        public void OnTouch(PointerEventArgs e)
         {
             var parentView = this.Parent;
             var badgeView = (SfBadgeView)((Grid)parentView).Parent;
             
-            if (e.Action == TouchActions.Entered)
+            if (e.Action == PointerActions.Entered)
             {
                 if (badgeView != null)
                 {
@@ -32,7 +32,7 @@ namespace SampleBrowser.Maui.Core
                     badgeView.BackgroundColor = Color.FromArgb("#77f1e8ff");
                 }
             }
-            else if (e.Action == TouchActions.Exited)
+            else if (e.Action == PointerActions.Exited)
             {
                 if (badgeView != null)
                 {
@@ -52,17 +52,17 @@ namespace SampleBrowser.Maui.Core
 #endif
         }
 
-        public void OnTouch(TouchEventArgs e)
+        public void OnTouch(PointerEventArgs e)
         {
             var badge = this.Parent.Parent;
             var grid = badge.Parent;
             var frame = (Frame)((Grid)grid).Children[1];
-            if (e.Action == TouchActions.Entered)
+            if (e.Action == PointerActions.Entered)
             {
                 frame.BackgroundColor = Color.FromArgb("#F5F5F5");
                 frame.IsVisible = true;
             }
-            else if (e.Action == TouchActions.Exited)
+            else if (e.Action == PointerActions.Exited)
             {
                 frame.BackgroundColor = Color.FromArgb("#00FFFFFF");
             }
