@@ -14,6 +14,8 @@ This section guides you to use the Syncfusion .NET MAUI examples in your applica
 
 * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/).
 
+>N Currently the Sample Browser won't deploy in Windows platform due to Framework issues.
+
 ## <a name="license"></a>License ##
 
 Syncfusion has no liability for any damage or consequence that may arise by the use or viewing of the examples. The examples are for demonstrative purposes and if you choose to use or access the examples you agree to not hold Syncfusion liable, in any form, for any damage that is related to use, accessing or otherwise viewing the examples. By accessing, viewing, or otherwise seeing the examples you acknowledge and agree Syncfusion’s examples will not allow you to seek injunctive relief in any form for any claim related to the sample. If you do not agree to this, do not view, access, utilize or otherwise do anything with Syncfusion’s examples.
