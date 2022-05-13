@@ -311,13 +311,15 @@ namespace SampleBrowser.Maui.Core
 
                     }
 
-                    CreateInstance(sampleName);
-
                     if (bottomListViewItemsSource != null && SamplesGroupCollection.ContainsKey(category!))
                     {
+                        bottomBoxView.Height = 7;
                         bottomSampleLVRow.Height = 38;
                         emptySpaceRow.Height = 17;
+                        chipGrid.Measure(double.PositiveInfinity, 38, MeasureFlags.IncludeMargins);
                     }
+
+                    CreateInstance(sampleName);
                 }
             }
         }

@@ -41,7 +41,7 @@
                     </LinearGradientBrush>
                 </Grid.Background>
             </Grid>
-            <Grid Grid.Row="2" Padding="7,0,0,0" >
+            <Grid x:Name="chipGrid" Grid.Row="2" Padding="7,0,0,0" >
                 <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" >
                 <HorizontalStackLayout x:Name="bottomSampleListView" 
                             BackgroundColor="Transparent"
@@ -49,19 +49,15 @@
                             HorizontalOptions="FillAndExpand"
 					        VerticalOptions="FillAndExpand">
                     <BindableLayout.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Padding="8,0,7,0" HorizontalOptions="Center" HeightRequest="36" VerticalOptions="Center">
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureTapped" />
-                                </Grid.GestureRecognizers>
-                                
-                                <Frame HasShadow="False" BackgroundColor="{Binding BackgroundColor}" BorderColor="#CCCCCC" CornerRadius="20" />
-								<Frame HasShadow="False" BackgroundColor="Transparent"  BorderColor="#CCCCCC" CornerRadius="20" />
-									<core:SfBadgeView x:Name="badgeView" BadgeText="{Binding UpdateType, Converter={StaticResource textToTagsConverter}}">
-											<core:SfBadgeView.BadgeSettings>
-										<core:BadgeSettings Type="None" Background="#6200EE" Offset="-7,0" Position="Right" FontSize="{OnPlatform Default='12', UWP='10' }" TextPadding="{OnPlatform Default='5', UWP='1' }"/>
-									</core:SfBadgeView.BadgeSettings>
-									<local:CustomLabel FontSize="16" Padding="{Binding UpdateType, Converter={StaticResource textToPaddingConverter}}" 
+                            <DataTemplate>
+                                <Grid Padding="8,0,7,0" HorizontalOptions="Center" HeightRequest="36" VerticalOptions="Center">
+                                    <Frame HasShadow="False" BackgroundColor="{Binding BackgroundColor}" BorderColor="#CCCCCC" CornerRadius="20" />
+                                    <Frame HasShadow="False" BackgroundColor="Transparent"  BorderColor="#CCCCCC" CornerRadius="20" />
+                                    <core:SfBadgeView x:Name="badgeView" BadgeText="{Binding UpdateType, Converter={StaticResource textToTagsConverter}}">
+                                        <core:SfBadgeView.BadgeSettings>
+                                            <core:BadgeSettings Type="None" Background="#6200EE" Offset="-7,0" Position="Right" FontSize="{OnPlatform Default='12', UWP='10' }" TextPadding="{OnPlatform Default='5', UWP='1' }"/>
+                                        </core:SfBadgeView.BadgeSettings>
+                                        <local:CustomLabel FontSize="16" Padding="{Binding UpdateType, Converter={StaticResource textToPaddingConverter}}" 
 										Margin="{Binding UpdateType, Converter={StaticResource textToMarginConverter}}"
 										FontFamily="Roboto Medium"
 										Text="{Binding Title}"
@@ -71,11 +67,16 @@
 										VerticalOptions="Center"
 										HorizontalTextAlignment="Center" 
 										VerticalTextAlignment="Center"  />
-										
-									</core:SfBadgeView>
-                            </Grid>
-                        </DataTemplate>
-                    </BindableLayout.ItemTemplate>
+
+                                    </core:SfBadgeView>
+                                    <Grid>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureTapped" />
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
                 </HorizontalStackLayout>
                 </ScrollView>
             </Grid>

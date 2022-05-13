@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>net6.0;net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<UseMaui>true</UseMaui>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
@@ -50,8 +50,8 @@
     </ItemGroup>
 
     <ItemGroup>
-		<PackageReference Include="Syncfusion.Maui.Core" Version="20.1.52-preview" />
-		<PackageReference Include="Syncfusion.Maui.TabView" Version="20.1.52-preview" />
+		<PackageReference Include="Syncfusion.Maui.Core" Version="20.1.55-preview" />
+		<PackageReference Include="Syncfusion.Maui.TabView" Version="20.1.55-preview" />
     </ItemGroup>
 
 </Project>
