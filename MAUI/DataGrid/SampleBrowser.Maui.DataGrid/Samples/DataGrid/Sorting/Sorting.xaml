@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView 
+             x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Sorting"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    BackgroundColor="White">
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel>
+        </local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="115"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="optionRowSpacing" x:TypeArguments="x:Double">
+            <On Platform="iOS, WinUI, MacCatalyst" Value="5"></On>
+        </OnPlatform>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Behaviors>
+        <local:SortingBehavior></local:SortingBehavior>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid" 
+                           HeaderRowHeight="52"
+                           RowHeight="48" 
+                           SortingMode="Single"
+                           ItemsSource="{Binding OrdersInfo}"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always">
+            <sfgrid:SfDataGrid.DefaultStyle>
+                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium"></sfgrid:DataGridStyle>
+            </sfgrid:SfDataGrid.DefaultStyle>
+            <sfgrid:SfDataGrid.SortColumnDescriptions>
+                <sfgrid:SortColumnDescription ColumnName="OrderID" SortDirection="Descending" />
+            </sfgrid:SfDataGrid.SortColumnDescriptions>
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn Format="D"
+                                       MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="Order ID"
+                                       MappingName="OrderID"
+                                       >
+                </sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="Customer ID"
+                                       MappingName="CustomerID"
+                                      >
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="Name"
+                                       MappingName="FirstName"
+                                       >
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="City"
+                                       MappingName="ShipCity"
+                                       >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="Country"
+                                       MappingName="ShipCountry"
+                                       >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridNumericColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       Format="C"
+                                       HeaderText="Freight"
+                                       MappingName="Freight"
+                                       >
+                </sfgrid:DataGridNumericColumn>
+
+            </sfgrid:SfDataGrid.Columns>
+
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid ColumnSpacing="10" RowSpacing="{StaticResource optionRowSpacing}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Switch x:Name="sorting" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="True" Grid.Column="1" Grid.Row="0"></Switch>
+                <Label
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   Text="Allow sorting"
+                   VerticalOptions="Center" />
+
+                <Switch x:Name="multiSorting" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="False" Grid.Column="1" Grid.Row="2"></Switch>
+                <Label
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   Text="Allow multiple column sorting"
+                   VerticalOptions="Center" />
+
+                <Switch x:Name="triSorting" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="False" Grid.Column="1" Grid.Row="1"></Switch>
+                <Label
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   Text="Allow tri-state sorting"
+                   VerticalOptions="Center" />
+
+                <Switch x:Name="columnSorting" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="True" Grid.Column="1" Grid.Row="3"></Switch>
+                <Label
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   Text="Allow sorting for city column"
+                   VerticalOptions="Center" />
+
+                <Switch
+                    Grid.Column="1" Grid.Row="4"
+                    x:Name="showSortNumbers" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    IsToggled="False" />
+                <Label
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   LineBreakMode="WordWrap"
+                   Text="Display sort sequence numbers"
+                   VerticalOptions="Center" />
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

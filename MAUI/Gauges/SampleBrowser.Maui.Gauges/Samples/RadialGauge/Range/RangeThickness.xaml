@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.RangeThickness"
+              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:gauge="http://schemas.syncfusion.com/maui"
+             >
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="rangeThicknessGauge" HorizontalOptions="Center">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis ShowAxisLine="False"
+                                                  TickPosition="Outside"
+                                                  LabelPosition="Outside"
+                                                  RadiusFactor="0.6"
+                                                  CanRotateLabels="True"
+                                                  MinorTicksPerInterval="5"
+                                                  Interval="10"
+                                                  UseRangeColorForAxis="True">
+                    <gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.1" />
+                    </gauge:RadialAxis.MajorTickStyle>
+                    <gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.04" />
+                    </gauge:RadialAxis.MinorTickStyle>
+                    <gauge:RadialAxis.Ranges>
+                        <gauge:RadialRange StartValue="30"
+                                                          EndValue="100"
+                                                          WidthUnit="Factor"
+                                                          OffsetUnit="Factor"
+                                                          StartWidth="0.05"
+                                                          EndWidth="0.2"
+                                                          RangeOffset="0.05"
+                                                          Fill="#FF289AB1">
+                            <gauge:RadialRange.GradientStops>
+                                <gauge:GaugeGradientStop Value="48"
+                                                                         Color="#FF289AB1">
+                                </gauge:GaugeGradientStop>
+                                <gauge:GaugeGradientStop Value="83"
+                                                                         Color="#FF43E695">
+                                </gauge:GaugeGradientStop>
+                            </gauge:RadialRange.GradientStops>
+                        </gauge:RadialRange>
+                    </gauge:RadialAxis.Ranges>
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:NeedlePointer Value="70"
+                                                             EnableAnimation="True"
+                                                             NeedleStartWidth="2"
+                                                             NeedleEndWidth="10"
+                                                             NeedleLengthUnit="Factor"
+                                                             NeedleLength="0.75"
+                                                             TailLengthUnit="Factor"
+                                                             TailLength="0.15"
+                                                             TailWidth="10"
+                                                             KnobSizeUnit="Factor"
+                                                             KnobRadius="0.06">
+                        </gauge:NeedlePointer>
+                    </gauge:RadialAxis.Pointers>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

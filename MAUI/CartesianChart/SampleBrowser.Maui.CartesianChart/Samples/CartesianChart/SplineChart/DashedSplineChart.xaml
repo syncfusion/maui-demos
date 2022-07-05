@@ -1,0 +1,63 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.CartesianChart.SfCartesianChart.DashedSplineChart"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                       xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Content>
+        <chart:SfCartesianChart x:Name="Chart1"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
+            <chart:SfCartesianChart.BindingContext>
+                <local:SplineSeriesViewModel x:Name="viewModel"/>
+            </chart:SfCartesianChart.BindingContext>
+            <chart:SfCartesianChart.Resources>
+                <DoubleCollection x:Key="dashArray">
+                    <x:Double>6</x:Double>
+                    <x:Double>3</x:Double>
+                    <x:Double>3</x:Double>
+                    <x:Double>3</x:Double>
+                </DoubleCollection>
+            </chart:SfCartesianChart.Resources>
+            <chart:SfCartesianChart.Title>
+                <Label Text="Total Investment (% of GDP)" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+            </chart:SfCartesianChart.Title>
+            <chart:SfCartesianChart.Legend>
+                <chart:ChartLegend ToggleSeriesVisibility="True"/>
+            </chart:SfCartesianChart.Legend>
+            <chart:SfCartesianChart.XAxes>
+                <chart:CategoryAxis ShowMajorGridLines="false" PlotOffsetStart="10" PlotOffsetEnd="10" AxisLineOffset="10">
+                </chart:CategoryAxis>
+            </chart:SfCartesianChart.XAxes>
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis Maximum="28" Minimum="16" Interval="4">
+                    <chart:NumericalAxis.AxisLineStyle>
+                        <chart:ChartLineStyle StrokeWidth="0">
+                        </chart:ChartLineStyle>
+                    </chart:NumericalAxis.AxisLineStyle>
+                    <chart:NumericalAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle TickSize="0" />
+                    </chart:NumericalAxis.MajorTickStyle>
+                    <chart:NumericalAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle LabelFormat="0'%" />
+                    </chart:NumericalAxis.LabelStyle>
+                </chart:NumericalAxis>
+            </chart:SfCartesianChart.YAxes>
+            <chart:SfCartesianChart.Series>
+
+                <chart:SplineSeries x:Name="splineSeries3" StrokeDashArray="{StaticResource dashArray}" Label="Brazil" EnableTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="High">
+                </chart:SplineSeries>
+                <chart:SplineSeries x:Name="splineSeries4" StrokeDashArray="{StaticResource dashArray}"  Label="Sweden" EnableTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Low">
+                </chart:SplineSeries>
+                <chart:SplineSeries x:Name="splineSeries5" StrokeDashArray="{StaticResource dashArray}"  Label="Greece" EnableTooltip="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Value">
+                </chart:SplineSeries>
+
+                <chart:ScatterSeries x:Name="scatter3" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries3}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#314A6E" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="High" StrokeWidth="1">
+                </chart:ScatterSeries>
+                <chart:ScatterSeries x:Name="scatter4" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries4}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#48988B" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Low" StrokeWidth="1">
+                </chart:ScatterSeries>
+                <chart:ScatterSeries x:Name="scatter5" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries5}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#5E498C" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Value" StrokeWidth="1">
+                </chart:ScatterSeries>
+
+            </chart:SfCartesianChart.Series>
+        </chart:SfCartesianChart>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
