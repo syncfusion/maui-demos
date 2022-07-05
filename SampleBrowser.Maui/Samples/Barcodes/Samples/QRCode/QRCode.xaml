@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      x:Class="SampleBrowser.Maui.Barcodes.QRCode"
+                      xmlns:barcode="clr-namespace:Syncfusion.Maui.Barcode;assembly=Syncfusion.Maui.Barcode"
+                      Background="White">
+    <localCore:SampleView.Content>
+        <localCore:CardViewExt HorizontalOptions="Center" VerticalOptions="Center" >
+            <StackLayout>
+                <barcode:SfBarcodeGenerator Value="http://www.syncfusion.com" ShowText="True">
+                    <barcode:SfBarcodeGenerator.Symbology>
+                        <barcode:QRCode CodeVersion="Auto"
+                                    InputMode="Auto"
+                                    ErrorCorrectionLevel="Auto"/>
+                    </barcode:SfBarcodeGenerator.Symbology>
+                </barcode:SfBarcodeGenerator>
+            </StackLayout>
+        </localCore:CardViewExt>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

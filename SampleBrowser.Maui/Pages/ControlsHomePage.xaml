@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:local="clr-namespace:SampleBrowser.Maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.ControlsHomePage"
+             xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:core="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+             Title=".NET MAUI Controls Demo (Preview)"
+             BackgroundColor="White"
+             Padding="0" >
+    <ContentPage.BindingContext>
+        <local:ControlPageViewModel x:Name="viewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style x:Key="descriptionLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="{OnPlatform iOS='12', Default='10'}"/>
+        </Style>
+        <Style x:Key="badgeSetting" TargetType="badge:SfBadgeView">
+            <Setter Property="BadgeText" Value="{Binding TagType}"/>
+            <Setter Property="BadgeSettings">
+                <Setter.Value>
+                    <badge:BadgeSettings Background="#608C1B"  
+                                         Offset="-10,9" 
+                                         Type="None" 
+                                         AutoHide="True"
+                                         TextPadding="{OnPlatform Android='5', iOS='5', UWP='1,1,1,1' }"
+                                         Animation="None">
+                            <badge:BadgeSettings.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+				    <On Platform="MacCatalyst" Value="10"/>
+                                    <On Platform="iOS" Value="{OnIdiom Phone=12,Default=10}"/>
+                                    <On Platform="Android" Value="12"/>
+                                    <On Platform="UWP" Value="10"/>
+                                </OnPlatform>
+
+                        </badge:BadgeSettings.FontSize>
+                        </badge:BadgeSettings>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid x:Name="MainGrid" BackgroundColor="#E5E5E5">
+
+            <Grid x:Name="SamplePageViewGrid"
+                  Grid.Column="1"
+                  IsVisible="False">
+                <BoxView BackgroundColor="White" CornerRadius="0,20,0,0" Margin="0,5,5,0" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                <Grid 
+                  RowDefinitions="40,*">
+                <Grid>
+                    <Label x:Name="SelectedControlLabel"
+                           Margin="0,10,0,0"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"
+                           TextColor="Black"
+                           FontSize="20"/>
+                </Grid>
+             
+                <Grid x:Name="SamplePageView"
+                      Margin="0,0,5,5"
+                      Grid.Row="1">
+                    
+                </Grid>
+                
+            </Grid>
+            </Grid>
+
+            <Grid x:Name="MobilePanelGrid" IsVisible="True">
+                    <ScrollView>
+                        <VerticalStackLayout>
+                            <Grid HeightRequest="60">
+                                <Grid.Background>
+                                    <LinearGradientBrush EndPoint="0,1">
+                                        <GradientStop Color="#E5E5E5"
+                          Offset="0.1" />
+                                        <GradientStop Color="#EAEAEA"
+                          Offset="0.2" />
+                                        <GradientStop Color="#FFFFFF"
+                          Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Grid.Background>
+
+                            </Grid>
+                            <Grid BackgroundColor="#E5E5E5" Margin="0,-40,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                <BoxView BackgroundColor="White" CornerRadius="20,20,0,0" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                               
+                                <VerticalStackLayout Spacing="40" Padding="0,25,0,15">
+                                    <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                        <Grid>
+                                            <Grid>
+                                                <Border Background="#F5F5F5" StrokeThickness="1" Padding="15,0,20,0" HorizontalOptions="Start" Stroke="#B3BEC4">
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                    </Border.StrokeShape>
+                                                    <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Data Visualization" />
+                                                </Border>
+                                            </Grid>
+                                            <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" RowDefinitions="*" Margin="0,7,0,0" >
+                                            <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                            <VerticalStackLayout BindableLayout.ItemsSource="{Binding DataVisualizationControlsList}" >
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                        <Grid>
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                        </Grid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </Grid>
+
+                                    <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                        <Grid>
+                                            <Grid>
+                                                <Border Background="#F5F5F5" Padding="15,0,15,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                    </Border.StrokeShape>
+                                                    <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Layout" />
+                                                </Border>
+                                            </Grid>
+                                            <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                            <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                            <VerticalStackLayout  BindableLayout.ItemsSource="{Binding LayoutControlsList}">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                        <Grid>
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                        </Grid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </Grid>
+
+                                    <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,15,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Calendar" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout  BindableLayout.ItemsSource="{Binding CalendarControlsList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                        <Grid>
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                        </Grid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                                   <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,15,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Navigation" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout  BindableLayout.ItemsSource="{Binding NavigationControlsList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                        <Grid>
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                        </Grid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,15,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Sliders" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout  BindableLayout.ItemsSource="{Binding SlidersControlsList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                        <Grid>
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                        </Grid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,15,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Notification" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout  BindableLayout.ItemsSource="{Binding NotificationControlsList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                        <Grid>
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                        </Grid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,15,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Miscellaneous" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout  BindableLayout.ItemsSource="{Binding MiscellaneousControlsList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                        <Grid>
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                        </Grid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,15,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="2">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="File Formats" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="20,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" RowDefinitions="*" Margin="0,0,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout  BindableLayout.ItemsSource="{Binding FileFormatControlsList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                        <Grid>
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <Grid Padding="16" ColumnSpacing="16" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="56" HeightRequest="56" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                        </Grid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                            </VerticalStackLayout>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ScrollView>
+              
+                    
+                    </Grid>
+
+            <Grid x:Name="DesktopPanelGrid" IsVisible="False">
+                <ScrollView>
+                    <VerticalStackLayout>
+                        <Grid BackgroundColor="#E5E5E5" Margin="0,0,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <BoxView BackgroundColor="White" CornerRadius="20,0,0,0" Margin="5,5,5,5" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                            <VerticalStackLayout Spacing="10" Padding="0,15,0,15">
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,20,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Data Visualization" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" x:Name="dataVisualization" RowDefinitions="*" Margin="0,7,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout x:Name="DataVisualizationLayout" BindableLayout.ItemsSource="{Binding DataVisualizationControlsList}" >
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                            <core:CustomGrid BindingContext="{Binding}">
+                                                                <Grid.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                                </Grid.GestureRecognizers>
+                                                                <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
+                                                                <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
+                                                                    <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
+                                                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                        <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                        <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
+                                                                    </VerticalStackLayout>
+                                                                </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                            </core:CustomGrid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+
+                                <Grid x:Name="LayoutsMainGrid" RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,20,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Layouts" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" x:Name="layouts" RowDefinitions="*" Margin="0,7,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding LayoutControlsList}" >
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                            <core:CustomGrid BindingContext="{Binding}">
+                                                                <Grid.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                                </Grid.GestureRecognizers>
+                                                                <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
+                                                                <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
+                                                                    <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
+                                                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                        <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                        <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
+                                                                    </VerticalStackLayout>
+                                                                </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                            </core:CustomGrid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,20,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Calendar" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" x:Name="calendar" RowDefinitions="*" Margin="0,7,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding CalendarControlsList}" >
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                            <core:CustomGrid BindingContext="{Binding}">
+                                                                <Grid.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                                </Grid.GestureRecognizers>
+                                                                <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
+                                                                <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
+                                                                    <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
+                                                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                        <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                        <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
+                                                                    </VerticalStackLayout>
+                                                                </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                            </core:CustomGrid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,20,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Navigation" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" x:Name="navigation" RowDefinitions="*" Margin="0,7,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding NavigationControlsList}" >
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                            <core:CustomGrid BindingContext="{Binding}">
+                                                                <Grid.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                                </Grid.GestureRecognizers>
+                                                                <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
+                                                                <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
+                                                                    <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
+                                                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                        <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                        <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
+                                                                    </VerticalStackLayout>
+                                                                </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                            </core:CustomGrid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,15,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Sliders" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" x:Name="sliders" RowDefinitions="*" Margin="0,0,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout  BindableLayout.ItemsSource="{Binding SlidersControlsList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                            <core:CustomGrid BindingContext="{Binding}">
+                                                                <Grid.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                                </Grid.GestureRecognizers>
+                                                                <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
+                                                                <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
+                                                                    <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
+                                                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                        <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                        <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
+                                                                    </VerticalStackLayout>
+                                                                </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                            </core:CustomGrid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,20,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Notification" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" x:Name="notification"  RowDefinitions="*" Margin="0,7,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding NotificationControlsList}" >
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                            <core:CustomGrid BindingContext="{Binding}">
+                                                                <Grid.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                                </Grid.GestureRecognizers>
+                                                                <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
+                                                                <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
+                                                                    <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
+                                                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                        <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                        <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
+                                                                    </VerticalStackLayout>
+                                                                </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                            </core:CustomGrid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid RowDefinitions="40,*" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,20,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="Micellaneous" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" x:Name="micellaneous" RowDefinitions="*" Margin="0,7,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding MiscellaneousControlsList}" >
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                            <core:CustomGrid BindingContext="{Binding}">
+                                                                <Grid.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                                </Grid.GestureRecognizers>
+                                                                <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
+                                                                <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
+                                                                    <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
+                                                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                        <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                        <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
+                                                                    </VerticalStackLayout>
+                                                                </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                            </core:CustomGrid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+
+                                <Grid RowDefinitions="40,*" x:Name="fileFormatGrid" RowSpacing="5" Padding="16,0,16,0">
+                                    <Grid>
+                                        <Grid>
+                                            <Border Background="#F5F5F5" Padding="15,0,20,0" HorizontalOptions="Start" Stroke="#B3BEC4" StrokeThickness="1">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="40,40,40,0"/>
+                                                </Border.StrokeShape>
+                                                <Label FontFamily="Roboto Medium" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" Text="File Formats" />
+                                            </Border>
+                                        </Grid>
+                                        <BoxView Margin="25,0,0,0" HeightRequest="1" BackgroundColor="#B3BEC4" VerticalOptions="End"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" x:Name="fileFormat" RowDefinitions="*" Margin="0,7,0,0" >
+                                        <BoxView CornerRadius="20" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#FAFAFA"/>
+                                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding FileFormatControlsList}" >
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <badge:SfBadgeView Style="{StaticResource badgeSetting}">
+                                                            <core:CustomGrid BindingContext="{Binding}">
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureTapped"/>
+                                                            </Grid.GestureRecognizers>
+                                                            <ContentView  WidthRequest="4" HorizontalOptions="Start"/>
+                                                            <Grid Padding="16" ColumnSpacing="0" ColumnDefinitions="56,*">
+                                                                <Image Source="{Binding ImageId}" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" />
+                                                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center">
+                                                                    <Label FontFamily="Roboto Medium" Text="{Binding Title}" TextColor="Black"/>
+                                                                    <Label FontFamily="Roboto" Text="{Binding Description}" TextColor="Gray" FontSize="10" />
+                                                                </VerticalStackLayout>
+                                                            </Grid>
+                                                            <BoxView VerticalOptions="End" HeightRequest="2" BackgroundColor="White"/>
+                                                            </core:CustomGrid>
+                                                    </badge:SfBadgeView>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Grid>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

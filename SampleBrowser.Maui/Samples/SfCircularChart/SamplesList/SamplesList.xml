@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+  <SampleGroup Title="Chart Types">
+    <Sample SearchTags="Pie" Name="PieChart" Title="Pie" Description="This sample showcases the pie series feature."/>
+    <Sample SearchTags="Doughnut" Name="DoughnutChart" Title="Doughnut" Description="This sample showcases the doughnut series feature."/>
+  </SampleGroup>
+  <Sample SearchTags="Data Label, label" Name="DataLabel" Title="Data Label"  Description="This sample showcases the data label feature."/>
+  <Sample SearchTags="tooltip,select, highlight" Name="Interaction" Title="Interaction"  Description="This sample showcases the tooltip and selection feature."/>
+</Samples>

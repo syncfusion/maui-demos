@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Samples>
+	<SampleGroup Title="Product Showcase">
+    <Sample SearchTags="ExpensesReport" Name="ExpensesReport" Title="Expenses Report" Description="This example demonstrates how to create a Excel report for expenses with data, chart, formulas, and cell formatting."/>
+		<Sample SearchTags="AttendanceTracker" Name="AttendanceTracker" Title="Attendance Tracker" Description="This example demonstrates how to create monthly attendace tracking Excel reports."/>		 
+	</SampleGroup> 
+	<Sample SearchTags="Create, Excel, xlsx" Name="CreateSpreadsheet" Title="Create Spreadsheet" Description="This example demonstrates how to create a simple Excel document with text, numbers, formulas and styles."/>
+	<Sample SearchTags="Formula, calculate" Name="Formula" Title="Formula" Description="This example demonstrates how to create, read a formula and access its calculated value."/>
+	<Sample SearchTags="Chart, chartData" Name="Chart" Title="Chart" Description="This example demonstrates how to create a chart."/>
+	<Sample SearchTags="DataValidation" Name="DataValidation" Title="Data Validation" Description="This example shows how to set data validation rules for cells in Excel document."/>
+	<Sample SearchTags="TemplateMarker, Marker" Name="TemplateMarker" Title="Template Marker" Description="This example demonstrates the usage of template marker which is a special symbol and shows how import data to Excel document."/>
+  <Sample SearchTags="Table, Tables" Name="Table" Title="Table" Description="This example demonstrates how to create a table on a range of cells."/>
+  <Sample SearchTags="AutoShapes, shapes" Name="AutoShapes" Title="Auto Shapes" Description="This example demonstrates how to use auto shapes in Excel documents."/>
+  <SampleGroup Title="Conversions">
+		<Sample SearchTags="WorksheettoImage, image" Name="WorksheetToImage" Title="Worksheet to Image" Description="This example demonstrates how to convert a Excel worksheet to image."/>
+		<Sample SearchTags="ExcelToPDF, PDF" Name="ExcelToPDF" Title="Excel to PDF" Description="This example demonstrates how to convert a Excel document to PDF."/>
+ </SampleGroup> 
+</Samples>
+

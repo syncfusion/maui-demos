@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Slider.DefaultSlider"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="Minimum"
+                    Value="0" />
+            <Setter Property="Maximum"
+                    Value="100" />
+            <Setter Property="Value"
+                    Value="50" />
+            <Setter Property="NumberFormat"
+                    Value="#0" />
+            <Setter Property="TranslationY"
+                    Value="-30" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
+            <!--To align the label and track vertically, used the slider thumb overlay radius on the label.-->
+            <Setter Property="Padding"
+                    Value="24,0,0,0" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid ColumnDefinitions="10,*,10">
+            <VerticalStackLayout Grid.Column="1"
+                                 Spacing="10"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                <Label Text="Enabled" />
+                <sliders:SfSlider>
+                    <sliders:SfSlider.Tooltip>
+                        <sliders:SliderTooltip />
+                    </sliders:SfSlider.Tooltip>
+                </sliders:SfSlider>
+
+                <BoxView HeightRequest="15" />
+
+                <Label Text="Disabled"
+                       TranslationY="-30" />
+                <sliders:SfSlider IsEnabled="False">
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="Gray"
+                                                  InactiveFill="LightGray" />
+                    </sliders:SfSlider.TrackStyle>
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="Gray" />
+                    </sliders:SfSlider.ThumbStyle>
+                </sliders:SfSlider>
+            </VerticalStackLayout>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

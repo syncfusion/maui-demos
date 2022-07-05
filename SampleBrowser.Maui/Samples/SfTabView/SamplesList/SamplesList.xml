@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+    <Sample SearchTags="getting started" Name="TabViewGettingStarted" Description="This sample shows a simple Tab View getting started. " Title="Getting started"/>
+    <Sample Title="Size to content" SearchTags="size, auto" Name="SizeToContent" Icon="Line.png"  Description="This sample showcases the SizeToContent feature." />
+    <Sample SearchTags="customize" Name="Customization" Description="Showcases the customizations in Tab View. " Title="Customization" />
+</Samples>

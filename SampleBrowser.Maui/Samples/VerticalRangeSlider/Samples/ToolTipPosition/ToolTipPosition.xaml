@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.VerticalRangeSlider.RangeSliderToolTipPosition"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeRangeSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding"
+                    Value="10,15" />
+            <Setter Property="Spacing"
+                    Value="10" />
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <VerticalStackLayout VerticalOptions="Center">
+            <HorizontalStackLayout Padding="15,0"
+                                   Spacing="10"
+                                   HorizontalOptions="Center">
+                <VerticalStackLayout>
+                    <sliders:SfRangeSlider Minimum="10"
+                                           Maximum="40"
+                                           RangeStart="20"
+                                           RangeEnd="30"
+                                           Interval="10">
+
+                        <sliders:SfRangeSlider.Tooltip>
+                            <sliders:SliderTooltip Position="Right"
+                                                   ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" />
+                        </sliders:SfRangeSlider.Tooltip>
+                    </sliders:SfRangeSlider>
+
+                    <Label Text="Tooltip on the right" />
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <sliders:SfDateTimeRangeSlider Minimum="2000-01-01T09:00:00"
+                                                   Maximum="2000-01-01T21:00:00"
+                                                   RangeStart="2000-01-01T13:00:00"
+                                                   RangeEnd="2000-01-01T17:00:00"
+                                                   IntervalType="Hours"
+                                                   MinorTicksPerInterval="3"
+                                                   Interval="4"
+                                                   DateFormat="h tt">
+
+                        <sliders:SfDateTimeRangeSlider.Tooltip>
+                            <sliders:SliderTooltip DateFormat="h:mm tt"
+                                                   Position="Left"
+                                                   ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" />
+                        </sliders:SfDateTimeRangeSlider.Tooltip>
+                    </sliders:SfDateTimeRangeSlider>
+
+                    <Label Text="Tooltip on the left" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+                  HorizontalOptions="Center">
+                <Label Text="Show tooltip always"
+                       Padding="5"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center" />
+                <CheckBox x:Name="tooltipCheckBox"
+                          Grid.Column="1"
+                          Color="#2196F3" />
+            </Grid>
+        </VerticalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
