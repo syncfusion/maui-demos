@@ -1,0 +1,41 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.CartesianChart.SfCartesianChart.Bar_WidthCustomization"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                       xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Content>
+        <chart:SfCartesianChart x:Name="Chart3" IsTransposed="True"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
+            <chart:SfCartesianChart.BindingContext>
+                <local:BarSeriesViewModel/>
+            </chart:SfCartesianChart.BindingContext>
+            <chart:SfCartesianChart.Title>
+                <Label Text="UK Trade in Food Groups - 2015" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+            </chart:SfCartesianChart.Title>
+            <chart:SfCartesianChart.Legend>
+                <chart:ChartLegend ToggleSeriesVisibility="True"/>
+            </chart:SfCartesianChart.Legend>
+            <chart:SfCartesianChart.XAxes>
+                <chart:CategoryAxis EdgeLabelsDrawingMode="Shift" ShowMajorGridLines="false">
+                    <chart:CategoryAxis.Title>
+                        <chart:ChartAxisTitle Text="Food" />
+                    </chart:CategoryAxis.Title>
+                </chart:CategoryAxis>
+            </chart:SfCartesianChart.XAxes>
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis IsVisible="false" EdgeLabelsDrawingMode="Shift" ShowMajorGridLines="false" ShowMinorGridLines="false">
+                    <chart:NumericalAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle TickSize="8">
+                        </chart:ChartAxisTickStyle>
+                    </chart:NumericalAxis.MajorTickStyle>
+                </chart:NumericalAxis>
+            </chart:SfCartesianChart.YAxes>
+            <chart:SfCartesianChart.Series>
+                <chart:ColumnSeries Label="2015" Width="0.8" EnableTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData2}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="{Binding EnableAnimation}">
+                </chart:ColumnSeries>
+                <chart:ColumnSeries Label="2016" Width="0.8" EnableTooltip="True" Spacing="0.1" ItemsSource="{Binding BarData3}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="{Binding EnableAnimation}">
+                </chart:ColumnSeries>
+            </chart:SfCartesianChart.Series>
+        </chart:SfCartesianChart>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

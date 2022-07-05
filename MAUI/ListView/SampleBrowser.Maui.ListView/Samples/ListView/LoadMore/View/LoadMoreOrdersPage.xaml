@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.ListView.SfListView.LoadMoreOrdersPage"
+             BackgroundColor="White"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             x:Name="ordersPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:InverseZeroVisibilityConverter x:Key="inverseZeroVisibilityConverter"/>
+            <local:TotalItemsCountConverter x:Key="totalItemsCountConverter"/>
+            <local:ZeroVisibilityConverter x:Key="zeroVisibilityConverter"/>
+            <local:CurrencyFormatConverter x:Key="currencyFormatConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid x:Name="sampleLayout" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        <Frame BackgroundColor="White" HasShadow="False" Padding="0" Margin="0">
+            <Grid Padding="0" HeightRequest="{OnPlatform Default=48, Android=56}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="grid" Grid.Column="0" Margin="16,0,8,0">
+                    <Label Text="Cart" FontAttributes="Bold" VerticalOptions="Center" FontSize="16"
+                           TextColor="{OnPlatform Default=#333333, Android=#000000}"
+                           Opacity="{OnPlatform Default=1, Android=0.87}" />
+                </Grid>
+                <Grid Grid.Column="1" BackgroundColor="White" HorizontalOptions="End" VerticalOptions="Center" Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontAttributes="Bold" Margin="0" Text="{Binding TotalOrderedItems, Converter={StaticResource totalItemsCountConverter}}"
+                         VerticalOptions="Center" HorizontalOptions="End" FontSize="16"
+                         TextColor="{OnPlatform Android=#009688, iOS=#1C73F2, UWP=#0078D7}" />
+                    <Label Grid.Column="1" FontAttributes="Bold"
+                           Text="{Binding TotalPrice, StringFormat='{0:c}',Converter={StaticResource currencyFormatConverter}}" 
+                           VerticalOptions="Center" HorizontalOptions="End" Margin="16,0,8,0" FontSize="16"
+                         TextColor="{OnPlatform Android=#009688, iOS=#1C73F2, UWP=#0078D7}" />
+                </Grid>
+            </Grid>
+        </Frame>
+        <BoxView x:Name="boxView" Grid.Row="1" BackgroundColor="#EAEAEA"  HeightRequest="{OnPlatform Default=0, UWP=1}" />
+        <ListView:SfListView x:Name="listView" Grid.Row="2"
+                            ItemSize="120"
+                            ScrollBarVisibility="Always"
+                            SelectionMode="None"
+                            ItemsSource="{Binding Orders}">
+            <ListView:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="120" Margin="0" Padding="0" RowSpacing="0" BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Grid Padding="0" ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" WidthRequest="100">
+                                    <Image Source="{Binding Image}" Aspect="Fill" WidthRequest="100" Margin="16,0,0,0" HeightRequest="100" IsVisible="True" VerticalOptions="Center" HorizontalOptions="Start" />
+                                </Grid>
+
+                                <Grid Grid.Column="1" Padding="0"  RowSpacing="0" Margin="25,8,0,0"  HorizontalOptions='Start'>
+                                    <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid Margin="0" HorizontalOptions="End" VerticalOptions="Start" WidthRequest="{OnPlatform Default=32, Android=24}" HeightRequest="{OnPlatform Default=32, Android=24}">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveOrderCommand, Source={x:Reference listView}}" 
+                                                              CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+                                        <Label Text="&#xe735;" TextColor="#808080" FontFamily="{OnPlatform iOS=Sync FontIcons,MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, UWP=Sync FontIcons.ttf#Sync FontIcons}" Margin='{OnPlatform Default=0,Android="0,22,0,0", UWP="0,10,0,0"}'
+                                           HeightRequest="40" WidthRequest="40" FontSize="Medium"
+                                           VerticalOptions="Center" HorizontalOptions="Center"/>
+                                </Grid>
+                                <Label Text="{Binding Name}" HorizontalOptions="Start" Margin="0,0,0,4" FontSize="16"
+                                     TextColor="{OnPlatform Default=#333333, Android=#000000}"
+                                     Opacity="{OnPlatform Default=1, Android=0.87}" />
+                                <Label Text="{Binding Weight}" FontSize="14" Grid.Row="1" HorizontalOptions="Start" 
+                                       TextColor="{OnPlatform Default=#757575, Android=#000000, UWP=#4C4C4C}"
+                                       Opacity="{OnPlatform Default=1, Android=0.54}" />
+                                <Grid Grid.Row="2" Padding="0" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Price, Converter={StaticResource currencyFormatConverter}}" VerticalOptions="Start" FontAttributes="Bold"
+                                         HorizontalOptions="Start" FontSize="16"
+                                         TextColor="{OnPlatform Default=#1C73F2, Android=#009688, UWP=#0078D7}"
+                                         Margin='{OnPlatform Default="0,12,0,0", Android="0,16,0,0"}' />
+                                        <Grid x:Name="NumericButton" Margin="0,0,14,0"  WidthRequest="120" Grid.Column="1" HeightRequest="40"  BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}" IsVisible="{Binding Quantity, Converter={StaticResource inverseZeroVisibilityConverter}}" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.3*"/>
+                                                <ColumnDefinition Width="0.3*"/>
+                                                <ColumnDefinition Width="0.3*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Button Text="-"  Grid.Column="0"  FontSize="16" BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, UWP=#000000}" Command="{Binding Path=BindingContext.RemoveButtonCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding .}" />
+                                            <Label Text="{Binding Quantity}"  Grid.Column="1"   HorizontalTextAlignment="Center"   BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, UWP=#000000}" IsVisible="True" VerticalTextAlignment="Center"/>
+                                            <Button Text="+" FontSize="16"  Grid.Column="2"   BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, UWP=#000000}" Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding .}"   />
+                                            </Grid>
+                                        </Grid>
+                            </Grid>
+                        </Grid>
+                        <BoxView x:Name="boxView" Grid.Row="1" BackgroundColor="#EAEAEA"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView:SfListView.ItemTemplate>
+        </ListView:SfListView>
+        <Label Grid.Row="2" LineBreakMode="WordWrap" FontAttributes="Bold"
+             Text="Your cart is empty!" VerticalOptions="Center" HorizontalOptions="Center"
+             IsVisible="{Binding TotalOrderedItems, Converter={StaticResource zeroVisibilityConverter}}" FontSize="16"
+             TextColor="{OnPlatform Default=#1C73F2, Android=#009688, UWP=#0078D7}" />
+
+            <Button Grid.Row="3" Text="CHECKOUT"   TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, UWP=#000000}"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                Command="{Binding CheckoutCommand}" CommandParameter="{Binding Source={x:Reference Name=ordersPage}}" 
+                IsVisible="{Binding TotalOrderedItems, Converter={StaticResource inverseZeroVisibilityConverter}}"
+                FontSize="{OnPlatform Default=12, Android=16}"
+                BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}" />
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>

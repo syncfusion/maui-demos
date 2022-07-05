@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Sliders">
+    
+		<Control Title="Radial Slider" ControlName="RadialSlider" Image="radialslider.png" Description="Selects a numeric value in a radial scale. Designed using radial gauge control.">
+      <Category Title="Basic Features">
+				<Sample SearchTags="radial slider, slider" SampleName="StateRadialSlider" Title="State" CodeViewerPath="RadialSlider/State/"/>
+				<Sample SearchTags="slider, labels, ticks, minor ticks" SampleName="LabelsAndTicksRadialSlider" Title="Labels and Ticks" CodeViewerPath="RadialSlider/LabelsAndTicks/" />
+				<Sample SearchTags="angles, slider" SampleName="AnglesRadialSlider" Title="Angles" CodeViewerPath="RadialSlider/Angles/"/>
+			</Category>
+
+      <Category Title="Customization">
+				<Sample SearchTags="slider, styles" SampleName="StylesRadialSlider" Title="Styles" CodeViewerPath="RadialSlider/Styles/"/>
+				<Sample SearchTags="slider, thump" SampleName="ThumpRadialSlider" Title="Thumb" CodeViewerPath="RadialSlider/Thump/"/>
+				<Sample SearchTags="slider, custom, custom text, customization" SampleName="CustomTextRadialSlider" Title="Custom Text" CodeViewerPath="RadialSlider/CustomText/"/>
+				<Sample SearchTags="slider, gradient, customization" SampleName="GradientFillRadialSlider" Title="Gradient Fill" CodeViewerPath="RadialSlider/GradientFill/"/>
+			</Category>
+		</Control>
+    
+  	<Control Title="Radial Range Slider" ControlName="RadialRangeSlider" Image="radialrangeslider.png" Description="Selects a numeric range in a radial scale. Designed using radial gauge control.">
+      <Category Title="Basic Features">
+	    	<Sample SearchTags="radial slider, range slider, slider" SampleName="StateRadialRangeSlider" Title="State" CodeViewerPath="RadialRangeSlider/State/"/>
+	    	<Sample SearchTags="slider, range slider, labels, ticks, minor ticks" SampleName="LabelsAndTicksRadialRangeSlider" Title="Labels and Ticks" CodeViewerPath="RadialRangeSlider/LabelsAndTicks/"/>
+	    	<Sample SearchTags="angles, range slider, slider" SampleName="AnglesRadialRangeSlider" Title="Angles" CodeViewerPath="RadialRangeSlider/Angles/"/>
+	    </Category>
+
+      <Category Title="Customization">
+	    	<Sample SearchTags="slider, range slider, styles" SampleName="StylesRadialRangeSlider" Title="Styles" CodeViewerPath="RadialRangeSlider/Styles/"/>
+	    	<Sample SearchTags="slider, range slider, thump" SampleName="ThumpRadialRangeSlider" Title="Thumb" CodeViewerPath="RadialRangeSlider/Thump/"/>
+	    	<Sample SearchTags="slider, range slider, custom, custom text, customization" SampleName="CustomTextRadialRangeSlider" Title="Custom Text" CodeViewerPath="RadialRangeSlider/CustomText/"/>
+	    	<Sample SearchTags="slider, range slider, gradient, customization" SampleName="GradientFillRadialRangeSlider" Title="Gradient Fill" CodeViewerPath="RadialRangeSlider/GradientFill/"/>
+	    </Category>
+		</Control>
+
+	</ControlCategory>
+</SyncfusionControls>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.ListView.SfListView.Grouping"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"    
+    BackgroundColor="White">
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <ListView:SfListView x:Name="listView"
+                    ItemSize="70" ScrollBarVisibility="Always"
+                      SelectionMode="{OnPlatform Default= Single , UWP=None}"
+                       IsStickyGroupHeader="True"
+                       ItemsSource="{Binding ContactsInfo}"
+                       AllowGroupExpandCollapse="True" 
+                       GroupHeaderSize="40">
+            <ListView:SfListView.BindingContext>
+                <local:ListViewGroupingViewModel/>
+            </ListView:SfListView.BindingContext>
+            <ListView:SfListView.DataSource>
+                <data:DataSource>
+                    <data:DataSource.SortDescriptors>
+                        <data:SortDescriptor PropertyName="ContactName" Direction="Ascending"/>
+                    </data:DataSource.SortDescriptors>
+                </data:DataSource>
+            </ListView:SfListView.DataSource>
+            <ListView:SfListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#E4E4E4">
+                        <Label Text="{Binding Key}" 
+                         FontSize="22" 
+                         FontAttributes="Bold"
+                         TextColor="#4d4d4d"
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Start" 
+                         WidthRequest="200"
+                         Margin="20,0,0,0" />
+                    </StackLayout>
+
+                </DataTemplate>
+            </ListView:SfListView.GroupHeaderTemplate>
+            <ListView:SfListView.Behaviors>
+                <local:SfListViewGroupingBehavior/>
+            </ListView:SfListView.Behaviors>
+            <ListView:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid x:Name="grid" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="69" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Grid RowSpacing="0" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="70" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0"  Source="{Binding ContactImage,Converter={StaticResource imageconverter}}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           HeightRequest="50" WidthRequest="50"/>
+
+                            <Grid Grid.Row="0" Grid.Column="1"
+                          RowSpacing="2"
+                          Padding="10,0,0,0"
+                          VerticalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Label LineBreakMode="NoWrap" Grid.Row="0"                                      
+                                                   TextColor="#DE000000"
+                                                   Text="{Binding ContactName}"
+                                                   FontFamily="Roboto"
+                                                   VerticalOptions="End"
+                                                   VerticalTextAlignment="End"
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=18}, iOS=16, UWP=16}" />
+                                <Label Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   TextColor="#99000000"
+                                                   FontFamily="Roboto"
+                                                   LineBreakMode="NoWrap"
+                                                   VerticalOptions="Start"
+                                                   VerticalTextAlignment="Start"
+                                                   Text="{Binding ContactNumber}"
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=14}, iOS=14, UWP=14}" />
+                            </Grid>
+                            <Grid Grid.Row="0"
+                          Grid.Column="2"
+                          RowSpacing="0"
+                          HorizontalOptions="End" VerticalOptions="Start"
+                                              Padding="0,10,10,0">
+                                <Label LineBreakMode="NoWrap" WidthRequest="{OnPlatform Default=60,MacCatalyst=100, WinUI=70}"
+                                                   TextColor="#99000000"
+                                                   FontFamily="Roboto"
+                                                   VerticalOptions="Start"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   HorizontalTextAlignment="End"
+                                                   Text="{Binding ContactType}"
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=12}, iOS=12, UWP=14}" />
+                            </Grid>
+                        </Grid>
+                        <StackLayout Grid.Row="1" BackgroundColor="#E4E4E4" HeightRequest="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView:SfListView.ItemTemplate>
+        </ListView:SfListView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

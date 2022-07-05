@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalSlider.VerticalSliderColorCustomizationSample">
+
+    <sb:SampleView.Resources>
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="Minimum"
+                    Value="-50" />
+            <Setter Property="Maximum"
+                    Value="50" />
+            <Setter Property="Value"
+                    Value="0" />
+            <Setter Property="Interval"
+                    Value="25" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding"
+                    Value="25,15" />
+            <Setter Property="Spacing"
+                    Value="10" />
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <HorizontalStackLayout Padding="15,0"
+                                   Spacing="20"
+                                   HorizontalOptions="Center">
+                <VerticalStackLayout>
+                    <sliders:SfSlider ShowTicks="True">
+                        <sliders:SfSlider.TrackStyle>
+                            <sliders:SliderTrackStyle ActiveFill="#009688"
+                                                      InactiveFill="#3D009688" />
+                        </sliders:SfSlider.TrackStyle>
+
+                        <sliders:SfSlider.ThumbStyle>
+                            <sliders:SliderThumbStyle Fill="#009688" />
+                        </sliders:SfSlider.ThumbStyle>
+
+                        <sliders:SfSlider.ThumbOverlayStyle>
+                            <sliders:SliderThumbOverlayStyle Fill="#3D009688" />
+                        </sliders:SfSlider.ThumbOverlayStyle>
+                    </sliders:SfSlider>
+                    <Label Text="Track" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <sliders:SfSlider ShowDividers="True">
+                        <sliders:SfSlider.ThumbStyle>
+                            <sliders:SliderThumbStyle Fill="White"
+                                                      Stroke="#FF5722"
+                                                      StrokeThickness="2" />
+                        </sliders:SfSlider.ThumbStyle>
+
+                        <sliders:SfSlider.ThumbOverlayStyle>
+                            <sliders:SliderThumbOverlayStyle Fill="#1FFF5722" />
+                        </sliders:SfSlider.ThumbOverlayStyle>
+
+                        <sliders:SfSlider.TrackStyle>
+                            <sliders:SliderTrackStyle ActiveFill="#FF5722"
+                                                      InactiveFill="#3DFF5722" />
+                        </sliders:SfSlider.TrackStyle>
+
+                        <sliders:SfSlider.DividerStyle>
+                            <sliders:SliderDividerStyle ActiveRadius="5"
+                                                        InactiveRadius="5"
+                                                        ActiveFill="White"
+                                                        InactiveFill="White"
+                                                        ActiveStroke="#3DFF5722"
+                                                        InactiveStroke="#FF5722"
+                                                        ActiveStrokeThickness="2"
+                                                        InactiveStrokeThickness="2" />
+                        </sliders:SfSlider.DividerStyle>
+                    </sliders:SfSlider>
+                    <Label Text="Divider" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

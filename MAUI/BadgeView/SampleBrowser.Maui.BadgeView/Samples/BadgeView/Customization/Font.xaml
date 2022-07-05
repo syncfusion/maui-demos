@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.BadgeView.SfBadgeView.Font">
+
+    <localCore:SampleView.Resources>
+        <Style x:Key="DemoLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout WidthRequest="300" 
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center">
+                <Grid RowDefinitions="90,90" RowSpacing="20" ColumnSpacing="20"
+                   ColumnDefinitions="*,*">
+                    <badge:SfBadgeView Grid.Row="0"
+                                       Grid.Column="0"
+                                       BadgeText="5">
+                        <Grid BackgroundColor="#EEEEEE" 
+                                  Margin="10">
+                            <Label Text="Size"
+                                       Style="{StaticResource DemoLabelStyle}"/>
+                        </Grid>
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings FontSize="20"/>
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <badge:SfBadgeView Grid.Row="0"
+                                       Grid.Column="1"
+                                       BadgeText="5">
+                        <Grid BackgroundColor="#EEEEEE" 
+                                  Margin="10">
+                            <Label Text="Font Attributes" LineBreakMode="WordWrap" HorizontalTextAlignment="Center"
+                                       Style="{StaticResource DemoLabelStyle}"/>
+                        </Grid>
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings FontAttributes="Bold"/>
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <badge:SfBadgeView Grid.Row="1"
+                                       Grid.Column="0"
+                                       BadgeText="5">
+                        <Grid BackgroundColor="#EEEEEE" 
+                                  Margin="10">
+                            <Label Text="Padding"
+                                       Style="{StaticResource DemoLabelStyle}"/>
+                        </Grid>
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings TextPadding="10"/>
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <badge:SfBadgeView Grid.Row="1"
+                                       Grid.Column="1"
+                                       BadgeText="5">
+                        <Grid BackgroundColor="#EEEEEE" 
+                                  Margin="10">
+                            <Label Text="Color"
+                                       Style="{StaticResource DemoLabelStyle}"/>
+                        </Grid>
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings FontAttributes="Bold" 
+                                                 TextColor="Red"
+                                                 Stroke="Red"
+                                                 BorderWidth="2"
+                                                 Type="None"
+                                                 Background="White"/>
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.LinearAnimation"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="linearAnimationGauge" HorizontalOptions="Center">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis RadiusFactor="0.6"
+                                  ShowAxisLine="False"
+                                  TickPosition="Outside"
+                                  LabelPosition="Outside"
+                                  Interval="10"
+                                  MinorTicksPerInterval="4">
+                    <gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                               Length="0.15" />
+                    </gauge:RadialAxis.MajorTickStyle>
+                    <gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                               Length="0.04" />
+                    </gauge:RadialAxis.MinorTickStyle>
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:RangePointer WidthUnit="Pixel"
+                                            PointerWidth="15"
+                                            OffsetUnit="Factor"
+                                            PointerOffset="0.05"
+                                            Value="45"
+                                            EnableAnimation="True">
+                            <gauge:RangePointer.GradientStops>
+                                <gauge:GaugeGradientStop Value="25"
+                                                         Color="#FF3B3FF3" />
+                                <gauge:GaugeGradientStop Value="75"
+                                                         Color="#FF46D0ED" />
+                            </gauge:RangePointer.GradientStops>
+                        </gauge:RangePointer>
+                    </gauge:RadialAxis.Pointers>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+
+        </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

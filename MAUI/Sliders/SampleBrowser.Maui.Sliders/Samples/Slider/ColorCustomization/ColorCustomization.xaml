@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.SfSlider.SliderColorCustomizationSample">
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto,Auto,25,Auto,Auto"
+                  ColumnDefinitions="24,Auto,24"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center">
+
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Active and inactive track color" />
+                <sliders:SfSlider Grid.Row="1"
+                                  Grid.ColumnSpan="3"
+                                  Minimum="-50"
+                                  Maximum="50"
+                                  Value="0"
+                                  Interval="25"
+                                  ShowTicks="True"
+                                  ShowLabels="True">
+
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="#009688"
+                                                  InactiveFill="#3D009688" />
+                    </sliders:SfSlider.TrackStyle>
+
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="#009688" />
+                    </sliders:SfSlider.ThumbStyle>
+
+                    <sliders:SfSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="#3D009688" />
+                    </sliders:SfSlider.ThumbOverlayStyle>
+                </sliders:SfSlider>
+
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Text="Thumb and divider stroke color" />
+                <sliders:SfSlider Grid.Row="4"
+                                  Grid.ColumnSpan="3"
+                                  Minimum="-50"
+                                  Maximum="50"
+                                  Value="0"
+                                  Interval="25"
+                                  ShowDividers="True">
+
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="White"
+                                                  Stroke="#FF5722"
+                                                  StrokeThickness="2" />
+                    </sliders:SfSlider.ThumbStyle>
+
+                    <sliders:SfSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="#1FFF5722" />
+                    </sliders:SfSlider.ThumbOverlayStyle>
+
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="#FF5722"
+                                                  InactiveFill="#3DFF5722" />
+                    </sliders:SfSlider.TrackStyle>
+
+                    <sliders:SfSlider.DividerStyle>
+                        <sliders:SliderDividerStyle ActiveRadius="5"
+                                                    InactiveRadius="5"
+                                                    ActiveFill="White"
+                                                    InactiveFill="White"
+                                                    ActiveStroke="#3DFF5722"
+                                                    InactiveStroke="#FF5722"
+                                                    ActiveStrokeThickness="2"
+                                                    InactiveStrokeThickness="2" />
+                    </sliders:SfSlider.DividerStyle>
+                </sliders:SfSlider>
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>
