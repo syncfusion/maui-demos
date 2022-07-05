@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Samples>
-	<Sample Title="Ripple" SearchTags="Ripple" Name="RippleAnimation" Description="This sample shows a ripple effect while touching down." />
-	<Sample Title="Scale" SearchTags="Scale" Name="ScaleAnimation" Description="This sample shows a scale effect while touching down." />
-	<Sample Title="Rotate" SearchTags="Rotation" Name="RotateAnimation" Description="This sample shows a rotation effect while touching down." />
-</Samples>
