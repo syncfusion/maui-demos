@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Samples>
+	<SampleGroup Title="Basic Features" UpdateType="Updated">
+		<Sample SearchTags="Default, slider" Name="DefaultSlider" Title="Default" Description="This sample showcases the default slider." />
+		<Sample SearchTags="Dividers, labels, ticks, minor ticks" Name="SliderDividerLabelTick" Title="Dividers, labels, and ticks" Description="This sample showcases the divider, ticks and labels features." />
+		<Sample IsUpdated="true" SearchTags="interval" Name="SliderDateInterval" Title="Date interval" Description="This sample showcases the interval feature." />
+		<Sample SearchTags="step, discrete" Name="SliderDiscrete" Title="Step" Description="This sample showcases the step size feature." />
+	</SampleGroup>
+
+	<SampleGroup Title="Customization" UpdateType="Updated">
+		<Sample IsNew="true" SearchTags="thumb icon" Name="SliderThumbIconCustomization" Title="Thumb icon" Description="This sample showcases the thumb icon customization." />
+		<Sample SearchTags="color" Name="SliderColorCustomization" Title="Color" Description="This sample showcases the color customizations." />
+		<Sample SearchTags="size" Name="SliderSizeCustomization" Title="Size" Description="This sample showcases the size customizations." />
+	</SampleGroup>
+</Samples>

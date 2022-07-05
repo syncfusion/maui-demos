@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.LinearGaugeBarPointer"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      Background="White">
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <HorizontalStackLayout HorizontalOptions="Center" Padding="0,20,0,10">
+                <Grid  WidthRequest="100" HeightRequest="35">
+                    <RoundRectangle x:Name="horizontalRectangle" 
+                                    WidthRequest="100" 
+                                    HeightRequest="35"
+                                    StrokeThickness="2"
+                                    Stroke="#ff0074E3"
+                                    CornerRadius="3,0,3,0"  
+                                    Fill="#ff0074E3"/>
+                    <Label x:Name="horizontalLabel" 
+                           Text="Horizontal" HorizontalOptions="Center"
+                           VerticalOptions="Center" TextColor="White"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Button_Clicked"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid WidthRequest="100" HeightRequest="35">
+                    <RoundRectangle x:Name="verticalRectangle" 
+                                    WidthRequest="100" 
+                                    HeightRequest="35"
+                                    StrokeThickness="2"
+                        CornerRadius="0,3,0,3"  Stroke="#ff0074E3"/>
+                    <Label x:Name="verticalLabel"  
+                           Text="Vertical" HorizontalOptions="Center"
+                           VerticalOptions="Center" TextColor="Black"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Button_Clicked_1"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </HorizontalStackLayout>
+            <ContentView x:Name="contentView" Grid.Row="1"  VerticalOptions="Center">
+                <local:LinearGaugeBarPointerHorizontal/>
+            </ContentView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

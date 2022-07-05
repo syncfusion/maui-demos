@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalRangeSlider.VerticalRangeSliderDragModeSample">
+
+    <sb:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Minimum"
+                    Value="0" />
+            <Setter Property="Maximum"
+                    Value="100" />
+            <Setter Property="RangeStart"
+                    Value="25" />
+            <Setter Property="RangeEnd"
+                    Value="75" />
+            <Setter Property="Interval"
+                    Value="25" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding"
+                    Value="15" />
+            <Setter Property="Spacing"
+                    Value="10" />
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <HorizontalStackLayout Padding="15,0"
+                                   Spacing="10"
+                                   HorizontalOptions="Center">
+                <VerticalStackLayout>
+                    <sliders:SfRangeSlider />
+                    <Label Text="On thumb" />
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <sliders:SfRangeSlider DragBehavior="BetweenThumbs" />
+                    <Label Text="Between thumbs" />
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <sliders:SfRangeSlider DragBehavior="Both" />
+                    <Label Text="Both" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

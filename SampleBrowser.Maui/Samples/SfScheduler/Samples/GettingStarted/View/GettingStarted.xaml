@@ -1,0 +1,35 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SfScheduler.GettingStarted"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SfScheduler"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <schedule:SfScheduler x:Name="Scheduler" 
+                                 AppointmentsSource="{Binding Events}"
+                                 MinimumDateTime="{Binding MinDateTime}"
+                                 MaximumDateTime="{Binding MaxDateTime}"
+                                 DisplayDate="{Binding DisplayDate}"
+                                 ShowWeekNumber="True"
+                                 AllowViewNavigation="True"
+                                 AllowedViews="Day,Week,WorkWeek,Month,Agenda"
+                                 View="Week" >
+                <schedule:SfScheduler.MonthView>
+                    <schedule:SchedulerMonthView 
+                                 AppointmentDisplayMode="Text"/>
+                </schedule:SfScheduler.MonthView>
+                <schedule:SfScheduler.DaysView>
+                    <schedule:SchedulerDaysView 
+                                 MinimumAppointmentDuration="0:30:0" />
+                </schedule:SfScheduler.DaysView>
+                <schedule:SfScheduler.Behaviors>
+                    <local:SchedulerBehavior/>
+                </schedule:SfScheduler.Behaviors>
+                <schedule:SfScheduler.BindingContext>
+                    <local:SchedulerGettingStartedViewModel/>
+                </schedule:SfScheduler.BindingContext>
+            </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

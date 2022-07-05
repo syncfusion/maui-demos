@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauge="http://schemas.syncfusion.com/maui" HorizontalOptions="Center"
+             x:Class="SampleBrowser.Maui.SfLinearGauge.LinearGaugeTrackHorizontal">
+    <ContentView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#CC000000" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="0,30,0,15" />
+            <Setter Property="HorizontalOptions" Value="Start"/>
+        </Style>
+        <Style TargetType="gauge:SfLinearGauge">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="MaximumWidthRequest" Value="380"/>
+        </Style>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <ScrollView MaximumWidthRequest="420">
+            <VerticalStackLayout Margin="20,0,15,50">
+                <Label Text="Default axis"/>
+                <gauge:SfLinearGauge EnableAxisAnimation="True"/>
+
+                <Label Text="Edge style"/>
+                <gauge:SfLinearGauge EnableAxisAnimation="True">
+                    <gauge:SfLinearGauge.LineStyle>
+                        <gauge:LinearLineStyle CornerStyle="BothCurve" Thickness="20"/>
+                    </gauge:SfLinearGauge.LineStyle>
+                </gauge:SfLinearGauge>
+
+                <Label Text="Inversed axis"/>
+                <gauge:SfLinearGauge EnableAxisAnimation="True" IsInversed="True">
+                    <gauge:SfLinearGauge.BarPointers>
+                        <gauge:BarPointer Value="70" EnableAnimation="True"  AnimationEasing="{x:Static Easing.CubicOut}"/>
+                    </gauge:SfLinearGauge.BarPointers>
+                    <gauge:SfLinearGauge.MarkerPointers>
+                        <gauge:LinearShapePointer Value="70" EnableAnimation="True"  AnimationEasing="{x:Static Easing.CubicOut}"/>
+                    </gauge:SfLinearGauge.MarkerPointers>
+                </gauge:SfLinearGauge>
+
+                <Label Text="Range color for axis"/>
+                <gauge:SfLinearGauge EnableAxisAnimation="True" EnableRangeAnimation="True"
+                                 UseRangeColorForAxis="True">
+                    <gauge:SfLinearGauge.Ranges>
+                        <gauge:LinearRange StartValue="0" EndValue="30" Position="Cross" Fill="#f45656"/>
+                        <gauge:LinearRange StartValue="30" EndValue="70" Position="Cross" Fill="#ffc93e"/>
+                        <gauge:LinearRange StartValue="70" EndValue="100" Position="Cross" Fill="#0dc9ab"/>
+                    </gauge:SfLinearGauge.Ranges>
+                </gauge:SfLinearGauge>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

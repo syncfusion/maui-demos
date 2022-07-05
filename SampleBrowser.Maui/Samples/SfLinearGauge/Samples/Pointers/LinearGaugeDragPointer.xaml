@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.SfRadialGauge"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      x:Class="SampleBrowser.Maui.SfLinearGauge.LinearGaugeDragPointer"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      Background="White" VerticalOptions="Center">
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#CC000000" />
+        </Style>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+       
+            <VerticalStackLayout WidthRequest="350" 
+                                 HorizontalOptions="Center" Padding="0,20,0,10">
+            <Label Text="Free" Margin="0,10,0,40"/>
+            <gauge:SfLinearGauge>
+                <gauge:SfLinearGauge.MarkerPointers>
+                    <gauge:LinearShapePointer x:Name="shapePointer1" EnableAnimation="True" Value="40"
+                                         AnimationEasing="{x:Static Easing.CubicOut}" DragOffset="0"
+                                        Fill="#ff0074E3" ShapeHeight="10" IsInteractive="True"/>
+                    <gauge:LinearShapePointer x:Name="shapePointer2" ShapeType="Rectangle" OffsetY="-10"
+                                        Fill="#ff0074E3" EnableAnimation="True" DragOffset="0"
+                                              IsInteractive="True"
+                                         AnimationEasing="{x:Static Easing.CubicOut}"
+                                        Value="{Binding Source={x:Reference shapePointer1}, Path=Value}"/>
+                    <gauge:LinearShapePointer x:Name="shapePointer3" EnableAnimation="True" Value="60"
+                                         AnimationEasing="{x:Static Easing.CubicOut}" DragOffset="0"
+                                        Fill="Black" ShapeHeight="10" IsInteractive="True"/>
+                    <gauge:LinearShapePointer x:Name="shapePointer4" ShapeType="Rectangle" OffsetY="-10"
+                                        Fill="Black" EnableAnimation="True" DragOffset="0"
+                                              IsInteractive="True"
+                                         AnimationEasing="{x:Static Easing.CubicOut}"
+                                        Value="{Binding Source={x:Reference shapePointer3}, Path=Value}"
+                                        AnimationCompleted="shapePointer4_AnimationCompleted"/>
+                </gauge:SfLinearGauge.MarkerPointers>
+            </gauge:SfLinearGauge>
+
+            <Label Text="Constrained" Margin="0,50,0,40"/>
+            <gauge:SfLinearGauge>
+                <gauge:SfLinearGauge.MarkerPointers>
+                    <gauge:LinearShapePointer x:Name="shapePointer5" EnableAnimation="True" Value="40"
+                                         AnimationEasing="{x:Static Easing.CubicOut}" DragOffset="0"
+                                        Fill="#ff0074E3" ShapeHeight="10" IsInteractive="True"
+                                        ValueChanging="shapePointer5_ValueChanging"/>
+                    <gauge:LinearShapePointer x:Name="shapePointer6" ShapeType="Rectangle" OffsetY="-10"
+                                              IsInteractive="True"
+                                              ValueChanging="shapePointer5_ValueChanging"
+                                        Fill="#ff0074E3" EnableAnimation="True" DragOffset="0"
+                                         AnimationEasing="{x:Static Easing.CubicOut}"
+                                        Value="{Binding Source={x:Reference shapePointer5}, Path=Value}"/>
+                    <gauge:LinearShapePointer x:Name="shapePointer7" EnableAnimation="True" Value="60"
+                                         AnimationEasing="{x:Static Easing.CubicOut}" DragOffset="0"
+                                        Fill="Black" ShapeHeight="10" IsInteractive="True"
+                                        ValueChanging="shapePointer7_ValueChanging"/>
+                    <gauge:LinearShapePointer x:Name="shapePointer8" ShapeType="Rectangle" OffsetY="-10"
+                                              IsInteractive="True"
+                                               ValueChanging="shapePointer7_ValueChanging"
+                                        Fill="Black" EnableAnimation="True" DragOffset="0"
+                                         AnimationEasing="{x:Static Easing.CubicOut}"
+                                        Value="{Binding Source={x:Reference shapePointer7}, Path=Value}"/>
+                </gauge:SfLinearGauge.MarkerPointers>
+            </gauge:SfLinearGauge>
+                
+        </VerticalStackLayout>
+           
+    </localCore:SampleView.Content>
+</localCore:SampleView>

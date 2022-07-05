@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Filtering"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    BackgroundColor="White">
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="115"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="shippingDateColumn" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="searchBoxHeight" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="29"></On>
+            <On Platform="WinUI,MacCatalyst" Value="36"></On>
+        </OnPlatform>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Behaviors>
+        <local:FilteringBehavior></local:FilteringBehavior>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel></local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Content>
+        <Grid HorizontalOptions="FillAndExpand" x:Name="grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Frame HeightRequest="48" HasShadow="False"    Padding="{OnPlatform Android='8',iOS='8',WinUI='0,7,12,6',MacCatalyst='0,7,12,6'}"  CornerRadius="0" BackgroundColor="#2121210E" 
+                                 HorizontalOptions="FillAndExpand" BorderColor="#2121210A">
+                <SearchBar  x:Name="filterText" BackgroundColor="Transparent" WidthRequest="{OnPlatform WinUI='249',MacCatalyst='249',Android={Binding Source={x:Reference grid},Path=Width},iOS={Binding Source={x:Reference grid},Path=Width}}" HeightRequest="{StaticResource searchBoxHeight}"
+                   HorizontalOptions="{OnPlatform Android='StartAndExpand',WinUI='End',MacCatalyst='End',iOS='FillAndExpand'}" IsVisible="true"
+                                >
+                </SearchBar>
+            </Frame>
+            <Frame Padding="0" CornerRadius="0" HasShadow="False"
+                   Grid.Row="1"
+                           Grid.Column="0"
+                      HorizontalOptions="FillAndExpand"  BorderColor="#2121211F">
+                <sfgrid:SfDataGrid x:Name="dataGrid"
+                           AutoGenerateColumnsMode="None"
+                           RowHeight="48"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           ItemsSource="{Binding OrdersInfo}"
+                           ColumnWidthMode="Fill"
+                           >
+                    <sfgrid:SfDataGrid.DefaultStyle>
+                        <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" HeaderRowFontSize="14" RowFontSize="14" HeaderRowTextColor="#212121" RowTextColor="#212121"></sfgrid:DataGridStyle>
+                    </sfgrid:SfDataGrid.DefaultStyle>
+                    <sfgrid:SfDataGrid.Columns>
+
+                        <sfgrid:DataGridNumericColumn Format="D"
+                                           HeaderText="ID"
+                                           MappingName="OrderID"
+                                           >
+                        </sfgrid:DataGridNumericColumn>
+
+                        <sfgrid:DataGridTextColumn 
+                                           HeaderText="Name"
+                                           MappingName="FirstName"
+                                           >
+                        </sfgrid:DataGridTextColumn>
+
+                        <sfgrid:DataGridTextColumn 
+                                           HeaderText="Customer ID"
+                       MinimumWidth="{StaticResource minimumWidth}"
+                                           MappingName="CustomerID"
+                                           >
+                        </sfgrid:DataGridTextColumn>
+
+                        <sfgrid:DataGridTextColumn 
+                                           HeaderText="City"
+                       MinimumWidth="{StaticResource minimumWidth}"
+                                           MappingName="ShipCity"
+                                           >
+                        </sfgrid:DataGridTextColumn>
+
+                        <sfgrid:DataGridTextColumn
+                                           HeaderText="Country"
+                       MinimumWidth="{StaticResource minimumWidth}"
+                                           MappingName="ShipCountry"
+                                           >
+                        </sfgrid:DataGridTextColumn>
+
+                    </sfgrid:SfDataGrid.Columns>
+                </sfgrid:SfDataGrid>
+            </Frame>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid ColumnSpacing="10" Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label 
+                Grid.Row="0" Grid.Column="0"
+                Grid.ColumnSpan="2"
+                FontSize="15"
+                HorizontalOptions="Start"
+                Text="Filter options"
+                VerticalOptions="Center" />
+                <Picker
+                x:Name="ColumnsList"
+                Margin="0,10,10,0"
+                Grid.Row="1" Grid.Column="0"
+                HorizontalOptions="FillAndExpand" >
+                    <Picker.Items>
+                        <x:String>All Columns</x:String>
+                        <x:String>ID</x:String>
+                        <x:String>Name</x:String>
+                        <x:String>Customer ID</x:String>
+                        <x:String>City</x:String>
+                        <x:String>Country</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedItem>
+                        <x:String>All Columns</x:String>
+                    </Picker.SelectedItem>
+                </Picker>
+                <Picker 
+                x:Name="OptionsList"
+                Grid.Row="1" Grid.Column="1"
+                Margin="0,10,10,0"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="False">
+                    <Picker.Items>
+                        <x:String>Equals</x:String>
+                        <x:String>Does Not Equal</x:String>
+                        <x:String>Contains</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

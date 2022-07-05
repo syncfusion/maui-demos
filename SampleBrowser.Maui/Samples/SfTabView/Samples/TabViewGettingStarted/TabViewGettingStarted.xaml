@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.SfTabView.TabViewGettingStarted"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TabView"
+             xmlns:tabView="http://schemas.syncfusion.com/maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+             BackgroundColor="White">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Resources>
+                <Style x:Key="tabButton" TargetType="{x:Type Button}">
+                    <Setter Property="FontSize" Value="30" />
+                    <Setter Property="BackgroundColor" Value="White" />
+                    <Setter Property="TextColor" Value="#666666" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="Margin" Value="{OnPlatform Android='-5', Default='0'}" />
+                </Style>
+                <Style TargetType="tabView:SfTabItem">
+                    <Setter Property="VisualStateManager.VisualStateGroups">
+                        <VisualStateGroupList>
+                            <VisualStateGroup>
+                                <VisualState x:Name="Normal" >
+                                    <VisualState.Setters>
+                                        <Setter Property="TextColor" Value="Black" />
+                                        <Setter Property="FontFamily" Value="Roboto" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="TextColor" Value="#6200EE" />
+                                        <Setter Property="FontFamily" Value="Roboto" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+
+            <tabView:SfTabView x:Name="tabView" 
+                               TabBarBackground="#FCF7FF"
+                               TabWidthMode="Default"
+                               TabBarPlacement="Bottom"
+                               BackgroundColor="Transparent"
+                               IndicatorBackground="#6200EE"
+                               IndicatorPlacement="Top" >
+                <tabView:SfTabView.Items>
+                    <tabView:SfTabItem Header="FAVOURITES">
+                        <tabView:SfTabItem.Content>
+                            <Grid HorizontalOptions="Center" RowDefinitions="*,*,*" ColumnDefinitions="*,*" RowSpacing="10" ColumnSpacing="10">
+                                <Grid.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="UWP" Value="16,0,32,48"/>
+                                        <On Platform="Android" Value="16,8,16,44"/>
+                                        <On Platform="iOS" Value="16,8,24,44"/>
+                                    </OnPlatform>
+                                </Grid.Padding>
+                                <Grid Grid.Row="0" Grid.Column="0" IsClippedToBounds="True">
+                                    <BoxView CornerRadius="10" Background="#FCF7FF" />
+                                    <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
+                                        <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
+                                               CornerRadius="38" 
+                                               WidthRequest="76" 
+                                               HeightRequest="76" 
+                                               VerticalOptions="Center" 
+                                               HorizontalOptions="Center" 
+                                               Padding="0" >
+                                            <Image Source="alexandar.png" />
+                                        </Frame>
+                                        <Label Grid.Row="1" 
+                                               FontSize="Medium" 
+                                               FontAttributes="Bold" 
+                                               Text="James" 
+                                               TextColor="Black" 
+                                               VerticalOptions="End" 
+                                               HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="1" IsClippedToBounds="True">
+                                    <BoxView CornerRadius="10" Background="#FCF7FF" />
+                                    <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
+                                        <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
+                                               CornerRadius="38" 
+                                               WidthRequest="76" 
+                                               HeightRequest="76" 
+                                               VerticalOptions="Center" 
+                                               HorizontalOptions="Center" 
+                                               Padding="0" >
+                                            <Image Source="clara.png" />
+                                        </Frame>
+                                        <Label Grid.Row="1" 
+                                               FontSize="Medium" 
+                                               FontAttributes="Bold" 
+                                               Text="Clara" 
+                                               TextColor="Black" 
+                                               VerticalOptions="End" 
+                                               HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="0" IsClippedToBounds="True">
+                                    <BoxView CornerRadius="10" Background="#FCF7FF" />
+                                    <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
+                                        <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
+                                               CornerRadius="38" 
+                                               WidthRequest="76" 
+                                               HeightRequest="76" 
+                                               VerticalOptions="Center" 
+                                               HorizontalOptions="Center" Padding="0" >
+                                            <Image Source="jackson.png" />
+                                        </Frame>
+                                        <Label Grid.Row="1" 
+                                               FontSize="Medium" 
+                                               FontAttributes="Bold" 
+                                               Text="Michael" 
+                                               TextColor="Black" VerticalOptions="End" HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="1" IsClippedToBounds="True">
+                                    <BoxView CornerRadius="10" Background="#FCF7FF" />
+                                    <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
+                                        <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
+                                               CornerRadius="38" 
+                                               WidthRequest="76" 
+                                               HeightRequest="76" 
+                                               VerticalOptions="Center" 
+                                               HorizontalOptions="Center" 
+                                               Padding="0" >
+                                            <Image Source="nora.png" />
+                                        </Frame>
+                                        <Label Grid.Row="1" 
+                                               FontSize="Medium" 
+                                               FontAttributes="Bold" 
+                                               Text="Nora" 
+                                               TextColor="Black" 
+                                               VerticalOptions="End" 
+                                               HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="0" IsClippedToBounds="True">
+                                    <BoxView CornerRadius="10" Background="#FCF7FF" />
+                                    <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
+                                        <Frame HasShadow="{OnPlatform Android='true', Default='false'}" 
+                                               CornerRadius="38" 
+                                               WidthRequest="76" 
+                                               HeightRequest="76" 
+                                               VerticalOptions="Center" 
+                                               HorizontalOptions="Center" 
+                                               Padding="0" >
+                                            <Image Source="tye.png" />
+                                        </Frame>
+                                        <Label Grid.Row="1" 
+                                               FontSize="Medium" 
+                                               FontAttributes="Bold" 
+                                               Text="Alex" 
+                                               TextColor="Black" 
+                                               VerticalOptions="End" 
+                                               HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Grid>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem >
+                    <tabView:SfTabItem Header="RECENTS">
+                        <tabView:SfTabItem.Content>
+                            <Grid>
+                                <Grid Grid.Row="1" VerticalOptions="End"  HeightRequest="20">
+                                </Grid>
+                                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                    <VerticalStackLayout>
+                                        <BindableLayout.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>James</x:String>
+                                                <x:String>Richard</x:String>
+                                                <x:String>Michael</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>Clara</x:String>
+                                                <x:String>Steve</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Richard</x:String>
+                                                <x:String>Michael</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>Clara</x:String>
+                                                <x:String>Steve</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>James</x:String>
+                                            </x:Array>
+                                        </BindableLayout.ItemsSource>
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid ColumnDefinitions="48,*,48" Margin="10,5">
+                                                    <Image Grid.Column="0" 
+                                                           WidthRequest="35" 
+                                                           HeightRequest="35"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="incoming.png"/>
+                                                    <Label Grid.Column="1" 
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Start" 
+                                                           TextColor="#666666"
+                                                           FontSize="16" 
+                                                           Text="{Binding}"/>
+                                                    <Image Grid.Column="2" 
+                                                           WidthRequest="40" 
+                                                           HeightRequest="40"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="sim.png"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </VerticalStackLayout>
+                                </ScrollView>
+                            </Grid>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="CONTACTS">
+                        <tabView:SfTabItem.Content>
+                            <Grid>
+                                <Grid Grid.Row="1" VerticalOptions="End"  HeightRequest="20">
+                                </Grid>
+                                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                    <VerticalStackLayout>
+                                        <BindableLayout.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>James</x:String>
+                                            <x:String>Richard</x:String>
+                                            <x:String>Michael</x:String>
+                                            <x:String>Alex</x:String>
+                                            <x:String>Clara</x:String>
+                                            <x:String>Steve</x:String>
+                                            <x:String>David</x:String>
+                                            <x:String>Stephen</x:String>
+                                            <x:String>James</x:String>
+                                            <x:String>James</x:String>
+                                            <x:String>Richard</x:String>
+                                            <x:String>Michael</x:String>
+                                            <x:String>Alex</x:String>
+                                            <x:String>Clara</x:String>
+                                            <x:String>Steve</x:String>
+                                            <x:String>James</x:String>
+                                            <x:String>Alex</x:String>
+                                            <x:String>James</x:String>
+                                        </x:Array>
+                                    </BindableLayout.ItemsSource>
+                                        <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                                <Grid ColumnDefinitions="48,*,48,48" Margin="10,5">
+                                                    <Image Grid.Column="0" 
+                                                           WidthRequest="35" 
+                                                           HeightRequest="35"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="contact_image.png"/>
+                                                    <Label Grid.Column="1" 
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Start" 
+                                                           Margin="5,0"
+                                                           TextColor="#666666"
+                                                           FontSize="16" 
+                                                           Text="{Binding}"/>
+                                                    <Image Grid.Column="2" 
+                                                           WidthRequest="35" 
+                                                           HeightRequest="35"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="mail.png"/>
+                                                    <Image Grid.Column="3" 
+                                                           WidthRequest="35" 
+                                                           HeightRequest="35"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="call1.png"/>
+                                                </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                    </VerticalStackLayout>
+                                </ScrollView>
+                            </Grid>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                </tabView:SfTabView.Items>
+            </tabView:SfTabView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

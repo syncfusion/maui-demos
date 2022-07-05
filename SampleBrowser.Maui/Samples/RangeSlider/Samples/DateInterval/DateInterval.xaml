@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.RangeSlider.RangeSliderDateInterval"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfDateTimeRangeSlider">
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="MaximumWidthRequest"
+                    Value="400" />
+            <!--To align the label and track vertically, used the slider thumb overlay radius on the label.-->
+            <Setter Property="Padding"
+                    Value="24,0,0,0" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <VerticalStackLayout Padding="10,0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+            <Label Text="Interval as year"
+                   TranslationY="30" />
+            <sliders:SfDateTimeRangeSlider Minimum="2016-01-01"
+                                           Maximum="2020-01-01"
+                                           RangeStart="2017-01-01"
+                                           RangeEnd="2019-01-01"
+                                           IntervalType="Years"
+                                           LabelsPlacement="BetweenTicks"
+                                           Interval="1"
+                                           DateFormat="yyyy">
+                
+                <sliders:SfDateTimeRangeSlider.Tooltip>
+                    <sliders:SliderTooltip DateFormat="MMM yyyy"
+                                           ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" />
+                </sliders:SfDateTimeRangeSlider.Tooltip>
+            </sliders:SfDateTimeRangeSlider>
+
+            <BoxView>
+                <BoxView.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS"
+                            Value="20" />
+                        <On Platform="Android"
+                            Value="5" />
+                        <On Platform="UWP"
+                            Value="5" />
+                    </OnPlatform>
+                </BoxView.HeightRequest>
+            </BoxView>
+
+            <Label Text="Interval as hour"
+                   TranslationY="30" />
+            <sliders:SfDateTimeRangeSlider Minimum="2000-01-01T09:00:00"
+                                           Maximum="2000-01-01T21:00:00"
+                                           RangeStart="2000-01-01T12:00:00"
+                                           RangeEnd="2000-01-01T18:00:00"
+                                           IntervalType="Hours"
+                                           MinorTicksPerInterval="3"
+                                           Interval="4"
+                                           DateFormat="h tt">
+                
+                <sliders:SfDateTimeRangeSlider.Tooltip>
+                    <sliders:SliderTooltip DateFormat="h:mm tt"
+                                           ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" />
+                </sliders:SfDateTimeRangeSlider.Tooltip>
+            </sliders:SfDateTimeRangeSlider>
+
+            <BoxView HeightRequest="25" />
+
+            <Grid ColumnDefinitions="Auto, Auto"
+                  HorizontalOptions="Center">
+                <Label Text="Show tooltip always"
+                       Padding="5"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center" />
+                <CheckBox x:Name="tooltipCheckBox"
+                          Grid.Column="1"
+                          Color="#2196F3" />
+            </Grid>
+        </VerticalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

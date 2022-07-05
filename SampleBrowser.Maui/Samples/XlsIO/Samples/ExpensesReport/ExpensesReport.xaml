@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.XlsIO.ExpensesReport"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+             >
+    <localCore:SampleView.Content>
+        <StackLayout Margin="10">
+            <Label x:Name="SampleDescription" Text="This example shows how to create an Excel report for expenses with data, charts, formulas, and cell formatting." 
+                   VerticalOptions="Center" TextColor="Black">
+            </Label>
+            <Label Text=" "/>
+            <Label x:Name="textBlock1" Text="Click the &quot;Generate Document&quot; button to view the created Expense report. Please note that an Excel-compatible viewer is required to open and view the Excel file." TextColor="Black"/>
+            <Label Text=" "/>
+            <Button x:Name="btnCreate" Clicked ="btnCreate_Click" Text ="Generate Document" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+        </StackLayout>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

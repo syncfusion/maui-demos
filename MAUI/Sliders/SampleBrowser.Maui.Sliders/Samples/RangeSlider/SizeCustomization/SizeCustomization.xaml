@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.SfRangeSlider.RangeSliderSizeCustomizationSample">
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto,Auto,25,Auto,Auto"
+                  ColumnDefinitions="24,Auto,24"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center">
+
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Active and inactive track height" />
+                <sliders:SfRangeSlider Grid.Row="1"
+                                       Grid.ColumnSpan="3"
+                                       Minimum="-20"
+                                       Maximum="20"
+                                       RangeStart="-10"
+                                       RangeEnd="10"
+                                       Interval="10"
+                                       StepSize="10"
+                                       ShowLabels="True">
+
+                    <sliders:SfRangeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveSize="10"
+                                                  InactiveSize="4" />
+                    </sliders:SfRangeSlider.TrackStyle>
+                </sliders:SfRangeSlider>
+
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Text="Active and inactive divider radius" />
+                <sliders:SfDateTimeRangeSlider Grid.Row="4"
+                                               Grid.ColumnSpan="3"
+                                               Minimum="2000-01-01"
+                                               Maximum="2020-01-01"
+                                               RangeStart="2005-01-01"
+                                               RangeEnd="2015-01-01"
+                                               StepDuration="5"
+                                               IntervalType="Years"
+                                               Interval="5"
+                                               ShowDividers="True"
+                                               ShowLabels="True">
+
+                    <sliders:SfDateTimeRangeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="#FF6E40"
+                                                  InactiveFill="#3DFF6E40" />
+                    </sliders:SfDateTimeRangeSlider.TrackStyle>
+
+                    <sliders:SfDateTimeRangeSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="#FFFF6E40" />
+                    </sliders:SfDateTimeRangeSlider.ThumbStyle>
+
+                    <sliders:SfDateTimeRangeSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="#1FFF6E40" />
+                    </sliders:SfDateTimeRangeSlider.ThumbOverlayStyle>
+
+                    <sliders:SfDateTimeRangeSlider.DividerStyle>
+                        <sliders:SliderDividerStyle ActiveRadius="6"
+                                                    InactiveRadius="3"
+                                                    ActiveFill="#FF6E40"
+                                                    InactiveFill="#66FF6E40" />
+                    </sliders:SfDateTimeRangeSlider.DividerStyle>
+                </sliders:SfDateTimeRangeSlider>
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

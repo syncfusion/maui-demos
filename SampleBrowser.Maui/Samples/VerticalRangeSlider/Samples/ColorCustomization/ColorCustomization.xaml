@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.VerticalRangeSlider.RangeSliderColorCustomization"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="Minimum" Value="-50" />
+            <Setter Property="Maximum" Value="50" />
+            <Setter Property="RangeStart" Value="-25" />
+            <Setter Property="RangeEnd" Value="25" />
+            <Setter Property="Interval" Value="25" />
+            <Setter Property="ShowTicks" Value="True" />
+            <Setter Property="ShowLabels" Value="True"/>
+            <Setter Property="MaximumHeightRequest" Value="300" />
+        </Style>
+
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="Padding" Value="25,15" />
+            <Setter Property="Spacing" Value="10" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <HorizontalStackLayout Padding="15,0" Spacing="20" HorizontalOptions="Center">
+            <VerticalStackLayout >
+                <sliders:SfRangeSlider ShowLabels="True" ShowTicks="True">
+                    <sliders:SfRangeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="#009688" InactiveFill="#3D009688" />
+                    </sliders:SfRangeSlider.TrackStyle>
+
+                    <sliders:SfRangeSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="#009688" />
+                    </sliders:SfRangeSlider.ThumbStyle>
+
+                    <sliders:SfRangeSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="#3D009688" />
+                    </sliders:SfRangeSlider.ThumbOverlayStyle>
+                </sliders:SfRangeSlider>
+                <Label Text="Track" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout >
+                <sliders:SfRangeSlider ShowDividers="True" >
+                    <sliders:SfRangeSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="White" Stroke="#FF5722" StrokeThickness="2" />
+                    </sliders:SfRangeSlider.ThumbStyle>
+
+                    <sliders:SfRangeSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="#1FFF5722" />
+                    </sliders:SfRangeSlider.ThumbOverlayStyle>
+
+                    <sliders:SfRangeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="#FF5722" InactiveFill="#3DFF5722" />
+                    </sliders:SfRangeSlider.TrackStyle>
+
+                    <sliders:SfRangeSlider.DividerStyle>
+                        <sliders:SliderDividerStyle ActiveRadius="5" 
+                                                    InactiveRadius="5" 
+                                                    ActiveFill="White" 
+                                                    InactiveFill="White"
+                                                    ActiveStroke="#3DFF5722" 
+                                                    InactiveStroke="#FF5722"
+                                                    ActiveStrokeThickness="2" 
+                                                    InactiveStrokeThickness="2" />
+                    </sliders:SfRangeSlider.DividerStyle>
+                </sliders:SfRangeSlider>
+                <Label Text="Divider" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

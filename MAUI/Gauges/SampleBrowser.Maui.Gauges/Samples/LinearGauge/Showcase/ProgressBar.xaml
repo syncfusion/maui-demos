@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.ProgressBar"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      Background="White"
+                      Margin="0,40,0,40">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+        </Style>
+        <local:GraphicsDrawable x:Key="GraphicsDrawable" />
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid x:Name="progressBarLayout" VerticalOptions="Center" HorizontalOptions="Center">
+            <gauge:SfLinearGauge x:Name="progressBarGauge"
+                                 WidthRequest="{OnPlatform Android=320}"
+                                 Minimum="0"
+                                 Maximum="100"
+                                 EnableAxisAnimation="True"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 ShowLabels="False"
+                                 ShowTicks="False">
+                <gauge:SfLinearGauge.LineStyle>
+                    <gauge:LinearLineStyle CornerStyle="BothCurve"
+                                           Fill="#d6d6d6"
+                                           Thickness="40" />
+                </gauge:SfLinearGauge.LineStyle>
+                <gauge:SfLinearGauge.BarPointers>
+
+                    <gauge:BarPointer Value="41.47"
+                                      PointerSize="40"
+                                      EnableAnimation="True"
+                                      AnimationEasing="{x:Static Easing.CubicOut}"
+                                      CornerStyle="BothCurve"
+                                      Fill="#00a2ed" />
+
+                </gauge:SfLinearGauge.BarPointers>
+                <gauge:SfLinearGauge.MarkerPointers>
+                    <gauge:LinearContentPointer Value="3"
+                                                Position="Cross"
+                                                Alignment="End">
+                        <gauge:LinearContentPointer.Content>
+                            <Label Text="41.47%"
+                                   TextColor="White"
+                                   FontAttributes="Bold" />
+                        </gauge:LinearContentPointer.Content>
+                    </gauge:LinearContentPointer>
+                </gauge:SfLinearGauge.MarkerPointers>
+
+            </gauge:SfLinearGauge>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

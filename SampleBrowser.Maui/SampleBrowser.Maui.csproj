@@ -1,0 +1,220 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>SampleBrowser.Maui</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<Nullable>enable</Nullable>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<AnalysisLevelSecurity>latest-recommended</AnalysisLevelSecurity>
+		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+		<EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+		<PackageCertificateThumbprint>8A4C728A7EA9EE54774C8313BDD85A6535789E48</PackageCertificateThumbprint>
+		<PackageCertificateKeyFile>SampleBrowser.Maui_TemporaryKey.pfx</PackageCertificateKeyFile>
+		<AssemblyName>SampleBrowser.Maui</AssemblyName>
+
+		<!-- Display name -->
+		<ApplicationTitle>SampleBrowser.Maui</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.syncfusion.SampleBrowser.Maui</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationVersion>1</ApplicationVersion>
+		<AndroidVersionCode>1</AndroidVersionCode>
+
+		<Configurations>Debug;Release;Release-Xml</Configurations>
+		<RuntimeIdentifier Condition="$(TargetFramework.Contains('-ios'))">iossimulator-x64</RuntimeIdentifier>
+		<RuntimeIdentifier Condition="$(TargetFramework.Contains('-maccatalyst'))">maccatalyst-x64</RuntimeIdentifier>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.18362.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.18362.0</TargetPlatformMinVersion>
+
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DefineConstants>TRACE;DEBUG;NETSTANDARD2_0;COMMONSB;</DefineConstants>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DefineConstants>TRACE;RELEASE;NETSTANDARD2_0;COMMONSB;</DefineConstants>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Xml|AnyCPU' ">
+		<DefineConstants>TRACE;RELEASE;NETSTANDARD2_0;COMMONSB;</DefineConstants>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiImage Include="Resources\appicon.svg" ForegroundFile="Resources\appsyncicon.svg" IsAppIcon="true" Color="#8B71F6" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\appsplashscreen.svg" Color="#512BD4" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Include="Resources\Images\ListView\*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+	</ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.Contains('-maccatalyst'))">
+	  <None Remove="Samples\Barcodes\SamplesList\SamplesList.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Samples\RadialRangeSlider\SamplesList\SamplesList.xml" />
+      <None Remove="Samples\RadialSlider\SamplesList\SamplesList.xml" />
+      <None Remove="Samples\SfLinearGauge\SamplesList\SamplesList.xml" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ControlsList\ControlsList.xml" />
+    <EmbeddedResource Include="Samples\Barcodes\SamplesList\SamplesList.xml" /> 
+    <EmbeddedResource Include="Samples\RadialRangeSlider\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\RadialSlider\SamplesList\SamplesList.xml" />  
+    <EmbeddedResource Include="Samples\SfCartesianChart\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfCircularChart\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfEffectsView\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfLinearGauge\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfRadialGauge\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfTabView\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfListView\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\SfScheduler\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\SfBadgeView\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\Slider\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\RangeSlider\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\VerticalSlider\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\VerticalRangeSlider\SamplesList\SamplesList.xml" />
+	<EmbeddedResource Include="Samples\RangeSelector\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\XlsIO\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\Pdf\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\DocIO\SamplesList\SamplesList.xml" />
+    <EmbeddedResource Include="Samples\Presentation\SamplesList\SamplesList.xml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Pdf\Invoice.pdf" />
+    <EmbeddedResource Include="Resources\Pdf\jQuery_Succinctly.pdf" />
+    <EmbeddedResource Include="Resources\Pdf\AdventureWork.png" />
+    <EmbeddedResource Include="Resources\Pdf\arial.ttf" />
+    <EmbeddedResource Include="Resources\Pdf\certificate.jpg" />
+    <EmbeddedResource Include="Resources\Pdf\certificate.pfx" />
+    <EmbeddedResource Include="Resources\Pdf\credit_card_statement.pdf" />
+    <EmbeddedResource Include="Resources\Pdf\digital_signature_template.pdf" />
+    <EmbeddedResource Include="Resources\Pdf\Xamarin_JPEG.jpg" />
+    <EmbeddedResource Include="Resources\Pdf\Xamarin_PNG.png" />
+    <EmbeddedResource Include="Resources\Pdf\signature.png" />
+    <EmbeddedResource Include="Resources\Pdf\RemoveImageTemplate.pdf" />
+    <EmbeddedResource Include="Resources\DocIO\OrderTotals.xml" />
+    <EmbeddedResource Include="Resources\DocIO\RTFtoWord.rtf" />
+    <EmbeddedResource Include="Resources\DocIO\Employees.xml" />
+    <EmbeddedResource Include="Resources\DocIO\EmployeesList.xml" />
+    <EmbeddedResource Include="Resources\DocIO\EmployeesReportDemo.docx" />
+    <EmbeddedResource Include="Resources\DocIO\Mountain200.jpg" />
+    <EmbeddedResource Include="Resources\DocIO\Mountain300.jpg" />
+    <EmbeddedResource Include="Resources\DocIO\Northwindlogo.png" />
+    <EmbeddedResource Include="Resources\DocIO\Road550W.jpg" />
+    <EmbeddedResource Include="Resources\DocIO\Adventure.docx" />
+    <EmbeddedResource Include="Resources\DocIO\Decrypt.docx" />
+    <EmbeddedResource Include="Resources\DocIO\TemplateLetter.docx" />
+    <EmbeddedResource Include="Resources\DocIO\TestOrder.xml" />
+    <EmbeddedResource Include="Resources\DocIO\TestOrderDetails.xml" />
+    <EmbeddedResource Include="Resources\DocIO\HeaderFooterTemplate.docx" />
+    <EmbeddedResource Include="Resources\DocIO\WordtoPDF.docx" />
+    <EmbeddedResource Include="Resources\DocIO\AdventureCycle.png" />
+    <EmbeddedResource Include="Resources\DocIO\HeaderImage.png" />
+    <EmbeddedResource Include="Resources\DocIO\Mountain300.bmp" />
+    <EmbeddedResource Include="Resources\Presentation\EmbeddedOleObject.pptx" />
+    <EmbeddedResource Include="Resources\Presentation\HeaderFooter.pptx" />
+    <EmbeddedResource Include="Resources\Presentation\HelloWorld.pptx" />
+    <EmbeddedResource Include="Resources\Presentation\Images.pptx" />
+    <EmbeddedResource Include="Resources\Presentation\OlePicture.png" />
+    <EmbeddedResource Include="Resources\Presentation\OleTemplate.docx" />
+    <EmbeddedResource Include="Resources\Presentation\Products.xml" />
+    <EmbeddedResource Include="Resources\Presentation\Slides.pptx" />
+    <EmbeddedResource Include="Resources\Presentation\SyncfusionPresentation.pptx" />
+    <EmbeddedResource Include="Resources\Presentation\TableData.xml" />
+    <EmbeddedResource Include="Resources\Presentation\tablet.jpg" />
+    <EmbeddedResource Include="Resources\Presentation\Template.pptx" />
+    <EmbeddedResource Include="Resources\XlsIO\CLRObjects.xml" />
+    <EmbeddedResource Include="Resources\XlsIO\ExpenseReport.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\ExcelTopdfwithChart.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\ExportData.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\FormulaTemplate.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\ChartData.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\TemplateMarker.xlsx" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man1.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man10.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man11.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man12.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man13.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man14.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man15.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man16.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man17.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man18.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man2.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man3.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man4.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man5.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man6.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man7.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man8.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man9.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman1.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman10.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman11.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman12.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman13.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman14.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman2.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman3.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman4.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman5.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman6.png" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman7.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman8.jpg" />
+    <EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Woman9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Maui.Core" Version="20.1.58-preview" />
+    <PackageReference Include="Syncfusion.Maui.TabView" Version="20.1.58-preview" />
+    <PackageReference Include="Syncfusion.Maui.Charts" Version="20.1.58-preview" />
+    <PackageReference Include="Syncfusion.Maui.Gauges" Version="20.1.58-preview" />
+	<PackageReference Include="Syncfusion.Maui.Scheduler" Version="20.1.58-preview" />
+	<PackageReference Include="Syncfusion.Maui.Sliders" Version="20.1.58-preview" />
+	<PackageReference Include="Syncfusion.Maui.ListView" Version="20.1.58-preview" />
+    <PackageReference Include="Syncfusion.Maui.GridCommon" Version="20.1.58-preview" />
+	<PackageReference Include="Syncfusion.Maui.DataSource" Version="20.1.58-preview" />
+	<PackageReference Include="Syncfusion.Maui.Barcode" Version="20.1.58-preview" />
+    <PackageReference Include="Syncfusion.DocIORenderer.NET" Version="20.1.0.58" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="20.1.0.58" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="20.1.0.58" />
+    <PackageReference Include="Syncfusion.Pdf.Imaging.NET" Version="20.1.0.58" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SampleBrowser.Maui.Core\SampleBrowser.Maui.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Samples\SfScheduler\Samples\AgendaView\Converter\" />
+	</ItemGroup>
+
+</Project>

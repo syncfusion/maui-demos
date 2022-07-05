@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      x:Class="SampleBrowser.Maui.SfRadialGauge.Pointers">
+    <localCore:SampleView.Content>
+        <localCore:ScrollViewExt>
+            <localCore:WrapLayout Background="White">
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Range pointer">
+                    <localCore:CardViewExt.MainContent>
+                        <gauge:SfRadialGauge x:Name="rangePointerGauge">
+                            <gauge:SfRadialGauge.Axes>
+                                <gauge:RadialAxis ShowLabels="False"
+                                                  ShowTicks="False"
+                                                  StartAngle="270"
+                                                  EndAngle="270"
+                                                  Minimum="0"
+                                                  Maximum="100"
+                                                  RadiusFactor="0.8">
+                                    <gauge:RadialAxis.AxisLineStyle>
+                                        <gauge:RadialLineStyle ThicknessUnit="Factor"
+                                                             Thickness="0.15" />
+                                    </gauge:RadialAxis.AxisLineStyle>
+
+                                    <gauge:RadialAxis.Pointers>
+                                        <gauge:RangePointer CornerStyle="BothCurve"
+                                                            Value="50"
+                                                            EnableAnimation="True"
+                                                            AnimationEasing="{x:Static Easing.CubicOut}"
+                                                            WidthUnit="Factor"
+                                                            PointerWidth="0.15">
+                                            <gauge:RangePointer.GradientStops>
+                                                <gauge:GaugeGradientStop Value="13"
+                                                                         Color="#FF6A6EF6" />
+                                                <gauge:GaugeGradientStop Value="38"
+                                                                         Color="#FFDB82F5" />
+                                            </gauge:RangePointer.GradientStops>
+                                        </gauge:RangePointer>
+                                    </gauge:RadialAxis.Pointers>
+
+                                    <gauge:RadialAxis.Annotations>
+                                        <gauge:GaugeAnnotation>
+                                            <gauge:GaugeAnnotation.Content>
+                                                <Label Text="50 / 100"
+                                                       FontSize="22"
+                                                       FontAttributes="Bold"
+                                                       TextColor="Black">
+                                                </Label>
+                                            </gauge:GaugeAnnotation.Content>
+                                        </gauge:GaugeAnnotation>
+                                    </gauge:RadialAxis.Annotations>
+                                </gauge:RadialAxis>
+                            </gauge:SfRadialGauge.Axes>
+                        </gauge:SfRadialGauge>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Multiple needle">
+                    <localCore:CardViewExt.MainContent>
+                        <gauge:SfRadialGauge x:Name="multipleNeedleGauge">
+                            <gauge:SfRadialGauge.Axes>
+                                <gauge:RadialAxis ShowAxisLine="False"
+                                                  RadiusFactor="0.45"
+                                                  StartAngle="270"
+                                                  EndAngle="270"
+                                                  Maximum="60"
+                                                  ShowFirstLabel="False"
+                                                  Interval="5"
+                                                  MinorTicksPerInterval="5">
+                                    <gauge:RadialAxis.AxisLabelStyle>
+                                        <gauge:GaugeLabelStyle FontSize="10" />
+                                    </gauge:RadialAxis.AxisLabelStyle>
+                                    <gauge:RadialAxis.MajorTickStyle>
+                                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.1" />
+                                    </gauge:RadialAxis.MajorTickStyle>
+                                    <gauge:RadialAxis.MinorTickStyle>
+                                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.03" />
+                                    </gauge:RadialAxis.MinorTickStyle>
+                                </gauge:RadialAxis>
+                                <gauge:RadialAxis StartAngle="270"
+                                                  EndAngle="270"
+                                                  Maximum="12"
+                                                  ShowFirstLabel="False"
+                                                  Interval="1"
+                                                  MinorTicksPerInterval="5">
+                                    <gauge:RadialAxis.AxisLineStyle>
+                                        <gauge:RadialLineStyle ThicknessUnit="Factor"
+                                                             Thickness="0.06"
+                                                             Fill="#FFFFCD60" />
+                                    </gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialAxis.MajorTickStyle>
+                                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.1" />
+                                    </gauge:RadialAxis.MajorTickStyle>
+                                    <gauge:RadialAxis.MinorTickStyle>
+                                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.05" />
+                                    </gauge:RadialAxis.MinorTickStyle>
+
+                                    <gauge:RadialAxis.Pointers>
+                                        <gauge:NeedlePointer Value="8"
+                                                             NeedleLength="0.35"
+                                                             NeedleFill="#FFF67280"
+                                                             NeedleLengthUnit="Factor"
+                                                             NeedleStartWidth="1"
+                                                             NeedleEndWidth="10"
+                                                             EnableAnimation="True"
+                                                             KnobRadius="0">
+                                        </gauge:NeedlePointer>
+                                        <gauge:NeedlePointer Value="3"
+                                                             NeedleLength="0.85"
+                                                             NeedleFill="#FFF67280"
+                                                             NeedleLengthUnit="Factor"
+                                                             NeedleStartWidth="1"
+                                                             NeedleEndWidth="10"
+                                                             EnableAnimation="True"
+                                                             KnobStroke="#FFF67280"
+                                                             KnobStrokeThickness="0.015"
+                                                             KnobFill="White"
+                                                             KnobSizeUnit="Factor"
+                                                             KnobRadius="0.05">
+                                        </gauge:NeedlePointer>
+                                    </gauge:RadialAxis.Pointers>
+                                </gauge:RadialAxis>
+                            </gauge:SfRadialGauge.Axes>
+                        </gauge:SfRadialGauge>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+
+                <localCore:CardViewExt HeightRequest="425"
+                                       Title="Marker pointer">
+                    <localCore:CardViewExt.MainContent>
+                        <gauge:SfRadialGauge x:Name="markerPointerGauge">
+                            <gauge:SfRadialGauge.Axes>
+                                <gauge:RadialAxis StartAngle="180"
+                                                  EndAngle="360"
+                                                  Interval="10" 
+                                                  ShowLabels="False"
+                                                  ShowTicks="False"
+                                                  ShowAxisLine="False">
+                                    <gauge:RadialAxis.Ranges>
+                                        <gauge:RadialRange StartValue="0"
+                                                          EndValue="100"
+                                                          WidthUnit="Factor"
+                                                          StartWidth="0.3"
+                                                          EndWidth="0.3">
+                                            <gauge:RadialRange.GradientStops>
+                                                <gauge:GaugeGradientStop Value="25"
+                                                                         Color="#FFAB64F5">
+                                                </gauge:GaugeGradientStop>
+                                                <gauge:GaugeGradientStop Value="75"
+                                                                         Color="#FF62DBF6">
+                                                </gauge:GaugeGradientStop>
+                                            </gauge:RadialRange.GradientStops>
+                                        </gauge:RadialRange>
+                                    </gauge:RadialAxis.Ranges>
+                                    
+                                    <gauge:RadialAxis.Pointers>
+                                        <gauge:ShapePointer Value="70"
+                                                             x:Name="markerPointer"
+                                                             IsInteractive="True"
+                                                             OverlayRadius="0"
+                                                             HasShadow="True"
+                                                             Fill="#FFF67280"
+                                                             ShapeHeight="25"
+                                                             ShapeWidth="25"
+                                                             Offset="-10"
+                                                             >
+                                        </gauge:ShapePointer>
+                                    </gauge:RadialAxis.Pointers>
+
+                                    <gauge:RadialAxis.Annotations>
+                                        <gauge:GaugeAnnotation PositionFactor="0.85"
+                                                               DirectionValue="175">
+                                            <gauge:GaugeAnnotation.Content>
+                                                <Label Text="Min"
+                                                       FontAttributes="Bold"
+                                                       TextColor="Black" />
+                                            </gauge:GaugeAnnotation.Content>
+                                        </gauge:GaugeAnnotation>
+
+                                        <gauge:GaugeAnnotation PositionFactor="0.1"
+                                                               DirectionValue="270">
+                                            <gauge:GaugeAnnotation.Content>
+                                                <Label Text="{Binding Source={x:Reference markerPointer}, 
+                                               Path=Value,StringFormat='{0:N0}%'}"
+                                                       FontAttributes="Bold"
+                                                       TextColor="Black" />
+                                            </gauge:GaugeAnnotation.Content>
+                                        </gauge:GaugeAnnotation>
+
+                                        <gauge:GaugeAnnotation PositionFactor="0.85"
+                                                               DirectionValue="5">
+                                            <gauge:GaugeAnnotation.Content>
+                                                <Label Text="Max"
+                                                       FontAttributes="Bold"
+                                                       TextColor="Black" />
+                                            </gauge:GaugeAnnotation.Content>
+                                        </gauge:GaugeAnnotation>
+                                    </gauge:RadialAxis.Annotations>
+                                    
+                                </gauge:RadialAxis>
+                            </gauge:SfRadialGauge.Axes>
+                        </gauge:SfRadialGauge>
+                    </localCore:CardViewExt.MainContent>
+                </localCore:CardViewExt>
+            </localCore:WrapLayout>
+        </localCore:ScrollViewExt>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

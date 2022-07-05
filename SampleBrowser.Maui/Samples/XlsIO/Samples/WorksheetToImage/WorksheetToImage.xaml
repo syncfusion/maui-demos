@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?><localCore:SampleView
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.XlsIO.WorksheetToImage"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Core;assembly=SampleBrowser.Maui.Core"
+             >
+
+    <localCore:SampleView.Content>
+        <StackLayout Margin="10">
+            <Label x:Name="SampleDescription" Text="This example demonstrates how to convert an Excel worksheet to an image."
+                 VerticalOptions="Center" TextColor="Black">
+            </Label>
+            <Label Text=" "/>
+            <Label x:Name="Content_1" Text="Click the &quot;Input Template&quot; button to view the input Excel worksheet. Please note that an Excel-compatible viewer is required to open and view the Excel file."
+                  VerticalOptions="Center" TextColor="Black">
+            </Label>
+            <Label x:Name="Content_2" Text="Click the &quot;Convert To Image&quot; button to view the converted image."
+                  VerticalOptions="Center" TextColor="Black">
+            </Label>
+            <Label Text=" "></Label>
+            <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">
+                <Button x:Name="btnInput" Clicked ="btnInput_Click" Text ="Input Template" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+                <Button x:Name="btnConvertToImage" Clicked ="btnConvertToImage_Click" Text ="Convert To Image" HorizontalOptions="Start" VerticalOptions="Center"></Button>
+            </StackLayout>
+        </StackLayout>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>
+    

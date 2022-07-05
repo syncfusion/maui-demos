@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="File Formats">
+    <Control Title="DocIO" ControlName="DocIO" Image="docio.png" Description="A .NET Word library to create, read, and edit Word documents programmatically.">
+      <Sample SearchTags="create, word, document" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="DocIO/GettingStarted" />
+      <Category Title="Mail Merge">
+        <Sample SearchTags="mail, merge, template" SampleName="EmployeeReport" Title="Employee Report" CodeViewerPath="DocIO/EmployeeReport" />
+        <Sample SearchTags="mail, merge, template" SampleName="OrdersReport" Title="Orders Report" CodeViewerPath="DocIO/OrdersReport"/>
+      </Category>
+      <Category Title="Insert Content">
+        <Sample SearchTags="bookmark, insert, word" SampleName="Bookmarks" Title="Bookmarks" CodeViewerPath="DocIO/Bookmarks" />
+        <Sample SearchTags="header, footer, insert, word" SampleName="HeaderAndFooter" Title="Header and Footer" CodeViewerPath="DocIO/HeaderAndFooter" />
+        <Sample SearchTags="image, insert, word" SampleName="ImageInsertion" Title="Image Insertion" CodeViewerPath="DocIO/ImageInsertion" />
+      </Category>
+      <Category Title="Conversions">
+        <Sample SearchTags="pdf, word, convert, word-to-pdf" SampleName="WordToPDF" Title="Word to PDF" CodeViewerPath="DocIO/WordToPDF" />
+        <Sample SearchTags="rtf, word, convert, rtf-to-word" SampleName="RTFToWord" Title="RTF to Word" CodeViewerPath="DocIO/RTFToWord" />
+      </Category>
+      <Sample SearchTags="table, content" SampleName="TableOfContents" Title="Table of Contents" CodeViewerPath="DocIO/TableOfContents" />
+      <Sample SearchTags="encrypt, decrypt, security" SampleName="EncryptAndDecrypt" Title="Encrypt and Decrypt" CodeViewerPath="DocIO/EncryptAndDecrypt" />
+    </Control>
+  </ControlCategory>
+</SyncfusionControls>
