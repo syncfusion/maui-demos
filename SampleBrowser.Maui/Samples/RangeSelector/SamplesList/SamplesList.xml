@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Samples>
-	<Sample SearchTags="Default, selector" Name="DefaultRangeSelector" Title="Default" Description="This sample showcases the default range selector." />
-	<Sample SearchTags="Range selector with selection" Name="RangeSelectorWithSelection" Title="Selection" Description="This sample showcases the chart selection using the range selector." />
-	<Sample SearchTags="Range selector with zooming" Name="RangeSelectorZooming" Title="Zooming" Description="This sample showcases the range selector with zooming." />
-	<Sample SearchTags="showcase, weather, forecast" Name="RangeSelectorWeatherForecastSample" Title="Custom Content" Description="This sample showcases the weather using range selector." />
-</Samples>
