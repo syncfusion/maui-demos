@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.ListView.SfListView.GridLayout"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"   
+    BackgroundColor="White">
+    
+    <localCore:SampleView.Behaviors>
+        <local:SfListViewGridLayoutBehavior/>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+        <OnPlatform x:TypeArguments="x:String" x:Key="ListViewFontIconFamily">
+            <On Platform="Android" Value="ListViewFontIcons.ttf#ListViewFontIcons"/>
+            <On Platform="iOS" Value="ListViewFontIcons" />
+            <On Platform="MacCatalyst" Value="ListViewFontIcons" />
+            <On Platform="UWP" Value="ListViewFontIcons.ttf#ListViewFontIcons"/>
+        </OnPlatform>
+        <local:FavoriteIconConverter x:Key="favoriteIconConverter"/>
+        <local:FavoriteIconColorConverter x:Key="iconColorConverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid BackgroundColor="White">
+            <Grid.BindingContext>
+                <local:GridLayoutViewModel x:Name="viewModel"/>
+            </Grid.BindingContext>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" LineBreakMode="NoWrap"  Text="Grouped Photos"  Margin="16,0,0,10" 
+                   FontSize="16" FontFamily="Roboto-Medium" CharacterSpacing="0.25" TextColor="#E3000000" HorizontalOptions="Start" VerticalOptions="Center"/>
+
+            <ListView:SfListView x:Name="listView" 
+                                 SelectionMode="None" 
+                                 Grid.Row="1"                                 
+                                 ItemsSource="{Binding Gallerynfo}"                                  
+                                 ScrollBarVisibility="Always">
+
+                <ListView:SfListView.ItemsLayout>
+                    <ListView:GridLayout SpanCount="{OnPlatform Default=2, iOS={OnIdiom Phone=2,Tablet=4},MacCatalyst=4, UWP=4}">
+                    </ListView:GridLayout>
+                </ListView:SfListView.ItemsLayout>
+
+                <ListView:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="4,4,4,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="{Binding BindingContext.ImageHeightRequest,Source={x:Reference listView}}"></RowDefinition>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" Margin="0,0,0,2" CornerRadius="{OnPlatform Android=4,Default=5,MacCatalyst=6}" Grid.Row="0" >
+                                <Grid>
+                                    <Image HeightRequest="{Binding BindingContext.ImageHeightRequest,Source={x:Reference listView}}" Source="{Binding Image,Converter={StaticResource imageconverter}}" Aspect="Fill" />
+                                    
+                                    <Grid VerticalOptions="End" BackgroundColor="#80000000" HeightRequest="30">
+                                        <Label Text="{Binding ImageCount}"  TextColor="#FFFFFF" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HeightRequest="30"  Margin="8,0,0,0"                             
+                                               FontSize="12" FontFamily="Roboto-Regular" CharacterSpacing="0.15"/>
+
+                                    </Grid>
+                                </Grid>
+                            </Frame>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding ImageTitle}" TextColor="#DE000000" FontFamily="Roboto-Regular" CharacterSpacing="0.15" FontSize="14" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+                                <Grid Grid.Column="1" >
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.FavoriteImageCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+                                    <Label FontFamily="{StaticResource ListViewFontIconFamily}" Text="{Binding IsFavorite, Converter={StaticResource favoriteIconConverter}}" TextColor="{Binding Path=IsFavorite,Converter={StaticResource iconColorConverter}}"
+                                           FontSize="{OnPlatform UWP=Medium,Default=Large}" VerticalOptions="CenterAndExpand">
+                                    </Label>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.ItemTemplate>
+            </ListView:SfListView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

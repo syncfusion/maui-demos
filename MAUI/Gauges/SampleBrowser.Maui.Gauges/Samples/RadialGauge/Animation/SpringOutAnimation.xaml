@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.SpringOutAnimation"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:gauge="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="springOutAnimationGauge" HorizontalOptions="Center">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis StartAngle="180"
+                                                  ShowAxisLine="False"
+                                                  EndAngle="360"
+                                                  Interval="10"
+                                                  ShowLabels="False"
+                                                  TickOffset="0.05"
+                                                  OffsetUnit="Factor"
+                                                  RadiusFactor="0.9"
+                                                  MinorTicksPerInterval="4">
+                    <gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.1"
+                                                             StrokeThickness="1.5" />
+                    </gauge:RadialAxis.MajorTickStyle>
+                    <gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.04"
+                                                             StrokeThickness="1.5" />
+                    </gauge:RadialAxis.MinorTickStyle>
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:RangePointer Value="70"
+                                                            WidthUnit="Pixel"
+                                                            PointerWidth="5"
+                                                            EnableAnimation="True"
+                                                            AnimationEasing="{x:Static Easing.SpringOut}"
+                                                            AnimationDuration="2000">
+                            <gauge:RangePointer.GradientStops>
+                                <gauge:GaugeGradientStop Value="25"
+                                                                         Color="#FFD481FF" />
+                                <gauge:GaugeGradientStop Value="75"
+                                                                         Color="#FF06F0E0" />
+                            </gauge:RangePointer.GradientStops>
+                        </gauge:RangePointer>
+                        <gauge:NeedlePointer AnimationEasing="{x:Static Easing.SpringOut}"
+                                                             Value="70"
+                                                             NeedleStartWidth="1"
+                                                             NeedleEndWidth="6"
+                                                             NeedleFill="#FFD481FF"
+                                                             NeedleLengthUnit="Factor"
+                                                             NeedleLength="1"
+                                                             EnableAnimation="True"
+                                                             AnimationDuration="2000"
+                                                             KnobRadius="0">
+
+                        </gauge:NeedlePointer>
+                    </gauge:RadialAxis.Pointers>
+
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+
+        </gauge:SfRadialGauge>
+
+    </localCore:SampleView.Content>
+</localCore:SampleView>

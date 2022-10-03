@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Data Visualization">
+		<Control Title="Bullet Chart" ControlName="BulletChart" StatusTag="New" Image="bulletchart.png" Description="Visually compare measures like a bar chart. Designed using Linear Gauge.">
+			<Sample SampleName="BulletChartDemo" Title="Features" CodeViewerPath="BulletChart/"/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>
