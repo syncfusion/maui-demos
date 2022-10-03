@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.HeightCalculator"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      Background="White">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+        </Style>
+        <local:GraphicsDrawable x:Key="GraphicsDrawable" />
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid HorizontalOptions="Center"
+              VerticalOptions="Center" >
+            <gauge:SfLinearGauge x:Name="heightCalculatorGauge"
+                                 Minimum="0"
+                                 Maximum="200"
+                                 Interval="50"
+                                 HorizontalOptions="Center"
+                                 MinorTicksPerInterval="0"
+                                 Orientation="Vertical"
+                                 TickPosition="Outside"
+                                 LabelCreated="SfLinearGauge_LabelCreated"
+                                 LabelPosition="Outside">
+                <gauge:SfLinearGauge.MarkerPointers>
+                    <gauge:LinearShapePointer Value="130"
+                                              x:Name="heightCalculatorShape"
+                                              ValueChanged="Pointer1_ValueChanged"
+                                              ShapeType="Rectangle"
+                                              Position="Outside"
+                                              IsInteractive="True"
+                                              ShapeHeight="1.5" 
+                                              ShapeWidth="265"
+                                              Fill="#ff0074E3" />
+                    <gauge:LinearShapePointer x:Name="shapePointer1" 
+                                              DragOffset="0" ShapeType="Triangle" OffsetX="1"
+                                               Fill="#ff0074E3" ShapeHeight="16" ShapeWidth="9" IsInteractive="True" 
+                                              
+                                              Value="{Binding Source={x:Reference heightCalculatorShape}, Path=Value}"/>
+                    <gauge:LinearShapePointer x:Name="shapePointer2" ShapeType="Rectangle" OffsetX="17"
+                                              IsInteractive="True" ShapeHeight="16"
+                                              Fill="#ff0074E3"  DragOffset="0"
+                                                                                 
+                                              Value="{Binding Source={x:Reference shapePointer1}, Path=Value}"/>
+                    <gauge:LinearContentPointer x:Name="heightCalculatorPointer"
+                                                Value="{Binding Source={x:Reference heightCalculatorShape}, Path=Value}"
+                                                IsInteractive="True"
+                                                ValueChanged="Pointer1_ValueChanged"
+                                                OffsetX="-265">
+                        <gauge:LinearContentPointer.Content>
+                            <Grid HeightRequest="30"
+                                  WidthRequest="60" Margin="0,0,-50,0">
+                                <RoundRectangle HorizontalOptions="Center"
+                                                StrokeThickness="1"
+                                                HeightRequest="30"
+                                                WidthRequest="60"
+                                                CornerRadius="5"
+                                                Stroke="LightGray"
+                                                Background="White">
+                                </RoundRectangle>
+                                <Label x:Name="heightAnnotationLabel"
+                                       Text="130 cm"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       TextColor="#ff0074E3"
+                                       Background="Transparent" />
+                            </Grid>
+                        </gauge:LinearContentPointer.Content>
+                    </gauge:LinearContentPointer>
+
+                </gauge:SfLinearGauge.MarkerPointers>
+                <gauge:SfLinearGauge.Ranges>
+                    <gauge:LinearRange x:Name="heightCalculatorRange"
+                                       EndValue="{Binding Source={x:Reference heightCalculatorShape}, Path=Value}"
+                                       StartWidth="265"
+                                       EndWidth="265"
+                                       Fill="Transparent">
+                        <gauge:LinearRange.Child>
+                            <Image Source="{imageExtention:SfImageResource bmi_dark.png}"></Image>
+                        </gauge:LinearRange.Child>
+                    </gauge:LinearRange>
+                </gauge:SfLinearGauge.Ranges>
+
+            </gauge:SfLinearGauge>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

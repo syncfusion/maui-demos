@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Data Visualization">
+		<Control Title="Maps" IsPreview="True" StatusTag="New" ControlName="SfMaps" Image="maps.png" Description="Easily visualize data over a geographical area.">
+			<Sample Title="Range Color Mapping" SampleName="RangeColorMap" SearchTags="Range Color Mapping" CodeViewerPath="Maps/ColorMapping/" Description="This sample shows the population density of the world map with range color mapping."/>
+			<Sample Title="Equal Color Mapping" SampleName="EqualColorMap" SearchTags="Equal Color Mapping" CodeViewerPath="Maps/ColorMapping/" Description="This sample shows European time zones using equal color mapping."/>
+			<Sample Title="Bubble" SampleName="Bubble" SearchTags="Bubble" CodeViewerPath="Maps/Bubble/" Description="This sample shows the statistics of the facebook users using the bubble support."/>
+			<Sample Title="Marker" SampleName="Marker" SearchTags="Marker" CodeViewerPath="Maps/Marker/" Description="This sample showcases the world map with different time zones using markers."/>
+			<Sample Title="Selection" SampleName="Selection" SearchTags="Selection" CodeViewerPath="Maps/Selection/" Description="This sample showcases a map with simple Selection."/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

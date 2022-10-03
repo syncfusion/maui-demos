@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:maui="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.SfRangeSlider.RangeSliderDefaultSample">
+    
+    <sb:SampleView.Resources>
+        <maui:Thickness x:Key="CommonThickness">0,18,0,0</maui:Thickness>
+
+        <maui:Thickness x:Key="WinUIThickness">0,25,0,0</maui:Thickness>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto,25,Auto,Auto"
+                  ColumnDefinitions="24,Auto,24"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center">
+
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Enabled"
+                       Margin="{OnPlatform Default={StaticResource CommonThickness}, WinUI={StaticResource WinUIThickness}}" />
+                <sliders:SfRangeSlider Grid.Row="0"
+                                       Grid.ColumnSpan="3"
+                                       Minimum="0"
+                                       Maximum="100"
+                                       RangeStart="25"
+                                       RangeEnd="75">
+
+                    <sliders:SfRangeSlider.Tooltip>
+                        <sliders:SliderTooltip NumberFormat="#0" />
+                    </sliders:SfRangeSlider.Tooltip>
+                </sliders:SfRangeSlider>
+
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       Text="Disabled" />
+                <sliders:SfRangeSlider Grid.Row="3"
+                                       Grid.ColumnSpan="3"
+                                       Minimum="0"
+                                       Maximum="100"
+                                       RangeStart="25"
+                                       RangeEnd="75"
+                                       IsEnabled="False">
+
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup>
+                            <VisualState x:Name="Default" />
+
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="TrackStyle">
+                                        <Setter.Value>
+                                            <sliders:SliderTrackStyle ActiveFill="Gray"
+                                                                      InactiveFill="LightGray" />
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <Setter Property="ThumbStyle">
+                                        <Setter.Value>
+                                            <sliders:SliderThumbStyle Fill="Gray" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </sliders:SfRangeSlider>
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>
