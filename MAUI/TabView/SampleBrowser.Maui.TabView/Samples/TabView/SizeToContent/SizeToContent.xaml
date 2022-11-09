@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.TabView.SfTabView.SizeToContent"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TabView"
+             xmlns:tabView="http://schemas.syncfusion.com/maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="White">
+    <localCore:SampleView.Content>
+        <Grid Background="White" Margin="{OnPlatform Android='0,-8,0,0'}">
+            <tabView:SfTabView TabWidthMode="SizeToContent" 
+                               x:Name="tab"
+                               Margin="1,5,1,2"
+                               TabBarBackground="#F2F2F2"
+                               IndicatorBackground="#446200EE"
+                               BackgroundColor="White"
+                               IndicatorPlacement="Fill">
+                <tabView:SfTabView.Items>
+                    <tabView:SfTabItem Header="Alexandar" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10" >
+                                    <Grid RowSpacing="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource alexandar.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Gabriella" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource gabriella.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Clara" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource clara.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Tye" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource tye.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Nora" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource nora.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Sebastian" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource sebastian.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Lita" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource lita.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Jackson" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource jackson.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Liam" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource liam.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Washington" FontSize="16" FontFamily="Roboto-Regular">
+                        <tabView:SfTabItem.Content>
+                            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                <Grid Padding="10">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Frame IsClippedToBounds="True" HasShadow="False" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100" BorderColor="#E5E5E5" >
+                                                <Image Source="{imageExtension:SfImageResource washington.png}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" />
+                                            </Frame>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="1" Spacing="20">
+                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
+                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                </tabView:SfTabView.Items>
+            </tabView:SfTabView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

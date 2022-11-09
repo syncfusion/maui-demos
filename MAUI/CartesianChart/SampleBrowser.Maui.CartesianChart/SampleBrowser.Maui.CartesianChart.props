@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+ <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\ColumnChart.xaml.cs">
+    <Link>Samples\CartesianChart\Column\ColumnChart.xaml.cs</Link>
+    <DependentUpon>ColumnChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\Column_DynamicUpdate.xaml.cs">
+    <Link>Samples\CartesianChart\Column\Column_DynamicUpdate.xaml.cs</Link>
+    <DependentUpon>Column_DynamicUpdate.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\Column_RoundedEdges.xaml.cs">
+    <Link>Samples\CartesianChart\Column\Column_RoundedEdges.xaml.cs</Link>
+    <DependentUpon>Column_RoundedEdges.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\Column_WidthCustomization.xaml.cs">
+    <Link>Samples\CartesianChart\Column\Column_WidthCustomization.xaml.cs</Link>
+    <DependentUpon>Column_WidthCustomization.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\Column_Customization.xaml.cs">
+    <Link>Samples\CartesianChart\Column\Column_Customization.xaml.cs</Link>
+    <DependentUpon>Column_Customization.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\BarChart.xaml.cs">
+    <Link>Samples\CartesianChart\Bar\BarChart.xaml.cs</Link>
+    <DependentUpon>BarChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\NeumorphismUI\NeumorphismColumnChart.xaml.cs">
+    <Link>Samples\CartesianChart\NeumorphismUI\NeumorphismColumnChart.xaml.cs</Link>
+    <DependentUpon>NeumorphismColumnChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\Bar_DynamicUpdate.xaml.cs">
+    <Link>Samples\CartesianChart\Bar\Bar_DynamicUpdate.xaml.cs</Link>
+    <DependentUpon>Bar_DynamicUpdate.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\Bar_RoundedEdge.xaml.cs">
+    <Link>Samples\CartesianChart\Bar\Bar_RoundedEdge.xaml.cs</Link>
+    <DependentUpon>Bar_RoundedEdge.xaml</DependentUpon>
+  </Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\BarBackToBack.xaml.cs">
+		<Link>Samples\CartesianChart\Bar\BarBackToBack.xaml.cs</Link>
+		<DependentUpon>BarBackToBack.xaml</DependentUpon>
+	</Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\Bar_WidthCustomization.xaml.cs">
+    <Link>Samples\CartesianChart\Bar\Bar_WidthCustomization.xaml.cs</Link>
+    <DependentUpon>Bar_WidthCustomization.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\LineChart\LineChart.xaml.cs">
+    <Link>Samples\CartesianChart\LineChart\LineChart.xaml.cs</Link>
+    <DependentUpon>LineChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\LineChart\Line_DynamicUpdate.xaml.cs">
+    <Link>Samples\CartesianChart\LineChart\Line_DynamicUpdate.xaml.cs</Link>
+    <DependentUpon>Line_DynamicUpdate.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\LineChart\DashedLineChart.xaml.cs">
+    <Link>Samples\CartesianChart\LineChart\DashedLineChart.xaml.cs</Link>
+    <DependentUpon>DashedLineChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\FastLineChart\FastLineChart.xaml.cs">
+    <Link>Samples\CartesianChart\FastLineChart\FastLineChart.xaml.cs</Link>
+    <DependentUpon>FastLineChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\FastLineChart\RealTimeChart.xaml.cs">
+    <Link>Samples\CartesianChart\FastLineChart\RealTimeChart.xaml.cs</Link>
+    <DependentUpon>RealTimeChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\FastLineChart\VerticalLiveChart.xaml.cs">
+    <Link>Samples\CartesianChart\FastLineChart\VerticalLiveChart.xaml.cs</Link>
+    <DependentUpon>VerticalLiveChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineChart\SplineChart.xaml.cs">
+    <Link>Samples\CartesianChart\SplineChart\SplineChart.xaml.cs</Link>
+    <DependentUpon>SplineChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineChart\DashedSplineChart.xaml.cs">
+    <Link>Samples\CartesianChart\SplineChart\DashedSplineChart.xaml.cs</Link>
+    <DependentUpon>DashedSplineChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineChart\Spline_DynamicUpdate.xaml.cs">
+    <Link>Samples\CartesianChart\SplineChart\Spline_DynamicUpdate.xaml.cs</Link>
+    <DependentUpon>Spline_DynamicUpdate.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\AreaChart\AreaChart.xaml.cs">
+    <Link>Samples\CartesianChart\AreaChart\AreaChart.xaml.cs</Link>
+    <DependentUpon>AreaChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\AreaChart\AreaChart_DynamicUpdate.xaml.cs">
+    <Link>Samples\CartesianChart\AreaChart\AreaChart_DynamicUpdate.xaml.cs</Link>
+    <DependentUpon>AreaChart_DynamicUpdate.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineAreaChart\SplineAreaChart.xaml.cs">
+    <Link>Samples\CartesianChart\SplineAreaChart\SplineAreaChart.xaml.cs</Link>
+    <DependentUpon>SplineAreaChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Scatter\ScatterChart.xaml.cs">
+    <Link>Samples\CartesianChart\Scatter\ScatterChart.xaml.cs</Link>
+    <DependentUpon>ScatterChart.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Scatter\Scatter_DynamicUpdate.xaml.cs">
+    <Link>Samples\CartesianChart\Scatter\Scatter_DynamicUpdate.xaml.cs</Link>
+    <DependentUpon>Scatter_DynamicUpdate.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\CategoryAxis.xaml.cs">
+    <Link>Samples\CartesianChart\Axis\CategoryAxis.xaml.cs</Link>
+    <DependentUpon>CategoryAxis.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\NumericalAxis.xaml.cs">
+    <Link>Samples\CartesianChart\Axis\NumericalAxis.xaml.cs</Link>
+    <DependentUpon>NumericalAxis.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\LogarithmicAxis.xaml.cs">
+    <Link>Samples\CartesianChart\Axis\LogarithmicAxis.xaml.cs</Link>
+    <DependentUpon>LogarithmicAxis.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\DateTimeAxis.xaml.cs">
+    <Link>Samples\CartesianChart\Axis\DateTimeAxis.xaml.cs</Link>
+    <DependentUpon>DateTimeAxis.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\AxisCrossing.xaml.cs">
+    <Link>Samples\CartesianChart\Axis\AxisCrossing.xaml.cs</Link>
+    <DependentUpon>AxisCrossing.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Selection\Selection.xaml.cs">
+    <Link>Samples\CartesianChart\Selection\Selection.xaml.cs</Link>
+    <DependentUpon>Selection.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Selection\SeriesSelection.xaml.cs">
+  	<Link>Samples\CartesianChart\Selection\SeriesSelection.xaml.cs</Link>
+  	<DependentUpon>SeriesSelection.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Tooltip\CartesianTooltip.xaml.cs">
+    <Link>Samples\CartesianChart\Tooltip\CartesianTooltip.xaml.cs</Link>
+    <DependentUpon>CartesianTooltip.xaml</DependentUpon>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Zoom\ChartZooming.xaml.cs">
+    <Link>Samples\CartesianChart\Zoom\ChartZooming.xaml.cs</Link>
+    <DependentUpon>ChartZooming.xaml</DependentUpon>
+  </Compile>
+  
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\ColumnSeriesViewModel.cs">
+    <Link>Samples\CartesianChart\Column\ColumnSeriesViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\ColumnSeriesExt.cs">
+    <Link>Samples\CartesianChart\Column\ColumnSeriesExt.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\ColumnViewModelEXT.cs">
+    <Link>Samples\CartesianChart\Column\ColumnViewModelEXT.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\BarSeriesViewModel.cs">
+    <Link>Samples\CartesianChart\Bar\BarSeriesViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\NeumorphismUI\ChartExtention.cs">
+    <Link>Samples\CartesianChart\NeumorphismUI\ChartExtention.cs</Link>
+  </Compile>  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\NeumorphismUI\NeumorphismViewModel.cs">
+    <Link>Samples\CartesianChart\NeumorphismUI\NeumorphismViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\LineChart\LineSeriesViewModel.cs">
+    <Link>Samples\CartesianChart\LineChart\LineSeriesViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\FastLineChart\FastLineSeriesViewModel.cs">
+    <Link>Samples\CartesianChart\FastLineChart\FastLineSeriesViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineChart\SplineSeriesViewModel.cs">
+    <Link>Samples\CartesianChart\SplineChart\SplineSeriesViewModel.cs</Link>
+  </Compile>  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\AreaChart\AreaSeriesViewModel.cs">
+    <Link>Samples\CartesianChart\AreaChart\AreaSeriesViewModel.cs</Link>
+  </Compile>  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineAreaChart\SplineAreaSeriesViewModel.cs">
+    <Link>Samples\CartesianChart\SplineAreaChart\SplineAreaSeriesViewModel.cs</Link>
+  </Compile> 
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Scatter\ScatterSeriesViewModel.cs">
+    <Link>Samples\CartesianChart\Scatter\ScatterSeriesViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\CategoryAxisViewModel.cs">
+    <Link>Samples\CartesianChart\Axis\CategoryAxisViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\NumericalAxisViewModel.cs">
+    <Link>Samples\CartesianChart\Axis\NumericalAxisViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\LogarithmicAxisViewModel.cs">
+    <Link>Samples\CartesianChart\Axis\LogarithmicAxisViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\DateTimeAxisViewModel.cs">
+    <Link>Samples\CartesianChart\Axis\DateTimeAxisViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Selection\SelectionViewModel.cs">
+    <Link>Samples\CartesianChart\Selection\SelectionViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Selection\SeriesSelectionViewModel.cs">
+  	<Link>Samples\CartesianChart\Selection\SeriesSelectionViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Tooltip\TooltipViewModel.cs">
+    <Link>Samples\CartesianChart\Tooltip\TooltipViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Zoom\ZoomViewModel.cs">
+    <Link>Samples\CartesianChart\Zoom\ZoomViewModel.cs</Link>
+  </Compile>
+    
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ViewModel\DynamicAnimationViewModel.cs">
+    <Link>Samples\CartesianChart\ViewModel\DynamicAnimationViewModel.cs</Link>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ViewModel\BaseViewModel.cs">
+    <Link>Samples\CartesianChart\ViewModel\BaseViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ViewModel\Model.cs">
+    <Link>Samples\CartesianChart\ViewModel\Model.cs</Link>
+  </Compile>
+ </ItemGroup>
+ 
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\CartesianChartSamplesList.xml" >
+      <Link>CartesianChartSamplesList.xml</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\ColumnChart.xaml">
+      <Link>Samples\CartesianChart\Column\ColumnChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\Column_DynamicUpdate.xaml">
+      <Link>Samples\CartesianChart\Column\Column_DynamicUpdate.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\Column_RoundedEdges.xaml">
+      <Link>Samples\CartesianChart\Column\Column_RoundedEdges.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\Column_WidthCustomization.xaml">
+      <Link>Samples\CartesianChart\Column\Column_WidthCustomization.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Column\Column_Customization.xaml">
+      <Link>Samples\CartesianChart\Column\Column_Customization.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\BarChart.xaml">
+      <Link>Samples\CartesianChart\Bar\BarChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup> 
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\NeumorphismUI\NeumorphismColumnChart.xaml">
+      <Link>Samples\CartesianChart\NeumorphismUI\NeumorphismColumnChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\Bar_RoundedEdge.xaml">
+      <Link>Samples\CartesianChart\Bar\Bar_RoundedEdge.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\BarBackToBack.xaml">
+      <Link>Samples\CartesianChart\Bar\BarBackToBack.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+	
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\Bar_DynamicUpdate.xaml">
+      <Link>Samples\CartesianChart\Bar\Bar_DynamicUpdate.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\Bar_WidthCustomization.xaml">
+      <Link>Samples\CartesianChart\Bar\Bar_WidthCustomization.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\LineChart\LineChart.xaml">
+      <Link>Samples\CartesianChart\LineChart\LineChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\LineChart\DashedLineChart.xaml">
+      <Link>Samples\CartesianChart\LineChart\DashedLineChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\LineChart\Line_DynamicUpdate.xaml">
+      <Link>Samples\CartesianChart\LineChart\Line_DynamicUpdate.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\FastLineChart\FastLineChart.xaml">
+      <Link>Samples\CartesianChart\FastLineChart\FastLineChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\FastLineChart\RealTimeChart.xaml">
+      <Link>Samples\CartesianChart\FastLineChart\RealTimeChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\FastLineChart\VerticalLiveChart.xaml">
+      <Link>Samples\CartesianChart\FastLineChart\VerticalLiveChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineChart\SplineChart.xaml">
+      <Link>Samples\CartesianChart\SplineChart\SplineChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineChart\DashedSplineChart.xaml">
+      <Link>Samples\CartesianChart\SplineChart\DashedSplineChart.xaml</Link>
+    </MauiXaml>	
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineChart\Spline_DynamicUpdate.xaml">
+      <Link>Samples\CartesianChart\SplineChart\Spline_DynamicUpdate.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\AreaChart\AreaChart.xaml">
+      <Link>Samples\CartesianChart\AreaChart\AreaChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\AreaChart\AreaChart_DynamicUpdate.xaml">
+      <Link>Samples\CartesianChart\AreaChart\AreaChart_DynamicUpdate.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\SplineAreaChart\SplineAreaChart.xaml">
+      <Link>Samples\CartesianChart\SplineAreaChart\SplineAreaChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Scatter\ScatterChart.xaml">
+      <Link>Samples\CartesianChart\Scatter\ScatterChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Scatter\Scatter_DynamicUpdate.xaml">
+      <Link>Samples\CartesianChart\Scatter\Scatter_DynamicUpdate.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\CategoryAxis.xaml">
+      <Link>Samples\CartesianChart\Axis\CategoryAxis.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\NumericalAxis.xaml">
+      <Link>Samples\CartesianChart\Axis\NumericalAxis.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+    <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\LogarithmicAxis.xaml">
+      <Link>Samples\CartesianChart\Axis\LogarithmicAxis.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\DateTimeAxis.xaml">
+      <Link>Samples\CartesianChart\Axis\DateTimeAxis.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\AxisCrossing.xaml">
+      <Link>Samples\CartesianChart\Axis\AxisCrossing.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Selection\Selection.xaml">
+      <Link>Samples\CartesianChart\Selection\Selection.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+  	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Selection\SeriesSelection.xaml">
+  	  <Link>Samples\CartesianChart\Selection\SeriesSelection.xaml</Link>
+  	</MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Tooltip\CartesianTooltip.xaml">
+      <Link>Samples\CartesianChart\Tooltip\CartesianTooltip.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Zoom\ChartZooming.xaml">
+      <Link>Samples\CartesianChart\Zoom\ChartZooming.xaml</Link>
+    </MauiXaml>
+  </ItemGroup> 
+</Project>

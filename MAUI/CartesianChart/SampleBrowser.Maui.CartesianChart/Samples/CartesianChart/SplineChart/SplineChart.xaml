@@ -1,0 +1,51 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.CartesianChart.SfCartesianChart.SplineChart"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                       xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Content>
+        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
+            <chart:SfCartesianChart.BindingContext>
+                <local:SplineSeriesViewModel />
+            </chart:SfCartesianChart.BindingContext>
+            <chart:SfCartesianChart.Legend>
+                <chart:ChartLegend ToggleSeriesVisibility="True"/>
+            </chart:SfCartesianChart.Legend>
+            <chart:SfCartesianChart.Title>
+                <Label Text="Average High/Low Temperature of London" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+            </chart:SfCartesianChart.Title>
+            <chart:SfCartesianChart.XAxes>
+                <chart:CategoryAxis ShowMajorGridLines="false" PlotOffsetStart="10" PlotOffsetEnd="10" AxisLineOffset="10">
+                </chart:CategoryAxis>
+            </chart:SfCartesianChart.XAxes>
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis Maximum="80" Minimum="30" Interval="10">
+                    <chart:NumericalAxis.AxisLineStyle>
+                        <chart:ChartLineStyle StrokeWidth="0">
+                        </chart:ChartLineStyle>
+                    </chart:NumericalAxis.AxisLineStyle>
+                    <chart:NumericalAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle TickSize="0" />
+                    </chart:NumericalAxis.MajorTickStyle>
+                    <chart:NumericalAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle LabelFormat="0'F" />
+                    </chart:NumericalAxis.LabelStyle>
+                </chart:NumericalAxis>
+            </chart:SfCartesianChart.YAxes>
+            <chart:SfCartesianChart.Series>
+
+                <chart:SplineSeries x:Name="splineSeries1" Label="High" EnableTooltip="True" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Value" StrokeWidth="1">
+                </chart:SplineSeries>
+                <chart:SplineSeries x:Name="splineSeries2" Label="Low" EnableTooltip="True" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Size" StrokeWidth="1">
+                </chart:SplineSeries>
+
+                <chart:ScatterSeries x:Name="scatter1" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries1}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#314A6E" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Value" StrokeWidth="1">
+                </chart:ScatterSeries>
+                <chart:ScatterSeries x:Name="scatter2" IsVisible="{Binding IsVisible, Source={x:Reference splineSeries2}}" IsVisibleOnLegend="False" PointWidth="8" PointHeight="8" Fill="White" Stroke="#48988B" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Size" StrokeWidth="1">
+                </chart:ScatterSeries>
+
+            </chart:SfCartesianChart.Series>
+        </chart:SfCartesianChart>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

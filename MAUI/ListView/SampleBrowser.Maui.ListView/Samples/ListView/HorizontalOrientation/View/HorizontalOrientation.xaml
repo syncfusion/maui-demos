@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.ListView.SfListView.HorizontalOrientation"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"    
+    BackgroundColor="White">
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:ListViewOrientationViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <ScrollView>
+            <Grid RowSpacing="0" BackgroundColor="#FFFFFF">
+            <Grid.RowDefinitions>
+               <RowDefinition Height="{OnPlatform Default = Auto, MacCatalyst= 320, iOS = 280}" />
+                <RowDefinition Height="{OnPlatform MacCatalyst= 20,iOS= 5, Default= 30}"></RowDefinition>
+                <RowDefinition Height="{OnPlatform Default = Auto, MacCatalyst= 320, iOS = 280}" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"  RowSpacing="0" Padding="0,10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"  Orientation="Vertical" Padding="10,0,0,0">
+                    <Label FontFamily="Roboto-Medium" Text="Veg Pizza" Margin="0,0,0,10" TextColor="#DE000000"
+                               FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=22}, iOS={OnIdiom Phone=18, Tablet=20}, Default=16}" />
+                    <Label FontFamily="Roboto-Regular"  Text="Veg pizza prepared with the items that meet vegetarian standards by not including any meat or animal tissue products."
+                     TextColor="#99000000" LineHeight="1.2" LineBreakMode="WordWrap"
+                               FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=16}, iOS={OnIdiom Phone=12, Tablet=14}, MacCatalyst=14,Default=14}" />
+                </StackLayout>
+                    <Grid  Grid.Row="1"
+                      Padding="8,0,0,0">
+                        <ListView:SfListView x:Name="listView"   ItemsSource="{Binding PizzaInfo}"
+                     ScrollBarVisibility="Always"
+                     SelectionMode="None"
+                     Orientation="Horizontal"
+                     ItemSize="{OnPlatform Android={OnIdiom Phone=173, Tablet=180}, iOS={OnIdiom Phone=125, Tablet=250}, MacCatalyst=170, Default= 200}"
+                     ItemSpacing="0,10,10,10"
+                     HeightRequest="{OnPlatform Default=220, iOS={OnIdiom Phone=170, Tablet=280}}">
+                            <ListView:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout BackgroundColor="#EEEEEE" Padding="2" HeightRequest="{OnPlatform Default=200, Android={OnIdiom Phone=205}, iOS={OnIdiom Phone=150, Tablet=260}}" Orientation="Vertical" >
+                                        <Image Grid.Row="0" Source="{Binding PizzaImage,Converter={StaticResource imageconverter}}" HeightRequest="{OnPlatform Default=170, iOS={OnIdiom Phone=120, Tablet=230}}" WidthRequest="{OnPlatform Android={OnIdiom Phone=173, Tablet=180}, iOS={OnIdiom Phone=125, Tablet=250}, MacCatalyst=170, Default= 200}" VerticalOptions="Start" Aspect="Fill" />
+                                        <Label Grid.Row="1" Text="{Binding PizzaName}"
+                                                LineBreakMode="WordWrap"
+                                                HorizontalTextAlignment="Start"
+                                                VerticalTextAlignment="Center" FontFamily="Roboto-Regular"
+                                                VerticalOptions="Center"
+                                                HeightRequest="30"
+                                                TextColor="#99000000"
+                                                FontSize="14" Margin='{OnPlatform Default="6,0,0,0",Android="6,0,0,3", UWP="6,0,0,0"}'>
+                                        </Label>
+                                    </StackLayout>
+                                </DataTemplate>
+                    </ListView:SfListView.ItemTemplate>
+                </ListView:SfListView>
+                    </Grid>
+                </Grid>
+            <Grid Grid.Row="1"></Grid>
+            <Grid Grid.Row="2"  RowSpacing="0" Padding="0,10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"  Orientation="Vertical" Padding="10,0,0,0">
+                    <Label FontFamily="Roboto-Medium" Text="Non-veg Pizza" Margin="0,0,0,10" TextColor="#DE000000"
+                               FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=22}, iOS={OnIdiom Phone=18, Tablet=20}, Default=16}" />
+                    <Label FontFamily="Roboto-Regular"  Text="Non-veg pizza is prepared by including the meat and animal tissue products."
+                     TextColor="#99000000" LineHeight="1.2" LineBreakMode="WordWrap"
+                               FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=16}, iOS={OnIdiom Phone=12, Tablet=14}, MacCatalyst=14, UWP=14}" />
+                </StackLayout>
+                    <Grid  Grid.Row="1"
+                      Padding="8,0,0,0">
+                        <ListView:SfListView x:Name="listView1"  ItemsSource="{Binding PizzaInfo1}" 
+                     ScrollBarVisibility="Always"
+                     SelectionMode="None"
+                     Orientation="Horizontal"
+                     ItemSize="{OnPlatform Android={OnIdiom Phone=173, Tablet=180}, iOS={OnIdiom Phone=125, Tablet=250}, MacCatalyst=170, Default= 200}"
+                     ItemSpacing="0,10,10,10"
+                 HeightRequest="{OnPlatform Default=220, iOS={OnIdiom Phone=170, Tablet=280}}">
+                            <ListView:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout BackgroundColor="#EEEEEE" Padding="2" HeightRequest="{OnPlatform Default=200, Android={OnIdiom Phone=205}, iOS={OnIdiom Phone=150, Tablet=260}}" Orientation="Vertical" >
+                                        <Image Grid.Row="0" Source="{Binding PizzaImage,Converter={StaticResource imageconverter}}" HeightRequest="{OnPlatform Default=170, iOS={OnIdiom Phone=120, Tablet=230}}" WidthRequest="{OnPlatform Android={OnIdiom Phone=173, Tablet=180}, iOS={OnIdiom Phone=125, Tablet=250}, MacCatalyst=170, Default= 200}" VerticalOptions="Start" Aspect="Fill" />
+                                        <Label Grid.Row="1" Text="{Binding PizzaName}"
+                                                LineBreakMode="WordWrap"
+                                                HorizontalTextAlignment="Start"
+                                                VerticalTextAlignment="Center" FontFamily="Roboto-Regular"
+                                                VerticalOptions="Center"
+                                                HeightRequest="30"
+                                                TextColor="#99000000"
+                                                FontSize="14" Margin='{OnPlatform Default="6,0,0,0",Android="6,0,0,3", UWP="6,0,0,0"}'>
+                                        </Label>
+                                    </StackLayout>
+                                </DataTemplate>
+                    </ListView:SfListView.ItemTemplate>
+                </ListView:SfListView>
+            </Grid>
+        </Grid>
+                </Grid>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

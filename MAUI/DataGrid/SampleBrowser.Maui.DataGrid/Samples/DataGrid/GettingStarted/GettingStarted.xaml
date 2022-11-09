@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.GettingStarted"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    BackgroundColor="White">
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageConverter"></imageExtension:SfImageSourceConverter>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.BindingContext>
+        <local:TeamViewModel>
+        </local:TeamViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid" 
+                           AutoGenerateColumnsMode="None"
+                           RowHeight="48"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           ItemsSource="{Binding Data}"
+                           ColumnWidthMode="Fill"
+                           >
+            <sfgrid:SfDataGrid.DefaultStyle>
+                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" HeaderRowFontSize="14" RowFontSize="14" HeaderRowTextColor="#212121" RowTextColor="#212121"></sfgrid:DataGridStyle>
+            </sfgrid:SfDataGrid.DefaultStyle>
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridTemplateColumn HeaderTextAlignment="Start" ColumnWidthMode="Auto" MappingName="TeamName" MinimumWidth="150" HeaderText="Team">
+                    <sfgrid:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout Spacing="8" Padding="8" >
+                                <Image Source="{Binding Logo,Converter={StaticResource imageConverter}}" WidthRequest="32" HeightRequest="32" />
+                                <Label Text="{Binding TeamName}" 
+                                       TextColor="#212121" 
+                                       BackgroundColor="White"
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Center"/>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </sfgrid:DataGridTemplateColumn.CellTemplate>
+                </sfgrid:DataGridTemplateColumn>
+
+                <sfgrid:DataGridTextColumn MappingName="Wins" HeaderTextAlignment="Center" CellTextAlignment="Center"
+                                       HeaderText="W">
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MappingName="Losses" HeaderTextAlignment="Center" CellTextAlignment="Center"
+                                       HeaderText="L">
+
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MappingName="PCT" HeaderTextAlignment="Center" CellTextAlignment="Center" HeaderText="WPCT">
+
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MappingName="GB" HeaderTextAlignment="Center" CellTextAlignment="Center" HeaderText="GB">
+                </sfgrid:DataGridTextColumn>
+
+            </sfgrid:SfDataGrid.Columns>
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
