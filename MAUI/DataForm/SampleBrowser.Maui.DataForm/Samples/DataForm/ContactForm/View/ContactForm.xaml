@@ -1,0 +1,116 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.DataForm.SfDataForm.ContactForm"
+            xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
+            xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+            xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+            xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+            Background="{OnIdiom Default=White, Desktop=WhiteSmoke}"
+            xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+            xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Margin>
+        <OnPlatform x:TypeArguments="thickness:Thickness">
+            <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
+            <On Platform="UWP" Value="-4,-4,-6,-6"/>
+        </OnPlatform>
+    </localCore:SampleView.Margin>
+
+    <localCore:SampleView.Content>
+        <Grid Background="White">
+            <Grid.BindingContext>
+                <local:DataFormViewModel/>
+            </Grid.BindingContext>
+
+            <Image Source="{converters:SfImageResource contactform.png}" Aspect="Fill" Grid.ColumnSpan="2"
+                   IsVisible="{OnIdiom Desktop=True, Default=False}"/>
+
+            <Frame BorderColor="{OnIdiom Default=Transparent, Desktop=#C2C2C2}" MaximumHeightRequest="{OnPlatform MacCatalyst=800}"
+                VerticalOptions="{OnPlatform MacCatalyst=Center}"
+                HasShadow="False" Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}"
+                CornerRadius="10" Grid.Column="0" WidthRequest="{OnPlatform WinUI=400, MacCatalyst=600, Default=-1}"
+                HorizontalOptions="{OnIdiom Desktop=Center, Default=Fill}" Padding="0">
+                <Frame.Margin>
+                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                        <On Platform="MacCatalyst" Value="20"/>
+                        <On Platform="UWP" Value="20"/>
+                    </OnPlatform>
+                </Frame.Margin>
+
+                <Grid RowDefinitions="0.9*, 1, 0.1*">
+                    <dataForm:SfDataForm x:Name="contactForm"
+                                         DataObject="{Binding ContactFormModel}" ColumnCount="1" AutoGenerateItems="False" ValidationMode="PropertyChanged">
+                <dataForm:SfDataForm.DefaultLayoutSettings>
+                    <dataForm:DataFormDefaultLayoutSettings LabelWidth="{OnIdiom Desktop=0.1*, Phone=0.15*}" EditorWidth="{OnIdiom Desktop=0.9*, Phone=0.85*}"/>
+                </dataForm:SfDataForm.DefaultLayoutSettings>
+                
+                <dataForm:SfDataForm.Items>
+                    <dataForm:DataFormCustomItem FieldName="ProfileImage">
+                        <dataForm:DataFormCustomItem.EditorView>
+                            <Image Source="{converters:SfImageResource people_circle16.png}"
+                                   HeightRequest="80"/>
+                        </dataForm:DataFormCustomItem.EditorView>
+                    </dataForm:DataFormCustomItem>
+
+                    <dataForm:DataFormGroupItem Name="Name">
+                        <dataForm:DataFormGroupItem.Items>
+                                    <dataForm:DataFormTextItem FieldName="Name" Padding="0, 10, 10, 10" >
+                                <dataForm:DataFormTextItem.LeadingLabelIcon>
+                                    <FontImageSource Glyph="F" Color="#79747E" FontFamily="InputLayoutIcons" Size="18" />
+                                </dataForm:DataFormTextItem.LeadingLabelIcon>
+                            </dataForm:DataFormTextItem>
+                                    <dataForm:DataFormTextItem FieldName="LastName" LeadingLabelIcon="" Padding="0, 10, 10, 10"/>
+                        </dataForm:DataFormGroupItem.Items>
+                    </dataForm:DataFormGroupItem>
+
+                    <dataForm:DataFormGroupItem Name="Mobile">
+                        <dataForm:DataFormGroupItem.Items>
+                            <dataForm:DataFormCustomItem FieldName="Mobile" Padding="0, 10, 10, 10" >
+                                <dataForm:DataFormCustomItem.LeadingLabelIcon>
+                                    <FontImageSource Glyph="E" Color="#79747E" FontFamily="InputLayoutIcons" Size="18" />
+                                </dataForm:DataFormCustomItem.LeadingLabelIcon>
+                            </dataForm:DataFormCustomItem>
+                            <dataForm:DataFormCustomItem FieldName="Landline" LeadingLabelIcon="" Padding="0, 10, 10, 10"/>
+                        </dataForm:DataFormGroupItem.Items>
+                    </dataForm:DataFormGroupItem>
+
+                    <dataForm:DataFormGroupItem Name="Address" ColumnCount="2">
+                        <dataForm:DataFormGroupItem.Items>
+                                    <dataForm:DataFormMultilineItem FieldName="Address" RowSpan="2" Padding="0, 10, 10, 10">
+                                    <dataForm:DataFormMultilineItem.LeadingLabelIcon>
+                                        <FontImageSource Glyph="C" Color="#79747E" FontFamily="InputLayoutIcons" Size="20" />
+                                    </dataForm:DataFormMultilineItem.LeadingLabelIcon>
+                                </dataForm:DataFormMultilineItem>
+                                    <dataForm:DataFormTextItem FieldName="City" LeadingLabelIcon="" Padding="0, 10, 10, 10"/>
+                                    <dataForm:DataFormTextItem FieldName="State" LeadingLabelIcon="" Padding="0, 10, 10, 10">
+                                    <dataForm:DataFormTextItem.DefaultLayoutSettings>
+                                        <dataForm:DataFormDefaultLayoutSettings LabelWidth="{OnIdiom Desktop=0.2*, Phone=0.3*}" EditorWidth="{OnIdiom Desktop=0.8*, Phone=0.7*}"/>
+                                    </dataForm:DataFormTextItem.DefaultLayoutSettings>
+                                </dataForm:DataFormTextItem>
+                                <dataForm:DataFormCustomItem FieldName="ZipCode" Padding="0, 10, 10, 10" />
+                            </dataForm:DataFormGroupItem.Items>
+                            </dataForm:DataFormGroupItem>
+
+                            <dataForm:DataFormTextItem FieldName="Email" Padding="0, 10, 10, 10" Keyboard="Email">
+                                <dataForm:DataFormTextItem.LeadingLabelIcon>
+                                        <FontImageSource Glyph="G" Color="#79747E" FontFamily="InputLayoutIcons" Size="20" />
+                                </dataForm:DataFormTextItem.LeadingLabelIcon>
+                            </dataForm:DataFormTextItem>
+                        </dataForm:SfDataForm.Items>
+                    </dataForm:SfDataForm>
+                    <Line Grid.Row="1" Background="#F5F5F5" />
+                    <Button Text="Save" Grid.Row="2" x:Name="saveButton" Background="{StaticResource PrimaryBrush}" TextColor="White"
+                        HeightRequest="40"
+                        VerticalOptions="Center"
+                        FontSize="16"
+                        CornerRadius="5"
+                        WidthRequest="200"
+                        HorizontalOptions="Center" />
+                </Grid>
+            </Frame>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.Behaviors>
+        <local:ContactFormBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

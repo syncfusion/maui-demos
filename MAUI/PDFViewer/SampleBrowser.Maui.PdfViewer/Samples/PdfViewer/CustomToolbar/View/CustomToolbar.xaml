@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.PdfViewer;assembly=Syncfusion.Maui.PdfViewer"        
+    x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.CustomToolbar">
+    <localCore:SampleView.BindingContext>
+        <local:CustomToolbarViewModel/>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}" />
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#99000000" />
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#44000000" />
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#99000000" />
+                                <Setter Property="BackgroundColor" Value="#0F000000" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Border Stroke="#D2D2D2" StrokeThickness="{OnPlatform Default=1, Android=0, iOS=0}" 
+            StrokeShape="Rectangle" Padding="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HeightRequest="40" BackgroundColor="#FFF6F6F6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{OnPlatform Default=Auto, Android=1*, iOS=1*}"/>
+                        <ColumnDefinition Width="{OnPlatform Default=*, Android=3*, iOS=3*}"/>
+                        <ColumnDefinition Width="{OnPlatform MacCatalyst=*, Android=1*, iOS=1*, WinUI=*}"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="&#xe700;&#xe708;"
+                        Margin="8,0,0,0"
+                        Grid.Column="0"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource buttonIconStyle}"
+                        Command="{Binding OpenCloseFilePickerCommand}"/>
+                    <HorizontalStackLayout HorizontalOptions="{OnPlatform Default=End, Android=CenterAndExpand, iOS=CenterAndExpand}"
+                    Spacing="8" Grid.Column="1">
+                        <Border BackgroundColor="#FFFFFFFF" Stroke="#66000000" StrokeShape="{OnPlatform Android=RoundRectangle 4, WinUI=RoundRectangle 4, MacCatalyst=RoundRectangle 5, iOS=RoundRectangle 5}" HeightRequest="{OnPlatform Android=30,WinUI=34, MacCatalyst=26, iOS=26}"
+                        Padding="{OnPlatform Android=5}" StrokeThickness="1">
+                            <Entry 
+                                x:Name="pageNumberEntry"
+                                HandlerChanged="pageNumberEntry_HandlerChanged"
+                                Text="{Binding PageNumber}"
+                                MaxLength="4"
+                                Keyboard="Numeric"
+                                TextChanged="pageNumberEntry_TextChanged"
+                                Focused="pageNumberEntry_Focused"
+                                Unfocused="pageNumberEntry_Unfocused"
+                                Completed="GoToEntry_Completed"
+                                VerticalTextAlignment="Center"
+                                WidthRequest="40"
+                                HeightRequest="{OnPlatform Default=24, Android=40}"
+                                VerticalOptions="Center" 
+                                HorizontalTextAlignment="Center"/>
+                        </Border>
+                        <Label 
+                            Text=" / " 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            VerticalOptions="Center"/>
+                        <Label 
+                            Text="{Binding DocumentData.PageCount}" 
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalOptions="Center"
+                            Margin="0,0,4,0"/>
+                        <Button 
+                            Text="&#xe702;" FontSize="16"
+                            Margin="4,0,0,0" IsEnabled="{Binding CanGoToPreviousPage}"
+                            Style="{StaticResource buttonIconStyle}"
+                            Command="{Binding Source={x:Reference PdfViewer},Path=GoToPreviousPageCommand}"/>
+                        <Button 
+                            Text="&#xe701;"  FontSize="16"
+                            x:Name="goToNext"
+                            Margin="4,0,0,0" IsEnabled="{Binding CanGoToNextPage}"
+                            Style="{StaticResource buttonIconStyle}"
+                            Command="{Binding Source={x:Reference PdfViewer},Path=GoToNextPageCommand}"/>
+                        <Rectangle 
+                            Fill="{OnPlatform WinUI=#FF979797, MacCatalyst=#FF979797}" HeightRequest="{OnPlatform Default=24, Android=0}" WidthRequest="{OnPlatform Default=2, Android=0}"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout 
+                        Grid.Column="2" Margin="8,0,12,0"
+                        HorizontalOptions="{OnPlatform MacCatalyst=Start, iOS=End, Android=End, WinUI=Start}">
+                        <Button 
+                            Text="&#xe704;" Margin="4,0,0,0"
+                            x:Name="zoomOut"
+                            Style="{StaticResource buttonIconStyle}"
+                            Command="{Binding ZoomOutCommand}" IsEnabled="{Binding CanZoomOut}"/>
+                        <Button 
+                            Text="&#xe703;" Margin="4,0,0,0"
+                            x:Name="zoomIn"
+                            Style="{StaticResource buttonIconStyle}"
+                            Command="{Binding ZoomInCommand}" IsEnabled="{Binding CanZoomIn}"/>
+                    </HorizontalStackLayout>
+                </Grid>
+                <Line Grid.Row="1" StrokeThickness="1">
+                    <Line.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#33000000" Offset="0.1"/>
+                            <GradientStop Color="#24000000" Offset="0.4"/>
+                            <GradientStop Color="#1F000000" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Line.Background>
+                </Line>
+                <syncfusion:SfPdfViewer
+                    x:Name="PdfViewer"
+                    Grid.Row="2"
+                    PageCount="{Binding DocumentData.PageCount, Mode=OneWayToSource}"
+                    PageNumber="{Binding PageNumber, Mode=OneWayToSource}"
+                    MinZoomFactor="{Binding MinZoom, Mode=OneWayToSource}"
+                    MaxZoomFactor="{Binding MaxZoom, Mode=OneWayToSource}"
+                    DocumentSource="{Binding DocumentData.DocumentStream}"
+                    ZoomFactor="{Binding CurrentZoom,Mode=TwoWay}"
+                    PasswordRequested="PdfViewer_PasswordRequested"
+                    DocumentLoadFailed="PdfViewer_DocumentLoadFailed"
+                    DocumentLoaded="PdfViewer_DocumentLoaded"
+                    DocumentUnloaded="PdfViewer_DocumentUnloaded">
+                    <syncfusion:SfPdfViewer.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </syncfusion:SfPdfViewer.GestureRecognizers>
+                </syncfusion:SfPdfViewer>
+                <Border
+                    Grid.Row="2" WidthRequest="200" HeightRequest="180" Padding="8"
+                    HorizontalOptions="Start" VerticalOptions="Start"
+                    BackgroundColor="#FFFFFFFF"
+                    Stroke="#33000000"
+                    StrokeShape="Rectangle" StrokeThickness="1"
+                    IsVisible="{Binding IsFilePickerVisible}">
+                    <ListView BackgroundColor="#FFFFFFFF"
+                        ItemsSource="{Binding Files}"
+                        RowHeight="32"
+                        SelectionMode="None"
+                        ItemTapped="ListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <Label Text="{Binding .}" VerticalTextAlignment="Center"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+                <local:PasswordDialogBox 
+                    x:Name="passwordDialog" Grid.Row="2" 
+                    IsVisible="{Binding ShowPasswordDialog, Mode=TwoWay}"/>
+                <local:MessageBox
+                    CloseClicked="MessageBox_CloseClicked"
+                    x:Name="messageBox" Grid.Row="2"
+                    IsVisible="False"/>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

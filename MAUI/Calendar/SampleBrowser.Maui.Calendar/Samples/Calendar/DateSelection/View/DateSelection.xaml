@@ -1,0 +1,77 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Calendar.SfCalendar.DateSelection"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Calendar.SfCalendar"
+             xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs" Background="WhiteSmoke" Margin="-4, -4, -6, -6">
+    <localCore:SampleView.Content>
+        <Grid  WidthRequest="350" HeightRequest="500">
+            <Frame IsVisible="False" x:Name="frame" HasShadow="False" Background="White" CornerRadius="10" Margin="0" Padding="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="0.5"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" x:Name="selectionLabel" Text="Select date" FontSize="15" Margin="20, 0, 0, 0" VerticalTextAlignment="Center" TextColor="Gray" VerticalOptions="Center"/>
+                    <Label Grid.Row="1" x:Name="label" FontSize="30" Margin="20,0,0,0" VerticalTextAlignment="Center" VerticalOptions="Center" />
+                    <Line Grid.Row="2" BackgroundColor="LightGrey"/>
+                    <calendar:SfCalendar x:Name="dateSelection" Grid.Row="3" View="Month" RangeSelectionDirection="Both" AllowViewNavigation="True" NavigationDirection="Horizontal" Margin="5" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <StackLayout Grid.Row="4" HorizontalOptions="End" Orientation="Horizontal" Margin="5, 5, 10, 5">
+                        <Button x:Name="cancelButton" Text="Cancel" HorizontalOptions="Start" Background="Transparent" BorderColor="Transparent" TextColor="#6200EE"/>
+                        <Button x:Name="okButton" Text="OK" HorizontalOptions="End" Background="Transparent" BorderColor="Transparent" TextColor="#6200EE"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <Border IsVisible="False" x:Name="border" Background="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" Margin="0" Padding="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="0.5"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" x:Name="selectionLabel1" Text="Select date" FontSize="15" Margin="20, 0, 0, 0" VerticalTextAlignment="Center" TextColor="Gray" VerticalOptions="Center"/>
+                    <Label Grid.Row="1" x:Name="label1" FontSize="30" Margin="20,0,0,0" VerticalTextAlignment="Center" VerticalOptions="Center" />
+                    <Line Grid.Row="2" BackgroundColor="LightGrey"/>
+                    <calendar:SfCalendar x:Name="dateSelection1" Grid.Row="3" View="Month" RangeSelectionDirection="Both" AllowViewNavigation="True" NavigationDirection="Horizontal" Margin="5" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <StackLayout Grid.Row="4" HorizontalOptions="End" Orientation="Horizontal" Margin="5, 5, 10, 5">
+                        <Button x:Name="cancelButton1" Text="Cancel" HorizontalOptions="Start" Background="Transparent" BorderColor="Transparent" TextColor="#6200EE"/>
+                        <Button x:Name="okButton1" Text="OK" HorizontalOptions="End" Background="Transparent" BorderColor="Transparent" TextColor="#6200EE"/>
+                    </StackLayout>
+                </Grid>
+            </Border>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <StackLayout Orientation="Vertical">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Selection Type"  Margin="0,15,0,0" 
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="Gray"/>
+
+                    <editors:SfComboBox x:Name="comboBox" Grid.Column="1"
+                                Margin="5,15,0,0" VerticalOptions="Center"
+                                HorizontalOptions="End"/>
+                </Grid>
+            </StackLayout>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:DateSelectionBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Maps.SfMaps.RangeColorMap"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:maps="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Maps"
+             Background="White">
+
+    <localCore:SampleView.Content>
+        <Grid Margin="20">
+            <Grid.BindingContext>
+                <local:RangeViewModel/>
+            </Grid.BindingContext>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"
+                   HorizontalOptions="Center" 
+                   Text="World Population Density (per sq. km.)" 
+                   FontSize="Subtitle" 
+                    Margin="0,0,0,20"/>
+            <maps:SfMaps Grid.Row="1">
+                <maps:SfMaps.Layer>
+                    <maps:MapShapeLayer x:Name="shapeLayer"
+                                        ShapeDataField="name"
+                                        ShapeStroke="White"
+                                        ShapeStrokeThickness="1"
+                                        ShapeHoverFill="#b0ed83"
+                                        PrimaryValuePath="CountryName"
+                                        ShapeColorValuePath="Density"
+                                        DataSource="{Binding WorldPopulationDensity}"
+                                        ShowShapeTooltip="True">
+                        <maps:MapShapeLayer.ColorMappings>
+                            <maps:RangeColorMapping Color="#809fff" From="0" To="100" Text="0-100"/>
+                            <maps:RangeColorMapping Color="#3366ff" From="100" To="500" Text="100-500"/>
+                            <maps:RangeColorMapping Color="#0039e6" From="500" To="1000" Text="500-1000"/>
+                            <maps:RangeColorMapping Color="#002db3" From="1000" To="5000" Text="1000-5000"/>
+                            <maps:RangeColorMapping Color="#001a66" From="5000" To="50000" Text="5000-50000"/>
+                        </maps:MapShapeLayer.ColorMappings>
+                        <maps:MapShapeLayer.Legend>
+                            <maps:MapLegend Placement="Bottom" SourceType="Shape"/>
+                        </maps:MapShapeLayer.Legend>
+                        <maps:MapShapeLayer.ShapeTooltipTemplate>
+                            <DataTemplate>
+                                <HorizontalStackLayout BackgroundColor="#002080">
+                                    <Label Text="{Binding DataItem.CountryName}"
+                                           TextColor="White" />
+                                    <Label Text=":"
+                                           TextColor="White"
+                                           Margin="2,0,2,0"/>
+                                    <Label Text="{Binding DataItem.Density}"
+                                           TextColor="White" />
+                                    <Label Text="per sq. km."
+                                           TextColor="White"
+                                           Margin="2,0,0,0" />
+                                </HorizontalStackLayout>
+                            </DataTemplate>
+                        </maps:MapShapeLayer.ShapeTooltipTemplate>
+                        <maps:MapShapeLayer.ShapeTooltipSettings>
+                            <maps:MapTooltipSettings Background="#002080" />
+                        </maps:MapShapeLayer.ShapeTooltipSettings>
+                    </maps:MapShapeLayer>
+                </maps:SfMaps.Layer>
+            </maps:SfMaps>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
