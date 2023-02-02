@@ -22,7 +22,7 @@
 		<Sample Title="Appointment Booking" SampleName="AppointmentBooking"
 			  CodeViewerPath="Calendar/AppointmentBooking/"/>
       <Sample Title="Color Scheme" SampleName="HighlightDates"
-          CodeViewerPath="Calendar/HighlightDates/"/>
+          CodeViewerPath="Calendar/HighlightedDates/"/>
 	</Control>
   </ControlCategory>
 </SyncfusionControls> 

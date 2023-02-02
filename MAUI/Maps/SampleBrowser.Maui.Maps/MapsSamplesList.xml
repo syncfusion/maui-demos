@@ -11,7 +11,7 @@
           <Sample Title="Sublayer" SampleName="Sublayer" SearchTags="Sublayer" CodeViewerPath="Maps/Sublayers/" Description="This sample shows the rivers of the Australia using the shape sublayer support."/>
       </Category>
       <Category Title="Tile Layer" StatusTag="New">
-          <Sample Title="OpenStreetMap" SampleName="OpenStreetMap" StatusTag="New" SearchTags="OpenStreetMap" CodeViewerPath="Maps/OpenStreetMap/"/>
+          <Sample Title="OpenStreetMap" SampleName="OpenStreetMap" StatusTag="New" SearchTags="OpenStreetMap" CodeViewerPath="Maps/OSM/"/>
           <Sample Title="Arcs and Lines" SampleName="Arcs" StatusTag="New" SearchTags="Arcs and Lines" CodeViewerPath="Maps/Arcs/"/>
           <Sample Title="Polylines" SampleName="PolyLine" StatusTag="New" SearchTags="Polylines" CodeViewerPath="Maps/PolyLine/"/>
           <Sample Title="Polygon" SampleName="Polygon" StatusTag="New" SearchTags="Polygon" CodeViewerPath="Maps/Polygon/"/>

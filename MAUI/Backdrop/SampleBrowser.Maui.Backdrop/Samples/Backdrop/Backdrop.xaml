@@ -28,7 +28,7 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Margin" Value="0,0,0,15"/>
             <Setter Property="CornerRadius" Value="4"/>
-            <Setter Property="BackgroundColor" Value="#1F000000"/>
+            <Setter Property="Background" Value="#1F000000"/>
         </Style>
     </backdrop:SfBackdropPage.Resources>
 
@@ -60,7 +60,7 @@
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="curveButton" Text="Curve" Clicked="curveButton_Clicked" BackgroundColor="#3DFFFFFF"/>
+                        <Button x:Name="curveButton" Text="Curve" Clicked="curveButton_Clicked" Background="#3DFFFFFF"/>
                         <Button x:Name="flatButton" Text="Flat" Clicked="flatButton_Clicked" Grid.Column="1"/>
                     </Grid>
                     <Label Text="Apply corner radius" TextColor="White"/>
@@ -70,7 +70,7 @@
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="bothButton" Text="Both" Clicked="bothButton_Clicked" BackgroundColor="#3DFFFFFF"/>
+                        <Button x:Name="bothButton" Text="Both" Clicked="bothButton_Clicked" Background="#3DFFFFFF"/>
                         <Button x:Name="leftButton" Text="Left" Clicked="leftButton_Clicked" Grid.Column="1"/>
                         <Button x:Name="rightButton" Text="Right" Clicked="rightButton_Clicked" Grid.Column="2"/>
                     </Grid>
@@ -108,7 +108,7 @@
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="autoButton" Text="Auto" Clicked="autoButton_Clicked" BackgroundColor="#3DFFFFFF"/>
+                        <Button x:Name="autoButton" Text="Auto" Clicked="autoButton_Clicked" Background="#3DFFFFFF"/>
                         <Button x:Name="fillButton" Text="Fill" Grid.Column="1" Clicked="fillButton_Clicked"/>
                     </Grid>
                 </StackLayout>

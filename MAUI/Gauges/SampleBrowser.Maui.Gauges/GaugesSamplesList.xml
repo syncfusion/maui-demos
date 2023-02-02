@@ -16,10 +16,10 @@
         <CardLayout>
           <Sample SampleName="AxisBackground" Title="Axis background" CodeViewerPath="RadialGauge/Axis/"/>
           <Sample SampleName="DefaultView" Title="Default view" CodeViewerPath="RadialGauge/Axis/"/>
-          <Sample SampleName="MultipleAxis" Title="Multiple axis" CodeViewerPath="RadialGauge/Axis/MultipleAxis/"/>
+          <Sample SampleName="MultipleAxis" Title="Multiple axis" CodeViewerPath="RadialGauge/Axis/"/>
           <Sample SampleName="LabelCustomization" Title="Label customization" CodeViewerPath="RadialGauge/Axis/"/>
           <Sample SampleName="TickCustomization" Title="Tick customization" CodeViewerPath="RadialGauge/Axis/"/>
-          <Sample SampleName="CustomScale" Title="Custom scale" Description="This sample shows a custom scale of non-linear intervals." CodeViewerPath="RadialGauge/Axis/CustomScale/"/>
+          <Sample SampleName="CustomScale" Title="Custom scale" Description="This sample shows a custom scale of non-linear intervals." CodeViewerPath="RadialGauge/Axis/"/>
           <Sample SampleName="CustomLabel" Title="Custom labels" CodeViewerPath="RadialGauge/Axis/"/>
           <Sample SampleName="RangeColor" Title="Range color for axis" CodeViewerPath="RadialGauge/Axis/"/>
         </CardLayout>

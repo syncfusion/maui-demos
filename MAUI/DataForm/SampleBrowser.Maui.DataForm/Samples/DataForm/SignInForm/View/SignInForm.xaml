@@ -7,6 +7,7 @@
             Background="{OnIdiom Default=White, Desktop=#6200EE}"
             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
     <localCore:SampleView.Margin>
         <OnPlatform x:TypeArguments="thickness:Thickness">
             <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>

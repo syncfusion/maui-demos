@@ -50,8 +50,8 @@
 
                 <Grid Grid.Row="1" Margin="0,2,2,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{OnIdiom Desktop = 0.05*, Phone = 0.2*}"/>
-                        <ColumnDefinition Width="{OnIdiom Desktop = 0.95*, Phone = 0.8*}"/>
+                        <ColumnDefinition Width="{OnIdiom Desktop = 0.05*, Phone = 0.2*, Default=0.1*}"/>
+                        <ColumnDefinition Width="{OnIdiom Desktop = 0.95*, Phone = 0.8*, Default=0.9*}"/>
                     </Grid.ColumnDefinitions>
 
                     <StackLayout Grid.Column="0">
@@ -96,7 +96,7 @@
                                 <ViewCell>
                                     <Grid Margin="0,0,0,2" Background="{Binding Background}">
                                         <StackLayout Padding="5,5,10,0" Orientation="Vertical">
-                                            <Label Text = "{Binding EventName}" FontSize="{OnIdiom Desktop = 12, Phone = 10}" FontAttributes="Bold" TextColor="White" />
+                                            <Label Text = "{Binding EventName}" FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}" FontAttributes="Bold" TextColor="White" />
                                             <StackLayout Orientation="Horizontal">
                                                 <Label Text="{Binding From, StringFormat='{}{0:hh:mm tt}'}" FontSize="10" TextColor="White" />
                                                 <Label Text=" - " TextColor="White" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center" />

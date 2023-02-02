@@ -8,6 +8,7 @@
             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
     <localCore:SampleView.Margin>
         <OnPlatform x:TypeArguments="thickness:Thickness">
             <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>

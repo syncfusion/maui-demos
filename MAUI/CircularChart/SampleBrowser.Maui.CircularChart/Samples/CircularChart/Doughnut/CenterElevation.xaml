@@ -7,7 +7,7 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
 
-        <chart:SfCircularChart>
+        <chart:SfCircularChart x:Name="Chart1">
             <chart:SfCircularChart.Resources>
                 <ResourceDictionary>
                     <local:CornerRadiusConverter x:Key="innerRadiusConverter"/>

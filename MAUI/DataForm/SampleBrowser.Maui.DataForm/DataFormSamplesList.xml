@@ -10,7 +10,7 @@
 		<Sample Title="Contact Form" SampleName="ContactForm" CodeViewerPath="DataForm/ContactForm/"/>
 	    <Sample Title="Sign Up" SampleName="SignUpForm" CodeViewerPath="DataForm/SignUpForm/"/>
     	<Sample Title="Sign In" SampleName="SignInForm" CodeViewerPath="DataForm/SignInForm/"/>
-		<Sample Title="Registration Form" SampleName="EventRegistration" CodeViewerPath="DataForm/EventForm/"/>
+		<Sample Title="Registration Form" SampleName="EventRegistration" CodeViewerPath="DataForm/EventRegistration/"/>
 		<Sample Title="Payment Form" SampleName="PaymentForm"  CodeViewerPath="DataForm/PaymentForm/"/>
 		<Sample Title="Feedback Form" SampleName="FeedbackForm"  CodeViewerPath="DataForm/FeedbackForm/"/>
 	</Control>

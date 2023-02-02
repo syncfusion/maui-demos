@@ -41,7 +41,7 @@
                     <dataForm:SfDataForm x:Name="contactForm"
                                          DataObject="{Binding ContactFormModel}" ColumnCount="1" AutoGenerateItems="False" ValidationMode="PropertyChanged">
                 <dataForm:SfDataForm.DefaultLayoutSettings>
-                    <dataForm:DataFormDefaultLayoutSettings LabelWidth="{OnIdiom Desktop=0.1*, Phone=0.15*}" EditorWidth="{OnIdiom Desktop=0.9*, Phone=0.85*}"/>
+                    <dataForm:DataFormDefaultLayoutSettings LabelWidth="{OnIdiom Desktop=0.1*, Phone=0.15*, Default=0.1*}" EditorWidth="{OnIdiom Desktop=0.9*, Phone=0.85*, Default=0.9*}"/>
                 </dataForm:SfDataForm.DefaultLayoutSettings>
                 
                 <dataForm:SfDataForm.Items>
@@ -84,7 +84,7 @@
                                     <dataForm:DataFormTextItem FieldName="City" LeadingLabelIcon="" Padding="0, 10, 10, 10"/>
                                     <dataForm:DataFormTextItem FieldName="State" LeadingLabelIcon="" Padding="0, 10, 10, 10">
                                     <dataForm:DataFormTextItem.DefaultLayoutSettings>
-                                        <dataForm:DataFormDefaultLayoutSettings LabelWidth="{OnIdiom Desktop=0.2*, Phone=0.3*}" EditorWidth="{OnIdiom Desktop=0.8*, Phone=0.7*}"/>
+                                        <dataForm:DataFormDefaultLayoutSettings LabelWidth="{OnIdiom Desktop=0.2*, Phone=0.3*, Default=0.2*}" EditorWidth="{OnIdiom Desktop=0.8*, Phone=0.7*, Default=0.8*}"/>
                                     </dataForm:DataFormTextItem.DefaultLayoutSettings>
                                 </dataForm:DataFormTextItem>
                                 <dataForm:DataFormCustomItem FieldName="ZipCode" Padding="0, 10, 10, 10" />

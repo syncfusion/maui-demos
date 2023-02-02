@@ -1,5 +1,5 @@
-#region Copyright Syncfusion Inc. 2001-2022.
-// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2023.
+// Copyright Syncfusion Inc. 2001-2023. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -25,15 +25,15 @@ public partial class Backdrop : SfBackdropPage
     private void curveButton_Clicked(object sender, EventArgs e)
     {
         this.FrontLayer.EdgeShape = EdgeShape.Curve;
-        this.curveButton.BackgroundColor = pressedColor;
-        this.flatButton.BackgroundColor = normalColor;
+        this.curveButton.Background = pressedColor;
+        this.flatButton.Background = normalColor;
     }
 
     private void flatButton_Clicked(object sender, EventArgs e)
     {
         this.FrontLayer.EdgeShape = EdgeShape.Flat;
-        this.flatButton.BackgroundColor = pressedColor;
-        this.curveButton.BackgroundColor = normalColor;
+        this.flatButton.Background = pressedColor;
+        this.curveButton.Background = normalColor;
     }
 
     private void bothButton_Clicked(object sender, EventArgs e)
@@ -41,8 +41,8 @@ public partial class Backdrop : SfBackdropPage
         edgeShapeSide = "Both";
         FrontLayer.LeftCornerRadius = cornerRadiusSlider.Value;
         FrontLayer.RightCornerRadius = cornerRadiusSlider.Value;
-        this.bothButton.BackgroundColor = pressedColor;
-        this.leftButton.BackgroundColor = this.rightButton.BackgroundColor = normalColor;
+        this.bothButton.Background = pressedColor;
+        this.leftButton.Background = this.rightButton.Background = normalColor;
     }
 
     private void leftButton_Clicked(object sender, EventArgs e)
@@ -50,8 +50,8 @@ public partial class Backdrop : SfBackdropPage
         edgeShapeSide = "Left";
         FrontLayer.RightCornerRadius = 0;
         FrontLayer.LeftCornerRadius = cornerRadiusSlider.Value;
-        this.leftButton.BackgroundColor = pressedColor;
-        this.rightButton.BackgroundColor = this.bothButton.BackgroundColor = normalColor;
+        this.leftButton.Background = pressedColor;
+        this.rightButton.Background = this.bothButton.Background = normalColor;
     }
 
     private void rightButton_Clicked(object sender, EventArgs e)
@@ -59,22 +59,22 @@ public partial class Backdrop : SfBackdropPage
         edgeShapeSide = "Right";
         FrontLayer.LeftCornerRadius = 0;
         FrontLayer.RightCornerRadius = cornerRadiusSlider.Value;
-        this.rightButton.BackgroundColor = pressedColor;
-        this.leftButton.BackgroundColor = this.bothButton.BackgroundColor = normalColor;
+        this.rightButton.Background = pressedColor;
+        this.leftButton.Background = this.bothButton.Background = normalColor;
     }
 
     private void autoButton_Clicked(object sender, EventArgs e)
     {
         this.BackLayerRevealOption = RevealOption.Auto;
-        this.autoButton.BackgroundColor = pressedColor;
-        this.fillButton.BackgroundColor = normalColor;
+        this.autoButton.Background = pressedColor;
+        this.fillButton.Background = normalColor;
     }
 
     private void fillButton_Clicked(object sender, EventArgs e)
     {
         this.BackLayerRevealOption = RevealOption.Fill;
-        this.fillButton.BackgroundColor = pressedColor;
-        this.autoButton.BackgroundColor = normalColor;
+        this.fillButton.Background = pressedColor;
+        this.autoButton.Background = normalColor;
     }
 
     private void cornerRadiusSlider_ValueChanged(object sender, SliderValueChangedEventArgs e)

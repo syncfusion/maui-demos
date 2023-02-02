@@ -1,5 +1,5 @@
-#region Copyright Syncfusion Inc. 2001-2022.
-// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2023.
+// Copyright Syncfusion Inc. 2001-2023. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -280,6 +280,19 @@ public partial class SignUpPageMobile : SampleView
         {
             ConfirmPasswordFieldMobile.HasError = true;
         }
+        else
+        {
+            ConfirmPasswordFieldMobile.HasError = false;
+        }
+
+        if (PasswordFieldMobile.Text?.Length < 5 || PasswordFieldMobile.Text?.Length > 8)
+        {
+            PasswordFieldMobile.HasError = true;
+        }
+        else
+        {
+            PasswordFieldMobile.HasError = false;
+        }
     }
 
     private void ValidatePhoneNumber()
@@ -287,6 +300,10 @@ public partial class SignUpPageMobile : SampleView
         if (!double.TryParse(PhoneNumberFieldMobile.Text, out double result))
         {
             PhoneNumberFieldMobile.HasError = true;
+        }
+        else
+        {
+            PhoneNumberFieldMobile.HasError = false;
         }
     }
 
@@ -296,12 +313,22 @@ public partial class SignUpPageMobile : SampleView
         {
             EmailFieldMobile.HasError = true;
         }
+        else
+        {
+            EmailFieldMobile.HasError = false;
+        }
     }
 
     private void FieldNullCheck(core.SfTextInputLayout inputLayout)
     {
         if (string.IsNullOrEmpty(inputLayout.Text))
+        {
             inputLayout.HasError = true;
+        }
+        else
+        {
+            inputLayout.HasError = false;
+        }
     }
 
 

@@ -60,28 +60,28 @@
 
                     <Label Text="Card Number" Margin="0,0,0,-20" FontFamily="Roboto-Regular" TextColor="#79747E"/>
                     <HorizontalStackLayout Margin="0,0,0,-15" Spacing="7">
-                        <syncfusion:SfTextInputLayout x:Name="CardNumberField" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" ErrorText="Invalid">
+                        <syncfusion:SfTextInputLayout x:Name="CardNumberField" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" >
                             <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry_TextChanged"/>
                             <syncfusion:SfTextInputLayout.HintLabelStyle>
                                 <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" FontSize="14"/>
                             </syncfusion:SfTextInputLayout.HintLabelStyle>
                         </syncfusion:SfTextInputLayout>
 
-                        <syncfusion:SfTextInputLayout x:Name="CardNumberField1" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" ErrorText="Invalid">
+                        <syncfusion:SfTextInputLayout x:Name="CardNumberField1" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" >
                             <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry2_TextChanged"/>
                             <syncfusion:SfTextInputLayout.HintLabelStyle>
                                 <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" FontSize="14"/>
                             </syncfusion:SfTextInputLayout.HintLabelStyle>
                         </syncfusion:SfTextInputLayout>
 
-                        <syncfusion:SfTextInputLayout x:Name="CardNumberField2" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" ErrorText="Invalid">
+                        <syncfusion:SfTextInputLayout x:Name="CardNumberField2" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" >
                             <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry3_TextChanged"/>
                             <syncfusion:SfTextInputLayout.HintLabelStyle>
                                 <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" FontSize="14"/>
                             </syncfusion:SfTextInputLayout.HintLabelStyle>
                         </syncfusion:SfTextInputLayout>
 
-                        <syncfusion:SfTextInputLayout x:Name="CardNumberField3" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" ErrorText="Invalid">
+                        <syncfusion:SfTextInputLayout x:Name="CardNumberField3" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" >
                             <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" />
                             <syncfusion:SfTextInputLayout.HintLabelStyle>
                                 <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" FontSize="14"/>

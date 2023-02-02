@@ -1,5 +1,5 @@
-#region Copyright Syncfusion Inc. 2001-2022.
-// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2023.
+// Copyright Syncfusion Inc. 2001-2023. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -16,23 +16,23 @@ public partial class PaymentPageDesktop : SampleView
 	{
 		InitializeComponent();
 #if WINDOWS
-        PayNameField.InputViewPadding= new Thickness(0,2,0,2);
-        CardNumberField.InputViewPadding= new Thickness(0,2,0,2);
-        CardNumberField1.InputViewPadding= new Thickness(0,2,0,2);
-        CardNumberField2.InputViewPadding= new Thickness(0,2,0,2);
-        CardNumberField3.InputViewPadding= new Thickness(0,2,0,2);
-        CVVField.InputViewPadding= new Thickness(0,2,0,2);
-        MonthField.InputViewPadding= new Thickness(0,2,0,2);
-        YearField.InputViewPadding= new Thickness(0,2,0,2);
+        PayNameField.InputViewPadding= new Thickness(16,2,16,2);
+        CardNumberField.InputViewPadding= new Thickness(16,2,16,2);
+        CardNumberField1.InputViewPadding= new Thickness(16,2,16,2);
+        CardNumberField2.InputViewPadding= new Thickness(16,2,16,2);
+        CardNumberField3.InputViewPadding= new Thickness(16,2,16,2);
+        CVVField.InputViewPadding= new Thickness(16,2,16,2);
+        MonthField.InputViewPadding= new Thickness(16,2,16,2);
+        YearField.InputViewPadding= new Thickness(16,2,16,2);
 #else
-        PayNameField.InputViewPadding= new Thickness(0,8,0,8);
-        CardNumberField.InputViewPadding= new Thickness(0, 8, 0, 8);
-        CardNumberField1.InputViewPadding= new Thickness(0, 8, 0, 8);
-        CardNumberField2.InputViewPadding= new Thickness(0, 8, 0, 8);
-        CardNumberField3.InputViewPadding= new Thickness(0, 8, 0, 8);
-        CVVField.InputViewPadding= new Thickness(0, 8, 0, 8);
-        MonthField.InputViewPadding= new Thickness(0, 8, 0, 8);
-        YearField.InputViewPadding= new Thickness(0, 8, 0, 8);
+        PayNameField.InputViewPadding= new Thickness(16,8,16,8);
+        CardNumberField.InputViewPadding= new Thickness(16, 8, 16, 8);
+        CardNumberField1.InputViewPadding= new Thickness(16, 8, 16, 8);
+        CardNumberField2.InputViewPadding= new Thickness(16, 8, 16, 8);
+        CardNumberField3.InputViewPadding= new Thickness(16, 8, 16, 8);
+        CVVField.InputViewPadding= new Thickness(16, 8, 16, 8);
+        MonthField.InputViewPadding= new Thickness(16, 8, 16, 8);
+        YearField.InputViewPadding= new Thickness(16, 8, 16, 8);
 #endif
     }
 
@@ -53,6 +53,8 @@ public partial class PaymentPageDesktop : SampleView
     {
         if (string.IsNullOrEmpty(inputLayout.Text))
             inputLayout.HasError = true;
+        else
+            inputLayout.HasError = false;
     }
 
     private void ValidateCardNumber()
@@ -61,25 +63,45 @@ public partial class PaymentPageDesktop : SampleView
         {
             CardNumberField.HasError = true;
         }
+        else
+        {
+            CardNumberField.HasError = false;
+        }
 
         if (CardNumberField1.Text == null || CardNumberField1.Text.Count() != 4 || !double.TryParse(CardNumberField1.Text, out result))
         {
             CardNumberField1.HasError = true;
+        }
+        else
+        {
+            CardNumberField1.HasError = false;
         }
 
         if (CardNumberField2.Text == null || CardNumberField2.Text.Count() != 4 || !double.TryParse(CardNumberField2.Text, out result))
         {
             CardNumberField2.HasError = true;
         }
+        else
+        {
+            CardNumberField2.HasError = false;
+        }
 
         if (CardNumberField3.Text == null || CardNumberField3.Text.Count() != 4 || !double.TryParse(CardNumberField3.Text, out result))
         {
             CardNumberField3.HasError = true;
         }
+        else
+        {
+            CardNumberField3.HasError = false;
+        }
 
         if (CVVField.Text == null || CVVField.Text.Count() != 3 || !double.TryParse(CVVField.Text, out result))
         {
             CVVField.HasError = true;
+        }
+        else
+        {
+            CVVField.HasError = false;
         }
 
     }

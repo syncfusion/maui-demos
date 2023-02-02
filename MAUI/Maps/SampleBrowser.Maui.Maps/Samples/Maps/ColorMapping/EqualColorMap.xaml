@@ -38,7 +38,12 @@
                             <maps:EqualColorMapping Value="GMT+3" Color="Purple" Text="GMT+3"/>
                         </maps:MapShapeLayer.ColorMappings>
                         <maps:MapShapeLayer.Legend>
-                            <maps:MapLegend SourceType="Shape" Placement="Bottom"/>
+                            <maps:MapLegend Placement="Bottom"
+                                            SourceType="Shape">
+                                <maps:MapLegend.TextStyle>
+                                    <maps:MapLabelStyle TextColor="Black" />
+                                </maps:MapLegend.TextStyle>
+                            </maps:MapLegend>
                         </maps:MapShapeLayer.Legend>
                         <maps:MapShapeLayer.ShapeTooltipTemplate>
                             <DataTemplate>

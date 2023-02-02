@@ -39,7 +39,16 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             this.frame.BorderColor = Color.FromArgb("#E6E6E6");
             this.InitializeCalendar(this.appointmentBooking, this.deskTop);
 #else
-            this.InitializeCalendar(this.mobileAppointmentBooking, this.mobile);
+            if (DeviceInfo.Idiom == DeviceIdiom.Tablet)
+            {
+                this.border.IsVisible = true;
+                this.border.Stroke = Color.FromArgb("#E6E6E6");
+                this.InitializeCalendar(this.appointmentBooking1, this.deskTop);
+            }
+            else
+            {
+                this.InitializeCalendar(this.mobileAppointmentBooking, this.mobile);
+            }
 #endif
         }
 
@@ -67,7 +76,14 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #elif !ANDROID && !IOS
             this.UpdateDateSelection(this.appointmentBooking, this.label, this.flexLayout);
 #else
-            this.UpdateDateSelection(this.mobileAppointmentBooking, this.mobileLabel, this.mobileFlexLayout);
+            if (DeviceInfo.Idiom == DeviceIdiom.Tablet)
+            {
+                this.UpdateDateSelection(this.appointmentBooking1, this.label1, this.flexLayout1);
+            }
+            else
+            {
+                this.UpdateDateSelection(this.mobileAppointmentBooking, this.mobileLabel, this.mobileFlexLayout);
+            }
 #endif
             this.timeSlot = string.Empty;
         }
@@ -114,7 +130,14 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #elif !ANDROID && !IOS
             this.BookAppointment(this.appointmentBooking, this.flexLayout);
 #else
-            this.BookAppointment(this.mobileAppointmentBooking, this.mobileFlexLayout);
+            if (DeviceInfo.Idiom == DeviceIdiom.Tablet)
+            {
+                this.BookAppointment(this.appointmentBooking1, this.flexLayout1);
+            }
+            else
+            {
+                this.BookAppointment(this.mobileAppointmentBooking, this.mobileFlexLayout);
+            }
 #endif
         }
 
@@ -164,7 +187,14 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #elif !ANDROID && !IOS
             this.UpdateTimeSlotSelection(this.appointmentBooking, (Button)sender, this.flexLayout);
 #else
-            this.UpdateTimeSlotSelection(this.mobileAppointmentBooking, (Button)sender, this.mobileFlexLayout);
+            if (DeviceInfo.Idiom == DeviceIdiom.Tablet)
+            {
+                this.UpdateTimeSlotSelection(this.appointmentBooking1, (Button)sender, this.flexLayout1);
+            }
+            else
+            {
+                this.UpdateTimeSlotSelection(this.mobileAppointmentBooking, (Button)sender, this.mobileFlexLayout);
+            }
 #endif
         }
 

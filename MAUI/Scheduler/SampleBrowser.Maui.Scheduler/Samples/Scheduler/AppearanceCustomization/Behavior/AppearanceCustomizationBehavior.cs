@@ -1,5 +1,5 @@
-#region Copyright Syncfusion Inc. 2001-2022.
-// Copyright Syncfusion Inc. 2001-2022. All rights reserved.
+#region Copyright Syncfusion Inc. 2001-2023.
+// Copyright Syncfusion Inc. 2001-2023. All rights reserved.
 // Use of this code is subject to the terms of our license.
 // A copy of the current license can be obtained at any time by e-mailing
 // licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -110,7 +110,14 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
                 }
                 else 
                 {
-                    this.scheduler.TimelineView.TimeIntervalWidth = 50;
+                    if (DeviceInfo.Platform == DevicePlatform.iOS || DeviceInfo.Platform == DevicePlatform.MacCatalyst)
+                    {
+                        this.scheduler.TimelineView.TimeIntervalWidth = 60;
+                    }
+                    else
+                    {
+                        this.scheduler.TimelineView.TimeIntervalWidth = 50;
+                    }
                 }
 
                 if (e.OldView == SchedulerView.TimelineDay || e.OldView == SchedulerView.TimelineWeek || e.OldView == SchedulerView.TimelineWorkWeek)
