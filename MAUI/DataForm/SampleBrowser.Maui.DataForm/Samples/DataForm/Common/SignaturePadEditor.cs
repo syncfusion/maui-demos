@@ -44,7 +44,6 @@ using Syncfusion.Maui.SignaturePad;
         public View CreateEditorView(DataFormItem dataFormItem)
         {
             VerticalStackLayout dataFormItemView = new VerticalStackLayout();
-
             Label dataFormLabel = new Label();
             dataFormLabel.LineBreakMode = LineBreakMode.WordWrap;
             FormattedString labelText = new FormattedString();
@@ -98,6 +97,7 @@ using Syncfusion.Maui.SignaturePad;
             dataFormItemView.Add(dataFormLabel);
             dataFormItemView.Add(border);
             dataFormItemView.Add(signatureClearButton);
+            dataFormItem.Padding = 10;
 
             return dataFormItemView;
         }

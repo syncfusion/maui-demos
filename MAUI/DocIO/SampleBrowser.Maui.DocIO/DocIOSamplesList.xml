@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
   <ControlCategory Name="File Formats">
-    <Control Title="DocIO" ControlName="DocIO" Image="docio.png" Description="A .NET Word library to create, read, and edit Word documents programmatically.">
+    <Control Title="DocIO" ControlName="DocIO" Image="docio.png" Description="A .NET Word library to create, read, and edit Word documents programmatically."  StatusTag="Updated">
       <Sample SearchTags="create, word, document" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="DocIO/GettingStarted" />
       <Category Title="Mail Merge">
         <Sample SearchTags="mail, merge, template" SampleName="EmployeeReport" Title="Employee Report" CodeViewerPath="DocIO/EmployeeReport" />
@@ -14,6 +14,7 @@
       </Category>
       <Category Title="Conversions">
         <Sample SearchTags="pdf, word, convert, word-to-pdf" SampleName="WordToPDF" Title="Word to PDF" CodeViewerPath="DocIO/WordToPDF" />
+        <Sample SearchTags="markdown, word, convert, markdown-to-word" SampleName="MarkdownToWord" Title="Markdown to Word" CodeViewerPath="DocIO/MarkdownToWord"  StatusTag="New" />
         <Sample SearchTags="rtf, word, convert, rtf-to-word" SampleName="RTFToWord" Title="RTF to Word" CodeViewerPath="DocIO/RTFToWord" />
       </Category>
       <Sample SearchTags="table, content" SampleName="TableOfContents" Title="Table of Contents" CodeViewerPath="DocIO/TableOfContents" />

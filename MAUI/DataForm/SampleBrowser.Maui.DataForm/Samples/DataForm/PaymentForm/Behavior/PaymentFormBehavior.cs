@@ -29,16 +29,11 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
             this.dataForm = bindable.Content.FindByName<SfDataForm>("paymentForm");
             if (this.dataForm != null)
             {
-                this.dataForm.DefaultLayoutSettings.LabelPosition = DataFormLabelPosition.Top;
                 this.dataForm.RegisterEditor(nameof(PaymentFormModel.Month), DataFormEditorType.ComboBox);
                 this.dataForm.RegisterEditor(nameof(PaymentFormModel.Year), DataFormEditorType.ComboBox);
                 this.dataForm.RegisterEditor(nameof(PaymentFormModel.Amount), new NumericEditor(dataForm));
                 this.dataForm.RegisterEditor(nameof(PaymentFormModel.CardNumber), new NumericEditor(dataForm));
-#if ANDROID
-                this.dataForm.RegisterEditor(nameof(PaymentFormModel.CVV), DataFormEditorType.Password);
-#else
                 this.dataForm.RegisterEditor(nameof(PaymentFormModel.CVV), new NumericEditor(dataForm));
-#endif
                 this.dataForm.ItemsSourceProvider = new ItemsSourceProvider();
                 this.dataForm.GenerateDataFormItem += this.OnGeneratingDataFormItem;
             }
@@ -79,10 +74,9 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         {
             if (e.DataFormItem != null)
             {
-                if (e.DataFormItem.FieldName == nameof(PaymentFormModel.CVV) && e.DataFormItem is DataFormPasswordItem textItem)
+                if (e.DataFormItem.FieldName == nameof(PaymentFormModel.CVV))
                 {
-                    textItem.Keyboard = Keyboard.Numeric;
-                    textItem.MaxLength = 3;
+                    e.DataFormItem.Padding = new Thickness(0, 5, 10, 5);
                 }
                 else if ((e.DataFormItem.FieldName == nameof(PaymentFormModel.Month) || e.DataFormItem.FieldName == nameof(PaymentFormModel.Year)) && e.DataFormItem is DataFormComboBoxItem comboBoxItem)
                 {

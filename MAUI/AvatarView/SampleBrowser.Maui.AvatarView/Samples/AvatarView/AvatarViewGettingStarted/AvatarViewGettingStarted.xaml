@@ -68,12 +68,9 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="40"/>
-                                    <RowDefinition Height="2"/>
                                 </Grid.RowDefinitions>
                                 <Entry Text="{Binding FirstName}" Margin="2,0,0,0"  VerticalOptions="End" VerticalTextAlignment="Center" Placeholder="Enter the First Name" TextColor="Black"/>
                                 <Entry Text="{Binding LastName}" Margin="{OnPlatform Default='2,8,0,0', Android='2,0,0,0'}" Grid.Column="1"  VerticalOptions="Center" VerticalTextAlignment="Center" Placeholder="Enter the Last Name" TextColor="Black" />
-                                <BoxView HeightRequest="2" Color="#6200EE" Grid.Row="1" IsVisible="{OnPlatform Android='True', Default='False'}" />
-                                <BoxView HeightRequest="2"  Color="#6200EE" Grid.Row="1" Grid.Column="1" IsVisible="{OnPlatform Android='True', Default='False'}" />
                             </Grid>
                             <Grid Margin="0,50,0,0">
                                 <Grid.ColumnDefinitions>

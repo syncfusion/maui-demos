@@ -16,7 +16,7 @@ public partial class App : Application
 		InitializeComponent();
 
         //MainPage = new AppShell();
-	//To get the MainPage
+	//To get the MainPage of the application with features
         var appInfo = typeof(App).GetTypeInfo().Assembly;
         SampleBrowser.Maui.Base.BaseConfig.IsIndividualSB = true;
         MainPage = SampleBrowser.Maui.Base.BaseConfig.MainPageInit(appInfo);

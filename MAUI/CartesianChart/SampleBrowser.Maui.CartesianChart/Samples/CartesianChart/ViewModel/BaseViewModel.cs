@@ -21,6 +21,8 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
         public ObservableCollection<Brush> PaletteBrushes { get; set; }
         public ObservableCollection<Brush> CustomColor2 { get; set; }
         public ObservableCollection<Brush> CustomColor3 { get; set; }
+
+        public ObservableCollection<Brush> CustomColor4 { get; set; }
         public ObservableCollection<Brush> AlterColor1 { get; set; }
 
         private bool enableAnimation = true;
@@ -65,6 +67,20 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
                 new SolidColorBrush(Color.FromArgb("#DD6031")),
                 new SolidColorBrush(Color.FromArgb("#7642A9")),
                 new SolidColorBrush(Color.FromArgb("#495963"))
+            };
+            
+            CustomColor4 = new ObservableCollection<Brush>()
+            {
+                new SolidColorBrush(Color.FromArgb("#95DB9C")),
+                new SolidColorBrush(Color.FromArgb("#B95375")),
+                new SolidColorBrush(Color.FromArgb("#56BBAF")),
+                new SolidColorBrush(Color.FromArgb("#606D7F")),
+                new SolidColorBrush(Color.FromArgb("#E99941")),
+                new SolidColorBrush(Color.FromArgb("#327DBE")),
+                new SolidColorBrush(Color.FromArgb("#E7695A")),
+                new SolidColorBrush(Color.FromArgb("#2D4552")),
+                new SolidColorBrush(Color.FromArgb("#4E9B8F")),
+                new SolidColorBrush(Color.FromArgb("#E9A56C")),
             };
 
             AlterColor1 = new ObservableCollection<Brush>()

@@ -25,6 +25,10 @@
     <Link>Samples\CartesianChart\Bar\BarChart.xaml.cs</Link>
     <DependentUpon>BarChart.xaml</DependentUpon>
   </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BoxAndWhisker\BoxAndWhisker.xaml.cs">
+    <Link>Samples\CartesianChart\BoxAndWhisker\BoxAndWhisker.xaml.cs</Link>
+    <DependentUpon>BoxAndWhisker.xaml</DependentUpon>
+  </Compile>
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\NeumorphismUI\NeumorphismColumnChart.xaml.cs">
     <Link>Samples\CartesianChart\NeumorphismUI\NeumorphismColumnChart.xaml.cs</Link>
     <DependentUpon>NeumorphismColumnChart.xaml</DependentUpon>
@@ -100,7 +104,63 @@
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Scatter\Scatter_DynamicUpdate.xaml.cs">
     <Link>Samples\CartesianChart\Scatter\Scatter_DynamicUpdate.xaml.cs</Link>
     <DependentUpon>Scatter_DynamicUpdate.xaml</DependentUpon>
+  </Compile>	
+   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BubbleChart\DefaultBubbleChart.xaml.cs">
+    <Link>Samples\CartesianChart\BubbleChart\DefaultBubbleChart.xaml.cs</Link>
+    <DependentUpon>DefaultBubbleChart.xaml</DependentUpon>
   </Compile>
+   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BubbleChart\MultipleColorBubbleSeries.xaml.cs">
+    <Link>Samples\CartesianChart\BubbleChart\MultipleColorBubbleSeries.xaml.cs</Link>
+    <DependentUpon>MultipleColorBubbleSeries.xaml</DependentUpon>
+  </Compile>	
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BubbleChart\BubbleChartAnimation.xaml.cs">
+    <Link>Samples\CartesianChart\BubbleChart\BubbleChartAnimation.xaml.cs</Link>
+    <DependentUpon>BubbleChartAnimation.xaml</DependentUpon>
+  </Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ErrorBar\ErrorBarChart.xaml.cs">
+		<Link>Samples\CartesianChart\ErrorBar\ErrorBarChart.xaml.cs</Link>
+		<DependentUpon>ErrorBarChart.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ErrorBar\ErrorBarDefault.xaml.cs">
+		<Link>Samples\CartesianChart\ErrorBar\ErrorBarDefault.xaml.cs</Link>
+		<DependentUpon>ErrorBarDefault.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Waterfall\WaterFallChart.xaml.cs">
+		<Link>Samples\CartesianChart\Waterfall\WaterFallChart.xaml.cs</Link>
+		<DependentUpon>WaterFallChart.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Waterfall\WaterFallChartIsTransposed.xaml.cs">
+		<Link>Samples\CartesianChart\Waterfall\WaterFallChartIsTransposed.xaml.cs</Link>
+		<DependentUpon>WaterFallChartIsTransposed.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeColumn\DefaultRangeColumn.xaml.cs">
+		<Link>Samples\CartesianChart\RangeColumn\DefaultRangeColumn.xaml.cs</Link>
+		<DependentUpon>DefaultRangeColumn.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeColumn\RangeColumnAnimation.xaml.cs">
+		<Link>Samples\CartesianChart\RangeColumn\RangeColumnAnimation.xaml.cs</Link>
+		<DependentUpon>RangeColumnAnimation.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeBar\DefaultRangeBar.xaml.cs">
+		<Link>Samples\CartesianChart\RangeBar\DefaultRangeBar.xaml.cs</Link>
+		<DependentUpon>DefaultRangeBar.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeBar\RangeBarAnimation.xaml.cs">
+		<Link>Samples\CartesianChart\RangeBar\RangeBarAnimation.xaml.cs</Link>
+		<DependentUpon>RangeBarAnimation.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedColumn\StackedColumnChart.xaml.cs">
+		<Link>Samples\CartesianChart\StackedColumn\StackedColumnChart.xaml.cs</Link>
+		<DependentUpon>StackedColumnChart.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedColumn\GroupingStackedColumn.xaml.cs">
+		<Link>Samples\CartesianChart\StackedColumn\GroupingStackedColumn.xaml.cs</Link>
+		<DependentUpon>GroupingStackedColumn.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedColumn\StackedBar.xaml.cs">
+		<Link>Samples\CartesianChart\StackedColumn\StackedBar.xaml.cs</Link>
+		<DependentUpon>StackedBar.xaml</DependentUpon>
+	</Compile>
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\CategoryAxis.xaml.cs">
     <Link>Samples\CartesianChart\Axis\CategoryAxis.xaml.cs</Link>
     <DependentUpon>CategoryAxis.xaml</DependentUpon>
@@ -157,6 +217,9 @@
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\BarSeriesViewModel.cs">
     <Link>Samples\CartesianChart\Bar\BarSeriesViewModel.cs</Link>
   </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BoxAndWhisker\BoxAndWhiskerViewModel.cs">
+    <Link>Samples\CartesianChart\BoxAndWhisker\BoxAndWhiskerViewModel.cs</Link>
+  </Compile>
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\NeumorphismUI\ChartExtention.cs">
     <Link>Samples\CartesianChart\NeumorphismUI\ChartExtention.cs</Link>
   </Compile>  
@@ -181,6 +244,24 @@
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Scatter\ScatterSeriesViewModel.cs">
     <Link>Samples\CartesianChart\Scatter\ScatterSeriesViewModel.cs</Link>
   </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BubbleChart\CartesianBubbleViewModel.cs">
+    <Link>Samples\CartesianChart\BubbleChart\CartesianBubbleViewModel.cs</Link>
+  </Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ErrorBar\ErrorBarViewModel.cs">
+		<Link>Samples\CartesianChart\ErrorBar\ErrorBarViewModel.cs</Link>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Waterfall\WaterFallSeriesViewModel.cs">
+		<Link>Samples\CartesianChart\Waterfall\WaterFallSeriesViewModel.cs</Link>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeColumn\RangeColumnSerieViewModel.cs">
+		<Link>Samples\CartesianChart\RangeColumn\RangeColumnSerieViewModel.cs</Link>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeBar\RangeBarSerieViewModel.cs">
+		<Link>Samples\CartesianChart\RangeBar\RangeBarSerieViewModel.cs</Link>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedColumn\StackedColumnViewModel.cs">
+		<Link>Samples\CartesianChart\StackedColumn\StackedColumnViewModel.cs</Link>
+	</Compile>
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\CategoryAxisViewModel.cs">
     <Link>Samples\CartesianChart\Axis\CategoryAxisViewModel.cs</Link>
   </Compile>
@@ -211,11 +292,10 @@
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ViewModel\DynamicAnimationViewModel.cs">
     <Link>Samples\CartesianChart\ViewModel\DynamicAnimationViewModel.cs</Link>
   </Compile>
-  
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ViewModel\BaseViewModel.cs">
     <Link>Samples\CartesianChart\ViewModel\BaseViewModel.cs</Link>
   </Compile>
-
+	
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ViewModel\Model.cs">
     <Link>Samples\CartesianChart\ViewModel\Model.cs</Link>
   </Compile>
@@ -265,8 +345,14 @@
 	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Bar\BarChart.xaml">
       <Link>Samples\CartesianChart\Bar\BarChart.xaml</Link>
     </MauiXaml>
-  </ItemGroup> 
-  
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BoxAndWhisker\BoxAndWhisker.xaml">
+      <Link>Samples\CartesianChart\BoxAndWhisker\BoxAndWhisker.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+
   <ItemGroup>
 	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\NeumorphismUI\NeumorphismColumnChart.xaml">
       <Link>Samples\CartesianChart\NeumorphismUI\NeumorphismColumnChart.xaml</Link>
@@ -380,7 +466,79 @@
       <Link>Samples\CartesianChart\Scatter\Scatter_DynamicUpdate.xaml</Link>
     </MauiXaml>
   </ItemGroup>
-  
+	
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BubbleChart\DefaultBubbleChart.xaml">
+      <Link>Samples\CartesianChart\BubbleChart\DefaultBubbleChart.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+	
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BubbleChart\MultipleColorBubbleSeries.xaml">
+      <Link>Samples\CartesianChart\BubbleChart\MultipleColorBubbleSeries.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>	
+	
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\BubbleChart\BubbleChartAnimation.xaml">
+      <Link>Samples\CartesianChart\BubbleChart\BubbleChartAnimation.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>		
+  <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ErrorBar\ErrorBarChart.xaml">
+			<Link>Samples\CartesianChart\ErrorBar\ErrorBarChart.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\ErrorBar\ErrorBarDefault.xaml">
+			<Link>Samples\CartesianChart\ErrorBar\ErrorBarDefault.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+  <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Waterfall\WaterFallChart.xaml">
+			<Link>Samples\CartesianChart\Waterfall\WaterFallChart.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+  <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Waterfall\WaterFallChartIsTransposed.xaml">
+			<Link>Samples\CartesianChart\Waterfall\WaterFallChartIsTransposed.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeColumn\DefaultRangeColumn.xaml">
+			<Link>Samples\CartesianChart\RangeColumn\DefaultRangeColumn.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeColumn\RangeColumnAnimation.xaml">
+			<Link>Samples\CartesianChart\RangeColumn\RangeColumnAnimation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeBar\DefaultRangeBar.xaml">
+			<Link>Samples\CartesianChart\RangeBar\DefaultRangeBar.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeBar\RangeBarAnimation.xaml">
+			<Link>Samples\CartesianChart\RangeBar\RangeBarAnimation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedColumn\StackedColumnChart.xaml">
+			<Link>Samples\CartesianChart\StackedColumn\StackedColumnChart.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedColumn\GroupingStackedColumn.xaml">
+			<Link>Samples\CartesianChart\StackedColumn\GroupingStackedColumn.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedColumn\StackedBar.xaml">
+			<Link>Samples\CartesianChart\StackedColumn\StackedBar.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
   <ItemGroup>
 	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\Axis\CategoryAxis.xaml">
       <Link>Samples\CartesianChart\Axis\CategoryAxis.xaml</Link>

@@ -6,11 +6,11 @@
     <localCore:SampleView.Content>
         <Grid WidthRequest="350" HeightRequest="400"  Padding="0">
             <Frame IsVisible="False" x:Name="frame" HasShadow="False" Background="{Binding BGColor}" BorderColor="{Binding StrokeColor}" CornerRadius="10" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="2">
-                <calendar:SfCalendar x:Name="century" View="Century" TodayHighlightBrush="Transparent" AllowViewNavigation="False"/>
+                <calendar:SfCalendar x:Name="century" View="Century" TodayHighlightBrush="Transparent" AllowViewNavigation="False" NavigationDirection="Horizontal"/>
             </Frame>
 
               <Border IsVisible="False" x:Name="border" Background="{Binding BGColor}" Stroke="{Binding StrokeColor}" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10"  HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="2">
-                 <calendar:SfCalendar x:Name="century1" View="Century" TodayHighlightBrush="Transparent" AllowViewNavigation="False"/>
+                 <calendar:SfCalendar x:Name="century1" View="Century" TodayHighlightBrush="Transparent" AllowViewNavigation="False" NavigationDirection="Horizontal"/>
             </Border>
         </Grid>
     </localCore:SampleView.Content>

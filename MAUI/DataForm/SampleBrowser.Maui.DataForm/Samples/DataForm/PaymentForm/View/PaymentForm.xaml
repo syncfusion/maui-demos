@@ -35,12 +35,12 @@
             </Grid>
 
             <Frame BorderColor="{OnIdiom Default=Transparent, Desktop=#C2C2C2}"
-                   HasShadow="False"
+                   HasShadow="False" BackgroundColor="White"
                    Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}" 
                    Grid.Column="{OnIdiom Default=0, Desktop=1}" CornerRadius="10"
                    VerticalOptions="{OnIdiom Default=Fill, Desktop=Center}"
-                   HeightRequest="{OnPlatform WinUI=500}"
-                   WidthRequest="{OnPlatform WinUI=380, MacCatalyst=500, Default=-1}"
+                   HeightRequest="{OnPlatform WinUI=450}"
+                   WidthRequest="{OnPlatform WinUI=400, MacCatalyst=500, Default=-1}"
                    HorizontalOptions="{OnIdiom Desktop=Center, Default=Fill}" >
                 <Frame.Padding>
                     <OnPlatform x:TypeArguments="thickness:Thickness">
@@ -50,13 +50,19 @@
                 </Frame.Padding>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="{OnPlatform Default=0.85*, WinUI=380, MacCatalyst=400}"/>
+                        <RowDefinition Height="{OnPlatform Default=0.85*, WinUI=340, MacCatalyst=400}"/>
                         <RowDefinition Height="1"/>
                         <RowDefinition Height="{OnIdiom Default=0.15*, Desktop=80}"/>
                     </Grid.RowDefinitions>
                     
-                    <dataForm:SfDataForm x:Name="paymentForm" DataObject="{Binding PaymentFormModel}" 
-                                         ValidationMode="PropertyChanged" ColumnCount="3" Grid.Row="0"/>
+                    <dataForm:SfDataForm x:Name="paymentForm" DataObject="{Binding PaymentFormModel}"
+                                         LayoutType="TextInputLayout"
+                                         ValidationMode="PropertyChanged" ColumnCount="4" Grid.Row="0">
+                            <dataForm:SfDataForm.TextInputLayoutSettings>
+                                <dataForm:TextInputLayoutSettings ShowHelperText="True"
+                                                              FocusedStroke="{StaticResource Primary}"/>
+                            </dataForm:SfDataForm.TextInputLayoutSettings>
+                        </dataForm:SfDataForm>
 
                     <Line Grid.Row="1" Background="{OnIdiom Default=WhiteSmoke, Desktop=White}"/>
 

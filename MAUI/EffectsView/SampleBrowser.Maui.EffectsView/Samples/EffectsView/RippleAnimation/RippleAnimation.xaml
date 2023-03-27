@@ -21,30 +21,27 @@
                                 <GradientStop Color="#006ed9" Offset="1.0" />
                             </LinearGradientBrush>
                         </Grid.Background>
-                        <Border BackgroundColor="Transparent" Stroke="#006ed9" 
-								StrokeThickness="0" VerticalOptions="Center">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="{OnIdiom Default=100,Phone=3*,Tablet=100}" />
-                                    <ColumnDefinition Width="7*"/>
-                                </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{OnIdiom Default=100,Phone=3*,Tablet=100}" />
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
 
-                                <Image x:Name="cardImage" Source="{imageExtension:SfImageResource person.png}" Margin="7" VerticalOptions="Center"
+                            <Image x:Name="cardImage" Source="{imageExtension:SfImageResource person.png}" Margin="7" VerticalOptions="Center"
 									   WidthRequest="80" HeightRequest="80"/>
-                                <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                    <Label Text="Laura Steffi"  TextColor="#FFFFFF" FontFamily="Roboto-Medium"
+                            <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Label Text="Laura Steffi"  TextColor="#FFFFFF" FontFamily="Roboto-Medium"
                                            Grid.Row="0"  VerticalTextAlignment="Center"
                                            Margin="15,0,0,0" FontSize="18" />
-                                    <Label Text="Data Science Analyst"  TextColor="#FFFFFF" 
+                                <Label Text="Data Science Analyst"  TextColor="#FFFFFF" 
                                            VerticalTextAlignment="Center" 
                                            Margin="15,0,0,0" FontSize="12"/>
-                                    <Label Text="laurasteffi@gmail.com"  TextColor="#FFFFFF" 
+                                <Label Text="laurasteffi@gmail.com"  TextColor="#FFFFFF" 
                                            VerticalTextAlignment="Center" Margin="15,0,0,0" FontSize="12"/>
-                                    <Label Text="011-253-321"  TextColor="#FFFFFF" 
+                                <Label Text="011-253-321"  TextColor="#FFFFFF" 
                                            VerticalTextAlignment="Center" Margin="15,0,0,0" FontSize="12"/>
-                                </StackLayout>
-                            </Grid>
-                        </Border>
+                            </StackLayout>
+                        </Grid>
                     </Grid>
                 </sfEffectsView:SfEffectsView>
             </Border>

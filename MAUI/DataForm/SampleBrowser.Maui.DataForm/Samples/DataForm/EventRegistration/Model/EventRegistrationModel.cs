@@ -26,7 +26,6 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         [Required(ErrorMessage = "Please enter your name")]
         public string FirstName { get; set; }
 
-        [DataFormDisplayOptions(ShowLabel = false)]
         [Display(Prompt = "Last name")]
         public string LastName { get; set; }
      

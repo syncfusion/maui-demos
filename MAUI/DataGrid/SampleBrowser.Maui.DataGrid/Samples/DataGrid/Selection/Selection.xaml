@@ -12,6 +12,12 @@
         </local:OrderInfoViewModel>
     </localCore:SampleView.BindingContext>
 
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="0,-5,0,0"/>
+        </OnPlatform>
+    </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Behaviors>
         <local:SelectionBehavior />
     </localCore:SampleView.Behaviors>
@@ -19,6 +25,7 @@
     <localCore:SampleView.Content>
 
         <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
                            AutoGenerateColumnsMode="None"
                            HeaderRowHeight="52"
                            SelectionMode="Multiple" NavigationMode="Row" SelectedRows="{Binding DataGridSelectedItems}"

@@ -9,6 +9,7 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
 {
     using System.Text.RegularExpressions;
     using Syncfusion.Maui.DataForm;
+    using Syncfusion.Maui.Inputs;
 
     /// <summary>
     /// Represents the custom numeric editor class.
@@ -63,8 +64,12 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
 #if IOS || MACCATALYST
             inputView.PlaceholderColor = dataFormItem.PlaceholderColor;
 #endif
+            if (this.dataForm.LayoutType == DataFormLayoutType.Default)
+            {
+                inputView.Placeholder = dataFormItem.PlaceholderText;
+            }
+
             inputView.Keyboard = Keyboard.Numeric;
-            inputView.Placeholder = dataFormItem.PlaceholderText;
             DataFormTextStyle textStyle = dataForm.EditorTextStyle;
             inputView.TextColor = textStyle.TextColor;
             inputView.FontSize = textStyle.FontSize;
@@ -75,26 +80,28 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
             this.dataFormCustomItem.EditorValue = string.Empty;
 
 #if ANDROID
-            //// TODO: There is no border for android entry in .net 6.
-            VerticalStackLayout stack = new VerticalStackLayout();
-            this.borderLine = new EntryBorder();
-            this.borderGraphicsView = new GraphicsView()
+            if (this.dataForm.LayoutType == DataFormLayoutType.Default)
             {
-                Drawable = this.borderLine,
-                HeightRequest = 2,
-                Margin = new Thickness(0, -7, 0, 0),
-            };
+                //// TODO: There is no border for android entry in .net 6.	
+                VerticalStackLayout stack = new VerticalStackLayout();
+                this.borderLine = new EntryBorder();
+                this.borderGraphicsView = new GraphicsView()
+                {
+                    Drawable = this.borderLine,
+                    HeightRequest = 2,
+                    Margin = new Thickness(0, -7, 0, 0),
+                };
 
-            inputView.Focused += this.OnInputViewFocused;
-            inputView.Unfocused += this.OnInputViewUnfocused;
-            inputView.HandlerChanged += this.OnInputViewHandlerChanged;
-            stack.Add(inputView);
-            stack.Add(borderGraphicsView);
-            return stack;
-#else
+                inputView.Focused += this.OnInputViewFocused;
+                inputView.Unfocused += this.OnInputViewUnfocused;
+                inputView.HandlerChanged += this.OnInputViewHandlerChanged;
+                stack.Add(inputView);
+                stack.Add(borderGraphicsView);
+                return stack;
+            }
+#endif
 
             return inputView;
-#endif
         }
 
         /// <inheritdoc/>

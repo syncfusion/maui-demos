@@ -29,7 +29,6 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
             this.dataForm = bindable.Content.FindByName<SfDataForm>("feedbackForm");
             if (this.dataForm != null)
             {
-                this.dataForm.DefaultLayoutSettings.LabelPosition = DataFormLabelPosition.Top;
                 this.dataForm.RegisterEditor(nameof(FeedbackFormModel.Mobile), new NumericEditor(dataForm));
                 this.dataForm.GenerateDataFormItem += OnGenerateDataFormItem;
             }
@@ -53,7 +52,7 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
             {
                 if (e.DataFormItem.FieldName == nameof(FeedbackFormModel.Message))
                 {
-#if WINDOWS
+#if WINDOWS || MACCATALYST
                     e.DataFormItem.RowSpan = 2;
 #else
                     e.DataFormItem.RowSpan = 3;

@@ -32,9 +32,10 @@
                     </VisualStateGroupList>
                 </Setter>
                 <Setter Property="LeadingViewPosition" Value="Outside"/>
+                <Setter Property="HeightRequest" Value="76"/>
                 <Setter Property="ContainerBackground" Value="#E7E0EC"/>
                 <Setter Property="HintLabelStyle">
-                    <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular"/>
+                    <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" FontSize="16"/>
                 </Setter>
                 <Setter Property="HelperLabelStyle">
                     <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular"/>
@@ -65,7 +66,7 @@
                 </syncfusion:SfTextInputLayout>
 
                 <syncfusion:SfTextInputLayout x:Name="GenderFieldMobile" Style="{StaticResource InputLayoutStyleMobile}" Hint="Gender" HelperText="Select your gender" ErrorText="Please select your gender">
-                    <editors:SfComboBox IsDropdownButtonVisible="False" x:Name="genderComboBox">
+                    <editors:SfComboBox IsDropdownButtonVisible="False" FontSize="{OnPlatform Android=16}" x:Name="genderComboBox">
                         <editors:SfComboBox.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Male</x:String>

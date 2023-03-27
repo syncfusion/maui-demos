@@ -22,10 +22,10 @@
             <Frame BorderColor="{OnIdiom Default=Transparent, Desktop=#C2C2C2}"
                    HasShadow="False" BackgroundColor="{OnIdiom Default=White, Desktop=WhiteSmoke}"
                     CornerRadius="10"
-                    MaximumHeightRequest="{OnIdiom Desktop=620}"
+                    MaximumHeightRequest="{OnIdiom Desktop=640}"
                     VerticalOptions="{OnIdiom Default=Fill, Desktop=Center}"
                     HorizontalOptions="{OnIdiom Desktop=Center, Default=Fill}" 
-                   WidthRequest="{OnPlatform MacCatalyst=600, WinUI=400, Default=-1}">
+                   WidthRequest="{OnPlatform MacCatalyst=600, WinUI=450, Default=-1}">
                 <Frame.Padding>
                     <OnPlatform x:TypeArguments="thickness:Thickness">
                         <On Platform="MacCatalyst" Value="22, 15, 20, 30"/>
@@ -53,11 +53,18 @@
                            FontAttributes="Bold" VerticalTextAlignment="Center"
                            HorizontalTextAlignment="Center"/>
                     <dataForm:SfDataForm x:Name="feedbackForm"
-                                Grid.RowSpan="{OnIdiom Default=2, Desktop=1}" Grid.Row="{OnIdiom Default=0, Desktop=1}"
+                                Grid.RowSpan="{OnIdiom Default=2, Desktop=1}"
+                                Grid.Row="{OnIdiom Default=0, Desktop=1}"
                                 DataObject="{Binding FeedbackFormModel}"
                                 ValidationMode="PropertyChanged"
-                                  HorizontalOptions="{OnPlatform MacCatalyst=Center, WinUI=Center, Default=Fill}"/>
-            <Line Grid.Row="2" Background="#F5F5F5" />
+                                LayoutType="TextInputLayout"
+                                HorizontalOptions="{OnPlatform MacCatalyst=Center, WinUI=Center, Default=Fill}">
+                            <dataForm:SfDataForm.TextInputLayoutSettings>
+                                <dataForm:TextInputLayoutSettings ShowHelperText="True"
+                                                              FocusedStroke="{StaticResource Primary}"/>
+                            </dataForm:SfDataForm.TextInputLayoutSettings>
+                        </dataForm:SfDataForm>
+                    <Line Grid.Row="2" Background="#F5F5F5" />
             <Button x:Name="Send"
                     Text="Send"
                     Background="{StaticResource PrimaryBrush}"

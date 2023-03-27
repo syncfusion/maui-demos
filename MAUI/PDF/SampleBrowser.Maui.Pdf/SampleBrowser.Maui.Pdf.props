@@ -44,6 +44,10 @@
 			<Link>Samples\Pdf\Redaction\Redaction.xaml.cs</Link>
 			<DependentUpon>Redaction.xaml</DependentUpon>
 		</Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Pdf\TiffToPDF\TiffToPDF.xaml.cs">
+      <Link>Samples\Pdf\TiffToPDF\TiffToPDF.xaml.cs</Link>
+      <DependentUpon>TiffToPDF.xaml</DependentUpon>
+    </Compile>
 	</ItemGroup>
  
 
@@ -108,6 +112,9 @@
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Pdf\RedactionTemplate.pdf">
 		  <Link>Resources\Pdf\RedactionTemplate.pdf</Link>
 	  </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Pdf\image.tiff">
+      <Link>Resources\Pdf\image.tiff</Link>
+    </EmbeddedResource>
   </ItemGroup> 
 	
 	<ItemGroup>
@@ -165,4 +172,9 @@
 			<Link>Samples\Pdf\Redaction\Redaction.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Pdf\TiffToPDF\TiffToPDF.xaml">
+      <Link>Samples\Pdf\TiffToPDF\TiffToPDF.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
 </Project>

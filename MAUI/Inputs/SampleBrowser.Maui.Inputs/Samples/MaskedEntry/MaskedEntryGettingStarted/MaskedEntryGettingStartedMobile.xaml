@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Inputs.SfMaskedEntry.MaskedEntryGettingStartedMobile"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="White">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="syncfusion:SfMaskedEntry">
+            <Setter Property="WidthRequest" Value="290"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="WidthRequest" Value="290"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+
+        </Style>
+    </localCore:SampleView.Resources>
+
+
+
+    <ScrollView WidthRequest="300" HorizontalScrollBarVisibility="Default">
+        <Grid RowDefinitions="*,100">
+            <VerticalStackLayout Margin="0,20,0,0" Spacing="8" VerticalOptions="Start" WidthRequest="290">
+
+                <Label Text="Email"/>
+
+                <syncfusion:SfMaskedEntry x:Name="emailMask"
+                                  MaskType="RegEx" 
+                                  Mask="[A-Za-z0-9._%-]+@[A-Za-z0-9]+\.[A-Za-z]{2,3}"/>
+
+
+                <Label Text="Date"/>
+                <syncfusion:SfMaskedEntry x:Name="dateMask" 
+                                  MaskType="Simple" 
+                                  Mask="00/00/0000"/>
+
+                <Label Text="Time"/>
+                <syncfusion:SfMaskedEntry x:Name="timeMask" 
+                                  MaskType="RegEx" 
+                                  Mask="(0[0-9]|1[1-9]|2[1-3]){2}:[0-5][0-9]:[0-5][0-9]"/>
+
+                <Label Text="Phone Number"/>
+                <syncfusion:SfMaskedEntry x:Name="phoneMask"
+                                  MaskType="Simple" 
+                                  Mask="000-000-0000"/>
+
+                <Label Text="IP Address"/>
+                <syncfusion:SfMaskedEntry x:Name="ipMask"  
+                                  MaskType="Simple" 
+                                  Mask="000:000:000"/>
+
+                <Label Text="Credit Card"/>
+                <syncfusion:SfMaskedEntry x:Name="debitMask"
+                                  MaskType="RegEx" 
+                                  Mask="\d{4}-\d{4}-\d{4}-\d{4}" />
+
+
+        
+            </VerticalStackLayout>
+            <Button Text="SUBMIT" Grid.Row="1" HeightRequest="50" WidthRequest="290"/>
+        </Grid>
+    </ScrollView>
+    <localCore:SampleView.OptionView>
+        <VerticalStackLayout VerticalOptions="Start">
+            <HorizontalStackLayout Margin="10,20,10,10" Background="White" Spacing="20">
+                <Label Text="PromptChar" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center"/>
+                <syncfusion:SfComboBox x:Name="promptCharComboBox" FontFamily="Roboto-Regular" WidthRequest="150" SelectedIndex="0" SelectionChanged="PromptCharComboBox_SelectionChanged" >
+                    <syncfusion:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>_</x:String>
+                            <x:String>*</x:String>
+                            <x:String>#</x:String>
+                        </x:Array>
+                    </syncfusion:SfComboBox.ItemsSource>
+                </syncfusion:SfComboBox>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

@@ -50,6 +50,10 @@
 			<Link>Samples\DocIO\WordToPDF\WordToPDF.xaml.cs</Link>
 			<DependentUpon>WordToPDF.xaml</DependentUpon>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml.cs">
+			<Link>Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml.cs</Link>
+			<DependentUpon>MarkdownToWord.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
  
 
@@ -109,6 +113,11 @@
 			<Link>Samples\DocIO\WordToPDF\WordToPDF.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml">
+			<Link>Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
 	<ItemGroup>	
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\RTFtoWord.rtf">
 	        <Link>Resources\DocIO\RTFtoWord.rtf</Link>
@@ -157,6 +166,9 @@
 	  </EmbeddedResource>
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Mountain300.bmp">
 	        <Link>Resources\DocIO\Mountain300.bmp</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\MarkdownToWord.md">
+	        <Link>Resources\DocIO\MarkdownToWord.md</Link>
 	  </EmbeddedResource>
 	</ItemGroup>
 </Project>

@@ -6,21 +6,31 @@
 // applicable laws. 
 #endregion
 using System.Runtime.CompilerServices;
-
 namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class PasswordDialogBox : ContentView
 {
     public string? Password { get; set; }
+    
+#if WINDOWS
+    internal Entry? passwordEntry { get; set; }
+#endif
+
+    /// <summary>
+    /// Occurs when the password dialog box is closed.
+    /// </summary>
+    public event EventHandler<EventArgs>? PasswordDialogBoxClosed;
 
     public PasswordDialogBox()
     {
         InitializeComponent();
 #if WINDOWS
+        this.passwordEntry = passwordBlock;
         okButton.HandlerChanged += OkButton_HandlerChanged;
         cancelButton.HandlerChanged += CancelButton_HandlerChanged;
 #endif
     }
+
 #if ANDROID
     protected override async void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
@@ -28,10 +38,9 @@ public partial class PasswordDialogBox : ContentView
     protected override void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
 #endif
-
         if (propertyName == "IsVisible")
         {
-            if (this.IsVisible == true) 
+            if (this.IsVisible == true)
             {
                 passwordBlock.Focus();
 #if ANDROID
@@ -58,6 +67,7 @@ public partial class PasswordDialogBox : ContentView
         }
         base.OnPropertyChanged(propertyName);
     }
+
 #if ANDROID
     private void ShowKeyboard(Android.Views.View inputView)
     {
@@ -70,6 +80,7 @@ public partial class PasswordDialogBox : ContentView
             inputMethodManager?.ShowSoftInput(inputView, Android.Views.InputMethods.ShowFlags.Forced);
         }
     }
+
     private void HideKeyboard(Android.Views.View inputView)
     {
         using (var inputMethodManager = (Android.Views.InputMethods.InputMethodManager?)inputView.Context?.GetSystemService(Android.Content.Context.InputMethodService))
@@ -83,10 +94,13 @@ public partial class PasswordDialogBox : ContentView
         }
     }
 #endif
+
     private void CancelButton_Clicked(object sender, EventArgs e)
     {
         Password = null;
         passwordBlock.Text = "";
+        // Fire the event when the password dialog box is closed.
+        PasswordDialogBoxClosed?.Invoke(this, EventArgs.Empty);
         this.IsVisible = false;
     }
 
@@ -96,6 +110,8 @@ public partial class PasswordDialogBox : ContentView
         {
             Password = passwordBlock.Text;
             passwordBlock.Text = "";
+            // Fire the event when the password dialog box is closed.
+            PasswordDialogBoxClosed?.Invoke(this, EventArgs.Empty);
             this.IsVisible = false;
         }
         else
@@ -166,6 +182,7 @@ public partial class PasswordDialogBox : ContentView
             handler.PlatformView.PointerExited += PlatformView_OkButtonPointerExited;
         }
     }
+
     private void CancelButton_HandlerChanged(object? sender, EventArgs e)
     {
         var handler = cancelButton.Handler as Microsoft.Maui.Handlers.ButtonHandler;
@@ -175,21 +192,25 @@ public partial class PasswordDialogBox : ContentView
             handler.PlatformView.PointerExited += PlatformView_CancelButtonPointerExited;
         }
     }
+
     private void PlatformView_CancelButtonPointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
     {
         if (cancelButton.Handler != null)
             cancelButton.BackgroundColor = Color.FromArgb("#00000000");
     }
+
     private void PlatformView_CancelButtonPointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
     {
         if (cancelButton.Handler != null)
             cancelButton.BackgroundColor = Color.FromArgb("#0F000000"); 
     }
+
     private void PlatformView_OkButtonPointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
     {
         if (okButton.Handler != null)
             okButton.BackgroundColor = Color.FromArgb("#00000000");
     }
+
     private void PlatformView_OkButtonPointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
     {
         if (okButton.Handler != null)

@@ -48,11 +48,9 @@
                     </Grid.GestureRecognizers>
                 </Grid>
             </HorizontalStackLayout>
-            <ScrollView Grid.Row="1">
-                <ContentView x:Name="contentView" VerticalOptions="Center">
-                    <local:LinearGaugeShapePointerHorizontal/>
-                </ContentView>
-            </ScrollView>
+            <ContentView x:Name="contentView" Grid.Row="1" VerticalOptions="Center">
+                <local:LinearGaugeShapePointerHorizontal/>
+            </ContentView>
         </Grid>
     </localCore:SampleView.Content>
 </localCore:SampleView>

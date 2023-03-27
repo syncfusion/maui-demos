@@ -22,20 +22,7 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// <returns>The items source collection.</returns>
         public object GetSource(string sourceName)
         {
-            if (sourceName == nameof(ContactFormModel.GroupName))
-            {
-                List<string> groupNames = new List<string>
-                {
-                    "Family",
-                    "Friends",
-                    "Coworkers",
-                    "Not assigned",
-                    "Emergency contacts",
-                };
-
-                return groupNames;
-            }
-            else if (sourceName == nameof(PaymentFormModel.Month))
+            if (sourceName == nameof(PaymentFormModel.Month))
             {
                 List<string> months = new List<string>
                 {

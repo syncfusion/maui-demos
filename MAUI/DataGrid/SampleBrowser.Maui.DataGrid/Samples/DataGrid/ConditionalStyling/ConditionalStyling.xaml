@@ -24,11 +24,15 @@
                 </On>
                 <On Platform="WinUI,MacCatalyst" Value="300"></On>
             </OnPlatform>
+            <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+                <On Platform="WinUI,MacCatalyst" Value="0,-5,0,0"/>
+            </OnPlatform>
         </ResourceDictionary>
     </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
 
         <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
                            AutoGenerateColumnsMode="None"
                            HeaderRowHeight="52"
                            RowHeight="48"

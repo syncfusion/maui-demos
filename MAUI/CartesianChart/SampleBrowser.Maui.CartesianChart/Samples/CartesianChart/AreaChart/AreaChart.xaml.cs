@@ -29,7 +29,6 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 #endif
         }
 
-
         public override void OnDisappearing()
         {
             base.OnDisappearing();

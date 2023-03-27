@@ -43,7 +43,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="{OnPlatform Default=80, MacCatalyst=60, WinUI=60}"/>
-                        <RowDefinition Height="220"/>
+                        <RowDefinition Height="{OnPlatform Default=220, WinUI=170}"/>
                         <RowDefinition Height="1"/>
                         <RowDefinition Height="{OnPlatform Default=80, MacCatalyst=60, WinUI=60}"/>
                     </Grid.RowDefinitions>
@@ -67,7 +67,14 @@
                     <Image Source="{converters:SfImageResource facebook.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnIdiom Default=50, Desktop=40}" />
                     <Image Source="{converters:SfImageResource microsoft.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnIdiom Default=50, Desktop=40}"  />
                 </HorizontalStackLayout>
-                <dataForm:SfDataForm x:Name="signInForm" Grid.Row="2" DataObject="{Binding SignInFormModel}" ValidationMode="PropertyChanged"  />
+                <dataForm:SfDataForm x:Name="signInForm" Grid.Row="2" DataObject="{Binding SignInFormModel}"
+                                     LayoutType="TextInputLayout"
+                                     ValidationMode="PropertyChanged"  >
+                        <dataForm:SfDataForm.TextInputLayoutSettings>
+                                <dataForm:TextInputLayoutSettings ShowHelperText="True"
+                                                              FocusedStroke="{StaticResource Primary}"/>
+                        </dataForm:SfDataForm.TextInputLayoutSettings>
+                </dataForm:SfDataForm>
                 <Line Grid.Row="3" Background="{OnIdiom Default=WhiteSmoke, Desktop=White}" />
                 <Button Text="Sign In" x:Name="signInButton" HeightRequest="40" VerticalOptions="Center"
                         HorizontalOptions="Fill" Margin="20,10" CornerRadius="5"

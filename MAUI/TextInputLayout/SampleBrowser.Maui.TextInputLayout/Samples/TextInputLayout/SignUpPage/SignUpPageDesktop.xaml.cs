@@ -287,7 +287,7 @@ public partial class SignUpPageDesktop : SampleView
             ConfirmPasswordField.HasError = false;
         }
 
-        if(PasswordField.Text?.Length < 5 || PasswordField.Text?.Length > 8)
+        if(string.IsNullOrEmpty(PasswordField.Text) || PasswordField.Text?.Length < 5 || PasswordField.Text?.Length > 8)
         {
             PasswordField.HasError = true;
         }

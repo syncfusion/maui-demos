@@ -9,6 +9,9 @@
     BackgroundColor="White">
     <localCore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageConverter"></imageExtension:SfImageSourceConverter>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="0,-5,0,0"/>
+        </OnPlatform>
     </localCore:SampleView.Resources>
     <localCore:SampleView.BindingContext>
         <local:TeamViewModel>
@@ -16,6 +19,7 @@
     </localCore:SampleView.BindingContext>
     <localCore:SampleView.Content>
         <sfgrid:SfDataGrid x:Name="dataGrid" 
+                           Margin="{StaticResource margin}"
                            AutoGenerateColumnsMode="None"
                            RowHeight="48"
                            HorizontalScrollBarVisibility="Always"

@@ -10,11 +10,11 @@
     <localCore:SampleView.Content>
         <Grid WidthRequest="350" HeightRequest="400">
             <Frame IsVisible="False" x:Name="frame" HasShadow="False" Background="White" CornerRadius="10"  HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="2">
-                <calendar:SfCalendar x:Name="Calendar"/>
+                <calendar:SfCalendar x:Name="Calendar" ShowActionButtons="True" ShowTodayButton="True"/>
             </Frame>
 
             <Border IsVisible="False" x:Name="border" Background="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10"  HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="2">
-                <calendar:SfCalendar x:Name="Calendar1"/>
+                <calendar:SfCalendar x:Name="Calendar1" ShowActionButtons="True" ShowTodayButton="True"/>
             </Border>
         </Grid>
     </localCore:SampleView.Content>
@@ -210,6 +210,46 @@
                           Margin="5,0,0,0"
                          VerticalOptions="Center"
                          IsToggled="False"
+                         HorizontalOptions="End">
+                        </Switch>
+                    </Grid>
+
+                    <Grid x:Name="showActionButtonGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Show action buttons"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="Gray"/>
+                        <Switch  x:Name="showActionButtonsSwitch" 
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         VerticalOptions="Center"
+                         IsToggled="True"
+                         HorizontalOptions="End">
+                        </Switch>
+                    </Grid>
+
+                    <Grid x:Name="showTodayButtonGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Show today button"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="Gray"/>
+                        <Switch  x:Name="showTodayButtonSwitch" 
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         VerticalOptions="Center"
+                         IsToggled="True"
                          HorizontalOptions="End">
                         </Switch>
                     </Grid>

@@ -15,10 +15,14 @@
         <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
             <On Platform="Android,iOS" Value="120"></On>
         </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="0,-5,0,0"/>
+        </OnPlatform>
         <imageExtension:SfImageSourceConverter x:Key="imageConverter"></imageExtension:SfImageSourceConverter>
     </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
         <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
                            ItemsSource="{Binding DealerInformation}"
                            AutoGenerateColumnsMode="None"
                            ColumnWidthMode="Fill"

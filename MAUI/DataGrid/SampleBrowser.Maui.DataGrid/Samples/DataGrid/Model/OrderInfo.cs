@@ -19,7 +19,7 @@ namespace SampleBrowser.Maui.DataGrid
         #region private variables
 
         private int orderID;
-        private string? employeeID;
+        private int employeeID;
         private string? customerID;
         private string? firstname;
         private string? lastname;
@@ -29,6 +29,7 @@ namespace SampleBrowser.Maui.DataGrid
         private double freight;
         private DateTime shippingDate;
         private bool isClosed;
+        private double price;
 
         #endregion
 
@@ -66,7 +67,7 @@ namespace SampleBrowser.Maui.DataGrid
         /// <summary>
         /// Gets or sets the value of EmployeeID and notifies user when value gets changed
         /// </summary>
-        public string? EmployeeID
+        public int EmployeeID
         {
             get
             {
@@ -196,6 +197,23 @@ namespace SampleBrowser.Maui.DataGrid
             {
                 this.freight = value;
                 this.RaisePropertyChanged("Freight");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double Price
+        {
+            get
+            {
+                return this.price;
+            }
+
+            set
+            {
+                this.price = value;
+                this.RaisePropertyChanged("Price");
             }
         }
 

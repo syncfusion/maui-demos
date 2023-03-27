@@ -10,7 +10,10 @@
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
-
+		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+		<NoWarn>$(NoWarn);NU1803</NoWarn>
+		<Nullable>enable</Nullable>
+		
 		<!-- Display name -->
 		<ApplicationTitle>SampleBrowser.Maui.XlsIO</ApplicationTitle>
 
@@ -30,7 +33,67 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 		<Configurations>Debug;Release;Release-Xml</Configurations>
 	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-android|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-android|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release-Xml|net6.0-android|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-ios|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release-Xml|net6.0-ios|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-maccatalyst|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-maccatalyst|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release-Xml|net6.0-maccatalyst|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows10.0.19041.0|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows10.0.19041.0|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release-Xml|net6.0-windows10.0.19041.0|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+	
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#4822E3" />
@@ -56,10 +119,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="SampleBrowser.Maui.Base" version="20.4.48" />
-	  <PackageReference Include="Syncfusion.Maui.Core" version="20.4.48" />
-	  <PackageReference Include="Syncfusion.XlsIORenderer.NET" version="20.4.0.48" />
-	  <PackageReference Include="Syncfusion.Maui.TabView" version="20.4.48" />
+	  <PackageReference Include="SampleBrowser.Maui.Base" version="21.1.35" />
+	  <PackageReference Include="Syncfusion.Maui.Core" version="21.1.35" />
+	  <PackageReference Include="Syncfusion.Maui.Inputs" version="21.1.35" />
+	  <PackageReference Include="Syncfusion.XlsIORenderer.NET" version="21.1.35" />
+	  <PackageReference Include="Syncfusion.Maui.TabView" version="21.1.35" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -74,6 +138,7 @@
     <EmbeddedResource Include="Resources\XlsIO\FormulaTemplate.xlsx" />
 		<EmbeddedResource Include="Resources\XlsIO\ChartData.xlsx" />
 		<EmbeddedResource Include="Resources\XlsIO\TemplateMarker.xlsx" />
+		<EmbeddedResource Include="Resources\XlsIO\TableSlicer.xlsx" />
 		<EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man1.jpg" />
 		<EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man10.png" />
 		<EmbeddedResource Include="Resources\XlsIO\Template_Marker_Images\Man11.jpg" />

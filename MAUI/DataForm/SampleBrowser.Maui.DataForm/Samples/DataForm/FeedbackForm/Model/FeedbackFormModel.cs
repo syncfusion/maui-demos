@@ -40,7 +40,7 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         public double? Mobile { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [Display(ShortName ="What did you enjoy most about the training?", Prompt = "Enter your feedback here")]
+        [Display(ShortName ="What did you enjoy most about the training?")]
         public string Message { get; set; }
 
         #endregion

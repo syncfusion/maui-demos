@@ -35,6 +35,7 @@
                 </Setter>
                 <Setter Property="ContainerType" Value="Outlined"/>
                 <Setter Property="ContainerBackground" Value="Transparent"/>
+                <Setter Property="HeightRequest" Value="63"/>
                 <Setter Property="HelperLabelStyle">
                     <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" />
                 </Setter>
@@ -91,7 +92,7 @@
 
                 <HorizontalStackLayout  Spacing="5" Margin="0,0,0,-10" >
                     <syncfusion:SfTextInputLayout x:Name="MonthField" Style="{StaticResource InputLayoutStyle}" Hint="Month" ErrorText="Invalid" WidthRequest="125" >
-                        <editors:SfComboBox MaxDropDownHeight="150"  FontFamily="Roboto-Regular">
+                        <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference MonthField}" DropDownIconColor="{Binding Stroke}" FontFamily="Roboto-Regular">
                             <editors:SfComboBox.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>01</x:String>
@@ -115,7 +116,7 @@
                     </syncfusion:SfTextInputLayout>
 
                     <syncfusion:SfTextInputLayout x:Name="YearField" Style="{StaticResource InputLayoutStyle}" Hint="Year" ErrorText="Invalid" WidthRequest="125">
-                        <editors:SfComboBox MaxDropDownHeight="150" FontFamily="Roboto-Regular">
+                        <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference YearField}" DropDownIconColor="{Binding Stroke}" FontFamily="Roboto-Regular">
                             <editors:SfComboBox.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>2022</x:String>

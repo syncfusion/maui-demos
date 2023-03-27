@@ -77,8 +77,8 @@ public partial class Arcs : SampleView
             {
                 lineLayer.Lines.Add(new MapLine()
                 {
-                    From = new MapLatLng(airPorts[i].From.Longitude, airPorts[i].From.Latitude),
-                    To = new MapLatLng(airPorts[i].To.Longitude, airPorts[i].To.Latitude),
+                    From = new MapLatLng(airPorts[i].From.Latitude, airPorts[i].From.Longitude),
+                    To = new MapLatLng(airPorts[i].To.Latitude, airPorts[i].To.Longitude),
                     StrokeLineCap = LineCap.Round,
                     StrokeThickness = 2,
                     Stroke = places.LayerFill,
@@ -106,8 +106,8 @@ public partial class Arcs : SampleView
             {
                 arcLayer.Arcs.Add(new MapArc()
                 {
-                    From = new MapLatLng(airPorts[i].From.Longitude, airPorts[i].From.Latitude),
-                    To = new MapLatLng(airPorts[i].To.Longitude, airPorts[i].To.Latitude),
+                    From = new MapLatLng(airPorts[i].From.Latitude, airPorts[i].From.Longitude),
+                    To = new MapLatLng(airPorts[i].To.Latitude, airPorts[i].To.Longitude),
                     StrokeThickness = 2,
                     Stroke = places.LayerFill,
                     StrokeDashArray = isEnableDashArray ? new DoubleCollection() { 8, 2, 2, 2 } : new DoubleCollection() { 0, 0 },

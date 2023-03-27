@@ -35,7 +35,6 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
             this.dataForm = bindable.Content.FindByName<SfDataForm>("signInForm");
             if (dataForm != null)
             {
-                this.dataForm.DefaultLayoutSettings.LabelPosition = DataFormLabelPosition.Top;
                 this.dataForm.GenerateDataFormItem += this.OnGenerateDataFormItem;
             }
 

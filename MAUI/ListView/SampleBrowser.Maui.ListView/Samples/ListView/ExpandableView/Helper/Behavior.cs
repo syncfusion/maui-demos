@@ -25,7 +25,8 @@ namespace SampleBrowser.Maui.ListView.SfListView
             tapGestureRecognizer.Tapped += OnItemTapped;
             (bindable as Grid).GestureRecognizers.Add(tapGestureRecognizer);
 #if ANDROID
-            ListView.RefreshView();
+            // Todo Breaking in https://github.com/essential-studio/maui-listview/pull/358/files
+            // ListView.RefreshView();
 #endif
             base.OnAttachedTo(bindable);
         }

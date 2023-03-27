@@ -32,14 +32,17 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         public bool IsSummary { get; set; }
 
+        public string? Levels { get; set; }
         public string? Department { get; set; }
 
-        public List<double>? EmployeeAges { get; set; }
+        public List<double>? Energy { get; set; }
+
+        public ChartDataModel() { }
 
         public ChartDataModel(string department, List<double> employeeAges)
         {
-            Department = department;
-            EmployeeAges = employeeAges;
+            Levels = department;
+            Energy = employeeAges;
         }
 
         public ChartDataModel(string name, double value)
@@ -48,12 +51,12 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
             Value = value;
         }
 
-        public ChartDataModel(string name, double value, double horizontalErrorValue, double verticalErrorValue)
+        public ChartDataModel(string name, double value, double high, double low)
         {
             Name = name;
             Value = value;
-            High = horizontalErrorValue;
-            Low = verticalErrorValue;
+            High = high;
+            Low = low;
         }
 
         public ChartDataModel(string name, double value, double size)

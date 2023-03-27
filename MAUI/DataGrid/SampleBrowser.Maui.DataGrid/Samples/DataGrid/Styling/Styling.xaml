@@ -16,6 +16,12 @@
         <local:StylingBehavior/>
     </localCore:SampleView.Behaviors>
 
+    <localCore:SampleView.Resources>
+        <Style TargetType="sfgrid:DataGridHeaderRow">
+            <Setter Property="Background" Value="#0074E3"/>
+        </Style>
+    </localCore:SampleView.Resources>
+
     <localCore:SampleView.Content>
 
         <Frame  CornerRadius="0" Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
@@ -33,7 +39,7 @@
                            HorizontalScrollBarVisibility="Always"
                            VerticalScrollBarVisibility="Always">
                     <sfgrid:SfDataGrid.DefaultStyle>
-                        <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" AlternateRowBackground="#EEF5FD"  SelectedRowTextColor="Black" HeaderRowBackground="#0074E3" HeaderRowTextColor="White" SelectionBackground="#E3F2FD" RowTextColor="#212121" ></sfgrid:DataGridStyle>
+                        <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" AlternateRowBackground="#EEF5FD" SelectedRowTextColor="Black" HeaderRowTextColor="White" SelectionBackground="#E3F2FD" RowTextColor="#212121" ></sfgrid:DataGridStyle>
                     </sfgrid:SfDataGrid.DefaultStyle>
                     <sfgrid:SfDataGrid.Columns>
                         <sfgrid:DataGridNumericColumn Format="D" MappingName="OrderID"

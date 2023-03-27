@@ -21,6 +21,14 @@
 	  <Link>Samples\CircularChart\Doughnut\CenterElevation.xaml.cs</Link>
       <DependentUpon>CenterElevation.xaml</DependentUpon>
 	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\RadialBar\RadialBarChart.xaml.cs">
+	  <Link>Samples\CircularChart\RadialBar\RadialBarChart.xaml.cs</Link>
+	  <DependentUpon>RadialBarChart.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\RadialBar\CustomizedRadialBarChart.xaml.cs">
+	  <Link>Samples\CircularChart\RadialBar\CustomizedRadialBarChart.xaml.cs</Link>
+	  <DependentUpon>CustomizedRadialBarChart.xaml</DependentUpon>
+	</Compile>	
 	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\Interaction\Tooltip.xaml.cs">
       <Link>Samples\CircularChart\Interaction\Tooltip.xaml.cs</Link>
       <DependentUpon>Tooltip.xaml</DependentUpon>
@@ -36,6 +44,9 @@
 	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\Doughnut\DoughnutSeriesViewModel.cs">
       <Link>Samples\CircularChart\Doughnut\DoughnutSeriesViewModel.cs</Link>
     </Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\RadialBar\RadialBarSeriesViewModel.cs">
+	  <Link>Samples\CircularChart\RadialBar\RadialBarSeriesViewModel.cs</Link>
+	</Compile>
 	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\Interaction\SelectionViewModel.cs">
       <Link>Samples\CircularChart\Interaction\SelectionViewModel.cs</Link>
     </Compile>
@@ -83,6 +94,18 @@
     <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\Doughnut\CenterElevation.xaml">
 	  <Link>Samples\CircularChart\Doughnut\CenterElevation.xaml</Link>
     </MauiXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\RadialBar\RadialBarChart.xaml">
+		<Link>Samples\CircularChart\RadialBar\RadialBarChart.xaml</Link>
+	</MauiXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\RadialBar\CustomizedRadialBarChart.xaml">
+		<Link>Samples\CircularChart\RadialBar\CustomizedRadialBarChart.xaml</Link>
+	</MauiXaml>
   </ItemGroup>
   
   <ItemGroup>

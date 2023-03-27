@@ -21,8 +21,8 @@ public partial class PaymentPageMobile : SampleView
         CardNumberField2.InputViewPadding= new Thickness(16, 8, 16, 8);
         CardNumberField3.InputViewPadding= new Thickness(16, 8, 16, 8);
         CVVField.InputViewPadding= new Thickness(16, 8, 16, 8);
-        MonthField.InputViewPadding= new Thickness(16, 8, 16, 8);
-        YearField.InputViewPadding= new Thickness(16, 8, 16, 8);
+        MonthField.InputViewPadding= new Thickness(16, 8, 2, 8);
+        YearField.InputViewPadding= new Thickness(16, 8, 2, 8);
     }
     private void SubmitButton_Clicked(object sender, EventArgs e)
     {

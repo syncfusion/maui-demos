@@ -14,16 +14,11 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="0.5"/>
                         <RowDefinition Height="7*"/>
-                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" x:Name="selectionLabel" Text="Select date" FontSize="15" Margin="20, 0, 0, 0" VerticalTextAlignment="Center" TextColor="Gray" VerticalOptions="Center"/>
                     <Label Grid.Row="1" x:Name="label" FontSize="30" Margin="20,0,0,0" VerticalTextAlignment="Center" VerticalOptions="Center" />
                     <Line Grid.Row="2" BackgroundColor="LightGrey"/>
-                    <calendar:SfCalendar x:Name="dateSelection" Grid.Row="3" View="Month" RangeSelectionDirection="Both" AllowViewNavigation="True" NavigationDirection="Horizontal" Margin="5" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <StackLayout Grid.Row="4" HorizontalOptions="End" Orientation="Horizontal" Margin="5, 5, 10, 5">
-                        <Button x:Name="cancelButton" Text="Cancel" HorizontalOptions="Start" Background="Transparent" BorderColor="Transparent" TextColor="#6200EE"/>
-                        <Button x:Name="okButton" Text="OK" HorizontalOptions="End" Background="Transparent" BorderColor="Transparent" TextColor="#6200EE"/>
-                    </StackLayout>
+                    <calendar:SfCalendar x:Name="dateSelection" Grid.Row="3" View="Month" RangeSelectionDirection="Both" AllowViewNavigation="True" NavigationDirection="Horizontal" Margin="5" HorizontalOptions="Center" VerticalOptions="Center" ShowActionButtons="True" ShowTodayButton="True"/>
                 </Grid>
             </Frame>
 
@@ -34,16 +29,11 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="0.5"/>
                         <RowDefinition Height="7*"/>
-                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" x:Name="selectionLabel1" Text="Select date" FontSize="15" Margin="20, 0, 0, 0" VerticalTextAlignment="Center" TextColor="Gray" VerticalOptions="Center"/>
                     <Label Grid.Row="1" x:Name="label1" FontSize="30" Margin="20,0,0,0" VerticalTextAlignment="Center" VerticalOptions="Center" />
                     <Line Grid.Row="2" BackgroundColor="LightGrey"/>
-                    <calendar:SfCalendar x:Name="dateSelection1" Grid.Row="3" View="Month" RangeSelectionDirection="Both" AllowViewNavigation="True" NavigationDirection="Horizontal" Margin="5" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <StackLayout Grid.Row="4" HorizontalOptions="End" Orientation="Horizontal" Margin="5, 5, 10, 5">
-                        <Button x:Name="cancelButton1" Text="Cancel" HorizontalOptions="Start" Background="Transparent" BorderColor="Transparent" TextColor="#6200EE"/>
-                        <Button x:Name="okButton1" Text="OK" HorizontalOptions="End" Background="Transparent" BorderColor="Transparent" TextColor="#6200EE"/>
-                    </StackLayout>
+                    <calendar:SfCalendar x:Name="dateSelection1" Grid.Row="3" View="Month" RangeSelectionDirection="Both" AllowViewNavigation="True" NavigationDirection="Horizontal" Margin="5" HorizontalOptions="Center" VerticalOptions="Center" ShowActionButtons="True" ShowTodayButton="True"/>
                 </Grid>
             </Border>
         </Grid>

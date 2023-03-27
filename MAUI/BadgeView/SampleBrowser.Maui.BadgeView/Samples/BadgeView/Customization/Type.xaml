@@ -9,7 +9,7 @@
         <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
         <VerticalStackLayout VerticalOptions="Center"
                              HorizontalOptions="Center"
-                             MaximumWidthRequest="300">
+                             MaximumWidthRequest='{OnPlatform MacCatalyst="320",iOS="320", Default="300"}'>
             <Grid RowDefinitions="120,120,120"
                   ColumnSpacing="20"
                   ColumnDefinitions="Auto,Auto,Auto">

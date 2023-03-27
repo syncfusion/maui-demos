@@ -87,6 +87,16 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         private DatePicker? datePicker;
 
         /// <summary>
+        /// The show action buttons switch.
+        /// </summary>
+        private Switch? enableActionButtonsSwitch;
+
+        /// <summary>
+        /// The show today buttons switch.
+        /// </summary>
+        private Switch? enableTodayButtonSwitch;
+
+        /// <summary>
         /// Begins when the behavior attached to the view 
         /// </summary>
         /// <param name="bindable">bindable value</param>
@@ -146,6 +156,9 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             directionComboBox.SelectedIndex = 0;
             directionComboBox.SelectionChanged += DirectionComboBox_SelectionChanged;
 
+            this.enableActionButtonsSwitch = bindable.Content.FindByName<Switch>("showActionButtonsSwitch");
+            this.enableTodayButtonSwitch = bindable.Content.FindByName<Switch>("showTodayButtonSwitch");
+
             this.calendar.SelectedDate = DateTime.Now.AddDays(-3);
             ObservableCollection<DateTime> selectedDates = new();
             Random random = new();
@@ -180,6 +193,16 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             if (this.allowViewNavigationSwitch != null)
             {
                 this.allowViewNavigationSwitch.Toggled += AllowViewNavigationSwitch_Toggled;
+            }
+
+            if (this.enableActionButtonsSwitch != null)
+            {
+                this.enableActionButtonsSwitch.Toggled += EnableActionButtonsSwitch_Toggled;
+            }
+
+            if (this.enableTodayButtonSwitch != null)
+            {
+                this.enableTodayButtonSwitch.Toggled += EnableTodayButtonSwitch_Toggled;
             }
 
             if (this.calendar != null && this.datePicker != null)
@@ -410,6 +433,32 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         }
 
         /// <summary>
+        /// Method for enable today button switch toggle changed
+        /// </summary>
+        /// <param name="sender">return the object</param>
+        /// <param name="e">Event Arguments</param>
+        private void EnableTodayButtonSwitch_Toggled(object? sender, ToggledEventArgs e)
+        {
+            if (this.calendar != null)
+            {
+                this.calendar.ShowTodayButton = e.Value;
+            }
+        }
+
+        /// <summary>
+        /// Method for enable action buttons switch toggle changed
+        /// </summary>
+        /// <param name="sender">return the object</param>
+        /// <param name="e">Event Arguments</param>
+        private void EnableActionButtonsSwitch_Toggled(object? sender, ToggledEventArgs e)
+        {
+            if (this.calendar != null)
+            {
+                this.calendar.ShowActionButtons = e.Value;
+            }
+        }
+
+        /// <summary>
         /// Begins when the behavior attached to the view 
         /// </summary>
         /// <param name="bindable">bindable value</param>
@@ -451,6 +500,18 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
                 this.allowViewNavigationSwitch = null;
             }
 
+            if (this.enableActionButtonsSwitch != null)
+            {
+                this.enableActionButtonsSwitch.Toggled -= EnableActionButtonsSwitch_Toggled;
+                this.enableActionButtonsSwitch = null;
+            }
+
+            if (this.enableTodayButtonSwitch != null)
+            {
+                this.enableTodayButtonSwitch.Toggled -= EnableTodayButtonSwitch_Toggled;
+                this.enableTodayButtonSwitch = null;
+            }
+
             if (this.calendar != null)
             {
                 this.calendar.ViewChanged -= Calendar_ViewChanged;
@@ -459,7 +520,6 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 
             if (this.datePicker != null)
             {
-
                 this.datePicker.DateSelected -= DatePicker_DateSelected;
                 this.datePicker = null;
             }

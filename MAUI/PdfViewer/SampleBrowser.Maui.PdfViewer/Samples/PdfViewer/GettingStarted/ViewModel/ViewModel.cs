@@ -14,6 +14,10 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
     {
         private Stream? _documentStream;
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        /// <summary>
+        /// Gets or sets the PDF document as a stream. 
+        /// </summary>
         public Stream? DocumentStream
         {
             get => _documentStream;
@@ -24,6 +28,9 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
+        /// <summary>
+        /// Constructor of the view model class
+        /// </summary>
         public ViewModel()
         {
             string fileName = "PDF_Succinctly.pdf";

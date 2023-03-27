@@ -13,37 +13,34 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
     public class CustomToolbarViewModel : INotifyPropertyChanged
     {
         private PdfData _documentData;
-        private int _pageNumber;
         private bool _isFilePickerVisible;
         private ICommand? _openCloseFilePickerCommand;
         private ICommand? _zoomInCommand;
         private ICommand? _zoomOutCommand;
+        private ICommand? _closeAllDialogsCommand;
         private object? _selectedFile;
         private double _currentZoom = 1;
         private double? _minZoom = null;
         private double? _maxZoom = null;
-        private bool _canZoomIn = true;
-        private bool _canZoomOut = true;
-        private bool _canGoToPreviousPage = true;
-        private bool _canGoToNextPage = true;
         private bool _showPasswordDialog = false;
+        private bool _showMessageBoxDialog = false;
+        private bool _showHyperlinkDialog = false;
+        private bool _showOutlineView = false;
+        bool m_isDocumentLoaded;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public PdfData DocumentData
-        {
-            get
-            {
-                return _documentData;
-            }
-        }
+        /// <summary>
+        ///  Returns the Pdf data. 
+        /// </summary>
+        public PdfData DocumentData => _documentData;
 
+        /// <summary>
+        /// Gets or sets the selected PDF file. 
+        /// </summary>
         public object? SelectedFile
         {
-            get
-            {
-                return _selectedFile;
-            }
+            get => _selectedFile;
             set
             {
                 _selectedFile = value;
@@ -55,14 +52,16 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
+        // Initialize the files with some custom values.
         public IList<string> Files
         {
             get
             {
                 return new List<string>
                 {
+                    "PDF Succinctly",
                     "Rotated PDF",
-                    "Encrypted PDF",
+                    "Password protected PDF",
                     "Corrupted PDF",
                     "Single page PDF",
 #if !MACCATALYST
@@ -72,12 +71,12 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
+        /// <summary>
+        ///  Determines whether the file picker can show in its current state.
+        /// </summary>
         public bool IsFilePickerVisible
         {
-            get
-            {
-                return _isFilePickerVisible;
-            }
+            get => _isFilePickerVisible;
             set
             {
                 _isFilePickerVisible = value;
@@ -85,25 +84,12 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
-        public bool CanZoomIn
-        {
-            get
-            {
-                return _canZoomIn;
-            }
-            set
-            {
-                _canZoomIn = value;
-                OnPropertyChanged("CanZoomIn");
-            }
-        }
-
+        /// <summary>
+        ///  Determines whether the password box dialog can show in its current state.
+        /// </summary>
         public bool ShowPasswordDialog
         {
-            get
-            {
-                return _showPasswordDialog;
-            }
+            get => _showPasswordDialog;
             set
             {
                 _showPasswordDialog = value;
@@ -111,98 +97,99 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
-        public bool CanZoomOut
+        /// <summary>
+        ///  Determines whether the Message box dialog can show in its current state.
+        /// </summary>
+        public bool ShowMessageBoxDialog
         {
-            get
-            {
-                return _canZoomOut;
-            }
+            get => _showMessageBoxDialog;
             set
             {
-                _canZoomOut = value;
-                OnPropertyChanged("CanZoomOut");
+                _showMessageBoxDialog = value;
+                OnPropertyChanged("ShowMessageBoxDialog");
             }
         }
 
-        public bool CanGoToPreviousPage
+        /// <summary>
+        ///  Determines whether the Hyperlink dialog can show in its current state.
+        /// </summary>
+        public bool ShowHyperlinkDialog
         {
-            get
-            {
-                return _canGoToPreviousPage;
-            }
+            get => _showHyperlinkDialog;
             set
             {
-                _canGoToPreviousPage = value;
-                OnPropertyChanged("CanGoToPreviousPage");
+                _showHyperlinkDialog = value;
+                OnPropertyChanged("ShowHyperlinkDialog");
             }
         }
 
-        public bool CanGoToNextPage
+        public bool ShowOutlineView
         {
-            get
-            {
-                return _canGoToNextPage;
-            }
+            get => _showOutlineView;
             set
             {
-                _canGoToNextPage = value;
-                OnPropertyChanged("CanGoToNextPage");
+                _showOutlineView = value;
+                OnPropertyChanged("ShowOutlineView");
             }
         }
+
+        /// <summary>
+        /// Gets or sets the current zoom.
+        /// </summary>
         public double CurrentZoom
         {
-            get
-            {
-                return _currentZoom;
-            }
+            get => _currentZoom;
             set
             {
                 _currentZoom = value;
                 OnPropertyChanged("CurrentZoom");
-                ValidateZoomChange();
+                RefreshZoomCommandCanExecutes();
             }
         }
 
-        public int PageNumber
-        {
-            get
-            {
-                return _pageNumber;
-            }
-            set
-            {
-                _pageNumber = value;
-                OnPropertyChanged("PageNumber");
-                ValidatePageNumber();
-            }
-        }
-
+        /// <summary>
+        /// Gets or sets the minimum zoom.
+        /// </summary>
         public double? MinZoom
         {
-            get
-            {
-                return _minZoom;
-            }
+            get => _minZoom;
             set
             {
                 _minZoom = value;
-                ValidateZoomChange();
+                RefreshZoomCommandCanExecutes();
             }
         }
 
+        /// <summary>
+        /// Gets or sets the value that indicates whether the document is loaded.
+        /// </summary>
+        public bool IsDocumentLoaded
+        {
+            get => m_isDocumentLoaded;
+            set
+            {
+                m_isDocumentLoaded = value;
+                RefreshZoomCommandCanExecutes();
+                OnPropertyChanged(nameof(IsDocumentLoaded));
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the maximum zoom.
+        /// </summary>
         public double? MaxZoom
         {
-            get
-            {
-                return _maxZoom;
-            }
+            get => _maxZoom;
             set
             {
                 _maxZoom = value;
-                ValidateZoomChange();
+                RefreshZoomCommandCanExecutes();
             }
         }
 
+        /// <summary>
+        /// Gets the command to open or close the file picker.
+        /// </summary>
         public ICommand OpenCloseFilePickerCommand
         {
             get
@@ -213,73 +200,80 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
+        /// <summary>
+        /// Gets the command to increase the current zoom.
+        /// </summary>
         public ICommand ZoomInCommand
         {
             get
             {
                 if (_zoomInCommand == null)
-                    _zoomInCommand = new Command<object>(ZoomIn);
+                    _zoomInCommand = new Command(() => CurrentZoom += 0.25,
+                        canExecute: () => { return CurrentZoom < MaxZoom && IsDocumentLoaded; });
                 return _zoomInCommand;
             }
         }
 
+        /// <summary>
+        /// Gets the command to decrease the current zoom.
+        /// </summary>
         public ICommand ZoomOutCommand
         {
             get
             {
                 if (_zoomOutCommand == null)
-                    _zoomOutCommand = new Command<object>(ZoomOut);
+                    _zoomOutCommand = new Command(() => CurrentZoom -= 0.25,
+                        canExecute: () => { return CurrentZoom > MinZoom && IsDocumentLoaded; });
                 return _zoomOutCommand;
             }
         }
 
+        public ICommand CloseAllDialogsCommand
+        {
+            get
+            {
+                if (_closeAllDialogsCommand == null)
+                    _closeAllDialogsCommand = new Command(CloseAllDialogs);
+                return _closeAllDialogsCommand;
+            }
+        }
+
+        /// <summary>
+        /// Constructor of the view model class
+        /// </summary>
         public CustomToolbarViewModel()
         {
             _documentData = new PdfData();
-            _documentData.FileName = "PDF_Succinctly.pdf";
+            _documentData.FileName = "PDF_Succinctly1.pdf";
         }
 
-        public void ValidateZoomChange()
+        void CloseAllDialogs()
         {
+            if (ShowPasswordDialog)
+                ShowPasswordDialog = false;
+
+            if (ShowMessageBoxDialog)
+                ShowMessageBoxDialog = false;
+
+            if (ShowHyperlinkDialog)
+                ShowHyperlinkDialog = false;
+
+            if (ShowOutlineView)
+                ShowOutlineView = false;
+            
             if (IsFilePickerVisible)
                 IsFilePickerVisible = false;
-
-            if (_minZoom == null || _maxZoom == null)
-                return;
-            if (_currentZoom > _minZoom && _currentZoom < _maxZoom)
-            {
-                CanZoomIn = true;
-                CanZoomOut = true;
-            }
-            else if (_currentZoom <= _minZoom && _currentZoom >= _maxZoom)
-            {
-                CanZoomIn = false;
-                CanZoomOut = false;
-            }
-            else if (_currentZoom <= _minZoom)
-                CanZoomOut = false;
-            else if (_currentZoom >= _maxZoom)
-                CanZoomIn = false;
         }
 
-        public void ValidatePageNumber()
+        /// <summary>
+        /// Refreshes the can executes of the zoom commands.
+        /// </summary>
+        void RefreshZoomCommandCanExecutes()
         {
-            if (IsFilePickerVisible)
-                IsFilePickerVisible = false;
-
-            if (_documentData.PageCount<=1)
-            {
-                CanGoToPreviousPage = false;
-                CanGoToNextPage = false;
-            }
-            if (_pageNumber <= 1)
-                CanGoToPreviousPage = false;
-            else
-                CanGoToPreviousPage = true;
-            if (_pageNumber >= _documentData.PageCount)
-                CanGoToNextPage = false;
-            else
-                CanGoToNextPage = true;
+            if (ZoomInCommand is Command zoomInCommand)
+                zoomInCommand.ChangeCanExecute();
+            if (ZoomOutCommand is Command zoomOutCommand)
+                zoomOutCommand.ChangeCanExecute();
         }
 
         public void OnPropertyChanged(string name)
@@ -287,35 +281,34 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        /// <summary>
+        /// Executes the open or close the file picker command.
+        /// </summary>
         void OpenCloseFilePicker(object commandParameter)
         {
+            CloseAllDialogs();
+
             if (IsFilePickerVisible == true)
                 IsFilePickerVisible = false;
             else
                 IsFilePickerVisible = true;
         }
 
-        void ZoomIn(object commandParameter)
-        {
-            CurrentZoom += 0.25;
-        }
-
-        void ZoomOut(object commandParameter)
-        {
-            CurrentZoom -= 0.25;
-        }
-
+        /// <summary>
+        /// Updates the selected PDF file name.
+        /// </summary>
         async internal void UpdateFileName(string? file)
         {
-            ShowPasswordDialog = false;
             switch (file)
             {
+                case "PDF Succinctly":
+                    _documentData.FileName = "PDF_Succinctly1.pdf";
+                    break;
                 case "Rotated PDF":
                     _documentData.FileName = "rotated_document.pdf";
                     break;
-                case "Encrypted PDF":
-                    ShowPasswordDialog = true;
-                    _documentData.FileName = "encrypted_document.pdf";
+                case "Password protected PDF":
+                    _documentData.FileName = "password_protected_document.pdf";
                     break;
                 case "Corrupted PDF":
                     _documentData.FileName = "corrupted_document.pdf";
@@ -324,12 +317,14 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     _documentData.FileName = "Invoice.pdf";
                     break;
                 case "Browse files on this device":
+                    // Create file picker with file type as PDF.
                     FilePickerFileType pdfFileType = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>{
                         { DevicePlatform.iOS, new[] { "public.pdf" } },
                         { DevicePlatform.Android, new[] { "application/pdf" } },
                         { DevicePlatform.WinUI, new[] { "pdf" } },
                         { DevicePlatform.MacCatalyst, new[] { "pdf" } },
                     });
+                    // Provide picker title if required.
                     PickOptions options = new()
                     {
                         PickerTitle = "Please select a PDF file",
@@ -340,19 +335,25 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
+        /// <summary>
+        /// Picks the file from local storage and store as stream.
+        /// </summary>
         public async Task<FileResult?> PickAndShow(PickOptions options)
         {
             try
             {
+                // Pick the file from local storage.
                 var result = await FilePicker.Default.PickAsync(options);
                 if (result != null)
                 {
+                    // Store the resultant PDF as stream.
                     _documentData.DocumentStream = await result.OpenReadAsync();
                 }
                 return result;
             }
             catch (Exception ex)
             {
+                // Display error when file picker failed to open files.
                 string message;
                 if (ex != null && string.IsNullOrEmpty(ex.Message) == false)
                     message = ex.Message;

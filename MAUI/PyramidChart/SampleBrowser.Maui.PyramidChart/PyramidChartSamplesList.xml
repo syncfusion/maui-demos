@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
   <ControlCategory Name="Data Visualization">
-	  <Control Title="Pyramid Chart" StatusTag="New" ControlName="SfPyramidChart" IsPreview="True" Image="pyramidchart.png" Description="Visualize the organized data using pyramid chart.">
+	  <Control Title="Pyramid Chart" ControlName="SfPyramidChart" Image="pyramidchart.png" Description="Visualize the organized data using pyramid chart.">
 		  <Sample SearchTags="Pyramid" Name="PyramidChart" SampleName="DefaultPyramid" Title="Default pyramid chart" CodeViewerPath="PyramidChart/PyramidChartDemo/"/>
 		  <Sample SearchTags="legend" Name="Legend" SampleName="Legend" Title="Legend customization" CodeViewerPath="PyramidChart/PyramidChartDemo/"/>
-		  <Category Title="Tooltip">
 			  <Sample SearchTags="tooltip" Name="Tooltip" SampleName="Tooltip" Title="Tooltip customization"
                 Description="This sample showcases the tooltip feature. On mobile, tap the data points, and on desktop, mouse over the data points to raise the tooltip."
                 CodeViewerPath="PyramidChart/Interaction/"/>
-		  </Category>
 	  </Control>
   </ControlCategory>
 </SyncfusionControls>

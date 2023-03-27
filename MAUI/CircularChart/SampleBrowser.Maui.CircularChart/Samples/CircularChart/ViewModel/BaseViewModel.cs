@@ -9,6 +9,7 @@ using SampleBrowser.Maui.Base;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 
 namespace SampleBrowser.Maui.CircularChart.SfCircularChart
 {
@@ -72,6 +73,25 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
                 new SolidColorBrush(Color.FromArgb("#346bf5")),
                 new SolidColorBrush(Color.FromArgb("#ff9d00")),
             };
+        }
+    }
+
+
+    public class CornerRadiusConverter : IValueConverter 
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value != null) 
+            {
+                return new CornerRadius((double)value / 2);
+            }
+
+            return 0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) 
+        {
+            return value;
         }
     }
 }

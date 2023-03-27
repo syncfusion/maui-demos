@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Layouts">
+		<Control Title="Popup" StatusTag="New" IsPreview="true" ControlName="SfPopup" Image="popup.png" Description="A component used to display popup views in an application.">
+			<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="Popup/GettingStarted/" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

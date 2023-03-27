@@ -33,7 +33,13 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
 
         public string? Department { get; set; }
 
+        public string? Image { get; set; }
+
         public List<double>? EmployeeAges { get; set; }
+
+        public Brush? Color { get; set; }
+
+        public double Percentage { get; set; }
 
         public ChartDataModel(string department, List<double> employeeAges)
         {
@@ -45,6 +51,21 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
         {
             Name = name;
             Value = value;
+        }
+
+        public ChartDataModel(string name, double value, Brush color, double percentage) 
+        {
+            Name = name;
+            Value = value;
+            Color = color;
+            Percentage = percentage;
+        }
+
+        public ChartDataModel(string name, double value, string image)
+        {
+            Name = name;
+            Value = value;
+            Image = image;
         }
 
         public ChartDataModel(string name, double value, double horizontalErrorValue, double verticalErrorValue)

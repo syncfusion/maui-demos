@@ -67,9 +67,17 @@
                 </Frame.Padding>
 
             <Grid RowDefinitions="0.9*, 1, 60" IsClippedToBounds="True">
-                <dataForm:SfDataForm x:Name="signUpForm" DataObject="{Binding SignUpFormModel}" Grid.Row="0" ValidationMode="PropertyChanged"
-                                        CommitMode="PropertyChanged"/>
-                <Line Grid.Row="1" Background="WhiteSmoke" />
+                <dataForm:SfDataForm x:Name="signUpForm" DataObject="{Binding SignUpFormModel}"
+                                     LayoutType="TextInputLayout"
+                                     Grid.Row="0" ValidationMode="PropertyChanged"
+                                        CommitMode="PropertyChanged">
+                        <dataForm:SfDataForm.TextInputLayoutSettings>
+                            <dataForm:TextInputLayoutSettings ShowHelperText="True"
+                                                              FocusedStroke="{StaticResource Primary}"
+                                                              ContainerType="Filled"/>
+                        </dataForm:SfDataForm.TextInputLayoutSettings>
+                        </dataForm:SfDataForm>
+                <Line Grid.Row="1" Background="WhiteSmoke" IsVisible="{OnIdiom Default=True, Desktop=False}"/>
 
                     <HorizontalStackLayout Grid.Row="2" Margin="20,10" HorizontalOptions="{OnPlatform iOS=Center, Android=Center}">
                         <Button x:Name="cancelButton" 

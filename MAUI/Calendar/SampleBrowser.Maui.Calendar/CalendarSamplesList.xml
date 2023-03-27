@@ -3,11 +3,10 @@
   <ControlCategory Name="Calendar">
     <Control Title="Calendar" 
              Image="calendar.png" 
-             IsPreview="True" 
-             StatusTag="New" 
+             StatusTag="Updated" 
              ControlName="SfCalendar" 
              Description="It is a lightweight control used to select a single, multiple, and a range of dates.">
-      <Sample Title="Getting Started" SampleName="GettingStarted" 
+      <Sample Title="Getting Started" SampleName="GettingStarted" StatusTag="Updated"
 			  CodeViewerPath="Calendar/GettingStarted/"/>
 		<Category Title="Views">
 			<CardLayout>
@@ -21,8 +20,9 @@
 			  CodeViewerPath="Calendar/DateSelection/"/>
 		<Sample Title="Appointment Booking" SampleName="AppointmentBooking"
 			  CodeViewerPath="Calendar/AppointmentBooking/"/>
-      <Sample Title="Color Scheme" SampleName="HighlightDates"
+      <Sample Title="Color Scheme" SampleName="HighlightDates" StatusTag="Updated"
           CodeViewerPath="Calendar/HighlightedDates/"/>
+		<Sample Title="Customization" SampleName="AppearanceCustomization" StatusTag="New" CodeViewerPath="Calendar/AppearanceCustomization/"/>
 	</Control>
   </ControlCategory>
 </SyncfusionControls> 

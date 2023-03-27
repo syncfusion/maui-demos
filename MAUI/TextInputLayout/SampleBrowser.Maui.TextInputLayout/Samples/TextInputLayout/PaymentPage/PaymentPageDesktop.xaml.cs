@@ -22,8 +22,8 @@ public partial class PaymentPageDesktop : SampleView
         CardNumberField2.InputViewPadding= new Thickness(16,2,16,2);
         CardNumberField3.InputViewPadding= new Thickness(16,2,16,2);
         CVVField.InputViewPadding= new Thickness(16,2,16,2);
-        MonthField.InputViewPadding= new Thickness(16,2,16,2);
-        YearField.InputViewPadding= new Thickness(16,2,16,2);
+        MonthField.InputViewPadding= new Thickness(16,2,2,2);
+        YearField.InputViewPadding= new Thickness(16,2,2,2);
 #else
         PayNameField.InputViewPadding= new Thickness(16,8,16,8);
         CardNumberField.InputViewPadding= new Thickness(16, 8, 16, 8);

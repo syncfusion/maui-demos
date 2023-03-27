@@ -16,9 +16,13 @@ public partial class GettingStarted : SampleView
         InitializeComponent();
     }
 
+    /// <summary>
+    /// Handles when leaving the current page
+    /// </summary>
     public override void OnDisappearing()
     {
         base.OnDisappearing();
-        PdfViewer.Handler?.DisconnectHandler();
+        PdfViewer?.UnloadDocument();
+        PdfViewer?.Handler?.DisconnectHandler();
     }
 }

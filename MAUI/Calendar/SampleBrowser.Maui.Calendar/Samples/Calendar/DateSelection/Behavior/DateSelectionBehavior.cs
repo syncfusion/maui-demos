@@ -35,16 +35,6 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         private Label? label;
 
         /// <summary>
-        /// The Button to cancel the selected date or range.
-        /// </summary>
-        private Button? cancelButton;
-
-        /// <summary>
-        /// The Button to get the selected date or range.
-        /// </summary>
-        private Button? okButton;
-
-        /// <summary>
         /// The selected date which is to be displayed on the label.
         /// </summary>
         private DateTime date = DateTime.Now;
@@ -76,8 +66,6 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #endif
             this.calendar = bindable.Content.FindByName<SfCalendar>("dateSelection1");
             this.label = bindable.Content.FindByName<Label>("label1");
-            this.cancelButton = bindable.Content.FindByName<Button>("cancelButton1");
-            this.okButton = bindable.Content.FindByName<Button>("okButton1");
             this.selectionLabel = bindable.Content.FindByName<Label>("selectionLabel1");
 #else
             Frame frame = bindable.Content.FindByName<Frame>("frame");
@@ -89,16 +77,12 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #endif
             this.calendar = bindable.Content.FindByName<SfCalendar>("dateSelection");
             this.label = bindable.Content.FindByName<Label>("label");
-            this.cancelButton = bindable.Content.FindByName<Button>("cancelButton");
-            this.okButton = bindable.Content.FindByName<Button>("okButton");
             this.selectionLabel = bindable.Content.FindByName<Label>("selectionLabel");
 #endif
             this.comboBox = bindable.Content.FindByName<SfComboBox>("comboBox");
             comboBox.ItemsSource = new List<string>() { "Date", "Range" };
             comboBox.SelectedIndex = 0;
             comboBox.SelectionChanged += ComboBox_SelectionChanged;
-            this.cancelButton.Clicked += CancelButton_Clicked;
-            this.okButton.Clicked += OkButton_Clicked;
             calendar.SelectedDate = date;
             calendar.SelectedDateRange = new CalendarDateRange(dateRange.StartDate, dateRange.EndDate);
             calendar.SelectionChanged += Calendar_SelectionChanged;
@@ -107,31 +91,6 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 
         private void Calendar_SelectionChanged(object? sender, CalendarSelectionChangedEventArgs e)
         {
-            this.UpdateSelectionText();
-        }
-
-        private void OkButton_Clicked(object? sender, EventArgs e)
-        {
-            if (this.calendar != null && calendar.SelectedDate != null)
-            {
-                this.date = calendar.SelectedDate.Value;
-            }
-
-            if (this.calendar != null && calendar.SelectedDateRange != null)
-            {
-                this.dateRange = new CalendarDateRange(calendar.SelectedDateRange.StartDate, calendar.SelectedDateRange.EndDate);
-            }
-        }
-
-        private void CancelButton_Clicked(object? sender, EventArgs e)
-        {
-            if (calendar == null)
-            {
-                return;
-            }
-
-            calendar.SelectedDate = date;
-            calendar.SelectedDateRange = new CalendarDateRange(dateRange.StartDate, dateRange.EndDate);
             this.UpdateSelectionText();
         }
 
@@ -267,18 +226,6 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             if (this.label != null)
             {
                 this.label = null;
-            }
-
-            if (this.cancelButton != null)
-            {
-                this.cancelButton.Clicked -= CancelButton_Clicked;
-                this.cancelButton = null;
-            }
-
-            if (this.okButton != null)
-            {
-                this.okButton.Clicked -= OkButton_Clicked;
-                this.okButton = null;
             }
         }
     }

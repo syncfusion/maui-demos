@@ -56,10 +56,10 @@ public partial class PolyLine : SampleView
             polyLine.Points = GetJsondata("SampleBrowser.Maui.ShapeSource."+ resource + ".json");
         }
 
-        startMarker.Latitude = polyLine.Points[0].Longitude;
-        startMarker.Longitude = polyLine.Points[0].Latitude;
-        endMarker.Latitude = polyLine.Points[polyLine.Points.Count - 1].Longitude;
-        endMarker.Longitude = polyLine.Points[polyLine.Points.Count - 1].Latitude;
+        startMarker.Latitude = polyLine.Points[0].Latitude;
+        startMarker.Longitude = polyLine.Points[0].Longitude;
+        endMarker.Latitude = polyLine.Points[polyLine.Points.Count - 1].Latitude;
+        endMarker.Longitude = polyLine.Points[polyLine.Points.Count - 1].Longitude;
     }
 
     public static List<MapLatLng> GetJsondata(string resource)
@@ -102,8 +102,8 @@ public partial class PolyLine : SampleView
                 int outerLength = coordinatesArray.GetArrayLength();
                 for (int a = 0; a < outerLength; a++)
                 {
-                    double lat = coordinatesArray[a][0].GetDouble();
-                    double lon = coordinatesArray[a][1].GetDouble();
+                    double lat = coordinatesArray[a][1].GetDouble();
+                    double lon = coordinatesArray[a][0].GetDouble();
                     polylinePointsList.Add(new MapLatLng((float)lat, (float)lon));
                 }
             }
@@ -116,8 +116,8 @@ public partial class PolyLine : SampleView
                     int innerLength = coordinatesArray[a].GetArrayLength();
                     for (int b = 0; b < innerLength; b++)
                     {
-                        double lat = coordinatesArray[a][b][0].GetDouble();
-                        double lon = coordinatesArray[a][b][1].GetDouble();
+                        double lat = coordinatesArray[a][b][1].GetDouble();
+                        double lon = coordinatesArray[a][b][0].GetDouble();
                         polylinePointsList.Add(new MapLatLng((float)lat, (float)lon));
                     }
                 }

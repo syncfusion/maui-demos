@@ -38,7 +38,6 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
             this.dataForm = bindable.Content.FindByName<SfDataForm>("signUpForm");
             if (dataForm != null)
             {
-                dataForm.DefaultLayoutSettings.LabelPosition = DataFormLabelPosition.Top;
                 dataForm.ColumnCount = 2;
                 dataForm.ItemsSourceProvider = new ItemsSourceProvider();
                 dataForm.RegisterEditor("Country", DataFormEditorType.AutoComplete);

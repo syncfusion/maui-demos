@@ -15,6 +15,36 @@
 			<DependentUpon>RatingGettingStarted.xaml</DependentUpon>
 		</Compile>
 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStarted.xaml.cs">
+			<Link>Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStarted.xaml.cs</Link>
+			<DependentUpon>MaskedEntryGettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStartedMobile.xaml.cs">
+			<Link>Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStartedMobile.xaml.cs</Link>
+			<DependentUpon>MaskedEntryGettingStartedMobile.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStartedDesktop.xaml.cs">
+			<Link>Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStartedDesktop.xaml.cs</Link>
+			<DependentUpon>MaskedEntryGettingStartedDesktop.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\Culture\Culture.xaml.cs">
+			<Link>Samples\MaskedEntry\Culture\Culture.xaml.cs</Link>
+			<DependentUpon>Culture.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\Culture\CultureDesktop.xaml.cs">
+			<Link>Samples\MaskedEntry\Culture\CultureDesktop.xaml.cs</Link>
+			<DependentUpon>CultureDesktop.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\Culture\CultureMobile.xaml.cs">
+			<Link>Samples\MaskedEntry\Culture\CultureMobile.xaml.cs</Link>
+			<DependentUpon>CultureMobile.xaml</DependentUpon>
+		</Compile>
+
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Rating\ReadOnly\ReadOnly.xaml.cs">
 			<Link>Samples\Rating\ReadOnly\ReadOnly.xaml.cs</Link>
 			<DependentUpon>ReadOnly.xaml</DependentUpon>
@@ -53,6 +83,42 @@
 	<ItemGroup>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Rating\RatingGettingStarted\RatingGettingStarted.xaml">
 			<Link>Samples\Rating\RatingGettingStarted\RatingGettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStarted.xaml">
+			<Link>Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStartedDesktop.xaml">
+			<Link>Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStartedDesktop.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStartedMobile.xaml">
+			<Link>Samples\MaskedEntry\MaskedEntryGettingStarted\MaskedEntryGettingStartedMobile.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\Culture\Culture.xaml">
+			<Link>Samples\MaskedEntry\Culture\Culture.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\Culture\CultureDesktop.xaml">
+			<Link>Samples\MaskedEntry\Culture\CultureDesktop.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\MaskedEntry\Culture\CultureMobile.xaml">
+			<Link>Samples\MaskedEntry\Culture\CultureMobile.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
 

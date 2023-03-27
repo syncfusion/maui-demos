@@ -285,7 +285,7 @@ public partial class SignUpPageMobile : SampleView
             ConfirmPasswordFieldMobile.HasError = false;
         }
 
-        if (PasswordFieldMobile.Text?.Length < 5 || PasswordFieldMobile.Text?.Length > 8)
+        if (string.IsNullOrEmpty(PasswordFieldMobile.Text) || PasswordFieldMobile.Text?.Length < 5 || PasswordFieldMobile.Text?.Length > 8)
         {
             PasswordFieldMobile.HasError = true;
         }

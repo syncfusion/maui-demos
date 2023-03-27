@@ -2,7 +2,7 @@
 <SyncfusionControls>
 	
 	<ControlCategory Name="Layouts" >
-		<Control Title="Backdrop page" IsPreview="True" StatusTag="New" ControlName="SfBackdropPage" Image="backdrop.png" Description="A backdrop appears behind all the surfaces in an app, displaying contextual and actionable content.">
+		<Control Title="Backdrop page" ControlName="SfBackdropPage" Image="backdrop.png" Description="A backdrop appears behind all the surfaces in an app, displaying contextual and actionable content.">
 			<Sample SampleName="InitialPage" Title="Features" CodeViewerPath="Backdrop/"/>
 		</Control>
 	</ControlCategory>

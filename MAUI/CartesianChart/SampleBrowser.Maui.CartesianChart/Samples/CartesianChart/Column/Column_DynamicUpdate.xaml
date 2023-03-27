@@ -10,7 +10,7 @@
                 <local:DynamicAnimationViewModel x:Name="viewModel"/>
             </chart:SfCartesianChart.BindingContext>
             <chart:SfCartesianChart.Title>
-                <Label Text="Chart Dynamic Animation" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Column Dynamic Animation" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
             </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.XAxes>
                 <chart:CategoryAxis ShowMajorGridLines="False" LabelPlacement="BetweenTicks">

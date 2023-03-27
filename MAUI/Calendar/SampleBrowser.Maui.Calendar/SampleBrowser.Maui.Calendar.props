@@ -49,6 +49,19 @@
       <DependentUpon>Year.xaml</DependentUpon>
     </Compile>
 
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Calendar\AppearanceCustomization\View\AppearanceCustomization.xaml.cs">
+      <Link>Samples\Calendar\AppearanceCustomization\View\AppearanceCustomization.xaml.cs</Link>
+      <DependentUpon>AppearanceCustomization.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Calendar\AppearanceCustomization\Behavior\AppearanceCustomizationBehavior.cs">
+      <Link>Samples\Calendar\AppearanceCustomization\Behavior\AppearanceCustomizationBehavior.cs</Link>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Calendar\AppearanceCustomization\ViewModel\AppearanceViewModel.cs">
+      <Link>Samples\Calendar\AppearanceCustomization\ViewModel\AppearanceViewModel.cs</Link>
+    </Compile>
+
   </ItemGroup>
 
   <ItemGroup>
@@ -79,6 +92,9 @@
     </MauiXaml>
     <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Calendar\Views\View\Year.xaml">
       <Link>Samples\Calendar\Views\View\Year.xaml</Link>
+    </MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Calendar\AppearanceCustomization\View\AppearanceCustomization.xaml">
+      <Link>Samples\Calendar\AppearanceCustomization\View\AppearanceCustomization.xaml</Link>
     </MauiXaml>
 
   </ItemGroup>

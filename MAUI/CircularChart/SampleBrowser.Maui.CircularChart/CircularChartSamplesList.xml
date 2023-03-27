@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
   <ControlCategory Name="Data Visualization">
-	  <Control Title="Circular Charts" ControlName="SfCircularChart" Image="circularchart.png" Description="Visualize the data using pie and doughnut charts.">
+	  <Control Title="Circular Charts" StatusTag="Updated" ControlName="SfCircularChart" Image="circularchart.png" Description="Visualize the data using pie, doughnut and radial bar series.">
 		  <Category Title="Type">
+			  
 			  <SubCategory Title="Pie">
 				  <CardLayout>
 					  <Sample SearchTags="pie" Name="PieChart" SampleName="PieChart" Title="Default pie" CodeViewerPath="CircularChart/Pie/"/>
@@ -16,6 +17,12 @@
 					  <Sample SearchTags="CenterElevation" Name="CenterElevation" SampleName="CenterElevation" Title="Center elevation" CodeViewerPath="CircularChart/Doughnut/"/>
 				  </CardLayout>
 			  </SubCategory>
+        <SubCategory StatusTag="New" Title="Radial Bar">
+          <CardLayout>
+            <Sample SearchTags="radialbar" Name="RadialBarChart" SampleName="RadialBarChart" Title="Default radial bar" CodeViewerPath="CircularChart/RadialBar/"/>
+            <Sample SearchTags="radialbar" Name="CustomizedRadialBarChart" SampleName="CustomizedRadialBarChart" Title="Customized legend" CodeViewerPath="CircularChart/RadialBar/"/>
+          </CardLayout>
+        </SubCategory>
 		  </Category>
 		  <Category Title="Interaction">
 			  <Sample SearchTags="tooltip" Name="Tooltip" SampleName="Tooltip" Title="Tooltip"  Description="This sample showcases the tooltip feature. On mobile, tap the data points, and on desktop, mouse over to the data points to raise the tooltip." CodeViewerPath="CircularChart/Interaction/"/>

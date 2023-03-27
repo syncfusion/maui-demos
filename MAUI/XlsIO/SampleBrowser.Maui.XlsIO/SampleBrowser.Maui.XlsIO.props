@@ -55,6 +55,11 @@
 			<DependentUpon>WorksheetToImage.xaml</DependentUpon>
 		</Compile>
 		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Slicer\Slicer.xaml.cs">
+			<Link>Samples\XlsIO\Slicer\Slicer.xaml.cs</Link>
+			<DependentUpon>Slicer.xaml</DependentUpon>
+		</Compile>
+		
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Customer.cs">
 			<Link>Services\Customer.cs</Link>
 		</Compile>
@@ -122,6 +127,11 @@
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Slicer\Slicer.xaml">
+			<Link>Samples\XlsIO\Slicer\Slicer.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
 	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\CLRObjects.xml">
       <Link>Resources\XlsIO\CLRObjects.xml</Link>
     </EmbeddedResource> 	
@@ -142,6 +152,9 @@
     </EmbeddedResource> 	
 	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\TemplateMarker.xlsx" >
       <Link>Resources\XlsIO\TemplateMarker.xlsx</Link>
+    </EmbeddedResource> 
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\TableSlicer.xlsx" >
+      <Link>Resources\XlsIO\TableSlicer.xlsx</Link>
     </EmbeddedResource> 	
 	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man1.jpg" >
       <Link>Resources\XlsIO\Template_Marker_Images\Man1.jpg</Link>

@@ -209,13 +209,14 @@ namespace SampleBrowser.Maui.DataGrid
                 {
                     OrderID = i,
                     CustomerID = this.customerID[this.random.Next(15)],
-                    EmployeeID = this.random.Next(1700, 1800).ToString(),
+                    EmployeeID = i-10000+2700,
                     FirstName = this.firstNames[this.random.Next(15)],
                     LastName = this.lastNames[this.random.Next(15)],
                     Gender = this.genders[this.random.Next(5)],
                     ShipCountry = shipcountry,
                     ShippingDate = this.orderedDates[i - 10001],
                     Freight = Math.Round(this.random.Next(1000) + this.random.NextDouble(), 2),
+                    Price = Math.Round(this.random.Next(1000) + this.random.NextDouble(), 3),
                     IsClosed = (i % this.random.Next(1, 10) > 2) ? true : false,
                     ShipCity = shipcitycoll[this.random.Next(shipcitycoll.Length - 1)],
                 };

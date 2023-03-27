@@ -2,7 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.MessageBox"
-             HeightRequest="160" WidthRequest="320">
+             BackgroundColor="#40000000">
     <ContentView.Resources>
         <Style x:Key="buttonIconStyle" TargetType="Button">
             <Setter Property="BackgroundColor" Value="Transparent" />
@@ -10,36 +10,18 @@
             <Setter Property="Padding" Value="4" />
             <Setter Property="BorderWidth" Value="0" />
             <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}"/>
-            <Setter Property="VisualStateManager.VisualStateGroups">
-                <VisualStateGroupList>
-                    <VisualStateGroup x:Name="CommonStates">
-                        <VisualState x:Name="Normal">
-                            <VisualState.Setters>
-                                <Setter Property="TextColor" Value="#99000000" />
-                                <Setter Property="BackgroundColor" Value="Transparent" />
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="Disabled">
-                            <VisualState.Setters>
-                                <Setter Property="TextColor" Value="#44000000" />
-                                <Setter Property="BackgroundColor" Value="Transparent" />
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="Pressed">
-                            <VisualState.Setters>
-                                <Setter Property="TextColor" Value="#99000000" />
-                                <Setter Property="BackgroundColor" Value="#0F000000" />
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateGroupList>
-            </Setter>
+            <Style.Triggers>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </ContentView.Resources>
     <Border
-        BackgroundColor="White"
+        HeightRequest="160" WidthRequest="320"
+        BackgroundColor="#F3EDF7"
         Stroke="#33000000"
-        StrokeShape="RoundRectangle 4" StrokeThickness="1">
+        StrokeShape="RoundRectangle 20" StrokeThickness="1">
         <Grid Padding="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -47,7 +29,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Label 
-                x:Name="Title" Grid.Row="0" FontAttributes="Bold" FontSize="20" FontFamily="Roboto-Medium"
+                x:Name="Title" Grid.Row="0" FontSize="20" FontFamily="Roboto-Medium"
                 VerticalOptions="Start" VerticalTextAlignment="Start"/>
             <Label x:Name="Message" FontFamily="Roboto-Regular" Grid.Row="1" TextColor="#DE000000" VerticalTextAlignment="Center" LineBreakMode="WordWrap"/>
             <Button x:Name="OkButton" Grid.Row="2" Style="{StaticResource buttonIconStyle}" Text="CLOSE"

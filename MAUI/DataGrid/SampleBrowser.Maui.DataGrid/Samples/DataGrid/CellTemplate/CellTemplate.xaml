@@ -20,6 +20,9 @@
             </On>
             <On Platform="WinUI,MacCatalyst" Value="100"></On>
         </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="0,-5,0,0" />
+        </OnPlatform>
         <OnPlatform x:Key="imageWidth" x:TypeArguments="x:Double">
             <On Platform="iOS,Android">
                 <OnIdiom x:TypeArguments="x:Double"
@@ -40,6 +43,7 @@
                            AutoGenerateColumnsMode="None" HeaderRowHeight="52" 
                            HorizontalScrollBarVisibility="Always"
                            VerticalScrollBarVisibility="Always"
+                            Margin="{StaticResource margin}"
                            ItemsSource="{Binding EmployeeInformation}"
                            ColumnWidthMode="Fill">
 

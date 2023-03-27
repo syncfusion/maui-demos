@@ -13,7 +13,6 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
 
     public class PaymentFormModel
     {
-
         #region Constructor
 
         public PaymentFormModel()
@@ -29,13 +28,13 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         #region Property
 
         [Display(Name = "Amount", Prompt = "Maximum limit is $10,000")]
-        [DataFormDisplayOptions(ColumnSpan = 3)]
+        [DataFormDisplayOptions(ColumnSpan = 4)]
         [Required(ErrorMessage = "Please enter the amount")]
         [Range(1.0, 10000.0, ErrorMessage = "Invalid Amount")]
         public double? Amount { get; set; }
 
         [Display(Name = "Name", Prompt = "Name on your card")]
-        [DataFormDisplayOptions(ColumnSpan = 3)]
+        [DataFormDisplayOptions(ColumnSpan = 4)]
         [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
 
@@ -46,18 +45,18 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         public double? CardNumber { get; set; }
 
         [Display(Name = "CVV")]
-        [Required(ErrorMessage = "Please enter the CVV")]
+        [Required(ErrorMessage = "Invalid")]
         [DataFormDisplayOptions(ColumnSpan = 1)]
-        [RegularExpression("^(?!0+$)(\\+\\d{1,3}[- ]?)?(?!0+$)\\d{3}$", ErrorMessage = "Invalid CVV")]
+        [RegularExpression("^(?!0+$)(\\+\\d{1,3}[- ]?)?(?!0+$)\\d{3}$", ErrorMessage = "Invalid")]
         public string CVV { get; set; }
 
         [Display(Name = "Month")]
-        [DataFormDisplayOptions(ColumnSpan = 1)]
+        [DataFormDisplayOptions(ColumnSpan = 2)]
         [Required(ErrorMessage = "Please select a month")]
         public string Month { get; set; }
 
         [Display(Name = "Year")]
-        [DataFormDisplayOptions(ColumnSpan = 1)]
+        [DataFormDisplayOptions(ColumnSpan = 2)]
         [Required(ErrorMessage = "Please select a year")]
         public string Year { get; set; }
 

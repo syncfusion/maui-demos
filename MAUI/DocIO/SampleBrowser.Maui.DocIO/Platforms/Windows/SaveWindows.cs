@@ -50,6 +50,13 @@ namespace SampleBrowser.Maui.DocIO.Services
                     //Saves the file as Doc file.
                     savePicker.FileTypeChoices.Add("DOC", new List<string>() { ".doc" });
                 }
+                else if (extension == ".md")
+                {
+                    savePicker.DefaultFileExtension = ".md";
+                    savePicker.SuggestedFileName = filename;
+                    //Saves the file as markdown file.
+                    savePicker.FileTypeChoices.Add("Markdown", new List<string>() { ".md" });
+                }
                 else if (extension == ".rtf")
                 {
                     savePicker.DefaultFileExtension = ".rtf";

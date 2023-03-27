@@ -13,10 +13,13 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
     public class PdfData : INotifyPropertyChanged
     {
         private Stream? _documentStream;
-        private int? _pageCount;
         private string? _fileName;
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        /// <summary>
+        /// Gets or sets the PDF document as a stream. 
+        /// </summary>
         public Stream? DocumentStream
         {
             get => _documentStream;
@@ -27,16 +30,9 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
-        public int? PageCount
-        {
-            get => _pageCount;
-            set
-            {
-                _pageCount = value;
-                OnPropertyChanged("PageCount");
-            }
-        }
-
+        /// <summary>
+        /// Gets or sets the selected PDF file name.
+        /// </summary>
         public string? FileName
         {
             get

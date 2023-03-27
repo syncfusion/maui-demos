@@ -14,12 +14,16 @@
         <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
             <On Platform="Android,iOS" Value="120"></On>
         </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="0,-5,0,0"/>
+        </OnPlatform>
     </localCore:SampleView.Resources>
     <localCore:SampleView.Behaviors>
         <local:RowHeightBehavior></local:RowHeightBehavior>
     </localCore:SampleView.Behaviors>
     <localCore:SampleView.Content>
         <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
                            AutoGenerateColumnsMode="None"
                            ItemsSource="{Binding EmployeeInformation}"
                            HeaderRowHeight="52"

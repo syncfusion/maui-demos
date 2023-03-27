@@ -76,10 +76,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="SampleBrowser.Maui.Base" version="20.4.48" />
-	  <PackageReference Include="Syncfusion.Maui.Core" version="20.4.48" />
-	  <PackageReference Include="Syncfusion.DocIORenderer.NET" version="20.4.0.48" />
-	  <PackageReference Include="Syncfusion.Maui.TabView" version="20.4.48" />
+	  <PackageReference Include="SampleBrowser.Maui.Base" version="21.1.35" />
+	  <PackageReference Include="Syncfusion.Maui.Core" version="21.1.35" />
+	  <PackageReference Include="Syncfusion.DocIORenderer.NET" version="21.1.35" />
+	  <PackageReference Include="Syncfusion.Maui.TabView" version="21.1.35" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -103,6 +103,7 @@
 	  <EmbeddedResource Include="Resources\DocIO\AdventureCycle.png" />
 	  <EmbeddedResource Include="Resources\DocIO\HeaderImage.png" />
 	  <EmbeddedResource Include="Resources\DocIO\Mountain300.bmp" />
+	  <EmbeddedResource Include="Resources\DocIO\MarkdownToWord.md" />
 	</ItemGroup>
 
 </Project>

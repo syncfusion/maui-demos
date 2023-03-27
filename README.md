@@ -1,4 +1,4 @@
-# Syncfusion .NET MAUI examples 
+﻿# Syncfusion .NET MAUI examples 
  
 This repository contains awesome demos of [Syncfusion .NET MAUI controls](https://www.syncfusion.com/maui-controls?utm_source=github&utm_medium=listing). This is the best place to check our controls to get more insight about the usage of APIs. 
 
@@ -536,4 +536,4 @@ Platforms supported by each .NET MAUI file-format library are listed below.
 
 * To renew the subscription, click [here](https://www.syncfusion.com/sales/products?utm_source=github&utm_medium=listing) or contact our sales team at <salessupport@syncfusion.com>.
   
-<p>Copyright © 2001-2023 Syncfusion, Inc. Updated on 2023-02-02 at precisely 07:46:46 EST.</p> 
+<p>Copyright © 2001-2023 Syncfusion, Inc. Updated on 2023-03-27 at precisely 08:45:21 EST.</p> 
