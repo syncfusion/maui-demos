@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges" 
+             HorizontalOptions="Center"
+             x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.LinearGaugeBarPointerHorizontal">
+    <ContentView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#CC000000" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="0,30,0,15" />
+            <Setter Property="HorizontalOptions" Value="Start"/>
+        </Style>
+        <Style TargetType="gauge:SfLinearGauge">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <ScrollView HorizontalOptions="Center">
+            <Grid HorizontalOptions="Center">
+                <VerticalStackLayout Margin="10,0,10,50"
+                                 HorizontalOptions="Center">
+                    <Label Text="Outside"/>
+                    <gauge:SfLinearGauge EnableAxisAnimation="True">
+                        <gauge:SfLinearGauge.BarPointers>
+                            <gauge:BarPointer EnableAnimation="True" AnimationEasing="{x:Static Easing.CubicOut}"
+                                          Value="70" Position="Outside"/>
+                        </gauge:SfLinearGauge.BarPointers>
+                    </gauge:SfLinearGauge>
+
+                    <Label Text="Cross"/>
+                    <gauge:SfLinearGauge EnableAxisAnimation="True">
+                        <gauge:SfLinearGauge.BarPointers>
+                            <gauge:BarPointer EnableAnimation="True" AnimationEasing="{x:Static Easing.CubicOut}"
+                                          Position="Cross" Value="70"/>
+                        </gauge:SfLinearGauge.BarPointers>
+                    </gauge:SfLinearGauge>
+
+                    <Label Text="Inside"/>
+                    <gauge:SfLinearGauge EnableAxisAnimation="True">
+                        <gauge:SfLinearGauge.BarPointers>
+                            <gauge:BarPointer EnableAnimation="True" AnimationEasing="{x:Static Easing.CubicOut}"
+                                          Position="Inside" Value="70"/>
+                        </gauge:SfLinearGauge.BarPointers>
+                    </gauge:SfLinearGauge>
+
+                    <Label Text="Gradient shader"/>
+                    <gauge:SfLinearGauge EnableAxisAnimation="True">
+                        <gauge:SfLinearGauge.BarPointers>
+                            <gauge:BarPointer EnableAnimation="True" AnimationEasing="{x:Static Easing.CubicOut}"
+                                          Position="Outside" 
+                                          Offset="5" CornerStyle="BothCurve"
+                                          Value="70">
+                                <gauge:BarPointer.GradientStops>
+                                    <gauge:GaugeGradientStop Value="0" Color="Green"/>
+                                    <gauge:GaugeGradientStop Value="35" Color="#ff0074E3"/>
+                                </gauge:BarPointer.GradientStops>
+                            </gauge:BarPointer>
+                        </gauge:SfLinearGauge.BarPointers>
+                    </gauge:SfLinearGauge>
+
+                    <Label Text="Multiple bar pointers"/>
+                    <gauge:SfLinearGauge EnableAxisAnimation="True">
+                        <gauge:SfLinearGauge.BarPointers>
+                            <gauge:BarPointer EnableAnimation="True" Value="70" Position="Outside"/>
+                            <gauge:BarPointer EnableAnimation="True" Value="10" Position="Inside" Fill="#f45656"/>
+                        </gauge:SfLinearGauge.BarPointers>
+                    </gauge:SfLinearGauge>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.FreezePanes"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    BackgroundColor="White">
+    
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="0,-5,0,0"/>
+        </OnPlatform>
+    </localCore:SampleView.Resources>
+    
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid
+            Margin="{StaticResource margin}"
+            x:Name="dataGrid"
+            AutoGenerateColumnsMode="None"
+            HeaderRowHeight="52"
+            RowHeight="48"
+            ColumnWidthMode="Auto"
+            FrozenRowCount="1"
+            FrozenColumnCount="1"
+            ItemsSource="{Binding OrdersInfo}"
+            HorizontalScrollBarVisibility="Always"
+            VerticalScrollBarVisibility="Always">
+
+            <sfgrid:SfDataGrid.DefaultStyle>
+                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" HeaderRowFontSize="14" RowFontSize="14" HeaderRowTextColor="#212121" RowTextColor="#212121"></sfgrid:DataGridStyle>
+            </sfgrid:SfDataGrid.DefaultStyle>
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn Format="D" MappingName="OrderID" HeaderText="Order ID"/>
+                <sfgrid:DataGridNumericColumn Format="D" MappingName="EmployeeID" HeaderText="Customer ID"/>
+                <sfgrid:DataGridTextColumn MappingName="CustomerID" HeaderText="Name"/> 
+                <sfgrid:DataGridTextColumn MappingName="Gender" HeaderText="Gender"/>
+                <sfgrid:DataGridTextColumn MappingName="ShipCity" HeaderText="Ship City"/>
+                <sfgrid:DataGridTextColumn MappingName="ShipCountry" HeaderText="Ship Country"/>
+                <sfgrid:DataGridNumericColumn Format="C" MappingName="Freight" HeaderText="Freight"/>
+                <sfgrid:DataGridDateColumn MappingName="ShippingDate" HeaderText="Shipped Date"/>
+                <sfgrid:DataGridCheckBoxColumn MappingName="IsClosed" HeaderText="Is Online"/>
+            </sfgrid:SfDataGrid.Columns>
+        </sfgrid:SfDataGrid>
+    
+    </localCore:SampleView.Content>
+</localCore:SampleView>

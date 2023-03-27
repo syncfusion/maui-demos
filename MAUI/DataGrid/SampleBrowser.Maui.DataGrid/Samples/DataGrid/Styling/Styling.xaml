@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Styling"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    BackgroundColor="White">
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel>
+        </local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:StylingBehavior/>
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="sfgrid:DataGridHeaderRow">
+            <Setter Property="Background" Value="#0074E3"/>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+
+        <Frame  CornerRadius="0" Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Frame.Content>
+                <sfgrid:SfDataGrid x:Name="dataGrid"
+                           AutoGenerateColumnsMode="None" 
+                           GridLinesVisibility="Horizontal"
+                           HeaderGridLinesVisibility="Horizontal"
+                           HeaderRowHeight="52"
+                           RowHeight="48"
+                           SelectionMode="Single"
+                           NavigationMode="Cell"
+                           ItemsSource="{Binding OrdersInfo}"
+                           ColumnWidthMode="Fill"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always">
+                    <sfgrid:SfDataGrid.DefaultStyle>
+                        <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" AlternateRowBackground="#EEF5FD" SelectedRowTextColor="Black" HeaderRowTextColor="White" SelectionBackground="#E3F2FD" RowTextColor="#212121" ></sfgrid:DataGridStyle>
+                    </sfgrid:SfDataGrid.DefaultStyle>
+                    <sfgrid:SfDataGrid.Columns>
+                        <sfgrid:DataGridNumericColumn Format="D" MappingName="OrderID"
+                                       HeaderText="Order ID">
+                        </sfgrid:DataGridNumericColumn>
+
+                        <sfgrid:DataGridTextColumn MappingName="CustomerID" HeaderText="Name">
+ 
+                        </sfgrid:DataGridTextColumn>
+                        
+                        <sfgrid:DataGridTextColumn MappingName="ShipCity" HeaderText="City">
+
+                            
+                        </sfgrid:DataGridTextColumn>
+
+                        <sfgrid:DataGridTextColumn MappingName="ShipCountry" HeaderText="Country">
+
+                        </sfgrid:DataGridTextColumn>
+
+                    </sfgrid:SfDataGrid.Columns>
+
+                </sfgrid:SfDataGrid>
+            </Frame.Content>
+        </Frame>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+        <Grid ColumnSpacing="10" RowSpacing="10" Padding="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label 
+                Grid.Row="0" Grid.Column="0"
+                HorizontalOptions="Start"
+                Text="Grid lines visibility"
+                LineBreakMode="WordWrap"
+                VerticalOptions="Center" 
+                FontSize="15">
+            </Label>
+            <Picker 
+                Grid.Row="0" Grid.Column="1"
+                x:Name="VisibilityPicker"
+                VerticalOptions="Center"
+                HorizontalOptions="FillAndExpand">
+                
+                <Picker.Items>
+                    <x:String>Horizontal</x:String>
+                    <x:String>Vertical</x:String>
+                    <x:String>Both</x:String>
+                    <x:String>None</x:String>
+                </Picker.Items>
+
+                <Picker.SelectedItem>
+                    <x:String>Horizontal</x:String>
+                </Picker.SelectedItem>
+            </Picker>
+
+            <Label 
+                Grid.Row="1" Grid.Column="0"
+                HorizontalOptions="Start"
+                LineBreakMode="WordWrap"
+                Text="Header grid lines visibility"
+                VerticalOptions="Center" 
+                FontSize="15">
+            </Label>
+            <Picker 
+                Grid.Row="1" Grid.Column="1"
+                x:Name="HeaderVisibilityPicker"
+                VerticalOptions="Center"
+                HorizontalOptions="FillAndExpand">
+                
+                <Picker.Items>
+                    <x:String>Horizontal</x:String>
+                    <x:String>Vertical</x:String>
+                    <x:String>Both</x:String>
+                    <x:String>None</x:String>
+                </Picker.Items>
+
+                <Picker.SelectedItem>
+                    <x:String>Horizontal</x:String>
+                </Picker.SelectedItem>
+            </Picker>
+        </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+
+</localCore:SampleView>

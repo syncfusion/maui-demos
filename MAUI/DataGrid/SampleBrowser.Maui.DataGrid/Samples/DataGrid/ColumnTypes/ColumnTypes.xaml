@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.ColumnTypes"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    BackgroundColor="White">
+    <localCore:SampleView.BindingContext>
+        <local:DealerInfoViewModel>
+        </local:DealerInfoViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="0,-5,0,0"/>
+        </OnPlatform>
+        <imageExtension:SfImageSourceConverter x:Key="imageConverter"></imageExtension:SfImageSourceConverter>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
+                           ItemsSource="{Binding DealerInformation}"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           HeaderRowHeight="52"
+                           RowHeight="48">
+
+            <sfgrid:SfDataGrid.DefaultStyle>
+                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium"/>
+            </sfgrid:SfDataGrid.DefaultStyle>
+
+            <sfgrid:SfDataGrid.Columns>
+
+                <sfgrid:DataGridImageColumn HeaderText="Dealer"
+                                        MappingName="DealerImage"
+                                        CellPadding="8"
+                                        >
+                </sfgrid:DataGridImageColumn>
+
+                <sfgrid:DataGridNumericColumn Format="D"
+                                       HeaderText="ID"
+                                       MappingName="ProductID"
+                                       
+                                       >
+                </sfgrid:DataGridNumericColumn>
+
+                <sfgrid:DataGridTextColumn
+                                       HeaderText="Name"
+                                       MappingName="DealerName"
+                                     >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridCheckBoxColumn 
+                                         HeaderText="Is Online"
+                                         MinimumWidth="{StaticResource minimumWidth}"
+                                         MappingName="IsOnline"
+                                         >
+                </sfgrid:DataGridCheckBoxColumn>
+                <sfgrid:DataGridDateColumn HeaderText="Shipped Date"
+                                           
+                                         MinimumWidth="{StaticResource minimumWidth}"
+                                           MappingName="ShippedDate">
+                    
+                </sfgrid:DataGridDateColumn>
+            </sfgrid:SfDataGrid.Columns>
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+    
+</localCore:SampleView>

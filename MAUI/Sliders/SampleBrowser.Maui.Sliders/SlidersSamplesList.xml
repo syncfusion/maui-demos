@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Sliders">
+
+		<Control ControlName="SfSlider"
+				 Title="Slider"
+				 Image="slider.png"
+				 Description="The horizontal slider enables you to select a date or a numeric value.">
+			<Category Title="Basic Feature">
+				<Sample SampleName="SliderDefaultSample"
+						Title="Default"
+						SearchTags="default, getting started"
+						CodeViewerPath="Slider/Default/" />
+
+				<Sample SampleName="SliderDividerLabelTickSample"
+						Title="Dividers, labels, and ticks"
+						SearchTags="dividers, labels, ticks, minor ticks"
+						CodeViewerPath="Slider/DividerLabelTick/" />
+
+				<Sample SampleName="SliderDateIntervalSample"
+						Title="Date interval"
+						SearchTags="interval"
+						CodeViewerPath="Slider/DateInterval/" />
+
+				<Sample SampleName="SliderStepSample"
+						Title="Step"
+						SearchTags="step, discrete, jump"
+						CodeViewerPath="Slider/Step/" />
+			</Category>
+
+			<Category Title="Customization">
+				<Sample SampleName="SliderThumbIconCustomizationSample"
+						Title="Thumb icon"
+						SearchTags="thumb icon, customization"
+						CodeViewerPath="Slider/ThumbIconCustomization/" />
+
+				<Sample SampleName="SliderColorCustomizationSample"
+						Title="Color"
+						SearchTags="color, customization"
+						CodeViewerPath="Slider/ColorCustomization/" />
+
+				<Sample SampleName="SliderSizeCustomizationSample"
+						Title="Size"
+						SearchTags="size, customization"
+						CodeViewerPath="Slider/SizeCustomization/" />
+
+				<Sample SampleName="SliderLabelCustomizationSample"
+						Title="Label"
+						SearchTags="label, edge labels placement, customization"
+						CodeViewerPath="Slider/LabelCustomization/" />
+			</Category>
+		</Control>
+
+		<Control ControlName="SfRangeSlider"
+				 Title="Range Slider"
+				 Image="range_slider.png"
+				 Description="The horizontal range slider enables you to select a date or a numeric range.">
+			<Category Title="Basic Feature">
+				<Sample SampleName="RangeSliderDefaultSample"
+						Title="Default"
+						SearchTags="default, getting started"
+						CodeViewerPath="RangeSlider/Default/" />
+
+				<Sample SampleName="RangeSliderDividerLabelTickSample"
+						SearchTags="Dividers, labels, ticks, minor ticks"
+						Title="Dividers, labels, and ticks"
+						CodeViewerPath="RangeSlider/DividerLabelTick/" />
+
+				<Sample SampleName="RangeSliderDateIntervalSample"
+						Title="Date interval"
+						SearchTags="interval"
+						CodeViewerPath="RangeSlider/DateInterval/" />
+
+				<Sample SampleName="RangeSliderStepSample"
+						Title="Step"
+						SearchTags="step, discrete"
+						CodeViewerPath="RangeSlider/Step/" />
+
+				<Sample SampleName="RangeSliderIntervalSelectionSample"
+						Title="Interval selection"
+						SearchTags="selection, interval"
+						CodeViewerPath="RangeSlider/IntervalSelection/" />
+
+				<Sample SampleName="RangeSliderDragModeSample"
+						Title="Drag mode"
+						SearchTags="drag, between thumbs"
+						CodeViewerPath="RangeSlider/DragMode/" />
+			</Category>
+
+			<Category Title="Customization">
+				<Sample SampleName="RangeSliderThumbIconCustomizationSample"
+						Title="Thumb icon"
+						SearchTags="thumb icon, customization"
+						CodeViewerPath="RangeSlider/ThumbIconCustomization/" />
+
+				<Sample SampleName="RangeSliderColorCustomizationSample"
+						Title="Color"
+						SearchTags="color, customization"
+						CodeViewerPath="RangeSlider/ColorCustomization/" />
+
+				<Sample SampleName="RangeSliderSizeCustomizationSample"
+						Title="Size"
+						SearchTags="size, customization"
+						CodeViewerPath="RangeSlider/SizeCustomization/" />
+			</Category>
+		</Control>
+
+		<Control ControlName="SfRangeSelector"
+				 Title="Range Selector"
+				 Image="range_selector.png"
+				 Description="Visualize data and select a date or numeric range.">
+			<Sample SampleName="RangeSelectorDefaultSample"
+					Title="Default"
+					SearchTags="default, getting started"
+					CodeViewerPath="RangeSelector/Default/" />
+
+			<Sample SampleName="RangeSelectorSelectionSample"
+					Title="Selection"
+					SearchTags="selection"
+					CodeViewerPath="RangeSelector/Selection/" />
+
+			<Sample SampleName="RangeSelectorZoomingSample"
+					Title="Zooming"
+					SearchTags="zooming"
+					CodeViewerPath="RangeSelector/Zooming/" />
+		</Control>
+
+		<Control ControlName="VerticalSlider"
+				 Title="Vertical Slider"
+				 Image="vertical_slider.png"
+				 Description="The vertical slider enables you to select a date or a numeric value." >
+			<Category Title="Basic Feature">
+				<Sample SampleName="VerticalSliderDefaultSample"
+						Title="Default"
+						SearchTags="default, getting started"
+						CodeViewerPath="VerticalSlider/Default/" />
+
+				<Sample SampleName="VerticalSliderDividerLabelTickSample"
+						Title="Dividers, labels, and ticks"
+						SearchTags="dividers, labels, ticks, minor ticks"
+						CodeViewerPath="VerticalSlider/DividerLabelTick/" />
+
+				<Sample SampleName="VerticalSliderDateIntervalSample"
+						Title="Date interval"
+						SearchTags="interval"
+						CodeViewerPath="VerticalSlider/DateInterval/" />
+
+				<Sample SampleName="VerticalSliderTooltipPositionSample"
+						Title="Tooltip position"
+						SearchTags="tooltip, position"
+						CodeViewerPath="VerticalSlider/TooltipPosition/" />
+
+				<Sample SampleName="VerticalSliderStepSample"
+						Title="Step"
+						SearchTags="step, discrete"
+						CodeViewerPath="VerticalSlider/Step/" />
+			</Category>
+
+			<Category Title="Customization">
+				<Sample SampleName="VerticalSliderThumbIconCustomizationSample"
+						Title="Thumb icon"
+						SearchTags="thumb icon, customization"
+						CodeViewerPath="VerticalSlider/ThumbIconCustomization/" />
+
+				<Sample SampleName="VerticalSliderColorCustomizationSample"
+						Title="Color"
+						SearchTags="color, customization"
+						CodeViewerPath="VerticalSlider/ColorCustomization/" />
+
+				<Sample SampleName="VerticalSliderSizeCustomizationSample"
+						Title="Size"
+						SearchTags="size, customization"
+						CodeViewerPath="VerticalSlider/SizeCustomization/" />
+
+				<Sample SampleName="VerticalSliderLabelCustomizationSample"
+						Title="Label"
+						SearchTags="label, edge labels placement, customization"
+						CodeViewerPath="VerticalSlider/LabelCustomization/" />
+			</Category>
+		</Control>
+
+		<Control ControlName="VerticalRangeSlider"
+				 Title="Vertical Range Slider"
+				 Image="vertical_range_slider.png"
+				 Description="The vertical range slider enables you to select a date or a numeric range.">
+			<Category Title="Basic Feature">
+				<Sample SampleName="VerticalRangeSliderDefaultSample"
+						Title="Default"
+						SearchTags="default, getting started"
+						CodeViewerPath="VerticalRangeSlider/Default/" />
+
+				<Sample SampleName="VerticalRangeSliderDividerLabelTickSample"
+						Title="Dividers, labels, and ticks"
+						SearchTags="dividers, labels, ticks, minor ticks"
+						CodeViewerPath="VerticalRangeSlider/DividerLabelTick/" />
+
+				<Sample SampleName="VerticalRangeSliderDateIntervalSample"
+						Title="Date interval"
+						SearchTags="interval"
+						CodeViewerPath="VerticalRangeSlider/DateInterval/" />
+
+				<Sample SampleName="VerticalRangeSliderTooltipPositionSample"
+						Title="Tooltip position"
+						SearchTags="tooltip, position"
+						CodeViewerPath="VerticalRangeSlider/ToolTipPosition/" />
+
+				<Sample SampleName="VerticalRangeSliderStepSample"
+						Title="Step"
+						SearchTags="step, discrete"
+						CodeViewerPath="VerticalRangeSlider/Step/" />
+
+				<Sample SampleName="VerticalRangeSliderIntervalSelectionSample"
+						Title="Interval selection"
+						SearchTags="selection, interval"
+						CodeViewerPath="VerticalRangeSlider/IntervalSelection/" />
+
+				<Sample SampleName="VerticalRangeSliderDragModeSample"
+						Title="Drag mode"
+						SearchTags="drag, between thumbs"
+						CodeViewerPath="VerticalRangeSlider/DragMode/" />
+			</Category>
+
+			<Category Title="Customization">
+				<Sample SampleName="VerticalRangeSliderThumbIconCustomizationSample"
+						Title="Thumb icon"
+						SearchTags="thumb icon, customization"
+						CodeViewerPath="VerticalRangeSlider/ThumbIconCustomization/" />
+
+				<Sample SampleName="VerticalRangeSliderColorCustomizationSample"
+						Title="Color"
+						SearchTags="color, customization"
+						CodeViewerPath="VerticalRangeSlider/ColorCustomization/" />
+
+				<Sample SampleName="VerticalRangeSliderSizeCustomizationSample"
+						Title="Size"
+						SearchTags="size, customization" 
+						CodeViewerPath="VerticalRangeSlider/SizeCustomization/" />
+			</Category>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

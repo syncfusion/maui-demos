@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Editors">
+		
+		<Control Title="Autocomplete" ControlName="SfAutocomplete" Image="autocomplete.png" Description="Provides useful suggestions to users based on the already typed content.">
+			<Sample Title="Getting Started" SampleName="AutocompleteGettingStarted" SearchTags="autocomplete,dropdown,entry,textbox,filter,suggestion,editor" CodeViewerPath="Autocomplete/AutocompleteGettingStarted/"/>
+		    
+	</Control>
+		
+		<Control Title="ComboBox" ControlName="SfComboBox" Image="combobox.png" Description="Allows the user to select an item either type a value directly or select a value from the list.">
+			<Sample Title="Getting Started" SampleName="ComboBoxGettingStarted" SearchTags="combobox,picker,dropdown,suggestion,editor" CodeViewerPath="ComboBox/ComboBoxGettingStarted/"/>
+	    
+		</Control>
+		
+		<Control Title="Rating" ControlName="SfRating" Image="rating.png" Description="Allows the users to select a rating value from a group of visual symbols.">
+			<Sample Title="Getting Started" SampleName="RatingGettingStarted" SearchTags="rating,rate,review,feedback" CodeViewerPath="Rating/RatingGettingStarted/"/>
+			<Sample Title="Read Only" SampleName="ReadOnly" SearchTags="rating,rate,review,feedback,readonly" CodeViewerPath="Rating/ReadOnly/"/>	
+		</Control>
+		
+		<Control Title="Masked Entry" ControlName="SfMaskedEntry" IsPreview="True" StatusTag="New" Image="maskedentry.png" Description="Allows the user to restrict the input to certain types of characters/text/numbers using a mask pattern.">
+			<Sample Title="Getting Started" IsGettingStarted="True" SampleName="MaskedEntryGettingStarted" SearchTags="masked,entry,textbox" CodeViewerPath="MaskedEntry/MaskedEntryGettingStarted/"/>
+			<Sample Title="Culture" SampleName="Culture" SearchTags="masked,entry,textbox, culture" CodeViewerPath="MaskedEntry/Culture/"/>
+		</Control>
+		
+	</ControlCategory>
+</SyncfusionControls>

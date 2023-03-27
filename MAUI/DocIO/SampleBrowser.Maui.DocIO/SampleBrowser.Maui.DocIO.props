@@ -1,0 +1,174 @@
+<Project>
+	<ItemGroup>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\Bookmarks\Bookmarks.xaml.cs">
+			<Link>Samples\DocIO\Bookmarks\Bookmarks.xaml.cs</Link>
+			<DependentUpon>Bookmarks.xaml</DependentUpon>
+		</Compile>
+	
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\EmployeeReport\EmployeeReport.xaml.cs">
+			<Link>Samples\DocIO\EmployeeReport\EmployeeReport.xaml.cs</Link>
+			<DependentUpon>EmployeeReport.xaml</DependentUpon>
+		</Compile>
+  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\EncryptAndDecrypt\EncryptAndDecrypt.xaml.cs">
+			<Link>Samples\DocIO\EncryptAndDecrypt\EncryptAndDecrypt.xaml.cs</Link>
+			<DependentUpon>EncryptAndDecrypt.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\GettingStarted\GettingStarted.xaml.cs">
+			<Link>Samples\DocIO\GettingStarted\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+		 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\HeaderAndFooter\HeaderAndFooter.xaml.cs">
+			<Link>Samples\DocIO\HeaderAndFooter\HeaderAndFooter.xaml.cs</Link>
+			<DependentUpon>HeaderAndFooter.xaml</DependentUpon>
+		</Compile>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\ImageInsertion\ImageInsertion.xaml.cs">
+			<Link>Samples\DocIO\ImageInsertion\ImageInsertion.xaml.cs</Link>
+			<DependentUpon>ImageInsertion.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\OrdersReport\OrdersReport.xaml.cs">
+			<Link>Samples\DocIO\OrdersReport\OrdersReport.xaml.cs</Link>
+			<DependentUpon>OrdersReport.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\RTFToWord\RTFToWord.xaml.cs">
+			<Link>Samples\DocIO\RTFToWord\RTFToWord.xaml.cs</Link>
+			<DependentUpon>RTFToWord.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\TableOfContents\TableOfContents.xaml.cs">
+			<Link>Samples\DocIO\TableOfContents\TableOfContents.xaml.cs</Link>
+			<DependentUpon>TableOfContents.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\WordToPDF\WordToPDF.xaml.cs">
+			<Link>Samples\DocIO\WordToPDF\WordToPDF.xaml.cs</Link>
+			<DependentUpon>WordToPDF.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml.cs">
+			<Link>Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml.cs</Link>
+			<DependentUpon>MarkdownToWord.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+ 
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\DocIOSamplesList.xml" >
+			<Link>DocIOSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\Bookmarks\Bookmarks.xaml">
+			<Link>Samples\DocIO\Bookmarks\Bookmarks.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\EmployeeReport\EmployeeReport.xaml">
+			<Link>Samples\DocIO\EmployeeReport\EmployeeReport.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\EncryptAndDecrypt\EncryptAndDecrypt.xaml">
+			<Link>Samples\DocIO\EncryptAndDecrypt\EncryptAndDecrypt.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\GettingStarted\GettingStarted.xaml">
+			<Link>Samples\DocIO\GettingStarted\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\HeaderAndFooter\HeaderAndFooter.xaml">
+			<Link>Samples\DocIO\HeaderAndFooter\HeaderAndFooter.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\ImageInsertion\ImageInsertion.xaml">
+			<Link>Samples\DocIO\ImageInsertion\ImageInsertion.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\OrdersReport\OrdersReport.xaml">
+			<Link>Samples\DocIO\OrdersReport\OrdersReport.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\RTFToWord\RTFToWord.xaml">
+			<Link>Samples\DocIO\RTFToWord\RTFToWord.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\TableOfContents\TableOfContents.xaml">
+			<Link>Samples\DocIO\TableOfContents\TableOfContents.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\WordToPDF\WordToPDF.xaml">
+			<Link>Samples\DocIO\WordToPDF\WordToPDF.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml">
+			<Link>Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>	
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\RTFtoWord.rtf">
+	        <Link>Resources\DocIO\RTFtoWord.rtf</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Employees.xml">
+	        <Link>Resources\DocIO\Employees.xml</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\EmployeesList.xml">
+	        <Link>Resources\DocIO\EmployeesList.xml</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\EmployeesReportDemo.docx">
+	        <Link>Resources\DocIO\EmployeesReportDemo.docx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Mountain200.jpg">
+	        <Link>Resources\DocIO\Mountain200.jpg</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Mountain300.jpg">
+	        <Link>Resources\DocIO\Mountain300.jpg</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Northwindlogo.png">
+	        <Link>Resources\DocIO\Northwindlogo.png</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Road550W.jpg">
+	        <Link>Resources\DocIO\Road550W.jpg</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Adventure.docx">
+	        <Link>Resources\DocIO\Adventure.docx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Decrypt.docx">
+	        <Link>Resources\DocIO\Decrypt.docx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\TemplateLetter.docx">
+	        <Link>Resources\DocIO\TemplateLetter.docx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\HeaderFooterTemplate.docx">
+	        <Link>Resources\DocIO\HeaderFooterTemplate.docx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\WordtoPDF.docx">
+	        <Link>Resources\DocIO\WordtoPDF.docx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\AdventureCycle.png">
+	        <Link>Resources\DocIO\AdventureCycle.png</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\HeaderImage.png">
+	        <Link>Resources\DocIO\HeaderImage.png</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\Mountain300.bmp">
+	        <Link>Resources\DocIO\Mountain300.bmp</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\MarkdownToWord.md">
+	        <Link>Resources\DocIO\MarkdownToWord.md</Link>
+	  </EmbeddedResource>
+	</ItemGroup>
+</Project>
