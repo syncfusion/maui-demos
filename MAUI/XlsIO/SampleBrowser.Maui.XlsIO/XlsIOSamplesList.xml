@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="File Formats">
+    <Control Title="XlsIO" ControlName="XlsIO" Image="xlsio.png" Description="A .NET Excel library to create, read, and edit Excel documents programmatically."  StatusTag="Updated">
+      <Category Title="Product Showcase">
+        <Sample SearchTags="ExpensesReport" SampleName="ExpensesReport" Title="Expenses Report" Description="This example demonstrates how to create a Excel report for expenses with data, chart, formulas, and cell formatting." CodeViewerPath="XlsIO/ExpensesReport"/>
+		<Sample SearchTags="AttendanceTracker" SampleName="AttendanceTracker" Title="Attendance Tracker" Description="This example demonstrates how to create monthly attendace tracking Excel reports." CodeViewerPath="XlsIO/AttendanceTracker"/>		 
+	  </Category> 
+	  <Sample SearchTags="Create, Excel, xlsx" SampleName="CreateSpreadsheet" Title="Create Spreadsheet" Description="This example demonstrates how to create a simple Excel document with text, numbers, formulas and styles." CodeViewerPath="XlsIO/CreateSpreadsheet"/>
+	  <Sample SearchTags="Formula, calculate" SampleName="Formula" Title="Formula" Description="This example demonstrates how to create, read a formula and access its calculated value." CodeViewerPath="XlsIO/Formula"/>
+	  <Sample SearchTags="Chart, chartData" SampleName="Chart" Title="Chart" Description="This example demonstrates how to create a chart." CodeViewerPath="XlsIO/Chart"/>
+	  <Sample SearchTags="DataValidation" SampleName="DataValidation" Title="Data Validation" Description="This example shows how to set data validation rules for cells in Excel document." CodeViewerPath="XlsIO/DataValidation"/>
+	  <Sample SearchTags="TemplateMarker, Marker" SampleName="TemplateMarker" Title="Template Marker" Description="This example demonstrates the usage of template marker which is a special symbol and shows how import data to Excel document." CodeViewerPath="XlsIO/TemplateMarker"/>
+      <Sample SearchTags="Table, Tables" SampleName="Table" Title="Table" Description="This example demonstrates how to create a table on a range of cells." CodeViewerPath="XlsIO/Table"/>
+	  <Sample SearchTags="Slicer, Slicers" SampleName="Slicer" Title="Slicer" Description="This example demonstrates how to create and use slicers in table." CodeViewerPath="XlsIO/Slicer" StatusTag="New"/>
+      <Sample SearchTags="AutoShapes, shapes" SampleName="AutoShapes" Title="Auto Shapes" Description="This example demonstrates how to use auto shapes in Excel documents." CodeViewerPath="XlsIO/AutoShapes"/>
+      <Category Title="Conversions" StatusTag="Updated">
+	    <Sample SearchTags="WorksheettoImage, image" SampleName="WorksheetToImage" Title="Worksheet to Image" Description="This example demonstrates how to convert a Excel worksheet to image." CodeViewerPath="XlsIO/WorksheetToImage"/>
+	    <Sample SearchTags="ExcelToPDF, PDF" SampleName="ExcelToPDF" Title="Excel to PDF" Description="This example demonstrates how to convert a Excel document to PDF." CodeViewerPath="XlsIO/ExcelToPDF" StatusTag="Updated"/>
+      </Category> 
+    </Control>
+  </ControlCategory>
+</SyncfusionControls>

@@ -1,0 +1,88 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.ResourceView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Resources>
+          <imageExtension:SfImageSourceConverter x:Key="imageConverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <schedule:SfScheduler x:Name="Scheduler" DisplayDate="{Binding DisplayDate}"
+                                  AppointmentsSource="{Binding Events}"
+                                  AllowedViews="TimelineDay,TimelineMonth,TimelineWeek,TimelineWorkWeek"
+                                  View="TimelineMonth">
+                    <schedule:SfScheduler.ResourceView>
+                        <schedule:SchedulerResourceView Resources="{Binding Resources}">
+                            <schedule:SchedulerResourceView.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="5" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Fill">
+                                        <Border StrokeThickness="5"
+                                            Stroke="{Binding Background}"
+                                            HorizontalOptions="Center"
+                                            HeightRequest="{OnIdiom Desktop = 70, Phone = 65}"
+                                            WidthRequest="{OnIdiom Desktop= 70, Phone=65}">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="150"/>
+                                            </Border.StrokeShape>
+                                            <Image WidthRequest="{OnIdiom Desktop = 55, Phone = 50}"
+                                               HeightRequest="{OnIdiom Desktop = 55, Phone = 50}"
+                                               HorizontalOptions="Center"
+                                               Source="{Binding DataItem.ImageName,Converter={StaticResource imageConverter}}" 
+                                               VerticalOptions="Center"
+                                        Aspect="Fill"/>
+                                        </Border>
+                                        <Label Text="{Binding Name}" TextColor="Black" FontSize="{OnIdiom Desktop= 12, Phone=10}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </schedule:SchedulerResourceView.HeaderTemplate>
+
+                            <schedule:SchedulerResourceView.Mapping>
+                                <schedule:SchedulerResourceMapping Name="Name"
+                                                       Id="Id"
+                                                       Background="Background"
+                                                       Foreground="Foreground"/>
+                            </schedule:SchedulerResourceView.Mapping>
+                        </schedule:SchedulerResourceView>
+                    </schedule:SfScheduler.ResourceView>
+
+                    <schedule:SfScheduler.AppointmentMapping>
+                        <schedule:SchedulerAppointmentMapping
+                    Subject="EventName"
+                    StartTime="From"
+                    EndTime="To"
+                    Background="Background"
+                    IsAllDay="IsAllDay"
+                    StartTimeZone="StartTimeZone"
+                    EndTimeZone="EndTimeZone"
+                    ResourceIds="Resources"/>
+                    </schedule:SfScheduler.AppointmentMapping>
+
+                    <schedule:SfScheduler.TimelineView>
+                        <schedule:SchedulerTimelineView
+                        StartHour="8"
+                        EndHour="20"/>
+                    </schedule:SfScheduler.TimelineView>
+
+                    <schedule:SfScheduler.BindingContext>
+                        <local:ResourceViewViewModel/>
+                    </schedule:SfScheduler.BindingContext>
+
+                </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+    
+    <localCore:SampleView.Behaviors>
+        <local:ResourceViewBehavior/>
+    </localCore:SampleView.Behaviors>
+    
+</localCore:SampleView>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             x:Class="SampleBrowser.Maui.ListView.SfListView.Swiping">
+    
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+        <local:FavoriteColorConverter x:Key="favoriteIconColorConverter"/>
+        <local:FavoriteConverter x:Key="favoriteIconConverter"/>
+        <local:TextColorConverter x:Key="textColorConverter"/>
+    </localCore:SampleView.Resources>
+    
+    <localCore:SampleView.Behaviors>
+        <local:ListViewSwipingBehavior/>
+    </localCore:SampleView.Behaviors>
+  
+    <localCore:SampleView.Content>
+        <Grid x:Name="mainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Inbox" FontSize="18" FontFamily="Roboto-Medium" Margin="16,0,0,0" VerticalOptions="Center"/>
+            <ListView:SfListView Grid.Row="1"  x:Name="listView"
+                                 ItemsSource="{Binding InboxInfo}"
+                                 AllowSwiping="True"
+                                 SwipeThreshold="50"
+                                 SwipeOffset="100"
+                                 SelectionMode="Multiple"
+                                 SelectionGesture="LongPress"
+                                 ScrollBarVisibility="Always"
+                                 AutoFitMode="Height">
+
+                <ListView:SfListView.StartSwipeTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="#DD0000">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.ArchiveCommand, Source={x:Reference listView}}" 
+                                                  CommandParameter="{Binding .}"/>
+                            </Grid.GestureRecognizers>
+                            <Label Text="&#xe71C;" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,UWP=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
+                                   TextColor="#FFFFFF"
+                                   HorizontalOptions="Center"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center">                               
+                            </Label>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.StartSwipeTemplate>
+                <ListView:SfListView.EndSwipeTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="#DD0000" x:Name="listViewGrid">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteImageCommand, Source={x:Reference listView}}" 
+                                                  CommandParameter="{Binding .}"/>
+                            </Grid.GestureRecognizers>
+                            <Label Text="&#xe716;" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,UWP=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
+                                   TextColor="#FFFFFF"
+                                   HorizontalOptions="Center"
+                                   FontSize="26"
+                                   VerticalOptions="Center">
+                            </Label>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.EndSwipeTemplate>
+                <ListView:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,16,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="72"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="40" WidthRequest="40" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Image Source="{Binding Image,Converter={StaticResource imageconverter}}" HeightRequest="40" WidthRequest="40" />
+                                <Label Text="{Binding ProfileName}" TextColor="#FFFFFF" FontSize="16" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center" FontFamily="Roboto-Regular" CharacterSpacing="0.25"/>
+                            </Grid>
+
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Subject}" FontFamily="Roboto-Medium" FontSize="14" TextColor="#000000" LineBreakMode="TailTruncation" CharacterSpacing="0.25"/>
+
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Description}" FontFamily="Roboto-Regular" FontSize="14" TextColor="{Binding IsOpened,Converter={StaticResource textColorConverter}}"  Margin="0,4,0,0" LineBreakMode="TailTruncation" CharacterSpacing="0.25"/>
+                            <Grid Grid.Row="2" Grid.Column="1" Margin="0,12,0,0" IsVisible="{Binding IsAttached}" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border                                 
+                                        Stroke="LightGray"
+                                        HorizontalOptions="Start"
+                                        BackgroundColor="Transparent"
+                                        StrokeThickness="1">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="4"/>
+                                    </Border.StrokeShape>
+
+                                    <Grid Margin="4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Text="&#xe717;" FontSize="18" TextColor="#DD0000" FontAttributes="Bold" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,UWP=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}' VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                                        <Label Grid.Column="1" Text="Image Attached" FontSize="14" FontFamily="Roboto-Medium" TextColor="#666666" Margin="4,0,0,0" CharacterSpacing="0.25" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+
+
+                            <BoxView Grid.Row="4" Grid.ColumnSpan="3" BackgroundColor="LightGray" HeightRequest="0.8" VerticalOptions="End" Margin="0,14,0,0"/>
+
+                            <Label Grid.Row="0" Grid.Column="2" 
+                                   Text="{Binding Date}" TextColor="#666666"
+                                   FontFamily="Roboto-Regular" HorizontalOptions="End" HorizontalTextAlignment="End" FontSize="10" Margin="0,0,16,0" CharacterSpacing="0.15"/>
+
+                            <Label Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="0,0,16,0"
+                                       Text="{Binding IsFavorite,Converter={StaticResource favoriteIconConverter}}" 
+                                       FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,UWP=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
+                                       TextColor="{Binding IsFavorite,Converter={StaticResource favoriteIconColorConverter}}"
+                                       HorizontalOptions="End"
+                                       FontSize="18"
+                                       VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.FavoritesImageCommand, Source={x:Reference listView}}" 
+                                                              CommandParameter="{Binding .}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.ItemTemplate>
+
+            </ListView:SfListView>
+            <Frame CornerRadius="4" Grid.Row="1" Margin="16,0,16,5" HeightRequest="40" VerticalOptions="End" IsVisible="{Binding IsDeleted}" Padding="0">
+                <Grid HeightRequest="40" BackgroundColor="#3D454A">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" FontSize="14" Text="{Binding PopUpText}" TextColor="#FFFFFF" VerticalOptions="Center" VerticalTextAlignment="Center" Margin="16,0,0,0" CharacterSpacing="0.25"/>
+                    <Label Grid.Column="1" FontSize="14" HorizontalOptions="End" TextColor="#1796E6" VerticalOptions="Center" VerticalTextAlignment="Center" Text="Undo" Margin="0,0,16,0" CharacterSpacing="0.25">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UndoCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </Frame>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

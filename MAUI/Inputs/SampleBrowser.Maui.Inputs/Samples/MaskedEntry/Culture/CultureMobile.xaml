@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Inputs.SfMaskedEntry.CultureMobile"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="White">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="inputs:SfMaskedEntry">
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <ScrollView VerticalScrollBarVisibility="Never" Padding="0">
+        <Grid WidthRequest="313" RowDefinitions="70,*" RowSpacing="20" VerticalOptions="Center">
+            <HorizontalStackLayout HeightRequest="46" Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+
+                <StackLayout WidthRequest="42" HeightRequest="34" VerticalOptions="Center" x:Name="usStack">
+                    <Frame VerticalOptions="FillAndExpand" Grid.Column="0" x:Name="usFrame" BackgroundColor="Transparent" CornerRadius="0" BorderColor="Black" Padding="2" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="USImageButton_Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <Image Grid.Column="0" Source="{imageExtension:SfImageResource usflag.png}" Aspect="Fill"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout WidthRequest="36" HeightRequest="28" x:Name="indiaStack">
+                    <Frame VerticalOptions="FillAndExpand" Grid.Column="1" x:Name="indiaFrame" BackgroundColor="Transparent" CornerRadius="0"  Padding="2" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="IndiaImageButton_Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <Image Grid.Column="1" Source="{imageExtension:SfImageResource indiaflag.png}" Aspect="Fill"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout WidthRequest="36" HeightRequest="28" x:Name="russiaStack">
+                    <Frame Grid.Column="2" VerticalOptions="FillAndExpand" x:Name="russiaFrame" BackgroundColor="Transparent" CornerRadius="0" BorderColor="Transparent" Padding="2" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="RussiaImageButton_Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <Image Grid.Column="2" Source="{imageExtension:SfImageResource russiaflag.png}" Aspect="Fill"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout WidthRequest="36" HeightRequest="28" x:Name="franceStack">
+                    <Frame Grid.Column="3" VerticalOptions="FillAndExpand" x:Name="franceFrame" BackgroundColor="Transparent" CornerRadius="0" BorderColor="Transparent" Padding="2" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="FranceImageButton_Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <Image Grid.Column="3" Source="{imageExtension:SfImageResource franceflag.png}" Aspect="Fill"/>
+                    </Frame>
+                </StackLayout>
+            </HorizontalStackLayout>
+
+
+            <VerticalStackLayout Grid.Row="1" Spacing="50">
+                <Frame BorderColor="Gray" CornerRadius="10" HasShadow="False">
+                    <VerticalStackLayout Margin="0,-10,0,-20">
+                        <VerticalStackLayout>
+                            <Label Text="Amount"/>
+                            <inputs:SfMaskedEntry x:Name="cultureMask" MaskType="Simple" 
+                                  Mask="$ 0,000.00"  PromptChar="_"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Label Text="Name"/>
+                            <Entry Placeholder="Name on your card" Margin="0,0,0,15"/>
+                        </VerticalStackLayout>
+
+                        <Grid ColumnDefinitions="*, 0.6*" Margin="0">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="Card Number"/>
+                                <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{4}-\d{4}-\d{4}-\d{4}" PromptChar="_"/>
+                            </VerticalStackLayout>
+
+                            <Grid Grid.Column="1" ColumnDefinitions="*,*" ColumnSpacing="15" Margin="25,0,0,0">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="Month/Year"/>
+                                    <inputs:SfMaskedEntry MaskType="Simple" Mask="00/00" PromptChar="_"/>
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="1">
+                                    <Label Text="CVV"/>
+                                    <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{3}" PromptChar="_"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+                <Button Text="Pay Now" FontFamily="Roboto-Regular" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</localCore:SampleView>

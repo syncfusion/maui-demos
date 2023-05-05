@@ -1,0 +1,91 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.DataForm.SfDataForm.SignInForm"
+            xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+            xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+            xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
+            Background="{OnIdiom Default=White, Desktop=#6200EE}"
+            xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+            xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Margin>
+        <OnPlatform x:TypeArguments="thickness:Thickness">
+            <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
+            <On Platform="WinUI" Value="-4,-4,-6,-6"/>
+        </OnPlatform>
+    </localCore:SampleView.Margin>
+    <localCore:SampleView.Content>
+
+        <Grid ColumnDefinitions="0.5*, 0.5*">
+            <Grid IsClippedToBounds="True" IsVisible="{OnIdiom Desktop=True, Default=False}" RowDefinitions="0.3*,50,50,*" Background="#6200EE">
+                <Image Source="{converters:SfImageResource signinform.png}"
+                       Aspect="AspectFit" Grid.RowSpan="4"
+                       HorizontalOptions="{OnPlatform WinUI=Center}" />
+                <Label Text="Welcome back"
+                       FontSize="40" WidthRequest="300" FontAttributes="Bold" TextColor="White" Grid.Row="1" />
+                <Label Text="Sign in to continue access" FontSize="16" WidthRequest="300" TextColor="White" Grid.Row="2" />
+            </Grid>
+
+            <Frame BackgroundColor="White"
+                   Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}" 
+                   Grid.Column="{OnIdiom Default=0, Desktop=1}" CornerRadius="10"
+                   VerticalOptions="Center" HasShadow="False"
+                   MaximumWidthRequest="{OnPlatform WinUI=380, MacCatalyst=400}"
+                   HorizontalOptions="{OnIdiom Desktop=Start, Default=Fill}" Margin="0">
+                <Frame.Padding>
+                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                        <On Platform="MacCatalyst" Value="32, 20, 32, 32"/>
+                        <On Platform="WinUI" Value="32, 20, 32, 32"/>
+                    </OnPlatform>
+                </Frame.Padding>
+
+                <Grid IsClippedToBounds="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="{OnPlatform Default=80, MacCatalyst=60, WinUI=60}"/>
+                        <RowDefinition Height="{OnPlatform Default=220, WinUI=170}"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="{OnPlatform Default=80, MacCatalyst=60, WinUI=60}"/>
+                    </Grid.RowDefinitions>
+                <Grid.BindingContext>
+                    <local:DataFormViewModel/>
+                </Grid.BindingContext>
+                <Label Text="Sign in" TextColor="Black" FontSize="Title"
+                        FontAttributes="Bold" 
+                       VerticalOptions="Center" VerticalTextAlignment="Center"
+                       HorizontalOptions="Center" HorizontalTextAlignment="Center">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="thickness:Thickness">
+                            <On Platform="WinUI" Value="20, 0"/>
+                            <On Platform="MacCatalyst" Value="20, 0"/>
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
+                
+                <HorizontalStackLayout Grid.Row="1"  HorizontalOptions="Center" >
+                    <Image Source="{converters:SfImageResource google.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnIdiom Default=50, Desktop=40}"  />
+                    <Image Source="{converters:SfImageResource facebook.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnIdiom Default=50, Desktop=40}" />
+                    <Image Source="{converters:SfImageResource microsoft.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnIdiom Default=50, Desktop=40}"  />
+                </HorizontalStackLayout>
+                <dataForm:SfDataForm x:Name="signInForm" Grid.Row="2" DataObject="{Binding SignInFormModel}"
+                                     LayoutType="TextInputLayout"
+                                     ValidationMode="PropertyChanged"  >
+                        <dataForm:SfDataForm.TextInputLayoutSettings>
+                                <dataForm:TextInputLayoutSettings ShowHelperText="True"
+                                                              FocusedStroke="{StaticResource Primary}"/>
+                        </dataForm:SfDataForm.TextInputLayoutSettings>
+                </dataForm:SfDataForm>
+                <Line Grid.Row="3" Background="{OnIdiom Default=WhiteSmoke, Desktop=White}" />
+                <Button Text="Sign In" x:Name="signInButton" HeightRequest="40" VerticalOptions="Center"
+                        HorizontalOptions="Fill" Margin="20,10" CornerRadius="5"
+                        FontSize="16" Padding="0"
+                        Grid.Row="4" Background="{StaticResource PrimaryBrush}"/>
+            </Grid>
+            </Frame>
+
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.Behaviors>
+        <local:SignInFormBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

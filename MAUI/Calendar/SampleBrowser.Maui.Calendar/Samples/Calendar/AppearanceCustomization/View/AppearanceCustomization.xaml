@@ -1,0 +1,78 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Calendar.SfCalendar.AppearanceCustomization"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Calendar.SfCalendar"
+             xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs" Background="WhiteSmoke" Margin="-4, -4, -6, -6">
+    <localCore:SampleView.Content>
+
+        <Grid WidthRequest="346" HeightRequest="363">
+            <Frame IsVisible="False" x:Name="frame" Background="White" HasShadow="False" CornerRadius="10"  HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="5">
+                <calendar:SfCalendar x:Name="circleCalendar"
+                                 ShowTrailingAndLeadingDates="False"
+                                 NavigationDirection="Horizontal"
+                                 TodayHighlightBrush="#0A3A74"
+                                 AllowViewNavigation="False">
+                    <calendar:SfCalendar.MonthView>
+                        <calendar:CalendarMonthView CellTemplate="{Binding Template}">
+                            <calendar:CalendarMonthView.HeaderView>
+                                <calendar:CalendarMonthHeaderView Background="#F1F7FF"/>
+                            </calendar:CalendarMonthView.HeaderView>
+                        </calendar:CalendarMonthView>
+                    </calendar:SfCalendar.MonthView>
+                    <calendar:SfCalendar.BindingContext>
+                        <local:AppearanceViewModel/>
+                    </calendar:SfCalendar.BindingContext>
+                </calendar:SfCalendar>
+            </Frame>
+
+            <Border IsVisible="False" x:Name="border" Background="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10"  HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="5">
+                <calendar:SfCalendar x:Name="iOSCircleCalendar"
+                                 ShowTrailingAndLeadingDates="False"
+                                 NavigationDirection="Horizontal"
+                                 TodayHighlightBrush="#0A3A74"
+                                 AllowViewNavigation="False">
+                    <calendar:SfCalendar.MonthView>
+                        <calendar:CalendarMonthView CellTemplate="{Binding Template}">
+                            <calendar:CalendarMonthView.HeaderView>
+                                <calendar:CalendarMonthHeaderView Background="#F1F7FF"/>
+                            </calendar:CalendarMonthView.HeaderView>
+                        </calendar:CalendarMonthView>
+                    </calendar:SfCalendar.MonthView>
+                    <calendar:SfCalendar.BindingContext>
+                        <local:AppearanceViewModel/>
+                    </calendar:SfCalendar.BindingContext>
+                </calendar:SfCalendar>
+            </Border>
+        </Grid>
+
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <StackLayout Orientation="Vertical">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Shape"  Margin="0,15,0,0" 
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="Gray"/>
+
+                    <editors:SfComboBox x:Name="comboBox" Grid.Column="1"
+                                Margin="0,15,0,0" VerticalOptions="Center"
+                                HorizontalOptions="Start"/>
+                </Grid>
+            </StackLayout>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:AppearanceCustomizationBehavior/>
+    </localCore:SampleView.Behaviors>
+
+</localCore:SampleView>

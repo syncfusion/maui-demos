@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:barcode="clr-namespace:Syncfusion.Maui.Barcode;assembly=Syncfusion.Maui.Barcode"
+                      x:Class="SampleBrowser.Maui.Barcode.SfBarcodeGenerator.Wifi"
+                      Background="White">
+    <localCore:SampleView.Content>
+
+        <ScrollView HorizontalOptions="Center"
+                    BackgroundColor="AliceBlue">
+            <StackLayout>
+                <StackLayout BackgroundColor="DarkSlateBlue"
+                             Margin="0,10">
+                    <Label Text="Wi-Fi QR Code"
+                           Margin="0,5,0,0"
+                           LineBreakMode="WordWrap"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontFamily="Roboto-Medium"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                    <Grid BackgroundColor="White"
+                          HeightRequest="{OnPlatform Android=170, Default= 170}"
+                          WidthRequest="{OnPlatform Android=170, Default= 170}"
+                          HorizontalOptions="Center"
+                          Margin="0,20,0,0"
+                          Padding="8">
+                        <barcode:SfBarcodeGenerator Value="http://www.syncfusion.com"
+                                                    ShowText="False"
+                                                    HeightRequest="{OnPlatform Android=150, Default= 150}"
+                                                    WidthRequest="{OnPlatform Android=150, Default= 150}"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center">
+                            <barcode:SfBarcodeGenerator.Symbology>
+                                <barcode:QRCode CodeVersion="Auto"
+                                                InputMode="Auto"
+                                                ErrorCorrectionLevel="Auto" />
+                            </barcode:SfBarcodeGenerator.Symbology>
+                        </barcode:SfBarcodeGenerator>
+                    </Grid>
+
+                    <Label Text="Scan the QR code and connect to this Wi-Fi network."
+                           LineBreakMode="WordWrap"
+                           TextColor="White"
+                           FontFamily="Roboto-Medium"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=20}, iOS=12, UWP=16}"
+                           HorizontalOptions="Center"
+                           Margin="20,20" />
+                </StackLayout>
+
+                <BoxView HeightRequest="3"
+                         BackgroundColor="White" />
+
+                <StackLayout Margin='20,10'>
+                    <Label Text="Status"
+                           Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
+                           LineBreakMode="WordWrap"
+                           TextColor="#DE000000"
+                           FontFamily="Roboto-Medium"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                    <Label Text="Connected"
+                           LineBreakMode="WordWrap"
+                           Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
+                           TextColor="#99000000"
+                           LineHeight="1.2"
+                           FontFamily="Roboto-Regular"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                </StackLayout>
+
+                <BoxView HeightRequest="3"
+                         BackgroundColor="White" />
+
+                <StackLayout Margin='20,10'>
+                    <Label Text="Signal strength"
+                           Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
+                           LineBreakMode="WordWrap"
+                           TextColor="#DE000000"
+                           FontFamily="Roboto-Medium"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                    <Label Text="Excellent"
+                           LineBreakMode="WordWrap"
+                           Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
+                           TextColor="#99000000"
+                           LineHeight="1.2"
+                           FontFamily="Roboto-Regular"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                </StackLayout>
+
+                <BoxView HeightRequest="3"
+                         BackgroundColor="White" />
+
+                <StackLayout Margin='20,10'>
+                    <Label Text="Connection speed"
+                           Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
+                           LineBreakMode="WordWrap"
+                           TextColor="#DE000000"
+                           FontFamily="Roboto-Medium"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                    <Label Text="72 Mbps"
+                           LineBreakMode="WordWrap"
+                           Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
+                           TextColor="#99000000"
+                           LineHeight="1.2"
+                           FontFamily="Roboto-Regular"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                </StackLayout>
+
+                <BoxView HeightRequest="3"
+                         BackgroundColor="White" />
+
+                <StackLayout Margin='20,10'>
+                    <Label Text="Security"
+                           Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
+                           LineBreakMode="WordWrap"
+                           TextColor="#DE000000"
+                           FontFamily="Roboto-Medium"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                    <Label Text="WPA/WPA2 PSK"
+                           LineBreakMode="WordWrap"
+                           Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
+                           TextColor="#99000000"
+                           LineHeight="1.2"
+                           FontFamily="Roboto-Regular"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </localCore:SampleView.Content>
+</localCore:SampleView>
