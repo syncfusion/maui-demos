@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Chips.SfChip.ChipGettingStartedDesktop"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Chips"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+	<localCore:SampleView.Resources>
+		<imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+	</localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:ChipViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <ScrollView>
+            <Grid ColumnDefinitions=".55*,420" Margin="10,20,10,10">
+                <Grid Grid.Column="0" RowDefinitions="100,*">
+                    <StackLayout Margin="50,15" Spacing="5" HorizontalOptions="Start">
+                        <Label Text="Elektro Voice Speaker"
+                               FontFamily="Roboto-Medium"
+                               FontSize="22"
+                               HorizontalTextAlignment="Start"/>
+                        <Label Text="Unleash the Power of Music!"
+                               FontSize="16"
+                               Opacity=".54"
+                               MaxLines="2"
+                               FontFamily="Roboto-Regular"
+                               LineBreakMode="WordWrap"
+                               LineHeight="1.3"
+                               HorizontalTextAlignment="Start"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" VerticalOptions="Center">
+                        <Image Source="{Binding Image,Converter={StaticResource imageconverter}}" HeightRequest="350" VerticalOptions="Center"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Column="1"
+                      RowDefinitions="*">
+                        <StackLayout Spacing="10" >
+                        <Label Text="Electric Voice Speaker, the ultimate audio companion for all your entertainment needs! This sleek and powerful device was carefully designed to deliver a healthy immersive experience like never before. The speaker's modern design effortlessly complements any interior decor. Its compact size makes it easy to place on a shelf, countertop, or desk. "
+                               FontSize="16"
+                               MaxLines="7"
+                               FontFamily="Roboto-Regular"
+                               LineBreakMode="WordWrap"
+                               LineHeight="1.3"
+                               Margin="22,15,1,5"/>
+                        
+                            <Label Text="{Binding TotalPrice}"
+								   Margin="22,0" 
+                                   TextColor="#512bd4" 
+                                   FontSize="20"
+                                   FontFamily="Roboto-Medium"
+                                   FontAttributes="Bold"/>
+                        <StackLayout Margin="22,0,22,15" Spacing="15">
+                            <Label FontFamily="Roboto-Medium"
+                                   Text="Pick a color"/>
+                            <core:SfChipGroup ChipPadding="2,0,0,0"
+                                                
+                                                ItemsSource="{Binding ColorItems}"
+                                                SelectedItem="{Binding SelectedColorItem,Mode=TwoWay}"
+                                                SelectionIndicatorColor="White"
+                                                ChipStroke="#ECECEF"
+                                                ChipStrokeThickness="2"
+                                                ChipType="Choice">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="ChipTextColor" Value="Black" />
+                                                <Setter Property="ChipBackground" Value="#F4F4F5" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="ChipTextColor" Value="White" />
+                                                <Setter Property="ChipBackground" Value="#512bd4" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </core:SfChipGroup>
+
+                        </StackLayout>
+
+                        <StackLayout Margin="22,0,0,15" Spacing="15">
+                            <Label Text="Add ons" FontFamily="Roboto-Medium"/>
+							<ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                                <core:SfChipGroup ChipPadding="2,0,0,0"                                                   
+                                                  ItemsSource="{Binding AddOnItems}"
+                                                  SelectedItem="{Binding SelectedAddOnItems}"
+                                                  SelectionIndicatorColor="White"
+                                                  ChipStroke="#ECECEF"
+                                                  SelectionChanged="SfChipGroup_SelectionChanged"
+                                                  ChipStrokeThickness="2"
+                                                  ChipType="Filter">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="ChipTextColor" Value="Black" />
+                                                <Setter Property="ChipBackground" Value="#F4F4F5" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="ChipTextColor" Value="White" />
+                                                <Setter Property="ChipBackground" Value="#512bd4" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </core:SfChipGroup>
+							</ScrollView>
+						</StackLayout>
+
+                        <StackLayout Margin="22,0,22,10" Spacing="15">
+                            <HorizontalStackLayout Spacing="3">
+                                <Label Text="Delivery options" FontFamily="Roboto-Medium"/>
+                                <Label Text="{Binding Date}" FontFamily="Roboto-Regular" Opacity=".54"/>
+                            </HorizontalStackLayout>
+                            <core:SfChipGroup ChipPadding="2,0,0,0" 
+                                                  
+                                                  ItemsSource="{Binding DeliveryOptions}" 
+                                                  SelectedItem="{Binding SelectedDeliveryOption,Mode=TwoWay}"
+                                                  ChipStroke="#ECECEF"
+                                                  ChipStrokeThickness="2"
+                                                  ChipType="Choice">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="ChipTextColor" Value="Black" />
+                                                <Setter Property="ChipBackground" Value="#F4F4F5" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="ChipTextColor" Value="White" />
+                                                <Setter Property="ChipBackground" Value="#512bd4" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+
+                            </core:SfChipGroup>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="25,15,0,10"  VerticalOptions="Start">
+                            <Button 
+                                WidthRequest="395" BackgroundColor="#512bd4" FontFamily="Roboto-Regular"
+                                CornerRadius="12"
+                                Text="Add to cart"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

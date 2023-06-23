@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Viewer">
+		<Control Title="PDF Viewer" StatusTag="Updated" IsPreview="True" ControlName="SfPdfViewer" Image="pdfviewer.png" Description="View the PDF documents seamlessly and efficiently">
+			<Sample Title="Getting Started" StatusTag="Updated" SampleName="GettingStarted" Description="This sample demonstrates how to load and view a PDF document in the PDF viewer." SearchTags="pdf, view pdf, pdf viewer, viewer, pdf reader" CodeViewerPath="PdfViewer/GettingStarted/View/" VideoLink="https://www.youtube.com/watch?v=KdXoeL5wvkA"/>
+			<Sample Title="Custom Toolbar" SampleName="CustomToolbar" Description="This sample demonstrates how to create a custom toolbar and perform functionalities using the APIs." SearchTags="pdf, view pdf, pdf viewer, viewer, pdf reader, toolbar, custom toolbar" CodeViewerPath="PdfViewer/CustomToolbar/View/" />
+			<Sample Title="Password-Protected" SampleName="PasswordProtected" Description="This sample demonstrates how to load a password-protected PDF document in the PDF viewer." CodeViewerPath="PdfViewer/PasswordProtected/View/" />
+			<Sample Title="Right-to-Left" SampleName="RightToLeft" Description="This sample demonstrates the Right-to-Left flow direction of the PDF viewer." CodeViewerPath="PdfViewer/RightToLeft/View/" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

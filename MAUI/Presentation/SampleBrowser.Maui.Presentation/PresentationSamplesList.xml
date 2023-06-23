@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="File Formats">
+		<Control Title="Presentation" ControlName="Presentation" Image="presentation.png" Description="A .NET PowerPoint library to create, read, and edit PowerPoint files programmatically." StatusTag="Updated">
+			<Sample SearchTags="create, presentation, powerpoint" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="Presentation/GettingStarted" />
+			<Category Title="Conversions">
+				<Sample SearchTags="image, powerpoint, convert, pptx-to-image" SampleName="PPTXToImage" Title="PPTX To Image" CodeViewerPath="Presentation/PPTXToImage" />
+				<Sample SearchTags="pdf, powerpoint, convert, pptx-to-pdf" SampleName="PPTXToPDF" Title="PPTX To PDF" CodeViewerPath="Presentation/PPTXToPDF" />
+			</Category>
+			<Sample SearchTags="encrypt, decrypt, security" SampleName="EncryptAndDecrypt" Title="Encrypt and Decrypt" CodeViewerPath="Presentation/EncryptAndDecrypt" />
+			<Sample SearchTags="find, powerpoint, replace, find-and-replace" SampleName="FindAndReplace" Title="Find And Replace" CodeViewerPath="Presentation/FindAndReplace" StatusTag="Updated"/>
+			<Category Title="Slide Elements">
+				<Sample SearchTags="chart, legend, axis" SampleName="Chart" Title="Chart" CodeViewerPath="Presentation/Chart" />
+				<Sample SearchTags="create, slide, powerpoint" SampleName="Slide" Title="Slide" CodeViewerPath="Presentation/Slide" />
+				<Sample SearchTags="table, create, format, powerpoint" SampleName="Table" Title="Table" CodeViewerPath="Presentation/Table" />
+				<Sample SearchTags="header, footer, insert, powerpoint" SampleName="HeaderAndFooter" Title="Header and Footer" CodeViewerPath="Presentation/HeaderAndFooter" />
+			</Category>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

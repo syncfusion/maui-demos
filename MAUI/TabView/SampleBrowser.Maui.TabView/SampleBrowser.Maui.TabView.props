@@ -1,0 +1,40 @@
+<Project>
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TabView\TabViewGettingStarted\TabViewGettingStarted.xaml.cs">
+			<Link>Samples\TabView\TabViewGettingStarted\TabViewGettingStarted.xaml.cs</Link>
+			<DependentUpon>TabViewGettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TabView\SizeToContent\SizeToContent.xaml.cs">
+			<Link>Samples\TabView\SizeToContent\SizeToContent.xaml.cs</Link>
+			<DependentUpon>SizeToContent.xaml</DependentUpon>
+		</Compile>
+  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TabView\Customization\Customization.xaml.cs">
+			<Link>Samples\TabView\Customization\Customization.xaml.cs</Link>
+			<DependentUpon>Customization.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+ 
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\TabViewSamplesList.xml" >
+			<Link>TabViewSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TabView\TabViewGettingStarted\TabViewGettingStarted.xaml">
+			<Link>Samples\TabView\TabViewGettingStarted\TabViewGettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TabView\SizeToContent\SizeToContent.xaml">
+			<Link>Samples\TabView\SizeToContent\SizeToContent.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TabView\Customization\Customization.xaml">
+			<Link>Samples\TabView\Customization\Customization.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

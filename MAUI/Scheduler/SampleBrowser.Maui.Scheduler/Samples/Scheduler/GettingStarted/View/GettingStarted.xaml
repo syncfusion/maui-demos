@@ -1,0 +1,175 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.GettingStarted"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <schedule:SfScheduler x:Name="Scheduler" 
+                                 AppointmentsSource="{Binding Events}"
+                                 MinimumDateTime="{Binding MinDateTime}"
+                                 MaximumDateTime="{Binding MaxDateTime}"
+                                 DisplayDate="{Binding DisplayDate}"
+                                 ShowWeekNumber="True"
+                                 AllowViewNavigation="True"
+                                 AllowAppointmentDrag="False"
+                                 AllowedViews="Day,Week,WorkWeek,Month,Agenda"
+                                 View="Week" >
+                <schedule:SfScheduler.MonthView>
+                    <schedule:SchedulerMonthView 
+                                 AppointmentDisplayMode="Text"/>
+                </schedule:SfScheduler.MonthView>
+                <schedule:SfScheduler.DaysView>
+                    <schedule:SchedulerDaysView 
+                                 MinimumAppointmentDuration="0:30:0" />
+                </schedule:SfScheduler.DaysView>
+                <schedule:SfScheduler.Behaviors>
+                    <local:SchedulerBehavior/>
+                </schedule:SfScheduler.Behaviors>
+                <schedule:SfScheduler.BindingContext>
+                    <local:SchedulerGettingStartedViewModel/>
+                </schedule:SfScheduler.BindingContext>
+                </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <StackLayout Orientation="Vertical">
+
+            <Grid x:Name="allowViewNavigationGrid" HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Allow view navigation"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="Gray"/>
+                <Switch  x:Name="allowViewNavigationSwitch"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         VerticalOptions="Center"
+                         IsToggled="True"
+                         HorizontalOptions="End">
+                </Switch>
+
+             </Grid>
+
+            <Grid x:Name="weekNumberGrid" HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Show week number"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="Gray"/>
+                <Switch  x:Name="weekNumberSwitch"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         IsToggled="True"
+                         VerticalOptions="Center"
+                         HorizontalOptions="End">
+                </Switch>
+
+              </Grid>
+
+                <Grid x:Name="trailingDatesGrid" HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Show trailing and leading dates"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="Gray"/>
+                    <Switch  x:Name="trailingDatesSwitch"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         IsToggled="True"
+                         VerticalOptions="Center"
+                         HorizontalOptions="End">
+                    </Switch>
+                </Grid>
+
+                <Grid x:Name="currentTimeIndicatorGrid" HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Show current time indicator"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="Gray"/>
+                <Switch  x:Name="currentTimeIndicatorSwitch"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         VerticalOptions="Center"
+                         IsToggled="True"
+                         HorizontalOptions="End">
+                </Switch>
+               </Grid>
+
+            <Grid x:Name="visibleDaysGrid" HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Show 3 days View "
+                        x:Name="visibleDaysLabel"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        TextColor="Gray"/>
+                <Switch  x:Name="visibleDaysSwitch"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         VerticalOptions="Center"
+                         Margin="5,0,0,0"
+                         HorizontalOptions="End">
+                </Switch>
+              </Grid>
+
+            </StackLayout>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:GettingStartedBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

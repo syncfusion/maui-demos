@@ -1,0 +1,31 @@
+<Project>
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Backdrop\Backdrop.xaml.cs">
+			<Link>Samples\Backdrop\Backdrop.xaml.cs</Link>
+			<DependentUpon>Backdrop.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Backdrop\InitialPage.xaml.cs">
+			<Link>Samples\Backdrop\InitialPage.xaml.cs</Link>
+			<DependentUpon>InitialPage.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Backdrop\TitleConverter.cs">
+			<Link>Samples\Backdrop\TitleConverter.cs</Link>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\BackdropSamplesList.xml" >
+			<Link>BackdropSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Backdrop\Backdrop.xaml">
+			<Link>Samples\Backdrop\Backdrop.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Backdrop\InitialPage.xaml">
+			<Link>Samples\Backdrop\InitialPage.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+</Project>

@@ -1,0 +1,256 @@
+<Project>
+	<ItemGroup> 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\AttendanceTracker\AttendanceTracker.xaml.cs">
+			<Link>Samples\XlsIO\AttendanceTracker\AttendanceTracker.xaml.cs</Link>
+			<DependentUpon>AttendanceTracker.xaml</DependentUpon>
+		</Compile>
+	
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\AutoShapes\AutoShapes.xaml.cs">
+			<Link>Samples\XlsIO\AutoShapes\AutoShapes.xaml.cs</Link>
+			<DependentUpon>AutoShapes.xaml</DependentUpon>
+		</Compile>
+  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Chart\Chart.xaml.cs">
+			<Link>Samples\XlsIO\Chart\Chart.xaml.cs</Link>
+			<DependentUpon>Chart.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\CreateSpreadsheet\CreateSpreadsheet.xaml.cs">
+			<Link>Samples\XlsIO\CreateSpreadsheet\CreateSpreadsheet.xaml.cs</Link>
+			<DependentUpon>CreateSpreadsheet.xaml</DependentUpon>
+		</Compile>
+		 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\DataValidation\DataValidation.xaml.cs">
+			<Link>Samples\XlsIO\DataValidation\DataValidation.xaml.cs</Link>
+			<DependentUpon>DataValidation.xaml</DependentUpon>
+		</Compile>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\ExcelToPDF\ExcelToPDF.xaml.cs">
+			<Link>Samples\XlsIO\ExcelToPDF\ExcelToPDF.xaml.cs</Link>
+			<DependentUpon>ExcelToPDF.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\ExpensesReport\ExpensesReport.xaml.cs">
+			<Link>Samples\XlsIO\ExpensesReport\ExpensesReport.xaml.cs</Link>
+			<DependentUpon>ExpensesReport.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Formula\Formula.xaml.cs">
+			<Link>Samples\XlsIO\Formula\Formula.xaml.cs</Link>
+			<DependentUpon>Formula.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Table\Table.xaml.cs">
+			<Link>Samples\XlsIO\Table\Table.xaml.cs</Link>
+			<DependentUpon>Table.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\TemplateMarker\TemplateMarker.xaml.cs">
+			<Link>Samples\XlsIO\TemplateMarker\TemplateMarker.xaml.cs</Link>
+			<DependentUpon>TemplateMarker.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\WorksheetToImage\WorksheetToImage.xaml.cs">
+			<Link>Samples\XlsIO\WorksheetToImage\WorksheetToImage.xaml.cs</Link>
+			<DependentUpon>WorksheetToImage.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Slicer\Slicer.xaml.cs">
+			<Link>Samples\XlsIO\Slicer\Slicer.xaml.cs</Link>
+			<DependentUpon>Slicer.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Customer.cs">
+			<Link>Services\Customer.cs</Link>
+		</Compile>
+	</ItemGroup> 
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\XlsIOSamplesList.xml" >
+			<Link>XlsIOSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\AttendanceTracker\AttendanceTracker.xaml">
+			<Link>Samples\XlsIO\AttendanceTracker\AttendanceTracker.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\AutoShapes\AutoShapes.xaml">
+			<Link>Samples\XlsIO\AutoShapes\AutoShapes.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Chart\Chart.xaml">
+			<Link>Samples\XlsIO\Chart\Chart.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\CreateSpreadsheet\CreateSpreadsheet.xaml">
+			<Link>Samples\XlsIO\CreateSpreadsheet\CreateSpreadsheet.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\DataValidation\DataValidation.xaml">
+			<Link>Samples\XlsIO\DataValidation\DataValidation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\ExcelToPDF\ExcelToPDF.xaml">
+			<Link>Samples\XlsIO\ExcelToPDF\ExcelToPDF.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\ExpensesReport\ExpensesReport.xaml">
+			<Link>Samples\XlsIO\ExpensesReport\ExpensesReport.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Formula\Formula.xaml">
+			<Link>Samples\XlsIO\Formula\Formula.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Table\Table.xaml">
+			<Link>Samples\XlsIO\Table\Table.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\TemplateMarker\TemplateMarker.xaml">
+			<Link>Samples\XlsIO\TemplateMarker\TemplateMarker.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\WorksheetToImage\WorksheetToImage.xaml">
+			<Link>Samples\XlsIO\WorksheetToImage\WorksheetToImage.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Slicer\Slicer.xaml">
+			<Link>Samples\XlsIO\Slicer\Slicer.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\CLRObjects.xml">
+      <Link>Resources\XlsIO\CLRObjects.xml</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\ExpenseReport.xlsx" >
+      <Link>Resources\XlsIO\ExpenseReport.xlsx</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\ExcelTopdfwithChart.xlsx" >
+      <Link>Resources\XlsIO\ExcelTopdfwithChart.xlsx</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\ExportData.xlsx" >
+      <Link>Resources\XlsIO\ExportData.xlsx</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\FormulaTemplate.xlsx" >
+      <Link>Resources\XlsIO\FormulaTemplate.xlsx</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\ChartData.xlsx" >
+      <Link>Resources\XlsIO\ChartData.xlsx</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\TemplateMarker.xlsx" >
+      <Link>Resources\XlsIO\TemplateMarker.xlsx</Link>
+    </EmbeddedResource> 
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\TableSlicer.xlsx" >
+      <Link>Resources\XlsIO\TableSlicer.xlsx</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man1.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man1.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man10.png" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man10.png</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man11.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man11.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man12.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man12.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man13.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man13.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man14.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man14.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man15.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man15.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man16.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man16.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man17.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man17.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man18.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man18.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man2.png" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man2.png</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man3.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man3.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man4.png" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man4.png</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man5.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man5.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man6.png" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man6.png</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man7.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man7.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man8.png" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man8.png</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man9.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Man9.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman1.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman1.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman10.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman10.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman11.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman11.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman12.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman12.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman13.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman13.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman14.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman14.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman2.png" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman2.png</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman3.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman3.jpg</Link>
+    </EmbeddedResource> 	
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman4.png" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman4.png</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman5.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman5.jpg</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman6.png" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman6.png</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman7.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman7.jpg</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman8.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman8.jpg</Link>
+    </EmbeddedResource> 	
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Woman9.jpg" >
+      <Link>Resources\XlsIO\Template_Marker_Images\Woman9.jpg</Link>
+    </EmbeddedResource> 	
+	</ItemGroup>
+</Project>
