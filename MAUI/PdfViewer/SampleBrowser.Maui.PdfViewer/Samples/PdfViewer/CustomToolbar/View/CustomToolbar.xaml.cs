@@ -13,36 +13,51 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 [XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class CustomToolbar : SampleView
 {
-    private int targetPageNumber = 0;
-    private bool pageNumberChanged = false;
     private string? previousDocument = string.Empty;
     //It is used to delay the current thread's execution, until the user enters the password.
     ManualResetEvent manualResetEvent = new ManualResetEvent(false);
-    SearchView searchView;
+    ToolbarView? toolbar;
+
 #if ANDROID || IOS
     private ViewCell? lastCell;
 #endif
+
+    public SearchView SearchView { get; set; }
 
     public CustomToolbar()
     {
         InitializeComponent();
 #if ANDROID || IOS
-        searchView = MobileSearchView;
+        SearchView = MobileSearchView;
+        toolbar = MobileToolbar;
 #else
-        searchView = DesktopSearchView;
+        SearchView = DesktopSearchView;
+        toolbar = DesktopToolbar;
 #endif
-        searchView.SearchHelper = PdfViewer;
-        searchView.NoMatchesFound += NoMatchesFound;
+        UpdateToolbarProperties();
+        SearchView.SearchHelper = PdfViewer;
+        SearchView.NoMatchesFound += NoMatchesFound;
+
 #if WINDOWS
         //Note: Due to known MAUI issue (#13714) in Entry control when the property "IsVisible=false" by default, the mentioned property is set after the control is loaded.
-        if (searchView.SearchInputEntry != null)
-            searchView.SearchInputEntry.Loaded += SearchInputEntryLoaded;
+        if (SearchView.SearchInputEntry != null)
+            SearchView.SearchInputEntry.Loaded += SearchInputEntryLoaded;
 #endif            
     }
+
+    void UpdateToolbarProperties()
+    {
+        if (toolbar != null)
+        {
+            toolbar.ParentView = this;
+            toolbar.PdfViewer = PdfViewer;
+        }
+    }
+
     private void SearchInputEntryLoaded(object? sender, EventArgs e)
     {
-        if (searchView != null)
-            searchView.IsVisible = false;
+        if (SearchView != null)
+            SearchView.IsVisible = false;
     }
 
     private void NoMatchesFound(object? sender, EventArgs e)
@@ -58,8 +73,8 @@ public partial class CustomToolbar : SampleView
         if (this.BindingContext is CustomToolbarViewModel bindingContext && e?.Title == "Incorrect Password")
             bindingContext.UpdateFileName("Password protected PDF");
     }
-    
-    private void CloseAllDialogs()
+
+    internal void CloseAllDialogs()
     {
         if (BindingContext is CustomToolbarViewModel bindingContext)
             bindingContext?.CloseAllDialogsCommand?.Execute(true);
@@ -76,64 +91,6 @@ public partial class CustomToolbar : SampleView
     }
 
     /// <summary>
-    /// Handles the page number validation when the page number is typed in the entry.
-    /// </summary>
-    void pageNumberEntry_TextChanged(System.Object sender, Microsoft.Maui.Controls.TextChangedEventArgs e)
-    {
-        var entry = (Entry)sender;
-        if (entry != null && entry.IsFocused && !string.IsNullOrEmpty(entry.Text))
-        {
-            bool isNumber = int.TryParse(entry.Text, out targetPageNumber);
-            if (isNumber)
-            {
-                pageNumberChanged = true;
-                entry.Text = targetPageNumber.ToString();
-            }
-            else
-            {
-                entry.Text = e.OldTextValue;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Handles when the page number entry is unfocused.
-    /// </summary>
-    void pageNumberEntry_Unfocused(System.Object sender, Microsoft.Maui.Controls.FocusEventArgs e)
-    {
-        var entry = (Entry)sender;
-        if (PdfViewer != null && PdfViewer.PageCount != 0)
-            entry.Text = PdfViewer.PageNumber.ToString();
-    }
-
-    /// <summary>
-    /// Handles when the page number is entered in the entry.
-    /// </summary>
-    private void GoToEntry_Completed(object sender, EventArgs e)
-    {
-        // When the enter key is pressed, the soft keyboard hides.
-#if ANDROID
-        if (Platform.CurrentActivity?.CurrentFocus != null)
-            Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-#endif
-        if (sender is Entry entry && pageNumberChanged && targetPageNumber != PdfViewer.PageNumber)
-        {
-            if (targetPageNumber > 0 && targetPageNumber <= PdfViewer.PageCount)
-            {
-                PdfViewer.GoToPage(targetPageNumber);
-                pageNumberChanged = false;
-            }
-            else
-            {
-                // Shows the invalid page number to the user when trying to go to the entered page number when the loaded PDF document does not have a page number.
-                MainThread.BeginInvokeOnMainThread(() => messageBox.Show("Error", "Invalid Page Number"));
-                entry.Text = PdfViewer.PageNumber.ToString();
-            }
-            MainThread.BeginInvokeOnMainThread(() => entry.Unfocus());
-        }
-    }
-
-    /// <summary>
     /// Handles when a Pdf is tapped.
     /// </summary>
     private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -146,15 +103,6 @@ public partial class CustomToolbar : SampleView
         {
             bindingContext.IsFilePickerVisible = false;
         }
-    }
-
-    /// <summary>
-    /// Handles when the page number entry is focused.
-    /// </summary>
-    private void pageNumberEntry_Focused(object sender, FocusEventArgs e)
-    {
-        if (this.BindingContext is CustomToolbarViewModel bindingContext && bindingContext.IsFilePickerVisible)
-            bindingContext.IsFilePickerVisible = false;
     }
 
     /// <summary>
@@ -205,7 +153,7 @@ public partial class CustomToolbar : SampleView
     /// </summary>
     private void PdfViewer_HyperlinkClicked(object sender, HyperlinkClickedEventArgs e)
     {
-        searchView?.Close();
+        SearchView?.Close();
         CloseAllDialogs();
         e.Handled = true;
         if (e.Uri != null)
@@ -230,9 +178,9 @@ public partial class CustomToolbar : SampleView
     {
         MainThread.BeginInvokeOnMainThread(() =>
         {
-            searchButton.IsEnabled = false;
-            outlineButton.IsEnabled = false;
-            searchView?.Close();
+            toolbar!.SearchButton!.IsEnabled = false;
+            toolbar!.OutlineButton!.IsEnabled = false;
+            SearchView?.Close();
             CloseAllDialogs();
         });
         e.Handled = true;
@@ -270,8 +218,8 @@ public partial class CustomToolbar : SampleView
         }
         MainThread.BeginInvokeOnMainThread(() =>
         {
-        searchButton.IsEnabled = true;
-        outlineButton.IsEnabled = true;
+            toolbar!.SearchButton!.IsEnabled = true;
+            toolbar!.OutlineButton!.IsEnabled = true;
         });
     }
 
@@ -284,37 +232,20 @@ public partial class CustomToolbar : SampleView
         {
             bindingContext.IsDocumentLoaded = false;
         }
-        searchButton.IsEnabled = false;
-        outlineButton.IsEnabled = false;
-        searchView?.Close();
-    }
-
-    private void Search_Clicked(object sender, EventArgs e)
-    {
-        CloseAllDialogs();
-        MainThread.BeginInvokeOnMainThread(()=> searchView?.Open());
-    }
-
-    private void outlineButton_Clicked(object sender, EventArgs e)
-    {
-        searchView?.Close();
-        if (BindingContext is CustomToolbarViewModel viewModel)
-        {
-            if (!viewModel.ShowOutlineView)
-                CloseAllDialogs();
-            viewModel.ShowOutlineView = !viewModel.ShowOutlineView;
-        }
+        toolbar!.SearchButton!.IsEnabled = false;
+        toolbar!.OutlineButton!.IsEnabled = false;
+        SearchView?.Close();
     }
 
     private void PdfViewer_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(PdfViewer.IsOutlineViewVisible) && !PdfViewer.IsOutlineViewVisible)
         {
-            pageNumberEntry.HideKeyboard();
+            toolbar!.PageNumberEntry?.HideKeyboard();
         }
         if (e.PropertyName == nameof(PdfViewer.IsOutlineViewVisible) && DeviceInfo.Current.Idiom == DeviceIdiom.Phone)
         {
-            topToolbar.IsVisible = !PdfViewer.IsOutlineViewVisible;
+            toolbar!.IsVisible = !PdfViewer.IsOutlineViewVisible;
         }
     }
 }

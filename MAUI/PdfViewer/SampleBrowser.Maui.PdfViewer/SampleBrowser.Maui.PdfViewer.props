@@ -31,6 +31,14 @@
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewMobile.xaml.cs</Link>
 			<DependentUpon>SearchViewMobile.xaml</DependentUpon>
 		</Compile>		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml.cs</Link>
+			<DependentUpon>SearchViewDesktop.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml.cs</Link>
+			<DependentUpon>SearchViewMobile.xaml</DependentUpon>
+		</Compile>		
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Model\PdfData.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\Model\PdfData.cs</Link>
 		</Compile>
@@ -43,6 +51,9 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchView.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchView.cs</Link>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarView.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarView.cs</Link>
+		</Compile>		
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\View\PasswordProtected.xaml.cs">
 			<Link>Samples\PdfViewer\PasswordProtected\View\PasswordProtected.xaml.cs</Link>
 		</Compile>
@@ -114,6 +125,12 @@
 		</MauiXaml>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewMobile.xaml">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewMobile.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml</Link>
 		</MauiXaml>		
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\View\PasswordProtected.xaml">
 			<Link>Samples\PdfViewer\PasswordProtected\View\PasswordProtected.xaml</Link>

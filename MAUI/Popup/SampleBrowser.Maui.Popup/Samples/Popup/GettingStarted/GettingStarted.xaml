@@ -79,7 +79,7 @@
 
                 <popup:SfPopup.FooterTemplate>
                     <DataTemplate>
-                        <Grid ColumnSpacing="12">
+                        <Grid ColumnSpacing="12" Padding="24">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -115,7 +115,7 @@
 
                 <popup:SfPopup.FooterTemplate>
                     <DataTemplate>
-                        <Grid ColumnSpacing="12">
+                        <Grid ColumnSpacing="12" Padding="24">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -153,7 +153,7 @@
 
                 <popup:SfPopup.FooterTemplate>
                     <DataTemplate>
-                        <Grid ColumnSpacing="12">
+                        <Grid ColumnSpacing="12" Padding="24">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -174,7 +174,7 @@
                            Style="{StaticResource PopupStyle}">
                 <popup:SfPopup.HeaderTemplate>
                     <DataTemplate>
-                        <Grid VerticalOptions="Center" Padding="8, 0, 0, 0">
+                        <Grid VerticalOptions="Center" Padding="24, 0, 0, 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>                                
@@ -245,7 +245,7 @@
 
                 <popup:SfPopup.FooterTemplate>
                     <DataTemplate>
-                        <Button Text="Add account" WidthRequest="289" HeightRequest="40" Style="{StaticResource AcceptButtonStyle}" VerticalOptions="Start" HorizontalOptions="Center"
+                        <Button Text="Add account" WidthRequest="289" HeightRequest="40" Style="{StaticResource AcceptButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center"
                                     Command="{Binding Source={x:Reference viewModel},Path=AcceptCommand}" CommandParameter="{x:Reference simple}"/>
                     </DataTemplate>
                 </popup:SfPopup.FooterTemplate>
@@ -303,7 +303,7 @@
                 <popup:SfPopup.FooterTemplate>
                     <DataTemplate>
                         <Label Text="OK" FontSize="14" FontFamily="Roboto-Medium" TextColor="#6750A4" CharacterSpacing="0.5"
-                               HorizontalTextAlignment="End" VerticalTextAlignment="Center" Margin="0,0,10,0">
+                               HorizontalTextAlignment="End" VerticalTextAlignment="Center" Margin="0,0,24,0">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:Reference viewModel},Path=AcceptCommand}" CommandParameter="{x:Reference confirmation}"/>
                             </Label.GestureRecognizers>
@@ -420,7 +420,7 @@
 
                 <popup:SfPopup.HeaderTemplate>
                     <DataTemplate>
-                        <Grid ColumnSpacing="12" Padding="8,0,0,0">
+                        <Grid ColumnSpacing="12" Padding="24,0,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -605,7 +605,7 @@
 
                 <popup:SfPopup.FooterTemplate>
                     <DataTemplate>
-                        <Grid ColumnSpacing="12">
+                        <Grid ColumnSpacing="12" Padding="24">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>

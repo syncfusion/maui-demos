@@ -18,9 +18,9 @@ public partial class ChipCustomizationDesktop : SampleView
     }
         private void TextColorSegment_Clicked(object sender, EventArgs e)
     {
-        chipgroup.ChipTextColor = Color.FromArgb("#f2f3f4");
-        chipgroup.SelectionIndicatorColor = Color.FromArgb("#f2f3f4");
-        chipgroup.CloseButtonColor = Color.FromArgb("#f2f3f4");
+        chipgroup.ChipTextColor = Color.FromArgb("#E5E4E2");
+        chipgroup.SelectionIndicatorColor = Color.FromArgb("#E5E4E2");
+        chipgroup.CloseButtonColor = Color.FromArgb("#E5E4E2");
     }
 
 
@@ -53,7 +53,7 @@ public partial class ChipCustomizationDesktop : SampleView
     }
     private void BackgroundColorSegment_Clicked(object sender, EventArgs e)
     {
-        chipgroup.ChipBackground = Color.FromArgb("#f2f3f4");
+        chipgroup.ChipBackground = Color.FromArgb("#E5E4E2");
     }
 
     private void BackgroundColorSegment_Clicked_1(object sender, EventArgs e)
@@ -78,7 +78,7 @@ public partial class ChipCustomizationDesktop : SampleView
 
     private void BorderColorSegment_Clicked(object sender, EventArgs e)
     {
-        chipgroup.ChipStroke = Color.FromArgb("#f2f3f4");
+        chipgroup.ChipStroke = Color.FromArgb("#E5E4E2");
     }
     private void BorderColorSegment_Clicked_1(object sender, EventArgs e)
     {

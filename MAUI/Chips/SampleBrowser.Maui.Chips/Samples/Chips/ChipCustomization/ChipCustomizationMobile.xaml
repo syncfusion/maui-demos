@@ -51,39 +51,26 @@
             <Grid Grid.Row="1" Margin="18,5,11,5">
                 <ScrollView>
                     <StackLayout>
-                        <StackLayout   Orientation="Horizontal" >
-                            <StackLayout.Spacing>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="Android" Value="53"/>
-                                <On Platform="iOS" Value="55"/>
-                            </OnPlatform>
-                        </StackLayout.Spacing>
-                            <HorizontalStackLayout  HorizontalOptions="Start">
-                                <HorizontalStackLayout.Margin>
-                            <OnPlatform x:TypeArguments="Thickness">
-
-                                <On Platform="iOS" Value="-10,0,0,0"/>
-                            </OnPlatform>
-                        </HorizontalStackLayout.Margin>
-                          
-                                <CheckBox IsChecked="{Binding IsShownIcon}"/>
-                                <Label Text="Icon" FontFamily="Roboto-Regular" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout HorizontalOptions="Center">
-                                <CheckBox IsChecked="{Binding IsShownSelection}"/>
-                                <Label Text="Selection" FontFamily="Roboto-Regular" VerticalOptions="Center" />
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout HorizontalOptions="End">
-                                <CheckBox IsChecked="{Binding IsShownCloseButton}"/>
-                                <Label Text="Close Icon" FontFamily="Roboto-Regular" VerticalOptions="Center" />
-                            </HorizontalStackLayout>
-                        </StackLayout>
-                        <core:SfTextInputLayout ContainerType="Outlined" Margin="2,10,10,0"
+						<Grid ColumnDefinitions="*,*,*">
+							<HorizontalStackLayout Grid.Column="0" HorizontalOptions="Start">
+								<CheckBox IsChecked="{Binding IsShownIcon}"/>
+								<Label Text="Icon" FontFamily="Roboto-Regular" VerticalOptions="Center"/>
+							</HorizontalStackLayout>
+							<HorizontalStackLayout Grid.Column="1" HorizontalOptions="Start" Margin="-5,0,0,0">
+								<CheckBox IsChecked="{Binding IsShownSelection}"/>
+								<Label Text="Selection" FontFamily="Roboto-Regular" VerticalOptions="Center" />
+							</HorizontalStackLayout>
+							<HorizontalStackLayout Grid.Column="2" HorizontalOptions="Start" Margin="10,0,0,0">
+								<CheckBox IsChecked="{Binding IsShownCloseButton}"/>
+								<Label Text="Close Icon" FontFamily="Roboto-Regular" VerticalOptions="Center" />
+							</HorizontalStackLayout>
+						</Grid>
+						<core:SfTextInputLayout ContainerType="Outlined" Margin="2,10,10,0" ContainerBackground="Transparent"
                                                 Hint="Name">
-                            <Entry  TextColor="#212121" FontFamily="Roboto-Regular"
+							<Entry  TextColor="#212121" FontFamily="Roboto-Regular"
                                     Style="{StaticResource EntryNormalStyle}"
                                     Text="{Binding Text,Mode=TwoWay}" />
-                        </core:SfTextInputLayout>
+						</core:SfTextInputLayout>
                         <StackLayout Margin="5,0,12,0">
                             <tabView:SfTabView WidthRequest="340"
                                                HorizontalOptions="Center"

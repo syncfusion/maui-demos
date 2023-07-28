@@ -40,7 +40,7 @@
                 </core:SfChipGroup>
             </StackLayout>
             </ScrollView>
-                <Frame Grid.Column="1" CornerRadius="8"  Margin="40,40,10,50" Padding="10,10,0,0" BackgroundColor="#f6f6f8" >
+                <Frame Grid.Column="1" CornerRadius="8" HasShadow="False"  Margin="40,40,10,50" Padding="10,10,0,0" BackgroundColor="#f6f6f8" >
                 <StackLayout  Spacing="10" >
                         <StackLayout Margin="14,5,33,0">
                     <tabView:SfTabView WidthRequest="300"
@@ -64,7 +64,7 @@
                                         <Button WidthRequest="40" 
                                                         HeightRequest="40" 
                                                         CornerRadius="20" 
-                                                        BackgroundColor="#f2f3f4" 
+                                                        BackgroundColor="#E5E4E2" 
                                                         Clicked="TextColorSegment_Clicked"
                                                         x:Name="TextColorSegment" >
                                         </Button>
@@ -113,7 +113,7 @@
                                         <Button WidthRequest="40" 
                                                         HeightRequest="40" 
                                                         CornerRadius="20" 
-                                                        BackgroundColor="#f2f3f4" 
+                                                        BackgroundColor="#E5E4E2" 
                                                         Clicked="BackgroundColorSegment_Clicked"
                                                         x:Name="BackgroundColorSegment">
                                         </Button>
@@ -162,7 +162,7 @@
                                         <Button WidthRequest="40" 
                                                         HeightRequest="40" 
                                                         CornerRadius="20" 
-                                                        BackgroundColor="#f2f3f4" 
+                                                        BackgroundColor="#E5E4E2" 
                                                         Clicked="BorderColorSegment_Clicked"
                                                         x:Name="BorderColorSegment" >
                                         </Button>

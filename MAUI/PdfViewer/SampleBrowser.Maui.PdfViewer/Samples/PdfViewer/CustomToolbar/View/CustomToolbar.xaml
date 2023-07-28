@@ -41,93 +41,14 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid x:Name="topToolbar" Grid.Row="0" HeightRequest="48" BackgroundColor="#F3EDF7" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Text="&#xe712;"
-                        FontFamily= "Maui Material Assets"
-                        Margin="8,0,0,0"
-                        Grid.Column="0"
-                        HorizontalOptions="Start"
-                        Style="{StaticResource buttonIconStyle}"
-                        Command="{Binding OpenCloseFilePickerCommand}"/>
-                    <HorizontalStackLayout HorizontalOptions="Center"
-                    Spacing="8" Grid.Column="1">
-                        <Border BackgroundColor="#FFFFFFFF" Stroke="#66000000" StrokeShape="{OnPlatform Android=RoundRectangle 4, WinUI=RoundRectangle 4, MacCatalyst=RoundRectangle 5, iOS=RoundRectangle 5}" HeightRequest="{OnPlatform Android=30,WinUI=34, MacCatalyst=26, iOS=26}"
-                        Padding="{OnPlatform Android=5}" StrokeThickness="1">
-                            <!--Restricting the editing support in the Entry Android due to auto-focusing problems occurs while interacting with other Controls-->
-                            <local:CustomEntry 
-                                x:Name="pageNumberEntry"
-                                IsEnabled="{Binding IsDocumentLoaded}"
-                                Text="{Binding Source={x:Reference PdfViewer},Path=PageNumber}"
-                                MaxLength="4"
-                                Keyboard="Numeric"
-                                TextColor="#1C1B1F"
-                                BackgroundColor="Transparent"
-                                TextChanged="pageNumberEntry_TextChanged"
-                                Focused="pageNumberEntry_Focused"
-                                Unfocused="pageNumberEntry_Unfocused"
-                                Completed="GoToEntry_Completed"
-                                VerticalTextAlignment="Center"
-                                WidthRequest="40"
-                                HeightRequest="{OnPlatform Default=24, Android=40}"
-                                VerticalOptions="Center" 
-                                HorizontalTextAlignment="Center"/>
-                        </Border>
-                        <Label 
-                            Text=" / " 
-                            VerticalTextAlignment="Center" 
-                            HorizontalTextAlignment="Center"
-                            VerticalOptions="Center"/>
-                        <Label 
-                            Text="{Binding Source={x:Reference PdfViewer},Path=PageCount}" 
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            VerticalOptions="Center"
-                            Margin="0,0,4,0"/>
-                        <Button 
-                            Text="&#xe702;" FontSize="16"
-                            Margin="4,0,0,0"
-                            Style="{StaticResource buttonIconStyle}"
-                            IsVisible="{OnIdiom Default=True, Phone=False}"
-                            Command="{Binding Source={x:Reference PdfViewer},Path=GoToPreviousPageCommand}"/>
-                        <Button 
-                            Text="&#xe701;"  FontSize="16"
-                            Margin="4,0,0,0"
-                            Style="{StaticResource buttonIconStyle}"
-                            IsVisible="{OnIdiom Default=True, Phone=False}"
-                            Command="{Binding Source={x:Reference PdfViewer},Path=GoToNextPageCommand}"/>
-                        <Rectangle 
-                            Fill="#FF979797" Margin="4,0,0,0" HeightRequest="24" WidthRequest="{OnPlatform Default=2, Android=1, iOS=1 }"/>
-                        <Button 
-                            Text="&#xe704;" Margin="4,0,0,0"
-                            Style="{StaticResource buttonIconStyle}"
-                            Command="{Binding ZoomOutCommand}"/>
-                        <Button 
-                            Text="&#xe703;" Margin="4,0,0,0"
-                            Style="{StaticResource buttonIconStyle}"
-                            Command="{Binding ZoomInCommand}"/>
-                    </HorizontalStackLayout>
-                    <HorizontalStackLayout Grid.Column="2" Spacing="8" HorizontalOptions="End">
-                    <Button
-                        x:Name="outlineButton"
-                        Text="&#xe72c;" Margin="4,0,0,0"
-                        FontSize="20"
-                        FontFamily="Maui Material Assets"
-                        Style="{StaticResource buttonIconStyle}"
-                        Clicked="outlineButton_Clicked"/> 
-                    <Button
-                        x:Name="searchButton"
-                        Text="&#xe715;" Margin="0,0,8,0"
-                        FontSize="20"
-                        FontFamily="Maui Material Assets"
-                        Style="{StaticResource buttonIconStyle}"
-                        Clicked="Search_Clicked"/>
-                    </HorizontalStackLayout>
-                </Grid>
+                <local:ToolbarDesktop
+                    x:Name="DesktopToolbar" Grid.Row="0" 
+                    HeightRequest="48" BackgroundColor="#F3EDF7" 
+                    IsVisible="{OnPlatform Default=true,Android=false,iOS=false}"/>
+                <local:ToolbarMobile
+                    x:Name="MobileToolbar" Grid.Row="0" 
+                    HeightRequest="48" BackgroundColor="#F3EDF7"  
+                    IsVisible="{OnPlatform Default=false,Android=true,iOS=true}"/>
                 <local:SearchViewMobile 
                     x:Name="MobileSearchView"
                     Grid.Row="0" IsVisible="False"/>
@@ -158,7 +79,6 @@
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </syncfusion:SfPdfViewer.GestureRecognizers>
                 </syncfusion:SfPdfViewer>
-
                 <Frame 
                     x:Name="matchCaseView"
                     BackgroundColor="#F3EDF7"
@@ -177,7 +97,6 @@
                            Radius="8"
                            Opacity="0.15" />
                     </Frame.Shadow>
-
                     <Grid 
                         HorizontalOptions="Center"
                         VerticalOptions="Center">
@@ -185,7 +104,6 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <HorizontalStackLayout  Grid.Row="0">
-
                             <CheckBox 
                                 x:Name="matchCaseCheckBox" 
                                 IsChecked="{Binding Source={x:Reference MobileSearchView},Path=IsMatchCase}"
@@ -206,7 +124,6 @@
                         </HorizontalStackLayout>
                     </Grid>
                 </Frame>
-
                 <local:SearchViewDesktop
                     x:Name="DesktopSearchView"
                     Grid.Row="2" HorizontalOptions="End" VerticalOptions="Start"
@@ -233,11 +150,11 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </Border>
-                <local:PasswordDialogBox 
+                <local:PasswordDialogBox x:FieldModifier="public"
                     x:Name="passwordDialog" Grid.Row="0" Grid.RowSpan="3"
                     IsVisible="{Binding ShowPasswordDialog, Mode=TwoWay}"
                     PasswordDialogBoxClosed="passwordDialog_PasswordDialogClosed"/>
-                <local:MessageBox
+                <local:MessageBox x:FieldModifier="public"
                     CloseClicked="MessageBox_CloseClicked"
                     x:Name="messageBox" Grid.Row="0" Grid.RowSpan="3"
                     IsVisible="{Binding ShowMessageBoxDialog, Mode=TwoWay}"/>

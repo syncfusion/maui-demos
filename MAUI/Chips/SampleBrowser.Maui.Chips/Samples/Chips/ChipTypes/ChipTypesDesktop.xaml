@@ -24,9 +24,16 @@
 			  Margin="-10">
             <StackLayout>
                 <Label Text="Filter the item(s)" FontFamily="Roboto-Medium" FontSize="26" Margin="20,50,40,5"/>
-                <Image Source="{imageExtension:SfImageResource paymentform.png}" MinimumWidthRequest="40" MaximumHeightRequest="560" VerticalOptions="Center" />
+				<Image Source="{imageExtension:SfImageResource paymentform.png}"  VerticalOptions="Center" >
+					<Image.HeightRequest>
+						<OnPlatform x:TypeArguments="x:Double">
+							<On Platform="MacCatalyst" Value="500"/>
+							<On Platform="WinUI" Value="560"/>
+						</OnPlatform>
+					</Image.HeightRequest>
+				</Image>
             </StackLayout>
-            <Frame Margin="40,25,40,30" Grid.Column="1" CornerRadius="6" Padding="20,0,20,10">
+            <Frame Margin="40,25,40,30" HasShadow="False" Grid.Column="1" CornerRadius="6" Padding="20,0,20,10">
                 <ScrollView >
                     <StackLayout>
                         <Label FontFamily="Roboto-Medium"
@@ -139,7 +146,7 @@
                             </core:SfChipGroup>
                         </ScrollView>
                         <ScrollView>
-                            <Frame BackgroundColor="#f2f2f2" Padding="10,10,20,90"
+                            <Frame BackgroundColor="#f2f2f2" HasShadow="False" Padding="10,10,20,90"
 							   Margin="0,20,0,10" VerticalOptions="Start">
                                 <StackLayout>
                                     <Label FontFamily="Roboto-Medium" VerticalOptions="Start"

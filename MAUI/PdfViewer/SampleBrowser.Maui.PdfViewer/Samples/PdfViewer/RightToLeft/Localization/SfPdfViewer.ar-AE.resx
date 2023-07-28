@@ -159,4 +159,16 @@
   <data name="Copy" xml:space="preserve">
     <value>ينسخ</value>
   </data>
+  <data name="Highlight" xml:space="preserve">
+    <value>تسليط الضوء</value>
+  </data>
+  <data name="Squiggly" xml:space="preserve">
+    <value>متعرج</value>
+  </data>
+  <data name="Strikeout" xml:space="preserve">
+    <value>شطب</value>
+  </data>
+  <data name="Underline" xml:space="preserve">
+    <value>تسطير</value>
+  </data>
 </root>

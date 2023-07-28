@@ -10,10 +10,6 @@
 
 	
     <localCore:SampleView.Resources>
-		<Style TargetType="syncfusion:SfNumericEntry">
-			<Setter Property="WidthRequest" Value="365"/>
-		</Style>
-
 		<Style TargetType="Label">
 			<Setter Property="HorizontalTextAlignment" Value="Start"/>
 			<Setter Property="Margin" Value="10,0,0,5"/>
@@ -24,8 +20,8 @@
 
 
 
-	<ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" HorizontalOptions="Center">
-		<Grid HorizontalOptions="Center" VerticalOptions="Start"  Margin="{OnPlatform Android='3,20,5,0', iOS='0,20,0,0'}">
+	
+		<Grid  VerticalOptions="Start"  Margin="15,20,15,0">
 			<VerticalStackLayout Spacing="20" VerticalOptions="Center" >
 
 				<VerticalStackLayout>
@@ -75,7 +71,7 @@
 
 			</VerticalStackLayout>
 		</Grid>
-	</ScrollView>
+
 	
 	<localCore:SampleView.OptionView>
 		<ScrollView VerticalScrollBarVisibility="Never">

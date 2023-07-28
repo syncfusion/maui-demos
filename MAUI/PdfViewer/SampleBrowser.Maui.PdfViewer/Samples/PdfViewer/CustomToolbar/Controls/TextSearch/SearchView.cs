@@ -15,7 +15,6 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
     /// </summary>
     public class SearchView : ContentView
     {
-        
         #region UI
         public Syncfusion.Maui.PdfViewer.SfPdfViewer? SearchHelper { get; set; }
         public ActivityIndicator? SearchBusyIndicator { get; set; }

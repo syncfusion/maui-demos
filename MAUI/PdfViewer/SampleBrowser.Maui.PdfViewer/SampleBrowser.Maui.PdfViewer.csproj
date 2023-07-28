@@ -91,26 +91,38 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="SampleBrowser.Maui.Base" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Compression.NET" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Maui.Core" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Maui.PdfToImageConverter" version="22.1.34" />
-		<PackageReference Include="Syncfusion.PDF.NET" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Maui.PdfViewer" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Maui.TabView" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Maui.ListView" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Maui.DataSource" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Maui.GridCommon" version="22.1.34" />
-		<PackageReference Include="Syncfusion.Pdf.Imaging.NET" version="22.1.34" />
+	  <PackageReference Include="SampleBrowser.Maui.Base" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Compression.NET" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Maui.Core" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Maui.PdfToImageConverter" version="22.2.5" />
+		<PackageReference Include="Syncfusion.PDF.NET" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Maui.PdfViewer" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Maui.TabView" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Maui.ListView" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Maui.DataSource" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Maui.GridCommon" version="22.2.5" />
+		<PackageReference Include="Syncfusion.Pdf.Imaging.NET" version="22.2.5" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml.cs">
+	    <DependentUpon>ToolbarDesktop.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml.cs">
+	    <DependentUpon>ToolbarMobile.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Samples\PdfViewer\RightToLeft\View\RightToLeft.xaml.cs">
 	    <DependentUpon>RightToLeft.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Samples\PdfViewer\RightToLeft\View\RightToLeft.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
