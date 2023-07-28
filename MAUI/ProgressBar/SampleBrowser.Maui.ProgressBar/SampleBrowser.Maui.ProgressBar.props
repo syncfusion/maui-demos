@@ -1,0 +1,32 @@
+<Project>
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularProgressBar\CircularProgressBar.xaml.cs">
+			<Link>Samples\CircularProgressBar\CircularProgressBar.xaml.cs</Link>
+			<DependentUpon>CircularProgressBar.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearProgressBar\LinearProgressBar.xaml.cs">
+			<Link>Samples\LinearProgressBar\LinearProgressBar.xaml.cs</Link>
+			<DependentUpon>LinearProgressBar.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\ProgressBarSamplesList.xml" >
+			<Link>ProgressBarSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CircularProgressBar\CircularProgressBar.xaml">
+			<Link>Samples\CircularProgressBar\CircularProgressBar.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearProgressBar\LinearProgressBar.xaml">
+			<Link>Samples\LinearProgressBar\LinearProgressBar.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+</Project>

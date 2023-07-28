@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Editors">
+    <Control Title="DataForm" Image="dataform.png" 
+			 StatusTag="Updated"
+			 ControlName="SfDataForm" 
+			 Description="The DataForm is used to manage data and develop various forms such as login, and more.">
+
+		<Sample Title="Contact Form" StatusTag="Updated" SampleName="ContactForm" CodeViewerPath="DataForm/ContactForm/" VideoLink="https://www.youtube.com/watch?v=c39fzkutfwU"/>
+	    <Sample Title="Sign Up" SampleName="SignUpForm" CodeViewerPath="DataForm/SignUpForm/"/>
+    	<Sample Title="Sign In" SampleName="SignInForm" CodeViewerPath="DataForm/SignInForm/"/>
+		<Sample Title="Registration Form" SampleName="EventRegistration" CodeViewerPath="DataForm/EventRegistration/"/>
+		<Sample Title="Payment Form" SampleName="PaymentForm"  CodeViewerPath="DataForm/PaymentForm/"/>
+		<Sample Title="Feedback Form" SampleName="FeedbackForm"  CodeViewerPath="DataForm/FeedbackForm/"/>
+	</Control>
+  </ControlCategory>
+</SyncfusionControls> 

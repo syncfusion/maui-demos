@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.BusyIndicator.SfBusyIndicator.AnimationType"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      BackgroundColor="White">
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label" x:Name="titleText">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="VerticalOptions" Value="Start"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+    </localCore:SampleView.Resources>
+    
+    <localCore:SampleView.Content>
+       
+        <Grid BackgroundColor="Gray" HeightRequest="300" WidthRequest="300" Padding="1">
+            <!--Fix for the border thickness issue: 
+            Set the RowDefinitions and ColumnDefinitions value excluded from border thickness value (150 - 1 -1).-->
+            <Grid ColumnSpacing="1" RowSpacing="1"  RowDefinitions="148,148" ColumnDefinitions="148,148" >
+                
+                <!--CirucularMaterial-->
+                <core:SfBusyIndicator BackgroundColor="White"  AnimationType="CircularMaterial" OverlayFill="Transparent" IsRunning="True">
+                    <Grid>
+                        <Label Text="Circular Material" Style="{x:Reference titleText}"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+                
+                <!--Cupertino-->
+                <core:SfBusyIndicator BackgroundColor="White"  AnimationType="Cupertino" IsRunning="True" SizeFactor="0.45" Grid.Column="1">
+                    <Grid>
+                        <Label Text="Cupertino" Style="{x:Reference titleText}"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+                
+				<!--LinearMaterial-->
+				<core:SfBusyIndicator BackgroundColor="White" AnimationType="LinearMaterial" IsRunning="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Label Text="Linear Material" Style="{x:Reference titleText}"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+				
+                <!--DoubleCirlce-->
+                <core:SfBusyIndicator BackgroundColor="White" AnimationType="DoubleCircle" IsRunning="True" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Label Text="Double Circle" Style="{x:Reference titleText}"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+ 
+</localCore:SampleView>

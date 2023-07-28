@@ -1,0 +1,57 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.AgendaView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            
+            <Grid.Resources>
+                <local:MonthToImageConverter x:Key="MonthToImageConverter"/>
+                <DataTemplate x:Key="AgendaHeaderTemplate">
+                    <Grid>
+                        <Image Aspect="Fill" Source="{Binding Converter={StaticResource MonthToImageConverter}}"/>
+                        <Label x:Name="label" HorizontalOptions="Start" VerticalOptions="Start" TextColor="Black" FontSize="16" Padding="55, 20, 0, 0" Text="{Binding StringFormat='{0:MMMM yyyy}'}"/>
+                    </Grid>
+                </DataTemplate>
+            </Grid.Resources>
+
+                <schedule:SfScheduler x:Name="Scheduler" ShowBusyIndicator="True" AllowAppointmentDrag="False"
+                                  AppointmentsSource="{Binding Events}"
+                                  MinimumDateTime="{Binding MinDateTime}"
+                                  DisplayDate="{Binding DisplayDate}"
+                                  View="Agenda" >
+                    <schedule:SfScheduler.AppointmentMapping>
+                        <schedule:SchedulerAppointmentMapping
+                            Subject="EventName"
+                            StartTime="From"
+                            EndTime="To"
+                            Background="Background"
+                            IsAllDay="IsAllDay"
+                            StartTimeZone="StartTimeZone"
+                            EndTimeZone="EndTimeZone"
+                            RecurrenceExceptionDates="RecurrenceExceptions"
+                            RecurrenceRule="RecurrenceRule"
+                            RecurrenceId="RecurrenceId"/>
+                    </schedule:SfScheduler.AppointmentMapping>
+                    <schedule:SfScheduler.AgendaView>
+                        <schedule:SchedulerAgendaView MonthHeaderTemplate="{StaticResource AgendaHeaderTemplate}" />
+                    </schedule:SfScheduler.AgendaView>
+                    <schedule:SfScheduler.BindingContext>
+                        <local:AgendaViewModel/>
+                    </schedule:SfScheduler.BindingContext>
+                    <schedule:SfScheduler.Behaviors>
+                        <local:AgendaViewBehavior/>
+                    </schedule:SfScheduler.Behaviors>
+                </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
