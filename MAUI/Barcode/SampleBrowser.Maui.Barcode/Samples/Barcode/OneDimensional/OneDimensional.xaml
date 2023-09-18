@@ -36,7 +36,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports 0-9,-,$,:,/,.,+ "
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -44,7 +44,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -79,7 +79,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports A-Z, 0-9,-, ., $, /, +, %, and space"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -87,7 +87,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -122,7 +122,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports only ASCII characters"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -130,7 +130,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -165,7 +165,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports  A-Z, 0-9 , -, ., $, /, +, % and space"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -173,7 +173,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -208,14 +208,14 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Support 0-9, A-Z, a-z and special characters"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
                                TextColor="#99000000"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -250,7 +250,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Support 0-9, A-Z and special characters"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -258,7 +258,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -293,7 +293,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Support 0-9, A-Z and special characters"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -301,7 +301,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -336,7 +336,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Support even number of digits"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -344,7 +344,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -379,7 +379,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports 11 numbers as input"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -387,7 +387,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -422,7 +422,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports 6 numbers as input"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -430,7 +430,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -465,7 +465,7 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports 8 numbers as input"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
@@ -473,7 +473,7 @@
                                TextColor="#99000000"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 
@@ -508,13 +508,13 @@
                                LineBreakMode="WordWrap"
                                TextColor="#DE000000"
                                FontFamily="Roboto-Medium"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Grid.Row="1"
                                Text="Supports 13 numbers as input"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
                                TextColor="#99000000"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>
 

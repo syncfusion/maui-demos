@@ -3,7 +3,7 @@
              x:Class="SampleBrowser.Maui.DataForm.SfDataForm.EventRegistration"
             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
             xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
-            Background="{OnIdiom Default=White, Desktop=WhiteSmoke}"
+            Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
@@ -18,7 +18,7 @@
 
     <localCore:SampleView.Content>
         <Grid ColumnDefinitions="0.4*, 0.6*">
-            <Grid IsClippedToBounds="True" IsVisible="{OnIdiom Desktop=True, Default=False}"
+            <Grid IsClippedToBounds="True" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"
                   RowDefinitions="0.3*,100,50,*">
                 <Image Source="{converters:SfImageResource registrationform.png}" Aspect="AspectFill" Grid.RowSpan="4"/>
                 <Label Text="Join our community" LineBreakMode="WordWrap" HorizontalOptions="Start"
@@ -27,10 +27,10 @@
                        Grid.Row="2" Margin="50,0,0,0"/>
             </Grid>
 
-            <Grid x:Name="dataFormGrid" MaximumHeightRequest="{OnIdiom Desktop=640}" 
+            <Grid x:Name="dataFormGrid" MaximumHeightRequest="{OnPlatform WinUI=640, MacCatalyst=640}" 
                     VerticalOptions="{OnPlatform Default=Fill}" IsClippedToBounds="True"
-                    Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}" 
-                    Grid.Column="{OnIdiom Default=0, Desktop=1}" 
+                    Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" 
+                    Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" 
                     HorizontalOptions="Fill">
                 <Grid.Margin>
                     <OnPlatform x:TypeArguments="thickness:Thickness">
@@ -41,7 +41,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="{OnPlatform Default=0, WinUI=40, MacCatalyst=70}"/>
-                    <RowDefinition Height="{OnPlatform Default=0.9*, WinUI=*, MacCatalyst=560}"/>
+                    <RowDefinition Height="{OnPlatform Default=0.9*, WinUI=*, MacCatalyst=510}"/>
                     <RowDefinition Height="1"/>
                     <RowDefinition Height="{OnPlatform Default=0.1*, WinUI=0.1*, MacCatalyst=60}"/>
                 </Grid.RowDefinitions>
@@ -51,7 +51,7 @@
                 </Grid.BindingContext>
 
                 <Label Text="Registration Form" FontSize="Subtitle" 
-                        IsVisible="{OnIdiom Desktop=True, Default=False}"
+                        IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"
                        Margin="20, 15, 0, 0"
                        VerticalOptions="Center"
                         FontAttributes="Bold"/>

@@ -7,6 +7,7 @@
 
     <localCore:SampleView.Resources>
         <Style x:Key="DemoLabelStyle" TargetType="Label">
+            <Setter Property="Margin" Value='{OnPlatform iOS="16", Android="8", MacCatalyst="16"}'/> 
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
@@ -102,7 +103,7 @@
                                    Grid.Column="2"
                                    BadgeText="5">
                     <Grid BackgroundColor="#EEEEEE" Margin="10">
-                        <Label Text="BottomRight"
+                        <Label Text="BottomRight" Margin="{OnPlatform Android=5}"
                                Style="{StaticResource DemoLabelStyle}"/>
                     </Grid>
                     <badge:SfBadgeView.BadgeSettings>

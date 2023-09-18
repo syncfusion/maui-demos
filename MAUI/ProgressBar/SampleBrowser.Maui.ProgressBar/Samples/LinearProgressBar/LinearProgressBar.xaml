@@ -14,8 +14,8 @@
 
     <localCore:SampleView.Content>
         <ScrollView>
-            <Grid HorizontalOptions="{OnPlatform MacCatalyst=Center, UWP=Center}"
-                  VerticalOptions="{OnPlatform MacCatalyst=Center, UWP=Center}">
+            <Grid HorizontalOptions="{OnPlatform MacCatalyst=Center, WinUI=Center}"
+                  VerticalOptions="{OnPlatform MacCatalyst=Center, WinUI=Center}">
                 <StackLayout Spacing="30"
                              Margin="10">
                     

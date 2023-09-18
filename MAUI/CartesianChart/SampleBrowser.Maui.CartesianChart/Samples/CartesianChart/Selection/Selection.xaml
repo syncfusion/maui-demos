@@ -6,7 +6,7 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
         <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10">
-            <chart:SfCartesianChart HorizontalOptions="Fill" VerticalOptions="Fill" x:Name="chart">
+            <chart:SfCartesianChart HorizontalOptions="Fill" VerticalOptions="FillAndExpand" x:Name="chart">
                 <chart:SfCartesianChart.Resources>
                     <ResourceDictionary>
                         <local:SelectionValueConverter x:Key="valueconvert"/>

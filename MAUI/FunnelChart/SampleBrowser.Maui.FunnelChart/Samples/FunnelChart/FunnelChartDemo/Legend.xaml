@@ -11,8 +11,8 @@
         <converter:BrushToColorConverter x:Key="brushToColor" />
     </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <chart:SfFunnelChart   HorizontalOptions="Center"
-                                 VerticalOptions="Center"
+        <chart:SfFunnelChart   HorizontalOptions="Fill"
+                                 VerticalOptions="FillAndExpand"
                                  Margin="{OnPlatform Android='0,0,0,50', iOS='0,0,0,50', Default='0,0,0,0'}"
                                  PaletteBrushes="{Binding CustomColor_1}"
                                  StrokeWidth="2"

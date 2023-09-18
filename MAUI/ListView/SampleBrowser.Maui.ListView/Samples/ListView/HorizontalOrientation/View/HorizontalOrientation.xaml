@@ -56,7 +56,7 @@
                                                 VerticalOptions="Center"
                                                 HeightRequest="30"
                                                 TextColor="#99000000"
-                                                FontSize="14" Margin='{OnPlatform Default="6,0,0,0",Android="6,0,0,3", UWP="6,0,0,0"}'>
+                                                FontSize="14" Margin='{OnPlatform Default="6,0,0,0",Android="6,0,0,3", WinUI="6,0,0,0"}'>
                                         </Label>
                                     </StackLayout>
                                 </DataTemplate>
@@ -75,7 +75,7 @@
                                FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=22}, iOS={OnIdiom Phone=18, Tablet=20}, Default=16}" />
                     <Label FontFamily="Roboto-Regular"  Text="Non-veg pizza is prepared by including the meat and animal tissue products."
                      TextColor="#99000000" LineHeight="1.2" LineBreakMode="WordWrap"
-                               FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=16}, iOS={OnIdiom Phone=12, Tablet=14}, MacCatalyst=14, UWP=14}" />
+                               FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=16}, iOS={OnIdiom Phone=12, Tablet=14}, MacCatalyst=14, WinUI=14}" />
                 </StackLayout>
                     <Grid  Grid.Row="1"
                       Padding="8,0,0,0">
@@ -97,7 +97,7 @@
                                                 VerticalOptions="Center"
                                                 HeightRequest="30"
                                                 TextColor="#99000000"
-                                                FontSize="14" Margin='{OnPlatform Default="6,0,0,0",Android="6,0,0,3", UWP="6,0,0,0"}'>
+                                                FontSize="14" Margin='{OnPlatform Default="6,0,0,0",Android="6,0,0,3", WinUI="6,0,0,0"}'>
                                         </Label>
                                     </StackLayout>
                                 </DataTemplate>

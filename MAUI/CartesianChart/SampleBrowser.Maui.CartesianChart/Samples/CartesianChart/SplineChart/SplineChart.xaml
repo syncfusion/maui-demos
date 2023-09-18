@@ -10,7 +10,7 @@
         <StackLayout.BindingContext>
             <local:SplineSeriesViewModel />
         </StackLayout.BindingContext>
-        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
             <chart:SfCartesianChart.Legend>
             <chart:ChartLegend ToggleSeriesVisibility="True"/>
         </chart:SfCartesianChart.Legend>

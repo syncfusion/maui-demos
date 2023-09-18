@@ -6,6 +6,7 @@
 // applicable laws. 
 #endregion
 using Syncfusion.Maui.Core.Hosting;
+using SampleBrowser.Maui.Base.Hosting;
 namespace SampleBrowser.Maui.DataGrid;
 
 public static class MauiProgram
@@ -21,7 +22,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-		
+		builder.ConfigureSampleBrowserBase();
         return builder.Build();
 	}
 }

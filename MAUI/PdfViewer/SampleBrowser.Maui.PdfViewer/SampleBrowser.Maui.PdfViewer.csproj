@@ -3,11 +3,10 @@
 	<PropertyGroup>
 		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
 		<RootNamespace>SampleBrowser.Maui.PdfViewer</RootNamespace>
 		<UseMaui>true</UseMaui>
+		<Nullable>enable</Nullable>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
@@ -15,7 +14,6 @@
 		<AnalysisLevel>latest</AnalysisLevel>
 		<AnalysisLevelSecurity>latest-recommended</AnalysisLevelSecurity>
 		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
-		<Nullable>enable</Nullable>
 		<NoWarn>$(NoWarn);NU1803</NoWarn>
 
 		<!-- Display name -->
@@ -73,6 +71,12 @@
 	</ItemGroup>
 	
 	<ItemGroup>
+	  <None Remove="Platforms\Android\Resources\xml\file_paths.xml" />
+	  <None Remove="Samples\PdfViewer\CustomToolbar\Images\export_icon.png" />
+	  <None Remove="Samples\PdfViewer\CustomToolbar\Images\import_icon.png" />
+	  <None Remove="Samples\PdfViewer\CustomToolbar\XFDF\Annotations.xfdf" />
+	  <None Remove="Samples\Pdf\Annotations.pdf" />
+	  <None Remove="Samples\Pdf\Annotations1.pdf" />
 	  <None Remove="Samples\Pdf\PDF_Succinctly1.pdf" />
 	  <None Remove="Samples\Pdf\rtl_document.pdf" />
 	</ItemGroup>
@@ -80,6 +84,9 @@
 	<ItemGroup>
 	  <EmbeddedResource Include="ControlList.xml" />
 	  <EmbeddedResource Include="PdfViewerSamplesList.xml" />
+	  <EmbeddedResource Include="Samples\PdfViewer\CustomToolbar\XFDF\Annotations.xfdf" />
+	  <EmbeddedResource Include="Samples\Pdf\Annotations.pdf" />
+	  <EmbeddedResource Include="Samples\Pdf\Annotations1.pdf" />
 	  <EmbeddedResource Include="Samples\Pdf\corrupted_document.pdf" />
 	  <EmbeddedResource Include="Samples\Pdf\password_protected_document.pdf" />
 	  <EmbeddedResource Include="Samples\Pdf\Invoice.pdf" />
@@ -91,25 +98,38 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="SampleBrowser.Maui.Base" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Compression.NET" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Maui.Core" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Maui.PdfToImageConverter" version="22.2.5" />
-		<PackageReference Include="Syncfusion.PDF.NET" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Maui.PdfViewer" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Maui.TabView" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Maui.ListView" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Maui.DataSource" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Maui.GridCommon" version="22.2.5" />
-		<PackageReference Include="Syncfusion.Pdf.Imaging.NET" version="22.2.5" />
+	  <PackageReference Include="SampleBrowser.Maui.Base" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Compression.NET" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Maui.Core" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Maui.PdfToImageConverter" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Maui.Sliders" version="23.1.36" />
+		<PackageReference Include="Syncfusion.PDF.NET" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Maui.PdfViewer" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Maui.TabView" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Maui.ListView" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Maui.DataSource" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Maui.GridCommon" version="23.1.36" />
+		<PackageReference Include="Syncfusion.Pdf.Imaging.NET" version="23.1.36" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ColorToolbar.xaml.cs">
+	    <DependentUpon>ColorToolbar.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\InkColorCode.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkUp.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
 	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml.cs">
 	    <DependentUpon>ToolbarDesktop.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml.cs">
 	    <DependentUpon>ToolbarMobile.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Samples\PdfViewer\CustomToolbar\View\FileListView.xaml.cs">
+	    <DependentUpon>FileListView.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Samples\PdfViewer\RightToLeft\View\RightToLeft.xaml.cs">
 	    <DependentUpon>RightToLeft.xaml</DependentUpon>
@@ -117,10 +137,61 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarDesktop.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarMobile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\Annotations\View\Annotations.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ColorToolbar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\AnnotationToolbar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\BottomToolbar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\InkToolbar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesPropertyToolbar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkUpPropertyToolbar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkupToolbar - Copy.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\InkColorCode.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ShapeColorCode.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StampOpacity.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkUp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkupColorCode.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextmarkupView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\View\FileListView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Samples\PdfViewer\RightToLeft\View\RightToLeft.xaml">

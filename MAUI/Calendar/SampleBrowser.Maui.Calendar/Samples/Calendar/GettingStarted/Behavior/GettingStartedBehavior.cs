@@ -171,6 +171,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 
             this.calendar.SelectedDates = selectedDates;
             this.calendar.SelectedDateRange = new CalendarDateRange(DateTime.Now.AddDays(2), DateTime.Now.AddDays(6));
+            this.calendar.SelectedDateRanges = new ObservableCollection<CalendarDateRange> { new CalendarDateRange(DateTime.Now.AddDays(2), DateTime.Now.AddDays(6)), new CalendarDateRange(DateTime.Now.AddDays(8), DateTime.Now.AddDays(12)) };
 
             if (this.enableDatesSwitch != null)
             {
@@ -307,6 +308,18 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
                     if (this.selectionDirectionGrid != null)
                     {
                         this.selectionDirectionGrid.IsVisible = true;
+                    }
+
+                    if (this.enableSwipeSelectionGrid != null)
+                    {
+                        this.enableSwipeSelectionGrid.IsVisible = true;
+                    }
+                }
+                else if (calendar.SelectionMode == CalendarSelectionMode.MultiRange)
+                {
+                    if (this.selectionDirectionGrid != null)
+                    {
+                        this.selectionDirectionGrid.IsVisible = false;
                     }
 
                     if (this.enableSwipeSelectionGrid != null)

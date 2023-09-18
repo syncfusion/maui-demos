@@ -14,6 +14,8 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
     {
         public ObservableCollection<ChartDataModel> ZoomData { get; set; }
 
+        public string[] ZoomModeType => new string[] { "X", "Y", "XY" };
+
         public ZoomViewModel()
         {
             DateTime date = new(1950, 3, 01);

@@ -16,7 +16,7 @@
             <StackLayout.BindingContext>
                 <local:ErrorBarViewModel/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" x:Name="errorBarChart"
+            <chart:SfCartesianChart  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" x:Name="errorBarChart"
                                      Title="{StaticResource title}">
 
                 <chart:SfCartesianChart.XAxes>

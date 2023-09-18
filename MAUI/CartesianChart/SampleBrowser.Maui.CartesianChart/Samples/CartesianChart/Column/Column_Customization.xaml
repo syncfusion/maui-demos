@@ -9,7 +9,7 @@
             <StackLayout.BindingContext>
                 <local:ColumnViewModelEXT/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart Grid.Row="0" x:Name="Chart3" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+            <chart:SfCartesianChart Grid.Row="0" x:Name="Chart3" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.Title>
                     <Label Text="PC Vendor Shipments - 2015 Q1" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                 </chart:SfCartesianChart.Title>

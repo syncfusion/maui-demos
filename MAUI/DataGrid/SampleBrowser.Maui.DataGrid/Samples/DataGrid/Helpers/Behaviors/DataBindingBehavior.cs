@@ -20,7 +20,7 @@ namespace SampleBrowser.Maui.DataGrid
     {
         private Syncfusion.Maui.DataGrid.SfDataGrid? datagrid;
 
-        private Picker? collectionTypePicker;
+        private Microsoft.Maui.Controls.Picker? collectionTypePicker;
 
         private OrderInfoViewModel? orderInfoViewModel;
 
@@ -32,7 +32,7 @@ namespace SampleBrowser.Maui.DataGrid
         {
             this.datagrid = bindable.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
             this.orderInfoViewModel = new OrderInfoViewModel();
-            this.collectionTypePicker = bindable.FindByName<Picker>("CollectionTypePicker");
+            this.collectionTypePicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("CollectionTypePicker");
 
             this.collectionTypePicker.SelectedIndexChanged += this.SelectionPicker_SelectedIndexChanged!;
             base.OnAttachedTo(bindable);

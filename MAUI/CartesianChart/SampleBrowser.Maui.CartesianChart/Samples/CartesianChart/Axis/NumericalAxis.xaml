@@ -9,7 +9,7 @@
             <StackLayout.BindingContext>
                 <local:NumericalAxisViewModel/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart HorizontalOptions="Center" VerticalOptions="CenterAndExpand" x:Name="numericChart" PaletteBrushes="{Binding PaletteBrushes}">
+            <chart:SfCartesianChart HorizontalOptions="Fill" VerticalOptions="FillAndExpand" x:Name="numericChart" PaletteBrushes="{Binding PaletteBrushes}">
                 <chart:SfCartesianChart.Legend>
                     <chart:ChartLegend ToggleSeriesVisibility="True"/>
                 </chart:SfCartesianChart.Legend>

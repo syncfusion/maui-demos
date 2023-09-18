@@ -27,7 +27,7 @@
                                               ShowLabels="False"
                                               StartAngle="270"
                                               EndAngle="270"
-                                              RadiusFactor="{OnPlatform UWP='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
                                 <gauge:RadialAxis.AxisLineStyle>
                                     <gauge:RadialLineStyle Thickness="5"
                                                            Fill="#bfd6fc" />
@@ -72,7 +72,7 @@
                                               ShowLabels="False"
                                               StartAngle="270"
                                               EndAngle="270"
-                                              RadiusFactor="{OnPlatform UWP='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
                                 <gauge:RadialAxis.AxisLineStyle>
                                     <gauge:RadialLineStyle Thickness="7"
                                                            Fill="#dadada" />
@@ -114,7 +114,7 @@
                                               ShowLabels="False"
                                               StartAngle="270"
                                               EndAngle="270"
-                                              RadiusFactor="{OnPlatform UWP='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
                                 <gauge:RadialAxis.AxisLineStyle>
                                     <gauge:RadialLineStyle Thickness="7"
                                                            Fill="Orange" />
@@ -166,7 +166,7 @@
                                               ShowLabels="False"
                                               StartAngle="270"
                                               EndAngle="270"
-                                              RadiusFactor="{OnPlatform UWP='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
                                 <gauge:RadialAxis.AxisLineStyle>
                                     <gauge:RadialLineStyle  Fill="#dadada" />
                                 </gauge:RadialAxis.AxisLineStyle>
@@ -219,7 +219,7 @@
                                               ShowLabels="False"
                                               StartAngle="270"
                                               EndAngle="270"
-                                              RadiusFactor="{OnPlatform UWP='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
                                 <gauge:RadialAxis.AxisLineStyle>
                                     <gauge:RadialLineStyle  Fill="#2976f6" />
                                 </gauge:RadialAxis.AxisLineStyle>
@@ -260,7 +260,7 @@
                                               ShowLabels="False"
                                               StartAngle="270"
                                               EndAngle="270"
-                                              RadiusFactor="{OnPlatform UWP='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
                                 <gauge:RadialAxis.AxisLineStyle>
                                     <gauge:RadialLineStyle  Fill="#dadada"
                                                             Thickness="2" />

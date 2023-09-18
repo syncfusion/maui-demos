@@ -45,10 +45,10 @@
                                 >                   
                 </SearchBar>
             </Frame>
-            <Frame Padding="0" CornerRadius="0" HasShadow="False" Margin="{StaticResource margin}"
+            <Border Padding="0" Margin="{StaticResource margin}"
                    Grid.Row="1"
                            Grid.Column="0"
-                      HorizontalOptions="FillAndExpand"  BorderColor="Transparent">
+                      HorizontalOptions="FillAndExpand"  BackgroundColor="Transparent">
                 <sfgrid:SfDataGrid x:Name="dataGrid"
                            AutoGenerateColumnsMode="None"
                            RowHeight="48"
@@ -97,7 +97,7 @@
 
                     </sfgrid:SfDataGrid.Columns>
                 </sfgrid:SfDataGrid>
-            </Frame>
+            </Border>
         </Grid>
     </localCore:SampleView.Content>
     <localCore:SampleView.OptionView>

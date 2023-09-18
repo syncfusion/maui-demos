@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Buttons">
+
+		<Control ControlName="Button"
+				 Title="Button"
+				 Image="button.png"
+				 Description="A button is a UI element for user interaction, representing a one-click or tap action."
+				 StatusTag="New"
+		         IsPreview="True">
+			<Sample SampleName="GettingStarted"
+					Title="Getting Started"
+					SearchTags="PrimaryButton, SfButton, Buttons, FlatButton, IconButton, OutlineButton, CircleButton"
+					CodeViewerPath="Button/GettingStarted/"
+					VideoLink=""/>
+			<Sample SampleName="Customizations"
+					Title="Customizations"
+					IsGettingStarted="True"
+					SearchTags="Button, SfButton, Buttons"
+					CodeViewerPath="Button/Customizations/"
+					VideoLink=""/>
+
+
+		</Control>
+
+		<Control Title="Segmented Control"
+             ControlName="SfSegmentedControl"
+             Image="segmentedcontrol.png"
+             Description="Offer choices from a linear set of segments, each as an independent button."
+             SearchTags="SfSegmentedControl,segmented buttons,segment,seg"
+             StatusTag="New"
+             IsPreview="True">
+
+			<Sample Title="Getting Started"
+              SampleName="GettingStarted"
+              CodeViewerPath="SegmentedControl/GettingStarted/"/>
+		</Control>
+
+		<Control ControlName="CheckBox"
+				 Title="CheckBox"
+				 Image="checkbox.png"
+				 Description="A checkbox is a UI element for toggling between two states, often used for binary choices or multi-selection options."
+				 StatusTag="New"
+		         IsPreview="True">
+			<Sample SampleName="GettingStarted"
+					Title="Getting Started"
+					SearchTags="checkbox, selection, threestates"
+					CodeViewerPath="CheckBox/GettingStarted/"
+					VideoLink=""/>
+			<Sample SampleName="Customizations"
+					Title="Customizations"
+					IsGettingStarted="True"
+					SearchTags="checkbox, selection, threestates"
+					CodeViewerPath="CheckBox/Customizations/"
+					VideoLink=""/>
+		</Control>
+		<Control ControlName="RadioButton"
+				 Title="Radio Button"
+				 Image="radiobutton.png"
+				 Description="A radio button is a UI element that allows users to select a single option from a list of mutually exclusive choices."
+				 StatusTag="New"
+		         IsPreview="True">
+			<Sample SampleName="GettingStarted"
+					Title="Getting Started"
+					SearchTags="radiobutton, twostate, button"
+					CodeViewerPath="RadioButton/GettingStarted/"
+					VideoLink=""/>
+			<Sample SampleName="Customizations"
+					Title="Customizations"
+					IsGettingStarted="True"
+					SearchTags="radiobutton, twostate, button"
+					CodeViewerPath="RadioButton/Customizations/"
+					VideoLink=""/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

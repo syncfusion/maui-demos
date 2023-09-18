@@ -9,7 +9,7 @@
             <StackLayout.BindingContext>
                 <local:SplineSeriesViewModel x:Name="viewModel"/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="Chart1"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+            <chart:SfCartesianChart x:Name="Chart1"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.Resources>
                     <DoubleCollection x:Key="dashArray">
                         <x:Double>6</x:Double>

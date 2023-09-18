@@ -20,8 +20,8 @@ namespace SampleBrowser.Maui.DataGrid
 
         private Syncfusion.Maui.DataGrid.SfDataGrid? dataGrid;
         private OrderInfoViewModel? viewModel;
-        private Picker? optionsList;
-        private Picker? columnsList;
+        private Microsoft.Maui.Controls.Picker? optionsList;
+        private Microsoft.Maui.Controls.Picker? columnsList;
         private SearchBar? filterText;
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="e">OnColumnsSelectionChanged event args</param>
         public void OnColumnsSelectionChanged(object sender, EventArgs e)
         {
-            Picker newPicker = (Picker)sender;
+            Microsoft.Maui.Controls.Picker newPicker = (Microsoft.Maui.Controls.Picker)sender;
             this.viewModel!.SelectedColumn = GetColumnMappingName((string)newPicker.SelectedItem);
             if (this.viewModel.SelectedColumn == "All Columns")
             {
@@ -91,7 +91,7 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="e">OnFilterOptionsChanged event args e</param>
         public void OnFilterOptionsChanged(object sender, EventArgs e)
         {
-            Picker newPicker = (Picker)sender;
+            Microsoft.Maui.Controls.Picker newPicker = (Microsoft.Maui.Controls.Picker)sender;
             if (newPicker.SelectedIndex >= 0)
             {
                 this.viewModel!.SelectedCondition = GetSelectedCondition(newPicker.Items[newPicker.SelectedIndex]);
@@ -140,8 +140,8 @@ namespace SampleBrowser.Maui.DataGrid
             this.viewModel = new OrderInfoViewModel();
             this.dataGrid = bindAble.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
             bindAble.BindingContext = this.viewModel;
-            this.optionsList = bindAble.FindByName<Picker>("OptionsList");
-            this.columnsList = bindAble.FindByName<Picker>("ColumnsList");
+            this.optionsList = bindAble.FindByName<Microsoft.Maui.Controls.Picker>("OptionsList");
+            this.columnsList = bindAble.FindByName<Microsoft.Maui.Controls.Picker>("ColumnsList");
             this.filterText = bindAble.FindByName<SearchBar>("filterText");
 
             this.columnsList.SelectedIndex = 0;

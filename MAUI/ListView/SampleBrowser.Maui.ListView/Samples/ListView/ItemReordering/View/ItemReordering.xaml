@@ -20,7 +20,7 @@
     <localCore:SampleView.Margin>
         <OnPlatform x:TypeArguments="thickness:Thickness">
             <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
-            <On Platform="UWP" Value="-4,-4,-6,-6"/>
+            <On Platform="WinUI" Value="-4,-4,-6,-6"/>
         </OnPlatform>
     </localCore:SampleView.Margin>
 

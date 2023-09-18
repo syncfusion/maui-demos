@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:AnnotationToolbarView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"             
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.AnnotationToolbarDesktop">
+    <local:AnnotationToolbarView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}" />
+            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </local:AnnotationToolbarView.Resources>
+    <Grid>
+        
+        <HorizontalStackLayout Margin="8,0,0,0" Spacing="8" HorizontalOptions="Start">
+            <Grid x:Name="menuGrid" WidthRequest="50" HeightRequest="35">
+                <Label FontFamily="Maui Material Assets" HorizontalOptions="End" Margin="0,0,5,0" TextColor="#99000000" VerticalOptions="Center" Text="&#xe701;" FontSize="16" />
+                <Button
+                        x:Name="fileOperation"
+                        WidthRequest="50"
+                        Padding="0,6,15,6"
+                        FontSize="20"
+                        FontFamily="Maui Material Assets"
+                        Clicked="Button_Clicked"
+                        Text="&#xe780;"  
+                        Style="{StaticResource buttonIconStyle}"/>
+                <Grid BackgroundColor="#F3EDF7" WidthRequest="10" Margin="12,17,0,0" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="3"></Grid>
+            </Grid>
+            <HorizontalStackLayout x:Name="saveLayout" Spacing="8" IsVisible="{Binding IsSaveLayoutVisible}">
+                <Rectangle
+                    Fill="#FF979797" Margin="4,0,4,0" HeightRequest="24" WidthRequest="2"/>
+
+                <Button x:Name="undoButton"
+                    Text="&#xe744;" 
+                    FontFamily="Maui Material Assets"
+                    Margin="4,0,0,0"
+                    Style="{StaticResource buttonIconStyle}"
+                 />
+                <Button x:Name="redoButton"
+                    Text="&#xe745;" 
+                    FontFamily="Maui Material Assets"
+                    Margin="4,0,0,0"
+                    Style="{StaticResource buttonIconStyle}" />
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" x:Name="centerLayout"
+                    Spacing="8">
+            <Grid x:Name="textMarkupGrid" BackgroundColor="{Binding TextMarkupHighlightColor}" WidthRequest="50" HeightRequest="35">
+                <Label 
+                    FontFamily="Maui Material Assets" 
+                    HorizontalOptions="End" 
+                    Margin="0,0,5,0" 
+                    TextColor="#99000000" 
+                    VerticalOptions="Center" 
+                    Text="&#xe701;" 
+                    FontSize="16" />
+                <Button
+                    x:Name="textMarkupButton"
+                    WidthRequest="50"
+                    Padding="0,6,15,6"
+                    FontFamily="Maui Material Assets"
+                    Command="{Binding ToolbarCommand}"
+                    Clicked="Button_Clicked"
+                    CommandParameter="TextMarkup"
+                    FontSize="16"
+                    Style="{StaticResource buttonIconStyle}"/>
+            </Grid>
+
+            <Grid x:Name="inkGrid" BackgroundColor="{Binding InkHighlightColor}" Margin="4,0,0,0" HeightRequest="25" WidthRequest="25">
+                <Button 
+                    Text="&#xe766;" 
+                        x:Name="inkButton"
+                        FontFamily="Maui Material Assets"
+                        Command="{Binding ToolbarCommand}"
+                        Clicked="Button_Clicked"
+                        CommandParameter="Ink"
+                        Style="{StaticResource buttonIconStyle}"
+                 />
+            </Grid>
+            <Grid x:Name="inkEraserGrid" BackgroundColor="{Binding InkEraserHighlightColor}" Margin="4,0,0,0" HeightRequest="25" WidthRequest="25">
+                <Button 
+                    Text="&#xe764;" 
+                    x:Name="eraserButton"
+                    WidthRequest="30"
+                    FontFamily="Maui Material Assets"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="InkEraser"
+                    Style="{StaticResource buttonIconStyle}"
+                />
+            </Grid>
+
+            <Grid x:Name="shapesGrid" BackgroundColor="{Binding ShapeHighlightColor}" WidthRequest="50" HeightRequest="35">
+                <Label FontFamily="Maui Material Assets" HorizontalOptions="End" Margin="0,0,5,0" TextColor="#99000000" VerticalOptions="Center" Text="&#xe701;" FontSize="16" />
+                <Button
+                    WidthRequest="50"
+                        x:Name="shapeButton"
+                        Padding="0,6,15,6"
+                        FontSize="16"
+                        FontFamily="Maui Material Assets"
+                        Command="{Binding ToolbarCommand}"
+                        Clicked="Button_Clicked"
+                        CommandParameter="Shapes"
+                        Style="{StaticResource buttonIconStyle}"/>
+            </Grid>
+
+            <Grid x:Name="stampGrid" BackgroundColor="{Binding StampHighlightColor}" WidthRequest="50" HeightRequest="35">
+                <Label FontFamily="Maui Material Assets" HorizontalOptions="End" Margin="0,0,5,0" TextColor="#99000000" VerticalOptions="Center" Text="&#xe701;" FontSize="16" />
+                <Button
+                    WidthRequest="50"
+                        Padding="0,6,15,6"
+                        FontSize="16"                    
+                        FontFamily="Maui Material Assets"
+                        Text="&#xe761;"  
+                        Command="{Binding ToolbarCommand}"
+                        CommandParameter="Stamp"
+                        x:Name="stampButton"
+                        Clicked="Button_Clicked"
+                        Style="{StaticResource buttonIconStyle}"/>
+            </Grid>
+            <Grid x:Name="stickyGrid" BackgroundColor="{Binding StickyNoteHighlightColor}" WidthRequest="35" HeightRequest="35">
+                <Button
+                    VerticalOptions="Center" HorizontalOptions="Center"    
+                    FontSize="16"                    
+                        FontFamily="Maui Material Assets"
+                        Text="&#xe775;"  
+                        Command="{Binding ToolbarCommand}"
+                        CommandParameter="StickyNote"
+                        x:Name="stickyButton"
+                        Clicked="Button_Clicked"
+                        Style="{StaticResource buttonIconStyle}"/>
+            </Grid>
+            <HorizontalStackLayout Spacing="8" x:Name="editLayout" IsVisible="{Binding IsEditLayoutVisible}" >
+                <Rectangle
+                    Fill="#FF979797" Margin="4,0,0,0" HeightRequest="24" WidthRequest="2"/>
+
+                <Grid>
+                    <Label FontFamily="Maui Material Assets" HorizontalOptions="End" Margin="0,0,5,0" TextColor="#99000000" VerticalOptions="Center" Text="&#xe701;" FontSize="16" />
+                    <Button 
+                        Text="&#xe767;" 
+                        x:Name="colorPalette"
+                        FontFamily="Maui Material Assets"
+                        WidthRequest="50"
+                        Padding="0,6,15,6"
+                        Command="{Binding ToolbarCommand}"
+                        CommandParameter="ColorPalette"
+                        Clicked="Button_Clicked"
+                        Style="{StaticResource buttonIconStyle}"
+                       />
+                </Grid>
+                <Grid IsVisible="{Binding IsStickyIconChangeButtonVisible}">
+                    <Label FontFamily="Maui Material Assets" HorizontalOptions="End" Margin="0,0,5,0" TextColor="#99000000" VerticalOptions="Center" Text="&#xe701;" FontSize="16" />
+                    <Button
+                        WidthRequest="50"
+                        Padding="0,6,15,6"             
+                        FontFamily="Maui Material Assets"
+                        Text="&#xe775;"  
+                        Command="{Binding ToolbarCommand}"
+                        CommandParameter="StickyIconChange"
+                        x:Name="stickyIconChangeButton"
+                        Clicked="Button_Clicked"
+                        Style="{StaticResource buttonIconStyle}"/>
+                </Grid>
+                <Button 
+                    Text="&#xe70f;" 
+                    FontFamily="Maui Material Assets"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Delete"
+                    IsVisible="{Binding IsDeleteButtonVisible}"
+                    Margin="4,0,0,0"
+                    Style="{StaticResource buttonIconStyle}"/>
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+        <Grid HorizontalOptions="End" Margin="0,0,8,0">
+            <Button Text="&#xe77b;" 
+                    FontFamily="Maui Material Assets"
+                    IsVisible="{Binding IsLockButtonVisible}"
+                    Style="{StaticResource buttonIconStyle}"
+                    Command="{Binding ToolbarCommand}" 
+                    CommandParameter ="LockUnlockButton"
+                 />
+            <Button Text="&#xe77c;" 
+                    FontFamily="Maui Material Assets"
+                    IsVisible="{Binding IsUnlockButtonVisible}"
+                    Style="{StaticResource buttonIconStyle}"
+                    Command="{Binding ToolbarCommand}" 
+                    CommandParameter ="LockUnlockButton"
+                 />
+        </Grid>
+    </Grid>
+</local:AnnotationToolbarView>

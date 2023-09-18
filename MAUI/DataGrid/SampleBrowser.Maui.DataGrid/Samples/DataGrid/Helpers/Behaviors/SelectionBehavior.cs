@@ -16,13 +16,13 @@ namespace SampleBrowser.Maui.DataGrid
 {
     public class SelectionBehavior : Behavior<SampleView>
     {
-        private Picker? selectionPicker;
+        private Microsoft.Maui.Controls.Picker? selectionPicker;
         private Syncfusion.Maui.DataGrid.SfDataGrid? datagrid;
 
         protected override void OnAttachedTo(SampleView bindable)
         {
             this.datagrid = bindable.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
-            this.selectionPicker = bindable.FindByName<Picker>("SelectionPicker");
+            this.selectionPicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("SelectionPicker");
 
             selectionPicker.SelectedIndexChanged += SelectionPicker_SelectedIndexChanged;
             base.OnAttachedTo(bindable);

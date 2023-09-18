@@ -6,13 +6,13 @@
                        xmlns:chart="http://schemas.syncfusion.com/maui">
 
     <localCore:SampleView.Content>
-        <Grid HorizontalOptions="Fill" VerticalOptions="Fill" RowDefinitions="*,Auto" Padding="10">
+        <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" RowDefinitions="*,Auto" Padding="10">
 
             <Grid.BindingContext>
                 <local:SeriesSelectionViewModel x:Name="dataViewModel"/>
             </Grid.BindingContext>
 
-            <chart:SfCartesianChart Margin="0,0,0,5" x:Name="chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+            <chart:SfCartesianChart Margin="0,0,0,5" x:Name="chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
 
                 <chart:SfCartesianChart.Title>
                     <VerticalStackLayout  Margin="0,0,0,20" >

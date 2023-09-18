@@ -7,7 +7,7 @@
 
     <localCore:SampleView.Resources>
         <DataTemplate x:Key="tooltipTemplate">
-            <Grid ColumnDefinitions="*,*"
+            <Grid ColumnDefinitions="*"
                   RowDefinitions="Auto,Auto,Auto">
                 <HorizontalStackLayout Grid.Row="0"
                                        Grid.Column="0">

@@ -16,7 +16,7 @@
 
     <localCore:SampleView.Content>
         <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
-            <VerticalStackLayout WidthRequest="300" 
+            <VerticalStackLayout WidthRequest="350" 
                              VerticalOptions="Center" 
                              HorizontalOptions="Center">
                 <Grid RowDefinitions="90,90" RowSpacing="20" ColumnSpacing="20"

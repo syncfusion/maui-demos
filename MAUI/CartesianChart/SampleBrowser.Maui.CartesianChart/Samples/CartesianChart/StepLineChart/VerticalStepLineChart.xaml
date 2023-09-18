@@ -9,7 +9,7 @@
             <StackLayout.BindingContext>
                 <local:StepLineChartViewModel/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="Chart2" PaletteBrushes="{Binding PaletteBrushes}" IsTransposed="True" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+            <chart:SfCartesianChart x:Name="Chart2" PaletteBrushes="{Binding PaletteBrushes}" IsTransposed="True" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.Title>
                     <Label Text="Carbon Intensity of Electricity" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                 </chart:SfCartesianChart.Title>

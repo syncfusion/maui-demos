@@ -53,8 +53,8 @@
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
                                HeightRequest="40" WidthRequest="40"/>
-                        <Label Grid.Column="1" Text="{Binding ContactName}" FontSize="{OnPlatform Default=16,UWP=14}" FontFamily="Roboto-Regular" CharacterSpacing="0.5" TextColor="#DE000000" VerticalOptions="Center"/>
-                        <Label Grid.Column="2" Text="&#xe718;" FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, UWP=ListViewFontIcons.ttf#ListViewFontIcons}" 
+                        <Label Grid.Column="1" Text="{Binding ContactName}" FontSize="{OnPlatform Default=16,WinUI=14}" FontFamily="Roboto-Regular" CharacterSpacing="0.5" TextColor="#DE000000" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" Text="&#xe718;" FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, WinUI=ListViewFontIcons.ttf#ListViewFontIcons}" 
                                VerticalOptions="Center" Margin="0,0,16,0" FontSize="Medium" TextColor="#99000000"/>
                     </Grid>
                 </DataTemplate>

@@ -8,7 +8,7 @@
 using SampleBrowser.Maui.Base;
 using Syncfusion.Maui.Charts;
 using System.Collections.ObjectModel;
-
+using MAUIPicker = Microsoft.Maui.Controls.Picker;
 namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 {
     public partial class ErrorBarChart : SampleView
@@ -44,7 +44,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         private void typePicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var picker = (Picker)sender;
+            var picker = (MAUIPicker)sender;
             int selectedIndex = picker.SelectedIndex;
             if (selectedIndex == 0)
             {
@@ -66,7 +66,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         private void modePicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var picker = (Picker)sender;
+            var picker = (MAUIPicker)sender;
             int selectedIndex = picker.SelectedIndex;
             if (selectedIndex == 0)
             {
@@ -92,7 +92,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         private void directionPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var picker = (Picker)sender;
+            var picker = (MAUIPicker)sender;
             int selectedIndex = picker.SelectedIndex;
             if (selectedIndex == 0)
             {

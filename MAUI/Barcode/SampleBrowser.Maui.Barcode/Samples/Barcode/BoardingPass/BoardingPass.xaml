@@ -33,7 +33,7 @@
                         <VerticalStackLayout VerticalOptions="Center"
                                              HorizontalOptions="Center">
                             <Label Text="&#xe700;"
-                                   FontFamily="{OnPlatform iOS=Barcode SB Icons, MacCatalyst=Barcode SB Icons, Android=Barcode SB Icons.ttf#, UWP=Barcode SB Icons.ttf#Barcode SB Icons}"
+                                   FontFamily="{OnPlatform iOS=Barcode SB Icons, MacCatalyst=Barcode SB Icons, Android=Barcode SB Icons.ttf#, WinUI=Barcode SB Icons.ttf#Barcode SB Icons}"
                                    TextColor="White"
                                    Grid.Row="1"
                                    Grid.Column="1"

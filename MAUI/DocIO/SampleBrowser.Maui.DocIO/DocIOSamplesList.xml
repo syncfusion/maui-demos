@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
   <ControlCategory Name="File Formats">
-    <Control Title="DocIO" ControlName="DocIO" Image="docio.png" Description="A .NET Word library to create, read, and edit Word documents programmatically.">
+    <Control Title="DocIO" ControlName="DocIO" Image="docio.png" Description="A .NET Word library to create, read, and edit Word documents programmatically." StatusTag="Updated">
       <Sample SearchTags="create, word, document" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="DocIO/GettingStarted" />
       <Category Title="Mail Merge">
         <Sample SearchTags="mail, merge, template" SampleName="EmployeeReport" Title="Employee Report" CodeViewerPath="DocIO/EmployeeReport" />
@@ -19,6 +19,7 @@
       </Category>
       <Sample SearchTags="table, content" SampleName="TableOfContents" Title="Table of Contents" CodeViewerPath="DocIO/TableOfContents" />
       <Sample SearchTags="encrypt, decrypt, security" SampleName="EncryptAndDecrypt" Title="Encrypt and Decrypt" CodeViewerPath="DocIO/EncryptAndDecrypt" />
+	  <Sample SearchTags="compare, review" SampleName="CompareDocuments" Title="Compare Documents" CodeViewerPath="DocIO/CompareDocuments" StatusTag="New" />
     </Control>
   </ControlCategory>
 </SyncfusionControls>

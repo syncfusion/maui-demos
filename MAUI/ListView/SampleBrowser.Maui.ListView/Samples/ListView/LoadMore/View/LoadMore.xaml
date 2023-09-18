@@ -39,7 +39,7 @@
                                Opacity="{OnPlatform Default=1, Android=0.87}" />
                     </Grid>
                     <Grid Grid.Column="1" Margin="0" RowSpacing="0" ColumnSpacing="0" BackgroundColor="White" 
-                          HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Padding='{OnPlatform Android="0,30,0,0" , iOS="0,10,0,0", UWP="0,30,0,0", Default="0,20,0,0" , MacCatalyst ="0,10,0,0"}' >
+                          HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Padding='{OnPlatform Android="0,30,0,0" , iOS="0,10,0,0", WinUI="0,30,0,0", Default="0,20,0,0" , MacCatalyst ="0,10,0,0"}' >
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding OrderListCommand}"
                                                   CommandParameter="{Binding Source={x:Reference Name= sampleView}}"/>
@@ -50,7 +50,7 @@
                                 <BadgeView:BadgeSettings Type="Info"  Position="TopRight" Offset="-5,-5"   AutoHide="True"/>
                             </BadgeView:SfBadgeView.BadgeSettings>
                             <BadgeView:SfBadgeView.Content>
-                                <Label InputTransparent="True" Text="&#xe706;" FontSize="{OnPlatform Android=Large, iOS=Large,MacCatalyst=Large, UWP=Medium}" TextColor="#808080" FontFamily="{OnPlatform iOS=Sync FontIcons,MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, UWP=Sync FontIcons.ttf#Sync FontIcons}"
+                                <Label InputTransparent="True" Text="&#xe706;" FontSize="{OnPlatform Android=Large, iOS=Large,MacCatalyst=Large, WinUI=Medium}" TextColor="#808080" FontFamily="{OnPlatform iOS=Sync FontIcons,MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
                                VerticalOptions="Center"  Margin="0" HeightRequest="35" WidthRequest="40" HorizontalOptions="Center"/>
                             </BadgeView:SfBadgeView.Content>
                         </BadgeView:SfBadgeView>
@@ -95,7 +95,7 @@
                                             TextColor="{OnPlatform Default=#333333, Android=#000000}"
                                            Opacity="{OnPlatform Default=1, Android=0.87}" />
                                     <Label Text="{Binding Weight}" FontSize="14" Grid.Row="1" HorizontalOptions="Start"
-                                           TextColor="{OnPlatform Default=#757575, Android=#000000, UWP=#4C4C4C}"
+                                           TextColor="{OnPlatform Default=#757575, Android=#000000, WinUI=#4C4C4C}"
                                            Opacity="{OnPlatform Default=1, Android=0.54}" />
                                     <Grid Grid.Row="2" Padding="0" ColumnSpacing="0">
                                         <Grid.ColumnDefinitions>
@@ -106,27 +106,27 @@
                                         <Label Text="{Binding Price, Converter={StaticResource currencyFormatConverter}}" VerticalOptions="Start" FontAttributes="Bold" 
                                                HorizontalOptions="Start" FontSize="16"
                                                Margin='{OnPlatform Default="0,12,0,0", Android="0,16,0,0"}'
-                                                TextColor="{OnPlatform Default=#1C73F2, Android=#009688, UWP=#0078D7}" />
+                                                TextColor="{OnPlatform Default=#1C73F2, Android=#009688, WinUI=#0078D7}" />
                                         <Grid  Grid.Column="1"  IsVisible="{Binding Quantity, Converter={StaticResource zeroVisibilityConverter}}" HorizontalOptions="Start">
                                             <Button x:Name="addButton" Margin="0,0,14,0" FontSize="16" Text="ADD" BorderWidth="1"  WidthRequest="80"
                                                 VerticalOptions="CenterAndExpand" HorizontalOptions="End" 
                                                 Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=listView}}"
                                                 CommandParameter="{Binding .}"
                                                 IsVisible="{Binding Quantity, Converter={StaticResource zeroVisibilityConverter}}"
-                                                BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"
-                                                TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, UWP=#000000}" />
+                                                BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, WinUI=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, WinUI=#C9C9C9}"
+                                                TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, WinUI=#000000}" />
 
 
                                         </Grid>
-                                        <Grid x:Name="NumericButton" Margin="0,0,14,0"  WidthRequest="120" Grid.Column="1" HeightRequest="40"  BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}" IsVisible="{Binding Quantity, Converter={StaticResource inverseZeroVisibilityConverter}}" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                                        <Grid x:Name="NumericButton" Margin="0,0,14,0"  WidthRequest="120" Grid.Column="1" HeightRequest="40"  BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, WinUI=#C9C9C9}" IsVisible="{Binding Quantity, Converter={StaticResource inverseZeroVisibilityConverter}}" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="0.3*"/>
                                                 <ColumnDefinition Width="0.3*"/>
                                                 <ColumnDefinition Width="0.3*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Button Text="-"  Grid.Column="0"  FontSize="16" BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, UWP=#000000}" Command="{Binding Path=BindingContext.RemoveButtonCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding .}" />
-                                            <Label Text="{Binding Quantity}"  Grid.Column="1"   HorizontalTextAlignment="Center"   BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, UWP=#000000}" IsVisible="True" VerticalTextAlignment="Center"/>
-                                            <Button Text="+" FontSize="16"  Grid.Column="2"   BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, UWP=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, UWP=#000000}" Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding .}"   />
+                                            <Button Text="-"  Grid.Column="0"  FontSize="16" BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, WinUI=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, WinUI=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, WinUI=#000000}" Command="{Binding Path=BindingContext.RemoveButtonCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding .}" />
+                                            <Label Text="{Binding Quantity}"  Grid.Column="1"   HorizontalTextAlignment="Center"   BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, WinUI=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, WinUI=#000000}" IsVisible="True" VerticalTextAlignment="Center"/>
+                                            <Button Text="+" FontSize="16"  Grid.Column="2"   BackgroundColor="{OnPlatform Default=#FFFFFF,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, WinUI=#C9C9C9}"  BorderColor="{OnPlatform Default=#1C73F2,iOS=#f2f2f1,MacCatalyst=#f2f2f1, Android=#009688, WinUI=#C9C9C9}"  TextColor="{OnPlatform Default=#1C73F2, Android=#FFFFFF, WinUI=#000000}" Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding .}"   />
                                         </Grid>
                                     </Grid>
                                 </Grid>

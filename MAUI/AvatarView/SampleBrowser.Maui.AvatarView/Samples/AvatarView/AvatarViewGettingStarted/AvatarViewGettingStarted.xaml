@@ -102,10 +102,10 @@
                                     <RowDefinition Height="130"/>
                                 </Grid.RowDefinitions>
                                 <Label HorizontalOptions="Start" Text="Choose gradient background"/>
-                                <FlexLayout Grid.Row="1" Wrap="Wrap" x:Name="gradientcollection" BindableLayout.ItemsSource="{Binding ColorItemCollection}">
+                                <FlexLayout Grid.Row="1" Wrap="Wrap" x:Name="gradientcollection" BindableLayout.ItemsSource="{Binding ColorItemCollection}" WidthRequest="{OnPlatform iOS='350',MacCatalyst='400',Android='350',WinUI='400'}">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>
-                                            <ContentView Content="{Binding}" Margin="5"/>
+                                            <ContentView Content="{Binding}" Margin="4"/>
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
                                 </FlexLayout>

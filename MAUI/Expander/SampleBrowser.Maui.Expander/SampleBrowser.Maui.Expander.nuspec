@@ -11,22 +11,5 @@
     <iconUrl>http://www.syncfusion.com/content/images/nuget/sync_logo_icon.png</iconUrl>
     <description>Expander component for Syncfusion .NET MAUI</description>
     <copyright>Copyright 2001 - 2019 Syncfusion Inc.</copyright>
-    <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="Microsoft.Maui.Dependencies" version="*" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net6.0-android30.0">
-        <dependency id="Microsoft.Maui.Dependencies" version="*" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net6.0-ios13.6">
-        <dependency id="Microsoft.Maui.Dependencies" version="*" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net6.0-maccatalyst13.5">
-        <dependency id="Microsoft.Maui.Dependencies" version="*" exclude="Build,Analyzers" />
-      </group>
-	  <group targetFramework="net6.0-windows10.0.19041.0">
-        <dependency id="Microsoft.Maui.Dependencies" version="*" exclude="Build,Analyzers" />
-      </group>
-    </dependencies>
   </metadata>
 </package>

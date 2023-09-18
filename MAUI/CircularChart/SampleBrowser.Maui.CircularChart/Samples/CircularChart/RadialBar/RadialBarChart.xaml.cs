@@ -6,6 +6,7 @@
 // applicable laws. 
 #endregion
 using SampleBrowser.Maui.Base;
+using MAUIPicker = Microsoft.Maui.Controls.Picker;
 
 namespace SampleBrowser.Maui.CircularChart.SfCircularChart
 {
@@ -47,7 +48,7 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
         
         private void trackStroke_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var value = (Picker)sender;
+            var value = (MAUIPicker)sender;
             switch (value.SelectedIndex) 
             {
                 case 0: 
@@ -79,7 +80,7 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
 
         private void trackFill_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            var value = (Picker)sender;
+            var value = (MAUIPicker)sender;
             switch (value.SelectedIndex)
             {
                 case 0: 

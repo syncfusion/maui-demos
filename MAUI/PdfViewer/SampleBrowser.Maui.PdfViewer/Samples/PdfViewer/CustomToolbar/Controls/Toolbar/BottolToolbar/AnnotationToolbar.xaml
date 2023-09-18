@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.AnnotationToolbar"
+             Padding="0">
+    <ContentView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="Maui Material Assets" />
+            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </ContentView.Resources>
+    <Grid ColumnDefinitions="0.5*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,0.5*">
+        <Button Text="&#xe72e;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="TextMarkup"
+                    Grid.Column="1"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe766;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Ink"
+                    Grid.Column="3"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe764;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="InkEraser"
+                    Grid.Column="5"
+                    FontSize="21"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe73b;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Shapes"
+                    Grid.Column="7"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe761;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Stamp"
+                    Grid.Column="9"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe775;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="StickyNote"
+                    Grid.Column="11"
+                    Style="{StaticResource buttonIconStyle}"/>
+    </Grid>
+</ContentView>

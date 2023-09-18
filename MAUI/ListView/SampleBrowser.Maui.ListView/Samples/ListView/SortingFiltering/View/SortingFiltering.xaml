@@ -48,9 +48,9 @@
 
                 <Grid Grid.Column="1" x:Name="sortImageParent">
                     <Label HeightRequest="40" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="End"
-                           FontSize="{OnPlatform MacCatalyst=30, Android=30, iOS=30, UWP=Large}"
+                           FontSize="{OnPlatform MacCatalyst=30, Android=30, iOS=30, WinUI=Large}"
                            TextColor="Gray"
-                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, UWP=ListViewFontIcons.ttf#ListViewFontIcons}"
+                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, WinUI=ListViewFontIcons.ttf#ListViewFontIcons}"
                            Text="{Binding Path=SortingOptions, Converter={StaticResource BoolToSortIconConverter}}"/>
                 </Grid>
             </Grid>
@@ -80,8 +80,8 @@
                             <Frame HorizontalOptions="Start" IsClippedToBounds="True" CornerRadius="2" HasShadow="False"  Grid.Column="0" HeightRequest="40" WidthRequest="40" Padding="0"> 
                             <Image Grid.Column="0"  Source="{Binding ProductImage,Converter={StaticResource imageconverter}}" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start"/>
                             </Frame>
-                            <Label Grid.Column="1" Text="{Binding ProductName}" VerticalOptions="Center" FontSize="{OnPlatform Default=16,UWP=14}" FontFamily="Roboto-Regular" TextColor="#DE000000" CharacterSpacing="0.15"/>
-                            <Label Grid.Column="2" Text="{Binding Quantity}" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontSize="{OnPlatform Default=16,UWP=14}" FontFamily="Roboto-Regular" TextColor="#DE000000" WidthRequest="30"/>
+                            <Label Grid.Column="1" Text="{Binding ProductName}" VerticalOptions="Center" FontSize="{OnPlatform Default=16,WinUI=14}" FontFamily="Roboto-Regular" TextColor="#DE000000" CharacterSpacing="0.15"/>
+                            <Label Grid.Column="2" Text="{Binding Quantity}" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontSize="{OnPlatform Default=16,WinUI=14}" FontFamily="Roboto-Regular" TextColor="#DE000000" WidthRequest="30"/>
                         </Grid>
                     </DataTemplate>
                 </ListView:SfListView.ItemTemplate>

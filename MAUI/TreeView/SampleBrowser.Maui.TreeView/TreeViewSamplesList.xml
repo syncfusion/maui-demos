@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Navigation">
+    <Control Title="TreeView" StatusTag="New" IsPreview="true" ControlName="SfTreeView" Image="treeview.png" Description="Displays the hierarchical data in a tree like structure with expand and collapse node options.">
+	<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" StatusTag="New" CodeViewerPath="TreeView/GettingStarted/" />
+      <Sample SearchTags="UnBoundMode" SampleName="UnBoundMode" Title="Unbound Mode" StatusTag="New" CodeViewerPath="TreeView/UnBoundMode/" />
+    </Control>
+  </ControlCategory>
+</SyncfusionControls>

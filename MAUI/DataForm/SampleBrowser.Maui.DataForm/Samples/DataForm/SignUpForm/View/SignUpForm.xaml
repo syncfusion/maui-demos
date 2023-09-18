@@ -3,7 +3,7 @@
              x:Class="SampleBrowser.Maui.DataForm.SfDataForm.SignUpForm"
             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
             xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
-            Background="{OnIdiom Default=White, Desktop=WhiteSmoke}"
+            Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
             xmlns:system="clr-namespace:System;assembly=netstandard"
@@ -21,7 +21,7 @@
                 <local:DataFormViewModel/>
             </Grid.BindingContext>
 
-            <Grid IsVisible="{OnIdiom Desktop=True, Default=False}" RowDefinitions="30, 30, *" IsClippedToBounds="True"
+            <Grid IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}" RowDefinitions="30, 30, *" IsClippedToBounds="True"
                    HeightRequest="{OnPlatform MacCatalyst=700}"
                    VerticalOptions="{OnPlatform MacCatalyst=Start}">
                 <Grid.Margin>
@@ -48,12 +48,12 @@
 
             <Frame HasShadow="False" BorderColor="Transparent"
                    HeightRequest="{OnPlatform MacCatalyst=700}"
-                   BackgroundColor="{OnIdiom Default=White, Desktop=WhiteSmoke}"
+                   BackgroundColor="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
                    VerticalOptions="{OnPlatform Default=Fill, MacCatalyst=Start}"
                    CornerRadius="10"
-                   Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}" Grid.Column="{OnIdiom Default=0, Desktop=1}"
+                   Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}"
                    WidthRequest="{OnPlatform MacCatalyst=710, WinUI=500, Default=-1}"
-                   HorizontalOptions="{OnIdiom Desktop=Center, Default=Fill}" >
+                   HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}" >
                 <Frame.Margin>
                     <OnPlatform x:TypeArguments="thickness:Thickness">
                         <On Platform="MacCatalyst" Value="0, 30, 0, 0"/>
@@ -77,7 +77,7 @@
                                                               ContainerType="Filled"/>
                         </dataForm:SfDataForm.TextInputLayoutSettings>
                         </dataForm:SfDataForm>
-                <Line Grid.Row="1" Background="WhiteSmoke" IsVisible="{OnIdiom Default=True, Desktop=False}"/>
+                <Line Grid.Row="1" Background="WhiteSmoke" IsVisible="{OnPlatform Default=True, WinUI=False, MacCatalyst=False}"/>
 
                     <HorizontalStackLayout Grid.Row="2" Margin="20,10" HorizontalOptions="{OnPlatform iOS=Center, Android=Center}">
                         <Button x:Name="cancelButton" 

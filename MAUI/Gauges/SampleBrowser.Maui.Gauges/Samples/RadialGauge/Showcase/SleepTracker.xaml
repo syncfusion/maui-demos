@@ -162,7 +162,7 @@
                                         <Ellipse  Fill="#2194f3"
                                                   Stroke="LightGray"
                                                   StrokeThickness="1" />
-                                        <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                        <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
                                                Text="&#xe701;"
                                                TextColor="White"
                                                FontSize="14"
@@ -186,7 +186,7 @@
                                         <Ellipse  Fill="#2194f3"
                                                   Stroke="LightGray"
                                                   StrokeThickness="1" />
-                                        <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                        <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
                                                Text="&#xe700;"
                                                TextColor="White"
                                                FontSize="14"

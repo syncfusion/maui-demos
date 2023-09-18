@@ -17,12 +17,12 @@ namespace SampleBrowser.Maui.DataGrid
     public class ColumnSizingBehavior : Behavior<SampleView>
     {
         private Syncfusion.Maui.DataGrid.SfDataGrid? datagrid;
-        private Picker? columnSizingPicker;
+        private Microsoft.Maui.Controls.Picker? columnSizingPicker;
 
         protected override void OnAttachedTo(SampleView bindable)
         {
             datagrid = bindable.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid?>("dataGrid");
-            columnSizingPicker = bindable.FindByName<Picker>("ColumnSizingPicker");
+            columnSizingPicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("ColumnSizingPicker");
 
             columnSizingPicker.SelectedIndexChanged += ColumnSizingPicker_SelectedIndexChanged;
             base.OnAttachedTo(bindable);

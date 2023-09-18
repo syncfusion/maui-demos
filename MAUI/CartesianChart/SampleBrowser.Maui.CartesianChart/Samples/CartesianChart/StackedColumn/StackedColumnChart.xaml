@@ -27,7 +27,7 @@
             <StackLayout.BindingContext>
                 <local:StackedColumnViewModel />
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="chart" Title="{StaticResource title}" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" >
+            <chart:SfCartesianChart x:Name="chart" Title="{StaticResource title}" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" >
 
                 <chart:SfCartesianChart.XAxes>
                 <chart:CategoryAxis x:Name="xAxis" LabelPlacement="BetweenTicks" IsVisible="true" ShowMajorGridLines="false">

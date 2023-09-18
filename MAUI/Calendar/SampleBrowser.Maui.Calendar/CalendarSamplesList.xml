@@ -6,25 +6,25 @@
              StatusTag="Updated" 
              ControlName="SfCalendar" 
              Description="It is a lightweight control used to select a single, multiple, and a range of dates.">
-      <Sample Title="Getting Started" SampleName="GettingStarted"
+      <Sample Title="Getting Started" SampleName="GettingStarted" StatusTag="Updated"
 			  CodeViewerPath="Calendar/GettingStarted/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
 		<Category Title="Views">
 			<CardLayout>
-				<Sample SampleName="Month" ShowExpandIcon="False" Title="Month" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
-				<Sample SampleName="Year" ShowExpandIcon="False" Title="Year" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
-				<Sample SampleName="Decade" ShowExpandIcon="False" Title="Decade" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
-				<Sample SampleName="Century" ShowExpandIcon="False" Title="Century" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
+				<Sample SampleName="Month" ShowExpandIcon="False" Title="Month" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=257s"/>
+				<Sample SampleName="Year" ShowExpandIcon="False" Title="Year" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=257s"/>
+				<Sample SampleName="Decade" ShowExpandIcon="False" Title="Decade" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=257s"/>
+				<Sample SampleName="Century" ShowExpandIcon="False" Title="Century" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=257s"/>
 			</CardLayout>
 		</Category>
       <Sample Title="Selection" SampleName="DateSelection"
-			  CodeViewerPath="Calendar/DateSelection/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
-		<Sample Title="Calendar Identifier" SampleName="CalendarIdentifier" StatusTag="New"
-			  CodeViewerPath="Calendar/CalendarIdentifier/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
+			  CodeViewerPath="Calendar/DateSelection/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=352s"/>
+		<Sample Title="Calendar Identifier" SampleName="CalendarIdentifier"
+			  CodeViewerPath="Calendar/CalendarIdentifier/"/>
 		<Sample Title="Appointment Booking" SampleName="AppointmentBooking"
-			  CodeViewerPath="Calendar/AppointmentBooking/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
+			  CodeViewerPath="Calendar/AppointmentBooking/"/>
       <Sample Title="Color Scheme" SampleName="HighlightDates"
-          CodeViewerPath="Calendar/HighlightedDates/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
-		<Sample Title="Customization" SampleName="AppearanceCustomization" CodeViewerPath="Calendar/AppearanceCustomization/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
+          CodeViewerPath="Calendar/HighlightedDates/" />
+		<Sample Title="Customization" SampleName="AppearanceCustomization" CodeViewerPath="Calendar/AppearanceCustomization/"/>
 	</Control>
   </ControlCategory>
 </SyncfusionControls> 

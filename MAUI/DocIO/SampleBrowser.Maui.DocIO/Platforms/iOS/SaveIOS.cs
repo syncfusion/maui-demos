@@ -35,7 +35,9 @@ namespace SampleBrowser.Maui.DocIO.Services
             if (contentType != "application/html" || exception == string.Empty)
             {
 #pragma warning disable CA1416 //This call site is reachable on: 'iOS' 14.2 and later, 'maccatalyst' 14.2 and later. 'UIApplication.KeyWindow.get' is unsupported on: 'ios' 13.0 and later, 'maccatalyst' 13.0 and later.
+#pragma warning disable CA1422 // Validate platform compatibility
                 UIViewController? currentController = UIApplication.SharedApplication!.KeyWindow!.RootViewController;
+#pragma warning disable CA1422 // Validate platform compatibility
 #pragma warning restore CA1416 //This call site is reachable on: 'iOS' 14.2 and later, 'maccatalyst' 14.2 and later. 'UIApplication.KeyWindow.get' is unsupported on: 'ios' 13.0 and later, 'maccatalyst' 13.0 and later.
                 while (currentController!.PresentedViewController != null)
                     currentController = currentController.PresentedViewController;

@@ -20,12 +20,12 @@
 			<Sample Title="Culture" SampleName="Culture" SearchTags="masked,entry,textbox,culture" CodeViewerPath="MaskedEntry/Culture/"/>
 		</Control>
 
-		<Control Title="Numeric Entry" ControlName="SfNumericEntry" IsPreview="True" StatusTag="New" Image="numericentry.png" Description="Allows the user to restrict the input to numeric values using a specifed number format.">
+		<Control Title="Numeric Entry" ControlName="SfNumericEntry"  Image="numericentry.png" Description="Allows the user to restrict the input to numeric values using a specifed number format.">
 			<Sample Title="Getting Started" IsGettingStarted="True" SampleName="NumericEntryGettingStarted" SearchTags="numeric,entry,textbox" CodeViewerPath="NumericEntry/NumericEntryGettingStarted/"/>
 			<Sample Title="Culture and Formatting" SampleName="NumericEntryCultureAndFormatting" SearchTags="numeric,entry,textbox,formatting, culture" CodeViewerPath="NumericEntry/NumericEntryCultureAndFormatting/"/>		   		
 		</Control>
 		
-		<Control Title="NumericUpDown" ControlName="NumericUpDown" IsPreview="True" StatusTag="New" Image="numericupdown.png" Description="Allows the user to restrict the input to numeric values and provides buttons to easily increment and decrement values.">
+		<Control Title="NumericUpDown" ControlName="NumericUpDown"  Image="numericupdown.png" Description="Allows the user to restrict the input to numeric values and provides buttons to easily increment and decrement values.">
 			<Sample Title="Getting Started"  SampleName="NumericUpDownGettingStarted" SearchTags="numeric,entry,textbox,updownbutton, numericupdown" CodeViewerPath="NumericEntry/NumericEntryGettingStarted/"/>
 		</Control>
 		

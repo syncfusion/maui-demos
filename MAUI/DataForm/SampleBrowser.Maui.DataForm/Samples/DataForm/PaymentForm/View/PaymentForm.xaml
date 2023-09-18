@@ -3,7 +3,7 @@
              x:Class="SampleBrowser.Maui.DataForm.SfDataForm.PaymentForm"
              xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
              xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
-             Background="{OnIdiom Default=White, Desktop=WhiteSmoke}"
+             Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
              xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
              xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
             xmlns:system="clr-namespace:System;assembly=netstandard"
@@ -22,7 +22,7 @@
                 <local:DataFormViewModel/>
             </Grid.BindingContext>
 
-            <Grid IsClippedToBounds="True" IsVisible="{OnIdiom Desktop=True, Default=False}" RowDefinitions="40, 60, *" 
+            <Grid IsClippedToBounds="True" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}" RowDefinitions="40, 60, *" 
                     Margin="0,40" HeightRequest="{OnPlatform MacCatalyst=460}"
                     VerticalOptions="{OnPlatform Default=Fill, WinUI=Center}">
                 <Image Source="{converters:SfImageResource creditcard.png}" Aspect="AspectFit" Margin="50, 0, 0, 0"
@@ -30,17 +30,17 @@
                        Grid.Row="2"/>
                 <Label Grid.Row="0" Margin="50, 0, 0, 0" Text="Payment"
                        FontSize="30" FontAttributes="Bold" TextColor="Black"
-                       IsVisible="{OnIdiom Desktop=True, Default=False}"/>
+                       IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
                 <Label Grid.Row="1" Margin="50, 0, 0, 30"  Text="A few steps to easily pay." FontSize="16" TextColor="Black"/>
             </Grid>
 
             <Frame HasShadow="False" BackgroundColor="White"
-                   Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}" CornerRadius="10"
-                   Grid.Column="{OnIdiom Default=0, Desktop=1}" 
-                   VerticalOptions="{OnIdiom Default=Fill, Desktop=Center}"
+                   Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" CornerRadius="10"
+                   Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" 
+                   VerticalOptions="{OnPlatform Default=Fill, WinUI=Center, MacCatalyst=Center}"
                    HeightRequest="{OnPlatform WinUI=420, MacCatalyst=450}"
                    WidthRequest="{OnPlatform WinUI=400, MacCatalyst=400, Default=-1}"
-                   HorizontalOptions="{OnIdiom Desktop=Center, Default=Fill}" >
+                   HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}" >
                 <Frame.Padding>
                     <OnPlatform x:TypeArguments="thickness:Thickness">
                         <On Platform="MacCatalyst" Value="5,20,5,20"/>
@@ -62,7 +62,7 @@
                                                               FocusedStroke="{StaticResource Primary}"/>
                             </dataForm:SfDataForm.TextInputLayoutSettings>
                         </dataForm:SfDataForm>
-                    <Line Grid.Row="1" Background="{OnIdiom Default=WhiteSmoke, Desktop=White}"/>
+                    <Line Grid.Row="1" Background="{OnPlatform Default=WhiteSmoke, WinUI=White, MacCatalyst=White}"/>
                     <Button x:Name="Submit" Text="Pay Now" Background="{StaticResource PrimaryBrush}" Grid.Row="2" HeightRequest="40"
                             CornerRadius="5" VerticalOptions="Center" 
                             FontSize="16" Padding="0"

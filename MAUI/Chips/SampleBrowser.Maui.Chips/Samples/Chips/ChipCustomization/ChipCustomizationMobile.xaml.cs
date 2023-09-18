@@ -53,27 +53,28 @@ public partial class ChipCustomizationMobile : SampleView
     }
     private void BackgroundColorSegment_Clicked(object sender, EventArgs e)
     {
-        chip.BackgroundColor = Color.FromArgb("#f2f3f4");
+        chip.Background = new SolidColorBrush(Color.FromArgb("#f2f3f4"));
     }
 
     private void BackgroundColorSegment_Clicked_1(object sender, EventArgs e)
     {
-        chip.BackgroundColor = Color.FromArgb("#c6c6c6");
+        chip.Background = new SolidColorBrush(Color.FromArgb("#c6c6c6"));
+
     }
 
     private void BackgroundColorSegment_Clicked_2(object sender, EventArgs e)
     {
-        chip.BackgroundColor = Color.FromArgb("#538eed");
+        chip.Background = new SolidColorBrush(Color.FromArgb("#538eed"));
     }
 
     private void BackgroundColorSegment_Clicked_3(object sender, EventArgs e)
     {
-        chip.BackgroundColor = Color.FromArgb("#af2463");
+        chip.Background = new SolidColorBrush(Color.FromArgb("#af2463"));
     }
 
     private void BackgroundColorSegment_Clicked_4(object sender, EventArgs e)
     {
-        chip.BackgroundColor = Color.FromArgb("#000000");
+        chip.Background = new SolidColorBrush(Color.FromArgb("#000000"));
     }
 
     private void BorderColorSegment_Clicked(object sender, EventArgs e)

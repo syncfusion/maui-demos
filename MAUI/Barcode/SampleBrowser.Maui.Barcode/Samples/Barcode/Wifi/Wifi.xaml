@@ -18,7 +18,7 @@
                            HorizontalOptions="Center"
                            TextColor="White"
                            FontFamily="Roboto-Medium"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                     <Grid BackgroundColor="White"
                           HeightRequest="{OnPlatform Android=170, Default= 170}"
                           WidthRequest="{OnPlatform Android=170, Default= 170}"
@@ -43,7 +43,7 @@
                            LineBreakMode="WordWrap"
                            TextColor="White"
                            FontFamily="Roboto-Medium"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=20}, iOS=12, UWP=16}"
+                           FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=20}, iOS=12, WinUI=16}"
                            HorizontalOptions="Center"
                            Margin="20,20" />
                 </StackLayout>
@@ -57,14 +57,14 @@
                            LineBreakMode="WordWrap"
                            TextColor="#DE000000"
                            FontFamily="Roboto-Medium"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                     <Label Text="Connected"
                            LineBreakMode="WordWrap"
                            Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
                            TextColor="#99000000"
                            LineHeight="1.2"
                            FontFamily="Roboto-Regular"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                 </StackLayout>
 
                 <BoxView HeightRequest="3"
@@ -76,14 +76,14 @@
                            LineBreakMode="WordWrap"
                            TextColor="#DE000000"
                            FontFamily="Roboto-Medium"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                     <Label Text="Excellent"
                            LineBreakMode="WordWrap"
                            Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
                            TextColor="#99000000"
                            LineHeight="1.2"
                            FontFamily="Roboto-Regular"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                 </StackLayout>
 
                 <BoxView HeightRequest="3"
@@ -95,14 +95,14 @@
                            LineBreakMode="WordWrap"
                            TextColor="#DE000000"
                            FontFamily="Roboto-Medium"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                     <Label Text="72 Mbps"
                            LineBreakMode="WordWrap"
                            Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
                            TextColor="#99000000"
                            LineHeight="1.2"
                            FontFamily="Roboto-Regular"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                 </StackLayout>
 
                 <BoxView HeightRequest="3"
@@ -114,14 +114,14 @@
                            LineBreakMode="WordWrap"
                            TextColor="#DE000000"
                            FontFamily="Roboto-Medium"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                     <Label Text="WPA/WPA2 PSK"
                            LineBreakMode="WordWrap"
                            Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
                            TextColor="#99000000"
                            LineHeight="1.2"
                            FontFamily="Roboto-Regular"
-                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                           FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                 </StackLayout>
 
             </StackLayout>

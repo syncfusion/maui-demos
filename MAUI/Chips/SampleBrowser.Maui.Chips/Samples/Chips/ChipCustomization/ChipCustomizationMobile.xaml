@@ -39,7 +39,7 @@
                              TextColor="{Binding TextColor}"
                              CloseButtonColor="{Binding TextColor}"
                              SelectionIndicatorColor="{Binding TextColor}"
-                             BackgroundColor="{Binding BackgroundColor,Mode=TwoWay}"
+                             Background="{Binding BackgroundColor,Mode=TwoWay}"
                              Text="{Binding Text,Mode=TwoWay}"
                              ShowIcon="{Binding IsShownIcon}"
                              ShowCloseButton="{Binding IsShownCloseButton}"

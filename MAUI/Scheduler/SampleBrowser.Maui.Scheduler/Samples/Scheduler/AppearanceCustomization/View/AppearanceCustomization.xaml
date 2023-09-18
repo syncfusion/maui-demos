@@ -33,7 +33,7 @@
                                 <RowDefinition Height="0.3*"/>
                                 <RowDefinition Height="0.7*"/>
                             </Grid.RowDefinitions>
-                            <Image Aspect="AspectFit" VerticalOptions="Center" Margin="0, 10, 0, 10" HorizontalOptions="Center" HeightRequest="{OnPlatform Android= 30, iOS=30, MacCatalyst=50, UWP=50}" WidthRequest="{OnPlatform Android= 30, iOS=30, MacCatalyst=50,  UWP=50}" Source="{Binding DataItem.Location,Converter={StaticResource imageConverter}}"/>
+                            <Image Aspect="AspectFit" VerticalOptions="Center" Margin="0, 10, 0, 10" HorizontalOptions="Center" HeightRequest="{OnPlatform Android= 30, iOS=30, MacCatalyst=50, WinUI=50}" WidthRequest="{OnPlatform Android= 30, iOS=30, MacCatalyst=50,  WinUI=50}" Source="{Binding DataItem.Location,Converter={StaticResource imageConverter}}"/>
                             <Label Text="{Binding DataItem.Notes}" VerticalOptions="Start" Grid.Row="1" TextColor="White" LineBreakMode="WordWrap" Margin="3,3,3,0" FontSize="10" />
                         </Grid>
                         <BoxView Grid.Row="2" Background="{Binding DataItem.Background}"/>
@@ -106,13 +106,13 @@
                             <schedule:SchedulerMonthView.CellStyle>
                                 <schedule:SchedulerMonthCellStyle>
                                     <schedule:SchedulerMonthCellStyle.TextStyle>
-                                        <schedule:SchedulerTextStyle FontSize="{OnPlatform Default=14, UWP=12}"/>
+                                    <schedule:SchedulerTextStyle FontSize="{OnPlatform Default=14, WinUI=12}"/>
                                     </schedule:SchedulerMonthCellStyle.TextStyle>
                                     <schedule:SchedulerMonthCellStyle.LeadingMonthTextStyle>
-                                        <schedule:SchedulerTextStyle TextColor="LightGray" FontSize="{OnPlatform Default=14, UWP=12}"/>
+                                    <schedule:SchedulerTextStyle TextColor="LightGray" FontSize="{OnPlatform Default=14, WinUI=12}"/>
                                     </schedule:SchedulerMonthCellStyle.LeadingMonthTextStyle>
                                     <schedule:SchedulerMonthCellStyle.TrailingMonthTextStyle>
-                                        <schedule:SchedulerTextStyle TextColor="LightGray" FontSize="{OnPlatform Default=14, UWP=12}"/>
+                                    <schedule:SchedulerTextStyle TextColor="LightGray" FontSize="{OnPlatform Default=14, WinUI=12}"/>
                                     </schedule:SchedulerMonthCellStyle.TrailingMonthTextStyle>
                                 </schedule:SchedulerMonthCellStyle>
 

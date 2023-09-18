@@ -5,11 +5,11 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="Fill"> 
             <StackLayout.BindingContext>
                 <local:ColumnSeriesViewModel/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="Chart2" PaletteBrushes="{Binding OlympicColorModel}" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+            <chart:SfCartesianChart x:Name="Chart2" PaletteBrushes="{Binding OlympicColorModel}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.Legend>
                     <chart:ChartLegend ToggleSeriesVisibility="True" />
                 </chart:SfCartesianChart.Legend>

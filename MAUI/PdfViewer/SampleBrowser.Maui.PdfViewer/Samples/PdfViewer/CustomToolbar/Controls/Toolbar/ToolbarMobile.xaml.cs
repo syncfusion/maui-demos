@@ -7,7 +7,7 @@
 #endregion
 namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
-public partial class ToolbarMobile : ToolbarView
+public partial class ToolbarMobile : ToolbarView 
 {
 	public ToolbarMobile()
 	{
@@ -17,9 +17,8 @@ public partial class ToolbarMobile : ToolbarView
 
     void AssignControls()
     {
-        PageNumberEntry = pageNumberEntry;
         SearchButton = searchButton;
-        OutlineButton = outlineButton;
-        PageCountLabel = pageCountLabel;
+        UndoButton = mobileUndoButton;
+        RedoButton = mobileRedoButton;
     }
 }

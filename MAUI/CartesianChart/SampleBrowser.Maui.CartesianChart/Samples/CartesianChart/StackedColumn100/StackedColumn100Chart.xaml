@@ -11,7 +11,7 @@
                 <local:StackedColumn100ViewModel/>
             </StackLayout.BindingContext>
             
-            <chart:SfCartesianChart x:Name="Chart" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" PaletteBrushes="{Binding PaletteBrushes}">
+            <chart:SfCartesianChart x:Name="Chart" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" PaletteBrushes="{Binding PaletteBrushes}">
                 
                 <chart:SfCartesianChart.Title>
                     <Label Text="Worldwide Net Sales of Macy's Inc. by Product Category (In Million US Dollars)" MaxLines="2" LineBreakMode="WordWrap" HorizontalOptions="Fill" VerticalOptions="Center" HorizontalTextAlignment="Center"

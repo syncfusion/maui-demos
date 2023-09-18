@@ -87,7 +87,7 @@
                                             IsVisible="true"
                                             Text="&#xe769;"
                                             FontSize="Large"
-                                            FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, UWP=Sync FontIcons.ttf#Sync FontIcons}"
+                                            FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
                                             TextColor="#FF512BD4"
                                             HorizontalOptions="Center"
                                             VerticalOptions="Center"
@@ -163,8 +163,8 @@
                         </progressBar:SfCircularProgressBar>
 
                         <progressBar:SfCircularProgressBar x:Name="ThinTrackStyle"
-                                                           Grid.Row="{OnPlatform UWP=0,MacCatalyst=0, Default=1}"
-                                                           Grid.Column="{OnPlatform UWP=3,MacCatalyst=3, Default=0}"
+                                                           Grid.Row="{OnPlatform WinUI=0,MacCatalyst=0, Default=1}"
+                                                           Grid.Column="{OnPlatform WinUI=3,MacCatalyst=3, Default=0}"
                                                            VerticalOptions="Center"
                                                            AnimationDuration="2000"
                                                            Progress="100"

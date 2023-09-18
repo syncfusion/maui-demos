@@ -5,6 +5,7 @@
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
+using SampleBrowser.Maui.Base.Hosting;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace SampleBrowser.Maui.BulletChart;
@@ -22,6 +23,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+		builder.ConfigureSampleBrowserBase();
 
 		return builder.Build();
 	}

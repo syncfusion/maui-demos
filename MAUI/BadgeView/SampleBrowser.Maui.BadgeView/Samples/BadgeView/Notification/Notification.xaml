@@ -80,7 +80,7 @@
                                                    TextColor="Black" 
                                                 FontSize="12"
                                                    Text="{Binding Time}" />
-                                        <badge:SfBadgeView   HeightRequest="22"  BadgeText="{Binding Count}"  Grid.Row="1">
+                                        <badge:SfBadgeView   HeightRequest="26"  BadgeText="{Binding Count}"  Grid.Row="1">
                                             <Label Text="" 
                                    HorizontalOptions="Center"
                                    FontSize="10"/>

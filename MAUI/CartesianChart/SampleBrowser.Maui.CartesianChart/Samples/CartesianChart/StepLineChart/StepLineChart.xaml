@@ -10,7 +10,7 @@
             <StackLayout.BindingContext>
                 <local:StepLineChartViewModel/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="Chart" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" PaletteBrushes="{Binding PaletteBrushes}">
+            <chart:SfCartesianChart x:Name="Chart" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" PaletteBrushes="{Binding PaletteBrushes}">
                 <chart:SfCartesianChart.Title>
                     <Label Text="Electricity Production from Various Sources (% of total)" MaxLines="2" LineBreakMode="WordWrap" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
                 </chart:SfCartesianChart.Title>

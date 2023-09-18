@@ -4,7 +4,7 @@
 		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
 		<RootNamespace>SampleBrowser.Maui.Expander</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -85,10 +85,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Syncfusion.Maui.Core" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.Expander" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.TabView" version="22.2.5" />
-	  <PackageReference Include="SampleBrowser.Maui.Base" version="22.2.5" />
+	  <PackageReference Include="Syncfusion.Maui.Core" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.Expander" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.TabView" version="23.1.36" />
+	  <PackageReference Include="SampleBrowser.Maui.Base" version="23.1.36" />
 	</ItemGroup>
 
 </Project>

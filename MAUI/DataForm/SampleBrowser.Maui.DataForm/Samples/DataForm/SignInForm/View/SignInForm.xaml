@@ -4,7 +4,7 @@
             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
             xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
-            Background="{OnIdiom Default=White, Desktop=#6200EE}"
+            Background="{OnPlatform Default=White, WinUI=#6200EE, MacCatalyst=#6200EE}"
             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
 
@@ -17,7 +17,7 @@
     <localCore:SampleView.Content>
 
         <Grid ColumnDefinitions="0.5*, 0.5*">
-            <Grid IsClippedToBounds="True" IsVisible="{OnIdiom Desktop=True, Default=False}" RowDefinitions="0.3*,50,50,*" Background="#6200EE">
+            <Grid IsClippedToBounds="True" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}" RowDefinitions="0.3*,50,50,*" Background="#6200EE">
                 <Image Source="{converters:SfImageResource signinform.png}"
                        Aspect="AspectFit" Grid.RowSpan="4"
                        HorizontalOptions="{OnPlatform WinUI=Center}" />
@@ -27,11 +27,11 @@
             </Grid>
 
             <Frame BackgroundColor="White"
-                   Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}" 
-                   Grid.Column="{OnIdiom Default=0, Desktop=1}" CornerRadius="10"
+                   Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" 
+                   Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" CornerRadius="10"
                    VerticalOptions="Center" HasShadow="False"
                    MaximumWidthRequest="{OnPlatform WinUI=380, MacCatalyst=400}"
-                   HorizontalOptions="{OnIdiom Desktop=Start, Default=Fill}" Margin="0">
+                   HorizontalOptions="{OnPlatform WinUI=Start, MacCatalyst=Start, Default=Fill}" Margin="0">
                 <Frame.Padding>
                     <OnPlatform x:TypeArguments="thickness:Thickness">
                         <On Platform="MacCatalyst" Value="32, 20, 32, 32"/>
@@ -63,9 +63,9 @@
                 </Label>
                 
                 <HorizontalStackLayout Grid.Row="1"  HorizontalOptions="Center" >
-                    <Image Source="{converters:SfImageResource google.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnIdiom Default=50, Desktop=40}"  />
-                    <Image Source="{converters:SfImageResource facebook.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnIdiom Default=50, Desktop=40}" />
-                    <Image Source="{converters:SfImageResource microsoft.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnIdiom Default=50, Desktop=40}"  />
+                    <Image Source="{converters:SfImageResource google.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnPlatform Default=50, WinUI=40, MacCatalyst=40}"  />
+                    <Image Source="{converters:SfImageResource facebook.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnPlatform Default=50, WinUI=40, MacCatalyst=40}" />
+                    <Image Source="{converters:SfImageResource microsoft.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnPlatform Default=50, WinUI=40, MacCatalyst=40}"  />
                 </HorizontalStackLayout>
                 <dataForm:SfDataForm x:Name="signInForm" Grid.Row="2" DataObject="{Binding SignInFormModel}"
                                      LayoutType="TextInputLayout"
@@ -75,7 +75,7 @@
                                                               FocusedStroke="{StaticResource Primary}"/>
                         </dataForm:SfDataForm.TextInputLayoutSettings>
                 </dataForm:SfDataForm>
-                <Line Grid.Row="3" Background="{OnIdiom Default=WhiteSmoke, Desktop=White}" />
+                <Line Grid.Row="3" Background="{OnPlatform Default=WhiteSmoke, WinUI=White, MacCatalyst=White}" />
                 <Button Text="Sign In" x:Name="signInButton" HeightRequest="40" VerticalOptions="Center"
                         HorizontalOptions="Fill" Margin="20,10" CornerRadius="5"
                         FontSize="16" Padding="0"

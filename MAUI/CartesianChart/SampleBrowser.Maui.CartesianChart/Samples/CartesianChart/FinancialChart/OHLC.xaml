@@ -14,7 +14,7 @@
             <StackLayout.BindingContext>
                 <local:FinancialViewModel></local:FinancialViewModel>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart  x:Name="Chart" Title="{StaticResource title}" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+            <chart:SfCartesianChart  x:Name="Chart" Title="{StaticResource title}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.XAxes>
                     <chart:DateTimeAxis x:Name="xAxis" AutoScrollingDelta="{OnPlatform Android='2', iOS='2', Default='3'}" AutoScrollingMode="End" AutoScrollingDeltaType="Months" LabelCreated="Primary_LabelCreated" ShowMajorGridLines="False" >
                         <chart:DateTimeAxis.LabelStyle>

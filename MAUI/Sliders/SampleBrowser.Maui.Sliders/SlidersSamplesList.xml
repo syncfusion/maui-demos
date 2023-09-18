@@ -8,7 +8,7 @@
 				 Description="The horizontal slider enables you to select a date or a numeric value.">
 			<Category Title="Basic Feature">
 				<Sample SampleName="SliderDefaultSample"
-						Title="Default" VideoLink="https://www.youtube.com/watch?v=eBSzMk9bi08&amp;t=1s"
+						Title="Default"
 						SearchTags="default, getting started"
 						CodeViewerPath="Slider/Default/" />
 
@@ -18,7 +18,7 @@
 						CodeViewerPath="Slider/DividerLabelTick/" />
 
 				<Sample SampleName="SliderDateIntervalSample"
-						Title="Date interval" VideoLink="https://www.youtube.com/watch?v=MIdD3Np485M&amp;t=1s"
+						Title="Date interval"
 						SearchTags="interval"
 						CodeViewerPath="Slider/DateInterval/" />
 
@@ -57,7 +57,7 @@
 				 Description="The horizontal range slider enables you to select a date or a numeric range.">
 			<Category Title="Basic Feature">
 				<Sample SampleName="RangeSliderDefaultSample"
-						Title="Default" VideoLink="https://www.youtube.com/watch?v=9W1N5rH0zD0"
+						Title="Default"
 						SearchTags="default, getting started"
 						CodeViewerPath="RangeSlider/Default/" />
 
@@ -67,7 +67,7 @@
 						CodeViewerPath="RangeSlider/DividerLabelTick/" />
 
 				<Sample SampleName="RangeSliderDateIntervalSample"
-						Title="Date interval" VideoLink="https://www.youtube.com/watch?v=4mdAax8B4n4"
+						Title="Date interval"
 						SearchTags="interval"
 						CodeViewerPath="RangeSlider/DateInterval/" />
 
@@ -110,12 +110,12 @@
 				 Image="range_selector.png"
 				 Description="Visualize data and select a date or numeric range.">
 			<Sample SampleName="RangeSelectorDefaultSample"
-					Title="Default" VideoLink="https://www.youtube.com/watch?v=LrnvOOjQ7jE"
+					Title="Default"
 					SearchTags="default, getting started"
 					CodeViewerPath="RangeSelector/Default/" />
 
 			<Sample SampleName="RangeSelectorSelectionSample"
-					Title="Selection" VideoLink="https://www.youtube.com/watch?v=QpaNVNcn7xc"
+					Title="Selection"
 					SearchTags="selection"
 					CodeViewerPath="RangeSelector/Selection/" />
 

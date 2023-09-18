@@ -16,15 +16,15 @@ namespace SampleBrowser.Maui.DataGrid
 {
     public class StylingBehavior : Behavior<SampleView>
     {
-        private Picker? visibilityPicker;
-        private Picker? headerVisibilityPicker;
+        private Microsoft.Maui.Controls.Picker? visibilityPicker;
+        private Microsoft.Maui.Controls.Picker? headerVisibilityPicker;
         private Syncfusion.Maui.DataGrid.SfDataGrid? datagrid;
 
         protected override void OnAttachedTo(SampleView bindable)
         {
             this.datagrid = bindable.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
-            this.visibilityPicker = bindable.FindByName<Picker>("VisibilityPicker");
-            this.headerVisibilityPicker = bindable.FindByName<Picker>("HeaderVisibilityPicker");
+            this.visibilityPicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("VisibilityPicker");
+            this.headerVisibilityPicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("HeaderVisibilityPicker");
 
             this.visibilityPicker.SelectedIndexChanged += StylingPicker_SelectedIndexChanged;
             this.headerVisibilityPicker.SelectedIndexChanged += HeaderVisibilityPicker_SelectedIndexChanged; ;

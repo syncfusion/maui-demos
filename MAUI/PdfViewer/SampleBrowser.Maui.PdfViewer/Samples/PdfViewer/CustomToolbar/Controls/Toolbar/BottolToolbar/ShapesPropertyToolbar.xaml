@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:PropertyToolbar xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.ShapesPropertyToolbar">
+    <local:PropertyToolbar.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="Maui Material Assets" />
+            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </local:PropertyToolbar.Resources>
+    <Grid Margin="15,4,15,4">
+        <HorizontalStackLayout HorizontalOptions="Start" Spacing="10">
+            <Button Text="&#xe72d;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Back"
+                    Style="{StaticResource buttonIconStyle}" />
+            <BoxView BackgroundColor="Gray"
+                     WidthRequest="1"
+                     HeightRequest="24"
+                     VerticalOptions="Center"/>
+            <Button Text="{Binding SelectedAnnotationIcon}"
+                    FontFamily="Maui Material Assets"
+                    BackgroundColor="Transparent"
+                    FontSize="18"
+                    TextColor="#FF6750A4"
+                    />
+        </HorizontalStackLayout>
+        <Grid HorizontalOptions="End">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="&#xe74e;"
+                    Margin="0,0,10,0"
+                    Grid.Column="0"
+                    Command="{Binding EditCommand}"
+                    CommandParameter="Thickness"
+                    Style="{StaticResource buttonIconStyle}" />
+            <Grid Grid.Column="1" Margin="0,0,10,0">
+                <Ellipse WidthRequest="24" HeightRequest="24"
+                     Stroke="#99000000" StrokeThickness="2"
+                     HorizontalOptions="Center" VerticalOptions="Center"></Ellipse>
+                <Button WidthRequest="24" BackgroundColor="Transparent" Padding="10" HeightRequest="24" CornerRadius="12" Command="{Binding EditCommand}"
+                        CommandParameter="Color" />
+            </Grid>
+            <Button Margin="5,5,2,5" Grid.Column="2" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12"
+                    BackgroundColor="#99000000"
+                    Command="{Binding EditCommand}"
+                    CommandParameter="Fill"/>
+
+            <HorizontalStackLayout Grid.Column="3" Margin="0,0,0,0" x:Name="lockUnlokButtonLayout" IsVisible="{Binding LockButtonsVisible}">
+                <Button Text="&#xe77b;" IsVisible="{Binding IsLockButtonVisible}"
+                            Command="{Binding ToolbarCommand}" 
+                            CommandParameter ="LockUnlockButton"
+                            Style="{StaticResource buttonIconStyle}"/>
+                <Button Text="&#xe77c;" IsVisible="{Binding IsUnlockButtonVisible}"
+                            Command="{Binding ToolbarCommand}"
+                            CommandParameter ="LockUnlockButton"
+                            Style="{StaticResource buttonIconStyle}" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Grid.Column="4" Margin="0,0,0,0" Spacing="10" HorizontalOptions="End" x:Name="deleteButtonLayout" IsVisible="False" PropertyChanged="deleteButtonLayout_PropertyChanged">
+                <BoxView BackgroundColor="Gray"
+                     WidthRequest="1"
+                     HeightRequest="24"
+                     VerticalOptions="Center"/>
+                <Button Text="&#xe70f;"
+                            Command="{Binding EditCommand}"
+                            CommandParameter="Delete"
+                            Style="{StaticResource buttonIconStyle}" />
+            </HorizontalStackLayout>
+        </Grid>
+    </Grid>
+</local:PropertyToolbar>

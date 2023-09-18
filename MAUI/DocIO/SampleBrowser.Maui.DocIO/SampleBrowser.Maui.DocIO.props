@@ -54,6 +54,11 @@
 			<Link>Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml.cs</Link>
 			<DependentUpon>MarkdownToWord.xaml</DependentUpon>
 		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\CompareDocuments\CompareDocuments.xaml.cs">
+			<Link>Samples\DocIO\MarkdownToWord\CompareDocuments.xaml.cs</Link>
+			<DependentUpon>CompareDocuments.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
  
 
@@ -118,6 +123,11 @@
 			<Link>Samples\DocIO\MarkdownToWord\MarkdownToWord.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\CompareDocuments\CompareDocuments.xaml">
+			<Link>Samples\DocIO\CompareDocuments\CompareDocuments.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
 	<ItemGroup>	
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\RTFtoWord.rtf">
 	        <Link>Resources\DocIO\RTFtoWord.rtf</Link>
@@ -169,6 +179,12 @@
 	  </EmbeddedResource>
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\MarkdownToWord.md">
 	        <Link>Resources\DocIO\MarkdownToWord.md</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\OriginalDocument.docx">
+	        <Link>Resources\DocIO\OriginalDocument.docx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\RevisedDocument.docx">
+	        <Link>Resources\DocIO\RevisedDocument.docx</Link>
 	  </EmbeddedResource>
 	</ItemGroup>
 </Project>

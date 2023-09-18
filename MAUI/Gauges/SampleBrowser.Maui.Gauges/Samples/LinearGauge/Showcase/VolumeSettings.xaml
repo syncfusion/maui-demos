@@ -49,7 +49,7 @@
                                                     Position="Cross">
                             <gauge:LinearContentPointer.Content>
                                 <Label x:Name="firstLabelIcon"
-                                       FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                       FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
                                        TextColor="White"
                                        FontSize="Medium"
                                        HorizontalOptions="Center"
@@ -99,7 +99,7 @@
                                                     Position="Cross">
                             <gauge:LinearContentPointer.Content>
                                 <Label x:Name="secondLabelIcon"
-                                       FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                       FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
                                        TextColor="White"
                                        FontSize="Medium"
                                        HorizontalOptions="Center"
@@ -149,7 +149,7 @@
                                                     Position="Cross">
                             <gauge:LinearContentPointer.Content>
                                 <Label x:Name="thirdLabelIcon"
-                                       FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                       FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
                                        TextColor="White"
                                        FontSize="Medium"
                                        HorizontalOptions="Center"

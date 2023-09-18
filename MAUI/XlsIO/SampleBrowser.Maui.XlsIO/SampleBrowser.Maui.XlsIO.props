@@ -60,6 +60,16 @@
 			<DependentUpon>Slicer.xaml</DependentUpon>
 		</Compile>
 		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\WhatIfAnalysis\WhatIfAnalysis.xaml.cs">
+			<Link>Samples\XlsIO\WhatIfAnalysis\WhatIfAnalysis.xaml.cs</Link>
+			<DependentUpon>WhatIfAnalysis.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Comments\Comments.xaml.cs">
+			<Link>Samples\XlsIO\Comments\Comments.xaml.cs</Link>
+			<DependentUpon>Comments.xaml</DependentUpon>
+		</Compile>
+		
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Customer.cs">
 			<Link>Services\Customer.cs</Link>
 		</Compile>
@@ -132,6 +142,16 @@
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\WhatIfAnalysis\WhatIfAnalysis.xaml">
+			<Link>Samples\XlsIO\WhatIfAnalysis\WhatIfAnalysis.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Comments\Comments.xaml">
+			<Link>Samples\XlsIO\Comments\Comments.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
 	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\CLRObjects.xml">
       <Link>Resources\XlsIO\CLRObjects.xml</Link>
     </EmbeddedResource> 	
@@ -155,6 +175,12 @@
     </EmbeddedResource> 
 	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\TableSlicer.xlsx" >
       <Link>Resources\XlsIO\TableSlicer.xlsx</Link>
+    </EmbeddedResource>
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\WhatIfAnalysisTemplate.xlsx" >
+      <Link>Resources\XlsIO\WhatIfAnalysisTemplate.xlsx</Link>
+    </EmbeddedResource>
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\CommentsTemplate.xlsx" >
+      <Link>Resources\XlsIO\CommentsTemplate.xlsx</Link>
     </EmbeddedResource> 	
 	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man1.jpg" >
       <Link>Resources\XlsIO\Template_Marker_Images\Man1.jpg</Link>

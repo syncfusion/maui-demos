@@ -7,7 +7,7 @@
              xmlns:chart="http://schemas.syncfusion.com/maui">
 
     <localCore:SampleView.Content>
-        <StackLayout HorizontalOptions="Fill" Padding="20" x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" Padding="10" x:Name="layout">
 
             <StackLayout.Resources>
                 <Label x:Key="title" x:Name="titleName" Text="Literacy rate vs. GDP per capita by Country - 2018"
@@ -18,7 +18,9 @@
             <StackLayout.BindingContext>
                 <local:CartesianBubbleViewModel x:Name="viewModel"/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart VerticalOptions="FillAndExpand" x:Name="Chart" 
+            <chart:SfCartesianChart VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="Fill"
+                                    x:Name="Chart" 
                                     Title="{StaticResource title}">
 
                 <chart:SfCartesianChart.Resources>

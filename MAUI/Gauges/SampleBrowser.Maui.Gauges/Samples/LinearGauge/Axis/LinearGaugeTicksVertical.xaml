@@ -21,7 +21,7 @@
     </ContentView.Resources>
     <ContentView.Content>
         <ScrollView>
-            <Grid x:Name="grid" MaximumWidthRequest="{OnPlatform MacCatalyst='600', UWP='600'}">
+            <Grid x:Name="grid" MaximumWidthRequest="{OnPlatform MacCatalyst='600', WinUI='600'}">
 
                 <VerticalStackLayout>
                     <Label Text="Outside ticks"/>

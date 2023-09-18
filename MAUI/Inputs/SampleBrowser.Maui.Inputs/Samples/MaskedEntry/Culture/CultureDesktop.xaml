@@ -48,7 +48,7 @@
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="USImageButton_Clicked"/>
                                     </Frame.GestureRecognizers>
-                                    <Image Grid.Column="0" Source="{imageExtension:SfImageResource usflag.png}" Aspect="Fill"/>
+                                    <Image x:Name="usImage" WidthRequest="{OnPlatform MacCatalyst=40}" HeightRequest="{OnPlatform MacCatalyst=32}" Grid.Column="0" Source="{imageExtension:SfImageResource usflag.png}" Aspect="Fill"/>
                                 </Frame>
                             </StackLayout>
 
@@ -57,7 +57,7 @@
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="IndiaImageButton_Clicked"/>
                                     </Frame.GestureRecognizers>
-                                    <Image Grid.Column="1" Source="{imageExtension:SfImageResource indiaflag.png}" Aspect="Fill"/>
+                                    <Image x:Name="indiaImage" WidthRequest="{OnPlatform MacCatalyst=36}" HeightRequest="{OnPlatform MacCatalyst=28}" Grid.Column="1" Source="{imageExtension:SfImageResource indiaflag.png}" Aspect="Fill"/>
                                 </Frame>
                             </StackLayout>
                             <StackLayout WidthRequest="36" HeightRequest="28" x:Name="russiaStack">
@@ -65,7 +65,7 @@
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="RussiaImageButton_Clicked"/>
                                     </Frame.GestureRecognizers>
-                                    <Image Grid.Column="2" Source="{imageExtension:SfImageResource russiaflag.png}" Aspect="Fill"/>
+                                    <Image x:Name="russiaImage" WidthRequest="{OnPlatform MacCatalyst=36}" HeightRequest="{OnPlatform MacCatalyst=28}" Grid.Column="2" Source="{imageExtension:SfImageResource russiaflag.png}" Aspect="Fill"/>
                                 </Frame>
                             </StackLayout>
                             <StackLayout WidthRequest="36" HeightRequest="28" x:Name="franceStack">
@@ -73,7 +73,7 @@
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="FranceImageButton_Clicked"/>
                                     </Frame.GestureRecognizers>
-                                    <Image Grid.Column="3" Source="{imageExtension:SfImageResource franceflag.png}" Aspect="Fill"/>
+                                    <Image x:Name="franceImage" WidthRequest="{OnPlatform MacCatalyst=36}" HeightRequest="{OnPlatform MacCatalyst=28}" Grid.Column="3" Source="{imageExtension:SfImageResource franceflag.png}" Aspect="Fill"/>
                                 </Frame>
                             </StackLayout>
                         </HorizontalStackLayout>

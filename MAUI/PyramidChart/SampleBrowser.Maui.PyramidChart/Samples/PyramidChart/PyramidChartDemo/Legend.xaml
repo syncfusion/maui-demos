@@ -12,8 +12,8 @@
     
     <localCore:SampleView.Content>
         <chart:SfPyramidChart x:Name="Chart"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="FillAndExpand"
                              Margin="{OnPlatform Android='0,0,0,50', iOS='0,0,0,50', Default='0,0,0,0'}"
                               PaletteBrushes="{Binding CustomColor_1}"
                              StrokeWidth="2"

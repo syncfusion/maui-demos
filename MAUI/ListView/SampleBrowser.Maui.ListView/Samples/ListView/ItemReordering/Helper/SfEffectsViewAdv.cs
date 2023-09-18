@@ -7,11 +7,7 @@
 #endregion
 using Syncfusion.Maui.Core.Internals;
 using Syncfusion.Maui.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PointerEventArgs = Syncfusion.Maui.Core.Internals.PointerEventArgs;
 
 namespace SampleBrowser.Maui.ListView.SfListView
 {   

@@ -48,8 +48,8 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="60"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Row="0" Grid.Column="0"  Text="{Binding RecipeName}" LineBreakMode="WordWrap" TextColor="#DE000000" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=14,MacCatalyst=16}" CharacterSpacing="0.1"/>
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding RecipeTime}" TextColor="#666666" FontSize="{OnPlatform Default=10,UWP=12,MacCatalyst=12}" FontFamily="Roboto-Regular" HorizontalOptions="End" CharacterSpacing="0.15" Margin="0,0,11,0"/>
+                                <Label Grid.Row="0" Grid.Column="0"  Text="{Binding RecipeName}" LineBreakMode="WordWrap" TextColor="#DE000000" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=14,MacCatalyst=16}" CharacterSpacing="0.1"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding RecipeTime}" TextColor="#666666" FontSize="{OnPlatform Default=10,WinUI=12,MacCatalyst=12}" FontFamily="Roboto-Regular" HorizontalOptions="End" CharacterSpacing="0.15" Margin="0,0,11,0"/>
                                 <Label Grid.Row="1" Grid.Column="0" LineBreakMode="WordWrap" TextColor="#666666" LineHeight="{OnPlatform iOS={OnIdiom Tablet=1.2, Default=1.025}, Default=1.2}" Text="{Binding RecipeDescription}" FontFamily="Roboto-Regular" FontSize="14" CharacterSpacing="0.1" Margin="0,4,0,0" />
                             </Grid>
                             <BoxView Grid.Row="1" Grid.Column="1" BackgroundColor="LightGray" HeightRequest="1" VerticalOptions="End" />

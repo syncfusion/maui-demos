@@ -12,7 +12,7 @@
                 <local:StackedColumn100ViewModel/>
             </StackLayout.BindingContext>
             
-            <chart:SfCartesianChart x:Name="Chart1" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" PaletteBrushes="{Binding PaletteBrushes}">
+            <chart:SfCartesianChart x:Name="Chart1" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" PaletteBrushes="{Binding PaletteBrushes}">
                 
                 <chart:SfCartesianChart.Title>
                     <StackLayout>

@@ -3,7 +3,7 @@
              x:Class="SampleBrowser.Maui.DataForm.SfDataForm.FeedbackForm"
              xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
              xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
-             Background="{OnIdiom Default=White, Desktop=WhiteSmoke}"
+             Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
              xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
              xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
@@ -17,13 +17,13 @@
 
     <localCore:SampleView.Content>
         <Grid>
-            <Image Source="{converters:SfImageResource feedbackform.png}" Aspect="Fill" IsVisible="{OnIdiom Desktop=True, Default=False}"/>
+            <Image Source="{converters:SfImageResource feedbackform.png}" Aspect="Fill" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
 
-            <Frame HasShadow="False" BackgroundColor="{OnIdiom Default=White, Desktop=WhiteSmoke}"
+            <Frame HasShadow="False" BackgroundColor="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
                     CornerRadius="10"
                     MaximumHeightRequest="{OnPlatform WinUI=500, MacCatalyst= 550}"
-                    VerticalOptions="{OnIdiom Default=Fill, Desktop=Center}"
-                    HorizontalOptions="{OnIdiom Desktop=Center, Default=Fill}" 
+                    VerticalOptions="{OnPlatform Default=Fill, WinUI=Center, MacCatalyst=Center}"
+                    HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}" 
                    WidthRequest="{OnPlatform MacCatalyst=560, WinUI=450, Default=-1}">
                 <Frame.Padding>
                     <OnPlatform x:TypeArguments="thickness:Thickness">
@@ -39,21 +39,21 @@
                 </Frame.Margin>
             <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="{OnIdiom Default=0, Desktop=40}"/>
-                        <RowDefinition Height="{OnIdiom Default=0.9*, Desktop=0.8*}"/>
+                        <RowDefinition Height="{OnPlatform Default=0, WinUI=40, MacCatalyst=40}"/>
+                        <RowDefinition Height="{OnPlatform Default=0.9*, WinUI=0.8*, MacCatalyst=0.8*}"/>
                         <RowDefinition Height="1"/>
-                        <RowDefinition Height="{OnIdiom Default=0.1*, Desktop=70}"/>
+                        <RowDefinition Height="{OnPlatform Default=0.1*, WinUI=70, MacCatalyst=70}"/>
                     </Grid.RowDefinitions>
             <Grid.BindingContext>
             <local:DataFormViewModel/>
             </Grid.BindingContext>
                     <Label Text="Training feedback" FontSize="Subtitle" 
-                           IsVisible="{OnIdiom Desktop=True, Default=False}"
+                           IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"
                            FontAttributes="Bold" VerticalTextAlignment="Center"
                            HorizontalTextAlignment="Center"/>
                     <dataForm:SfDataForm x:Name="feedbackForm"
-                                Grid.RowSpan="{OnIdiom Default=2, Desktop=1}"
-                                Grid.Row="{OnIdiom Default=0, Desktop=1}"
+                                Grid.RowSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}"
+                                Grid.Row="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}"
                                 DataObject="{Binding FeedbackFormModel}"
                                 ValidationMode="PropertyChanged"
                                 LayoutType="TextInputLayout"

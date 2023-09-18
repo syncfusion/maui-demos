@@ -29,7 +29,11 @@ public partial class NumericEntryCultureAndFormattingMobile : SampleView
         ResetSize();
         indiaFrame.BorderColor = Colors.Black;
         indiaStack.HeightRequest = 34;
-        indiaStack.WidthRequest = 42;       
+        indiaStack.WidthRequest = 42;
+#if IOS
+        indiaImage.WidthRequest = 40;
+        indiaImage.HeightRequest = 32;
+#endif
     }
 
     private void USImageButton_Clicked(object sender, EventArgs e)
@@ -41,7 +45,11 @@ public partial class NumericEntryCultureAndFormattingMobile : SampleView
         ResetSize();
         usFrame.BorderColor = Colors.Black;
         usStack.HeightRequest = 34;
-        usStack.WidthRequest = 42;   
+        usStack.WidthRequest = 42;
+#if IOS
+        usImage.WidthRequest = 40;
+        usImage.HeightRequest = 32;
+#endif
     }
 
     private void RussiaImageButton_Clicked(object sender, EventArgs e)
@@ -53,7 +61,11 @@ public partial class NumericEntryCultureAndFormattingMobile : SampleView
         ResetSize();
         russiaFrame.BorderColor = Colors.Black;
         russiaStack.HeightRequest = 34;
-        russiaStack.WidthRequest = 42;     
+        russiaStack.WidthRequest = 42;
+#if IOS
+        russiaImage.WidthRequest = 40;
+        russiaImage.HeightRequest = 32;
+#endif
     }
 
 
@@ -66,7 +78,11 @@ public partial class NumericEntryCultureAndFormattingMobile : SampleView
         ResetSize();
         franceFrame.BorderColor = Colors.Black;
         franceStack.HeightRequest = 34;
-        franceStack.WidthRequest = 42;      
+        franceStack.WidthRequest = 42;
+#if IOS
+        franceImage.WidthRequest = 40;
+        franceImage.HeightRequest = 32;
+#endif
     }
 
     void ResetColor()
@@ -87,5 +103,15 @@ public partial class NumericEntryCultureAndFormattingMobile : SampleView
         russiaStack.HeightRequest = 28;
         franceStack.WidthRequest = 36;
         franceStack.HeightRequest = 28;
+#if IOS
+        usImage.WidthRequest = 36;
+        usImage.HeightRequest = 28;
+        indiaImage.WidthRequest = 36;
+        indiaImage.HeightRequest = 28;
+        russiaImage.WidthRequest = 36;
+        russiaImage.HeightRequest = 28;
+        franceImage.WidthRequest = 36;
+        franceImage.HeightRequest = 28;
+#endif
     }
 }

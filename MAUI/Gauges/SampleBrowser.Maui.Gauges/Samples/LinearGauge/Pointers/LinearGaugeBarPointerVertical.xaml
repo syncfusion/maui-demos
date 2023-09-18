@@ -23,7 +23,7 @@
     <ContentView.Content>
         <ScrollView>
             <Grid x:Name="grid"
-                  MaximumWidthRequest="{OnPlatform MacCatalyst='650', UWP='650'}">
+                  MaximumWidthRequest="{OnPlatform MacCatalyst='650', WinUI='650'}">
 
                 <VerticalStackLayout>
                     <Label Text="Outside"/>

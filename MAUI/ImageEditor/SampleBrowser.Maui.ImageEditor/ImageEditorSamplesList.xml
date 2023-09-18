@@ -2,10 +2,12 @@
 <SyncfusionControls>
   <ControlCategory Name="Editors">
     <Control Title="ImageEditor" Image="imageeditor.png" 
-			 StatusTag="New" IsPreview="true"
+			 StatusTag="Updated" IsPreview="true"
 			 ControlName="SfImageEditor" 
 			 Description="The image editor is used to crop, flip, rotate and annotate an image.">
-			<Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="ImageEditor/GettingStarted/"/>   />
+			<Sample Title="Getting Started" SampleName="GettingStarted" StatusTag="Updated" CodeViewerPath="ImageEditor/GettingStarted/" VideoLink="https://www.youtube.com/watch?v=Gkkh52xSehM"/>   />
+			<!--<Sample Title="Image Filters" SampleName="ImageFilters" StatusTag="New" CodeViewerPath="ImageEditor/ImageFilters/"/>   />-->
+			
 			<!--<Sample Title="Profile Editor" SampleName="ProfileEditor" CodeViewerPath="ImageEditor/ProfileEditor/"   />-->
 		
 	</Control>

@@ -5,7 +5,7 @@
             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
-            Background="{OnIdiom Default=White, Desktop=WhiteSmoke}"
+            Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
 
@@ -23,13 +23,13 @@
             </Grid.BindingContext>
 
             <Image Source="{converters:SfImageResource contactform.png}" Aspect="Fill" Grid.ColumnSpan="2"
-                   IsVisible="{OnIdiom Desktop=True, Default=False}"/>
+                   IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
 
-            <Frame BorderColor="{OnIdiom Default=Transparent, Desktop=#C2C2C2}" MaximumHeightRequest="{OnPlatform MacCatalyst=800}"
+            <Frame BorderColor="{OnPlatform Default=Transparent, WinUI=#C2C2C2, MacCatalyst=#C2C2C2}" MaximumHeightRequest="{OnPlatform MacCatalyst=800}"
                 VerticalOptions="{OnPlatform MacCatalyst=Center}" BackgroundColor="White"
-                HasShadow="False" Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}"
+                HasShadow="False" Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}"
                 CornerRadius="10" Grid.Column="0" WidthRequest="{OnPlatform WinUI=400, MacCatalyst=600, Default=-1}"
-                HorizontalOptions="{OnIdiom Desktop=Center, Default=Fill}" Padding="0">
+                HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}" Padding="0">
                 <Frame.Margin>
                     <OnPlatform x:TypeArguments="thickness:Thickness">
                         <On Platform="MacCatalyst" Value="20"/>

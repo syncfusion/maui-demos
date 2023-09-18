@@ -42,11 +42,11 @@
                         <On Platform="WinUI" Value="10"/>
                     </OnPlatform>
                 </Frame.Padding>
-                <Grid IsClippedToBounds="True" HeightRequest="{OnPlatform WinUI=450,MacCatalyst=600}" VerticalOptions="{OnPlatform WinUI=Start, MacCatalyst=Start}" >
+                <Grid IsClippedToBounds="True" WidthRequest="{OnPlatform WinUI=350}" HeightRequest="{OnPlatform WinUI=450,MacCatalyst=600}" VerticalOptions="{OnPlatform WinUI=Start, MacCatalyst=Start}" >
                     <ScrollView x:Name="scrollView">
                         <StackLayout x:Name="stackLayout" HorizontalOptions="{OnPlatform MacCatalyst=Center,WinUI=Center}" >
                             <Label Text="Invoice: #FRU037020142097" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" HeightRequest="40" FontSize="16" FontFamily="Roboto-Regular"  Opacity="1.0" VerticalTextAlignment="Center" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
-                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=340}">
+                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200" IsExpanded="True" >
                                     <syncfusion:SfExpander.Header>
                                         <Grid >
@@ -70,7 +70,7 @@
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=340}">
+                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander  AnimationDuration="200" IsExpanded="False">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>
@@ -130,7 +130,7 @@
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=340}">
+                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200"  IsExpanded="False">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>
@@ -173,7 +173,7 @@
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=340}">
+                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200" IsExpanded="True">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>

@@ -3,8 +3,8 @@
 	<ControlCategory Name="Miscellaneous">
 		<Control Title="Shimmer" ControlName="SfShimmer" Image="shimmer.png" Description="Shimmer is a loading indicator control which provides modern animations when the data is being loaded.">
 			<Sample Title="Getting started" SampleName="GettingStarted" SearchTags="shimmer, getting started" CodeViewerPath="Shimmer/GettingStarted/" VideoLink="https://www.youtube.com/watch?v=NGGQhUA9Bu0"/>
-			<Sample Platforms="Android,iOS" Title="Chat" SampleName="Chats" SearchTags="Chats, ChatBox" CodeViewerPath="Shimmer/Chats/" VideoLink="https://www.youtube.com/watch?v=NGGQhUA9Bu0"/>
-			<Sample Platforms="Android,iOS" Title="Article" SampleName="Articles" SearchTags="Articles, Library" CodeViewerPath="Shimmer/Articles/" VideoLink="https://www.youtube.com/watch?v=NGGQhUA9Bu0"/>
+			<Sample Platforms="Android,iOS" Title="Chat" SampleName="Chats" SearchTags="Chats, ChatBox" CodeViewerPath="Shimmer/Chats/"/>
+			<Sample Platforms="Android,iOS" Title="Article" SampleName="Articles" SearchTags="Articles, Library" CodeViewerPath="Shimmer/Articles/"/>
 		</Control>
 	</ControlCategory>
 </SyncfusionControls>

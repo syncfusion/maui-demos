@@ -63,7 +63,7 @@
                                                 Position="Cross"
                                                 OffsetY="-5">
                         <gauge:LinearContentPointer.Content>
-                            <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}"
+                            <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
                                    TextColor="White"
                                    FontSize="18"
                                    HorizontalOptions="Center"
@@ -78,7 +78,7 @@
                                                 Position="Cross"
                                                 OffsetY="5">
                         <gauge:LinearContentPointer.Content>
-                            <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}"
+                            <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
                                    TextColor="White"
                                    FontSize="18"
                                    HorizontalOptions="Center"

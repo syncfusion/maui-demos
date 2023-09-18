@@ -7,7 +7,7 @@
     <localCore:SampleView.Content>
         <chart:SfCartesianChart x:Name="chart" HorizontalOptions="Fill" VerticalOptions="Fill">
             <chart:SfCartesianChart.BindingContext>
-                <local:ZoomViewModel/>
+                <local:ZoomViewModel x:Name="ViewModel"/>
             </chart:SfCartesianChart.BindingContext>
             <chart:SfCartesianChart.Title>
                 <Label Text="Activity Summary" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
@@ -30,8 +30,8 @@
             </chart:SfCartesianChart.XAxes>
             <chart:SfCartesianChart.YAxes>
                 <chart:NumericalAxis ShowMajorGridLines="True"
-                                     EdgeLabelsDrawingMode="Shift"
-                                     Maximum="100" Minimum="0">
+                                     EdgeLabelsDrawingMode="Fit"
+                                     Maximum="100" Minimum="0" PlotOffsetStart="3" PlotOffsetEnd="3">
                     <chart:NumericalAxis.AxisLineStyle>
                         <chart:ChartLineStyle StrokeWidth="0" />
                     </chart:NumericalAxis.AxisLineStyle>
@@ -48,8 +48,37 @@
                 </chart:AreaSeries>
             </chart:SfCartesianChart.Series>
             <chart:SfCartesianChart.ZoomPanBehavior>
-                <chart:ChartZoomPanBehavior/>
+                <chart:ChartZoomPanBehavior x:Name="zoomingBehavior" EnableDirectionalZooming="{OnPlatform iOS={Binding Source={x:Reference checkbox},Path=IsChecked},Android={Binding Source={x:Reference checkbox},Path=IsChecked}}"
+                                            ZoomMode="XY"/>
             </chart:SfCartesianChart.ZoomPanBehavior>
         </chart:SfCartesianChart>
     </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <VerticalStackLayout Spacing="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Grid.Column="0" Text="Zoom Mode"  HorizontalOptions="Start" Padding="5"  FontSize="15"/>
+                <Picker   Grid.Row="0" Grid.Column="1" 
+                          ItemsSource="{Binding Source={x:Reference ViewModel},Path=ZoomModeType}"
+                          SelectedItem="{Binding Source={x:Reference ViewModel},Path=ZoomModeType[2]}"
+                          VerticalOptions="Start" HorizontalOptions="Fill"
+                          x:Name="ZoomModePicker"
+                          SelectedIndex="2"
+                          SelectedIndexChanged="ZoomModeChanged">
+                </Picker>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Directional Zooming" HorizontalOptions="Start"  Padding="5" FontSize="15" IsVisible="{OnPlatform WinUI=false,MacCatalyst=false}"/>
+                <CheckBox Grid.Row="0" Grid.Column="1" x:Name="checkbox" VerticalOptions="Start" HorizontalOptions="Start" IsVisible="{OnPlatform WinUI=false,MacCatalyst=false}"/>
+            </Grid>
+        </VerticalStackLayout>
+    </localCore:SampleView.OptionView>
 </localCore:SampleView>

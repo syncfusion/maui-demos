@@ -13,7 +13,7 @@
             <Grid.Margin>
                 <OnPlatform x:TypeArguments="thickness:Thickness">
                     <On Platform="MacCatalyst" Value="-6"/>
-                    <On Platform="UWP" Value="-6"/>
+                    <On Platform="WinUI" Value="-6"/>
                 </OnPlatform>
             </Grid.Margin>
             <imageEditor:SfImageEditor x:Name="imageEditor" SelectionStroke="#AE97FF"

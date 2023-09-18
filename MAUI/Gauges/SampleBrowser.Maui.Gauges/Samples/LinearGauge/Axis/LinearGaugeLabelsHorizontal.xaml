@@ -54,7 +54,7 @@
 
                             <gauge:LinearContentPointer Value="5" Position="Cross">
                                 <gauge:LinearContentPointer.Content>
-                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
+                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
                                     HorizontalOptions="Center" 
                                    VerticalOptions="Center" Text="&#xe703;"/>
 
@@ -62,7 +62,7 @@
                             </gauge:LinearContentPointer>
                             <gauge:LinearContentPointer Value="10" Position="Cross">
                                 <gauge:LinearContentPointer.Content>
-                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
+                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
                                     HorizontalOptions="Center" 
                                    VerticalOptions="Center" Text="&#xe703;" />
 
@@ -70,7 +70,7 @@
                             </gauge:LinearContentPointer>
                             <gauge:LinearContentPointer Value="15" Position="Cross">
                                 <gauge:LinearContentPointer.Content>
-                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, UWP=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
+                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
                                     HorizontalOptions="Center" 
                                    VerticalOptions="Center" Text="&#xe703;"/>
 

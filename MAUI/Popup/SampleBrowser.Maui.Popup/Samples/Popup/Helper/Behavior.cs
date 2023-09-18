@@ -46,7 +46,7 @@ namespace SampleBrowser.Maui.Popup.SfPopup
             ActionSheetPopup!.WidthRequest = 360;
 #endif          
 #if IOS || MACCATALYST
-            ActionSheetPopup.Refresh();
+            ActionSheetPopup.Refresh();            
 #endif
 
         }
@@ -85,6 +85,7 @@ namespace SampleBrowser.Maui.Popup.SfPopup
 
                         VerticalTextAlignment = TextAlignment.Center,
                         FontSize = 24,
+                        HeightRequest = 24,
                         TextColor = Colors.Gray,
                         FontAttributes = FontAttributes.Bold,
                     };
@@ -103,6 +104,7 @@ namespace SampleBrowser.Maui.Popup.SfPopup
 #endif
                         VerticalTextAlignment = TextAlignment.Center,
                         FontSize = 24,
+                        HeightRequest = 24,
                         TextColor = Colors.Gray,                        
                     };
                 }
@@ -120,6 +122,7 @@ namespace SampleBrowser.Maui.Popup.SfPopup
 #endif
                         VerticalTextAlignment = TextAlignment.Center,
                         FontSize = 24,
+                        HeightRequest = 24,
                         TextColor = Colors.Gray,                       
                     };
                 }
@@ -137,6 +140,7 @@ namespace SampleBrowser.Maui.Popup.SfPopup
 #endif
                         VerticalTextAlignment = TextAlignment.Center,
                         FontSize = 24,
+                        HeightRequest = 24,
                         TextColor = Colors.Gray,                        
                     };
                 }

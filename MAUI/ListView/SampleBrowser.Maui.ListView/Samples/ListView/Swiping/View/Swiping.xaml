@@ -42,7 +42,7 @@
                                 <TapGestureRecognizer Command="{Binding Path=BindingContext.ArchiveCommand, Source={x:Reference listView}}" 
                                                   CommandParameter="{Binding .}"/>
                             </Grid.GestureRecognizers>
-                            <Label Text="&#xe71C;" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,UWP=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
+                            <Label Text="&#xe71C;" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
                                    TextColor="#FFFFFF"
                                    HorizontalOptions="Center"
                                    FontSize="22"
@@ -60,7 +60,7 @@
                                 <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteImageCommand, Source={x:Reference listView}}" 
                                                   CommandParameter="{Binding .}"/>
                             </Grid.GestureRecognizers>
-                            <Label Text="&#xe716;" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,UWP=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
+                            <Label Text="&#xe716;" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
                                    TextColor="#FFFFFF"
                                    HorizontalOptions="Center"
                                    FontSize="26"
@@ -111,7 +111,7 @@
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <Label Grid.Column="0" Text="&#xe717;" FontSize="18" TextColor="#DD0000" FontAttributes="Bold" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,UWP=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}' VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                                        <Label Grid.Column="0" Text="&#xe717;" FontSize="18" TextColor="#DD0000" FontAttributes="Bold" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}' VerticalOptions="Center" VerticalTextAlignment="Center"/>
                                         <Label Grid.Column="1" Text="Image Attached" FontSize="14" FontFamily="Roboto-Medium" TextColor="#666666" Margin="4,0,0,0" CharacterSpacing="0.25" VerticalOptions="Center" VerticalTextAlignment="Center"/>
                                     </Grid>
                                 </Border>
@@ -126,7 +126,7 @@
 
                             <Label Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="0,0,16,0"
                                        Text="{Binding IsFavorite,Converter={StaticResource favoriteIconConverter}}" 
-                                       FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,UWP=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
+                                       FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
                                        TextColor="{Binding IsFavorite,Converter={StaticResource favoriteIconColorConverter}}"
                                        HorizontalOptions="End"
                                        FontSize="18"

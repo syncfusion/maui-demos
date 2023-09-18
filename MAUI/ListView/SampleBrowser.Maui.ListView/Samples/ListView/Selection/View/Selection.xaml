@@ -41,7 +41,7 @@
                                    Text="{Binding DocumentName}" 
                                    FontFamily="Roboto-Regular"
                                    CharacterSpacing="0.15"
-                                   FontSize="{OnPlatform Default=16,UWP=14}" />
+                                   FontSize="{OnPlatform Default=16,WinUI=14}" />
 
                         <Label Grid.Row="1" TextColor="#99000000" 
                                        Grid.Column="0"
@@ -54,9 +54,9 @@
 
                     </Grid>
                     <Label Grid.Column="2" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="End" Margin="0,0,16,0"
-                           FontSize="{OnPlatform Android=Large, UWP=Medium, iOS=Large, MacCatalyst=Large}"
+                           FontSize="{OnPlatform Android=Large, WinUI=Medium, iOS=Large, MacCatalyst=Large}"
                            Text="{Binding IsSelected, Converter={StaticResource SelectionIconConverter}}" TextColor="{Binding Path=IsSelected, Converter={StaticResource IconColorConverter}}"
-                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, UWP=ListViewFontIcons.ttf#ListViewFontIcons}"/>
+                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, WinUI=ListViewFontIcons.ttf#ListViewFontIcons}"/>
                     <BoxView Grid.Row="1" Grid.Column="1" VerticalOptions="Start" Grid.ColumnSpan="2" BackgroundColor="LightGray" HeightRequest="1.5"/>
                 </Grid>
             </DataTemplate>
@@ -80,10 +80,10 @@
 
                 <Grid x:Name="selectAllIconParent"  Grid.Column="1" HorizontalOptions="End" HeightRequest="50">
                     <Label x:Name="selectAllIcon"
-                           FontSize="{OnPlatform Android=Large, UWP=Medium, iOS=Large, MacCatalyst=Large}"
+                           FontSize="{OnPlatform Android=Large, WinUI=Medium, iOS=Large, MacCatalyst=Large}"
                            Text="{Binding IsAllSelected, Converter={StaticResource SelectionIconConverter}}" 
                            TextColor="{Binding Path=IsAllSelected, Converter={StaticResource IconColorConverter}}"
-                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, UWP=ListViewFontIcons.ttf#ListViewFontIcons}"
+                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, WinUI=ListViewFontIcons.ttf#ListViewFontIcons}"
                            VerticalTextAlignment="Center" VerticalOptions="Center" />
                 </Grid>
             </Grid>

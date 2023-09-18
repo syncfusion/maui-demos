@@ -30,19 +30,19 @@
                                         <Border StrokeThickness="5"
                                             Stroke="{Binding Background}"
                                             HorizontalOptions="Center"
-                                            HeightRequest="{OnIdiom Desktop = 70, Phone = 65}"
-                                            WidthRequest="{OnIdiom Desktop= 70, Phone=65}">
+                                            HeightRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}"
+                                            WidthRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}">
                                             <Border.StrokeShape>
                                                 <RoundRectangle CornerRadius="150"/>
                                             </Border.StrokeShape>
-                                            <Image WidthRequest="{OnIdiom Desktop = 55, Phone = 50}"
-                                               HeightRequest="{OnIdiom Desktop = 55, Phone = 50}"
+                                            <Image WidthRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
+                                               HeightRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
                                                HorizontalOptions="Center"
                                                Source="{Binding DataItem.ImageName,Converter={StaticResource imageConverter}}" 
                                                VerticalOptions="Center"
                                         Aspect="Fill"/>
                                         </Border>
-                                        <Label Text="{Binding Name}" TextColor="Black" FontSize="{OnIdiom Desktop= 12, Phone=10}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding Name}" TextColor="Black" FontSize="{OnPlatform WinUI= 12, MacCatalyst=12, Android=10, iOS=10}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                                     </StackLayout>
                                 </DataTemplate>
                             </schedule:SchedulerResourceView.HeaderTemplate>

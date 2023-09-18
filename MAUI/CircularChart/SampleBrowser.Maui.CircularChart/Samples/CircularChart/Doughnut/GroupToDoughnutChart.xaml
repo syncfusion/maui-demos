@@ -17,7 +17,7 @@
                         <VerticalStackLayout Spacing="2" BindableLayout.ItemsSource="{Binding Item, Converter={StaticResource valueConvert}}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid ColumnSpacing="10" ColumnDefinitions="*,*">
+                                    <Grid ColumnSpacing="10" ColumnDefinitions="*,Auto">
                                         <Label Text="{Binding Name}"
                                                    TextColor="White" Grid.Column="0"
                                                    HorizontalOptions="Start" HorizontalTextAlignment="Start"

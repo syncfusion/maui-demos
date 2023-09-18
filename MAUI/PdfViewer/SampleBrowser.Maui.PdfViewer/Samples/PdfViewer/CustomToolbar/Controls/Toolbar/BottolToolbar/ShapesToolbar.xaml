@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.ShapesToolbar">
+
+    <ContentView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="Maui Material Assets" />
+            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </ContentView.Resources>
+    <Grid ColumnDefinitions="1*,2*,2*,2*,2*">
+        <Button Text="&#xe72d;"
+                    Grid.Column="0"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Back"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe73e;"
+                    Grid.Column="1"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Square"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe73f;"
+                    Grid.Column="2"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Circle"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe73d;"
+                    Grid.Column="3"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Line"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe73c;"
+                    Grid.Column="4"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Arrow"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Style="{StaticResource buttonIconStyle}" />
+    </Grid>
+</ContentView>

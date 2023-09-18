@@ -76,17 +76,17 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="SampleBrowser.Maui.Base" version="22.2.5" />
-    <PackageReference Include="Syncfusion.Maui.DataGrid" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.Core" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.Data" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.DataSource" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.GridCommon" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.Inputs" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.ListView" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.TabView" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.PDF.NET" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.XlsIO.NET" version="22.2.5" />
-	  <PackageReference Include="Syncfusion.Maui.DataGridExport" version="22.2.5" />
+    <PackageReference Include="SampleBrowser.Maui.Base" version="23.1.36" />
+    <PackageReference Include="Syncfusion.Maui.DataGrid" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.Core" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.Data" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.DataSource" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.GridCommon" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.Inputs" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.ListView" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.TabView" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.PDF.NET" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.XlsIO.NET" version="23.1.36" />
+	  <PackageReference Include="Syncfusion.Maui.DataGridExport" version="23.1.36" />
   </ItemGroup>
 </Project>

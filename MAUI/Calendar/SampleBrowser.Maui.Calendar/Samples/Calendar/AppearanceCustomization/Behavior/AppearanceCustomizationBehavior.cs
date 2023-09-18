@@ -12,7 +12,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
     using Syncfusion.Maui.Calendar;
 
     /// <summary>
-    /// 
+    /// Represents a class which contains appearance customization.
     /// </summary>
     internal class AppearanceCustomizationBehavior : Behavior<SampleView>
     {

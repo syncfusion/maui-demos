@@ -10,8 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Maui.Platform;
 using SampleBrowser.Maui.Base;
 using Syncfusion.Maui.Charts;
+using MAUIPicker = Microsoft.Maui.Controls.Picker;
 
 namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 {
@@ -38,7 +40,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         private void ModePicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var picker = (Picker)sender;
+            var picker = (MAUIPicker)sender;
             int selectedIndex = picker.SelectedIndex;
 
             if (selectedIndex == 0)

@@ -21,6 +21,10 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
     public Button? OutlineButton { get; set; }
     public Button? GoToPreviousPageButton { get; set; }
     public Button? GoToNextPageButton { get; set; }
+    public Button? UndoButton { get; set; }
+    public Button? SaveButton { get; set; }
+    public Button? RedoButton { get; set; }
+    public Button? StampButton { get; set; }
 
     public CustomToolbar? ParentView { get; set; }
     
@@ -49,6 +53,10 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
                 GoToPreviousPageButton.Command = PdfViewer.GoToPreviousPageCommand;
             if (GoToNextPageButton != null)
                 GoToNextPageButton.Command = PdfViewer.GoToNextPageCommand;
+            if (UndoButton != null)
+                UndoButton.Command = PdfViewer.UndoCommand;
+            if (RedoButton != null)
+                RedoButton.Command = PdfViewer.RedoCommand;
         }
     }
 
@@ -90,16 +98,55 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
         {
             if (!viewModel.ShowOutlineView)
                 ParentView?.CloseAllDialogs();
+            viewModel.IsShapeListVisible = false;
+            viewModel.IsStampListVisible = false;
+            viewModel.IsStickyNoteListVisible = false;
+            viewModel.IsTextMarkupListVisible = false;
+            viewModel.IsInkColorPalleteVisible = false;
+            viewModel.IsShapeColorPalleteVisible = false;
+            viewModel.IsStickyNoteColorPalleteVisible = false;
+            viewModel.IsStampOpacitySliderbarVisible = false;
+            viewModel.IsTextMarkUpColorPalleteVisible = false;
             viewModel.ShowOutlineView = !viewModel.ShowOutlineView;
+            viewModel.DeselectSelectedAnnotation();
+            if (pdfViewer != null)
+            {
+                pdfViewer.AnnotationMode = Syncfusion.Maui.PdfViewer.AnnotationMode.None;
+                viewModel.ClearButtonHighlights();
+            }
         }
     }
 
     public void Search_Clicked(object sender, EventArgs e)
     {
+#if ANDROID || IOS
+        if (ParentView != null && ParentView.BindingContext is CustomToolbarViewModel viewModel)
+        {
+            viewModel.ToolbarCommand.Execute("Back");
+            viewModel.BottomToolbarContent = new AnnotationToolbar(viewModel);
+        }
+#else
         ParentView?.CloseAllDialogs();
+        if (BindingContext is CustomToolbarViewModel viewModel)
+        {
+            viewModel.IsShapeListVisible = false;
+            viewModel.IsStampListVisible = false;
+            viewModel.IsStickyNoteListVisible = false;
+            viewModel.IsTextMarkupListVisible = false;
+            viewModel.IsInkColorPalleteVisible = false;
+            viewModel.IsShapeColorPalleteVisible = false;
+            viewModel.IsStickyNoteColorPalleteVisible = false;
+            viewModel.IsStampOpacitySliderbarVisible = false;
+            viewModel.IsTextMarkUpColorPalleteVisible = false;
+            viewModel.IsEraserThicknessToolbarVisible = false;
+            viewModel.DeselectSelectedAnnotation();
+            if (pdfViewer != null)
+                pdfViewer.AnnotationMode = Syncfusion.Maui.PdfViewer.AnnotationMode.None;
+        }
+#endif
         MainThread.BeginInvokeOnMainThread(() => ParentView?.SearchView?.Open());
     }
-
+    
     /// <summary>
     /// Handles when the page number entry is focused.
     /// </summary>

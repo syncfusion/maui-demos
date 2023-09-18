@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.DocIO.DocIO.CompareDocuments">
+    <localCore:SampleView.Content>
+		<StackLayout Margin="10">
+            <Label x:Name="description" LineBreakMode="WordWrap" Text="This sample demonstrates how to compare two Word documents."
+                  VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0">
+			</Label>
+			<Label x:Name="label1" Text=" "></Label>
+            <Label x:Name="buttonDescription" LineBreakMode="WordWrap" Text="Click the &quot;Compare Documents&quot; button to view the generated Word document. Please note that a Word-compatible viewer is required to open and view the Word document."
+                  VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0">
+			</Label>
+            <Label x:Name="label2" Text=" " VerticalOptions="Center"></Label>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" x:Name="detectFormatChanges" IsChecked="True" VerticalOptions="Start"></CheckBox>
+                <Label Grid.Column="1" x:Name="lable4" Padding="5" VerticalOptions="Center" Text="Detect format changes"></Label>
+            </Grid>
+
+            <Label x:Name="label3" Text=" " VerticalOptions="Center"></Label>
+            <Button x:Name="btnCompareDocuments" Clicked ="Button_Click" Text ="Compare Documents" HorizontalOptions="Start"></Button>
+        </StackLayout>
+	</localCore:SampleView.Content>
+</localCore:SampleView>

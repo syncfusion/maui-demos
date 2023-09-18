@@ -9,7 +9,7 @@
             <StackLayout.BindingContext>
                 <local:TooltipViewModel/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="tooltipChart" PaletteBrushes="{Binding PaletteBrushes}" VerticalOptions="CenterAndExpand">
+            <chart:SfCartesianChart x:Name="tooltipChart" PaletteBrushes="{Binding PaletteBrushes}" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.Title >
                     <VerticalStackLayout Margin="0,0,0,5">
                         <Label Text="Labor Force" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
