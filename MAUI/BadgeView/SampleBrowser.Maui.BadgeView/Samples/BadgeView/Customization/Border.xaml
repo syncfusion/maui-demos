@@ -31,7 +31,7 @@
                                Style="{StaticResource DemoLabelStyle}"/>
                     </Grid>
                     <badge:SfBadgeView.BadgeSettings>
-                        <badge:BadgeSettings CornerRadius="10"/>
+                        <badge:BadgeSettings CornerRadius="12"/>
                     </badge:SfBadgeView.BadgeSettings>
                 </badge:SfBadgeView>
 

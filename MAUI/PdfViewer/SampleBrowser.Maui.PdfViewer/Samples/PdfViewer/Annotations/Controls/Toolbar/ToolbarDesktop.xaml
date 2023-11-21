@@ -40,7 +40,7 @@
                         Clicked="Button_Clicked"
                         Text="&#xe780;"  
                         Style="{StaticResource buttonIconStyle}"/>
-                <Grid BackgroundColor="#F3EDF7" WidthRequest="10" Margin="12,17,0,0" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="3"></Grid>
+                <Grid BackgroundColor="#F3EDF7" WidthRequest="10" Margin="12,17,0,0" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="4"></Grid>
             </Grid>
             <HorizontalStackLayout x:Name="saveLayout" Spacing="8" IsVisible="{Binding IsSaveLayoutVisible}">
                 <Rectangle
@@ -93,7 +93,8 @@
                         Style="{StaticResource buttonIconStyle}"
                  />
             </Grid>
-            <Grid x:Name="inkEraserGrid" BackgroundColor="{Binding InkEraserHighlightColor}" Margin="4,0,0,0" HeightRequest="25" WidthRequest="25">
+            <Grid x:Name="inkEraserGrid" BackgroundColor="{Binding InkEraserHighlightColor}" Margin="4,0,0,0" HeightRequest="25" WidthRequest="25"
+                  IsVisible="{Binding IsAnnotationsToolsVisible}">
                 <Button 
                     Text="&#xe764;" 
                     x:Name="eraserButton"

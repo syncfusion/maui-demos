@@ -61,11 +61,25 @@ public partial class StampViewDesktop : StampView
                     {
                         if (CustomStampListLayout.Count == 0)
                         {
-                            customStampMenuItem.IsEnabled = false;
+                            if (customStampMenuItem.Children[0] is Label label && customStampMenuItem.Children[1] is Label icon)
+                            {
+                                customStampMenuItem.InputTransparent = true;
+                                label.TextColor = Colors.Gray;
+                                label.Opacity = 0.5f;
+                                icon.TextColor = Colors.Gray;
+                                icon.Opacity = 0.5f;
+                            }
                         }
                         else
                         {
-                            customStampMenuItem.IsEnabled = true;
+                            if (customStampMenuItem.Children[0] is Label label && customStampMenuItem.Children[1] is Label icon)
+                            {
+                                customStampMenuItem.InputTransparent = false;
+                                label.TextColor = Colors.Black;
+                                label.Opacity = 1;
+                                icon.TextColor = Colors.Black;
+                                icon.Opacity = 1;
+                            }
                         }
                     }
                 }
@@ -207,10 +221,13 @@ public partial class StampViewDesktop : StampView
                 }
                 else if (label.Text == "Custom Stamps")
                 {
-                    if (CustomStampMenu.IsVisible)
-                        HideCustomStamps();
-                    else
-                        ShowCustomStamps();
+					if (CustomStampListLayout != null && CustomStampListLayout!.Count != 0)
+					{
+						if (CustomStampMenu.IsVisible)
+                            HideCustomStamps();
+                        else
+                            ShowCustomStamps();
+					}
                 }
                 else if (label.Text == "Create Stamps")
                 {

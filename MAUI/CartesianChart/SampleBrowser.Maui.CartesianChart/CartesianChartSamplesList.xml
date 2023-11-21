@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
   <ControlCategory Name="Data Visualization">
-	  <Control Title="Cartesian Charts" StatusTag="Updated" ControlName="SfCartesianChart" Image="cartesianchart.png" Description="Plot over seven chart types with extensive features like data label and zooming.">
+	  <Control Title="Cartesian Charts" StatusTag="Updated" ControlName="SfCartesianChart" Image="cartesianchart.png" Description="Plot over 20+ chart types with extensive features like data label, trackball and zooming.">
       <Category Title="Chart Types">
         <SubCategory Title="Column">
           <CardLayout>
@@ -158,7 +158,7 @@
 		  </Category>
 		  <Category Title="Axis">
 			  <Sample Title="Category" SampleName="CategoryAxisChart" VideoLink="https://www.youtube.com/watch?v=D_8MHoglBVI" SearchTags="string, name, category, axis" CodeViewerPath="CartesianChart/Axis/"/>
-			  <Sample Title="Numerical" SampleName="NumericalAxisChart" SearchTags="numeric, axis" CodeViewerPath="CartesianChart/Axis/"/>
+			  <Sample Title="Numerical" SampleName="NumericalAxisChart" VideoLink="https://www.youtube.com/watch?v=BJAEtUZSK_c" SearchTags="numeric, axis" CodeViewerPath="CartesianChart/Axis/"/>
 			  <Sample Title="Logarithm" SampleName="LogarithmicAxisChart" VideoLink="https://www.youtube.com/watch?v=HWPRuTYThDc"  SearchTags="logarithmic, axis" CodeViewerPath="CartesianChart/Axis/"/>
 			  <Sample Title="Date Time" SampleName="DateTimeAxisChart" VideoLink="https://www.youtube.com/watch?v=Z_ZIJ1zlVg0" SearchTags="date, axis" CodeViewerPath="CartesianChart/Axis/"/>
 			  <Sample Title="Axis crossing" SampleName="AxisCrossing" SearchTags="axis, crossing" CodeViewerPath="CartesianChart/Axis/"/>

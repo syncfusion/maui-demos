@@ -36,14 +36,17 @@ public partial class App : MauiWinUIApplication
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
         base.OnLaunched(args);
-        foreach (var item in Application.Windows)
+        if (IPlatformApplication.Current != null)
         {
-            var platformWindow = (item?.Handler?.PlatformView as Microsoft.UI.Xaml.Window);
-
-            if (platformWindow != null)
+            foreach (var item in IPlatformApplication.Current.Application.Windows)
             {
-                platformWindow.ExtendsContentIntoTitleBar = false;
-                platformWindow.Title = ".NET MAUI SignaturePad Demo";
+                var platformWindow = (item?.Handler?.PlatformView as Microsoft.UI.Xaml.Window);
+
+                if (platformWindow != null)
+                {
+                    platformWindow.ExtendsContentIntoTitleBar = false;
+                    platformWindow.Title = ".NET MAUI SignaturePad Demo";
+                }
             }
         }
     }

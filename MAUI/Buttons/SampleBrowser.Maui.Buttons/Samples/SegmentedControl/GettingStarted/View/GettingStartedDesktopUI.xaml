@@ -81,10 +81,12 @@
                                    Margin="2,0,0,0"/>
                             <buttons:SfSegmentedControl x:Name="segmentedControlColorOption"
                                                         StrokeThickness="3"
+                                                        VerticalOptions="Fill"
+                                                        HeightRequest="42"
                                                         Stroke="Transparent"
-                                                        SegmentWidth="{OnPlatform WinUI=38,MacCatalyst=36}"
+                                                        SegmentWidth="38"
                                                         HorizontalOptions="Start"
-                                                        WidthRequest="{OnPlatform WinUI=210,MacCatalyst=200}"
+                                                        WidthRequest="210"
                                                         SegmentHeight="36"
                                                         CornerRadius="36"
                                                         SegmentCornerRadius="36"
@@ -111,7 +113,8 @@
                                        FontFamily="RobotoMedium"/>
                             </HorizontalStackLayout>
                             <buttons:SfSegmentedControl x:Name="segmentedControlWarrantyOption"
-                                                        SegmentHeight="38"
+                                                        SegmentHeight="38" 
+                                                        VerticalOptions="FillAndExpand"
                                                         Margin="0,5,0,0"
                                                         HorizontalOptions="Start"
                                                         WidthRequest="312"
@@ -172,15 +175,21 @@
                     </StackLayout>
                 </ScrollView>
 
-                <Line HeightRequest="1" x:Name="line" StrokeThickness="1" VerticalOptions="Start" Background="LightGray" Grid.Row="1" />
+                <Border x:Name="line" StrokeThickness="1" VerticalOptions="Start" Background="LightGray" Grid.Row="1" >
+                    <Border.Margin>
+                        <OnPlatform x:TypeArguments="thickness:Thickness">
+                            <On Platform="MacCatalyst" Value="5,0,5,12"/>
+                            <On Platform="WinUI" Value="5,12,5,12"/>
+                        </OnPlatform>
+                    </Border.Margin>
+                </Border>
                 <buttons:SfSegmentedControl  x:Name="segmentedControlResultsOption"
                                              HorizontalOptions="Start"
                                              Grid.Row="1"
+                                             VerticalOptions="{OnPlatform WinUI=Fill,MacCatalyst=Start}"
                                              VisibleSegmentsCount="1"
-                                             VerticalOptions="Start"
                                              WidthRequest="{Binding Source={x:Reference line},Path=Width}"
                                              HeightRequest="40"
-                                             Margin="3,20,0,0"
                                              SelectedIndex="0"
                                              ItemsSource="{Binding SpeakerResultsOptionInfo}">
                     <buttons:SfSegmentedControl.TextStyle>
@@ -189,6 +198,12 @@
                     <buttons:SfSegmentedControl.SelectionIndicatorSettings>
                         <buttons:SelectionIndicatorSettings Background="#6200EE" />
                     </buttons:SfSegmentedControl.SelectionIndicatorSettings>
+                    <buttons:SfSegmentedControl.Margin>
+                        <OnPlatform x:TypeArguments="thickness:Thickness">
+                            <On Platform="MacCatalyst" Value="3,20,3,0"/>
+                            <On Platform="WinUI" Value="3,12,3,0"/>
+                        </OnPlatform>
+                    </buttons:SfSegmentedControl.Margin>
                 </buttons:SfSegmentedControl>
             </Grid>
         </Grid>

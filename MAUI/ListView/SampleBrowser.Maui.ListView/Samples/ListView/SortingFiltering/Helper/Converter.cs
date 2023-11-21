@@ -14,8 +14,12 @@ namespace SampleBrowser.Maui.ListView.SfListView
 {
     public class ListViewBoolToSortImageConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
+            if (value == null)
+            {
+                return "\ue709";
+            }
             var sortOptions = (ListViewSortOptions)value;
             if (sortOptions == ListViewSortOptions.Ascending)
                 return "\ue709";
@@ -25,7 +29,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
                 return "\ue709";
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

@@ -17,6 +17,9 @@ public partial class ColorToolbar : ContentView
 	{
         InitializeComponent();
         selectedColorButtonHighlight = new Ellipse();
+#if IOS
+        selectedColorButtonHighlight.InputTransparent = true;
+#endif
         selectedColorButtonHighlight.WidthRequest = 30;
         selectedColorButtonHighlight.HeightRequest = 30;
         selectedColorButtonHighlight.VerticalOptions = LayoutOptions.Center;

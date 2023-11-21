@@ -65,7 +65,7 @@
 
                 <Entry Grid.Row="1" x:Name="createEntry" Margin="0,6,0,0" WidthRequest="328" HeightRequest="38" 
                    Placeholder="Enter"  VerticalTextAlignment="Center" Background="Transparent" MaxLength="24"
-                   TextChanged="OnEntryTextChanged"  />
+                   TextChanged="OnEntryTextChanged" Focused="OnEntryFocused" />
 
                 <Grid x:Name="stampColor" Grid.Row="2" Margin="12" >
                     <Grid.RowDefinitions>

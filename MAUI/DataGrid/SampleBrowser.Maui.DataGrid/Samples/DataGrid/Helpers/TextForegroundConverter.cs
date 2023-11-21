@@ -24,7 +24,7 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="info">The culture to use during the conversion.</param>
         /// <summary>Implement this method to convert <paramref name="value" /> to <paramref name="targetType" /> by using <paramref name="parameter" /> and <paramref name="info" />.</summary>
         /// <returns>To be added.</returns>
-        object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo info)
+        object? IValueConverter.Convert(object? value, Type targetType, object? parameter, CultureInfo info)
         {
             var data = value as double?;
             if (data != null && data > 10)
@@ -43,7 +43,7 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="info">The culture to use during the conversion.</param>
         /// <summary> Implement this method to convert <paramref name="value" /> back from <paramref name="targetType" /> by using <paramref name="parameter" /> and <paramref name="info" />.</summary>
         /// <returns> To be added.</returns>
-        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo info)
+        object? IValueConverter.ConvertBack(object? value, Type targetType, object? parameter, CultureInfo info)
         {
             throw new NotImplementedException();
         }

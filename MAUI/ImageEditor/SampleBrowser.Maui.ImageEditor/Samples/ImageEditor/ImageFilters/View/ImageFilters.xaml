@@ -6,7 +6,6 @@
              xmlns:imageEditor="clr-namespace:Syncfusion.Maui.ImageEditor;assembly=Syncfusion.Maui.ImageEditor"
             xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
             xmlns:local="clr-namespace:SampleBrowser.Maui.ImageEditor.SfImageEditor"
-            xmlns:listView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              x:Class="SampleBrowser.Maui.ImageEditor.SfImageEditor.ImageFilters">
     <localCore:SampleView.Content>
         <Grid>
@@ -43,7 +42,7 @@
                         </imageEditor:ImageEditorToolbar.ToolbarItems>
                     </imageEditor:ImageEditorToolbar>
 
-                    <imageEditor:ImageEditorToolbar Position="End">
+                    <!--<imageEditor:ImageEditorToolbar Position="End">
                         <imageEditor:ImageEditorToolbar.ToolbarItems>
                             <imageEditor:ImageEditorToolbarItem Name="Crop"/>
                             <imageEditor:ImageEditorToolbarItem Name="Rotate"/>
@@ -82,7 +81,7 @@
                                 </imageEditor:ImageEditorToolbarItem.SubToolbars>
                             </imageEditor:ImageEditorToolbarItem>
                         </imageEditor:ImageEditorToolbar.ToolbarItems>
-                    </imageEditor:ImageEditorToolbar>
+                    </imageEditor:ImageEditorToolbar>-->
                 </imageEditor:SfImageEditor.Toolbars>
             </imageEditor:SfImageEditor>
         </Grid>

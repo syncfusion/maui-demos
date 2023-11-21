@@ -53,7 +53,7 @@
 
                 <shimmer:SfShimmer x:Name="shimmer"
                                    Margin="2"
-                                   HeightRequest="{OnPlatform Android=270,iOS=270}"
+                                   HeightRequest="{OnPlatform Android=270,iOS=270,Default=270}"
                                    BackgroundColor="White"
                                    AnimationDuration="{Binding Duration}"
                                    Type="CirclePersona"

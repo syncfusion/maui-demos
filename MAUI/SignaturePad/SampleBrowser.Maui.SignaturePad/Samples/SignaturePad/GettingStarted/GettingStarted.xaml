@@ -165,7 +165,7 @@
                                      Grid.Row="3"
                                      Grid.ColumnSpan="4" />
 
-                            <Label Text="AWC Logo Cap"
+                            <Label Text="AWC Cap"
                                    Grid.Row="4"
                                    Grid.Column="0" />
                             <Label Text="8.99"

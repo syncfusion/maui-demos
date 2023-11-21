@@ -17,22 +17,9 @@ namespace SampleBrowser.Maui.Maps.SfMaps;
 public class WonderViewModel
 {
     public ObservableCollection<CustomMarker>? Markers { get; set; }
-    public ObservableCollection<WonderDetails> WorldeWonders { get; set; }
 
     public WonderViewModel() 
     {
-        WorldeWonders = new ObservableCollection<WonderDetails>()
-        {
-            new WonderDetails("Chichen Itza"),
-            new WonderDetails("Machu Picchu"),
-            new WonderDetails("Christ the Redeemer"),
-            new WonderDetails("Colosseum"),
-            new WonderDetails("Taj Mahal"),
-            new WonderDetails("Great Wall of China"),
-            new WonderDetails("Petra"),
-            
-        };
-
         this.Markers = new ObservableCollection<CustomMarker>();
         this.Markers.Add(new CustomMarker()
         {

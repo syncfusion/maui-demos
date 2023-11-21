@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
     xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+    xmlns:checkBox="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
     xmlns:core="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.PdfViewer;assembly=Syncfusion.Maui.PdfViewer"  
     xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
@@ -73,6 +74,7 @@
                         HyperlinkClicked="PdfViewer_HyperlinkClicked"
                         DocumentLoadFailed="PdfViewer_DocumentLoadFailed"
                         DocumentLoaded="PdfViewer_DocumentLoaded"
+                        TextSelectionChanged="TextSelection_Changed"
                         DocumentUnloaded="PdfViewer_DocumentUnloaded">
                         </syncfusion:SfPdfViewer>
                         <Grid x:Name="thicknessSliderBar" IsVisible="{Binding IsThicknessToolbarVisible}" Grid.Row="1" HeightRequest="48" BackgroundColor="#F3EDF7" VerticalOptions="End" >
@@ -113,52 +115,53 @@
                         <local:ColorToolbar x:Name="colorToolBar" IsVisible="{Binding IsColorToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1" />
                         <local:ColorToolbar x:Name="fillColorToolBar" IsVisible="{Binding IsFillColorToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1" />
                         <local:StickyNoteToolbar x:Name="stickyNoteToolbar" IsVisible="{Binding IsStickyNoteToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1"/>
-                        <Frame 
-                        x:Name="matchCaseView"
-                        BackgroundColor="#F3EDF7"
-                        BorderColor="#33000000"
-                        CornerRadius="8"
-                        HeightRequest="56"
-                        WidthRequest="155"                    
-                        Grid.Row="1"
-                        HorizontalOptions="End"
-                        VerticalOptions="Start"
-                        Margin="0,-12,12,0" 
-                        Padding="0"
-                        IsVisible="{Binding Source={x:Reference MobileSearchView},Path=IsMoreOptionsVisible}">
-                            <Frame.Shadow>
-                                <Shadow
-                                Brush="Black"
-                               Radius="8"
-                               Opacity="0.15" />
-                            </Frame.Shadow>
-                            <Grid 
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <HorizontalStackLayout  Grid.Row="0">
-                                    <CheckBox 
-                                    x:Name="matchCaseCheckBox" 
-                                    IsChecked="{Binding Source={x:Reference MobileSearchView},Path=IsMatchCase}"
-                                    HeightRequest="40"
-                                    WidthRequest="40"
-                                    VerticalOptions="Center"
-                                    Margin="8,8,4,12">
-                                    </CheckBox>
-                                    <Label 
-                                    Text="Match Case"
-                                    Margin="0,16,16,15"
-                                    VerticalOptions="Center"
-                                    HeightRequest="25"
-                                    WidthRequest="87"
-                                    FontSize="16"
-                                    FontFamily="Roboto"
-                                    TextColor="#49454F"/>
-                                </HorizontalStackLayout>
-                            </Grid>
-                        </Frame>
+                        <Grid x:Name="matchCaseView"
+                          HeightRequest="56"
+                          WidthRequest="155"                    
+                          Grid.Row="1"
+                          HorizontalOptions="End"
+                          VerticalOptions="Start"
+                          Margin="0,-12,12,0" 
+                          Padding="0"
+                          IsVisible="{Binding Source={x:Reference MobileSearchView},Path=IsMoreOptionsVisible}">
+                            <Border BackgroundColor="#EEE8F4">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="8" />
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow
+                                    Brush="Black"
+                                    Radius="8"
+                                    Opacity="0.15" />
+                                </Border.Shadow>
+                                <Grid 
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <HorizontalStackLayout  Grid.Row="0">
+                                        <CheckBox 
+                                        x:Name="matchCaseCheckBox" 
+                                        IsChecked="{Binding Source={x:Reference MobileSearchView},Path=IsMatchCase,Mode=TwoWay}"
+                                        HeightRequest="40"
+                                        WidthRequest="40"
+                                        VerticalOptions="Center"
+                                        Margin="8,8,4,12">
+                                        </CheckBox>
+                                        <Label 
+                                        Text="Match Case"
+                                        Margin="0,16,16,15"
+                                        VerticalOptions="Center"
+                                        HeightRequest="25"
+                                        WidthRequest="87"
+                                        FontSize="16"
+                                        FontFamily="Roboto"
+                                        TextColor="#49454F"/>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </Border>
+                        </Grid>
                         <local:SearchViewDesktop
                         x:Name="DesktopSearchView"
                         Grid.Row="1" HorizontalOptions="End" VerticalOptions="Start"
@@ -228,7 +231,7 @@
                                 <HorizontalStackLayout Grid.Row="3" x:Name="documentFour"/>
                                 <HorizontalStackLayout Grid.Row="4" x:Name="documentFive"/>
                                 <HorizontalStackLayout Grid.Row="5" x:Name="documentSix"/>
-                                <Line IsVisible="{OnPlatform MacCatalyst = False}" Grid.Row="6" StrokeThickness="1" BackgroundColor="#FFCAC4D0"/>
+                                <HorizontalStackLayout IsVisible="{OnPlatform MacCatalyst = False}" Grid.Row="6" BackgroundColor="#FFCAC4D0" HeightRequest="1" Margin="0,4,0,4"/>
                                 <HorizontalStackLayout Grid.Row="7" x:Name="customDocument"/>
                             </Grid>
                         </Border>
@@ -290,6 +293,7 @@
                         </Border>
                     </Grid>
                     <local:ColorCode x:Name="shapeColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsShapeColorPalleteVisible}" WidthRequest="280" HeightRequest="385" VerticalOptions="Start" HorizontalOptions="Start"/>
+                    <local:LineAndArrowColorCode x:Name="lineAndArrowColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsLineAndArrowColorPalleteVisible}" WidthRequest="280" HeightRequest="385" VerticalOptions="Start" HorizontalOptions="Start"/>
                     <local:TextMarkupColorCode x:Name="textMarkupColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsTextMarkUpColorPalleteVisible}" WidthRequest="280" HeightRequest="260" VerticalOptions="Start" HorizontalOptions="Start"/>
                     <local:StickyNoteColorCode Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsStickyNoteColorPalleteVisible}" WidthRequest="280" HeightRequest="260" VerticalOptions="Start" HorizontalOptions="Start"/>
                     <local:InkColorCode x:Name="inkColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsInkColorPalleteVisible}" WidthRequest="280" HeightRequest="320" VerticalOptions="Start" HorizontalOptions="Start"/>

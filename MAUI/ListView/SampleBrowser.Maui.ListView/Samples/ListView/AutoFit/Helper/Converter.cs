@@ -17,8 +17,12 @@ namespace SampleBrowser.Maui.ListView.SfListView
     public class ListViewRatingColorConverter : IValueConverter
     {
         int ratingCount = 0;
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
+            if(value == null)
+            {
+                return Color.FromArgb("#BDBDBB");
+            }
             ratingCount++;
             if (ratingCount > 5)
             {
@@ -34,7 +38,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
             }          
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

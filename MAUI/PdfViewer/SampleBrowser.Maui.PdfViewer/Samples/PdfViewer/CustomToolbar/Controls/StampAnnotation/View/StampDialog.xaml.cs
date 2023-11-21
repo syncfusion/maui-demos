@@ -63,6 +63,10 @@ public partial class StampDialog : ContentView
     {
         CustomStampEventArgs customStampEventArgs = new CustomStampEventArgs(border, label);
         CustomStampCreated?.Invoke(this, customStampEventArgs);
+        if (BindingContext is CustomToolbarViewModel viewModel)
+        {
+            viewModel.ResetLayouts();
+        }
     }
 
     private void ColorHighlightButton_Clicked(object sender, EventArgs e)

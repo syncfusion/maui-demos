@@ -12,13 +12,24 @@ namespace SampleBrowser.Maui.Sliders.SfSlider;
 
 public class BoolToEdgeLabelsPlacement : IValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        return (bool)value ? SliderEdgeLabelsPlacement.Inside : SliderEdgeLabelsPlacement.Default;
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {       
+        if(value != null && (bool)value)
+        {
+            return SliderEdgeLabelsPlacement.Inside;
+        }
+        else
+        {
+            return SliderEdgeLabelsPlacement.Default;
+        }       
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        return (SliderEdgeLabelsPlacement)value == SliderEdgeLabelsPlacement.Inside;
+        if(value != null)
+        {
+            return (SliderEdgeLabelsPlacement)value == SliderEdgeLabelsPlacement.Inside;
+        }
+        return false;
     }
 }

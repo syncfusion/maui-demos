@@ -30,23 +30,28 @@
                 <Label Text="Invoice" Margin="{OnPlatform MacCatalyst='-100,200,0,0'}"
                        FontSize="30" WidthRequest="300" FontAttributes="Bold" TextColor="White" Grid.Row="1" />
             </Grid>
-            <Frame BorderColor="Transparent"
-                   Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1,MacCatalyst=1}" 
-                   Grid.Column="{OnPlatform Default=0,WinUI=1,MacCatalyst=1}" CornerRadius="10"
-                   VerticalOptions="{OnPlatform Default=Start, WinUI=Center, MacCatalyst=Center}" HasShadow="False"
-                   MaximumWidthRequest="{OnPlatform WinUI=380, MacCatalyst=500}"
-                   HorizontalOptions="{OnPlatform WinUI=Start,MacCatalyst=Start, Default=Fill}" >
-                <Frame.Padding>
-                    <OnPlatform x:TypeArguments="thickness:Thickness">
-                        <On Platform="MacCatalyst" Value="10"/>
-                        <On Platform="WinUI" Value="10"/>
-                    </OnPlatform>
-                </Frame.Padding>
-                <Grid IsClippedToBounds="True" WidthRequest="{OnPlatform WinUI=350}" HeightRequest="{OnPlatform WinUI=450,MacCatalyst=600}" VerticalOptions="{OnPlatform WinUI=Start, MacCatalyst=Start}" >
-                    <ScrollView x:Name="scrollView">
-                        <StackLayout x:Name="stackLayout" HorizontalOptions="{OnPlatform MacCatalyst=Center,WinUI=Center}" >
-                            <Label Text="Invoice: #FRU037020142097" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" HeightRequest="40" FontSize="16" FontFamily="Roboto-Regular"  Opacity="1.0" VerticalTextAlignment="Center" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
-                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
+            <Border Stroke="Transparent" Background="White"
+                    Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1,MacCatalyst=1}" 
+                    Grid.Column="{OnPlatform Default=0,WinUI=1,MacCatalyst=1}"
+                    VerticalOptions="{OnPlatform Default=Fill, WinUI=Center, MacCatalyst=Center}"
+                    HeightRequest="{OnPlatform WinUI=450, MacCatalyst=600}"
+                    WidthRequest="{OnPlatform WinUI=350, MacCatalyst=480, Default=-1}"
+                    HorizontalOptions="{OnPlatform WinUI=Start,MacCatalyst=Start, Default=Fill}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="{OnPlatform Default=0,WinUI=10,MacCatalyst=10}" />
+                </Border.StrokeShape>
+                <Grid>
+                    <local:ExpanderScrollView x:Name="scrollView">
+                        <Grid x:Name="layout" HorizontalOptions="{OnPlatform MacCatalyst=Center,WinUI=Center}" >
+                          <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Text="Invoice: #FRU037020142097" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" HeightRequest="40" FontSize="16" FontFamily="Roboto-Regular"  Opacity="1.0" VerticalTextAlignment="Center" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+                            <Border Grid.Row="1" Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200" IsExpanded="True" >
                                     <syncfusion:SfExpander.Header>
                                         <Grid >
@@ -70,7 +75,7 @@
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
+                            <Border Grid.Row="2" Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander  AnimationDuration="200" IsExpanded="False">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>
@@ -130,7 +135,7 @@
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
+                            <Border Grid.Row="3" Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200"  IsExpanded="False">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>
@@ -173,7 +178,7 @@
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
+                            <Border Grid.Row="4" Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200" IsExpanded="True">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>
@@ -209,10 +214,10 @@
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                        </StackLayout>
-                    </ScrollView>
+                        </Grid>
+                    </local:ExpanderScrollView>
                 </Grid>
-            </Frame>
+            </Border>
         </Grid>
     </localCore:SampleView.Content>
 </localCore:SampleView>

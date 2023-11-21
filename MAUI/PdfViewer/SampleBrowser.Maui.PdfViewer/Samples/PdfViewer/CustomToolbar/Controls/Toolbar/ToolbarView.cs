@@ -104,6 +104,7 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
             viewModel.IsTextMarkupListVisible = false;
             viewModel.IsInkColorPalleteVisible = false;
             viewModel.IsShapeColorPalleteVisible = false;
+            viewModel.IsLineAndArrowColorPalleteVisible = false;
             viewModel.IsStickyNoteColorPalleteVisible = false;
             viewModel.IsStampOpacitySliderbarVisible = false;
             viewModel.IsTextMarkUpColorPalleteVisible = false;
@@ -135,6 +136,7 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
             viewModel.IsTextMarkupListVisible = false;
             viewModel.IsInkColorPalleteVisible = false;
             viewModel.IsShapeColorPalleteVisible = false;
+            viewModel.IsLineAndArrowColorPalleteVisible = false;
             viewModel.IsStickyNoteColorPalleteVisible = false;
             viewModel.IsStampOpacitySliderbarVisible = false;
             viewModel.IsTextMarkUpColorPalleteVisible = false;

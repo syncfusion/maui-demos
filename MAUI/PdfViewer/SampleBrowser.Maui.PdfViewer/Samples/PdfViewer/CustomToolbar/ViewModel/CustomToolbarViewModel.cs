@@ -77,7 +77,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         bool isThicknessToolbarVisible;
         bool isOpacityToolbarVisible;
         bool isStampViewVisible;
-        bool isAnnotationModeLineOrArrow;
+        bool isLineAndArrowColorPalleteVisible;
         bool isLockVisible = false;
         bool isUnlockVisible = false;        
         Syncfusion.Maui.PdfViewer.SfPdfViewer pdfViewer;
@@ -218,15 +218,15 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
-        public bool IsAnnotationModeLineOrArrow
+        public bool IsLineAndArrowColorPalleteVisible
         {
-            get => isAnnotationModeLineOrArrow;
+            get => isLineAndArrowColorPalleteVisible;
             set
             {
-                if (isAnnotationModeLineOrArrow != value)
+                if (isLineAndArrowColorPalleteVisible != value)
                 {
-                    isAnnotationModeLineOrArrow = value;
-                    OnPropertyChanged(nameof(IsAnnotationModeLineOrArrow));
+                    isLineAndArrowColorPalleteVisible = value;
+                    OnPropertyChanged(nameof(IsLineAndArrowColorPalleteVisible));
                 }
             }
         }
@@ -746,7 +746,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 case "Browse files on this device":
                     // Create file picker with file type as PDF.
                     FilePickerFileType pdfFileType = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>{
-                        { DevicePlatform.iOS, new[] { "public.pdf" } },
+                        { DevicePlatform.iOS, new[] { "com.adobe.pdf" } },
                         { DevicePlatform.Android, new[] { "application/pdf" } },
                         { DevicePlatform.WinUI, new[] { "pdf" } },
                         { DevicePlatform.MacCatalyst, new[] { "pdf" } },
@@ -806,11 +806,23 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             get
             {
                 if (toolbarCommand == null)
-                    toolbarCommand = new Command((parameter) => { OnToolbarCommand(parameter); }, canExecute: (o) => { return IsDocumentLoaded; });
+                {
+                    toolbarCommand = new Command(
+                        (parameter) => { OnToolbarCommand(parameter); },
+                        canExecute: (o) =>
+                        {
+                            // If document is unloaded file button is need to enabled.
+                            if (o is string parameterString && parameterString == "FileOperation")
+                            {
+                                return true;
+                            }
+                            return IsDocumentLoaded;
+                        });
+                }
                 return toolbarCommand;
             }
         }
-        
+
         public ICommand EditCommand
         {
             get
@@ -1832,7 +1844,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 else if (parameter.Equals("ColorPalette"))
                 {
                     IsDeleteButtonVisible = pdfViewer.AnnotationMode == AnnotationMode.None;
-                    if (pdfViewer.AnnotationMode == AnnotationMode.Square || pdfViewer.AnnotationMode == AnnotationMode.Circle || pdfViewer.AnnotationMode == AnnotationMode.Line || pdfViewer.AnnotationMode == AnnotationMode.Arrow || SelectedAnnotation is SquareAnnotation || SelectedAnnotation is CircleAnnotation || SelectedAnnotation is LineAnnotation)
+                    if (pdfViewer.AnnotationMode == AnnotationMode.Square || pdfViewer.AnnotationMode == AnnotationMode.Circle || SelectedAnnotation is SquareAnnotation || SelectedAnnotation is CircleAnnotation)
                     {
                         IsTextMarkUpColorPalleteVisible = false;
                         IsInkColorPalleteVisible = false;
@@ -1841,16 +1853,27 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsStampOpacitySliderbarVisible = false;
                         IsStickyIconChangeButtonVisible = false;
                         IsEraserThicknessToolbarVisible = false;
+                        IsLineAndArrowColorPalleteVisible = false;
                         IsShapeColorPalleteVisible = !IsShapeColorPalleteVisible;
-                        IsAnnotationModeLineOrArrow = !(pdfViewer.AnnotationMode == AnnotationMode.Line ||
-                              pdfViewer.AnnotationMode == AnnotationMode.Arrow ||
-                              SelectedAnnotation is LineAnnotation);
+                    }
+                    else if (pdfViewer.AnnotationMode == AnnotationMode.Line || pdfViewer.AnnotationMode == AnnotationMode.Arrow || SelectedAnnotation is LineAnnotation)
+                    {
+                        IsTextMarkUpColorPalleteVisible = false;
+                        IsInkColorPalleteVisible = false;
+                        IsStickyNoteColorPalleteVisible = false;
+                        IsStickyNoteListVisible = false;
+                        IsStampOpacitySliderbarVisible = false;
+                        IsStickyIconChangeButtonVisible = false;
+                        IsEraserThicknessToolbarVisible = false;
+                        IsShapeColorPalleteVisible = false;
+                        IsLineAndArrowColorPalleteVisible = !IsLineAndArrowColorPalleteVisible;
                     }
                     else if (pdfViewer.AnnotationMode == AnnotationMode.Squiggly || pdfViewer.AnnotationMode == AnnotationMode.Highlight || pdfViewer.AnnotationMode == AnnotationMode.StrikeOut || pdfViewer.AnnotationMode == AnnotationMode.Underline || SelectedAnnotation is UnderlineAnnotation || SelectedAnnotation is SquigglyAnnotation || SelectedAnnotation is HighlightAnnotation || SelectedAnnotation is StrikeOutAnnotation)
                     {
                         IsShapeColorPalleteVisible = false;
                         IsInkColorPalleteVisible = false;
                         IsStickyNoteColorPalleteVisible = false;
+                        IsLineAndArrowColorPalleteVisible = false;
                         IsStickyNoteListVisible = false;
                         IsStampOpacitySliderbarVisible = false;
                         IsStickyIconChangeButtonVisible = false;
@@ -1862,6 +1885,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsTextMarkUpColorPalleteVisible = false;
                         IsShapeColorPalleteVisible = false;
                         IsStickyNoteColorPalleteVisible = false;
+                        IsLineAndArrowColorPalleteVisible = false;
                         IsStickyNoteListVisible = false;
                         IsStampOpacitySliderbarVisible = false;
                         IsStickyIconChangeButtonVisible = false;
@@ -1873,6 +1897,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsTextMarkUpColorPalleteVisible = false;
                         IsShapeColorPalleteVisible = false;
                         IsStickyNoteColorPalleteVisible = false;
+                        IsLineAndArrowColorPalleteVisible = false;
                         IsStickyNoteListVisible = false;
                         IsInkColorPalleteVisible = false;
                         IsStickyIconChangeButtonVisible = false;
@@ -1886,6 +1911,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsTextMarkUpColorPalleteVisible = false;
                         IsShapeColorPalleteVisible = false;
                         IsInkColorPalleteVisible = false;
+                        IsLineAndArrowColorPalleteVisible = false;
                         IsStampOpacitySliderbarVisible = false;
                         IsEraserThicknessToolbarVisible=false;
                     }
@@ -1894,6 +1920,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsTextMarkUpColorPalleteVisible = false;
                         IsInkColorPalleteVisible = false;
                         IsStickyNoteColorPalleteVisible = false;
+                        IsLineAndArrowColorPalleteVisible = false;
                         IsStickyNoteListVisible = false;
                         IsStampOpacitySliderbarVisible = false;
                         IsStickyIconChangeButtonVisible = false;
@@ -1913,12 +1940,29 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsTextMarkUpColorPalleteVisible = false;
                     IsStampOpacitySliderbarVisible = false;
                     IsStickyNoteColorPalleteVisible = false;
+                    IsLineAndArrowColorPalleteVisible = false;
                     IsEraserThicknessToolbarVisible = false;
                 }
             }
             SetSelectedAnnotationIcon();
             if (SelectedAnnotation == null)
                 IsEditLayoutVisible = pdfViewer.AnnotationMode != AnnotationMode.None;
+        }
+
+        internal void ResetLayouts()
+        {
+            ClearButtonHighlights();
+#if ANDROID || IOS
+            CloseAllDialogs();
+            IsStampViewVisible = false;
+#elif MACCATALYST || WINDOWS
+                    CloseAllDialogs();
+                    IsShapeListVisible = false;
+                    IsStickyNoteListVisible = false;
+                    IsStickyNoteMode = false;
+                    IsTextMarkupListVisible = false;
+                    IsStampListVisible = false;
+#endif
         }
 
         internal void ClearButtonHighlights()
@@ -1997,7 +2041,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 }
                 else
                 {
-                    if (isColorToolbarVisible || isDeskTopColorToolbarVisible || isInkColorPalleteVisible)
+                    if (isColorToolbarVisible || isDeskTopColorToolbarVisible || isInkColorPalleteVisible || isLineAndArrowColorPalleteVisible)
                     {
                         switch (pdfViewer.AnnotationMode)
                         {
@@ -2088,7 +2132,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 }
                 else
                 {
-                    if (IsThicknessToolbarVisible || IsDeskTopColorToolbarVisible || IsInkColorPalleteVisible)
+                    if (IsThicknessToolbarVisible || IsDeskTopColorToolbarVisible || IsInkColorPalleteVisible || IsLineAndArrowColorPalleteVisible)
                     {
                         switch (pdfViewer.AnnotationMode)
                         {
@@ -2130,7 +2174,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         if (selectedAnnotation is ShapeAnnotation shape)
                             shape.FillColor = color;
                     }
-                    else if (isColorToolbarVisible || isDeskTopColorToolbarVisible || isInkColorPalleteVisible)
+                    else if (isColorToolbarVisible || isDeskTopColorToolbarVisible || isInkColorPalleteVisible || isLineAndArrowColorPalleteVisible)
                     {
                         selectedAnnotation.Color = color;
                         SelectedColor = color;
@@ -2159,7 +2203,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                                 break;
                         }
                     }
-                    else if (isColorToolbarVisible || isDeskTopColorToolbarVisible || isInkColorPalleteVisible)
+                    else if (isColorToolbarVisible || isDeskTopColorToolbarVisible || isInkColorPalleteVisible || IsLineAndArrowColorPalleteVisible)
                     {
                         switch (pdfViewer.AnnotationMode)
                         {
@@ -2233,17 +2277,22 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             return filePath;
         }
 #else
-        string WriteFile(Stream stream, string fileName)
+        async Task<string> WriteFile(Stream stream, string fileName)
         {
             string filePath = string.Empty;
             if (stream != null)
             {
                 stream.Position = 0;
+#if ANDROID
+                PermissionStatus status = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                filePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory!.AbsolutePath, fileName);
+#else
                 filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), fileName);
-                FileStream file = File.Create(filePath);
-                stream.CopyTo(file);
-                stream.Close();
-                file.Close();
+#endif
+                using (FileStream file = File.Create(filePath))
+                {
+                    await stream.CopyToAsync(file);
+                }
             }
             return filePath;
         }
@@ -2258,7 +2307,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
 #if WINDOWS
             string filePath = await WriteFile(stream, "SavedDocument.pdf");
 #else
-            string filePath = WriteFile(stream, "SavedDocument.pdf");
+            string filePath =await WriteFile(stream, "SavedDocument.pdf");
 #endif
             await Application.Current!.MainPage!.DisplayAlert("Document saved", $"The PDF has been saved to the file {filePath}", "OK");
         }
@@ -2285,7 +2334,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
 #if WINDOWS
             string filePath = await WriteFile(stream, "ExportedAnnotations.xfdf");
 #else
-            string filePath = WriteFile(stream, "ExportedAnnotations.xfdf");
+            string filePath =await WriteFile(stream, "ExportedAnnotations.xfdf");
 #endif
             await Application.Current!.MainPage!.DisplayAlert("Annotations exported", $"The annotations are exported to the file {filePath}", "OK");
         }

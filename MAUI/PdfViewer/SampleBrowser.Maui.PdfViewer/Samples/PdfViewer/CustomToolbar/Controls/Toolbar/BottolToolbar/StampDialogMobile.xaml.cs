@@ -16,10 +16,10 @@ public partial class StampDialogMobile : ContentView
 
     public event EventHandler<CustomStampEventArgs?>? CustomStampCreated;
     public StampDialogMobile()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         this.PropertyChanged += StampDialogPropertyChanged;
-	}
+    }
 
     private async void StampDialogPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
@@ -28,7 +28,7 @@ public partial class StampDialogMobile : ContentView
             await Task.Delay(250);
             createEntry?.Focus();
         }
-        else if(e.PropertyName == "IsVisible" && this.IsVisible == false)
+        else if (e.PropertyName == "IsVisible" && this.IsVisible == false)
         {
             InitializeDialog();
         }
@@ -36,7 +36,11 @@ public partial class StampDialogMobile : ContentView
 
     private void OnBackButtonClicked(object sender, EventArgs e)
     {
-		this.IsVisible = false;
+#if ANDROID
+        HideKeyboard();
+#endif
+        createEntry?.Unfocus();
+        this.IsVisible = false;
     }
 
     private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
@@ -131,6 +135,10 @@ public partial class StampDialogMobile : ContentView
 
     private void OnApplyButtonClicked(object sender, EventArgs e)
     {
+#if ANDROID
+        HideKeyboard();
+#endif
+        createEntry?.Unfocus();
         CustomStampEventArgs customStampEventArgs = new CustomStampEventArgs(border);
         CustomStampCreated?.Invoke(this, customStampEventArgs);
     }
@@ -144,11 +152,71 @@ public partial class StampDialogMobile : ContentView
         label.TextColor = Color.FromArgb("#A007A3");
         border.WidthRequest = 80;
         createEntry.Text = "";
-        if(PreButton != null)
+        if (PreButton != null)
         {
             PreButton.HeightRequest = 35;
             PreButton.WidthRequest = 35;
             PreButton.CornerRadius = 20;
         }
+    }
+    public void ShowKeyboard()
+    {
+#if ANDROID
+        if (createEntry.Handler != null)
+        {
+            if (createEntry.Handler.PlatformView is Android.Widget.TextView textView)
+            {
+                ShowKeyboard(textView);
+            }
+        }
+#endif
+    }
+
+    public void HideKeyboard()
+    {
+#if ANDROID
+        if (createEntry.Handler != null)
+        {
+            if (createEntry.Handler.PlatformView is Android.Widget.TextView textView)
+            {
+                HideKeyboard(textView);
+            }
+        }
+#endif
+    }
+
+#if ANDROID
+    private void ShowKeyboard(Android.Views.View inputView)
+    {
+        if (inputView.Context == null)
+        {
+            return;
+        }
+        using (var inputMethodManager = (Android.Views.InputMethods.InputMethodManager?)inputView.Context.GetSystemService(Android.Content.Context.InputMethodService))
+        {
+            inputMethodManager?.ShowSoftInput(inputView, Android.Views.InputMethods.ShowFlags.Forced);
+        }
+    }
+
+    private void HideKeyboard(Android.Views.View inputView)
+    {
+        using (var inputMethodManager = (Android.Views.InputMethods.InputMethodManager?)inputView.Context?.GetSystemService(Android.Content.Context.InputMethodService))
+        {
+            if (inputMethodManager != null)
+            {
+                var token = Platform.CurrentActivity?.CurrentFocus?.WindowToken;
+                inputMethodManager.HideSoftInputFromWindow(token, Android.Views.InputMethods.HideSoftInputFlags.None);
+                Platform.CurrentActivity?.Window?.DecorView.ClearFocus();
+            }
+        }
+    }
+#endif
+
+    private void OnEntryFocused(object sender, FocusEventArgs e)
+    {
+        if (e.IsFocused == true)
+            ShowKeyboard();
+        else
+            HideKeyboard();
     }
 }

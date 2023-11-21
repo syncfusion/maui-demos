@@ -17,7 +17,6 @@ namespace SampleBrowser.Maui.Maps.SfMaps;
 public partial class PolyLine : SampleView
 {
     private Button? previousSelectedButton;
-    public ObservableCollection<PolylinePlaceDetails> PolylinePlaces { get; set; }
 
     public PolyLine()
 	{
@@ -25,23 +24,6 @@ public partial class PolyLine : SampleView
         this.UpdatePolyline("london_to_british");
         startMarker.Name = "London heatrow";
         endMarker.Name = "The British Museum";
-
-#if MACCATALYST
-        collectionView.MaximumHeightRequest = 33;
-        collectionView.MaximumWidthRequest = 850;
-#elif IOS
-        collectionView.MaximumHeightRequest = 33;
-        collectionView.MaximumWidthRequest = 370;
-#endif
-        PolylinePlaces = new ObservableCollection<PolylinePlaceDetails>()
-        {
-            new PolylinePlaceDetails("The British Museum"),
-            new PolylinePlaceDetails("The Windsor Castle"),
-            new PolylinePlaceDetails("Twickenham Stadium"),
-            new PolylinePlaceDetails("Chessington World of Adventures"),
-            new PolylinePlaceDetails("Hampton Court Palace")
-        };
-
         this.BindingContext = this;
     }
 
@@ -196,15 +178,5 @@ public class MarkerTemplateSelector : DataTemplateSelector
     protected override DataTemplate? OnSelectTemplate(object item, BindableObject container)
     {
         return (double)((MapMarker)item).Latitude == 51.520004272460938 ? CustomTemplate : DefaultTemplate;
-    }
-}
-
-public class PolylinePlaceDetails
-{
-    public string Place { get; set; }
-
-    public PolylinePlaceDetails(string place)
-    {
-        this.Place = place;
     }
 }

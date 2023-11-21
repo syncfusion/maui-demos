@@ -21,17 +21,17 @@ namespace SampleBrowser.Maui.Expander.SfExpander
 
 		private ScrollView? scrollView;
 
-		private StackLayout? stackLayout;
+		private Grid? Layout;
 
 		#endregion
 
 		#region Overrides
 		protected override void OnAttachedTo(SampleView bindable)
 		{
-			this.stackLayout = bindable.FindByName<StackLayout>("stackLayout");
+			this.Layout = bindable.FindByName<Grid>("layout");
 			this.scrollView = bindable.FindByName<ScrollView>("scrollView");
 #if __MACCATALYST__
-			this.stackLayout!.SizeChanged += this.StackLayout_SizeChanged;
+			this.Layout!.SizeChanged += this.StackLayout_SizeChanged;
 #endif
 			base.OnAttachedTo(bindable);
 		}
@@ -46,9 +46,9 @@ namespace SampleBrowser.Maui.Expander.SfExpander
 		protected override void OnDetachingFrom(BindableObject bindable)
 		{
 #if __MACCATALYST__
-			this.stackLayout!.SizeChanged -= this.StackLayout_SizeChanged;
+			this.Layout!.SizeChanged -= this.StackLayout_SizeChanged;
 #endif
-			this.stackLayout = null;
+			this.Layout = null;
 			this.scrollView = null;
 			base.OnDetachingFrom(bindable);
 		}

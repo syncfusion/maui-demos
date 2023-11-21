@@ -29,7 +29,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
             darkerGreen = Color.FromArgb("#196127");
         }
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             var date = value as DateTime?;
             if (date.HasValue)
@@ -95,7 +95,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
             return lightGrey;
         }
 
-        public object? ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return null;
         }

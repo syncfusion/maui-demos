@@ -67,7 +67,7 @@
                     <Image Source="{converters:SfImageResource facebook.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnPlatform Default=50, WinUI=40, MacCatalyst=40}" />
                     <Image Source="{converters:SfImageResource microsoft.png}" Aspect="AspectFit" Margin="20, 10" WidthRequest="{OnPlatform Default=50, WinUI=40, MacCatalyst=40}"  />
                 </HorizontalStackLayout>
-                <dataForm:SfDataForm x:Name="signInForm" Grid.Row="2" DataObject="{Binding SignInFormModel}"
+                    <dataForm:SfDataForm x:Name="signInForm" Grid.Row="2" DataObject="{Binding SignInFormModel}" MinimumHeightRequest="{OnPlatform WinUI=100}"
                                      LayoutType="TextInputLayout"
                                      ValidationMode="PropertyChanged"  >
                         <dataForm:SfDataForm.TextInputLayoutSettings>

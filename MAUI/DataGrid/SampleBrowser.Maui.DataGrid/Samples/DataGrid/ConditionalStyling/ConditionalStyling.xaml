@@ -14,20 +14,20 @@
     <localCore:SampleView.Resources>
         <ResourceDictionary>
             <local:ConditionalStylingConverter x:Key="customstyle"/>
-            <local:ConditionalStylingForegroundConverter x:Key="foreGroundColor"></local:ConditionalStylingForegroundConverter>
-            <OnPlatform x:Key="maximumWidth"
-                        x:TypeArguments="x:Double">
-                <On Platform="Android,iOS">
-                    <OnIdiom x:TypeArguments="x:Double"
-                             Phone="150"
-                             Tablet="300"/>
-                </On>
-                <On Platform="WinUI,MacCatalyst" Value="300"></On>
-            </OnPlatform>
-            <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-                <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-7,-7"/>
-            </OnPlatform>
+            <local:ConditionalStylingForegroundConverter x:Key="foreGroundColor"></local:ConditionalStylingForegroundConverter>            
         </ResourceDictionary>
+        <OnPlatform x:Key="maximumWidth"
+            x:TypeArguments="x:Double">
+            <On Platform="Android,iOS">
+                <OnIdiom x:TypeArguments="x:Double"
+                 Phone="150"
+                 Tablet="300"/>
+            </On>
+            <On Platform="WinUI,MacCatalyst" Value="300"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-7,-7"/>
+        </OnPlatform>
     </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
 

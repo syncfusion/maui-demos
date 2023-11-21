@@ -23,9 +23,9 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="culture">The culture to use during the conversion.</param>
         /// <summary>Implement this method to convert <paramref name="value" /> to <paramref name="targetType" /> by using <paramref name="parameter" /> and <paramref name="culture" />.</summary>
         /// <returns>To be added.</returns>
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, System.Globalization.CultureInfo culture)
         {
-            double valueNew = (double)value;
+            double valueNew = (double)value!;
             string? columnName = parameter!.ToString();
             if (columnName!.Equals("QS1"))
             {
@@ -79,7 +79,7 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="culture">The culture to use during the conversion.</param>
         /// <summary> Implement this method to convert <paramref name="value" /> back from <paramref name="targetType" /> by using <paramref name="parameter" /> and <paramref name="culture" />.</summary>
         /// <returns> To be added.</returns>
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object? value, Type targetType, object? parameter, System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();
         }

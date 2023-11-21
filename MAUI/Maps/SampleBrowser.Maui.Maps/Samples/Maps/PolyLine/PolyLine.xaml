@@ -52,7 +52,7 @@
                 </StackLayout>
             </DataTemplate>
 
-            <Style TargetType="Button">
+            <Style x:Key="buttonStyle" TargetType="Button">
                 <Setter Property="Background"
                         Value="White" />
                 <Setter Property="Padding"
@@ -126,20 +126,29 @@
                 </maps:SfMaps.Layer>
             </maps:SfMaps>
 
-            <CollectionView ItemsSource="{Binding PolylinePlaces}"
-                            Margin="10"
-                            x:Name="collectionView"
-                            ItemsLayout="HorizontalList"
-                            HorizontalScrollBarVisibility="Never"
-                            VerticalOptions="Start"
-                            HorizontalOptions="Center">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Button Text="{Binding Place}"
-                                Clicked="Button_Clicked" />
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+            <ScrollView Margin="10"
+                        Orientation="Horizontal"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout>
+                    <Button Text="The British Museum"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="The Windsor Castle"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Twickenham Stadium"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Chessington World of Adventures"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Hampton Court Palace"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                </HorizontalStackLayout>
+            </ScrollView>
 
             <HorizontalStackLayout Grid.Row="1"
                                    HorizontalOptions="End"

@@ -170,7 +170,7 @@ public class ToDoDetails : INotifyPropertyChanged
 
 public class DateTimeToColorConverter : IValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value != null && value is DateTime date)
         {
@@ -189,7 +189,7 @@ public class DateTimeToColorConverter : IValueConverter
         return Color.FromArgb("#AA000000");
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         return string.Empty;
     }

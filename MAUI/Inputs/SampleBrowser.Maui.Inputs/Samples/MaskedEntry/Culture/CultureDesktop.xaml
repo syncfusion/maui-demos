@@ -36,10 +36,10 @@
 
         <Image Source="{imageExtension:SfImageResource creditcard.png}"/>
 
-        <Grid RowDefinitions="0.5*,9*,0.5*" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Center" Padding="10" Margin="0,-5,0,0">
+        <Grid RowDefinitions="0.4*,9.2*,0.4*" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Center" Padding="10" Margin="0,-5,0,0">
             <Grid Grid.Row="0"/>
             <Frame Grid.Row="1" HasShadow="False" CornerRadius="10" Grid.Column="1" Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="Center" Margin="10">
-                <Grid RowDefinitions="280,*" ColumnDefinitions="235" RowSpacing="10">
+                <Grid RowDefinitions="Auto,*" ColumnDefinitions="235" RowSpacing="10">
                     <VerticalStackLayout Grid.Row="0" WidthRequest="235">
                         <HorizontalStackLayout HeightRequest="46" Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
 
@@ -110,7 +110,7 @@
 
                     </VerticalStackLayout>
                     <Grid Grid.Row="1" VerticalOptions="End">
-                        <Button Text="Pay Now" FontFamily="Roboto-Regular" />
+                        <Button Text="Pay Now" FontFamily="Roboto-Regular" HeightRequest="40"/>
                     </Grid>
                 </Grid>
             </Frame>

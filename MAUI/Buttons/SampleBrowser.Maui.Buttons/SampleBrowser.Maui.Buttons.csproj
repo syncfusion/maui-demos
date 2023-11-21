@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>SampleBrowser.Maui.Buttons</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -53,6 +53,10 @@
 		<WarningLevel>5</WarningLevel>
 	</PropertyGroup>
 
+        <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net8.0-android' OR '$(TargetFramework)' == 'net8.0-ios' OR '$(TargetFramework)' == 'net8.0-maccatalyst' OR '$(TargetFramework)' == 'net8.0-windows10.0.19041.0' ">
+        	<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#4822E3" />
@@ -68,22 +72,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\OpenSans-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\OpenSans-Semibold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SegmentIcon.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Regular.ttf" />
+  </ItemGroup>
+
+	<ItemGroup>
 		<EmbeddedResource Include="ControlList.xml" />
 		<EmbeddedResource Include="ButtonsSamplesList.xml" />
 		<EmbeddedResource Include="SyncfusionLicense.txt" />
-		<None Remove="Resources\Fonts\SegmentIcon.ttf" />
-		<None Remove="Resources\Fonts\Roboto-Medium.ttf" />
-		<None Remove="Resources\Fonts\Roboto-Regular.ttf" />
 		<None Remove="SampleBrowser.Maui.Buttons.nuspec" />
 		<None Remove="SampleBrowser.Maui.Buttons.props" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SampleBrowser.Maui.Base" version="23.1.36" />
-		<PackageReference Include="Syncfusion.Maui.Buttons" version="23.1.36" />
-		<PackageReference Include="Syncfusion.Maui.ListView" version="23.1.36" />
-		<PackageReference Include="Syncfusion.Maui.TabView" version="23.1.36" />
-		<PackageReference Include="Syncfusion.Maui.Core" version="23.1.36" />
-		<PackageReference Include="Syncfusion.Maui.Sliders" version="23.1.36" />
+		<PackageReference Include="SampleBrowser.Maui.Base" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.Buttons" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.ListView" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.DataSource" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.GridCommon" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.TabView" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.Core" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.Sliders" version="23.2.4" />
 	</ItemGroup>
 </Project>

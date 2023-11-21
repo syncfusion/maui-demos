@@ -52,7 +52,7 @@
                          x:Name="ColorView"
                          Spacing="10"
                          HeightRequest="25"
-                         WidthRequest="130"
+                         WidthRequest="150"
                          HorizontalOptions="End">
             <local:ColorSegment Color="#000000"
                                 IsSelected="True" />

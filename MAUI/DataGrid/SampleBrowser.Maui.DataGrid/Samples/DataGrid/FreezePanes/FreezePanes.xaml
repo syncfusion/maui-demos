@@ -7,20 +7,14 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
     BackgroundColor="White">
-    
+
     <localCore:SampleView.BindingContext>
         <local:OrderInfoViewModel />
     </localCore:SampleView.BindingContext>
 
-    <localCore:SampleView.Resources>
-        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,0,-7"/>
-        </OnPlatform>
-    </localCore:SampleView.Resources>
-    
     <localCore:SampleView.Content>
         <sfgrid:SfDataGrid
-            Margin="{StaticResource margin}"
+            Margin='{OnPlatform WinUI="-5.5,-5,0,-7",MacCatalyst="-5.5,-5,0,-7"}'
             x:Name="dataGrid"
             AutoGenerateColumnsMode="None"
             HeaderRowHeight="52"

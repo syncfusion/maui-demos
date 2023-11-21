@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>SampleBrowser.Maui.BusyIndicator</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -53,6 +53,10 @@
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<WarningLevel>5</WarningLevel>
 	</PropertyGroup>
+	
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net8.0-android' OR '$(TargetFramework)' == 'net8.0-ios' OR '$(TargetFramework)' == 'net8.0-maccatalyst' OR '$(TargetFramework)' == 'net8.0-windows10.0.19041.0' ">
+        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
@@ -80,10 +84,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SampleBrowser.Maui.Base" version="23.1.36" />
-		<PackageReference Include="Syncfusion.Maui.Core" version="23.1.36" />
-		<PackageReference Include="Syncfusion.Maui.Charts" version="23.1.36" />
-		<PackageReference Include="Syncfusion.Maui.TabView" version="23.1.36" />
+		<PackageReference Include="SampleBrowser.Maui.Base" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.Core" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.Charts" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.TabView" version="23.2.4" />
 	</ItemGroup>
 	
 </Project>

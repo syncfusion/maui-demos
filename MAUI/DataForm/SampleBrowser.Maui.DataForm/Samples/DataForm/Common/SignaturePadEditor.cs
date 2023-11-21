@@ -72,7 +72,7 @@ using Syncfusion.Maui.SignaturePad;
             dataFormItemView.HeightRequest = 230;
 #elif WINDOWS
             border.HeightRequest = 130;
-            dataFormItemView.HeightRequest = 170;
+            dataFormItemView.HeightRequest = 180;
 #else
             border.HeightRequest = 140;
             dataFormItemView.HeightRequest = 210;

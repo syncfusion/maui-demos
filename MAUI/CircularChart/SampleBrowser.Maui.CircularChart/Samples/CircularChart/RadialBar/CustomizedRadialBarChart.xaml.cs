@@ -42,9 +42,9 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
 
     public class IndexToItemSourceConverter : IValueConverter
     {
-        public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (value is LegendItem legendItem)
+            if (value != null && value is LegendItem legendItem)
             {
                 List<object?> collection = new List<object?>();
                 collection.Add(legendItem.Item);
@@ -54,7 +54,7 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
             return null;
         }
 
-        public object? ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return null;
         }

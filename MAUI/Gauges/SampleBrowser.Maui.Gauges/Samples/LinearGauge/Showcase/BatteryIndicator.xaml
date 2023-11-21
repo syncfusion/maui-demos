@@ -17,7 +17,7 @@
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <Grid x:Name="batteryIndicatorLayout"
+        <Grid x:Name="batteryIndicatorLayout" WidthRequest="350"
               HorizontalOptions="Center"
               VerticalOptions="Center">
             <VerticalStackLayout VerticalOptions="Center"

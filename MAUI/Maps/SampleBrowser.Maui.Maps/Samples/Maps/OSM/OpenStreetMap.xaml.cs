@@ -16,13 +16,6 @@ public partial class OpenStreetMap : SampleView
     public OpenStreetMap()
 	{
 		InitializeComponent();
-#if MACCATALYST
-        collectionView.MaximumHeightRequest = 33;
-        collectionView.MaximumWidthRequest = 800;
-#elif IOS
-        collectionView.MaximumHeightRequest = 33;
-        collectionView.MaximumWidthRequest = 370;
-#endif
     }
 
     private void Button_Clicked(object sender, EventArgs e)

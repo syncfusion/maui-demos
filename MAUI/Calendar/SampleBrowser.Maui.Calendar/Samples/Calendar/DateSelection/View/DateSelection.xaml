@@ -40,13 +40,14 @@
     </localCore:SampleView.Content>
     <localCore:SampleView.OptionView>
         <ContentView>
-            <StackLayout Orientation="Vertical">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*"/>
-                        <ColumnDefinition Width="0.5*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="Selection Type"  Margin="0,15,0,0" 
+            <ScrollView Padding="0, 0, 5, 0">
+                <StackLayout Orientation="Vertical">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Selection Type"  Margin="0,15,0,0" 
                         Grid.Column="0"
                         LineBreakMode="WordWrap"
                         FontSize="14"
@@ -54,11 +55,12 @@
                         HorizontalOptions="Start"
                         TextColor="Gray"/>
 
-                    <editors:SfComboBox x:Name="comboBox" Grid.Column="1"
+                        <editors:SfComboBox x:Name="comboBox" Grid.Column="1"
                                 Margin="5,15,0,0" VerticalOptions="Center"
                                 HorizontalOptions="End"/>
-                </Grid>
-            </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
         </ContentView>
     </localCore:SampleView.OptionView>
     <localCore:SampleView.Behaviors>

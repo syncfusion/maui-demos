@@ -289,10 +289,10 @@
                                    Grid.Column="2" FontFamily="Roboto-Regular"
                                    VerticalTextAlignment="Center"/>
                 </Grid>
-					<StackLayout Margin="8,10,33,0" Orientation="Horizontal"  HorizontalOptions="Start">
+					<StackLayout Margin="8,10,20,0" Orientation="Horizontal"  HorizontalOptions="Start">
                         <StackLayout.Spacing>
                             <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="WinUI" Value="75"/>
+                                <On Platform="WinUI" Value="25"/>
                             </OnPlatform>
                         </StackLayout.Spacing>
 						<HorizontalStackLayout HorizontalOptions="StartAndExpand">

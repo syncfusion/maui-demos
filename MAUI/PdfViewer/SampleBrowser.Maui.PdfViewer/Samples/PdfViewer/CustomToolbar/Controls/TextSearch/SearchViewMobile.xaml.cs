@@ -17,11 +17,15 @@ public partial class SearchViewMobile : SearchView, INotifyPropertyChanged
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
+        if (IsTextEntered)
+            ClearButton.IsVisible = true;
+
         if (name.Equals("IsMatchCase") && IsMoreOptionsVisible)
             IsMoreOptionsVisible = false;
     }
 
     bool _isMoreOptionsVisible = false;
+    bool isTextEntered = false;
 
     public bool IsMoreOptionsVisible
     {
@@ -33,6 +37,19 @@ public partial class SearchViewMobile : SearchView, INotifyPropertyChanged
         {
             _isMoreOptionsVisible = value;
             OnPropertyChanged(nameof(IsMoreOptionsVisible));
+        }
+    }
+
+    public bool IsTextEntered
+    {
+        get
+        {
+            return isTextEntered;
+        }
+        set
+        {
+            isTextEntered = value;
+            OnPropertyChanged(nameof(IsTextEntered));
         }
     }
 
@@ -63,5 +80,10 @@ public partial class SearchViewMobile : SearchView, INotifyPropertyChanged
         if (IsMoreOptionsVisible)
             IsMoreOptionsVisible = false;
         base.Close();
+    }
+
+    private void TextInput_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        IsTextEntered = true;
     }
 }

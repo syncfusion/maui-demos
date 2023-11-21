@@ -14,7 +14,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
 {
     public class IconColorConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value == null)
                 return Color.FromArgb("#6200EE");
@@ -24,14 +24,14 @@ namespace SampleBrowser.Maui.ListView.SfListView
                 return Color.FromArgb("#b3b3b3");
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
     }
     public class SelectionIconConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value == null)
                 return "\ue703";
@@ -41,7 +41,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
                 return "\ue701";
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

@@ -148,7 +148,8 @@
                         Style="{StaticResource buttonIconStyle}"
                  />
             </Grid>
-            <Grid x:Name="inkEraserGrid" BackgroundColor="{Binding InkEraserHighlightColor}" Margin="4,0,0,0" HeightRequest="25" WidthRequest="25">
+            <Grid x:Name="inkEraserGrid" BackgroundColor="{Binding InkEraserHighlightColor}" Margin="4,0,0,0" HeightRequest="25" WidthRequest="25"
+                  IsVisible="{Binding IsAnnotationsToolsVisible}">
                 <Button 
                     Text="&#xe764;" 
                     x:Name="eraserButton"

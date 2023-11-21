@@ -168,6 +168,9 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteColorCode.xaml.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteColorCode.xaml.cs</Link>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\LineAndArrowColorCode.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\LineAndArrowColorCode.xaml.cs</Link>
+		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteListView.xaml.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteListView.xaml.cs</Link>
 		</Compile>
@@ -350,6 +353,10 @@
 
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteColorCode.xaml">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteColorCode.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\LineAndArrowColorCode.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\LineAndArrowColorCode.xaml</Link>
 		</MauiXaml>
 
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteListView.xaml">

@@ -22,39 +22,41 @@ namespace SampleBrowser.Maui.PdfViewer
         {
             this.annotationType = annotationType;
         }
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            AnnotationMode annotationMode = (AnnotationMode)value;
-            if (annotationType == "TextMarkup")
+            if (value is AnnotationMode annotationMode)
             {
-                if (annotationMode == AnnotationMode.Highlight)
-                    return "\uE760";
-                else if (annotationMode == AnnotationMode.Underline)
-                    return "\uE762";
-                else if (annotationMode == AnnotationMode.StrikeOut)
-                    return "\uE763";
-                else if (annotationMode == AnnotationMode.Squiggly)
-                    return "\uE765";
-                else
-                    return "\uE72e";
-            }
-            else if (annotationType == "Shape")
-            {
-                if (annotationMode == AnnotationMode.Square)
-                    return "\uE731";
-                else if (annotationMode == AnnotationMode.Circle)
-                    return "\uE73f";
-                else if (annotationMode == AnnotationMode.Line)
-                    return "\uE73d";
-                else if (annotationMode == AnnotationMode.Arrow)
-                    return "\uE73c";
-                else
-                    return "\uE73b";
+                if (annotationType == "TextMarkup")
+                {
+                    if (annotationMode == AnnotationMode.Highlight)
+                        return "\uE760";
+                    else if (annotationMode == AnnotationMode.Underline)
+                        return "\uE762";
+                    else if (annotationMode == AnnotationMode.StrikeOut)
+                        return "\uE763";
+                    else if (annotationMode == AnnotationMode.Squiggly)
+                        return "\uE765";
+                    else
+                        return "\uE72e";
+                }
+                else if (annotationType == "Shape")
+                {
+                    if (annotationMode == AnnotationMode.Square)
+                        return "\uE731";
+                    else if (annotationMode == AnnotationMode.Circle)
+                        return "\uE73f";
+                    else if (annotationMode == AnnotationMode.Line)
+                        return "\uE73d";
+                    else if (annotationMode == AnnotationMode.Arrow)
+                        return "\uE73c";
+                    else
+                        return "\uE73b";
+                }
             }
             return string.Empty;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

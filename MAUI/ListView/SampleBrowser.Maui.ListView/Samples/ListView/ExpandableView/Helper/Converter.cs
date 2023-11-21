@@ -13,9 +13,13 @@ namespace SampleBrowser.Maui.ListView.SfListView
 {  
     public class ExpandCollapseIconConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if((bool)value)
+            if (value == null)
+            {
+                return "\ue72B";
+            }
+           else if((bool)value)
             {
                 return "\ue72C";
             }
@@ -25,7 +29,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
             }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
@@ -33,8 +37,12 @@ namespace SampleBrowser.Maui.ListView.SfListView
 
     public class FoodSelectionIconConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
+            if (value == null)
+            {
+                return "\ue72E"; 
+            }
             if ((bool)value)
             {
                 return "\ue72D";
@@ -45,7 +53,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
             }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

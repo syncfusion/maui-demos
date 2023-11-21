@@ -148,6 +148,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             this.Dispatcher.Dispatch(() =>
             {
                 SearchInputEntry?.HideKeyboard();
+                SearchInputEntry?.Unfocus();
                 ShowBusyIndicator();
                 ShowStatus();
             });
@@ -225,6 +226,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         /// </summary>
         public virtual void Close()
         {
+            SearchInputEntry?.Unfocus();
             Clear();
             Reset();
             this.IsVisible = false;

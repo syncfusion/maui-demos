@@ -37,7 +37,7 @@
                                   Grid.Row="1" 
                                   Margin="0,30,0,0"
                                   VerticalOptions="Start" >
-                        <Image Source="{Binding Image,Converter={StaticResource imageconverter}}" HeightRequest="350" VerticalOptions="Center"/>
+                        <Image Source="{Binding Image,Converter={StaticResource imageconverter}}" HeightRequest="320" VerticalOptions="Center"/>
                     </StackLayout>
 
                     <Label Text="{Binding TotalPrice}"
@@ -50,9 +50,9 @@
                                Text="Pick a Color" 
                                Margin="2,0,0,0"/>
                         <buttons:SfSegmentedControl x:Name="segmentedControlColorOption"
-                                                    StrokeThickness="3"
+                                                    StrokeThickness="{OnPlatform Android=3,iOS=2}"
                                                     Stroke="Transparent"
-                                                    SegmentWidth="{OnPlatform Android=38,iOS=36}"
+                                                    SegmentWidth="{OnPlatform Android=35,iOS=36}"
                                                     HorizontalOptions="Start"
                                                     WidthRequest="{OnPlatform Android=210,iOS=200}"
                                                     SegmentHeight="36"
@@ -112,7 +112,7 @@
                                                     CornerRadius="30"
                                                     SegmentCornerRadius="30"
                                                     StrokeThickness="10"
-                                                    Margin="-8,0,0,0"
+                                                    Margin="-12,0,0,0"
                                                     SegmentHeight="30"
                                                     HeightRequest="50"
                                                     HorizontalOptions="Start"
@@ -131,16 +131,16 @@
                     </StackLayout>
                     <StackLayout Grid.Row="1"
                                  Margin="0,10,0,0">
-                        <Line HeightRequest="1" 
+                        <Border HeightRequest="1" 
                               StrokeThickness="1"
                               VerticalOptions="Start"
                               Background="LightGray"/>
                         <buttons:SfSegmentedControl x:Name="segmentedControlResultsOption"
                                                     ItemsSource="{Binding SpeakerResultsOptionInfo}"
                                                     VisibleSegmentsCount="1"
-                                                    WidthRequest="330"
+                                                    WidthRequest="{OnPlatform iOS=390,Android=360}"
                                                     Margin="0,12,0,0"
-                                                    HorizontalOptions="Center"
+                                                    HorizontalOptions="Start"
                                                     SelectedIndex="0" >
                             <buttons:SfSegmentedControl.TextStyle>
                                 <buttons:SegmentTextStyle FontSize="14" FontFamily="Roboto" />

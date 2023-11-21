@@ -19,7 +19,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
     /// </summary>
     internal class MonthToImageConverter : IValueConverter
     {
-        public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value != null)
             {
@@ -30,7 +30,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
             return null;
         }
 
-        public object? ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return null;
         }

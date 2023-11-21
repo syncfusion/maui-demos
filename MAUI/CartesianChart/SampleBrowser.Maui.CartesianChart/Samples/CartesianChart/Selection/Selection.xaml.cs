@@ -33,12 +33,16 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
     public class SelectionValueConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            return ((DateTime)value).ToString("ddd-hh:mm");
+            if (value != null)
+            {
+                return ((DateTime)value).ToString("ddd-hh:mm");
+            }
+            return null;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return value;
         }

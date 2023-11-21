@@ -14,7 +14,7 @@
         <DataTemplate x:Key="frameTemplate">
             <Grid HeightRequest="60" Padding="0, 5">
                 <Frame BackgroundColor="White" BorderColor="LightGray" HasShadow="False" CornerRadius="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0" >
-                    <Grid VerticalOptions="Center" HeightRequest="50">
+                    <Grid VerticalOptions="Center" HeightRequest="50" WidthRequest="300">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.2*"/>
                             <ColumnDefinition Width="0.5*"/>

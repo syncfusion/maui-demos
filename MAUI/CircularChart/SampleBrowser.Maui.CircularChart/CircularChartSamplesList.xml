@@ -21,7 +21,7 @@
 			  </SubCategory>
         <SubCategory Title="Radial Bar">
           <CardLayout>
-            <Sample SearchTags="radialbar" Name="RadialBarChart" SampleName="RadialBarChart" Title="Default radial bar" CodeViewerPath="CircularChart/RadialBar/"/>
+            <Sample SearchTags="radialbar" Name="RadialBarChart" SampleName="RadialBarChart" Title="Default radial bar" VideoLink="https://www.youtube.com/watch?v=KO7LfFuIwHE" CodeViewerPath="CircularChart/RadialBar/"/>
             <Sample SearchTags="radialbar" Name="CustomizedRadialBarChart" SampleName="CustomizedRadialBarChart" Title="Customized legend" CodeViewerPath="CircularChart/RadialBar/"/>
           </CardLayout>
         </SubCategory>

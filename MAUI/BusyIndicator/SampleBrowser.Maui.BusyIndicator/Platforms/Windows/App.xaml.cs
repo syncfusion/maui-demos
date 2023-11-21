@@ -36,14 +36,16 @@ public partial class App : MauiWinUIApplication
 	protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
         base.OnLaunched(args);
-        foreach (var item in Application.Windows)
-        {
-         var platformWindow = (item?.Handler?.PlatformView as Microsoft.UI.Xaml.Window);
-
-            if (platformWindow != null)
+        if (IPlatformApplication.Current != null) {
+            foreach (var item in IPlatformApplication.Current.Application.Windows)
             {
-                platformWindow.ExtendsContentIntoTitleBar = false;
-                platformWindow.Title = ".NET MAUI Busy Indicator Demo";
+                var platformWindow = (item?.Handler?.PlatformView as Microsoft.UI.Xaml.Window);
+
+                if (platformWindow != null)
+                {
+                    platformWindow.ExtendsContentIntoTitleBar = false;
+                    platformWindow.Title = ".NET MAUI Busy Indicator Demo";
+                }
             }
         }
     }

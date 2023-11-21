@@ -54,8 +54,8 @@ public partial class FileOperationListView : ContentView
         childRow.PointerPressed += ItemClicked;
         Label iconLabel = new Label()
         {
-            Padding = new Thickness(20, 0, 0, 0),
-            TextColor = new Color(0,0,0,0.6f),
+            Padding = new Thickness(16, 0, 12, 0),
+            TextColor = Color.FromArgb("#49454F"),
             FontSize = 16,
             FontFamily = "Maui Material Assets",
             HorizontalOptions = LayoutOptions.Start,
@@ -68,7 +68,7 @@ public partial class FileOperationListView : ContentView
         {
             Padding = new Thickness(15, 0, 0, 0),
             Margin = new Thickness(30, 0, 0, 0),
-            TextColor = new Color(0, 0, 0, 0.6f),
+            TextColor = Color.FromArgb("#49454F"),
             FontSize = 16,
             VerticalOptions = LayoutOptions.Center,
             VerticalTextAlignment = TextAlignment.Center,
@@ -80,7 +80,7 @@ public partial class FileOperationListView : ContentView
             Label expandLabel = new Label()
             {
                 Margin = new Thickness(0, 0, 15, 0),
-                TextColor = new Color(0, 0, 0, 0.6f),
+                TextColor = Color.FromArgb("#49454F"),
                 FontFamily = "Maui Material Assets",
                 FontSize = 16,
                 HorizontalOptions = LayoutOptions.End,

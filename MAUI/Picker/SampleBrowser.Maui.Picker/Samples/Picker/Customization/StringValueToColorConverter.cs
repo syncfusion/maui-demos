@@ -11,9 +11,9 @@ namespace SampleBrowser.Maui.Picker.SfPicker;
 
 public class StringValueToColorConverter : IValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        string colorName = (string)value;
+        string? colorName = value as string;
         Color color = Colors.Transparent;
         switch (colorName)
         {
@@ -55,7 +55,7 @@ public class StringValueToColorConverter : IValueConverter
         return color;
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         return string.Empty;
     }

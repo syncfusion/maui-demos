@@ -72,15 +72,15 @@
                         <Entry Placeholder="Name on your card" Margin="0,0,0,15"/>
                     </VerticalStackLayout>
 
-                    <Grid ColumnDefinitions="*, 0.6*" Margin="0">
+                    <Grid ColumnDefinitions="*, 0.8*" Margin="0">
                         <VerticalStackLayout Grid.Column="0">
                             <Label Text="Card Number"/>
                             <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{4}-\d{4}-\d{4}-\d{4}" PromptChar="_"/>
                         </VerticalStackLayout>
 
-                        <Grid Grid.Column="1" ColumnDefinitions="*,*" ColumnSpacing="15" Margin="25,0,0,0">
+                        <Grid Grid.Column="1" ColumnDefinitions="*,*" ColumnSpacing="15" Margin="20,0,0,0">
                             <VerticalStackLayout Grid.Column="0">
-                                <Label Text="Month/Year"/>
+                                <Label Text="MM/YY"/>
                                 <inputs:SfMaskedEntry MaskType="Simple" Mask="00/00" PromptChar="_"/>
                             </VerticalStackLayout>
 

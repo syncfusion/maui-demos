@@ -30,7 +30,7 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Border x:Name="alarmBorder" StrokeShape="RoundRectangle 5" Stroke="LightGray" BackgroundColor="White" Margin="0,0,0,5" HeightRequest="130">
+                                <Border x:Name="alarmBorder" StrokeShape="RoundRectangle 5" Stroke="LightGray" BackgroundColor="White" Margin="0,0,0,5" HeightRequest="130" WidthRequest="{OnPlatform WinUI=330}">
                                     <Grid Padding="5">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="2*"/>

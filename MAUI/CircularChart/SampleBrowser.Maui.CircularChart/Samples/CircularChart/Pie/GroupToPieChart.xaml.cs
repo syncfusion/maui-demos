@@ -87,7 +87,7 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
 
     public class ItemsSourceConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value != null)
             {
@@ -114,7 +114,7 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
             return new List<object>();
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return value;
         }
@@ -122,9 +122,9 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
 
     public class StringFormatConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if(value is ChartDataModel model)
+            if(value != null && value is ChartDataModel model)
             {
                 if(parameter is PieSeries series)
                 {
@@ -141,7 +141,7 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
             return "";
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return value;
         }

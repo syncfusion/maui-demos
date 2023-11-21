@@ -36,7 +36,7 @@ public partial class App : MauiWinUIApplication
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
         base.OnLaunched(args);
-        foreach (var item in Application.Windows)
+        foreach (var item in IPlatformApplication.Current!.Application.Windows)
         {
             var platformWindow = (item?.Handler?.PlatformView as Microsoft.UI.Xaml.Window);
 

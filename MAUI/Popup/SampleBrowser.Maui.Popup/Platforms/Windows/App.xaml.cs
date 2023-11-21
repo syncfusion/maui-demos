@@ -27,5 +27,24 @@ public partial class App : MauiWinUIApplication
 	}
 
 	protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+
+    protected override void OnLaunched(LaunchActivatedEventArgs args)
+    {
+        base.OnLaunched(args);
+
+        if (IPlatformApplication.Current != null)
+        {
+            foreach (var item in IPlatformApplication.Current.Application.Windows)
+            {
+                var platformWindow = (item?.Handler?.PlatformView as Microsoft.UI.Xaml.Window);
+
+                if (platformWindow != null)
+                {
+                    platformWindow.ExtendsContentIntoTitleBar = false;
+                    platformWindow.Title = ".NET MAUI Popup Demo";
+                }
+            }
+        }
+    }
 }
 

@@ -8,7 +8,7 @@
                       BackgroundColor="White">
     <localCore:SampleView.Content>
 
-        <Grid HeightRequest="400" WidthRequest="300" RowDefinitions="*,220" >
+        <Grid HeightRequest="400" WidthRequest="320" RowDefinitions="*,220" >
             <core:SfBusyIndicator x:Name="busyIndicator" IsRunning="True"  Title="Searching..."/>
             <Grid Grid.Row="1" RowDefinitions="50,50,50,50" Padding="15,10,15,15" Background="#EAEAEA" >
                 <Grid ColumnDefinitions="Auto,*" >

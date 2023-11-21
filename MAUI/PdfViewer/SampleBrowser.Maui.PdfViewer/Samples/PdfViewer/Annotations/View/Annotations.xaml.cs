@@ -125,6 +125,8 @@ public partial class Annotations : SampleView
                 view = textMarkupColorPalette;
             else if (viewModel.IsShapeColorPalleteVisible)
                 view = shapeColorPalette;
+            else if (viewModel.IsLineAndArrowColorPalleteVisible)
+                view = lineAndArrowColorPalette;
             if (view != null)
             {
                 SizeRequest sizeRequest = view.Measure(double.PositiveInfinity, double.PositiveInfinity);
@@ -243,6 +245,7 @@ public partial class Annotations : SampleView
             bindingContext.IsStampListVisible = false;
             bindingContext.IsInkColorPalleteVisible = false;
             bindingContext.IsShapeColorPalleteVisible = false;
+            bindingContext.IsLineAndArrowColorPalleteVisible = false;
             bindingContext.IsTextMarkUpColorPalleteVisible = false;
             bindingContext.IsStampOpacitySliderbarVisible = false;
             bindingContext.IsStickyNoteColorPalleteVisible = false;
@@ -329,6 +332,7 @@ public partial class Annotations : SampleView
         viewModel.IsStampListVisible = false;
         viewModel.IsInkColorPalleteVisible = false;
         viewModel.IsShapeColorPalleteVisible = false;
+        viewModel.IsLineAndArrowColorPalleteVisible = false;
         viewModel.IsTextMarkUpColorPalleteVisible = false;
         viewModel.IsStampOpacitySliderbarVisible = false;
 #endif

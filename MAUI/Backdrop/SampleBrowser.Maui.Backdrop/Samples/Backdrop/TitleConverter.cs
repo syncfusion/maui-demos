@@ -16,7 +16,7 @@ namespace SampleBrowser.Maui.Backdrop
 {
     public class TitleConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value != null)
             {
@@ -26,7 +26,7 @@ namespace SampleBrowser.Maui.Backdrop
             return "";
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return value;
         }

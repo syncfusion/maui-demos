@@ -13,29 +13,33 @@ namespace SampleBrowser.Maui.ListView.SfListView
 {
     public class FavoriteIconConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if ((bool)value)
+            if (value == null)
+                return "\ue706";
+            else if ((bool)value)
                 return "\ue705";
             else
                 return "\ue706";
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
     }
     public class FavoriteIconColorConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if ((bool)value)
+            if (value == null)
+                return Color.FromArgb("#99000000");
+            else if ((bool)value)
                 return Color.FromArgb("#E46D6D");
             else
                 return Color.FromArgb("#99000000");
         }
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

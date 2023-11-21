@@ -39,7 +39,7 @@
 		<Control ControlName="CheckBox"
 				 Title="CheckBox"
 				 Image="checkbox.png"
-				 Description="A checkbox is a UI element for toggling between two states, often used for binary choices or multi-selection options."
+				 Description="A checkbox allows toggling between two states, useful for binary or multi-choice."
 				 StatusTag="New"
 		         IsPreview="True">
 			<Sample SampleName="GettingStarted"
@@ -57,7 +57,7 @@
 		<Control ControlName="RadioButton"
 				 Title="Radio Button"
 				 Image="radiobutton.png"
-				 Description="A radio button is a UI element that allows users to select a single option from a list of mutually exclusive choices."
+				 Description="A radio button is a user interface element for selecting one exclusive option from a list."
 				 StatusTag="New"
 		         IsPreview="True">
 			<Sample SampleName="GettingStarted"

@@ -28,7 +28,7 @@
                 <Setter Property="TextColor" Value="#6750A4"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontFamily" Value="Roboto-Medium"/>
-                <Setter Property="CharacterSpacing" Value="0.1"/>
+                <!--<Setter Property="CharacterSpacing" Value="0.1"/>-->
             </Style>
 
             <Style TargetType="Button" x:Key="AcceptButtonStyle">
@@ -39,7 +39,7 @@
                 <Setter Property="TextColor" Value="#FFFFFF"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontFamily" Value="Roboto-Medium"/>
-                <Setter Property="CharacterSpacing" Value="0.1"/>
+                <!--<Setter Property="CharacterSpacing" Value="0.1"/>-->
             </Style>
 
             <Style TargetType="Label" x:Key="PopupContentLabelStyle">
@@ -59,7 +59,7 @@
             <Style TargetType="popup:SfPopup" x:Key="PopupStyle">
                 <Setter Property="PopupStyle">
                     <Setter.Value>
-                        <popup:PopupStyle HasShadow="True" CornerRadius="16" MessageBackground="#FFFFFF" HeaderBackground="#FFFFFF" FooterBackground="#FFFFFF"/>
+                        <popup:PopupStyle HasShadow="True" CornerRadius="16" PopupBackground="#FFFFFF" />
                     </Setter.Value>
                 </Setter>
             </Style>

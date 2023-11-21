@@ -21,6 +21,25 @@ public partial class StickyNoteColorCode : ContentView
         this.Content = Colorpaletteborder;
     }
 
+#if MACCATALYST
+    Frame Colorpaletteborder = new Frame()
+    {
+        BackgroundColor = Color.FromArgb("#EEE8F4"),
+        BorderColor = Color.FromArgb("#26000000"),
+        Padding = new Thickness(0),
+        VerticalOptions = LayoutOptions.Start,
+        HorizontalOptions = LayoutOptions.Start,
+        CornerRadius = 12,
+        Shadow = new Shadow
+        {
+            Offset = new Point(-1, 0),
+            Brush = Color.FromRgba("#000000"),
+            Radius = 8,
+            Opacity = 0.5f
+        },
+        WidthRequest = 280,
+    };
+#else
     Border Colorpaletteborder = new Border()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
@@ -41,6 +60,7 @@ public partial class StickyNoteColorCode : ContentView
         },
         WidthRequest = 280,
     };
+#endif
     private void ColorHeighlightButton_Clicked(object sender, EventArgs e)
     {
         if (PreButton != null)

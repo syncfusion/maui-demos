@@ -33,7 +33,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
             // which might cause a indefinite loop as mentioned in the below doc
             // https://docs.microsoft.com/en-us/windows/apps/design/layout/custom-panels-overview#other-layout-api,
             // also as mentioned it is safer to use SizeChanged event.
-#if (__ANDROID__ || __IOS__ || __MACCATALYST__)
+#if !WINDOWS
             bindable.PropertyChanged += this.View_PropertyChanged;
 #else
             bindable.HandlerChanged += Bindable_HandlerChanged;
@@ -42,7 +42,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
 
         protected override void OnDetachingFrom(SampleView bindable)
         {
-#if (__ANDROID__ || __IOS__ || __MACCATALYST__)
+#if !WINDOWS
             bindable.PropertyChanged -= View_PropertyChanged;
 #else
             bindable.HandlerChanged -= Bindable_HandlerChanged;
@@ -56,7 +56,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
 
         #region CallBacks
 
-#if !(__ANDROID__ || __IOS__ || __MACCATALYST__)
+#if WINDOWS
         private void Bindable_HandlerChanged(object sender, EventArgs e)
         {
             if (sender is GridLayout && (sender as GridLayout).Handler != null)

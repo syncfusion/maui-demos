@@ -171,4 +171,10 @@
   <data name="Underline" xml:space="preserve">
     <value>تسطير</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>يحفظ</value>
+  </data>
+  <data name="StickyNoteEditorPlaceholder" xml:space="preserve">
+    <value>أكتب ملاحظت</value>
+  </data>
 </root>

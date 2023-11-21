@@ -19,7 +19,7 @@
             <VerticalStackLayout WidthRequest="350" 
                              VerticalOptions="Center" 
                              HorizontalOptions="Center">
-                <Grid RowDefinitions="90,90" RowSpacing="20" ColumnSpacing="20"
+                <Grid RowDefinitions="90,90" RowSpacing="20" ColumnSpacing="18"
                    ColumnDefinitions="*,*">
                     <badge:SfBadgeView Grid.Row="0"
                                        Grid.Column="0"

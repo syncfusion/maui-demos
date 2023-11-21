@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
 	<ControlCategory Name="Layouts">
-		<Control Title="Text Input Layout" ControlName="SfTextInputLayout" Description="The text input layout control adds decorative elements like floating label, icons, assistive labels on top of input views such as entry, editor, autocomplete and combobox." Image="textinputlayout.png">
+		<Control Title="Text Input Layout" ControlName="SfTextInputLayout" Description="The text input layout control adds decorative elements like floating label, icons, assistive labels on top of input views." Image="textinputlayout.png">
 			<Sample Title="Getting Started" SampleName="SignUpPage" SearchTags="textinputlayout, floating label, material, password, floating text field, sign up page" CodeViewerPath="TextInputLayout/SignUpPage/" VideoLink="https://www.youtube.com/watch?v=VKo3vNBzNbw" />
 			<Sample Title="Payment" SampleName="PaymentPage" SearchTags="textinputlayout, floating label, material, password, floating text field, payment page" CodeViewerPath="TextInputLayout/PaymentPage/" VideoLink="https://www.youtube.com/watch?v=VKo3vNBzNbw" />
 		</Control>

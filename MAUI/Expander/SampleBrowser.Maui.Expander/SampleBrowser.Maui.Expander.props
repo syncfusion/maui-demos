@@ -19,6 +19,10 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Expander\GettingStarted\Helper\Behavior.cs">
 			<Link>Samples\Expander\GettingStarted\Helper\Behavior.cs</Link>
 		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Expander\GettingStarted\Helper\ExpanderScrollView.cs">
+			<Link>Samples\Expander\GettingStarted\Helper\ExpanderScrollView.cs</Link>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>

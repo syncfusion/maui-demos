@@ -8,7 +8,7 @@
                       BackgroundColor="#FAFAFA">
     <localCore:SampleView.Content>
         <StackLayout Padding="10" Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
-            <Border x:Name="rippleEffectBorder" Padding="0">
+            <Border x:Name="rippleEffectBorder" Padding="0" Background="Transparent">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="20" />
                 </Border.StrokeShape>

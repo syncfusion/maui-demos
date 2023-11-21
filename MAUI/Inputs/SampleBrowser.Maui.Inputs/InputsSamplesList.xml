@@ -25,7 +25,7 @@
 			<Sample Title="Culture and Formatting" SampleName="NumericEntryCultureAndFormatting" SearchTags="numeric,entry,textbox,formatting, culture" CodeViewerPath="NumericEntry/NumericEntryCultureAndFormatting/"/>		   		
 		</Control>
 		
-		<Control Title="NumericUpDown" ControlName="NumericUpDown"  Image="numericupdown.png" Description="Allows the user to restrict the input to numeric values and provides buttons to easily increment and decrement values.">
+		<Control Title="NumericUpDown" ControlName="NumericUpDown"  Image="numericupdown.png" Description="Allows the user to restrict the input to numeric values and provides buttons to easily change the values.">
 			<Sample Title="Getting Started"  SampleName="NumericUpDownGettingStarted" SearchTags="numeric,entry,textbox,updownbutton, numericupdown" CodeViewerPath="NumericEntry/NumericEntryGettingStarted/"/>
 		</Control>
 		

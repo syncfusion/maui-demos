@@ -215,6 +215,7 @@
                         </Border>
                     </Grid>
                     <local:ColorCode x:Name="shapeColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsShapeColorPalleteVisible}"/>
+                    <local:LineAndArrowColorCode x:Name="lineAndArrowColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsLineAndArrowColorPalleteVisible}"/>
                     <local:TextMarkupColorCode x:Name="textMarkupColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsTextMarkUpColorPalleteVisible}"/>
                     <local:StickyNoteColorCode Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsStickyNoteColorPalleteVisible}"/>
                     <local:InkColorCode x:Name="inkColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsInkColorPalleteVisible}"/>

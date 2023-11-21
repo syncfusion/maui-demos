@@ -17,12 +17,10 @@
             </Style.Triggers>
         </Style>
     </ContentView.Resources>
-    <Border
-        HeightRequest="160" WidthRequest="320"
-        BackgroundColor="#F3EDF7"
-        Stroke="#33000000"
-        StrokeShape="RoundRectangle 20" StrokeThickness="1">
-        <Grid Padding="20">
+    <Frame
+        HeightRequest="160" WidthRequest="320" HorizontalOptions="Center" VerticalOptions="Center"
+        BackgroundColor="#F3EDF7" HasShadow="False" CornerRadius="20">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="2*"/>
@@ -37,5 +35,5 @@
                     FontFamily="Roboto-Medium"
                     HorizontalOptions="End" Opacity="1" VerticalOptions="End" />
         </Grid>
-    </Border>
+    </Frame>
 </ContentView>

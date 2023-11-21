@@ -104,6 +104,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         {
             if (this.IsEnabled == false)
                 return;
+            if (this.Children[0].InputTransparent)
+                return;
             switch (e.Action)
             {
                 case PointerActions.Pressed:

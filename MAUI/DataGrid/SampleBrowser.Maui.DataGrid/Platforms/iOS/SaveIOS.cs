@@ -34,9 +34,8 @@ namespace SampleBrowser.Maui.Services
             }
             if (contentType != "application/html" || exception == string.Empty)
             {
-#pragma warning disable CA1416 //This call site is reachable on: 'iOS' 14.2 and later, 'maccatalyst' 14.2 and later. 'UIApplication.KeyWindow.get' is unsupported on: 'ios' 13.0 and later, 'maccatalyst' 13.0 and later.
-                UIViewController? currentController = UIApplication.SharedApplication!.KeyWindow!.RootViewController;
-#pragma warning restore CA1416 //This call site is reachable on: 'iOS' 14.2 and later, 'maccatalyst' 14.2 and later. 'UIApplication.KeyWindow.get' is unsupported on: 'ios' 13.0 and later, 'maccatalyst' 13.0 and later.
+                //Added this code to resolve the warning thrown when CI compiles.
+                UIViewController? currentController = UIApplication.SharedApplication.ConnectedScenes.OfType<UIWindowScene>().SelectMany(scene => scene.Windows).FirstOrDefault(window => window.IsKeyWindow)!.RootViewController;
                 while (currentController!.PresentedViewController != null)
                     currentController = currentController.PresentedViewController;
 

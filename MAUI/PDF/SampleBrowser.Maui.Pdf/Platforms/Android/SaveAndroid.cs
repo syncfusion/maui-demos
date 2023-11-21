@@ -8,9 +8,6 @@
 using Android.Content;
 using Android.OS;
 using Java.IO;
-using System;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace SampleBrowser.Maui.Pdf.Services
 {
@@ -19,7 +16,14 @@ namespace SampleBrowser.Maui.Pdf.Services
         public partial void SaveAndView(string filename, string contentType, MemoryStream stream)
         {
             string exception = string.Empty;
-            string? root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+            string? root = null;
+
+            if (Android.OS.Environment.IsExternalStorageEmulated)
+            {
+                root = Android.App.Application.Context!.GetExternalFilesDir(Android.OS.Environment.DirectoryDownloads)!.AbsolutePath;
+            }
+            else
+                root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
 
             Java.IO.File myDir = new(root + "/Syncfusion");
             myDir.Mkdir();

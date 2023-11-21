@@ -11,7 +11,7 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
 
     public class AlarmTimer : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value is TimeSpan timeSpan)
             {
@@ -31,7 +31,7 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
             return string.Empty;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return string.Empty;
         }

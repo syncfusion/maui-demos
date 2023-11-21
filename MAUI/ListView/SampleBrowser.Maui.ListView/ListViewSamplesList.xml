@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
 	<ControlCategory Name="Layouts">
-		<Control Title="ListView" ControlName="SfListView" Image="listview.png" Description="Displays the set of data items in different layouts or views and in groups.">
+		<Control Title="ListView" ControlName="SfListView" Image="listview.png" Description="Displays items in various layouts and groups.">
 			<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="ListView/GettingStarted/" VideoLink ="https://www.youtube.com/watch?v=EFo2zIFw60Q" />  <!--Description="This sample illustrates about getting started with ListView by loading a set of data items with predefined template."-->
 			<Sample SearchTags="Grouping" SampleName="Grouping" Title="Grouping" CodeViewerPath="ListView/Grouping/" VideoLink="https://www.youtube.com/watch?v=EFo2zIFw60Q"/> <!--Description="This sample showcases the grouping capability of ListView which also provides support to freeze the group headers in view when grouped."-->
 			<Sample SearchTags="Selection" SampleName="Selection" Title="Selection" CodeViewerPath="ListView/Selection/" VideoLink="https://www.youtube.com/watch?v=EFo2zIFw60Q"/> <!--Description="This sample showcases the selection capability of ListView which provides selection mode options like Single, Multiple and None."-->

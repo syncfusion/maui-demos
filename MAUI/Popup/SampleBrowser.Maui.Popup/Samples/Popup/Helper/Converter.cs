@@ -16,9 +16,9 @@ namespace SampleBrowser.Maui.Popup.SfPopup
 {
     public class SelectionConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if ((bool)value)
+            if (value != null && (bool)value)
                 return "\ue711";
 
             else
@@ -26,7 +26,7 @@ namespace SampleBrowser.Maui.Popup.SfPopup
            
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
@@ -34,15 +34,15 @@ namespace SampleBrowser.Maui.Popup.SfPopup
 
     public class RingtoneSelectionConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if ((bool)value)
+            if (value != null && (bool)value)
                 return "\ue705";
             else
                 return "\ue704";
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
@@ -50,9 +50,9 @@ namespace SampleBrowser.Maui.Popup.SfPopup
 
     public class SelectionIconColorCoverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if ((bool)value)
+            if (value != null && (bool)value)
                 return Color.FromArgb("#6750A4");
 
             else
@@ -60,7 +60,7 @@ namespace SampleBrowser.Maui.Popup.SfPopup
 
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

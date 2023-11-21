@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.SearchViewDesktop"
              xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             xmlns:checkBox="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core">
     <local:SearchView.Resources>
         <Style x:Key="buttonIconStyle" TargetType="Button">
@@ -29,31 +30,40 @@
     </local:SearchView.Resources>
     <Border 
         BackgroundColor="#F3EDF7"
-        Stroke="#33000000"
-        StrokeShape="RoundRectangle 20" 
+        Stroke="Transparent"
+        StrokeShape="RoundRectangle 16" 
         StrokeThickness="1"
         HorizontalOptions="Center"
         VerticalOptions="Center">
-        <Grid Padding="20" HorizontalOptions="Center"
+        <Border.Shadow>
+            <Shadow Brush="#000000"
+			     Offset="0,0"
+			     Radius="16"
+			     Opacity="0.30"/>
+        </Border.Shadow>
+        <Grid Padding="24" HorizontalOptions="Center"
         VerticalOptions="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/> 
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" HeightRequest="40">
                 <Label 
                 Text="Find" 
                 HorizontalOptions="Start"
                 VerticalOptions="Center"
-                FontSize="20"/>
+                FontSize="24"/>
                 <Button 
                     Text="&#xe70b;" HorizontalOptions="End"
+                    FontSize="24"
+					WidthRequest="40"
+                    HeightRequest="40"
                     Style="{StaticResource buttonIconStyle}"
                     Command="{Binding CloseCommand}"
                     Padding="2"/>
             </Grid>
-            <Grid Grid.Row="1" Margin="0,12,0,0">
+            <Grid Grid.Row="1" Margin="0,16,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="24"/>
@@ -63,37 +73,59 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <inputLayout:SfTextInputLayout 
-                    WidthRequest="240" HeightRequest="40"
+                    WidthRequest="297" HeightRequest="40"
                     Grid.Row="0" Grid.Column="0"
                     ShowHint="False"
-                    ContainerBackground="#FFFBFE"
+                    ContainerBackground="transparent"
                     ContainerType="Outlined"
                     ReserveSpaceForAssistiveLabels="False"
                     InputViewPadding="8,0,0,0"
-                    FocusedStrokeThickness="1">
+                    FocusedStrokeThickness="2"
+					UnfocusedStrokeThickness="1">
+
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Stroke" Value="#49454f"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState Name="Focused">
+                                    <VisualState.Setters>
+                                        <Setter Property="Stroke" Value="#6750a4"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
                     <local:CustomEntry
                     x:Name="TextInput" 
                     TextColor="#49454F"/>
                     <inputLayout:SfTextInputLayout.TrailingView>
-                        <HorizontalStackLayout 
-                            WidthRequest="48" Spacing="4">
-                            <Button 
+                        <HorizontalStackLayout Margin="0,-2,-6,0" 
+                            WidthRequest="74">
+                            <Button Margin="0,0,4,0"
                                 Text="&#xe70b;"
                                 Style="{StaticResource buttonIconStyle}"
                                 Command="{Binding ClearTextCommand}"
                                 VerticalOptions="Center"
+                                WidthRequest="32"
+                                HeightRequest="32"
                                 Padding="2"
-                                FontSize="16"
+                                FontSize="18"
                                 CommandParameter="{Binding Source={x:Reference TextInput},Path=Text}"/>
                             <Rectangle 
                                 Fill="#CAC4D0" HeightRequest="24" WidthRequest="2"/>
-                            <Grid VerticalOptions="Center">
+                            <Grid VerticalOptions="Center" Margin="4,0,0,0">
                                 <Button 
                                     Text="&#xe715;"
                                     Style="{StaticResource buttonIconStyle}"
                                     Command="{Binding SearchCommand}"
                                     VerticalOptions="Center"
-                                    FontSize="16"
+                                    FontSize="18"
+                                    WidthRequest="32"
+                                    HeightRequest="32"
                                     Padding="2"
                                     CommandParameter="{Binding Source={x:Reference TextInput},Path=Text}"/>
                                 <ActivityIndicator 
@@ -109,16 +141,22 @@
                 </inputLayout:SfTextInputLayout>
                 <HorizontalStackLayout 
                     Grid.Row="0" Margin="4,0,0,0"
-                    HeightRequest="32"
+                    HeightRequest="40"
                     Grid.Column="1" Spacing="4" VerticalOptions="Center">
                     <Button 
                         Text="&#xe707;"
                         Style="{StaticResource buttonIconStyle}"
-                        Command="{Binding GoToPreviousMatchCommand}"/>
+                        Command="{Binding GoToPreviousMatchCommand}"
+                        HeightRequest="40"
+						WidthRequest="40"
+                        FontSize="24"/>
                     <Button 
                         Text="&#xe706;"
                         Style="{StaticResource buttonIconStyle}"
-                        Command="{Binding GoToNextMatchCommand}"/>
+                        Command="{Binding GoToNextMatchCommand}"
+                        HeightRequest="40"
+						WidthRequest="40"
+                        FontSize="24"/>
                 </HorizontalStackLayout>
                 <Label 
                     Text="0 / 0" FontSize="12"
@@ -128,12 +166,15 @@
                     IsVisible="False"
                     HorizontalOptions="End" VerticalOptions="Center" Margin="0,4,0,4"/>
             </Grid>
-            <HorizontalStackLayout Grid.Row="2" Spacing="8">
-                <CheckBox 
-                    x:Name="MatchCaseCheckBox" 
-                    Margin="{OnPlatform WinUI='-5,-5', MacCatalyst='-12,0'}"
-                    IsChecked="{Binding IsMatchCase}"/>
-                <Label Text="Match Case" VerticalOptions="Center" TextColor="#49454F"/>
+            <HorizontalStackLayout Margin="0,4,0,0" Grid.Row="2">
+                <checkBox:SfCheckBox 
+                   x:Name="MatchCaseCheckBox" 
+                   Margin="{OnPlatform WinUI='-9,-5,-2,-5', MacCatalyst='-12,0'}"
+                   IsChecked="{Binding IsMatchCase}"
+                   CornerRadius="2.0"
+                   CheckedColor="#49454F"
+                   UncheckedColor="#49454F"/>
+                <Label Text="Match Case" VerticalOptions="Center" FontSize="16" TextColor="#49454F"/>
             </HorizontalStackLayout>
         </Grid>
     </Border>

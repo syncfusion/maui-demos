@@ -9,6 +9,7 @@
 			<Category Title="Basic Feature">
 				<Sample SampleName="SliderDefaultSample"
 						Title="Default"
+						VideoLink="https://www.youtube.com/watch?v=eBSzMk9bi08"
 						SearchTags="default, getting started"
 						CodeViewerPath="Slider/Default/" />
 
@@ -19,6 +20,7 @@
 
 				<Sample SampleName="SliderDateIntervalSample"
 						Title="Date interval"
+						VideoLink="https://www.youtube.com/watch?v=MIdD3Np485M"
 						SearchTags="interval"
 						CodeViewerPath="Slider/DateInterval/" />
 
@@ -58,6 +60,7 @@
 			<Category Title="Basic Feature">
 				<Sample SampleName="RangeSliderDefaultSample"
 						Title="Default"
+						VideoLink="https://www.youtube.com/watch?v=9W1N5rH0zD0"
 						SearchTags="default, getting started"
 						CodeViewerPath="RangeSlider/Default/" />
 
@@ -68,6 +71,7 @@
 
 				<Sample SampleName="RangeSliderDateIntervalSample"
 						Title="Date interval"
+						VideoLink="https://www.youtube.com/watch?v=4mdAax8B4n4"
 						SearchTags="interval"
 						CodeViewerPath="RangeSlider/DateInterval/" />
 
@@ -111,6 +115,7 @@
 				 Description="Visualize data and select a date or numeric range.">
 			<Sample SampleName="RangeSelectorDefaultSample"
 					Title="Default"
+					VideoLink="https://www.youtube.com/watch?v=LrnvOOjQ7jE"
 					SearchTags="default, getting started"
 					CodeViewerPath="RangeSelector/Default/" />
 
@@ -148,7 +153,7 @@
 				<Sample SampleName="VerticalSliderTooltipPositionSample"
 						Title="Tooltip position"
 						SearchTags="tooltip, position"
-						CodeViewerPath="VerticalSlider/TooltipPosition/" />
+						CodeViewerPath="VerticalSlider/ToolTipPosition/" />
 
 				<Sample SampleName="VerticalSliderStepSample"
 						Title="Step"

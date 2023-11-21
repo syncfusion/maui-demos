@@ -37,8 +37,9 @@
                            TextColor="White"></Label>
                 </StackLayout>
             </DataTemplate>
-            
-            <Style TargetType="Button">
+
+            <Style x:Key="buttonStyle"
+                   TargetType="Button">
                 <Setter Property="Background"
                         Value="White" />
                 <Setter Property="Padding"
@@ -105,21 +106,36 @@
                     </maps:MapTileLayer>
                 </maps:SfMaps.Layer>
             </maps:SfMaps>
-            
-            <CollectionView ItemsSource="{Binding WorldeWonders}"
-                            x:Name="collectionView"
-                            Margin="10"
-                            ItemsLayout="HorizontalList"
-                            HorizontalScrollBarVisibility="Never"
-                            VerticalOptions="Start"
-                            HorizontalOptions="Center">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Button Text="{Binding Place}"
-                                Clicked="Button_Clicked" />
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+
+            <ScrollView Margin="10"
+                        Orientation="Horizontal"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout>
+                    <Button Text="Chichen Itza"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Machu Picchu"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Christ the Redeemer"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Colosseum"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Taj Mahal"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Great Wall of China"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Petra"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                </HorizontalStackLayout>
+            </ScrollView>
 
             <HorizontalStackLayout Grid.Row="1"
                                    HorizontalOptions="End"

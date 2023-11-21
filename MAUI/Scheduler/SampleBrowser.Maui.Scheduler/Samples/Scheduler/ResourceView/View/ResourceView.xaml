@@ -25,26 +25,29 @@
                     <schedule:SfScheduler.ResourceView>
                         <schedule:SchedulerResourceView Resources="{Binding Resources}">
                             <schedule:SchedulerResourceView.HeaderTemplate>
-                                <DataTemplate>
-                                    <StackLayout Padding="5" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Fill">
+                            <DataTemplate>
+                                <StackLayout Padding="5" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Fill">
+                                    <Grid>
                                         <Border StrokeThickness="5"
-                                            Stroke="{Binding Background}"
-                                            HorizontalOptions="Center"
-                                            HeightRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}"
-                                            WidthRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}">
+                                                Stroke="{Binding Background}"
+                                                Background="White"
+                                                HorizontalOptions="Center"
+                                                HeightRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}"
+                                                WidthRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}">
                                             <Border.StrokeShape>
                                                 <RoundRectangle CornerRadius="150"/>
                                             </Border.StrokeShape>
-                                            <Image WidthRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
+                                        </Border>
+                                        <Image WidthRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
                                                HeightRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
                                                HorizontalOptions="Center"
                                                Source="{Binding DataItem.ImageName,Converter={StaticResource imageConverter}}" 
                                                VerticalOptions="Center"
-                                        Aspect="Fill"/>
-                                        </Border>
-                                        <Label Text="{Binding Name}" TextColor="Black" FontSize="{OnPlatform WinUI= 12, MacCatalyst=12, Android=10, iOS=10}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                                    </StackLayout>
-                                </DataTemplate>
+                                               Aspect="Fill"/>
+                                    </Grid>
+                                    <Label Text="{Binding Name}" TextColor="Black" FontSize="{OnPlatform WinUI= 12, MacCatalyst=12, Android=10, iOS=10}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </DataTemplate>
                             </schedule:SchedulerResourceView.HeaderTemplate>
 
                             <schedule:SchedulerResourceView.Mapping>

@@ -109,10 +109,11 @@ public partial class PasswordDialogBox : ContentView
         if (string.IsNullOrEmpty(passwordBlock.Text) == false)
         {
             Password = passwordBlock.Text;
+            this.IsVisible = false;
             passwordBlock.Text = "";
             // Fire the event when the password dialog box is closed.
             PasswordDialogBoxClosed?.Invoke(this, EventArgs.Empty);
-            this.IsVisible = false;
+            passwordBlock?.Unfocus();
         }
         else
         {

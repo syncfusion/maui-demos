@@ -86,12 +86,12 @@ public partial class CustomToolbar : SampleView
         childRow.WidthRequest = 220;
         childRow.HeightRequest = 40;
         childRow.PointerPressed += ListView_ItemTapped;
-        
+
         Label iconNameLabel = new Label()
         {
             Padding = new Thickness(15, 0, 0, 0),
             Margin = new Thickness(5, 0, 0, 0),
-            TextColor = new Color(0, 0, 0, 0.6f),
+            TextColor = Color.FromArgb("#49454F"),
             FontSize = 15,
             HorizontalOptions = LayoutOptions.Start,
             VerticalOptions = LayoutOptions.Center,
@@ -114,6 +114,8 @@ public partial class CustomToolbar : SampleView
                 view = textMarkupColorPalette;
             else if (viewModel.IsShapeColorPalleteVisible)
                 view = shapeColorPalette;
+            else if (viewModel.IsLineAndArrowColorPalleteVisible)
+                view = lineAndArrowColorPalette;
             if (view != null)
             {
                 SizeRequest sizeRequest = view.Measure(double.PositiveInfinity, double.PositiveInfinity);
@@ -131,7 +133,7 @@ public partial class CustomToolbar : SampleView
             ShowToast("Tap on the page to insert the sticky note");
         }
     }
-    
+
     private void StampView_StampSelected(object? sender, EventArgs e)
     {
         PdfViewer.AnnotationMode = AnnotationMode.None;
@@ -253,7 +255,7 @@ public partial class CustomToolbar : SampleView
                     PointF point = new PointF(e.PagePosition.X, e.PagePosition.Y);
                     if (BindingContext is CustomToolbarViewModel viewModel)
                     {
-                        if(viewModel.DocumentData.FileName == "rotated_document.pdf")
+                        if (viewModel.DocumentData.FileName == "rotated_document.pdf")
                         {
                             PdfLoadedDocument? document = new PdfLoadedDocument(viewModel.DocumentData.DocumentStream);
                             PdfLoadedPage? page = document.Pages[e.PageNumber - 1] as PdfLoadedPage;
@@ -263,7 +265,7 @@ public partial class CustomToolbar : SampleView
                             document = null;
                         }
                     }
-                    StickyNoteAnnotation builtStickyNote = new StickyNoteAnnotation(bindingContextForSticky.StickyIcon,string.Empty,e.PageNumber, point);
+                    StickyNoteAnnotation builtStickyNote = new StickyNoteAnnotation(bindingContextForSticky.StickyIcon, string.Empty, e.PageNumber, point);
                     PdfViewer.AddAnnotation(builtStickyNote);
                     bindingContextForSticky.IsStickyNoteMode = false;
                 }
@@ -284,6 +286,7 @@ public partial class CustomToolbar : SampleView
             bindingContext.IsStampListVisible = false;
             bindingContext.IsInkColorPalleteVisible = false;
             bindingContext.IsShapeColorPalleteVisible = false;
+            bindingContext.IsLineAndArrowColorPalleteVisible = false;
             bindingContext.IsTextMarkUpColorPalleteVisible = false;
             bindingContext.IsStampOpacitySliderbarVisible = false;
             bindingContext.IsStickyNoteColorPalleteVisible = false;
@@ -327,7 +330,7 @@ public partial class CustomToolbar : SampleView
         string currentTappedDocument = "";
         if (grid!.Children[0] is Label iconName)
         {
-            currentTappedDocument= iconName.Text;
+            currentTappedDocument = iconName.Text;
         }
         if (this.BindingContext is CustomToolbarViewModel bindingContext)
         {
@@ -338,11 +341,11 @@ public partial class CustomToolbar : SampleView
                 bindingContext.IsFilePickerVisible = false;
                 bindingContext.HideOverlayToolbars();
 #if ANDROID || IOS
-                bindingContext.BottomToolbarContent= new AnnotationToolbar(viewModel);
+                bindingContext.BottomToolbarContent = new AnnotationToolbar(viewModel);
 #endif
                 previousDocument = currentTappedDocument;
             }
-            bindingContext.IsFileOperationListVisible= false;
+            bindingContext.IsFileOperationListVisible = false;
         }
     }
 
@@ -395,10 +398,10 @@ public partial class CustomToolbar : SampleView
         manualResetEvent.Set();
         if (this.BindingContext is CustomToolbarViewModel bindingContext)
         {
-            if(sender is PasswordDialogBox passwordDialog && passwordDialog.Password == null)
+            if (sender is PasswordDialogBox passwordDialog && passwordDialog.Password == null)
             {
                 bindingContext.IsFileListViewVisible = true;
-            }   
+            }
         }
     }
 
@@ -456,12 +459,12 @@ public partial class CustomToolbar : SampleView
             bindingContext.IsShapeListVisible = false;
             bindingContext.IsStickyNoteListVisible = false;
             bindingContext.IsStampListVisible = false;
-           
+
         }
         MainThread.BeginInvokeOnMainThread(() =>
         {
             toolbar!.SearchButton!.IsEnabled = true;
-            
+
         });
     }
 
@@ -484,6 +487,7 @@ public partial class CustomToolbar : SampleView
         viewModel.IsStampListVisible = false;
         viewModel.IsInkColorPalleteVisible = false;
         viewModel.IsShapeColorPalleteVisible = false;
+        viewModel.IsLineAndArrowColorPalleteVisible = false;
         viewModel.IsTextMarkUpColorPalleteVisible = false;
         viewModel.IsStampOpacitySliderbarVisible = false;
 #else
@@ -502,7 +506,6 @@ public partial class CustomToolbar : SampleView
             toolbar!.IsVisible = !PdfViewer.IsOutlineViewVisible;
         }
     }
-   
     
     private void PdfViewer_AnnotationSelected(object sender, AnnotationEventArgs e)
     {
@@ -577,7 +580,7 @@ public partial class CustomToolbar : SampleView
     }
 
 
-    private View CreateView(StampImage Image,Label customStampLabel)
+    private View CreateView(StampImage Image, Label customStampLabel)
     {
         GestureGrid customStamp = new GestureGrid();
         if (Image.Bounds.Width < 200)
@@ -640,5 +643,10 @@ public partial class CustomToolbar : SampleView
     internal void TextMarkUpHighlightDisappear()
     {
         textmarkupView.DisappearHighlight();
+    }
+
+    private void TextSelection_Changed(object sender, TextSelectionChangedEventArgs e)
+    {
+        SearchView.Close();
     }
 }

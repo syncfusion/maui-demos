@@ -9,15 +9,14 @@ using Microsoft.Maui.Controls.Shapes;
 
 namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
-public partial class InkColorCode : ContentView
-
+public partial class LineAndArrowColorCode : ContentView
 {
     Ellipse? selectedColorButtonHighlight;
 
     Button? PreButton = null;
-    public InkColorCode()
-	{
-		InitializeComponent();
+    public LineAndArrowColorCode()
+    {
+        InitializeComponent();
         Colorpaletteborder.Content = MyGrid;
         this.Content = Colorpaletteborder;
     }

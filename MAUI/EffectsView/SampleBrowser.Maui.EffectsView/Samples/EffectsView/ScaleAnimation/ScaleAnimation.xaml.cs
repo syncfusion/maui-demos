@@ -92,13 +92,17 @@ namespace SampleBrowser.Maui.EffectsView.SfEffectsView
 
     public class VisibilityConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            Syncfusion.Maui.Core.SfEffectsView effectsView = (Syncfusion.Maui.Core.SfEffectsView)parameter;
-            return effectsView.ScaleFactor == 1;
+            if(parameter != null)
+            {
+                Syncfusion.Maui.Core.SfEffectsView effectsView = (Syncfusion.Maui.Core.SfEffectsView)parameter;
+                return effectsView.ScaleFactor == 1;              
+            }
+            return null;
         }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return value;
         }

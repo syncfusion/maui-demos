@@ -75,33 +75,36 @@ namespace SampleBrowser.Maui.TabView.SfTabView
 
     public class TextToFormatTextConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            string fileName = (string)value;
+            if (value != null && parameter != null)
+            {
+                string fileName = (string)value;
 
-            string format = (string)parameter;
+                string format = (string)parameter;
 
-            if (format == ".docx")
-            {
-                fileName += " Document File";
+                if (format == ".docx")
+                {
+                    fileName += " Document File";
+                }
+                else if (format == ".xlsx")
+                {
+                    fileName += " Excel File";
+                }
+                else if (format == ".pdf")
+                {
+                    fileName += " PDF File";
+                }
+                else if (format == ".pptx")
+                {
+                    fileName += " PowerPoint File";
+                }
+                return fileName += format;
             }
-            else if (format == ".xlsx")
-            {
-                fileName += " Excel File";
-            }
-            else if (format == ".pdf")
-            {
-                fileName += " PDF File";
-            }
-            else if (format == ".pptx")
-            {
-                fileName += " PowerPoint File";
-            }
-
-            return fileName += format;
+            return null;
         }
 
-        public object? ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             return null;
         }

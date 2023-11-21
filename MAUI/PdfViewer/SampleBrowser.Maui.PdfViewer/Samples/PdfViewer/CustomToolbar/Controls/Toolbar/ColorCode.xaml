@@ -159,7 +159,7 @@
                     </tabView:SfTabItem.Content>
                 </tabView:SfTabItem>
 
-                <tabView:SfTabItem x:Name="Fill"  Header="Fill" HorizontalOptions="Start"  FontFamily="14" IsVisible="{Binding IsAnnotationModeLineOrArrow}" >
+                <tabView:SfTabItem x:Name="Fill"  Header="Fill" HorizontalOptions="Start"  FontFamily="14" >
                     <tabView:SfTabItem.Content>
                         <VerticalStackLayout>
                             <Grid>

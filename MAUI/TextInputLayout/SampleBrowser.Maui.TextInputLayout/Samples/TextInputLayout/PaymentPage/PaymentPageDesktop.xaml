@@ -85,8 +85,8 @@
 
                     <HorizontalStackLayout  Spacing="5" Margin="0,0,0,-10" >
                         <syncfusion:SfTextInputLayout x:Name="MonthField" Style="{StaticResource InputLayoutStyle}" Hint="Month" ErrorText="Invalid" WidthRequest="106" >
-                            
-                            <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference MonthField}" DropDownIconColor="{Binding Stroke}" IsDropdownButtonVisible="True">
+
+                            <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference MonthField}" DropDownIconColor="{Binding Stroke}" IsClearButtonVisible="False" IsDropdownButtonVisible="True">
                                 <editors:SfComboBox.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>01</x:String>
@@ -108,7 +108,7 @@
                         </syncfusion:SfTextInputLayout>
 
                         <syncfusion:SfTextInputLayout x:Name="YearField" Style="{StaticResource InputLayoutStyle}" Hint="Year" ErrorText="Invalid" WidthRequest="106">
-                            <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference YearField}" DropDownIconColor="{Binding Stroke}" IsDropdownButtonVisible="True">
+                            <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference YearField}" DropDownIconColor="{Binding Stroke}" IsClearButtonVisible="False" IsDropdownButtonVisible="True">
 
                                 <editors:SfComboBox.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
