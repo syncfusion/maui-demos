@@ -37,6 +37,24 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         public List<double>? Energy { get; set; }
 
+        public string? Year { get; set; }
+
+        public double Organic { get; set; }
+
+        public double FairTrade { get; set; }
+
+        public double VegAlternatives { get; set; }
+
+        public double Others { get; set; }
+
+        public double Peru { get; set; }
+
+        public double Canada { get; set; }
+
+        public double Ethiopia { get; set; }
+
+        public double Mali { get; set; }
+
         public ChartDataModel() { }
 
         public ChartDataModel(string department, List<double> employeeAges)
@@ -138,6 +156,24 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
             Value = value;
             High = value1;
             Low = value2;
+        }
+
+        public ChartDataModel(double organic, double fairTrade, double vegAlternatives, double others, string year)
+        {
+            Organic = organic;
+            FairTrade = fairTrade;
+            VegAlternatives = vegAlternatives;
+            Others = others;
+            Year = year;
+        }
+
+        public ChartDataModel(double peru, double canada, string year, double ethiopia, double mali)
+        {
+            Peru = peru;
+            Canada = canada;
+            Year = year;
+            Ethiopia = ethiopia;
+            Mali = mali;
         }
     }
 }

@@ -124,6 +124,10 @@
 		  <Sample Title="Dynamic update animation" SampleName="StepAreaChart_DynamicUpdate" SearchTags="stepArea, dynamic" CodeViewerPath="CartesianChart/StepAreaChart/"/>
 	 </CardLayout>
 	 </SubCategory>
+		  
+		<Sample Title="Stacked Area" StatusTag="New" SampleName="StackedAreaChart" SearchTags="stackedarea" CodeViewerPath="CartesianChart/StackedArea/"/>
+
+        <Sample Title="100% Stacked Area" StatusTag="New" SampleName="StackedArea100Chart" SearchTags="stackedarea100" CodeViewerPath="CartesianChart/StackedArea100/"/>
    
         <Sample Title="Box Plot" SampleName="BoxAndWhisker" SearchTags="boxandwhisker, box, plot, boxplot,whisker" CodeViewerPath="CartesianChart/BoxAndWhisker/"/>
     
