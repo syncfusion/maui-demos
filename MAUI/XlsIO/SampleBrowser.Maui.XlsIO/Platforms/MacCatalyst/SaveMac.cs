@@ -38,6 +38,7 @@ namespace SampleBrowser.Maui.Services
                     uiViewController.PresentViewController((UIViewController)qlPreview, true, null);
                 }
             }
+
 		}
         public UIWindow? GetKeyWindow()
         {

@@ -83,7 +83,7 @@
                         <Entry />                        
                     </syncfusion:SfTextInputLayout>
 
-                    <HorizontalStackLayout  Spacing="5" Margin="0,0,0,-10" >
+                    <HorizontalStackLayout  Spacing="5" Margin="0,0,0,-10" WidthRequest="313" HorizontalOptions="Center">
                         <syncfusion:SfTextInputLayout x:Name="MonthField" Style="{StaticResource InputLayoutStyle}" Hint="Month" ErrorText="Invalid" WidthRequest="106" >
 
                             <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference MonthField}" DropDownIconColor="{Binding Stroke}" IsClearButtonVisible="False" IsDropdownButtonVisible="True">
@@ -127,7 +127,7 @@
                            
                         </syncfusion:SfTextInputLayout>
 
-                        <syncfusion:SfTextInputLayout x:Name="CVVField" Style="{StaticResource InputLayoutStyle}" Hint="CVV" CharMaxLength="3" ErrorText="Invalid" WidthRequest="68" >
+                        <syncfusion:SfTextInputLayout x:Name="CVVField" Style="{StaticResource InputLayoutStyle}" Hint="CVV" CharMaxLength="3" ClipToBounds="False" ErrorText="Invalid" WidthRequest="68" >
                             <Entry IsPassword="True" MaxLength="3" Keyboard="Numeric"/>                           
                         </syncfusion:SfTextInputLayout>
 

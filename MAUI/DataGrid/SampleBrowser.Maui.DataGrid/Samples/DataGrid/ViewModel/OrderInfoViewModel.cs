@@ -278,6 +278,31 @@ namespace SampleBrowser.Maui.DataGrid
             return orderDetails;
         }
 
+        /// <summary>
+        /// Used this method to add the More Items in View while view was refreshing
+        /// </summary>
+        /// <param name="i">record rows count</param>
+        /// <returns>added Items Value</returns>
+        internal OrderInfo RefreshItemsource(int i)
+        {
+            var ordeshipcity = this.shipCity[this.shipCountry[this.random.Next(0, 5)]];
+            var order = new OrderInfo()
+            {
+                OrderID = i,
+                CustomerID = this.customerID[this.random.Next(15)],
+                EmployeeID = this.random.Next(1700, 1800),
+                FirstName = this.firstNames[this.random.Next(15)],
+                LastName = this.lastNames[this.random.Next(15)],
+                Gender = this.genders[this.random.Next(5)],
+                ShipCountry = this.shipCountry[this.random.Next(5)],
+                ShippingDate = DateTime.Now,
+                Freight = Math.Round(this.random.Next(1000) + this.random.NextDouble(), 2),
+                IsClosed = (i % this.random.Next(1, 10) > 5) ? true : false,
+                ShipCity = ordeshipcity[0],
+            };
+            return order;
+        }
+
 
         #endregion
         /// <summary>
@@ -396,7 +421,6 @@ namespace SampleBrowser.Maui.DataGrid
 
             return false;
         }
-
 
         /// <summary>
         /// Used to call the filter text changed()
@@ -695,27 +719,30 @@ namespace SampleBrowser.Maui.DataGrid
                 "San Cristóbal"
             };
 
-            this.shipCity.Add("Argentina", argentina);
-            this.shipCity.Add("Austria", austria);
-            this.shipCity.Add("Belgium", belgium);
-            this.shipCity.Add("Brazil", brazil);
-            this.shipCity.Add("Canada", canada);
-            this.shipCity.Add("Denmark", denmark);
-            this.shipCity.Add("Finland", finland);
-            this.shipCity.Add("France", france);
-            this.shipCity.Add("Germany", germany);
-            this.shipCity.Add("Ireland", ireland);
-            this.shipCity.Add("Italy", italy);
-            this.shipCity.Add("Mexico", mexico);
-            this.shipCity.Add("Norway", norway);
-            this.shipCity.Add("Poland", poland);
-            this.shipCity.Add("Portugal", portugal);
-            this.shipCity.Add("Spain", spain);
-            this.shipCity.Add("Sweden", sweden);
-            this.shipCity.Add("Switzerland", switzerland);
-            this.shipCity.Add("UK", uk);
-            this.shipCity.Add("USA", usa);
-            this.shipCity.Add("Venezuela", venezuela);
+            if (this.shipCity.Count == 0)
+            {
+                this.shipCity.Add("Argentina", argentina);
+                this.shipCity.Add("Austria", austria);
+                this.shipCity.Add("Belgium", belgium);
+                this.shipCity.Add("Brazil", brazil);
+                this.shipCity.Add("Canada", canada);
+                this.shipCity.Add("Denmark", denmark);
+                this.shipCity.Add("Finland", finland);
+                this.shipCity.Add("France", france);
+                this.shipCity.Add("Germany", germany);
+                this.shipCity.Add("Ireland", ireland);
+                this.shipCity.Add("Italy", italy);
+                this.shipCity.Add("Mexico", mexico);
+                this.shipCity.Add("Norway", norway);
+                this.shipCity.Add("Poland", poland);
+                this.shipCity.Add("Portugal", portugal);
+                this.shipCity.Add("Spain", spain);
+                this.shipCity.Add("Sweden", sweden);
+                this.shipCity.Add("Switzerland", switzerland);
+                this.shipCity.Add("UK", uk);
+                this.shipCity.Add("USA", usa);
+                this.shipCity.Add("Venezuela", venezuela);
+            }
         }
     }
 }

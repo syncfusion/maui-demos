@@ -2,7 +2,7 @@
 <SyncfusionControls>
   <ControlCategory Name="Editors">
     <Control Title="ImageEditor" Image="imageeditor.png" 
-			 StatusTag="Updated" IsPreview="true"
+			 StatusTag="Updated"
 			 ControlName="SfImageEditor" 
 			 Description="The image editor is used to crop, flip, rotate and annotate an image.">
 			<Sample Title="Getting Started" SampleName="GettingStarted" StatusTag="Updated" CodeViewerPath="ImageEditor/GettingStarted/" VideoLink="https://www.youtube.com/watch?v=Gkkh52xSehM"/>   />

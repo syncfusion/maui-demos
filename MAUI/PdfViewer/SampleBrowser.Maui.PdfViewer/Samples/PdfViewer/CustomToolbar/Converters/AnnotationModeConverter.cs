@@ -49,6 +49,10 @@ namespace SampleBrowser.Maui.PdfViewer
                         return "\uE73d";
                     else if (annotationMode == AnnotationMode.Arrow)
                         return "\uE73c";
+                    else if (annotationMode == AnnotationMode.Polyline)
+                        return "\uE786";
+                    else if (annotationMode == AnnotationMode.Polygon)
+                        return "\uE789";
                     else
                         return "\uE73b";
                 }

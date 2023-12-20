@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.StampDialog"
              xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
-             BackgroundColor="#40000000">
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             BackgroundColor="#80000000">
     <ContentView.Resources>
         <Style x:Key="buttonIconStyle" TargetType="Button">
             <Setter Property="BackgroundColor" Value="Transparent" />
@@ -47,7 +48,7 @@
             
             <Border Grid.Row="1" WidthRequest="300" HeightRequest="134"
                     Stroke="#CAC4D0"
-                    StrokeShape="{OnPlatform WinUI=RoundRectangle 4,MacCatalyst=RoundRectangle 4}" 
+                    StrokeShape="{OnPlatform WinUI=RoundRectangle 8,MacCatalyst=RoundRectangle 8}" 
                     StrokeThickness="1">
                 <StackLayout x:Name="layout" HorizontalOptions="Center" VerticalOptions="Center"   >
                     <Border Stroke="#A007A3" BackgroundColor="#FADFFB" HeightRequest="50" WidthRequest="80" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
@@ -60,9 +61,40 @@
                 </StackLayout>
             </Border>
 
-            <local:CustomEntry Grid.Row="3" Background="Transparent" x:Name="createEntry" Margin="0,6,0,0" WidthRequest="300" HeightRequest="38" 
-                   Text="Text" VerticalTextAlignment="Center" ClearButtonVisibility="Never" MaxLength="24" TextChanged="OnEntryTextChanged" />
-
+            <inputLayout:SfTextInputLayout 
+            Grid.Row="3" 
+            ContainerBackground="Transparent"  
+            Margin="0,6,0,0"
+            HeightRequest="40" 
+            WidthRequest="300"
+            ShowHint="False"
+            InputViewPadding="0"
+            ReserveSpaceForAssistiveLabels="False" >
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Stroke" Value="#79747E"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter Property="Stroke" Value="#6750A4"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+                <local:CustomEntry  
+             Background="Transparent"
+             x:Name="createEntry"
+             VerticalTextAlignment="Center"
+             ClearButtonVisibility="Never"
+             MaxLength="24"
+             TextChanged="OnEntryTextChanged" />
+            </inputLayout:SfTextInputLayout>
+            
             <Grid x:Name="stampColor" Grid.Row="4" Margin="12" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -96,10 +128,10 @@
                 <Button Grid.Row="1" Margin="2" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#33076C" Clicked="ColorHighlightButton_Clicked"/>
             </Grid>
 
-            <Grid Grid.Row="5" Margin="0,120,30,15" >
+            <Grid Grid.Row="5" Margin="0,120,24,24" >
                 <Button  Text="Create" TextColor="#6750A4" FontSize="14" FontFamily="Roboto" Opacity="4"
                      Style="{StaticResource buttonIconStyle}" HorizontalOptions="End" VerticalOptions="End"
-                     Padding="4" CornerRadius="4"
+                     CornerRadius="20" WidthRequest="84" HeightRequest="40"
                      Clicked="OnApplyClicked"/>
             </Grid>
         </Grid>

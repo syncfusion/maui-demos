@@ -58,6 +58,7 @@
                         x:Name="PdfViewer"
                         Grid.Row="1"
                         DocumentSource="{Binding DocumentData.DocumentStream}"
+                        PropertyChanged="PdfViewer_AnnotationPropertyChanged"
                         AnnotationSelected="PdfViewer_AnnotationSelected"
                         AnnotationDeselected="PdfViewer_AnnotationDeselected"
                         Tapped="PdfViewer_Tapped"
@@ -98,6 +99,25 @@
                             </sliders:SfSlider>
                             <BoxView BackgroundColor="Gray" Opacity="0.5" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
                         </Grid>
+                        <Grid x:Name="fontSizeSliderBar" IsVisible="{Binding IsFontSliderVisible}" Grid.Row="1" HeightRequest="48" BackgroundColor="#F3EDF7" VerticalOptions="End" >
+                            <sliders:SfSlider x:Name="FontSizeSliderBar" Minimum="2" Value="{Binding SelectedFontSize}" Maximum="16" ValueChangeEnd="FontSizeSliderBar_ValueChangeEnd" VerticalOptions="End" HorizontalOptions="EndAndExpand" >
+                                <sliders:SfSlider.TrackStyle>
+                                    <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>
+                                </sliders:SfSlider.TrackStyle>
+                                <sliders:SfSlider.ThumbStyle>
+                                    <sliders:SliderThumbStyle Fill="#6750A4" />
+                                </sliders:SfSlider.ThumbStyle>
+                                <sliders:SfSlider.ThumbOverlayStyle>
+                                    <sliders:SliderThumbOverlayStyle Fill="#333333" Radius="24"/>
+                                </sliders:SfSlider.ThumbOverlayStyle>
+                                <sliders:SfSlider.Tooltip>
+                                    <sliders:SliderTooltip ShowAlways="True"  NumberFormat="0" Fill="#6750A4" Position="Auto" FontSize="12"  />
+                                </sliders:SfSlider.Tooltip>
+                            </sliders:SfSlider>
+                            <BoxView BackgroundColor="Gray" Opacity="0.5" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                        </Grid>
+                       
+                        
                         <local:ColorToolbar x:Name="colorToolBar" IsVisible="{Binding IsColorToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1" />
                         <local:ColorToolbar x:Name="fillColorToolBar" IsVisible="{Binding IsFillColorToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1" />
                         <local:StickyNoteToolbar x:Name="stickyNoteToolbar" IsVisible="{Binding IsStickyNoteToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1"/>
@@ -214,12 +234,14 @@
                             </Grid>
                         </Border>
                     </Grid>
+                    <local:FreeTextFillColorPalatte x:Name="freeTextAnnotationColorPalatte" IsVisible="{Binding IsFreeTextFillColorVisble}" Margin="{Binding ColorPaletteMargin}" HorizontalOptions="Start" VerticalOptions="Start" ></local:FreeTextFillColorPalatte>
                     <local:ColorCode x:Name="shapeColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsShapeColorPalleteVisible}"/>
                     <local:LineAndArrowColorCode x:Name="lineAndArrowColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsLineAndArrowColorPalleteVisible}"/>
                     <local:TextMarkupColorCode x:Name="textMarkupColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsTextMarkUpColorPalleteVisible}"/>
                     <local:StickyNoteColorCode Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsStickyNoteColorPalleteVisible}"/>
                     <local:InkColorCode x:Name="inkColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsInkColorPalleteVisible}"/>
                     <local:StampOpacity x:Name="stampOpacityBar" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsStampOpacitySliderbarVisible}"/>
+                    <local:EraserThickness x:Name="eraserThicknessBar" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsEraserThicknessToolbarVisible}"/>
                     <Border x:Name="toast" Grid.Row="1" BackgroundColor="Black" Padding="8" VerticalOptions="Center" HorizontalOptions="Center" Opacity="0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="4"/>

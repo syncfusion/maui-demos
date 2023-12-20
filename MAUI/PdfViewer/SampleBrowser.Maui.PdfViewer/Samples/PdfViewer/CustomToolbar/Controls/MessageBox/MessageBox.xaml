@@ -19,7 +19,7 @@
     </ContentView.Resources>
     <Frame
         HeightRequest="160" WidthRequest="320" HorizontalOptions="Center" VerticalOptions="Center"
-        BackgroundColor="#F3EDF7" HasShadow="False" CornerRadius="20">
+        BackgroundColor="#F3EDF7" HasShadow="False" CornerRadius="20" >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>

@@ -8,7 +8,7 @@
         x:Name="Colors" 
         VerticalOptions="Start" 
         HorizontalOptions="Start"
-        WidthRequest="120" 
+        WidthRequest="205" 
         HeightRequest="100"
         Padding="0,7,0,7"
         BackgroundColor="#EEE8F4"

@@ -5,20 +5,18 @@
 		<Control ControlName="Button"
 				 Title="Button"
 				 Image="button.png"
-				 Description="A button is a UI element for user interaction, representing a one-click or tap action."
-				 StatusTag="New"
-		         IsPreview="True">
+				 Description="A button is a UI element for user interaction, representing a one-click or tap action." >
 			<Sample SampleName="GettingStarted"
 					Title="Getting Started"
 					SearchTags="PrimaryButton, SfButton, Buttons, FlatButton, IconButton, OutlineButton, CircleButton"
 					CodeViewerPath="Button/GettingStarted/"
-					VideoLink=""/>
+					VideoLink="https://www.youtube.com/watch?v=KTGkYShi1YE"/>
 			<Sample SampleName="Customizations"
 					Title="Customizations"
 					IsGettingStarted="True"
 					SearchTags="Button, SfButton, Buttons"
 					CodeViewerPath="Button/Customizations/"
-					VideoLink=""/>
+					VideoLink="https://www.youtube.com/watch?v=KTGkYShi1YE"/>
 
 
 		</Control>
@@ -27,50 +25,64 @@
              ControlName="SfSegmentedControl"
              Image="segmentedcontrol.png"
              Description="Offer choices from a linear set of segments, each as an independent button."
-             SearchTags="SfSegmentedControl,segmented buttons,segment,seg"
-             StatusTag="New"
-             IsPreview="True">
+             SearchTags="SfSegmentedControl,segmented buttons,segment,seg">
 
 			<Sample Title="Getting Started"
               SampleName="GettingStarted"
               CodeViewerPath="SegmentedControl/GettingStarted/"/>
 		</Control>
 
+		<Control ControlName="Switch"
+				 Title="Switch"
+				 Image="switch.png"
+				 StatusTag="New"
+				 IsPreview="True"
+				 Description="The switch is a UI element that allows users to turn an item on and off, and provides an optional indeterminate state." >
+			<Sample SampleName="GettingStarted"
+					Title="Getting Started"
+					SearchTags="switch, threestate, button"
+					StatusTag="New"
+					CodeViewerPath="Switch/GettingStarted/"
+					VideoLink=""/>
+			<Sample SampleName="Features"
+					Title="Features"
+					SearchTags="switch, threestate, button, switchfeatures"
+					StatusTag="New"
+					CodeViewerPath="Switch/Features/"
+					VideoLink=""/>
+		</Control>
+
 		<Control ControlName="CheckBox"
 				 Title="CheckBox"
 				 Image="checkbox.png"
-				 Description="A checkbox allows toggling between two states, useful for binary or multi-choice."
-				 StatusTag="New"
-		         IsPreview="True">
+				 Description="A checkbox is a UI element for toggling between two states, often used for binary choices or multi-selection options." >
 			<Sample SampleName="GettingStarted"
 					Title="Getting Started"
 					SearchTags="checkbox, selection, threestates"
 					CodeViewerPath="CheckBox/GettingStarted/"
-					VideoLink=""/>
+					VideoLink="https://www.youtube.com/watch?v=dgekGX8eYMo"/>
 			<Sample SampleName="Customizations"
 					Title="Customizations"
 					IsGettingStarted="True"
 					SearchTags="checkbox, selection, threestates"
 					CodeViewerPath="CheckBox/Customizations/"
-					VideoLink=""/>
+					VideoLink="https://www.youtube.com/watch?v=dgekGX8eYMo"/>
 		</Control>
 		<Control ControlName="RadioButton"
 				 Title="Radio Button"
 				 Image="radiobutton.png"
-				 Description="A radio button is a user interface element for selecting one exclusive option from a list."
-				 StatusTag="New"
-		         IsPreview="True">
+				 Description="A radio button is a UI element that allows users to select a single option from a list of mutually exclusive choices." >
 			<Sample SampleName="GettingStarted"
 					Title="Getting Started"
 					SearchTags="radiobutton, twostate, button"
 					CodeViewerPath="RadioButton/GettingStarted/"
-					VideoLink=""/>
+					VideoLink="https://www.youtube.com/watch?v=z5EwGpw0KTI"/>
 			<Sample SampleName="Customizations"
 					Title="Customizations"
 					IsGettingStarted="True"
 					SearchTags="radiobutton, twostate, button"
 					CodeViewerPath="RadioButton/Customizations/"
-					VideoLink=""/>
+					VideoLink="https://www.youtube.com/watch?v=z5EwGpw0KTI"/>
 		</Control>
 	</ControlCategory>
 </SyncfusionControls>

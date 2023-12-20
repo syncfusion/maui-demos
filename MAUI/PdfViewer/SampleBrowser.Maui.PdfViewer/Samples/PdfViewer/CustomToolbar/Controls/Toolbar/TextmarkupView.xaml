@@ -34,8 +34,8 @@
                             </Grid.ColumnDefinitions>
                         <HorizontalStackLayout>
                             <Label
-                             Padding="20,0,0,0"
-                            FontSize="16"
+                             Padding="16,0,12,0"
+                            FontSize="18"
                                 TextColor="#49454F"
                             FontFamily="Maui Material Assets"
                             VerticalOptions="Center"
@@ -44,6 +44,7 @@
                             <Label
                                 Padding="15,0,0,0"
                                 FontSize="16"
+                                FontFamily="Roboto"
                                 TextColor="#49454F"
                                 VerticalOptions="Center"
                                 Text="{Binding IconName}">

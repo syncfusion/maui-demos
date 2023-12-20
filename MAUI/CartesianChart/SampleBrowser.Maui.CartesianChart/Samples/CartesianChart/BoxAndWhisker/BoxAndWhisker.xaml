@@ -47,16 +47,18 @@
         </StackLayout>
     </localCore:SampleView.Content>
     <localCore:SampleView.OptionView>
-        <VerticalStackLayout Spacing="5">
-            <HorizontalStackLayout>
-                <Label Text="Mode :" HorizontalOptions="Center" VerticalOptions="Start" Padding="5" FontSize="17"/>
-                <Picker ItemsSource="{Binding Source={x:Reference ViewModel},Path=BoxPlotMode}"
+        <Grid>
+            <VerticalStackLayout Spacing="5">
+                <HorizontalStackLayout>
+                    <Label Text="Mode :" HorizontalOptions="Center" VerticalOptions="Start" Padding="5" FontSize="17"/>
+                    <Picker ItemsSource="{Binding Source={x:Reference ViewModel},Path=BoxPlotMode}"
                         SelectedItem="{Binding Source={x:Reference ViewModel},Path=BoxPlotMode[0]}"
                         HorizontalOptions="Fill" VerticalOptions="Start"                        
                         SelectedIndex="0"
                         SelectedIndexChanged="ModePicker_SelectedIndexChanged"
                         ></Picker>
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
     </localCore:SampleView.OptionView>
 </localCore:SampleView>

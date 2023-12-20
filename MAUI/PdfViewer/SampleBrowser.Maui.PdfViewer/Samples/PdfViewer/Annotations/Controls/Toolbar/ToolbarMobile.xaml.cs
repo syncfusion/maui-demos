@@ -20,5 +20,13 @@ public partial class AnnotationToolbarMobile : AnnotationToolbarView
         UndoButton = mobileUndoButton;
         RedoButton = mobileRedoButton;
     }
-    
+
+    private void undoRedoClicked(object sender, EventArgs e)
+    {
+        if (ParentView != null)
+        {
+            ParentView.CloseAllDialogs();
+            ParentView.HideOverlayToolbars();
+        }
+    }
 }

@@ -56,7 +56,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net8.0-android' OR '$(TargetFramework)' == 'net8.0-ios' OR '$(TargetFramework)' == 'net8.0-maccatalyst' OR '$(TargetFramework)' == 'net8.0-windows10.0.19041.0' ">
-    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+        	<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
   </ItemGroup>
 	
   <ItemGroup>
@@ -89,13 +89,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Syncfusion.Maui.Core" version="23.2.4" />
-		<PackageReference Include="Syncfusion.Maui.GridCommon" version="23.2.4" />
-		<PackageReference Include="Syncfusion.Maui.Inputs" version="23.2.4" />
-		<PackageReference Include="Syncfusion.Maui.ListView" version="23.2.4" />
-		<PackageReference Include="Syncfusion.Maui.TabView" version="23.2.4" />
-		<PackageReference Include="Syncfusion.Maui.TreeView" version="23.2.4" />
-		<PackageReference Include="SampleBrowser.Maui.Base" version="23.2.4" />
+		<PackageReference Include="Syncfusion.Maui.Core" version="24.1.41" />
+		<PackageReference Include="Syncfusion.Maui.GridCommon" version="24.1.41" />
+		<PackageReference Include="Syncfusion.Maui.Inputs" version="24.1.41" />
+		<PackageReference Include="Syncfusion.Maui.ListView" version="24.1.41" />
+		<PackageReference Include="Syncfusion.Maui.TabView" version="24.1.41" />
+		<PackageReference Include="Syncfusion.Maui.TreeView" version="24.1.41" />
+		<PackageReference Include="SampleBrowser.Maui.Base" version="24.1.41" />
   </ItemGroup>
 
 </Project>

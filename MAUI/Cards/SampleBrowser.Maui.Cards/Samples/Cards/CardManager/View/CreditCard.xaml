@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Cards.SfCards.CreditCard"
+             xmlns:cards="clr-namespace:Syncfusion.Maui.Cards;assembly=Syncfusion.Maui.Cards"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Cards.SfCards"
+             Background="WhiteSmoke">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.6*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid IsClippedToBounds="True" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}" RowDefinitions="40, 60, *" 
+                    Margin="0,40" HeightRequest="{OnPlatform MacCatalyst=430}"
+                    VerticalOptions="{OnPlatform Default=Fill, WinUI=Center}">
+                <Image Source="{imageExtention:SfImageResource creditcard.png}" Aspect="AspectFit" Margin="50, 0, 0, 0"
+                       VerticalOptions="{OnPlatform WinUI=Center}"
+                       Grid.Row="2"/>
+                <Label Grid.Row="1" Margin="50, 0, 0, 30"  Text="Pay and manage your cards." FontSize="16" TextColor="Black" FontFamily="Roboto-Medium"/>
+            </Grid>
+
+            <Frame HasShadow="False" 
+                   Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" CornerRadius="10"
+                   Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" 
+                   VerticalOptions="{OnPlatform Default=Center, WinUI=Center, MacCatalyst=Center}"
+                   WidthRequest="{OnPlatform WinUI=400, MacCatalyst=400, Default=350}"
+                   HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}" 
+                   HeightRequest="{OnPlatform MacCatalyst=650}">
+                <Frame.Padding>
+                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                        <On Platform="MacCatalyst" Value="5,20,5,20"/>
+                    </OnPlatform>
+                </Frame.Padding>
+
+                <Grid Padding="0,10,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Frame BorderColor="LightGray" CornerRadius="20" HasShadow="False" Padding="0" Margin="20,0,20,10">
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource ellipse633.png}" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Grid.Row="0" Text="Hey Rick," FontSize="16" FontFamily="Roboto-Medium" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#4F4E4E"/>
+                            <Label Grid.Column="1" Grid.Row="1" Text="You have some dues pending" FontSize="12" HorizontalOptions="Start" VerticalOptions="Center" FontFamily="Roboto-Regular" TextColor="Gray"/>
+                        </Grid>
+                    </Frame>
+
+                    <cards:SfCardLayout x:Name="cardLayout" Grid.Row="1" HeightRequest="200" WidthRequest="{OnPlatform Android=340, iOS=340, Default=360}" HorizontalCardSpacing="10" VerticalCardSpacing="0" BackgroundColor="White">
+                        <cards:SfCardView>
+                            <Grid>
+                                <Image Source="{imageExtention:SfImageResource eyes.jpg}" Aspect="AspectFill"/>
+                                <Grid Padding="20" Background="#472902" Opacity="0.9">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Wells Fargo" HorizontalOptions="Start" TextColor="White" FontSize="18" FontFamily="Roboto-Medium"/>
+                                    <Grid Grid.Row="1" Padding="0,20,0,15">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{imageExtention:SfImageResource cardchip.png}" WidthRequest="60" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Column="1" Text="Business Elite" TextColor="White" FontSize="15" HorizontalOptions="Start" VerticalOptions="Center" Padding="30,0,0,0" FontFamily="Roboto-Medium"/>
+                                    </Grid>
+                                    <Label Grid.Row="2" HorizontalOptions="Start" VerticalOptions="End" Text="Rick Sanchez" FontSize="16" TextColor="White" FontFamily="Roboto-Medium"/>
+                                    <Label Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End" Text="9 0 5 7    4 0 8 1    2 1 7 5    0 0 5 6" TextColor="White" Padding="0,10,0,0" FontFamily="Roboto-Regular"/>
+                                </Grid>
+                            </Grid>
+                            
+                        </cards:SfCardView>
+
+                        <cards:SfCardView>
+                            <Grid>
+                                <Image Source="{imageExtention:SfImageResource coinslandscape.jpg}" Aspect="AspectFill"/>
+                                <Grid Padding="20" Background="#b03f2b" Opacity="0.9">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Chase" HorizontalOptions="Start" TextColor="White" FontSize="18" FontFamily="Roboto-Medium"/>
+                                    <Grid Grid.Row="1" Padding="0,20,0,15">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{imageExtention:SfImageResource cardchip.png}" WidthRequest="60" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Column="1" Text="Freedom" TextColor="White" FontSize="15" HorizontalOptions="Start" VerticalOptions="Center" Padding="30,0,0,0" FontFamily="Roboto-Medium"/>
+                                    </Grid>
+                                    <Label Grid.Row="2" HorizontalOptions="Start" VerticalOptions="End" Text="Rick Sanchez" FontSize="16" TextColor="White" FontFamily="Roboto-Medium"/>
+                                    <Label Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End" Text="7 4 5 6    0 0 2 1    9 4 4 7    3 8 0 9" TextColor="White" Padding="0,10,0,0" FontFamily="Roboto-Regular"/>
+                                </Grid>
+                            </Grid>
+                            
+                        </cards:SfCardView>
+
+                        <cards:SfCardView>
+                            <Grid>
+                                <Image Source="{imageExtention:SfImageResource buildinglandscape.jpg}" Aspect="AspectFill"/>
+                                <Grid Padding="20" Background="#343434" Opacity="0.9">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Synchrony Financial" HorizontalOptions="Start" TextColor="White" FontSize="18" FontFamily="Roboto-Medium"/>
+                                    <Grid Grid.Row="1" Padding="0,20,0,15">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{imageExtention:SfImageResource cardchip.png}" WidthRequest="60" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Column="1" Text="Platinum" TextColor="White" FontSize="15" HorizontalOptions="Start" VerticalOptions="Center" Padding="30,0,0,0" FontFamily="Roboto-Medium"/>
+                                    </Grid>
+                                    <Label Grid.Row="2" HorizontalOptions="Start" VerticalOptions="End" Text="Rick Sanchez" FontSize="16" TextColor="White" FontFamily="Roboto-Medium"/>
+                                    <Label Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End" Text="5 9 0 1    8 0 2 3    7 1 9 2    3 3 0 4" TextColor="White" Padding="0,10,0,0" FontFamily="Roboto-Regular"/>
+                                </Grid>
+                            </Grid>
+                           
+                        </cards:SfCardView>
+                    </cards:SfCardLayout>
+
+                    <Grid Grid.Row="2" x:Name="firstCardTransactionDetails" Padding="15,10,15,10" IsVisible="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Frame HeightRequest="50" BorderColor="LightGray" HasShadow="False" VerticalOptions="Center" Padding="0">
+                            <Grid>
+                                <Grid.Padding>
+                                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                                        <On Platform="MacCatalyst" Value="10,0,5,0"/>
+                                        <On Platform="iOS" Value="10,0,5,0"/>
+                                        <On Platform="Android" Value="10,5,5,5"/>
+                                        <On Platform="WinUI" Value="10,5,5,5"/>
+                                    </OnPlatform>
+                                </Grid.Padding>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Total Due" FontSize="10" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#4F4E4E" FontFamily="Roboto-Regular"/>
+                                <Label Grid.Row="1" Text="{Binding FirstCardTransaction.DueAmount}" FontSize="16" FontFamily="Roboto-Medium" TextColor="#4F4E4E" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                <Button Grid.Column="1" Grid.RowSpan="2" Text="Pay Now" FontSize="12" HeightRequest="35" BackgroundColor="Black" Padding="0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="70" FontFamily="Roboto-Medium"/>
+                            </Grid>
+                        </Frame>
+                        <Grid Grid.Row="1" Padding="0,10,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Recent Transactions" FontSize="18" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                            <ScrollView Grid.Row="1" Orientation="Vertical" VerticalScrollBarVisibility="Never" HeightRequest="{OnPlatform WinUI=130}">
+                                <StackLayout Orientation="Vertical">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource shoes.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding FirstCardTransaction.FirstTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding FirstCardTransaction.FirstTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding FirstCardTransaction.FirstTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                    <Grid Padding="0,10,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource pasta.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding FirstCardTransaction.SecondTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding FirstCardTransaction.SecondTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding FirstCardTransaction.SecondTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                    <Grid Padding="0,10,0,10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource music.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding FirstCardTransaction.ThirdTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding FirstCardTransaction.ThirdTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding FirstCardTransaction.ThirdTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ScrollView>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="2" x:Name="secondCardTransactionDetails" Padding="15,10,15,10" IsVisible="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Frame HeightRequest="50" BorderColor="LightGray" HasShadow="False" VerticalOptions="Center" Padding="0" >
+                            <Grid>
+                                <Grid.Padding>
+                                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                                        <On Platform="MacCatalyst" Value="10,0,5,0"/>
+                                        <On Platform="iOS" Value="10,0,5,0"/>
+                                        <On Platform="Android" Value="10,5,5,5"/>
+                                        <On Platform="WinUI" Value="10,5,5,5"/>
+                                    </OnPlatform>
+                                </Grid.Padding>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Total Due" FontSize="10" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#4F4E4E" FontFamily="Roboto-Regular"/>
+                                <Label Grid.Row="1" Text="{Binding SecondCardTransaction.DueAmount}" FontSize="16" FontFamily="Roboto-Medium" TextColor="#4F4E4E" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                <Button Grid.Column="1" Grid.RowSpan="2" Text="Pay Now" FontSize="12" HeightRequest="35" BackgroundColor="Black" Padding="0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="70" FontFamily="Roboto-Medium"/>
+                            </Grid>
+                        </Frame>
+                        <Grid Grid.Row="1" Padding="0,10,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Recent Transactions" FontSize="18" FontAttributes="Bold" TextColor="#4F4E4E"/>
+                            <ScrollView Grid.Row="1" Orientation="Vertical" VerticalScrollBarVisibility="Never" HeightRequest="{OnPlatform WinUI=130}">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource driverslicense.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding SecondCardTransaction.FirstTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding SecondCardTransaction.FirstTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding SecondCardTransaction.FirstTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                    <Grid Padding="0,10,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource SandalsSpeaker.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding SecondCardTransaction.SecondTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding SecondCardTransaction.SecondTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding SecondCardTransaction.SecondTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                    <Grid Padding="0,10,0,10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource house.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding SecondCardTransaction.ThirdTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding SecondCardTransaction.ThirdTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding SecondCardTransaction.ThirdTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ScrollView>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="2" x:Name="thirdCardTransactionDetails" Padding="15,10,15,10" IsVisible="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Frame HeightRequest="50" BorderColor="LightGray" HasShadow="False" VerticalOptions="Center" Padding="0" >
+                            <Grid>
+                                <Grid.Padding>
+                                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                                        <On Platform="MacCatalyst" Value="10,0,5,0"/>
+                                        <On Platform="iOS" Value="10,0,5,0"/>
+                                        <On Platform="Android" Value="10,5,5,5"/>
+                                        <On Platform="WinUI" Value="10,5,5,5"/>
+                                    </OnPlatform>
+                                </Grid.Padding>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Total Due" FontSize="10" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#4F4E4E" FontFamily="Roboto-Regular"/>
+                                <Label Grid.Row="1" Text="{Binding ThirdCardTransaction.DueAmount}" FontSize="16" FontFamily="Roboto-Medium" TextColor="#4F4E4E" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                <Button Grid.Column="1" Grid.RowSpan="2" Text="Pay Now" FontSize="12" HeightRequest="35" BackgroundColor="Black" Padding="0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="70" FontFamily="Roboto-Medium"/>
+                            </Grid>
+                        </Frame>
+                        <Grid Grid.Row="1" Padding="0,10,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Recent Transactions" FontSize="18" FontAttributes="Bold" TextColor="#4F4E4E"/>
+                            <ScrollView Grid.Row="1" Orientation="Vertical" VerticalScrollBarVisibility="Never" HeightRequest="{OnPlatform WinUI=130}">
+                                <StackLayout Orientation="Vertical">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource watchimage.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding ThirdCardTransaction.FirstTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding ThirdCardTransaction.FirstTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding ThirdCardTransaction.FirstTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                    <Grid Padding="0,10,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource pizza.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding ThirdCardTransaction.SecondTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding ThirdCardTransaction.SecondTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding ThirdCardTransaction.SecondTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                    <Grid Padding="0,10,0,10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Source="{imageExtention:SfImageResource musical.png}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Grid.Column="1" Text="{Binding ThirdCardTransaction.ThirdTransaction}" Padding="10" TextColor="#4F4E4E" FontFamily="Roboto-Medium"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding ThirdCardTransaction.ThirdTransactionDate}" FontSize="12" TextColor="Gray" Padding="10,0,0,0" FontFamily="Roboto-Regular"/>
+                                        <Label Grid.Column="2" Grid.RowSpan="2" Text="{Binding ThirdCardTransaction.ThirdTransactionAmount}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center" FontFamily="Roboto-Medium" TextColor="#4F4E4E"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ScrollView>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Frame>
+        </Grid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.BindingContext>
+        <local:CreditCardViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:CreditCardBehavior/>
+    </localCore:SampleView.Behaviors>
+
+</localCore:SampleView>

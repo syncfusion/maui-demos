@@ -20,6 +20,29 @@ public partial class InkColorCode : ContentView
 		InitializeComponent();
         Colorpaletteborder.Content = MyGrid;
         this.Content = Colorpaletteborder;
+        this.PropertyChanged += InkColorCode_PropertyChanged;
+    }
+
+    private void InkColorCode_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(IsVisible))
+        {
+            if (IsVisible == false)
+            {
+                if (PreButton != null && selectedColorButtonHighlight != null)
+                {
+                    PreButton.HeightRequest = 30;
+                    PreButton.WidthRequest = 30;
+                    PreButton.CornerRadius = 15;
+                    selectedColorButtonHighlight.Stroke = Brush.Transparent;
+                    if (selectedColorButtonHighlight.Parent == null)
+                    {
+                        MyInk.Children.Remove(selectedColorButtonHighlight);
+                    }
+                    selectedColorButtonHighlight = null;
+                }
+            }
+        }
     }
 
 #if MACCATALYST
@@ -96,6 +119,7 @@ public partial class InkColorCode : ContentView
             {
                 bindingContext.IsDeskTopColorToolbarVisible = false;
                 bindingContext.IsDeskTopFillColorToolbarVisible = false;
+                bindingContext.CloseFreeTextColorPallete();
                 bindingContext.ColorCommand.Execute(button.BackgroundColor);
             }
         }
@@ -113,6 +137,7 @@ public partial class InkColorCode : ContentView
         {
             bindingContext.IsDeskTopColorToolbarVisible = false;
             bindingContext.IsDeskTopFillColorToolbarVisible = false;
+            bindingContext.CloseFreeTextColorPallete();
             bindingContext.ThicknessCommand.Execute(thickness);
         }
     }

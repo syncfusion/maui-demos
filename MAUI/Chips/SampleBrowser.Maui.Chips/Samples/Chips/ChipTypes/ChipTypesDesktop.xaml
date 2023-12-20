@@ -43,23 +43,11 @@
                             <core:SfChipGroup ChipPadding="2,0,0,0" 
                                               SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
                                               ItemsSource="{Binding ChoiceItems}" 
-                                              ChipType="Choice">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="Normal">
-                                            <VisualState.Setters>
-                                                <Setter Property="ChipTextColor" Value="Black" />
-                                                <Setter Property="ChipBackground" Value="Transparent" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Selected">
-                                            <VisualState.Setters>
-                                                <Setter Property="ChipTextColor" Value="White" />
-                                                <Setter Property="ChipBackground" Value="#512bd4" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
+                                              ChipType="Choice"
+                                              ChipTextColor="Black"
+                                              ChipBackground="Transparent"
+                                              SelectedChipTextColor="White"
+                                              SelectedChipBackground="#512bd4">
                             </core:SfChipGroup>
                         </ScrollView>
                         <Label FontFamily="Roboto-Medium"
@@ -110,29 +98,15 @@
                                Margin="{StaticResource LabelMargin}" 
                                Text="Filter by features (Filter Chips)"/>
                         <ScrollView  Margin="{StaticResource ChipMargin}" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                            <core:SfChipGroup SelectionIndicatorColor="#FF353535"
+                            <core:SfChipGroup SelectionIndicatorColor="White"
                                               ChipPadding="2,0,0,0"
                                               ItemsSource="{Binding FilterItems,Mode=TwoWay}"
                                               SelectedItem="{Binding SelectedFilterItems,Mode=TwoWay}"
-                                              ChipType="Filter">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="Normal">
-                                            <VisualState.Setters>
-                                                <Setter Property="ChipTextColor" Value="Black" />
-                                                <Setter Property="ChipBackground" Value="Transparent" />
-                                                <Setter Property="SelectionIndicatorColor" Value="White" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Selected">
-                                            <VisualState.Setters>
-                                                <Setter Property="ChipTextColor" Value="White" />
-                                                <Setter Property="ChipBackground" Value="#512bd4" />
-                                                <Setter Property="SelectionIndicatorColor" Value="White" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
+                                              ChipType="Filter"
+                                              ChipTextColor="Black"
+                                              ChipBackground="Transparent"
+                                              SelectedChipTextColor="White"
+                                              SelectedChipBackground="#512bd4">
                             </core:SfChipGroup>
                         </ScrollView>
                         <Label FontFamily="Roboto-Medium"

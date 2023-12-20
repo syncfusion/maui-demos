@@ -27,8 +27,8 @@
               Padding="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="{OnPlatform WinUI=0, MacCatalyst=0, iOS=30, Default=10}"/>
-                <RowDefinition Height="{OnPlatform WinUI=0, MacCatalyst=0}"/>
+                <RowDefinition Height="{OnPlatform WinUI=0, MacCatalyst=0, iOS=30, Default=10, Android=5}"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -53,7 +53,7 @@
 
                 <shimmer:SfShimmer x:Name="shimmer"
                                    Margin="2"
-                                   HeightRequest="{OnPlatform Android=270,iOS=270,Default=270}"
+                                   HeightRequest="{OnPlatform Android=240,iOS=270,Default=270}"
                                    BackgroundColor="White"
                                    AnimationDuration="{Binding Duration}"
                                    Type="CirclePersona"

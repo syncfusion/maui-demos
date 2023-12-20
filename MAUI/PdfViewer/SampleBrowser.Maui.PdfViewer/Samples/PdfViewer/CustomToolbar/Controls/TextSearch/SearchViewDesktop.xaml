@@ -45,7 +45,7 @@
         VerticalOptions="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/> 
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" HeightRequest="40">
@@ -103,10 +103,10 @@
                     x:Name="TextInput" 
                     TextColor="#49454F"/>
                     <inputLayout:SfTextInputLayout.TrailingView>
-                        <HorizontalStackLayout Margin="0,-2,-6,0" 
+                        <HorizontalStackLayout  Margin="0,-2,-6,0"
                             WidthRequest="74">
                             <Button Margin="0,0,4,0"
-                                Text="&#xe70b;"
+                                Text="&#xe70b;" 
                                 Style="{StaticResource buttonIconStyle}"
                                 Command="{Binding ClearTextCommand}"
                                 VerticalOptions="Center"
@@ -145,18 +145,18 @@
                     Grid.Column="1" Spacing="4" VerticalOptions="Center">
                     <Button 
                         Text="&#xe707;"
-                        Style="{StaticResource buttonIconStyle}"
-                        Command="{Binding GoToPreviousMatchCommand}"
                         HeightRequest="40"
 						WidthRequest="40"
-                        FontSize="24"/>
+                        FontSize="24"
+                        Style="{StaticResource buttonIconStyle}"
+                        Command="{Binding GoToPreviousMatchCommand}"/>
                     <Button 
                         Text="&#xe706;"
-                        Style="{StaticResource buttonIconStyle}"
-                        Command="{Binding GoToNextMatchCommand}"
                         HeightRequest="40"
 						WidthRequest="40"
-                        FontSize="24"/>
+                        FontSize="24"
+                        Style="{StaticResource buttonIconStyle}"
+                        Command="{Binding GoToNextMatchCommand}"/>
                 </HorizontalStackLayout>
                 <Label 
                     Text="0 / 0" FontSize="12"
@@ -169,7 +169,7 @@
             <HorizontalStackLayout Margin="0,4,0,0" Grid.Row="2">
                 <checkBox:SfCheckBox 
                    x:Name="MatchCaseCheckBox" 
-                   Margin="{OnPlatform WinUI='-9,-5,-2,-5', MacCatalyst='-12,0'}"
+                   Margin="{OnPlatform WinUI='-9,-5,-2,-5', MacCatalyst='-12,0,-1,0'}"
                    IsChecked="{Binding IsMatchCase}"
                    CornerRadius="2.0"
                    CheckedColor="#49454F"

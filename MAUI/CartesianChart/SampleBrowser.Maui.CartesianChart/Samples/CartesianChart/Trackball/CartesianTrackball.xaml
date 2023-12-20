@@ -76,16 +76,18 @@
         </StackLayout>
     </localCore:SampleView.Content>
     <localCore:SampleView.OptionView>
-        <HorizontalStackLayout Spacing="5">
-            <Label Text="Mode: " VerticalOptions="Start" HorizontalOptions="Center" Padding="5"  FontSize="17"/>
-            <Picker ItemsSource="{Binding Source={x:Reference ViewModel},Path=DisplayMode}" 
+        <Grid>
+            <HorizontalStackLayout Spacing="5">
+                <Label Text="Mode: " VerticalOptions="Start" HorizontalOptions="Center" Padding="5"  FontSize="17"/>
+                <Picker ItemsSource="{Binding Source={x:Reference ViewModel},Path=DisplayMode}" 
                     SelectedItem="{Binding Source={x:Reference ViewModel}, Path=DisplayMode[0]}"
                      VerticalOptions="Start" HorizontalOptions="Fill" 
                     x:Name="picker" 
                     SelectedIndex="0"
                     SelectedIndexChanged="picker_SelectedIndexChanged">
-            </Picker>
-        </HorizontalStackLayout>
+                </Picker>
+            </HorizontalStackLayout>
+        </Grid>
     </localCore:SampleView.OptionView>
     
 </localCore:SampleView>

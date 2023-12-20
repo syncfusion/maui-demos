@@ -66,6 +66,7 @@
             </Grid>
             <Button Margin="5,5,2,5" Grid.Column="2" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12"
                     BackgroundColor="#99000000"
+                    IsVisible="{Binding IsStrokeOnlyShape}"
                     Command="{Binding EditCommand}"
                     CommandParameter="Fill"/>
 

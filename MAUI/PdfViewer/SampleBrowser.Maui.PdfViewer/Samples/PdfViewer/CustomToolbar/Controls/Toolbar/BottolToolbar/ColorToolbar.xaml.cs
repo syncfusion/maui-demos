@@ -11,7 +11,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class ColorToolbar : ContentView
 {
-    Ellipse selectedColorButtonHighlight;
+    Ellipse? selectedColorButtonHighlight;
 
     public ColorToolbar()
 	{
@@ -25,10 +25,39 @@ public partial class ColorToolbar : ContentView
         selectedColorButtonHighlight.VerticalOptions = LayoutOptions.Center;
         selectedColorButtonHighlight.Stroke = new SolidColorBrush(Colors.Black);
         selectedColorButtonHighlight.StrokeThickness = 2;
+        this.PropertyChanged += ColorToolbar_PropertyChanged;
     }
 
+    private void ColorToolbar_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(IsVisible))
+        {
+            if (IsVisible == false)
+            {
+                if (selectedColorButtonHighlight != null)
+                {
+                    selectedColorButtonHighlight.HeightRequest = 30;
+                    selectedColorButtonHighlight.WidthRequest = 30;
+                    selectedColorButtonHighlight.Stroke = Brush.Transparent;
+                    selectedColorButtonHighlight = null;
+                }
+            }
+        }
+    }
     private void ColorButton_Clicked(object sender, EventArgs e)
     {
+        if (selectedColorButtonHighlight == null)
+        {
+            selectedColorButtonHighlight = new Ellipse();
+#if IOS
+            selectedColorButtonHighlight.InputTransparent = true;
+#endif
+            selectedColorButtonHighlight.WidthRequest = 30;
+            selectedColorButtonHighlight.HeightRequest = 30;
+            selectedColorButtonHighlight.VerticalOptions = LayoutOptions.Center;
+            selectedColorButtonHighlight.Stroke = new SolidColorBrush(Colors.Black);
+            selectedColorButtonHighlight.StrokeThickness = 2;
+        }
         if (sender is Button button)
         {
             if(button!=OpacityButton)

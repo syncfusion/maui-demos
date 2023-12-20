@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Layouts">
+		<Control Title="Cards"
+				 Image="cards.png"
+				 StatusTag="New" IsPreview="true"
+				 ControlName="SfCards"
+				 Description="The Cards control allows you to create a dismissible card or a stack of cards where one card is visible at a time until you swipe to see the next card.">
+			<Sample Title="Card view" SampleName="CardView" CodeViewerPath="Cards/GettingStarted/"/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

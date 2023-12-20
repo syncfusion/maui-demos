@@ -4,9 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
     xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
-    xmlns:checkBox="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
     xmlns:core="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core"
-    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.PdfViewer;assembly=Syncfusion.Maui.PdfViewer"  
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.PdfViewer;assembly=Syncfusion.Maui.PdfViewer"
+    xmlns:checkBox="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
     xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
     x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.CustomToolbar">
 
@@ -49,11 +49,11 @@
                         </Grid.RowDefinitions>
                         <local:ToolbarDesktop
                         x:Name="DesktopToolbar" Grid.Row="0" 
-                        HeightRequest="48" BackgroundColor="#F3EDF7" 
+                        HeightRequest="56" BackgroundColor="#F3EDF7" 
                         IsVisible="{OnPlatform Default=true,Android=false,iOS=false}"/>
                         <local:ToolbarMobile
                         x:Name="MobileToolbar" Grid.Row="0" 
-                        HeightRequest="48" BackgroundColor="#F3EDF7"  
+                        HeightRequest="64" BackgroundColor="#F3EDF7"  
                         IsVisible="{OnPlatform Default=false,Android=true,iOS=true}"/>
                         <local:SearchViewMobile 
                         x:Name="MobileSearchView"
@@ -65,7 +65,7 @@
                         IsOutlineViewVisible="{Binding ShowOutlineView, Mode=TwoWay}"
                         MinZoomFactor="{Binding MinZoom, Mode=OneWayToSource}"
                         MaxZoomFactor="{Binding MaxZoom, Mode=OneWayToSource}"
-                        DocumentSource="{Binding DocumentData.DocumentStream}"
+                        DocumentSource="{Binding FileData.Stream}"
                         ZoomFactor="{Binding CurrentZoom,Mode=TwoWay}"
                         AnnotationSelected="PdfViewer_AnnotationSelected"
                         AnnotationDeselected="PdfViewer_AnnotationDeselected"
@@ -77,8 +77,26 @@
                         TextSelectionChanged="TextSelection_Changed"
                         DocumentUnloaded="PdfViewer_DocumentUnloaded">
                         </syncfusion:SfPdfViewer>
+                        
                         <Grid x:Name="thicknessSliderBar" IsVisible="{Binding IsThicknessToolbarVisible}" Grid.Row="1" HeightRequest="48" BackgroundColor="#F3EDF7" VerticalOptions="End" >
                             <sliders:SfSlider x:Name="ThicknessSlider" Minimum="{Binding MinimumThickness}" Value="{Binding SelectedThickness}" Maximum="{Binding MaximumThickness}" ValueChangeEnd="thicknessSlider_ValueChanged" VerticalOptions="End" HorizontalOptions="EndAndExpand" >
+                                <sliders:SfSlider.TrackStyle>
+                                    <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>
+                                </sliders:SfSlider.TrackStyle>
+                                <sliders:SfSlider.ThumbStyle>
+                                    <sliders:SliderThumbStyle Fill="#6750A4" />
+                                </sliders:SfSlider.ThumbStyle>
+                                <sliders:SfSlider.ThumbOverlayStyle>
+                                    <sliders:SliderThumbOverlayStyle Fill="#333333" Radius="24"/>
+                                </sliders:SfSlider.ThumbOverlayStyle>
+                                <sliders:SfSlider.Tooltip>
+                                    <sliders:SliderTooltip ShowAlways="True"  NumberFormat="0" Fill="#6750A4" Position="Auto" FontSize="12"  />
+                                </sliders:SfSlider.Tooltip>
+                            </sliders:SfSlider>
+                            <BoxView BackgroundColor="Gray" Opacity="0.5" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+                        </Grid>
+                        <Grid x:Name="fontSizeSliderBar" IsVisible="{Binding IsFontSliderVisible}" Grid.Row="1" HeightRequest="48" BackgroundColor="#F3EDF7" VerticalOptions="End" >
+                            <sliders:SfSlider x:Name="FontSizeSliderBar" Minimum="10" Value="{Binding SelectedFontSize}" Maximum="16" ValueChangeEnd="FontSizeSliderBar_ValueChangeEnd"  VerticalOptions="End" HorizontalOptions="EndAndExpand" >
                                 <sliders:SfSlider.TrackStyle>
                                     <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>
                                 </sliders:SfSlider.TrackStyle>
@@ -184,7 +202,7 @@
                         <local:BottomToolbar
                         x:Name="bottomToolbar" Grid.Row="2" 
                         BackgroundColor="#F3EDF7" 
-                        HeightRequest="{OnPlatform Default=48, WinUI=0}"
+                        HeightRequest="{OnPlatform Default=64, WinUI=0}"
                         IsVisible="{OnPlatform Default={Binding Path=IsOutlineViewVisible, Source={x:Reference PdfViewer}, Converter={x:StaticResource invertedBoolConverter}}, WinUI=false, MacCatalyst=false}"/>
                         <local:StampDialog 
                         x:Name="stampDialog" Grid.Row="0" Grid.RowSpan="3"
@@ -198,7 +216,7 @@
                     </Grid>
                     <Grid Grid.Row="1" WidthRequest="220" HeightRequest= "{OnPlatform Default=300, MacCatalyst=260}"
                     HorizontalOptions="Start" VerticalOptions="Start" IsVisible="{Binding IsFilePickerVisible}"
-                    Margin="118,40,0,0">
+                    Margin="203,48,0,0">
                         <Border
                     WidthRequest="220" HeightRequest= "{OnPlatform Default=300, MacCatalyst=260}" Padding="0,7,0,7"
                     HorizontalOptions="Start" VerticalOptions="Start"
@@ -248,22 +266,22 @@
                     <Grid HorizontalOptions="Start" VerticalOptions="Start" Margin="{Binding StampListMargin, Mode=OneWay}" IsVisible="{Binding IsStampListVisible}" >
                         <local:StampViewDesktop x:Name="DesktopStampView" CreateStampClicked="OnCreateStampClicked"/>
                     </Grid>
-                    <Grid IsVisible="{Binding ShowMoreOptions}" Margin="0,40,5,0" WidthRequest="140"
-                            HeightRequest="100" VerticalOptions="Start" HorizontalOptions="End">
+                   
+                    <Grid IsVisible="{Binding ShowMoreOptions}" Margin="0,40,5,0" WidthRequest="140" HeightRequest="100" VerticalOptions="Start" HorizontalOptions="End">
                         <Border x:Name="moreOptionsView"
-                            VerticalOptions="Start"
-                            HorizontalOptions="End"
-                            BackgroundColor="#EEE8F4"
-                            WidthRequest="140"
-                            HeightRequest="100">
+                                VerticalOptions="Start"
+                                HorizontalOptions="End"
+                                BackgroundColor="#EEE8F4"
+                                WidthRequest="140"
+                                HeightRequest="100">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="5" />
                             </Border.StrokeShape>
                             <Border.Shadow>
                                 <Shadow Brush="#000000"
-                            Offset="5,5"
-                            Radius="40"
-                            Opacity="0.3"/>
+                                        Offset="5,5"
+                                        Radius="40"
+                                        Opacity="0.3"/>
                             </Border.Shadow>
                             <Grid Padding="0,10,0,10">
                                 <VerticalStackLayout Spacing="0">
@@ -292,6 +310,7 @@
                             </Grid>
                         </Border>
                     </Grid>
+                    <local:FreeTextFillColorPalatte x:Name="freeTextColorPalette" HorizontalOptions="Start" VerticalOptions="Start" IsVisible="{Binding IsFreeTextFillColorVisble}" Margin="{Binding ColorPaletteMargin}" ></local:FreeTextFillColorPalatte>
                     <local:ColorCode x:Name="shapeColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsShapeColorPalleteVisible}" WidthRequest="280" HeightRequest="385" VerticalOptions="Start" HorizontalOptions="Start"/>
                     <local:LineAndArrowColorCode x:Name="lineAndArrowColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsLineAndArrowColorPalleteVisible}" WidthRequest="280" HeightRequest="385" VerticalOptions="Start" HorizontalOptions="Start"/>
                     <local:TextMarkupColorCode x:Name="textMarkupColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsTextMarkUpColorPalleteVisible}" WidthRequest="280" HeightRequest="260" VerticalOptions="Start" HorizontalOptions="Start"/>

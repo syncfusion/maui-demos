@@ -172,7 +172,7 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Line Grid.Row="0" StrokeThickness="1" BackgroundColor="#CAC4D0"/>
-                                <Grid x:Name="ColorFill" Grid.Row="1" Margin="10">
+                                <Grid x:Name="ColorFill" Grid.Row="1" Margin="5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
@@ -258,7 +258,7 @@
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
                                     <Label Grid.Row="0" Text="Opacity" TextColor="#1C1B1F" HorizontalOptions="Start" Margin="15,0,0,0"/>
-                                    <sliders:SfSlider x:Name="shapeFillColorOpacitySlider"  Grid.Row="1" Minimum="0.1" Maximum="1" Value="{Binding SelectedOpacity}" ValueChangeEnd="ShapeFillColorOpacitySlidervalue_Chnaged" HorizontalOptions="Start" >
+                                    <sliders:SfSlider x:Name="shapeFillColorOpacitySlider"  Grid.Row="1" Minimum="0" Maximum="1" Value="{Binding SelectedFillColorOpacity}" ValueChangeEnd="ShapeFillColorOpacitySlidervalue_Chnaged" HorizontalOptions="Start" >
                                         <sliders:SfSlider.TrackStyle>
                                             <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>
                                         </sliders:SfSlider.TrackStyle>

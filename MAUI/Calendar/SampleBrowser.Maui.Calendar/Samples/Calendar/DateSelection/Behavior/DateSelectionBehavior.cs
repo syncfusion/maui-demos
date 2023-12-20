@@ -135,9 +135,9 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <param name="e">Event Arguments</param>
         private void ComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
-            if (calendar != null && e.CurrentSelection != null)
+            if (calendar != null && e.AddedItems != null)
             {
-                string? selectionMode = e.CurrentSelection[0].ToString();
+                string? selectionMode = e.AddedItems[0].ToString();
                 if (selectionMode != null)
                 {
                     calendar.SelectionMode = selectionMode == "Date" ? CalendarSelectionMode.Single : CalendarSelectionMode.Range;

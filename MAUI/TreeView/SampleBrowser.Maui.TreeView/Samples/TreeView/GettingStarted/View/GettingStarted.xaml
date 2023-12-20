@@ -32,18 +32,19 @@
                     <Image x:Name="mainImage" 
                            Source="{converters:SfImageResource devicesanddrives.png}"
                            WidthRequest="650" 
-                           HeightRequest="300"
-                           VerticalOptions="Start" 
+                           HeightRequest="300" 
+                           VerticalOptions="Start"
                            HorizontalOptions="Start"
                            IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
                 </Grid>
             </ScrollView>
+
             <BoxView Grid.Column="1" WidthRequest="1.5" Background="#d3d3d3" Opacity="0.12"/>
             <Grid Grid.Column="0" 
-                  MaximumWidthRequest="{OnPlatform WinUI=350, MacCatalyst=400}"
-                  HorizontalOptions="{OnPlatform Default=Fill}">
+                      MaximumWidthRequest="{OnPlatform WinUI=350, MacCatalyst=400}"
+                   HorizontalOptions="{OnPlatform Default=Fill}">
                 <syncfusion:SfTreeView x:Name="treeView"
-                                           Margin="{OnPlatform WinUI='0,0,1,0', MacCatalyst='8,8,1,0'}"
+                                           Margin="{OnPlatform WinUI='0,0,1,0', MacCatalyst='8,8,1,0'}"  
                                            ItemsSource="{Binding Folders}"
                                            AutoExpandMode="AllNodesExpanded"
                                            FullRowSelect="True"

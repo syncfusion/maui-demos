@@ -2,12 +2,14 @@
 <SyncfusionControls>
 	<ControlCategory Name="Editors">
 		
-		<Control Title="Autocomplete" ControlName="SfAutocomplete" Image="autocomplete.png" Description="Provides useful suggestions to users based on the already typed content.">
-			<Sample Title="Getting Started" SampleName="AutocompleteGettingStarted" SearchTags="autocomplete,dropdown,entry,textbox,filter,suggestion,editor" CodeViewerPath="Autocomplete/AutocompleteGettingStarted/" VideoLink="https://www.youtube.com/watch?v=ontSh2NZvE4"  />		    
-	    </Control>
+		<Control Title="Autocomplete" ControlName="SfAutocomplete" StatusTag="Updated" Image="autocomplete.png" Description="Provides useful suggestions to users based on the already typed content.">
+			<Sample Title="Getting Started" SampleName="AutocompleteGettingStarted" SearchTags="autocomplete,dropdown,entry,textbox,filter,suggestion,editor" CodeViewerPath="Autocomplete/AutocompleteGettingStarted/" VideoLink="https://www.youtube.com/watch?v=ontSh2NZvE4"  />
+			<Sample Title="Multiple Selection" SampleName="AutocompleteMultiSelection" StatusTag="New" SearchTags="autocomplete,dropdown,entry,textbox,filter,suggestion,editor,token,multiple,multiselection" CodeViewerPath="Autocomplete/AutocompleteMultiSelection/"  />
+		</Control>
 		
-		<Control Title="ComboBox" ControlName="SfComboBox" Image="combobox.png" Description="Allows the user to select an item either type a value directly or select a value from the list.">
-			<Sample Title="Getting Started" SampleName="ComboBoxGettingStarted" SearchTags="combobox,picker,dropdown,suggestion,editor" CodeViewerPath="ComboBox/ComboBoxGettingStarted/"  VideoLink="https://www.youtube.com/watch?v=jcfaI0PFmSo" />	    
+		<Control Title="ComboBox" ControlName="SfComboBox" Image="combobox.png" StatusTag="Updated"  Description="Allows the user to select an item either type a value directly or select a value from the list.">
+			<Sample Title="Getting Started" SampleName="ComboBoxGettingStarted" SearchTags="combobox,picker,dropdown,suggestion,editor" CodeViewerPath="ComboBox/ComboBoxGettingStarted/"  VideoLink="https://www.youtube.com/watch?v=jcfaI0PFmSo" />
+			<Sample Title="Multiple Selection" SampleName="ComboBoxMultiSelection" StatusTag="New" SearchTags="combobox,picker,dropdown,suggestion,editor,token,multiple,multiselection" CodeViewerPath="ComboBox/ComboBoxMultiSelection/" />
 		</Control>
 		
 		<Control Title="Rating" ControlName="SfRating" Image="rating.png" Description="Allows the users to select a rating value from a group of visual symbols.">

@@ -27,6 +27,8 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
     public Button? StampButton { get; set; }
 
     public CustomToolbar? ParentView { get; set; }
+
+    public ReadOnly? ReadOnlyParentView { get; set; }
     
     public Syncfusion.Maui.PdfViewer.SfPdfViewer? PdfViewer 
     { 
@@ -94,10 +96,14 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
     public void outlineButton_Clicked(object sender, EventArgs e)
     {
         ParentView?.SearchView?.Close();
+        ReadOnlyParentView?.SearchView?.Close();
         if (BindingContext is CustomToolbarViewModel viewModel)
         {
             if (!viewModel.ShowOutlineView)
+            {
                 ParentView?.CloseAllDialogs();
+                ReadOnlyParentView?.CloseAllDialogs();
+            }
             viewModel.IsShapeListVisible = false;
             viewModel.IsStampListVisible = false;
             viewModel.IsStickyNoteListVisible = false;
@@ -143,10 +149,14 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
             viewModel.IsEraserThicknessToolbarVisible = false;
             viewModel.DeselectSelectedAnnotation();
             if (pdfViewer != null)
+            {
                 pdfViewer.AnnotationMode = Syncfusion.Maui.PdfViewer.AnnotationMode.None;
+                viewModel.ClearButtonHighlights();
+            }
         }
 #endif
         MainThread.BeginInvokeOnMainThread(() => ParentView?.SearchView?.Open());
+        MainThread.BeginInvokeOnMainThread(() => ReadOnlyParentView?.SearchView?.Open());
     }
     
     /// <summary>
@@ -181,6 +191,7 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
                 {
                     // Shows the invalid page number to the user when trying to go to the entered page number when the loaded PDF document does not have a page number.
                     MainThread.BeginInvokeOnMainThread(() => ParentView?.messageBox?.Show("Error", "Invalid Page Number"));
+                    MainThread.BeginInvokeOnMainThread(() => ReadOnlyParentView?.messageBox?.Show("Error", "Invalid Page Number"));
                     entry.Text = PdfViewer.PageNumber.ToString();
                 }
                 MainThread.BeginInvokeOnMainThread(() => entry.Unfocus());

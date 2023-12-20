@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
   <ControlCategory Name="Navigation">
-    <Control Title="TreeView" StatusTag="New" IsPreview="true" ControlName="SfTreeView" Image="treeview.png" Description="Displays hierarchical data in a collapsible tree structure.">
-	<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" StatusTag="New" CodeViewerPath="TreeView/GettingStarted/" />
-      <Sample SearchTags="UnBoundMode" SampleName="UnBoundMode" Title="Unbound Mode" StatusTag="New" CodeViewerPath="TreeView/UnBoundMode/" />
+    <Control Title="TreeView" IsPreview="true" ControlName="SfTreeView" Image="treeview.png" Description="Displays hierarchical data in a collapsible tree structure.">
+	<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="TreeView/GettingStarted/" />
+      <Sample SearchTags="UnBoundMode" SampleName="UnBoundMode" Title="Unbound Mode" CodeViewerPath="TreeView/UnBoundMode/" />
     </Control>
   </ControlCategory>
 </SyncfusionControls>

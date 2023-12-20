@@ -19,8 +19,30 @@ public partial class LineAndArrowColorCode : ContentView
         InitializeComponent();
         Colorpaletteborder.Content = MyGrid;
         this.Content = Colorpaletteborder;
+        this.PropertyChanged += LineAndArrowColorCode_PropertyChanged;
     }
 
+    private void LineAndArrowColorCode_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(IsVisible))
+        {
+            if (IsVisible == false)
+            {
+                if (PreButton != null && selectedColorButtonHighlight != null)
+                {
+                    PreButton.HeightRequest = 30;
+                    PreButton.WidthRequest = 30;
+                    PreButton.CornerRadius = 15;
+                    selectedColorButtonHighlight.Stroke = Brush.Transparent;
+                    if (selectedColorButtonHighlight.Parent == null)
+                    {
+                        MyInk.Children.Remove(selectedColorButtonHighlight);
+                    }
+                    selectedColorButtonHighlight = null;
+                }
+            }
+        }
+    }
 #if MACCATALYST
     Frame Colorpaletteborder = new Frame()
     {
@@ -95,6 +117,7 @@ public partial class LineAndArrowColorCode : ContentView
             {
                 bindingContext.IsDeskTopColorToolbarVisible = false;
                 bindingContext.IsDeskTopFillColorToolbarVisible = false;
+                bindingContext.CloseFreeTextColorPallete();
                 bindingContext.ColorCommand.Execute(button.BackgroundColor);
             }
         }
@@ -112,6 +135,7 @@ public partial class LineAndArrowColorCode : ContentView
         {
             bindingContext.IsDeskTopColorToolbarVisible = false;
             bindingContext.IsDeskTopFillColorToolbarVisible = false;
+            bindingContext.CloseFreeTextColorPallete();
             bindingContext.ThicknessCommand.Execute(thickness);
         }
     }
@@ -123,6 +147,7 @@ public partial class LineAndArrowColorCode : ContentView
         {
             bindingContext.IsDeskTopColorToolbarVisible = true;
             bindingContext.IsDeskTopFillColorToolbarVisible = false;
+            bindingContext.CloseFreeTextColorPallete();
             bindingContext.OpacityCommand.Execute(opacity);
         }
     }

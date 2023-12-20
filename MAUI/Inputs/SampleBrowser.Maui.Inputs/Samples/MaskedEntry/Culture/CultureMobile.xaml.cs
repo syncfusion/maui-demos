@@ -18,6 +18,7 @@ public partial class CultureMobile : SampleView
 	public CultureMobile()
 	{
 		InitializeComponent();
+        cultureMask.Culture = new CultureInfo("en-US");
     }
 
     private void IndiaImageButton_Clicked(object sender, EventArgs e)

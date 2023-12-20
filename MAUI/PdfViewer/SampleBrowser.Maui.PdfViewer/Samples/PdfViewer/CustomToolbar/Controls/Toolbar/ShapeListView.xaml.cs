@@ -36,6 +36,16 @@ public partial class ShapeListView : ContentView
                 Icon = "\uE73c",
                 IconName = "Arrow"
             },
+            new AnnotationButtonItem()
+            {
+                Icon = "\uE786",
+                IconName = "Polyline"
+            },
+            new AnnotationButtonItem()
+            {
+                Icon = "\uE789",
+                IconName = "Polygon"
+            },
         };
     }
 

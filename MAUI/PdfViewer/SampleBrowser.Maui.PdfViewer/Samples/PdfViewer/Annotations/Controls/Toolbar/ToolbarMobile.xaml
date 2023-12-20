@@ -41,10 +41,11 @@
                     Style="{StaticResource buttonIconStyle}"/>
             <Grid BackgroundColor="#F3EDF7" WidthRequest="10" Margin="12,17,0,0" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="4"></Grid>
         </Grid>
-        <HorizontalStackLayout HorizontalOptions="End" Margin="0,0,8,0" x:Name="undeRedoLayout" Spacing="8">
+        <HorizontalStackLayout HorizontalOptions="End" Margin="0,0,8,0" x:Name="undeRedoLayout" IsVisible="{Binding IsSaveLayoutVisible}" Spacing="8">
             <Button Text="&#xe744;"
                     FontFamily="Maui Material Assets"
                     x:Name="mobileUndoButton"
+                    Clicked="undoRedoClicked"
                     FontSize="20"
                     Style="{StaticResource buttonIconStyle}" />
 
@@ -52,6 +53,7 @@
                     FontFamily="Maui Material Assets"
                     FontSize="20"
                     x:Name="mobileRedoButton"
+                    Clicked="undoRedoClicked"
                     Style="{StaticResource buttonIconStyle}" />
             </HorizontalStackLayout>
     </Grid>

@@ -49,7 +49,7 @@ public partial class FileOperationListView : ContentView
     private Grid CreateView(string icon, string iconName, bool isExpand)
     {
         GestureGrid childRow = new GestureGrid();
-        childRow.WidthRequest = 120;
+        childRow.WidthRequest = 205;
         childRow.HeightRequest = 40;
         childRow.PointerPressed += ItemClicked;
         Label iconLabel = new Label()

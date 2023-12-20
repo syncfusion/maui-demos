@@ -184,12 +184,12 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
         /// <param name="e">The Event Arguments.</param>
         private void FormatComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
         {
-            if (this.datePicker == null || e.CurrentSelection == null || formatComboBox == null)
+            if (this.datePicker == null || e.AddedItems == null || formatComboBox == null)
             {
                 return;
             }
 
-            string? format = e.CurrentSelection[0].ToString();
+            string? format = e.AddedItems[0].ToString();
             switch (format)
             {
                 case "dd MM":

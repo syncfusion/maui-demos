@@ -16,10 +16,10 @@ public partial class StampDialogMobile : ContentView
 
     public event EventHandler<CustomStampEventArgs?>? CustomStampCreated;
     public StampDialogMobile()
-    {
-        InitializeComponent();
+	{
+		InitializeComponent();
         this.PropertyChanged += StampDialogPropertyChanged;
-    }
+	}
 
     private async void StampDialogPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
@@ -28,7 +28,7 @@ public partial class StampDialogMobile : ContentView
             await Task.Delay(250);
             createEntry?.Focus();
         }
-        else if (e.PropertyName == "IsVisible" && this.IsVisible == false)
+        else if(e.PropertyName == "IsVisible" && this.IsVisible == false)
         {
             InitializeDialog();
         }
@@ -152,7 +152,7 @@ public partial class StampDialogMobile : ContentView
         label.TextColor = Color.FromArgb("#A007A3");
         border.WidthRequest = 80;
         createEntry.Text = "";
-        if (PreButton != null)
+        if(PreButton != null)
         {
             PreButton.HeightRequest = 35;
             PreButton.WidthRequest = 35;
@@ -171,7 +171,6 @@ public partial class StampDialogMobile : ContentView
         }
 #endif
     }
-
     public void HideKeyboard()
     {
 #if ANDROID
@@ -184,7 +183,6 @@ public partial class StampDialogMobile : ContentView
         }
 #endif
     }
-
 #if ANDROID
     private void ShowKeyboard(Android.Views.View inputView)
     {

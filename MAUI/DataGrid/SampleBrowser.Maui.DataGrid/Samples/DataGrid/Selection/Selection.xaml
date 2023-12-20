@@ -19,7 +19,7 @@
     <localCore:SampleView.Content>
 
         <sfgrid:SfDataGrid x:Name="dataGrid"
-                           Margin='{OnPlatform WinUI="-5.5,-5,-7,-7",MacCatalyst="-5.5,-5,-7,-7"}'
+                           Margin='{OnPlatform WinUI="-5,-5,5,5",MacCatalyst="-5,-5,5,5"}'
                            AutoGenerateColumnsMode="None"
                            HeaderRowHeight="52"
                            SelectionMode="Multiple" NavigationMode="Row" SelectedRows="{Binding DataGridSelectedItems}"

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
   <ControlCategory Name="Data Visualization">
-	  <Control Title="Cartesian Charts" StatusTag="Updated" ControlName="SfCartesianChart" Image="cartesianchart.png" Description="Plot over 20+ chart types with extensive features like data label, trackball and zooming.">
+	  <Control Title="Cartesian Charts" ControlName="SfCartesianChart" StatusTag="Updated" Image="cartesianchart.png" Description="Plot over 20+ chart types with extensive features like data label, trackball and zooming.">
       <Category Title="Chart Types">
         <SubCategory Title="Column">
           <CardLayout>
-            <Sample Title="Default column chart"  SampleName="ColumnChart" VideoLink="https://www.youtube.com/watch?v=o616GkzdPJk"
+            <Sample Title="Default column chart" SampleName="ColumnChart" VideoLink="https://www.youtube.com/watch?v=o616GkzdPJk"
                     Description="This sample demonstrates the default column chart. The data point information is shown using data label support." SearchTags="Column, bar" CodeViewerPath="CartesianChart/Column/"/>
             <Sample Title="Column with rounded corners" SampleName="Column_RoundedEdges" SearchTags="Column, roundedegde" CodeViewerPath="CartesianChart/Column/"/>
             <Sample Title="Column width and spacing" SampleName="Column_WidthCustomization" SearchTags="Column, customization" CodeViewerPath="CartesianChart/Column/"/>
@@ -124,7 +124,12 @@
 		  <Sample Title="Dynamic update animation" SampleName="StepAreaChart_DynamicUpdate" SearchTags="stepArea, dynamic" CodeViewerPath="CartesianChart/StepAreaChart/"/>
 	 </CardLayout>
 	 </SubCategory>
-   
+
+        <Sample Title="Stacked Area" StatusTag="New" SampleName="StackedAreaChart" SearchTags="stackedarea" CodeViewerPath="CartesianChart/StackedArea/"/>
+
+        <Sample Title="100% Stacked Area" StatusTag="New" SampleName="StackedArea100Chart" SearchTags="stackedarea100" CodeViewerPath="CartesianChart/StackedArea100/"/>
+
+
         <Sample Title="Box Plot" SampleName="BoxAndWhisker" SearchTags="boxandwhisker, box, plot, boxplot,whisker" CodeViewerPath="CartesianChart/BoxAndWhisker/"/>
     
         <SubCategory Title="Waterfall">
@@ -166,7 +171,7 @@
 		  <Category Title="Legend">
 			  <Sample Title="Legend customization" SampleName="CartesianLegend" SearchTags="legend" CodeViewerPath="CartesianChart/Legend/"/>
 		  </Category>
-		  <Category Title="Interactions" StatusTag="Updated">
+		  <Category Title="Interactions">
 			  <SubCategory Title="Selection">
 				  <CardLayout>
 					  <Sample Title="Data point selection" SampleName="Selection" 
@@ -180,10 +185,10 @@
 			  <Sample Title="Tooltip" SampleName="CartesianTooltip" Description="This sample showcases the tooltip feature. On mobile, tap the data points, and on desktop, mouse over to the data points to raise the tooltip." SearchTags="tooltip" CodeViewerPath="CartesianChart/Tooltip/"/>
 			  <Sample Title="Trackball" SampleName="CartesianTrackball" Description="This sample showcases the trackball feature. On mobile, long press on the chart to show the trackball, and drag the chart to change the position of the trackball continuously. On the desktop, you can move the cursor over the chart area to display the trackball." 
                 SearchTags="trackball, crosshair" CodeViewerPath="CartesianChart/Trackball/"/>
-			  <Sample Title="Zooming and Panning" StatusTag="Updated" SampleName="ChartZooming" Description="This sample showcases the zooming and panning features." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Zoom/"/>
-			  <Sample Title="Selection Zooming" SampleName="SelectionZooming" StatusTag ="New" Description="This sample demonstrates zooming selection: For desktop, hold the left mouse button, double-click, and drag; for mobile, hold your finger, double-click, and drag to create a selection rectangle." SearchTags="select, highlight" CodeViewerPath="CartesianChart/Zoom/"/>
-			  <Sample Title="Add a point on click" StatusTag="New" SampleName="TapToAdd" Description="This example shows the pixel-to-data point conversion feature. Tap/click on the chart area to add a data point dynamically on that location." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Interactions/"/>
-			  <Sample Title="Auto scrolling"  SampleName="AutoScrolling" StatusTag="New" Description="This sample demonstrates the auto-scrolling feature by showing a fixed number of data points that are always visible on the chart. Pan left to view the previous values." SearchTags="AutoScrolling, autoscrollingdelta, pan, fixed data" CodeViewerPath="CartesianChart/Interactions/"/>
+			  <Sample Title="Zooming and Panning" SampleName="ChartZooming" Description="This sample showcases the zooming and panning features." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Zoom/"/>
+			  <Sample Title="Selection Zooming" SampleName="SelectionZooming" Description="This sample demonstrates zooming selection: For desktop, hold the left mouse button, double-click, and drag; for mobile, hold your finger, double-click, and drag to create a selection rectangle." SearchTags="select, highlight" CodeViewerPath="CartesianChart/Zoom/"/>
+			  <Sample Title="Add a point on click" SampleName="TapToAdd" Description="This example shows the pixel-to-data point conversion feature. Tap/click on the chart area to add a data point dynamically on that location." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Interactions/"/>
+			  <Sample Title="Auto scrolling" SampleName="AutoScrolling" Description="This sample demonstrates the auto-scrolling feature by showing a fixed number of data points that are always visible on the chart. Pan left to view the previous values." SearchTags="AutoScrolling, autoscrollingdelta, pan, fixed data" CodeViewerPath="CartesianChart/Interactions/"/>
       </Category>
 	  </Control>
   </ControlCategory>

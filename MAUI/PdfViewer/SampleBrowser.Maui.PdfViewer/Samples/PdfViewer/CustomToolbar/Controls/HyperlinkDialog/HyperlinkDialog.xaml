@@ -20,14 +20,14 @@
     <Frame 
         BackgroundColor="#F3EDF7" CornerRadius="20" HasShadow="False"
         HorizontalOptions="Center" VerticalOptions="Center" 
-        HeightRequest="160" WidthRequest="320">
+        HeightRequest="160" WidthRequest="320" >
         <Grid BackgroundColor="#F3EDF7">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>    
              </Grid.RowDefinitions>
-            <Grid Grid.Row="0" VerticalOptions="Start">
+            <Grid Grid.Row="0"  VerticalOptions="Start">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="auto"/>

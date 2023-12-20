@@ -85,11 +85,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-      <PackageReference Include="SampleBrowser.Maui.Base" version="23.2.4" />
-	  <PackageReference Include="Syncfusion.Maui.Core" version="23.2.4" />
-	  <PackageReference Include="Syncfusion.Maui.Sliders" version="23.2.4" />
-      <PackageReference Include="Syncfusion.Maui.TabView" version="23.2.4" />
-	  <PackageReference Include="Syncfusion.Maui.ImageEditor" version="23.2.4" />
+      <PackageReference Include="SampleBrowser.Maui.Base" version="24.1.41" />
+	  <PackageReference Include="Syncfusion.Maui.Core" version="24.1.41" />
+	  <PackageReference Include="Syncfusion.Maui.Sliders" version="24.1.41" />
+      <PackageReference Include="Syncfusion.Maui.TabView" version="24.1.41" />
+	  <PackageReference Include="Syncfusion.Maui.ImageEditor" version="24.1.41" />
 	</ItemGroup>
 
 </Project>

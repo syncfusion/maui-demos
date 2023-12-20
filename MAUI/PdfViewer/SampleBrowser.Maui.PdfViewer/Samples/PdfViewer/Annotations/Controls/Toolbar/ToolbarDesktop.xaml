@@ -49,12 +49,14 @@
                 <Button x:Name="undoButton"
                     Text="&#xe744;" 
                     FontFamily="Maui Material Assets"
+                    Clicked="undoRedoBtton_Clicked"
                     Margin="4,0,0,0"
                     Style="{StaticResource buttonIconStyle}"
                  />
                 <Button x:Name="redoButton"
                     Text="&#xe745;" 
                     FontFamily="Maui Material Assets"
+                    Clicked="undoRedoBtton_Clicked"
                     Margin="4,0,0,0"
                     Style="{StaticResource buttonIconStyle}" />
             </HorizontalStackLayout>
@@ -73,7 +75,7 @@
                 <Button
                     x:Name="textMarkupButton"
                     WidthRequest="50"
-                    Padding="0,6,15,6"
+                    Padding="0,6,13,6"
                     FontFamily="Maui Material Assets"
                     Command="{Binding ToolbarCommand}"
                     Clicked="Button_Clicked"
@@ -81,7 +83,17 @@
                     FontSize="16"
                     Style="{StaticResource buttonIconStyle}"/>
             </Grid>
-
+            <Grid x:Name="freeTextGrid" BackgroundColor="{Binding FreeTextHighlightColor}" Margin="4,0,0,0" HeightRequest="25" WidthRequest="25" >
+                <Button x:Name="freeTextButton"
+                        Text="&#xe788;"
+                        WidthRequest="29"
+                        FontFamily="Maui Material Assets"
+                        Command="{Binding ToolbarCommand}"
+                        Clicked="Button_Clicked"
+                        CommandParameter="FreeText"
+                        FontSize="20"
+                        Style="{StaticResource buttonIconStyle}"/>
+            </Grid>
             <Grid x:Name="inkGrid" BackgroundColor="{Binding InkHighlightColor}" Margin="4,0,0,0" HeightRequest="25" WidthRequest="25">
                 <Button 
                     Text="&#xe766;" 

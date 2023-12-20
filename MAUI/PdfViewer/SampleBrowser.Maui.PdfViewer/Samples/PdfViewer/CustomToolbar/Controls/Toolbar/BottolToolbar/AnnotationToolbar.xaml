@@ -27,37 +27,43 @@
             </Style.Triggers>
         </Style>
     </ContentView.Resources>
-    <Grid ColumnDefinitions="0.5*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,0.5*">
+    <Grid ColumnDefinitions="0.5*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,0.5*">
         <Button Text="&#xe72e;"
                     Command="{Binding ToolbarCommand}"
                     CommandParameter="TextMarkup"
                     Grid.Column="1"
                     Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe788;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="FreeText"
+                    Grid.Column="3"
+                    FontSize="20"
+                    Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe766;"
                     Command="{Binding ToolbarCommand}"
                     CommandParameter="Ink"
-                    Grid.Column="3"
+                    Grid.Column="5"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe764;"
                     Command="{Binding ToolbarCommand}"
                     CommandParameter="InkEraser"
-                    Grid.Column="5"
+                    Grid.Column="7"
                     FontSize="21"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe73b;"
                     Command="{Binding ToolbarCommand}"
                     CommandParameter="Shapes"
-                    Grid.Column="7"
+                    Grid.Column="9"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe761;"
                     Command="{Binding ToolbarCommand}"
                     CommandParameter="Stamp"
-                    Grid.Column="9"
+                    Grid.Column="11"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe775;"
                     Command="{Binding ToolbarCommand}"
                     CommandParameter="StickyNote"
-                    Grid.Column="11"
+                    Grid.Column="13"
                     Style="{StaticResource buttonIconStyle}"/>
     </Grid>
 </ContentView>

@@ -21,4 +21,13 @@ public partial class ToolbarMobile : ToolbarView
         UndoButton = mobileUndoButton;
         RedoButton = mobileRedoButton;
     }
+    private void mobileUndo_Redo_Clicked(object sender, EventArgs e)
+    {
+        if (ParentView != null)
+        {
+            ParentView.CloseAllDialogs();
+            ParentView.HideOverlayToolbars();
+        }
+
+    }
 }

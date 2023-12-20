@@ -20,6 +20,29 @@ public partial class TextMarkupColorCode : ContentView
         InitializeComponent();
         Colorpaletteborder.Content = MyGrid;
         this.Content = Colorpaletteborder;
+        this.PropertyChanged += TextMarkupColorCode_PropertyChanged;
+    }
+
+    private void TextMarkupColorCode_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(IsVisible))
+        {
+            if (IsVisible == false)
+            {
+                if (PreButton != null && selectedColorButtonHighlight != null)
+                {
+                    PreButton.HeightRequest = 30;
+                    PreButton.WidthRequest = 30;
+                    PreButton.CornerRadius = 15;
+                    selectedColorButtonHighlight.Stroke = Brush.Transparent;
+                    if (selectedColorButtonHighlight.Parent == null)
+                    {
+                        MyTextMarkup.Children.Remove(selectedColorButtonHighlight);
+                    }
+                    selectedColorButtonHighlight = null;
+                }
+            }
+        }
     }
 
 #if MACCATALYST
@@ -96,6 +119,7 @@ public partial class TextMarkupColorCode : ContentView
             {
                 bindingContext.IsDeskTopColorToolbarVisible = true;
                 bindingContext.IsDeskTopFillColorToolbarVisible = false;
+                bindingContext.CloseFreeTextColorPallete();
                 bindingContext.ColorCommand.Execute(button.BackgroundColor);
             }
         }
@@ -112,6 +136,7 @@ public partial class TextMarkupColorCode : ContentView
         {
             bindingContext.IsDeskTopColorToolbarVisible = true;
             bindingContext.IsDeskTopFillColorToolbarVisible = false;
+            bindingContext.CloseFreeTextColorPallete();
             bindingContext.OpacityCommand.Execute(opacity);
         }
     }

@@ -176,7 +176,7 @@
 
                     </button:SfButton>
                     <button:SfButton Grid.Row="2" Grid.Column="0" Text="Linear Gradient" TextColor="White" CornerRadius="25,50,25,50" Style="{StaticResource linearVisualStyle}"/>
-                    <button:SfButton Grid.Row="0" Grid.Column="1" Text="Normal Button" Background="#D8D6D7" Style="{StaticResource sfButtonStyle}"/>
+                    <button:SfButton Grid.Row="0" Grid.Column="1" Text="Normal Button" Background="#D8D6D7" TextColor="Black" Style="{StaticResource sfButtonStyle}"/>
                     <button:SfButton Grid.Row="0" Grid.Column="2" Text="Outline Button" TextColor="Blue" CornerRadius="0" Background="White" Stroke="Blue" StrokeThickness="2" Style="{StaticResource sfButtonStyle}"/>
                     <button:SfButton Grid.Row="1" Grid.Column="2"  Style="{StaticResource sfButtonStyle}">
                         <button:SfButton.Content>

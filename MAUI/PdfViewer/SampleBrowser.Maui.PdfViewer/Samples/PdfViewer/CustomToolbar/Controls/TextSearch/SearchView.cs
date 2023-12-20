@@ -226,6 +226,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         /// </summary>
         public virtual void Close()
         {
+            SearchInputEntry?.HideKeyboard();
             SearchInputEntry?.Unfocus();
             Clear();
             Reset();

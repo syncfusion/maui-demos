@@ -57,9 +57,11 @@
         </StackLayout>
     </localCore:SampleView.Content>
     <localCore:SampleView.OptionView>
-        <HorizontalStackLayout>
-            <Label Text="Enable Solid Candles"></Label>
-            <CheckBox x:Name="checkBox" IsChecked="False" VerticalOptions="Start" Margin="30,0,0,0" ></CheckBox>
-        </HorizontalStackLayout>
+        <Grid>
+            <HorizontalStackLayout>
+                <Label Text="Enable Solid Candles"></Label>
+                <CheckBox x:Name="checkBox" IsChecked="False" VerticalOptions="Start" Margin="30,0,0,0" ></CheckBox>
+            </HorizontalStackLayout>
+        </Grid>
     </localCore:SampleView.OptionView>
 </localCore:SampleView>

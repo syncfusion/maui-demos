@@ -66,7 +66,7 @@ public partial class AnnotationToolbarDesktop : AnnotationToolbarView
                 }
                 else if(button == stickyIconChangeButton)
                     viewModel.StickyNoteListMargin = new Thickness(x, 40, 0, 0);
-                else if (button == colorPalette)
+                else if (button == colorPalette && (viewModel.IsFreeTextFillColorVisble || viewModel.IsShapeColorPalleteVisible || viewModel.IsLineAndArrowColorPalleteVisible || viewModel.IsTextMarkUpColorPalleteVisible || viewModel.IsStickyNoteColorPalleteVisible || viewModel.IsInkColorPalleteVisible || viewModel.IsStampOpacitySliderbarVisible || viewModel.IsEraserThicknessToolbarVisible))
                     viewModel.ColorPaletteMargin = new Thickness(x, 40, 0, 0);
                 else if (button == fileOperation)
                 {
@@ -74,6 +74,14 @@ public partial class AnnotationToolbarDesktop : AnnotationToolbarView
                     viewModel.IsFileOperationListVisible = !viewModel.IsFileOperationListVisible;
                 }
             }
+        }
+    }
+    private void undoRedoBtton_Clicked(object sender, EventArgs e)
+    {
+        if (BindingContext is CustomToolbarViewModel viewModel)
+        {
+            viewModel.HideDeskTopOverLays();
+            viewModel.CloseAllDialogs();
         }
     }
 }

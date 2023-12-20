@@ -95,6 +95,7 @@ public partial class StickyNoteColorCode : ContentView
             {
                 bindingContext.IsDeskTopColorToolbarVisible = true;
                 bindingContext.IsDeskTopFillColorToolbarVisible = false;
+                bindingContext.CloseFreeTextColorPallete();
                 bindingContext.ColorCommand.Execute(button.BackgroundColor);
             }
         }
@@ -111,6 +112,7 @@ public partial class StickyNoteColorCode : ContentView
         {
             bindingContext.IsDeskTopColorToolbarVisible = true;
             bindingContext.IsDeskTopFillColorToolbarVisible = false;
+            bindingContext.CloseFreeTextColorPallete();
             bindingContext.OpacityCommand.Execute(opacity);
         }
     }

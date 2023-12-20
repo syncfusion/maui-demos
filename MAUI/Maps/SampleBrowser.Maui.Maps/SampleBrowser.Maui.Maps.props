@@ -103,10 +103,6 @@
       <Link>Samples\Maps\OSM\OpenStreetMap.xaml.cs</Link>
     </Compile>
 
-    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Maps\OSM\WonderDetails.cs">
-      <Link>Samples\Maps\OSM\WonderDetails.cs</Link>
-    </Compile>
-
     <Compile Include="$(MSBuildThisFileDirectory)\Samples\Maps\OSM\WonderViewModel.cs">
       <Link>Samples\Maps\OSM\WonderViewModel.cs</Link>
     </Compile>

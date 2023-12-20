@@ -80,9 +80,9 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <param name="e">Event Arguments</param>
         private void ComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
-            if (this.calendar != null && e.CurrentSelection != null)
+            if (this.calendar != null && e.AddedItems != null)
             {
-                string? selectionShape = e.CurrentSelection[0].ToString();
+                string? selectionShape = e.AddedItems[0].ToString();
                 if (this.calendar.BindingContext is AppearanceViewModel)
                 {
                     AppearanceViewModel appearanceViewModel = (AppearanceViewModel)this.calendar.BindingContext;

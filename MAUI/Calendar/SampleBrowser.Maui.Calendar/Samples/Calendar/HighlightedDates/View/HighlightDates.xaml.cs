@@ -96,9 +96,9 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 
         private void comboBox_SelectionChanged(object sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
-            if (e.CurrentSelection != null)
+            if (e.AddedItems != null)
             {
-                string? theme = e.CurrentSelection[0].ToString();
+                string? theme = e.AddedItems[0].ToString();
                 if (theme == null)
                 {
                     return;

@@ -37,9 +37,8 @@
                            TextColor="White"></Label>
                 </StackLayout>
             </DataTemplate>
-
-            <Style x:Key="buttonStyle"
-                   TargetType="Button">
+            
+            <Style x:Key="buttonStyle"  TargetType="Button">
                 <Setter Property="Background"
                         Value="White" />
                 <Setter Property="Padding"
@@ -107,14 +106,14 @@
                 </maps:SfMaps.Layer>
             </maps:SfMaps>
 
-            <ScrollView Margin="10"
+            <ScrollView Margin="10" 
                         Orientation="Horizontal"
                         HorizontalOptions="Center"
                         VerticalOptions="Start"
                         HorizontalScrollBarVisibility="Never">
                 <HorizontalStackLayout>
-                    <Button Text="Chichen Itza"
-                            Style="{StaticResource buttonStyle}"
+                    <Button Text="Chichen Itza" 
+                            Style="{StaticResource buttonStyle}" 
                             Clicked="Button_Clicked" />
                     <Button Text="Machu Picchu"
                             Style="{StaticResource buttonStyle}"

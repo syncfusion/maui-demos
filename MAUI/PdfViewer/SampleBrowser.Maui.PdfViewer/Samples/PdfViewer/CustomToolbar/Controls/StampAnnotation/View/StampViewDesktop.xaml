@@ -14,7 +14,7 @@
                         BackgroundColor="#EEE8F4" 
                         PropertyChanged="StandardStampMenu_PropertyChanged"
                         Stroke="#33000000" HeightRequest="500" WidthRequest="280" VerticalOptions="End">
-                    <ListView RowHeight="44" BackgroundColor="#EEE8F4" 
+                    <ListView RowHeight="44" BackgroundColor="#EEE8F4" Margin="0,8"
                           ItemsSource="{Binding StandardStampItems}"
                           x:Name="StandardStampMenuItems"
                           ItemTapped="Stamp_ItemTapped"

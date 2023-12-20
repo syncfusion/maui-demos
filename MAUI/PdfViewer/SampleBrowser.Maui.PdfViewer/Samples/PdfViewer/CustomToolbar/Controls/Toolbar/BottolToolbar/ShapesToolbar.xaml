@@ -27,7 +27,7 @@
             </Style.Triggers>
         </Style>
     </ContentView.Resources>
-    <Grid ColumnDefinitions="1*,2*,2*,2*,2*">
+    <Grid ColumnDefinitions="1*,1*,1*,1*,1*,1*,1*">
         <Button Text="&#xe72d;"
                     Grid.Column="0"
                     Command="{Binding ToolbarCommand}"
@@ -63,5 +63,19 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe786;"
+                     Grid.Column="5"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="Polyline"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Style="{StaticResource buttonIconStyle}" />
+        <Button Text="&#xe789;"
+                     Grid.Column="6"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="Polygon"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Style="{StaticResource buttonIconStyle}" />    
     </Grid>
 </ContentView>

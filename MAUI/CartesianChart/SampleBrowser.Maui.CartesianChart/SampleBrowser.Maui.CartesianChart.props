@@ -177,6 +177,14 @@
 		<Link>Samples\CartesianChart\RangeBar\RangeBarAnimation.xaml.cs</Link>
 		<DependentUpon>RangeBarAnimation.xaml</DependentUpon>
 	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedArea\StackedAreaChart.xaml.cs">
+		<Link>Samples\CartesianChart\StackedArea\StackedAreaChart.xaml.cs</Link>
+		<DependentUpon>StackedAreaChart.xaml</DependentUpon>
+	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedArea100\StackedArea100Chart.xaml.cs">
+		<Link>Samples\CartesianChart\StackedArea100\StackedArea100Chart.xaml.cs</Link>
+		<DependentUpon>StackedArea100Chart.xaml</DependentUpon>
+	</Compile>
 	<Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedColumn\StackedColumnChart.xaml.cs">
 		<Link>Samples\CartesianChart\StackedColumn\StackedColumnChart.xaml.cs</Link>
 		<DependentUpon>StackedColumnChart.xaml</DependentUpon>
@@ -291,6 +299,12 @@
   </Compile>
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StepLineChart\StepLineChartViewModel.cs">
 	<Link>Samples\CartesianChart\StepLineChart\StepLineChartViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedArea\StackedAreaViewModel.cs">
+    <Link>Samples\CartesianChart\StackedArea\StackedAreaViewModel.cs</Link>
+  </Compile>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedArea100\StackedArea100ViewModel.cs">
+    <Link>Samples\CartesianChart\StackedArea100\StackedArea100ViewModel.cs</Link>
   </Compile>
   <Compile Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StepAreaChart\StepAreaSeriesViewModel.cs">
 	<Link>Samples\CartesianChart\StepAreaChart\StepAreaSeriesViewModel.cs</Link>
@@ -647,6 +661,16 @@
 	<ItemGroup>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\RangeBar\RangeBarAnimation.xaml">
 			<Link>Samples\CartesianChart\RangeBar\RangeBarAnimation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedArea\StackedAreaChart.xaml">
+			<Link>Samples\CartesianChart\StackedArea\StackedAreaChart.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CartesianChart\StackedArea100\StackedArea100Chart.xaml">
+			<Link>Samples\CartesianChart\StackedArea100\StackedArea100Chart.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>

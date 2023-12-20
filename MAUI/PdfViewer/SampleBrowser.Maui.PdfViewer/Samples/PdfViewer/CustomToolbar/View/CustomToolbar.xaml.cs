@@ -25,7 +25,10 @@ public partial class CustomToolbar : SampleView
     //It is used to delay the current thread's execution, until the user enters the password.
     ManualResetEvent manualResetEvent = new ManualResetEvent(false);
     ToolbarView? toolbar;
-
+    /// <summary>
+    /// Used to check whether undo executed or not when turning annotation mode as polyline or Polygon to None
+    /// </summary>
+    bool undoAlreadyExecuted = false;
 #if ANDROID || IOS
     private ViewCell? lastCell;
 #endif
@@ -34,13 +37,13 @@ public partial class CustomToolbar : SampleView
     public double CustomStampHeight { get; set; }
     public bool CustomStamp { get; set; }
     public SearchView SearchView { get; set; }
-    public StampView? StampView { get; set; }
+    public StampView? StampView { get; set; } 
 
-    CustomToolbarViewModel viewModel;
+    CustomToolbarViewModel viewModel; 
     public CustomToolbar()
     {
         InitializeComponent();
-        viewModel = new CustomToolbarViewModel(PdfViewer);
+        viewModel = new CustomToolbarViewModel(PdfViewer, "customToolbar");
         viewModel.PropertyChanged += ViewModel_PropertyChanged;
         BindingContext = viewModel;
         AddDocumentItems();
@@ -55,6 +58,8 @@ public partial class CustomToolbar : SampleView
         toolbar = DesktopToolbar;
 #endif
         PdfViewer.UndoCommand!.CanExecuteChanged += UndoCommand_CanExecuteChanged;
+        PdfViewer.PropertyChanged += PdfViewer_PropertyModified;
+        PdfViewer.AnnotationAdded += PdfViewer_AnnotationAdded;
         UpdateToolbarProperties();
         DesktopToolbar.SetBindings();
         SearchView.SearchHelper = PdfViewer;
@@ -80,6 +85,22 @@ public partial class CustomToolbar : SampleView
         customDocument.Children.Add(CreateView("Browse files on this device"));
 #endif
     }
+
+    private void PdfViewer_PropertyModified(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(AnnotationMode))
+        {
+            if ((PdfViewer.AnnotationMode != AnnotationMode.Polygon && PdfViewer.AnnotationMode != AnnotationMode.Polyline) && undoAlreadyExecuted)
+            {
+                viewModel.IsSaveLayoutVisible = true;
+            }
+            else if (PdfViewer.AnnotationMode == AnnotationMode.Polygon || PdfViewer.AnnotationMode == AnnotationMode.Polyline)
+            {
+                viewModel.IsSaveLayoutVisible = false;
+            }
+        }
+    }
+
     private Grid CreateView(string iconName)
     {
         GestureGrid childRow = new GestureGrid();
@@ -89,7 +110,7 @@ public partial class CustomToolbar : SampleView
 
         Label iconNameLabel = new Label()
         {
-            Padding = new Thickness(15, 0, 0, 0),
+            Padding = new Thickness(16, 0, 0, 0),
             Margin = new Thickness(5, 0, 0, 0),
             TextColor = Color.FromArgb("#49454F"),
             FontSize = 15,
@@ -116,6 +137,10 @@ public partial class CustomToolbar : SampleView
                 view = shapeColorPalette;
             else if (viewModel.IsLineAndArrowColorPalleteVisible)
                 view = lineAndArrowColorPalette;
+            else if (viewModel.IsEraserThicknessToolbarVisible)
+                view = eraserThicknessBar;
+            else if (viewModel.IsFreeTextFillColorVisble)
+                view = freeTextColorPalette;
             if (view != null)
             {
                 SizeRequest sizeRequest = view.Measure(double.PositiveInfinity, double.PositiveInfinity);
@@ -149,7 +174,9 @@ public partial class CustomToolbar : SampleView
 
     private void UndoCommand_CanExecuteChanged(object? sender, EventArgs e)
     {
-        viewModel.IsSaveLayoutVisible = true;
+        if (PdfViewer.AnnotationMode != AnnotationMode.Polyline && PdfViewer.AnnotationMode != AnnotationMode.Polygon)
+            viewModel.IsSaveLayoutVisible = true;
+        undoAlreadyExecuted = true;
     }
 
     void UpdateToolbarProperties()
@@ -170,6 +197,11 @@ public partial class CustomToolbar : SampleView
     private void NoMatchesFound(object? sender, EventArgs e)
     {
         MainThread.BeginInvokeOnMainThread(() => messageBox.Show("Search Result", "No matches were found"));
+    }
+
+    internal void HideOverlayToolbars()
+    {
+        viewModel.HideOverlayToolbars();
     }
 
     /// <summary>
@@ -218,18 +250,6 @@ public partial class CustomToolbar : SampleView
             PointF point = new PointF(e.PagePosition.X, e.PagePosition.Y);
             if (StampView.StampMode)
             {
-                if (BindingContext is CustomToolbarViewModel viewModel)
-                {
-                    if (viewModel.DocumentData.FileName == "rotated_document.pdf")
-                    {
-                        PdfLoadedDocument? document = new PdfLoadedDocument(viewModel.DocumentData.DocumentStream);
-                        PdfLoadedPage? page = document.Pages[e.PageNumber - 1] as PdfLoadedPage;
-                        if (page != null)
-                            point = AdjustForRotation(page.Size.Width, page.Size.Height, page.Rotation, point.X, point.Y);
-                        document.Dispose();
-                        document = null;
-                    }
-                }
                 if (!CustomStamp)
                 {
                     StampType type = StampView.stampType;
@@ -253,18 +273,6 @@ public partial class CustomToolbar : SampleView
                 if (bindingContextForSticky.IsStickyNoteMode)
                 {
                     PointF point = new PointF(e.PagePosition.X, e.PagePosition.Y);
-                    if (BindingContext is CustomToolbarViewModel viewModel)
-                    {
-                        if (viewModel.DocumentData.FileName == "rotated_document.pdf")
-                        {
-                            PdfLoadedDocument? document = new PdfLoadedDocument(viewModel.DocumentData.DocumentStream);
-                            PdfLoadedPage? page = document.Pages[e.PageNumber - 1] as PdfLoadedPage;
-                            if (page != null)
-                                point = AdjustForRotation(page.Size.Width, page.Size.Height, page.Rotation, point.X, point.Y);
-                            document.Dispose();
-                            document = null;
-                        }
-                    }
                     StickyNoteAnnotation builtStickyNote = new StickyNoteAnnotation(bindingContextForSticky.StickyIcon, string.Empty, e.PageNumber, point);
                     PdfViewer.AddAnnotation(builtStickyNote);
                     bindingContextForSticky.IsStickyNoteMode = false;
@@ -291,33 +299,11 @@ public partial class CustomToolbar : SampleView
             bindingContext.IsStampOpacitySliderbarVisible = false;
             bindingContext.IsStickyNoteColorPalleteVisible = false;
 			bindingContext.IsFileOperationListVisible = false;
+            bindingContext.IsFreetextColorPalatteisible = false;
+            bindingContext.IsFreeTextFillColorVisble = false;
+            bindingContext.IsFreeTextSliderVisible = false;
+            bindingContext.IsFreeTextFontListVisible = false;
 #endif
-        }
-    }
-
-    internal static Point AdjustForRotation(double pageWidth, double pageHeight, PdfPageRotateAngle pageRotationAngle, double x, double y)
-    {
-        if (pageRotationAngle == PdfPageRotateAngle.RotateAngle90)
-        {
-            double rotatedX = pageHeight - y;
-            double rotatedY = x;
-            return new Point(rotatedX, rotatedY);
-        }
-        else if (pageRotationAngle == PdfPageRotateAngle.RotateAngle180)
-        {
-            double rotatedX = pageWidth - x;
-            double rotatedY = pageHeight - y;
-            return new Point(rotatedX, rotatedY);
-        }
-        else if (pageRotationAngle == PdfPageRotateAngle.RotateAngle270)
-        {
-            double rotatedX = y;
-            double rotatedY = pageWidth - x;
-            return new Point(rotatedX, rotatedY);
-        }
-        else
-        {
-            return new Point(x, y);
         }
     }
 
@@ -477,7 +463,7 @@ public partial class CustomToolbar : SampleView
         viewModel.IsSaveLayoutVisible = false;
         toolbar!.SearchButton!.IsEnabled = false;
         SearchView?.Close();
-
+        viewModel.SelectedAnnotation = null;
         viewModel.HideOverlayToolbars();
         viewModel.ShowMoreOptions = false;
         viewModel.IsStampViewVisible = false;
@@ -505,24 +491,58 @@ public partial class CustomToolbar : SampleView
         {
             toolbar!.IsVisible = !PdfViewer.IsOutlineViewVisible;
         }
+        if (e.PropertyName == nameof(PdfViewer.AnnotationMode) && PdfViewer.AnnotationMode == AnnotationMode.None)
+        {
+            viewModel.ClearButtonHighlights();
+        }
     }
-    
+
+
     private void PdfViewer_AnnotationSelected(object sender, AnnotationEventArgs e)
     {
         viewModel.SelectedAnnotation = e.Annotation;
+        if (viewModel.SelectedAnnotation is FreeTextAnnotation)
+        {
+            viewModel.IsFreetextToolsVisible = false;
+            viewModel.IsAnnotationsToolsVisible = false;
+            viewModel.IsEditLayoutVisible = true;
+#if ANDROID || IOS
+            viewModel.BottomToolbarContent = new FreetextPropertyToolbar(viewModel);
+#endif
+        }
         SearchView!.Close();
     }
 
     private void PdfViewer_AnnotationDeselected(object sender, AnnotationEventArgs e)
     {
+        if (viewModel.SelectedAnnotation is FreeTextAnnotation)
+        {
+#if ANDROID || IOS
+            viewModel.BottomToolbarContent = new AnnotationToolbar(viewModel);
+            viewModel.IsFontSliderVisible = false;
+#endif
+        }
         viewModel.SelectedAnnotation = null;
+    }
+
+    private void PdfViewer_AnnotationAdded(object? sender, AnnotationEventArgs e)
+    {
+        if (e.Annotation is FreeTextAnnotation)
+        {
+#if ANDROID || (IOS && !MACCATALYST)
+            PdfViewer.AnnotationMode = AnnotationMode.None;
+            viewModel.ClearButtonHighlights();
+            viewModel.BottomToolbarContent = new AnnotationToolbar(viewModel);
+            viewModel.IsFontSliderVisible = false;
+#endif
+        }
     }
 
     private void saveButton_Clicked(object? sender, EventArgs e)
     {
         viewModel?.SaveDocument();
     }
-    
+
     private void thicknessSlider_ValueChanged(object sender, EventArgs e)
     {
         float thickness = (float)ThicknessSlider.Value;
@@ -546,7 +566,7 @@ public partial class CustomToolbar : SampleView
 
     private void FileListView_FileSelected(object sender, FileSelectedEventArgs e)
     {
-        viewModel.DocumentData.FileName = e.FileName;
+        viewModel.AssignPdfInfoAndLoad(e.FileName!);
     }
 
     private void OnCreateStampClicked(object sender, StampDialogEventArgs e)
@@ -561,14 +581,24 @@ public partial class CustomToolbar : SampleView
     private async void OnCustomStampCreated(object sender, CustomStampEventArgs e)
     {
         Label customStampLabel = e.CustomStampLabel ?? new Label(); // Initialize only if it's null
-        Stream imageStream = await e.StampView!.GetStreamAsync(Syncfusion.Maui.Core.ImageFileFormat.Png);
-        StampImage image = new StampImage();
         Stream memoryStream = new MemoryStream();
+        StampImage image = new StampImage();
+#if NET7_0_OR_GREATER
+        IScreenshotResult? imageStream = await e.StampView!.CaptureAsync();
+        await imageStream!.CopyToAsync(memoryStream);
+        memoryStream.Position = 0;
+        image.ImageStream = memoryStream;
+        Stream streamFromScreenshot = await imageStream.OpenReadAsync();
+        image.Source = ImageSource.FromStream(() => streamFromScreenshot);
+#else
+        Stream imageStream = await e.StampView!.GetStreamAsync(Syncfusion.Maui.Core.ImageFileFormat.Png);
         await imageStream.CopyToAsync(memoryStream);
         memoryStream.Position = imageStream.Position = 0;
         image.ImageStream = memoryStream;
         image.Source = ImageSource.FromStream(() => imageStream);
-        image.HeightRequest = 40;
+#endif
+        image.HeightRequest = 50;
+        image.Aspect = Aspect.AspectFit;
 #if WINDOWS || MACCATALYST
         image.HorizontalOptions = LayoutOptions.Start;
 #endif
@@ -636,10 +666,12 @@ public partial class CustomToolbar : SampleView
             stampDialogMobile.IsVisible = true;
         viewModel.IsStampViewVisible = false;
     }
+
     internal void ShapeHighlightDisapper()
     {
         shapeListView.DisappearHighlight();
     }
+
     internal void TextMarkUpHighlightDisappear()
     {
         textmarkupView.DisappearHighlight();
@@ -648,5 +680,14 @@ public partial class CustomToolbar : SampleView
     private void TextSelection_Changed(object sender, TextSelectionChangedEventArgs e)
     {
         SearchView.Close();
+    }
+
+    private void FontSizeSliderBar_ValueChangeEnd(object sender, EventArgs e)
+    {
+        float thickness = (float)FontSizeSliderBar.Value;
+        if (BindingContext is CustomToolbarViewModel bindingContext)
+        {
+            bindingContext.FontSizeCommand.Execute(thickness);
+        }
     }
 }

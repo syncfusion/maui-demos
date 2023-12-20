@@ -2,22 +2,22 @@
 <SyncfusionControls>
   <ControlCategory Name="Picker">
 	  
-	  <Control Title="Picker" StatusTag="New" IsPreview="True" Image="picker.png" ControlName="SfPicker" Description="It is a versatile user interface element designed for making selections from a set of options.">
+	  <Control Title="Picker" Image="picker.png" ControlName="SfPicker" Description="It is a versatile user interface element designed for making selections from a set of options.">
 		  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="Picker/GettingStarted/"/>
 		  <Sample Title="Flight booking" SampleName="FlightBooking" CodeViewerPath="Picker/FlightBooking/"/>
 	  </Control>
 
-	  <Control Title="Date Picker" StatusTag="New" IsPreview="True" Image="datepicker.png" ControlName="SfDatePicker" Description="A user interface element for selecting specific dates.">
+	  <Control Title="Date Picker" Image="datepicker.png" ControlName="SfDatePicker" Description="A user interface element for selecting specific dates.">
 		  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="DatePicker/GettingStarted/"/>
 		  <Sample Title="To-Do" SampleName="Customization" CodeViewerPath="DatePicker/Customization/"/>
 	  </Control>
 
-	  <Control Title="Time Picker" StatusTag="New" IsPreview="True" Image="timepicker.png" ControlName="SfTimePicker" Description="An interface for choosing specific times of day.">
+	  <Control Title="Time Picker" Image="timepicker.png" ControlName="SfTimePicker" Description="An interface for choosing specific times of day.">
 		  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="TimePicker/GettingStarted/"/>
 		  <Sample Title="Alarm" SampleName="Customization" CodeViewerPath="TimePicker/Customization/"/>
 	  </Control>
 
-	  <Control Title="Date Time Picker" StatusTag="New" IsPreview="True" Image="datetimepicker.png" ControlName="SfDateTimePicker" Description="A combined interface to select dates and times.">
+	  <Control Title="Date Time Picker" Image="datetimepicker.png" ControlName="SfDateTimePicker" Description="A combined interface to select dates and times.">
 		  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="DateTimePicker/GettingStarted/"/>
 	  </Control>
 	  

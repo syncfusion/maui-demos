@@ -164,12 +164,12 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// <param name="e">The Event Arguments.</param>
         private void DateFormatComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
         {
-            if (this.dateTimePicker == null || e.CurrentSelection == null || dateFormatComboBox == null)
+            if (this.dateTimePicker == null || e.AddedItems == null || dateFormatComboBox == null)
             {
                 return;
             }
 
-            string? format = e.CurrentSelection[0].ToString();
+            string? format = e.AddedItems[0].ToString();
             switch (format)
             {
                 case "dd MM":
@@ -214,12 +214,12 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// <param name="e">The Event Arguments.</param>
         private void TimeFormatComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
         {
-            if (this.dateTimePicker == null || e.CurrentSelection == null || timeFormatComboBox == null)
+            if (this.dateTimePicker == null || e.AddedItems == null || timeFormatComboBox == null)
             {
                 return;
             }
 
-            string? format = e.CurrentSelection[0].ToString();
+            string? format = e.AddedItems[0].ToString();
 
             switch (format)
             {

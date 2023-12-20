@@ -15,7 +15,8 @@ public partial class CultureDesktop : SampleView
 	public CultureDesktop()
 	{
 		InitializeComponent();
-	}
+        cultureMask.Culture = new CultureInfo("en-US");
+    }
 
     private void IndiaImageButton_Clicked(object sender, EventArgs e)
     {

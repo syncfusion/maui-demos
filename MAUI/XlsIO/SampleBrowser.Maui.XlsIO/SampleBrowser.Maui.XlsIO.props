@@ -44,6 +44,11 @@
 			<Link>Samples\XlsIO\Table\Table.xaml.cs</Link>
 			<DependentUpon>Table.xaml</DependentUpon>
 		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\PivotTable\PivotTable.xaml.cs">
+			<Link>Samples\XlsIO\PivotTable\PivotTable.xaml.cs</Link>
+			<DependentUpon>PivotTable.xaml</DependentUpon>
+		</Compile>
 		
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\TemplateMarker\TemplateMarker.xaml.cs">
 			<Link>Samples\XlsIO\TemplateMarker\TemplateMarker.xaml.cs</Link>
@@ -124,6 +129,11 @@
 	<ItemGroup>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\Table\Table.xaml">
 			<Link>Samples\XlsIO\Table\Table.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\XlsIO\PivotTable\PivotTable.xaml">
+			<Link>Samples\XlsIO\PivotTable\PivotTable.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>

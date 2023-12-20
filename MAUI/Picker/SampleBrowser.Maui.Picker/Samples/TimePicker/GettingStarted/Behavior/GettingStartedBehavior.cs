@@ -181,12 +181,12 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         /// <param name="e">The Event Arguments.</param>
         private void FormatComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
         {
-            if (this.timePicker == null || e.CurrentSelection == null || this.formatComboBox == null)
+            if (this.timePicker == null || e.AddedItems == null || this.formatComboBox == null)
             {
                 return;
             }
 
-            string? format = e.CurrentSelection[0].ToString();
+            string? format = e.AddedItems[0].ToString();
             switch (format)
             {
                 case "H mm":

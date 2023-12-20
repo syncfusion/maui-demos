@@ -1,0 +1,44 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SunburstChart.SfSunburstChart.ToolTip"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SunburstChart.SfSunburstChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:chart="http://schemas.syncfusion.com/maui">
+    
+    <localCore:SampleView.BindingContext>
+        <local:ViewModel/>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="template1">
+                <StackLayout Orientation="Horizontal">
+                    <Rectangle HeightRequest="30" WidthRequest="8" Fill="{Binding Fill}"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="{Binding Item[0]}" TextColor="White" FontFamily="Helvetica" FontSize="12.5" Padding="5,0,0,0" FontAttributes="Bold"/>
+                        <Label Text="{Binding Item[1],StringFormat='Count : {0}M'}" TextColor="White" FontFamily="Helvetica" FontSize="12" Padding="5,0,0,0" Margin="0,2,0,0"/>
+                    </StackLayout>
+                </StackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <chart:SfSunburstChart x:Name="sunburstChart" ItemsSource="{Binding DataSource1}" 
+                                ValueMemberPath="Population" TooltipTemplate="{StaticResource template1}"
+                                PaletteBrushes="{Binding CustomBrush2}" EnableTooltip="True" ShowLabels="True" InnerRadius="0.2">
+            
+            <chart:SfSunburstChart.Title>
+                <Label Text="Product Manufacturing: A Global Perspective" FontAttributes="Bold" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="18" TextColor="Black"/>
+            </chart:SfSunburstChart.Title>
+            
+            <chart:SfSunburstChart.Legend>
+                <chart:SunburstLegend/>
+            </chart:SfSunburstChart.Legend>
+            
+            <chart:SfSunburstChart.Levels>
+                <chart:SunburstHierarchicalLevel GroupMemberPath="Continent"/>
+                <chart:SunburstHierarchicalLevel GroupMemberPath="Country" />
+                <chart:SunburstHierarchicalLevel GroupMemberPath="State"/>
+            </chart:SfSunburstChart.Levels>
+        </chart:SfSunburstChart>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

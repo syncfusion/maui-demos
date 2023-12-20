@@ -86,6 +86,7 @@
                                                         Stroke="Transparent"
                                                         SegmentWidth="38"
                                                         HorizontalOptions="Start"
+                                                        Margin="-2,-2,0,0"
                                                         WidthRequest="210"
                                                         SegmentHeight="36"
                                                         CornerRadius="36"
@@ -97,12 +98,6 @@
                                     <buttons:SelectionIndicatorSettings SelectionIndicatorPlacement="Border"
                                                                         Background="#6200EE" />
                                 </buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                <buttons:SfSegmentedControl.Margin>
-                                    <OnPlatform x:TypeArguments="thickness:Thickness">
-                                        <On Platform="MacCatalyst" Value="-2,-2,0,0"/>
-                                        <On Platform="WinUI" Value="-4,-4,0,0"/>
-                                    </OnPlatform>
-                                </buttons:SfSegmentedControl.Margin>
                             </buttons:SfSegmentedControl>
                         </StackLayout>
 
@@ -115,7 +110,7 @@
                             <buttons:SfSegmentedControl x:Name="segmentedControlWarrantyOption"
                                                         SegmentHeight="38" 
                                                         VerticalOptions="FillAndExpand"
-                                                        Margin="0,5,0,0"
+                                                        Margin="2,5,0,0"
                                                         HorizontalOptions="Start"
                                                         WidthRequest="312"
                                                         SegmentWidth="103"
@@ -146,8 +141,8 @@
                                 <buttons:SfSegmentedControl x:Name="segmentedControlDeliveryOption"
                                                             StrokeThickness="10"
                                                             SegmentCornerRadius="30"
-                                                            Margin="-12,-10,0,0"
                                                             SegmentHeight="30"
+                                                            Margin="-6,0,0,0"
                                                             CornerRadius="30"
                                                             HeightRequest="50"
                                                             WidthRequest="330"
@@ -163,12 +158,6 @@
                                     <buttons:SfSegmentedControl.SelectionIndicatorSettings>
                                         <buttons:SelectionIndicatorSettings Background="#6200EE" />
                                     </buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                    <buttons:SfSegmentedControl.Margin>
-                                        <OnPlatform x:TypeArguments="thickness:Thickness">
-                                            <On Platform="MacCatalyst" Value="-8,0,0,0"/>
-                                            <On Platform="WinUI" Value="-12,0,0,0"/>
-                                        </OnPlatform>
-                                    </buttons:SfSegmentedControl.Margin>
                                 </buttons:SfSegmentedControl>
                             </HorizontalStackLayout>
                         </StackLayout>

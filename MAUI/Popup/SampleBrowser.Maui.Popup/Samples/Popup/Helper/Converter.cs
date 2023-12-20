@@ -18,7 +18,7 @@ namespace SampleBrowser.Maui.Popup.SfPopup
     {
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (value != null && (bool)value)
+            if (value !=null && (bool)value)
                 return "\ue711";
 
             else

@@ -48,23 +48,11 @@
                                                     SelectionIndicatorColor="White"
                                                     ChipStroke="#ECECEF"
                                                     ChipStrokeThickness="2"
-                                                    ChipType="Choice">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="Normal">
-                                            <VisualState.Setters>
-                                                <Setter Property="ChipTextColor" Value="Black" />
-                                                <Setter Property="ChipBackground" Value="#F4F4F5" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Selected">
-                                            <VisualState.Setters>
-                                                <Setter Property="ChipTextColor" Value="White" />
-                                                <Setter Property="ChipBackground" Value="#512bd4" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
+                                                    ChipType="Choice"
+                                                    ChipTextColor="Black"
+                                                    ChipBackground="#F4F4F5"
+                                                    SelectedChipTextColor="White"
+                                                    SelectedChipBackground="#512bd4">
                             </core:SfChipGroup>
                             </ScrollView>
                         </StackLayout>                       
@@ -76,26 +64,14 @@
                                                       SelectedItem="{Binding SelectedAddOnItems}"
                                                       SelectionIndicatorColor="White"
                                                       ChipStroke="#ECECEF"
-                                                  SelectionChanged="SfChipGroup_SelectionChanged"
+                                                      SelectionChanged="SfChipGroup_SelectionChanged"
                                                       ChipStrokeThickness="2"
-                                                      ChipType="Filter">
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup x:Name="CommonStates">
-                                            <VisualState x:Name="Normal">
-                                                <VisualState.Setters>
-                                                    <Setter Property="ChipTextColor" Value="Black" />
-                                                    <Setter Property="ChipBackground" Value="#F4F4F5" />
-                                                </VisualState.Setters>
-                                            </VisualState>
-                                            <VisualState x:Name="Selected">
-                                                <VisualState.Setters>
-                                                    <Setter Property="ChipTextColor" Value="White" />
-                                                    <Setter Property="ChipBackground" Value="#512bd4" />
-                                                </VisualState.Setters>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </core:SfChipGroup>
+                                                      ChipType="Filter"
+                                                      ChipTextColor="Black"
+                                                      ChipBackground="#F4F4F5"
+                                                      SelectedChipTextColor="White"
+                                                      SelectedChipBackground="#512bd4">
+                            </core:SfChipGroup>
                             </ScrollView>
                         </StackLayout>
 
@@ -109,24 +85,11 @@
                                                       SelectedItem="{Binding SelectedDeliveryOption,Mode=TwoWay}"
                                                       ChipStroke="#ECECEF"
                                                       ChipStrokeThickness="2"
-                                                      ChipType="Choice">
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <VisualState.Setters>
-                                            <Setter Property="ChipTextColor" Value="Black" />
-                                            <Setter Property="ChipBackground" Value="#F4F4F5" />
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                    <VisualState x:Name="Selected">
-                                        <VisualState.Setters>
-                                            <Setter Property="ChipTextColor" Value="White" />
-                                            <Setter Property="ChipBackground" Value="#512bd4" />
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-
+                                                      ChipType="Choice"
+                                                      ChipTextColor="Black"
+                                                      ChipBackground="#F4F4F5"
+                                                      SelectedChipTextColor="White"
+                                                      SelectedChipBackground="#512bd4">
                         </core:SfChipGroup>
                     </StackLayout>
 

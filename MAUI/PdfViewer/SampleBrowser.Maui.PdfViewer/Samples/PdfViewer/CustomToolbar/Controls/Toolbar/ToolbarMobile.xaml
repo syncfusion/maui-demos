@@ -29,22 +29,24 @@
 
     <Grid Margin="8,4,8,4">
         <HorizontalStackLayout HorizontalOptions="Start" Spacing="8">
-            <Button Text="&#xe72d;"
+            <Button Text="&#xe72d;" IsVisible="{Binding IsFileOpenVisible}"
                     FontFamily= "Maui Material Assets"
                     Margin="5,0,0,0"
                     Style="{StaticResource buttonIconStyle}"
                     Command="{Binding BackToFileListCommand}"/>
             <HorizontalStackLayout x:Name="undeRedoLayout" Spacing="0" IsVisible="{Binding IsSaveLayoutVisible}" >
-                <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="24" Margin="5,0,10,0" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="24" Margin="5,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding IsEditMode}"/>
                 <Button Text="&#xe744;"
                     FontFamily="Maui Material Assets"
                     Margin="0,0,5,0"
                     x:Name="mobileUndoButton"
+                    Clicked="mobileUndo_Redo_Clicked"
                     FontSize="20"
                     Style="{StaticResource buttonIconStyle}" />
 
                 <Button Text="&#xe745;"
                     FontFamily="Maui Material Assets"
+                    Clicked="mobileUndo_Redo_Clicked"
                     Margin="0,0,5,0"
                     FontSize="20"
                     x:Name="mobileRedoButton"
@@ -61,7 +63,7 @@
                     Style="{StaticResource buttonIconStyle}"
                     Clicked="Search_Clicked"/>
             <Button
-                    x:Name="moreButton" 
+                    x:Name="moreButton" IsVisible="{Binding IsFileOpenVisible}"
                     Text="&#xe759;" 
                     FontSize="20"
                     Command="{Binding ToolbarCommand}"

@@ -18,15 +18,15 @@ public partial class FileListView : ContentView
     {
         InitializeComponent();
 
-        Items.Add(new AnnotationButtonItem() { IconName = "PDF_succinctly.pdf", Icon = "\uE780" });
-        Items.Add(new AnnotationButtonItem() { IconName = "Rotated_document.pdf", Icon = "\uE780" });
-        Items.Add(new AnnotationButtonItem() { IconName = "Password_protected_document.pdf", Icon = "\uE780" });
-        Items.Add(new AnnotationButtonItem() { IconName = "Corrupted_document.pdf", Icon = "\uE780" });
-        Items.Add(new AnnotationButtonItem() { IconName = "Single_page_document.pdf", Icon = "\uE780" });
-        Items.Add(new AnnotationButtonItem() { IconName = "Annotations_document.pdf", Icon = "\uE780" });
-        Items.Add(new AnnotationButtonItem() { IconName = "Browse files on this device", Icon = "\uE712" });
-        listView.ItemsSource = Items;
-    }
+                Items.Add(new AnnotationButtonItem() { IconName = "PDF_succinctly.pdf", Icon = "\uE780" });
+                Items.Add(new AnnotationButtonItem() { IconName = "Rotated_document.pdf", Icon = "\uE780" });
+                Items.Add(new AnnotationButtonItem() { IconName = "Password_protected_document.pdf", Icon = "\uE780" });
+                Items.Add(new AnnotationButtonItem() { IconName = "Corrupted_document.pdf", Icon = "\uE780" });
+                Items.Add(new AnnotationButtonItem() { IconName = "Single_page_document.pdf", Icon = "\uE780" });
+                Items.Add(new AnnotationButtonItem() { IconName = "Annotations_document.pdf", Icon = "\uE780" });
+                Items.Add(new AnnotationButtonItem() { IconName = "Browse files on this device", Icon = "\uE712" });
+            listView.ItemsSource = Items;
+        }
 
     private async void listView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
     {

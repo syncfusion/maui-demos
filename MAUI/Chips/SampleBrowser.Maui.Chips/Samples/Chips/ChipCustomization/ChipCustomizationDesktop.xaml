@@ -289,13 +289,8 @@
                                    Grid.Column="2" FontFamily="Roboto-Regular"
                                    VerticalTextAlignment="Center"/>
                 </Grid>
-					<StackLayout Margin="8,10,20,0" Orientation="Horizontal"  HorizontalOptions="Start">
-                        <StackLayout.Spacing>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="WinUI" Value="25"/>
-                            </OnPlatform>
-                        </StackLayout.Spacing>
-						<HorizontalStackLayout HorizontalOptions="StartAndExpand">
+					<StackLayout Margin="8,10,20,0" Orientation="Horizontal" HorizontalOptions="Start" Spacing="25">                       
+                            <HorizontalStackLayout HorizontalOptions="StartAndExpand" Spacing="{OnPlatform MacCatalyst=5}">
                             <HorizontalStackLayout.Margin>
                             <OnPlatform x:TypeArguments="Thickness">
                                 <On Platform="MacCatalyst" Value="-9,0,0,0"/>
@@ -304,7 +299,7 @@
 							<CheckBox IsChecked="{Binding IsShownSelection}"/>
 							<Label Text="Enable Selection" VerticalOptions="Center" FontFamily="Roboto-Regular"/>
 						</HorizontalStackLayout>
-						<HorizontalStackLayout HorizontalOptions="EndAndExpand">
+                            <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="{OnPlatform MacCatalyst=5}">
 							<CheckBox IsChecked="{Binding IsShownCloseButton}"/>
 							<Label Text="Close Icon" VerticalOptions="Center" FontFamily="Roboto-Regular"/>
 						</HorizontalStackLayout>

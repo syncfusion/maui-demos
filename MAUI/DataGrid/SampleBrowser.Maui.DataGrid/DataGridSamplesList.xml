@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
   <ControlCategory Name="Grids">
-    <Control Title="DataGrid" ControlName="SfDataGrid" Image="datagrid.png" Description="A full-featured grid control is available, complete with advanced features such as sorting, filtering, and selection.">
+    <Control Title="DataGrid" ControlName="SfDataGrid" StatusTag="Updated" Image="datagrid.png" Description="A full-featured grid control is available, complete with advanced features such as sorting, filtering, and selection.">
       <Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started"  CodeViewerPath="DataGrid/GettingStarted/"  VideoLink="https://www.youtube.com/watch?v=xW0a7JlHbz4"/>
       <Sample Title = "Data Binding" SampleName = "DataBinding" SearchTags="collection type, data binding, datatable, observable collection" CodeViewerPath="DataGrid/DataBinding/"/>
       <Sample Title = "Column Types" SampleName = "ColumnTypes" SearchTags="columns, column types, types of columns, grid columns, switch column,image column"
@@ -14,6 +14,7 @@
                    Description = "This sample illustrates custom sorting in a DataGrid. The name column is sorted according to the length of a cell value." CodeViewerPath="DataGrid/CustomSorting/"  VideoLink="https://www.youtube.com/watch?v=5PhyEYLbGT4" />
       <Sample Title = "Filtering" SampleName = "Filtering" SearchTags="filter, search, custom filter, find" Description = "This sample demonstrates how to filter data programmatically in a DataGrid." CodeViewerPath="DataGrid/Filtering/"
 			  VideoLink="https://www.youtube.com/watch?v=KpN28Mi0Qn0"/>
+      <Sample Title = "Paging" SampleName = "Paging" StatusTag="New" CodeViewerPath="DataGrid/Paging/" WhatsNew="This feature allows users to manipulate data using the DataPager to view rows on multiple pages." />
 	  <Sample  Title = "Stacked Header" SampleName = "StackedHeader" SearchTags="header, stacked, stacked header, stackedheaderow, stackedheader,merged column, merged header, grouped header, header grouped, column grouped" CodeViewerPath="DataGrid/StackedHeader/" />
       <Sample Title = "Freeze Panes" SampleName = "FreezePanes" SearchTags="freeze rows, freeze columns, sticky rows, sticky columns, fixed rows, fixed columns" Description = "This sample demonstrates how to freeze rows and columns in a DataGrid." CodeViewerPath="DataGrid/FreezePanes/"
 			  VideoLink="https://www.youtube.com/watch?v=vtMmQIWyipU"/>

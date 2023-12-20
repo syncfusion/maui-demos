@@ -51,7 +51,7 @@
                         <syncfusion:SfAvatarView HorizontalOptions="Start" VerticalOptions="Start" Style="{StaticResource MainAvatarStyle}"/>
                     </syncfusion:SfBadgeView.Content>
                     <syncfusion:SfBadgeView.BadgeSettings>
-                        <syncfusion:BadgeSettings Offset="-12,-12" 
+                        <syncfusion:BadgeSettings Offset="-6,-6" 
                                               Animation="Scale"
                                               Position="BottomRight" 
                                               Type="Success"
@@ -59,7 +59,7 @@
                     </syncfusion:SfBadgeView.BadgeSettings>
                 </syncfusion:SfBadgeView>
                 <Grid Grid.Row="1" >
-                    <VerticalStackLayout Spacing="40" HorizontalOptions="Center" WidthRequest="{OnPlatform iOS='350',MacCatalyst='400',Android='350',WinUI='400'}">
+                    <VerticalStackLayout Spacing="40" HorizontalOptions="Center" WidthRequest="{OnPlatform iOS='350',MacCatalyst='400',Android='340',WinUI='400'}">
                         <StackLayout IsVisible="{Binding EditionIsVisible}">
                             <Grid ColumnSpacing="20" RowSpacing="0">
                                 <Grid.ColumnDefinitions>

@@ -25,6 +25,41 @@ public partial class ColorCode : ContentView
         Colorpaletteborder.Content = MyGrid;
         this.Content = Colorpaletteborder;
         tabView.SelectionChanged += OnSelectionChanged;
+        this.PropertyChanged += ColorCode_PropertyChanged;
+    }
+
+    private void ColorCode_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(IsVisible))
+        {
+            if (IsVisible == false)
+            {
+                if (PreButton != null && selectedColorButtonHighlight != null)
+                {
+                    PreButton.HeightRequest = 30;
+                    PreButton.WidthRequest = 30;
+                    PreButton.CornerRadius = 15;
+                    selectedColorButtonHighlight.Stroke = Brush.Transparent;
+                    if (selectedColorButtonHighlight.Parent != null)
+                    {
+                        ColorFill.Children.Remove(selectedColorButtonHighlight);
+                    }
+                    selectedColorButtonHighlight = null;
+                }
+                if (PreButton != null && selectedColorButtonHighlightStroke != null)
+                {
+                    PreButton.HeightRequest = 30;
+                    PreButton.WidthRequest = 30;
+                    PreButton.CornerRadius = 15;
+                    selectedColorButtonHighlightStroke.Stroke = Brush.Transparent;
+                    if (selectedColorButtonHighlightStroke.Parent != null)
+                    {
+                        ColorStroke.Children.Remove(selectedColorButtonHighlightStroke);
+                    }
+                    selectedColorButtonHighlightStroke = null;
+                }
+            }
+        }
     }
 #if MACCATALYST
     Frame Colorpaletteborder = new Frame()
@@ -125,6 +160,7 @@ public partial class ColorCode : ContentView
             {
                 bindingContext.IsDeskTopColorToolbarVisible = false;
                 bindingContext.IsDeskTopFillColorToolbarVisible = true;
+                bindingContext.CloseFreeTextColorPallete();
                 bindingContext.ColorCommand.Execute(button.BackgroundColor);
             }
                 
@@ -169,6 +205,7 @@ public partial class ColorCode : ContentView
             {
                 bindingContext.IsDeskTopColorToolbarVisible = true;
                 bindingContext.IsDeskTopFillColorToolbarVisible = false;
+                bindingContext.CloseFreeTextColorPallete();
                 bindingContext.ColorCommand.Execute(button.BackgroundColor);
             }
         }
@@ -186,6 +223,7 @@ public partial class ColorCode : ContentView
         {
             bindingContext.IsDeskTopColorToolbarVisible = true;
             bindingContext.IsDeskTopFillColorToolbarVisible = false;
+            bindingContext.CloseFreeTextColorPallete();
             bindingContext.ThicknessCommand.Execute(thickness);
         }
             
@@ -198,6 +236,7 @@ public partial class ColorCode : ContentView
         {
             bindingContext.IsDeskTopColorToolbarVisible = true;
             bindingContext.IsDeskTopFillColorToolbarVisible = false;
+            bindingContext.CloseFreeTextColorPallete();
             bindingContext.OpacityCommand.Execute(opacity);
         }
     }
@@ -209,6 +248,7 @@ public partial class ColorCode : ContentView
         {
             bindingContext.IsDeskTopColorToolbarVisible = false;
             bindingContext.IsDeskTopFillColorToolbarVisible = true;
+            bindingContext.CloseFreeTextColorPallete();
             bindingContext.OpacityCommand.Execute(opacity);
         }
     }
@@ -225,12 +265,12 @@ public partial class ColorCode : ContentView
         }
         if (sender is Button button)
         {
-            button.BackgroundColor = Colors.Transparent;
             if (BindingContext is CustomToolbarViewModel bindingContext)
             {
                 bindingContext.IsDeskTopColorToolbarVisible = false;
                 bindingContext.IsDeskTopFillColorToolbarVisible = true;
-                bindingContext.ColorCommand.Execute(button.BackgroundColor);
+                bindingContext.CloseFreeTextColorPallete();
+                bindingContext.ColorCommand.Execute(Colors.Transparent);
             }
         }
     }

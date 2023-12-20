@@ -17,6 +17,10 @@ public partial class Annotations : SampleView
 {
     private string? previousDocument = string.Empty;
     AnnotationToolbarView? toolbar;
+    /// <summary>
+    /// Used to check whether undo executed or not when turning annotation mode as polyline or Polygon to None
+    /// </summary>
+    bool undoAlreadyExecuted = false;
 #if ANDROID || IOS
     private ViewCell? lastCell;
 #endif
@@ -30,9 +34,11 @@ public partial class Annotations : SampleView
     public Annotations()
     {
         InitializeComponent();
-        viewModel = new CustomToolbarViewModel(PdfViewer);
+        viewModel = new CustomToolbarViewModel(PdfViewer, "annotation");
         viewModel.LockButtonsVisible = true;
         viewModel.PropertyChanged += ViewModel_PropertyChanged;
+        PdfViewer.PropertyChanged += PdfViewer_PropertyChanged;
+        PdfViewer.AnnotationAdded += PdfViewer_AnnotationAdded;
         BindingContext = viewModel;
         AddItems();
 #if ANDROID || IOS
@@ -55,7 +61,24 @@ public partial class Annotations : SampleView
             basePath = "SampleBrowser.Maui.PdfViewer.Samples.Pdf.";
         Stream? documentStream = this.GetType().Assembly.GetManifestResourceStream(basePath + "Annotations1.pdf");
         PdfViewer.LoadDocumentAsync(documentStream, flattenOptions: FlattenOptions.Unsupported);
+        viewModel.FileData = new PdfFileData("Annotations1.pdf", documentStream);
     }
+
+    private void PdfViewer_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(AnnotationMode))
+        {
+            if ((PdfViewer.AnnotationMode != AnnotationMode.Polygon && PdfViewer.AnnotationMode != AnnotationMode.Polyline) && undoAlreadyExecuted)
+            {
+                viewModel.IsSaveLayoutVisible = true;
+            }
+            else if (PdfViewer.AnnotationMode == AnnotationMode.Polygon || PdfViewer.AnnotationMode == AnnotationMode.Polyline)
+            {
+                viewModel.IsSaveLayoutVisible = false;
+            }
+        }
+    }
+
     public void AddItems()
     {
         saveLayout.Children.Add(CreateView("\uE75f", "Save", 16));
@@ -127,6 +150,10 @@ public partial class Annotations : SampleView
                 view = shapeColorPalette;
             else if (viewModel.IsLineAndArrowColorPalleteVisible)
                 view = lineAndArrowColorPalette;
+            else if (viewModel.IsEraserThicknessToolbarVisible)
+                view = eraserThicknessBar;
+            else if (viewModel.IsFreeTextFillColorVisble)
+                view = freeTextAnnotationColorPalatte;
             if (view != null)
             {
                 SizeRequest sizeRequest = view.Measure(double.PositiveInfinity, double.PositiveInfinity);
@@ -155,12 +182,15 @@ public partial class Annotations : SampleView
     {
         toast.Opacity = 1;
         toastText.Text = text;
+        toast.InputTransparent = true;
         await toast.FadeTo(0, 2000, Easing.SinIn);
     }
 
     private void UndoCommand_CanExecuteChanged(object? sender, EventArgs e)
     {
-        viewModel.IsSaveLayoutVisible = true;
+        if (PdfViewer.AnnotationMode != AnnotationMode.Polygon && PdfViewer.AnnotationMode != AnnotationMode.Polyline)
+            viewModel.IsSaveLayoutVisible = true;
+        undoAlreadyExecuted = true;
     }
 
     void UpdateToolbarProperties()
@@ -175,6 +205,11 @@ public partial class Annotations : SampleView
     internal void CloseAllDialogs()
     {
         viewModel.CloseAllDialogs();
+    }
+
+    internal void HideOverlayToolbars()
+    {
+        viewModel.HideOverlayToolbars();
     }
 
     ///// <summary>
@@ -249,6 +284,10 @@ public partial class Annotations : SampleView
             bindingContext.IsTextMarkUpColorPalleteVisible = false;
             bindingContext.IsStampOpacitySliderbarVisible = false;
             bindingContext.IsStickyNoteColorPalleteVisible = false;
+            bindingContext.IsFreetextColorPalatteisible = false;
+            bindingContext.IsFreeTextFillColorVisble = false;
+            bindingContext.IsFreeTextSliderVisible = false;
+            bindingContext.IsFreeTextFontListVisible = false;
 #endif
             bindingContext.IsFileOperationListVisible = false;
         }
@@ -338,17 +377,43 @@ public partial class Annotations : SampleView
 #endif
     }
 
-   
-   
+    private void PdfViewer_AnnotationAdded(object? sender, AnnotationEventArgs e)
+    {
+        if (e.Annotation is FreeTextAnnotation)
+        {
+#if ANDROID || (IOS && !MACCATALYST)
+            PdfViewer.AnnotationMode = AnnotationMode.None;
+            viewModel.ClearButtonHighlights();
+            viewModel.BottomToolbarContent = new AnnotationToolbar(viewModel);
+            viewModel.IsFontSliderVisible = false;
+#endif
+        }
+    }
 
     private void PdfViewer_AnnotationSelected(object sender, AnnotationEventArgs e)
     {
         viewModel.SelectedAnnotation = e.Annotation;
-        
+        if (viewModel.SelectedAnnotation is FreeTextAnnotation)
+        {
+            viewModel.IsFreetextToolsVisible = true;
+            viewModel.IsAnnotationsToolsVisible = true;
+            viewModel.IsEditLayoutVisible = true;
+#if ANDROID || IOS
+            viewModel.BottomToolbarContent = new FreetextPropertyToolbar(viewModel);
+#endif
+        }
+
     }
 
     private void PdfViewer_AnnotationDeselected(object sender, AnnotationEventArgs e)
     {
+        if (viewModel.SelectedAnnotation is FreeTextAnnotation)
+        {
+#if ANDROID || IOS
+            viewModel.BottomToolbarContent = new AnnotationToolbar(viewModel);
+            viewModel.IsFontSliderVisible = false;
+#endif
+        }
         viewModel.SelectedAnnotation = null;
     }
 
@@ -378,11 +443,6 @@ public partial class Annotations : SampleView
         viewModel?.ExportAnnotations();
     }
 
-    private void FileListView_FileSelected(object sender, FileSelectedEventArgs e)
-    {
-        viewModel.DocumentData.FileName = e.FileName;
-    }
-
     private void OnCreateStampClicked(object sender, StampDialogEventArgs e)
     {
         if (e.IsVisible == true)
@@ -394,14 +454,24 @@ public partial class Annotations : SampleView
 
     private async void OnCustomStampCreated(object sender, CustomStampEventArgs e)
     {
-        Stream imageStream = await e.StampView!.GetStreamAsync(Syncfusion.Maui.Core.ImageFileFormat.Png);
-        StampImage image = new StampImage();
         Stream memoryStream = new MemoryStream();
+        StampImage image = new StampImage();
+#if NET7_0_OR_GREATER
+        IScreenshotResult? imageStream = await e.StampView!.CaptureAsync();
+        await imageStream!.CopyToAsync(memoryStream);
+        memoryStream.Position = 0;
+        image.ImageStream = memoryStream;
+        Stream streamFromScreenshot = await imageStream.OpenReadAsync();
+        image.Source = ImageSource.FromStream(() => streamFromScreenshot);
+#else
+        Stream imageStream = await e.StampView!.GetStreamAsync(Syncfusion.Maui.Core.ImageFileFormat.Png);
         await imageStream.CopyToAsync(memoryStream);
         memoryStream.Position = imageStream.Position = 0;
         image.ImageStream = memoryStream;
         image.Source = ImageSource.FromStream(() => imageStream);
-        image.HeightRequest = 40;
+#endif
+        image.HeightRequest = 50;
+        image.Aspect = Aspect.AspectFit;
         image.HorizontalOptions = LayoutOptions.Start;
         image.Margin = new Thickness(5);
         StampView?.CustomStampListLayout?.Children.Add(CreateView(image));
@@ -460,5 +530,20 @@ public partial class Annotations : SampleView
         textmarkupView.DisappearHighlight();
     }
 
+    private void FontSizeSliderBar_ValueChangeEnd(object sender, EventArgs e)
+    {
+        float thickness = (float)FontSizeSliderBar.Value;
+        if (BindingContext is CustomToolbarViewModel bindingContext)
+        {
+            bindingContext.FontSizeCommand.Execute(thickness);
+        }
+    }
 
+    private void PdfViewer_AnnotationPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(PdfViewer.AnnotationMode) && PdfViewer.AnnotationMode == AnnotationMode.None)
+        {
+            viewModel.ClearButtonHighlights();
+        }
+    }
 }

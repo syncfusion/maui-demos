@@ -31,7 +31,7 @@ public partial class App : MauiWinUIApplication
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
         base.OnLaunched(args);
-        if (IPlatformApplication.Current != null)
+        if(IPlatformApplication.Current != null) 
         {
             foreach (var item in IPlatformApplication.Current.Application.Windows)
             {

@@ -235,9 +235,9 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <param name="e">Event Arguments</param>
         private void DirectionComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
-            if (calendar != null && e.CurrentSelection != null)
+            if (calendar != null && e.AddedItems != null)
             {
-                string? selectionDirection = e.CurrentSelection[0].ToString();
+                string? selectionDirection = e.AddedItems[0].ToString();
                 if (selectionDirection != null)
                     calendar.RangeSelectionDirection = Enum.Parse<CalendarRangeSelectionDirection>(selectionDirection);
             }
@@ -297,9 +297,9 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <param name="e">Event Arguments</param>
         private void ComboBox_SelectionTypeChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
-            if (calendar != null && e.CurrentSelection != null)
+            if (calendar != null && e.AddedItems != null)
             {
-                string? selection = e.CurrentSelection[0].ToString();
+                string? selection = e.AddedItems[0].ToString();
                 if (selection != null)
                     calendar.SelectionMode = Enum.Parse<CalendarSelectionMode>(selection);
 
@@ -349,9 +349,9 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <param name="e">Event Arguments</param>
         private void ComboBox_SelectionShapeChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
-            if (calendar != null && e.CurrentSelection != null)
+            if (calendar != null && e.AddedItems != null)
             {
-                string? shape = e.CurrentSelection[0].ToString();
+                string? shape = e.AddedItems[0].ToString();
                 if (shape != null)
                     calendar.SelectionShape = Enum.Parse<CalendarSelectionShape>(shape);
             }
@@ -364,9 +364,9 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <param name="e">Event Arguments</param>
         private void ComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
-            if (calendar != null && e.CurrentSelection != null)
+            if (calendar != null && e.AddedItems != null)
             {
-                string? view = e.CurrentSelection[0].ToString();
+                string? view = e.AddedItems[0].ToString();
                 if (view != null)
                     calendar.View = Enum.Parse<CalendarView>(view);
 

@@ -221,13 +221,13 @@ public partial class StampViewDesktop : StampView
                 }
                 else if (label.Text == "Custom Stamps")
                 {
-					if (CustomStampListLayout != null && CustomStampListLayout!.Count != 0)
-					{
-						if (CustomStampMenu.IsVisible)
+                    if (CustomStampListLayout != null && CustomStampListLayout!.Count != 0)
+                    {
+                        if (CustomStampMenu.IsVisible)
                             HideCustomStamps();
                         else
                             ShowCustomStamps();
-					}
+                    }
                 }
                 else if (label.Text == "Create Stamps")
                 {
