@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:barcode="clr-namespace:Syncfusion.Maui.Barcode;assembly=Syncfusion.Maui.Barcode"
+                      x:Class="SampleBrowser.Maui.Barcode.SfBarcodeGenerator.BoardingPass"
+                      Background="White">
+
+    <localCore:SampleView.Content>
+
+        <ScrollView HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    BackgroundColor="SlateBlue">
+            <Grid HorizontalOptions="Center"
+                  VerticalOptions="Center">
+                <StackLayout HorizontalOptions="Center"
+                             Margin="20,10">
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="50"
+                                 HorizontalOptions="Center">
+
+                        <VerticalStackLayout HorizontalOptions="Start">
+                            <Label Text="New York"
+                                   HorizontalOptions="Start"
+                                   TextColor="White" />
+                            <Label Text="JFK"
+                                   HorizontalOptions="Start"
+                                   TextColor="White"
+                                   FontSize="40"
+                                   FontAttributes="Bold" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="Center"
+                                             HorizontalOptions="Center">
+                            <Label Text="&#xe700;"
+                                   FontFamily="{OnPlatform iOS=Barcode SB Icons, MacCatalyst=Barcode SB Icons, Android=Barcode SB Icons.ttf#, WinUI=Barcode SB Icons.ttf#Barcode SB Icons}"
+                                   TextColor="White"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   Grid.RowSpan="2"
+                                   FontSize="22"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" />
+                            <Label Text="7h 10m"
+                                   FontSize="12"
+                                   TextColor="White"
+                                   VerticalOptions="End"
+                                   HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout HorizontalOptions="End">
+                            <Label Text="Paris"
+                                   HorizontalOptions="Start"
+                                   TextColor="White" />
+                            <Label Text="CDG"
+                                   HorizontalOptions="End"
+                                   TextColor="White"
+                                   FontSize="40"
+                                   FontAttributes="Bold" />
+                        </VerticalStackLayout>
+
+                    </StackLayout>
+
+                    <Frame BackgroundColor="White"
+                           CornerRadius="30"
+                           Margin="0,20">
+                        <StackLayout>
+
+                            <Label Text="PASSANGER"
+                                   FontSize="13"
+                                   TextColor="Silver" />
+                            <Label Text="Angelina William"
+                                   FontSize="15"
+                                   TextColor="SlateBlue"
+                                   FontAttributes="Bold"
+                                   Margin="0,5,0,0" />
+
+                            <BoxView HeightRequest="0.5"
+                                     BackgroundColor="Silver"
+                                     Margin="0,15" />
+
+                            <HorizontalStackLayout Spacing="60">
+                                <VerticalStackLayout>
+                                    <Label Text="CLASS"
+                                           FontSize="13"
+                                           TextColor="Silver" />
+                                    <Label Text="BUSINESS"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="SlateBlue"
+                                           Margin="0,5,0,0" />
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout>
+                                    <Label Text="BOARDING TIME"
+                                           FontSize="13"
+                                           TextColor="Silver" />
+                                    <Label Text="23:50"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="SlateBlue"
+                                           Margin="0,5,0,0" />
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="70"
+                                                   Margin="0,30,0,0">
+                                <VerticalStackLayout>
+                                    <Label Text="TERMINAL"
+                                           FontSize="13"
+                                           TextColor="Silver" />
+                                    <Label Text="G6"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="SlateBlue"
+                                           Margin="0,5,0,0" />
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout>
+                                    <Label Text="GATE"
+                                           FontSize="13"
+                                           TextColor="Silver" />
+                                    <Label Text="12"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="SlateBlue"
+                                           Margin="0,5,0,0" />
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+
+                            <BoxView HeightRequest="0.5"
+                                     BackgroundColor="Silver"
+                                     Margin="0,15" />
+
+                            <Grid HeightRequest="100"
+                                  HorizontalOptions="Center"
+                                  Padding="8">
+                                <barcode:SfBarcodeGenerator Value="www.syncfusion.com"
+                                                            ShowText="False"
+                                                            WidthRequest="270"
+                                                            HorizontalOptions="Center"
+                                                            VerticalOptions="Center"
+                                                            BackgroundColor="White">
+                                    <barcode:SfBarcodeGenerator.Symbology>
+                                        <barcode:Code128 Module="1" />
+                                    </barcode:SfBarcodeGenerator.Symbology>
+                                </barcode:SfBarcodeGenerator>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.RealTimeUpdate"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    BackgroundColor="White">
+    <localCore:SampleView.BindingContext>
+        <local:StockViewModel x:Name="stockViewModel">
+        </local:StockViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <local:TextForegroundConverter x:Key="textForegroundConverter" />
+            <local:ImageConverter x:Key="imageConverter" />            
+        </ResourceDictionary>
+        <OnPlatform x:Key="minimumWidth"
+            x:TypeArguments="x:Double">
+            <On Platform="Android,WinUI,iOS">
+                <OnIdiom x:TypeArguments="x:Double"
+                 Phone="20"
+                 Tablet="70"/>
+            </On>
+        </OnPlatform>
+        <OnPlatform x:Key="width"
+            x:TypeArguments="x:Double">
+            <On Platform="Android,WinUI,iOS,MacCatalyst">
+                <OnIdiom x:TypeArguments="x:Double"
+                 Phone="80"
+                 Tablet="140"
+               Desktop="170" />
+            </On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-7,-7"/>
+        </OnPlatform>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
+                           ItemsSource="{Binding Stocks}"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill"
+                           HeaderRowHeight="58"
+                           RowHeight="52"
+                           SelectionMode="Single"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always">
+            
+            <sfgrid:SfDataGrid.DefaultStyle>
+                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium"/>
+            </sfgrid:SfDataGrid.DefaultStyle>
+            
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridTextColumn
+                    CellTextAlignment="Center"
+                    HeaderTextAlignment="Center"
+                    MappingName="Symbol"
+                    HeaderText="Symbol"/>
+
+                <sfgrid:DataGridTemplateColumn
+                    CellTextAlignment="Center"
+                    HeaderTextAlignment="Center"
+                    HeaderText="Stock"
+                    MappingName="StockChange"
+                    Width="{StaticResource width}">
+
+                    <sfgrid:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="Center" VerticalOptions="Center" ColumnSpacing="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                 <Image
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    WidthRequest="20"
+                                    HeightRequest="20"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="End"
+                                    Source="{Binding StockChange,
+                                    Converter={StaticResource imageConverter}}" />
+
+                                <Label
+                                    x:Name="changeValue"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding StockChange}"
+                                    TextColor="Black"
+                                    VerticalTextAlignment="Center"
+                                    VerticalOptions="Center" FontSize="14"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </sfgrid:DataGridTemplateColumn.CellTemplate>
+                </sfgrid:DataGridTemplateColumn>
+
+                <sfgrid:DataGridTextColumn
+                    CellTextAlignment="Center"
+                    HeaderTextAlignment="Center"
+                    HeaderText="Open"
+                    MappingName="Open">
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn
+                    CellTextAlignment="Center"
+                    HeaderTextAlignment="Center"
+                    HeaderText="Previous Close"
+                    MappingName="PreviousClose"
+                    MinimumWidth="{StaticResource minimumWidth}"/>
+
+
+                <sfgrid:DataGridTemplateColumn
+                    CellTextAlignment="Center"
+                    HeaderTextAlignment="Center"
+                    HeaderText="Last Trade"
+                    MappingName="LastTrade">
+                    <sfgrid:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label x:Name="lasttradeValue" FontSize="14"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Text="{Binding LastTrade}"
+                                   TextColor="{Binding LastTrade,
+                                                       Converter={StaticResource textForegroundConverter}}"
+                                   VerticalTextAlignment="Center">
+                                </Label>
+
+                        </DataTemplate>
+                    </sfgrid:DataGridTemplateColumn.CellTemplate>
+                </sfgrid:DataGridTemplateColumn>
+            </sfgrid:SfDataGrid.Columns>
+
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

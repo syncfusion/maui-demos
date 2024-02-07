@@ -1,0 +1,431 @@
+<Project>
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\GettingStarted\View\GettingStarted.xaml.cs">
+			<Link>Samples\PdfViewer\GettingStarted\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\GettingStarted\ViewModel\ViewModel.cs">
+			<Link>Samples\PdfViewer\GettingStarted\ViewModel\ViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\View\CustomToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\View\CustomToolbar.xaml.cs</Link>
+			<DependentUpon>CustomToolbar.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\MessageBox\MessageBox.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\MessageBox\MessageBox.xaml.cs</Link>
+			<DependentUpon>MessageBox.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\PasswordDialog\PasswordDialogBox.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\PasswordDialog\PasswordDialogBox.xaml.cs</Link>
+			<DependentUpon>PasswordDialogBox.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\HyperlinkDialog\HyperlinkDialog.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\HyperlinkDialog\HyperlinkDialog.xaml.cs</Link>
+			<DependentUpon>HyperlinkDialog.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewDesktop.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewDesktop.xaml.cs</Link>
+			<DependentUpon>SearchViewDesktop.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewMobile.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewMobile.xaml.cs</Link>
+			<DependentUpon>SearchViewMobile.xaml</DependentUpon>
+		</Compile>		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml.cs</Link>
+			<DependentUpon>SearchViewDesktop.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml.cs</Link>
+			<DependentUpon>SearchViewMobile.xaml</DependentUpon>
+		</Compile>		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Model\PdfData.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Model\PdfData.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\ViewModel\CustomToolbarViewModel.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\ViewModel\CustomToolbarViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Entry\CustomEntry.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Entry\CustomEntry.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchView.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchView.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarView.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarView.cs</Link>
+		</Compile>		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\View\PasswordProtected.xaml.cs">
+			<Link>Samples\PdfViewer\PasswordProtected\View\PasswordProtected.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\View\PasswordView.xaml.cs">
+		  <Link>Samples\PdfViewer\PasswordProtected\View\PasswordView.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\View\PdfView.xaml.cs">
+		  <Link>Samples\PdfViewer\PasswordProtected\View\PdfView.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\ViewModel\PasswordProtectedViewModel.cs">
+			<Link>Samples\PdfViewer\PasswordProtected\ViewModel\PasswordProtectedViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\RightToLeft\View\RightToLeft.xaml.cs">
+			<Link>Samples\PdfViewer\RightToLeft\View\RightToLeft.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\RightToLeft\ViewModel\RightToLeftViewModel.cs">
+			<Link>Samples\PdfViewer\RightToLeft\ViewModel\RightToLeftViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarDesktop.xaml.cs">
+			<Link>Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarDesktop.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarMobile.xaml.cs">
+			<Link>Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarMobile.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarView.cs">
+			<Link>Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarView.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Annotations\View\Annotations.xaml.cs">
+			<Link>Samples\PdfViewer\Annotations\View\Annotations.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\Model\StampsData.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\Model\StampsData.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampContextMenu.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampContextMenu.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampDialog.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampDialog.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampView.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampView.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampViewDesktop.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampViewDesktop.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\AnnotationToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\AnnotationToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\BottomToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\BottomToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ColorToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ColorToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\EraserToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\EraserToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\InkToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\InkToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesPropertyToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesPropertyToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampDialogMobile.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampDialogMobile.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampPropertyToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampPropertyToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampViewMobile.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampViewMobile.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StickyNotePropertyToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StickyNotePropertyToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StickyNoteToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StickyNoteToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkUpPropertyToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkUpPropertyToolbar.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkupToolbar - Copy.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkupToolbar - Copy.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\AnnotationModeToBoolConvertor.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\AnnotationModeToBoolConvertor.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ColorCode.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ColorCode.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\EraserThickness.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\EraserThickness.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FileOperationListView.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FileOperationListView.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\InkColorCode.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\InkColorCode.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\PropertyToolbar.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\PropertyToolbar.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ShapeListView.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ShapeListView.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StampOpacity.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StampOpacity.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteColorCode.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteColorCode.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\LineAndArrowColorCode.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\LineAndArrowColorCode.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteListView.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteListView.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkupColorCode.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkupColorCode.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextmarkupDetails.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextmarkupDetails.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextmarkupView.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextmarkupView.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\View\FileSelectedEventArgs.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\View\FileSelectedEventArgs.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\View\FileListView.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\View\FileListView.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Converters\AnnotationModeConverter.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Converters\AnnotationModeConverter.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\FormFilling\FormFilling.xaml.cs">
+		  <Link>Samples\PdfViewer\FormFilling\FormFilling.xaml.cs</Link>
+		  <DependentUpon>FormFilling.xaml</DependentUpon>
+		</Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\InvisibleSignature\View\InvisibleSignature.xaml.cs">
+      <Link>Samples\PdfViewer\InvisibleSignature\View\InvisibleSignature.xaml.cs</Link>
+      <DependentUpon>InvisibleSignature.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Read-Only\View\ReadOnly.xaml.cs">
+      <Link>Samples\PdfViewer\Read-Only\View\ReadOnly.xaml.cs</Link>
+      <DependentUpon>ReadOnly.xaml</DependentUpon>
+    </Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\FormFilling\FormFillingViewModel.cs">
+		  <Link>Samples\PdfViewer\FormFilling\FormFillingViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\FormFilling\PdfFileData.cs">
+		  <Link>Samples\PdfViewer\FormFilling\PdfFileData.cs</Link>
+		</Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\InvisibleSignature\ViewModel\InvisibleSignatureViewModel.cs">
+      <Link>Samples\PdfViewer\InvisibleSignature\ViewModel\InvisibleSignatureViewModel.cs</Link>
+    </Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\FormFilling\FileService.cs">
+		  <Link>Samples\PdfViewer\FormFilling\FileService.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FreeTextFillColorPalatte.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FreeTextFillColorPalatte.xaml.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\FreetextPropertyToolbar.xaml.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\FreetextPropertyToolbar.xaml.cs</Link>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\PdfViewerSamplesList.xml" >
+			<Link>PdfViewerSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\corrupted_document.pdf">
+			<Link>Resources\Pdf\corrupted_document.pdf</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\password_protected_document.pdf">
+			<Link>Resources\Pdf\password_protected_document.pdf</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\rotated_document.pdf">
+			<Link>Resources\Pdf\rotated_document.pdf</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\PDF_Succinctly.pdf">
+			<Link>Resources\Pdf\PDF_Succinctly.pdf</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\PDF_Succinctly1.pdf">
+			<Link>Resources\Pdf\PDF_Succinctly1.pdf</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\rtl_document.pdf">
+			<Link>Resources\Pdf\rtl_document.pdf</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\RightToLeft\Localization\SfPdfViewer.ar-AE.resx">
+			<Link>Resources\SfPdfViewer.ar-AE.resx</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\Annotations.pdf">
+			<Link>Resources\Pdf\Annotations.pdf</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\Annotations1.pdf">
+			<Link>Resources\Pdf\Annotations1.pdf</Link>
+		</EmbeddedResource>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\XFDF\Annotations.xfdf">
+			<Link>Resources\Pdf\Annotations.xfdf</Link>
+		</EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\form_document.pdf">
+      <Link>Resources\Pdf\form_document.pdf</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\InvisibleDigitalSignature.pdf">
+      <Link>Resources\Pdf\InvisibleDigitalSignature.pdf</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\restrictedDocument.pdf">
+      <Link>Resources\Pdf\restrictedDocument.pdf</Link>
+    </EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\PdfViewer\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>	
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\View\CustomToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\View\CustomToolbar.xaml</Link>
+		</MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\InvisibleSignature\View\InvisibleSignature.xaml">
+      <Link>Samples\PdfViewer\InvisibleSignature\View\InvisibleSignature.xaml</Link>
+    </MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Read-Only\View\ReadOnly.xaml">
+      <Link>Samples\PdfViewer\Read-Only\View\ReadOnly.xaml</Link>
+    </MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\PasswordDialog\PasswordDialogBox.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\PasswordDialog\PasswordDialogBox.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\MessageBox\MessageBox.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\MessageBox\MessageBox.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\HyperlinkDialog\HyperlinkDialog.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\HyperlinkDialog\HyperlinkDialog.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewDesktop.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewDesktop.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewMobile.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\TextSearch\SearchViewMobile.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarMobile.xaml</Link>
+		</MauiXaml>		
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\View\PasswordProtected.xaml">
+			<Link>Samples\PdfViewer\PasswordProtected\View\PasswordProtected.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\View\PasswordView.xaml">
+		  <Link>Samples\PdfViewer\PasswordProtected\View\PasswordView.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\PasswordProtected\View\PdfView.xaml">
+		  <Link>Samples\PdfViewer\PasswordProtected\View\PdfView.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\RightToLeft\View\RightToLeft.xaml">
+			<Link>Samples\PdfViewer\RightToLeft\View\RightToLeft.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarDesktop.xaml">
+			<Link>Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarDesktop.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarMobile.xaml">
+			<Link>Samples\PdfViewer\Annotations\Controls\Toolbar\ToolbarMobile.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Annotations\View\Annotations.xaml">
+			<Link>Samples\PdfViewer\Annotations\View\Annotations.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampDialog.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampDialog.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampViewDesktop.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\StampAnnotation\View\StampViewDesktop.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\AnnotationToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\AnnotationToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\BottomToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\BottomToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ColorToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ColorToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\EraserToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\EraserToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\InkToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\InkToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesPropertyToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesPropertyToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ShapesToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampDialogMobile.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampDialogMobile.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampPropertyToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampPropertyToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampViewMobile.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StampViewMobile.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StickyNotePropertyToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StickyNotePropertyToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StickyNoteToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\StickyNoteToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkUpPropertyToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkUpPropertyToolbar.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkupToolbar - Copy.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkupToolbar - Copy.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ColorCode.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ColorCode.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\EraserThickness.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\EraserThickness.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FileOperationListView.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FileOperationListView.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\InkColorCode.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\InkColorCode.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ShapeListView.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ShapeListView.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StampOpacity.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StampOpacity.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteColorCode.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteColorCode.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\LineAndArrowColorCode.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\LineAndArrowColorCode.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteListView.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\StickyNoteListView.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkupColorCode.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkupColorCode.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextmarkupView.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextmarkupView.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\View\FileListView.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\View\FileListView.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FreeTextFillColorPalatte.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FreeTextFillColorPalatte.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\FreetextPropertyToolbar.xaml">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\FreetextPropertyToolbar.xaml</Link>
+		</MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\FormFilling\FormFilling.xaml">
+      <Link>Samples\PdfViewer\FormFilling\FormFilling.xaml</Link>
+    </MauiXaml>
+	</ItemGroup>
+
+
+</Project>

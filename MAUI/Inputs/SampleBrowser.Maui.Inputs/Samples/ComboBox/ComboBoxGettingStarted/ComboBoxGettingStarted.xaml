@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.Inputs.SfComboBox.ComboBoxGettingStarted"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      BackgroundColor="White">
+
+    <localCore:SampleView.Content>
+        <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="50" Padding="0,50,0,0" ColumnDefinitions="350" HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label x:Name="titlelabel" 
+                       Text="Scale and layout" 
+                       Grid.Row="0" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+                <VerticalStackLayout Grid.Row="1" Spacing="30">
+                    <editors:SfComboBox Placeholder="Change the size of text" 
+                                        SelectedIndex="0"
+                                                PlaceholderColor="#adb2bb" 
+                                                FontSize="16" 
+                                                MaxDropDownHeight="150"
+                                                ItemsSource="{Binding SizeList}">
+                    </editors:SfComboBox>
+
+                    <editors:SfComboBox Placeholder="Resolution" 
+                                        SelectedIndex="0"
+                                                PlaceholderColor="#adb2bb" 
+                                                FontSize="16"
+                                                MaxDropDownHeight="150"
+                                                ItemsSource="{Binding ResolutionList}">
+
+                    </editors:SfComboBox>
+
+                    <editors:SfComboBox Placeholder="Orientation"
+                                        SelectedIndex="0"
+                                            PlaceholderColor="#adb2bb"
+                                            FontSize="16"
+                                            ItemsSource="{Binding OrientationList}">
+                    </editors:SfComboBox>
+
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
