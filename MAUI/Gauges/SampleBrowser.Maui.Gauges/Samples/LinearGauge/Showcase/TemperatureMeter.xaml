@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.TemperatureMeter"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+                      Background="White"
+                      Margin="0,40,0,40">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid x:Name="temperatureLayout"
+              HorizontalOptions="Center"
+              VerticalOptions="Center">
+            <gauge:SfLinearGauge x:Name="temperatureMeterGauge"
+                                 WidthRequest="{OnPlatform Android=320}"
+                                 Minimum="0"
+                                 Maximum="80"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 EnableAxisAnimation="True"
+                                 LabelCreated="SfLinearGauge_LabelCreated_1"
+                                 Interval="20"
+                                 MinorTicksPerInterval="0">
+                <gauge:SfLinearGauge.LineStyle>
+                    <gauge:LinearLineStyle Thickness="1" />
+                </gauge:SfLinearGauge.LineStyle>
+                <gauge:SfLinearGauge.BarPointers>
+                    <gauge:BarPointer Value="80"
+                                      EnableAnimation="True"
+                                      AnimationEasing="{x:Static Easing.CubicOut}"
+                                      Position="Outside"
+                                      PointerSize="24">
+                        <gauge:BarPointer.GradientStops>
+                            <gauge:GaugeGradientStop Value="0"
+                                                     Color="Green" />
+                            <gauge:GaugeGradientStop Value="30"
+                                                     Color="Orange" />
+                            <gauge:GaugeGradientStop Value="60"
+                                                     Color="Red" />
+                        </gauge:BarPointer.GradientStops>
+                    </gauge:BarPointer>
+                </gauge:SfLinearGauge.BarPointers>
+                <gauge:SfLinearGauge.MarkerPointers>
+                    <gauge:LinearShapePointer Value="60"
+                                              EnableAnimation="True"
+                                              AnimationEasing="{x:Static Easing.CubicOut}"
+                                              OffsetY="-24"
+                                              Fill="Red" />
+                    <gauge:LinearContentPointer Value="60"
+                                                EnableAnimation="True"
+                                                AnimationEasing="{x:Static Easing.CubicOut}"
+                                                OffsetY="-40">
+                        <gauge:LinearContentPointer.Content>
+                            <Label Text="60°C"
+                                   TextColor="Red" />
+                        </gauge:LinearContentPointer.Content>
+                    </gauge:LinearContentPointer>
+                </gauge:SfLinearGauge.MarkerPointers>
+            </gauge:SfLinearGauge>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalSlider.VerticalSliderSizeCustomizationSample">
+
+    <sb:SampleView.Resources>
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="300,Auto"
+                  ColumnDefinitions="*,*"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+
+                <sliders:SfSlider Grid.Row="0"
+                                  Grid.Column="0"
+                                  Minimum="-20"
+                                  Maximum="20"
+                                  Value="0"
+                                  Interval="10"
+                                  StepSize="10">
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveSize="10"
+                                                  InactiveSize="4" />
+                    </sliders:SfSlider.TrackStyle>
+                </sliders:SfSlider>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Track" />
+                
+                <sliders:SfDateTimeSlider Grid.Row="0"
+                                          Grid.Column="1"
+                                          Minimum="2000-01-01"
+                                          Maximum="2020-01-01"
+                                          Value="2010-01-01"
+                                          StepDuration="5"
+                                          IntervalType="Years"
+                                          Interval="5"
+                                          ShowDividers="True">
+
+                    <sliders:SfDateTimeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="#FF6E40"
+                                                  InactiveFill="#3DFF6E40" />
+                    </sliders:SfDateTimeSlider.TrackStyle>
+
+                    <sliders:SfDateTimeSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="#FFFF6E40" />
+                    </sliders:SfDateTimeSlider.ThumbStyle>
+
+                    <sliders:SfDateTimeSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="#1FFF6E40" />
+                    </sliders:SfDateTimeSlider.ThumbOverlayStyle>
+
+                    <sliders:SfDateTimeSlider.DividerStyle>
+                        <sliders:SliderDividerStyle ActiveRadius="6"
+                                                    InactiveRadius="3"
+                                                    ActiveFill="#FF6E40"
+                                                    InactiveFill="#66FF6E40" />
+                    </sliders:SfDateTimeSlider.DividerStyle>
+                </sliders:SfDateTimeSlider>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Divider" />
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

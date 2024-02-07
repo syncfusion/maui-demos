@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.ListView.SfListView.SortingFiltering"
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             BackgroundColor="White">
+    <localCore:SampleView.Behaviors>
+        <local:SfListViewSortingFilteringBehavior/>
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <local:ListViewBoolToSortImageConverter  x:Key="BoolToSortIconConverter"/>
+            <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.BindingContext>
+        <local:SortingFilteringViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+
+        <Grid Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Inventory Management" TextColor="#E3000000" FontFamily="Roboto-Medium" CharacterSpacing="0.25" FontSize="16" Margin="8,10,0,0" />
+
+            <Grid  x:Name="headerGrid" Grid.Row="1" Margin="8,16,8,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <SearchBar x:Name="filterText"                                
+                               Grid.Column="0"                              
+                               FontSize="16"
+                               IsVisible="true"                           
+                               TextColor="Gray"
+                               Placeholder="Filter Inventory" VerticalTextAlignment="Center" Margin="0,0,8,0">
+                </SearchBar>
+
+                <Grid Grid.Column="1" x:Name="sortImageParent">
+                    <Label HeightRequest="40" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="{OnPlatform MacCatalyst=30, Android=30, iOS=30, WinUI=Large}"
+                           TextColor="Gray"
+                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, WinUI=ListViewFontIcons.ttf#ListViewFontIcons}"
+                           Text="{Binding Path=SortingOptions, Converter={StaticResource BoolToSortIconConverter}}"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2" Margin="8,0,8,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label HorizontalOptions="Start" FontFamily="Roboto-Medium" TextColor="#666666"  Grid.Column="0" Text="Stocks" FontSize="14" CharacterSpacing="0.15"/>
+                <Label HorizontalOptions="End" FontFamily="Roboto-Medium" TextColor="#666666" Grid.Column="1" Text="Quantity" FontSize="14" CharacterSpacing="0.15"/>
+            </Grid>
+
+            <ListView:SfListView x:Name="listView" 
+                       Grid.Row="3"
+                       SelectionMode="None"
+                       ScrollBarVisibility="Always"                  
+                       ItemsSource="{Binding Items}"                      
+                       ItemSize="56">
+                <ListView:SfListView.ItemTemplate>
+                    <DataTemplate x:Name="ItemTemplate">
+                        <Grid Margin="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Frame HorizontalOptions="Start" IsClippedToBounds="True" CornerRadius="2" HasShadow="False"  Grid.Column="0" HeightRequest="40" WidthRequest="40" Padding="0"> 
+                            <Image Grid.Column="0"  Source="{Binding ProductImage,Converter={StaticResource imageconverter}}" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start"/>
+                            </Frame>
+                            <Label Grid.Column="1" Text="{Binding ProductName}" VerticalOptions="Center" FontSize="{OnPlatform Default=16,WinUI=14}" FontFamily="Roboto-Regular" TextColor="#DE000000" CharacterSpacing="0.15"/>
+                            <Label Grid.Column="2" Text="{Binding Quantity}" VerticalOptions="Center" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontSize="{OnPlatform Default=16,WinUI=14}" FontFamily="Roboto-Regular" TextColor="#DE000000" WidthRequest="30"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.ItemTemplate>
+            </ListView:SfListView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

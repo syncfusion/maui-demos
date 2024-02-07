@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:StampView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+                 xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                 xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+                 x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.StampViewMobile">
+
+    <local:StampView.BindingContext>
+        <local:StampsData/>
+    </local:StampView.BindingContext>
+    <local:StampView.Content>
+
+        <Border IsVisible="{OnPlatform Default=false,Android=true,iOS=true}"
+                BackgroundColor="#F3EDF7" HeightRequest="380"
+                Stroke="#33000000" VerticalOptions="End">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12,12,0,0" />
+            </Border.StrokeShape>
+            <tabView:SfTabView BackgroundColor="#F3EDF7" >
+                <tabView:SfTabItem Header="Standard Stamps" >
+                    <syncfusion:SfListView ItemSize="40"
+                          ItemsSource="{Binding StandardStampItems}"
+                          x:Name="StandardStampMenuItems"
+                          ItemTapped="ListView_Tapped"
+                          SelectionMode="None">
+                        <syncfusion:SfListView.ItemsLayout>
+                            <syncfusion:GridLayout SpanCount="2" />
+                        </syncfusion:SfListView.ItemsLayout>
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell >
+                                    <StackLayout HorizontalOptions="Start" Padding="19,4,19,0" Spacing="0">
+                                        <Border Stroke="{Binding BorderColor}" HeightRequest="{Binding BorderHeight}" WidthRequest="{Binding BorderWidth}"
+                                            Background="{Binding BorderBackground}" StrokeThickness="2" 
+                                            StrokeShape="{OnPlatform Android=RoundRectangle 0, iOS=RoundRectangle 0}">
+                                            <Label Text="{Binding LabelText}"  CharacterSpacing="0.1" 
+                                               TextColor="{Binding LabelTextColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
+                                        </Border>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                    </syncfusion:SfListView>
+                </tabView:SfTabItem>
+                <tabView:SfTabItem Header="Custom Stamps" >
+                    <Grid>
+                        <ScrollView Orientation="Vertical">
+                            <VerticalStackLayout HorizontalOptions="Start" Padding="40,10,0,0" Spacing="8" x:Name="CustomStampsList" >
+
+                            </VerticalStackLayout>
+                        </ScrollView>
+                        <Button Text="&#xe70d;" Margin="0,250,10,10" FontFamily="Maui Material Assets" HeightRequest="56"
+                            WidthRequest="56" BackgroundColor="#6750A4" TextColor="#FFFFFF"
+                            FontSize="24" HorizontalOptions="End" CornerRadius="{OnPlatform Default=100, iOS=28}" 
+                            x:Name="createStampMobile" Clicked="CreateStampMobile_Clicked"/>
+                    </Grid>
+                </tabView:SfTabItem>
+
+            </tabView:SfTabView>
+        </Border>
+    </local:StampView.Content>
+
+</local:StampView>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:PropertyToolbar xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.EraserToolbar"
+             Padding="0">
+    <local:PropertyToolbar.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="Maui Material Assets" />
+            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </local:PropertyToolbar.Resources>
+    <Grid Margin="15,4,15,4">
+        <HorizontalStackLayout HorizontalOptions="Start" Spacing="10">
+            <Button Text="&#xe72d;"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Back"
+                    Style="{StaticResource buttonIconStyle}" />
+            <BoxView BackgroundColor="Gray"
+                     WidthRequest="1"
+                     HeightRequest="24"
+                     VerticalOptions="Center"/>
+            <Button Text="{Binding SelectedAnnotationIcon}"
+                    FontFamily="Maui Material Assets"
+                    BackgroundColor="Transparent"
+                    FontSize="18"
+                    TextColor="#FF6750A4" />
+        </HorizontalStackLayout>
+        <Grid HorizontalOptions="End">
+            <Button Text="&#xe74e;"
+                        Command="{Binding ToolbarCommand}"
+                        CommandParameter="Thickness"
+                        Style="{StaticResource buttonIconStyle}" />
+        </Grid>
+    </Grid>
+</local:PropertyToolbar>
