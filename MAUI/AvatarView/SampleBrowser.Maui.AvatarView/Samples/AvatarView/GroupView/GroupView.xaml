@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:avatar="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      x:Class="SampleBrowser.Maui.AvatarView.SfAvatarView.GroupView"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      BackgroundColor="White">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid Margin="10">
+                <ListView ItemsSource="{Binding GroupCollection}" RowHeight="60"
+                       SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <avatar:SfAvatarView GroupSource="{Binding PeopleCollection}"
+                                                     Margin="5"
+                                                     VerticalOptions="Center"
+                                                     HorizontalOptions="Center"
+                                                     ContentType="Group"
+                                                     AvatarShape="{Binding AvatarShape}"
+                                                     AvatarSize="Small"
+                                                     StrokeThickness="1"
+                                                     ImageSourceMemberPath="Image"
+                                                     BackgroundColorMemberPath="Backgroundcolor"
+                                                     InitialsMemberPath="Name"/>
+                                    <Grid Grid.Column="1" VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding GroupName}"
+                                           VerticalOptions="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="14"
+                                           TextColor="Black"/>
+                                        <Label Grid.Row="1" 
+                                           Text="{Binding TotalParticipants}"
+                                           VerticalOptions="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="11"
+                                           TextColor="Gray"/>
+                                    </Grid>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

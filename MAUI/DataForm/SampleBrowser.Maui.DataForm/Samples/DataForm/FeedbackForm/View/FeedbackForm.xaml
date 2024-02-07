@@ -1,0 +1,82 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.DataForm.SfDataForm.FeedbackForm"
+             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
+             Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
+             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Margin>
+        <OnPlatform x:TypeArguments="thickness:Thickness">
+            <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
+            <On Platform="UWP" Value="-4,-4,-6,-6"/>
+        </OnPlatform>
+    </localCore:SampleView.Margin>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Image Source="{converters:SfImageResource feedbackform.png}" Aspect="Fill" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
+
+            <Frame HasShadow="False" BackgroundColor="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
+                    CornerRadius="10"
+                    MaximumHeightRequest="{OnPlatform WinUI=500, MacCatalyst= 550}"
+                    VerticalOptions="{OnPlatform Default=Fill, WinUI=Center, MacCatalyst=Center}"
+                    HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}" 
+                   WidthRequest="{OnPlatform MacCatalyst=560, WinUI=450, Default=-1}">
+                <Frame.Padding>
+                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                        <On Platform="MacCatalyst" Value="10"/>
+                        <On Platform="WinUI" Value="10"/>
+                    </OnPlatform>
+                </Frame.Padding>
+                <Frame.Margin>
+                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                        <On Platform="WinUI" Value="0, 20"/>
+                        <On Platform="MacCatalyst" Value="0, 5"/>
+                    </OnPlatform>
+                </Frame.Margin>
+            <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{OnPlatform Default=0, WinUI=40, MacCatalyst=40}"/>
+                        <RowDefinition Height="{OnPlatform Default=0.9*, WinUI=0.8*, MacCatalyst=0.8*}"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="{OnPlatform Default=0.1*, WinUI=70, MacCatalyst=70}"/>
+                    </Grid.RowDefinitions>
+            <Grid.BindingContext>
+            <local:DataFormViewModel/>
+            </Grid.BindingContext>
+                    <Label Text="Training feedback" FontSize="Subtitle" 
+                           IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"
+                           FontAttributes="Bold" VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"/>
+                    <dataForm:SfDataForm x:Name="feedbackForm"
+                                Grid.RowSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}"
+                                Grid.Row="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}"
+                                DataObject="{Binding FeedbackFormModel}"
+                                ValidationMode="PropertyChanged"
+                                LayoutType="TextInputLayout"
+                                HorizontalOptions="{OnPlatform MacCatalyst=Center, WinUI=Center, Default=Fill}">
+                            <dataForm:SfDataForm.TextInputLayoutSettings>
+                                <dataForm:TextInputLayoutSettings ShowHelperText="True"
+                                                              FocusedStroke="{StaticResource Primary}"/>
+                            </dataForm:SfDataForm.TextInputLayoutSettings>
+                        </dataForm:SfDataForm>
+                    <Line Grid.Row="2" Background="#F5F5F5" />
+            <Button x:Name="Send"
+                    Text="Send"
+                    Background="{StaticResource PrimaryBrush}"
+                    Grid.Row="3" CornerRadius="5"
+                    HorizontalOptions="Fill"
+                    FontSize="16"
+                    Margin="20, 0, 20, 0"
+                    HeightRequest="40"/>
+        </Grid>
+    </Frame>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.Behaviors>
+        <local:FeedbackFormBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Maps.SfMaps.Polygon"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:maps="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Maps"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      Background="White">
+    
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Image Grid.RowSpan="2"
+                   Source="{imageExtension:SfImageResource maps_grid.png}" 
+                   Aspect="Fill"/>
+
+            <maps:SfMaps Grid.RowSpan="2">
+                <maps:SfMaps.Layer>
+                    <maps:MapTileLayer x:Name="layer" 
+                                       UrlTemplate="https://tile.openstreetmap.org/{z}/{x}/{y}.png" 
+                                       CanCacheTiles="True">
+                        
+                        <maps:MapTileLayer.Center>
+                            <maps:MapLatLng>
+                                <x:Arguments>
+                                    <x:Double>-14.2350</x:Double>
+                                    <x:Double>-51.9253</x:Double>
+                                </x:Arguments>
+                            </maps:MapLatLng>
+                        </maps:MapTileLayer.Center>
+                        
+                        <maps:MapTileLayer.ZoomPanBehavior>
+                            <maps:MapZoomPanBehavior x:Name="zoomPanBehavior" 
+                                                     ZoomLevel="3" 
+                                                     MinZoomLevel="2" 
+                                                     MaxZoomLevel="10"
+                                                     EnableDoubleTapZooming="True"/>
+                        </maps:MapTileLayer.ZoomPanBehavior>
+                        
+                        <maps:MapTileLayer.Sublayers>
+                            <maps:MapPolygonLayer>
+                                <maps:MapPolygonLayer.Polygons>
+                                    <maps:MapPolygon x:Name="polygon" 
+                                                     Stroke="Red" 
+                                                     StrokeThickness="2"/>
+                                </maps:MapPolygonLayer.Polygons>
+                            </maps:MapPolygonLayer>
+                        </maps:MapTileLayer.Sublayers>
+                    </maps:MapTileLayer>
+                </maps:SfMaps.Layer>
+            </maps:SfMaps>
+
+            <HorizontalStackLayout Grid.Row="1"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="End"
+                                   Background="White">
+                <Label Text="©"
+                       Padding="2"
+                       FontSize="16" />
+                <Label Padding="2" 
+                       Text="OpenStreetMap contributors"
+                       TextColor="Blue">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Uri_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
