@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.TabView.SfTabView.TabViewGettingStarted"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TabView"
+             xmlns:tabView="http://schemas.syncfusion.com/maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="White">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="tabView:SfTabItem">
+                    <Setter Property="VisualStateManager.VisualStateGroups">
+                        <VisualStateGroupList>
+                            <VisualStateGroup>
+                                <VisualState x:Name="Normal" >
+                                    <VisualState.Setters>
+                                        <Setter Property="TextColor" Value="#32373B" />
+                                        <Setter Property="FontFamily" Value="Roboto-Regular" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="TextColor" Value="Black" />
+                                        <Setter Property="FontFamily" Value="Roboto-Medium" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+
+            <tabView:SfTabView x:Name="tabView" 
+                               TabBarHeight="75"
+                               TabBarBackground="#E6EFF4"
+                               TabWidthMode="Default"
+                               TabBarPlacement="Bottom"
+                               BackgroundColor="#FBFCFE"
+                               IndicatorBackground="#5C6165"
+                               IndicatorPlacement="Top" >
+                <tabView:SfTabView.Items>
+                    <tabView:SfTabItem Header="Favorites" ImagePosition="Top" ImageSource="{imageExtension:SfImageResource favorites.png}">
+                        <tabView:SfTabItem.Content>
+                            <FlexLayout Wrap="Wrap" Padding="0" AlignItems="Start" AlignContent="Start"  BindableLayout.ItemsSource="{Binding TabModelSource}" >
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame HasShadow="False" Margin="10" Padding="0" CornerRadius="10" Background="Transparent">
+                                            <VerticalStackLayout Padding="10" VerticalOptions="Center" Spacing="10">
+                                                <Frame HasShadow="False" 
+                                                       BorderColor="#E5E5E5"
+                                                       CornerRadius="35"
+                                                       HeightRequest="70"
+                                                       WidthRequest="70"
+                                                       VerticalOptions="Center" 
+                                                       HorizontalOptions="Center"
+                                                       IsClippedToBounds="True"
+                                                       BackgroundColor="{Binding ImageBackground}" 
+                                                       Padding="0" >
+                                                    <Image Source="{Binding ImageSource}" WidthRequest="70" HeightRequest="70"/>
+                                                </Frame>
+                                                <Label FontSize="Medium" 
+                                                       FontFamily="Roboto-Regular" 
+                                                       Text="{Binding Name}" 
+                                                       TextColor="Black" 
+                                                       VerticalOptions="End" 
+                                                       HorizontalOptions="Center" />
+                                            </VerticalStackLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </FlexLayout>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem >
+                    <tabView:SfTabItem Header="Recents" ImagePosition="Top" ImageSource="{imageExtension:SfImageResource recents.png}">
+                        <tabView:SfTabItem.Content>
+                            <Grid>
+                                <Grid Grid.Row="1" VerticalOptions="End"  HeightRequest="20">
+                                </Grid>
+                                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                    <VerticalStackLayout>
+                                        <BindableLayout.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>James</x:String>
+                                                <x:String>Richard</x:String>
+                                                <x:String>Michael</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>Clara</x:String>
+                                                <x:String>Steve</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Richard</x:String>
+                                                <x:String>Michael</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>Clara</x:String>
+                                                <x:String>Steve</x:String>
+                                                <x:String>James</x:String>
+                                                <x:String>Alex</x:String>
+                                                <x:String>James</x:String>
+                                            </x:Array>
+                                        </BindableLayout.ItemsSource>
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid ColumnDefinitions="48,*,48" Margin="10,5">
+                                                    <Image Grid.Column="0" 
+                                                           WidthRequest="35" 
+                                                           HeightRequest="35"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="{imageExtension:SfImageResource incoming.png}"/>
+                                                    <Label Grid.Column="1" 
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Start" 
+                                                           TextColor="#666666"
+                                                           FontSize="16" 
+                                                           Text="{Binding}"/>
+                                                    <Image Grid.Column="2" 
+                                                           WidthRequest="40" 
+                                                           HeightRequest="40"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="{imageExtension:SfImageResource sim.png}"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </VerticalStackLayout>
+                                </ScrollView>
+                            </Grid>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Contacts" ImagePosition="Top" ImageSource="{imageExtension:SfImageResource usercontact.png}">
+                        <tabView:SfTabItem.Content>
+                            <Grid>
+                                <Grid Grid.Row="1" VerticalOptions="End"  HeightRequest="20">
+                                </Grid>
+                                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                    <VerticalStackLayout>
+                                        <BindableLayout.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>James</x:String>
+                                            <x:String>Richard</x:String>
+                                            <x:String>Michael</x:String>
+                                            <x:String>Alex</x:String>
+                                            <x:String>Clara</x:String>
+                                            <x:String>Steve</x:String>
+                                            <x:String>David</x:String>
+                                            <x:String>Stephen</x:String>
+                                            <x:String>James</x:String>
+                                            <x:String>James</x:String>
+                                            <x:String>Richard</x:String>
+                                            <x:String>Michael</x:String>
+                                            <x:String>Alex</x:String>
+                                            <x:String>Clara</x:String>
+                                            <x:String>Steve</x:String>
+                                            <x:String>James</x:String>
+                                            <x:String>Alex</x:String>
+                                            <x:String>James</x:String>
+                                        </x:Array>
+                                    </BindableLayout.ItemsSource>
+                                        <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                                <Grid ColumnDefinitions="48,*,48,48" Margin="10,5">
+                                                    <Image Grid.Column="0" 
+                                                           WidthRequest="35" 
+                                                           HeightRequest="35"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="{imageExtension:SfImageResource contact_image.png}"/>
+                                                    <Label Grid.Column="1" 
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Start" 
+                                                           Margin="5,0"
+                                                           TextColor="#666666"
+                                                           FontSize="16" 
+                                                           Text="{Binding}"/>
+                                                    <Image Grid.Column="2" 
+                                                           WidthRequest="35" 
+                                                           HeightRequest="35"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="{imageExtension:SfImageResource mail.png}"/>
+                                                    <Image Grid.Column="3" 
+                                                           WidthRequest="35" 
+                                                           HeightRequest="35"
+                                                           VerticalOptions="Center" 
+                                                           HorizontalOptions="Center" 
+                                                           Aspect="AspectFit"
+                                                           Source="{imageExtension:SfImageResource call1.png}"/>
+                                                </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                    </VerticalStackLayout>
+                                </ScrollView>
+                            </Grid>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                </tabView:SfTabView.Items>
+            </tabView:SfTabView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

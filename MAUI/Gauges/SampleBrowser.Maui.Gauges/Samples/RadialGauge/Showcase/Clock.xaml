@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.Clock"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfRadialGauge"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+            <gauge:SfRadialGauge x:Name="clockGauge">
+                <gauge:SfRadialGauge.BindingContext>
+                    <local:ClockViewModel />
+                </gauge:SfRadialGauge.BindingContext>
+                <gauge:SfRadialGauge.Axes>
+                    <gauge:RadialAxis StartAngle="270"
+                                                  EndAngle="270"
+                                                  Minimum="0"
+                                                  Maximum="12"
+                                                  ShowFirstLabel="False"
+                                                  Interval="1"
+                                                  MinorTicksPerInterval="4"
+                                                  OffsetUnit="Factor"
+                                                  TickOffset="0.03"
+                                                  LabelOffset="0.03">
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle ThicknessUnit="Factor"
+                                                             Thickness="0.01" />
+                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:GaugeLabelStyle FontSize="10" />
+                        </gauge:RadialAxis.AxisLabelStyle>
+                        <gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.1" />
+                        </gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialAxis.MinorTickStyle>
+                            <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.06" />
+                        </gauge:RadialAxis.MinorTickStyle>
+
+                        <gauge:RadialAxis.Annotations>
+                            <gauge:GaugeAnnotation DirectionUnit="AxisValue"
+                                                               DirectionValue="9.5"
+                                                               PositionFactor="0.4">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Grid HeightRequest="90"
+                                                      WidthRequest="90">
+                                        <gauge:SfRadialGauge>
+                                            <gauge:SfRadialGauge.Axes>
+                                                <gauge:RadialAxis Minimum="0"
+                                                                              Maximum="12"
+                                                                              StartAngle="270"
+                                                                              EndAngle="270"
+                                                                              RadiusFactor="0.8"
+                                                                              OffsetUnit="Factor"
+                                                                              ShowFirstLabel="False"
+                                                                              Interval="2"
+                                                                              MinorTicksPerInterval="5"
+                                                                              TickOffset="0.05"
+                                                                              LabelOffset="0.05">
+                                                    <gauge:RadialAxis.AxisLineStyle>
+                                                        <gauge:RadialLineStyle ThicknessUnit="Factor"
+                                                                                         Thickness="0.02" />
+                                                    </gauge:RadialAxis.AxisLineStyle>
+                                                    <gauge:RadialAxis.AxisLabelStyle>
+                                                        <gauge:GaugeLabelStyle FontSize="6" />
+                                                    </gauge:RadialAxis.AxisLabelStyle>
+                                                    <gauge:RadialAxis.MajorTickStyle>
+                                                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                                                         Length="0.15" />
+                                                    </gauge:RadialAxis.MajorTickStyle>
+                                                    <gauge:RadialAxis.MinorTickStyle>
+                                                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                                                         Length="0.09" />
+                                                    </gauge:RadialAxis.MinorTickStyle>
+                                                    <gauge:RadialAxis.Pointers>
+                                                        <gauge:NeedlePointer NeedleLength="0.7"
+                                                                                         Value="8"
+                                                                                         NeedleFill="#00A8B5"
+                                                                                         NeedleStartWidth="1"
+                                                                                         NeedleEndWidth="3"
+                                                                                         KnobRadius="0">
+                                                        </gauge:NeedlePointer>
+                                                    </gauge:RadialAxis.Pointers>
+                                                </gauge:RadialAxis>
+                                            </gauge:SfRadialGauge.Axes>
+                                        </gauge:SfRadialGauge>
+                                    </Grid>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+
+                            <gauge:GaugeAnnotation DirectionUnit="AxisValue"
+                                                               DirectionValue="6"
+                                                               PositionFactor="0.4">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Grid HeightRequest="90"
+                                                      WidthRequest="90">
+                                        <gauge:SfRadialGauge>
+                                            <gauge:SfRadialGauge.Axes>
+                                                <gauge:RadialAxis Minimum="0"
+                                                                              Maximum="12"
+                                                                              StartAngle="270"
+                                                                              EndAngle="270"
+                                                                              RadiusFactor="0.8"
+                                                                              OffsetUnit="Factor"
+                                                                              ShowFirstLabel="False"
+                                                                              Interval="2"
+                                                                              MinorTicksPerInterval="5"
+                                                                              TickOffset="0.05"
+                                                                              LabelOffset="0.05">
+                                                    <gauge:RadialAxis.AxisLineStyle>
+                                                        <gauge:RadialLineStyle ThicknessUnit="Factor"
+                                                                                         Thickness="0.02" />
+                                                    </gauge:RadialAxis.AxisLineStyle>
+                                                    <gauge:RadialAxis.AxisLabelStyle>
+                                                        <gauge:GaugeLabelStyle FontSize="6" />
+                                                    </gauge:RadialAxis.AxisLabelStyle>
+                                                    <gauge:RadialAxis.MajorTickStyle>
+                                                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                                                         Length="0.15" />
+                                                    </gauge:RadialAxis.MajorTickStyle>
+                                                    <gauge:RadialAxis.MinorTickStyle>
+                                                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                                                         Length="0.09" />
+                                                    </gauge:RadialAxis.MinorTickStyle>
+                                                    <gauge:RadialAxis.Pointers>
+                                                        <gauge:NeedlePointer NeedleLength="0.7"
+                                                                                         Value="5"
+                                                                                         NeedleFill="#00A8B5"
+                                                                                         NeedleStartWidth="1"
+                                                                                         NeedleEndWidth="3"
+                                                                                         KnobRadius="0">
+                                                        </gauge:NeedlePointer>
+                                                    </gauge:RadialAxis.Pointers>
+                                                </gauge:RadialAxis>
+                                            </gauge:SfRadialGauge.Axes>
+                                        </gauge:SfRadialGauge>
+                                    </Grid>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                        </gauge:RadialAxis.Annotations>
+                        <gauge:RadialAxis.Pointers>
+                            <gauge:NeedlePointer NeedleLength="0.5"
+                                                             NeedleStartWidth="2"
+                                                             NeedleEndWidth="5"
+                                                             Value="{Binding Hour}"
+                                                             NeedleFill="#355C7D"
+                                                             KnobRadius="0">
+                            </gauge:NeedlePointer>
+                            <gauge:NeedlePointer NeedleLength="0.8"
+                                                             NeedleStartWidth="1"
+                                                             NeedleEndWidth="3"
+                                                             NeedleFill="#355C7D"
+                                                             Value="{Binding Minute}"
+                                                             KnobFill="#00A8B5"
+                                                             KnobRadius="0.05" />
+                            <gauge:NeedlePointer x:Name="secondsPointer"
+                                                             EnableAnimation="True"
+                                                             AnimationEasing="{x:Static Easing.BounceOut}"
+                                                             AnimationDuration="800"
+                                                             NeedleLength="0.9"
+                                                             NeedleStartWidth="2"
+                                                             NeedleEndWidth="2"
+                                                             NeedleFill="#00A8B5"
+                                                             TailWidth="2"
+                                                             TailLength="0.15"
+                                                             TailFill="#00A8B5"
+                                                             KnobFill="White"
+                                                             KnobRadius="0.03">
+                            </gauge:NeedlePointer>
+                        </gauge:RadialAxis.Pointers>
+                    </gauge:RadialAxis>
+                </gauge:SfRadialGauge.Axes>
+            </gauge:SfRadialGauge>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.ListView.SfListView.Grouping"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"    
+    BackgroundColor="White">
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <ListView:SfListView x:Name="listView"
+                       ItemSize="56" ScrollBarVisibility="Always"
+                       SelectionMode="Single"
+                       IsStickyGroupHeader="True"
+                       ItemsSource="{Binding ContactsInfo}"
+                       AllowGroupExpandCollapse="True" 
+                       GroupHeaderSize="40">
+            <ListView:SfListView.BindingContext>
+                <local:ListViewGroupingViewModel/>
+            </ListView:SfListView.BindingContext>
+            <ListView:SfListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                        <Label Text="{Binding Key}" 
+                         FontSize="20" 
+                         FontFamily="Roboto-Medium"                    
+                         TextColor="#000000"
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Start" 
+                         WidthRequest="200"
+                         Margin="20,0,0,0" />
+                    </StackLayout>
+
+                </DataTemplate>
+            </ListView:SfListView.GroupHeaderTemplate>
+            <ListView:SfListView.Behaviors>
+                <local:SfListViewGroupingBehavior/>
+            </ListView:SfListView.Behaviors>
+            <ListView:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0"  Source="{Binding ContactImage,Converter={StaticResource imageconverter}}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               HeightRequest="40" WidthRequest="40"/>
+                        <Label Grid.Column="1" Text="{Binding ContactName}" FontSize="{OnPlatform Default=16,WinUI=14}" FontFamily="Roboto-Regular" CharacterSpacing="0.5" TextColor="#DE000000" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" Text="&#xe718;" FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, WinUI=ListViewFontIcons.ttf#ListViewFontIcons}" 
+                               VerticalOptions="Center" Margin="0,0,16,0" FontSize="Medium" TextColor="#99000000"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView:SfListView.ItemTemplate>
+        </ListView:SfListView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

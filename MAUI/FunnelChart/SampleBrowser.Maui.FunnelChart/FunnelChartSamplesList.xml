@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Data Visualization">
+	  <Control Title="Funnel Chart" ControlName="SfFunnelChart" Image="funnelchart.png" Description="Visualize the sequential data using funnel chart.">
+		  <Sample SearchTags="Funnel" Name="FunnelChart" SampleName="DefaultFunnel" Title="Default funnel chart" VideoLink="https://www.youtube.com/watch?v=wJhqKHduXTI" CodeViewerPath="FunnelChart/FunnelChartDemo/"/>
+		  <Sample SearchTags="legend" Name="Legend" SampleName="Legend" Title="Legend customization" CodeViewerPath="FunnelChart/FunnelChartDemo/"/>
+			  <Sample SearchTags="tooltip" Name="Tooltip" SampleName="Tooltip" Title="Tooltip customization"
+                Description="This sample showcases the tooltip feature. On mobile, tap the data points, and on desktop, mouse over the data points to raise the tooltip."
+                CodeViewerPath="FunnelChart/Interaction/"/>
+	  </Control>
+  </ControlCategory>
+</SyncfusionControls>
