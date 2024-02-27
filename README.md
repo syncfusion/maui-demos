@@ -135,57 +135,6 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
-			<a href="https://help.syncfusion.com/maui/funnel-charts/overview">Funnel Charts</a><br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://help.syncfusion.com/maui/pyramid-charts/overview">Pyramid Charts</a><br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://help.syncfusion.com/maui/sunburstchart/overview">Sunburst Chart</a><br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-		<td>
-		Yes<br/>
-		</td>
-	</tr>
-	<tr>
-		<td>
 			<a href="https://help.syncfusion.com/maui/linear-gauge/overview">Linear Gauge</a><br/>
 		</td>
 		<td>
