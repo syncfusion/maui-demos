@@ -1,0 +1,77 @@
+<Project>
+	<ItemGroup>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\AnimationType.xaml.cs">
+			<Link>Samples\BusyIndicator\Customization\AnimationType.xaml.cs</Link>
+			<DependentUpon>AnimationType.xaml</DependentUpon>
+		</Compile>
+	
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\ColorOptions.xaml.cs">
+			<Link>Samples\BusyIndicator\Customization\ColorOptions.xaml.cs</Link>
+			<DependentUpon>ColorOptions.xaml</DependentUpon>
+		</Compile>
+  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\SizeOptions.xaml.cs">
+			<Link>Samples\BusyIndicator\Customization\SizeOptions.xaml.cs</Link>
+			<DependentUpon>SizeOptions.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\SpeedOptions.xaml.cs">
+			<Link>Samples\BusyIndicator\Customization\SpeedOptions.xaml.cs</Link>
+			<DependentUpon>SpeedOptions.xaml</DependentUpon>
+		</Compile>
+		 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\TitleOptions.xaml.cs">
+			<Link>Samples\BusyIndicator\Customization\TitleOptions.xaml.cs</Link>
+			<DependentUpon>TitleOptions.xaml</DependentUpon>
+		</Compile>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\BusyIndicatorGettingStarted\BusyIndicatorGettingStarted.xaml.cs">
+			<Link>Samples\BusyIndicator\BusyIndicatorGettingStarted\BusyIndicatorGettingStarted.xaml.cs</Link>
+			<DependentUpon>BusyIndicatorGettingStarted.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\BusyIndicatorGettingStarted\ColumnSeriesViewModel.cs">
+			<Link>Samples\BusyIndicator\BusyIndicatorGettingStarted\ColumnSeriesViewModel.cs</Link>
+		</Compile>
+		
+	</ItemGroup>
+ 
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\BusyIndicatorSamplesList.xml" >
+			<Link>BusyIndicatorSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\AnimationType.xaml">
+			<Link>Samples\BusyIndicator\Customization\AnimationType.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\ColorOptions.xaml">
+			<Link>Samples\BusyIndicator\Customization\ColorOptions.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\SizeOptions.xaml">
+			<Link>Samples\BusyIndicator\Customization\SizeOptions.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\SpeedOptions.xaml">
+			<Link>Samples\BusyIndicator\Customization\SpeedOptions.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\Customization\TitleOptions.xaml">
+			<Link>Samples\BusyIndicator\Customization\TitleOptions.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BusyIndicator\BusyIndicatorGettingStarted\BusyIndicatorGettingStarted.xaml">
+			<Link>Samples\BusyIndicator\BusyIndicatorGettingStarted\BusyIndicatorGettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

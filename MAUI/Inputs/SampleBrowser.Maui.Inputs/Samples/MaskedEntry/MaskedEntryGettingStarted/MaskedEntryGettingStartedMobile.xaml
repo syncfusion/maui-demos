@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Inputs.SfMaskedEntry.MaskedEntryGettingStartedMobile"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="syncfusion:SfMaskedEntry">
+            <Setter Property="WidthRequest" Value="290"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="WidthRequest" Value="290"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+
+        </Style>
+    </localCore:SampleView.Resources>
+
+
+
+    <ScrollView BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" >
+        <Grid RowDefinitions="*,100">
+            <VerticalStackLayout Margin="15,20,15,0" Spacing="20" VerticalOptions="Start">
+
+                <core:SfTextInputLayout Hint="Email" ReserveSpaceForAssistiveLabels="False">
+                    <syncfusion:SfMaskedEntry x:Name="emailMask"
+                                                MaskType="RegEx" 
+                                                Mask="[A-Za-z0-9._%-]+@[A-Za-z0-9]+\.[A-Za-z]{2,3}"/>
+                </core:SfTextInputLayout>
+
+                <core:SfTextInputLayout Hint="Date" ReserveSpaceForAssistiveLabels="False">
+                    <syncfusion:SfMaskedEntry x:Name="dateMask" 
+                                                MaskType="Simple" 
+                                                Mask="00/00/0000"/>
+                </core:SfTextInputLayout>
+
+                <core:SfTextInputLayout Hint="Time" ReserveSpaceForAssistiveLabels="False">
+                    <syncfusion:SfMaskedEntry x:Name="timeMask" 
+                                                MaskType="RegEx" 
+                                                Mask="(0[0-9]|1[1-9]|2[1-3]){2}:[0-5][0-9]:[0-5][0-9]"/>
+                </core:SfTextInputLayout>
+
+                <core:SfTextInputLayout Hint="Phone Number" ReserveSpaceForAssistiveLabels="False">
+                    <syncfusion:SfMaskedEntry x:Name="phoneMask"
+                                                MaskType="Simple" 
+                                                Mask="000-000-0000"/>
+                </core:SfTextInputLayout>
+
+                <core:SfTextInputLayout Hint="IP Address" ReserveSpaceForAssistiveLabels="False">
+                    <syncfusion:SfMaskedEntry x:Name="ipMask"  
+                                                MaskType="Simple" 
+                                                Mask="000:000:000"/>
+                </core:SfTextInputLayout>
+
+                <core:SfTextInputLayout Hint="Credit Card" ReserveSpaceForAssistiveLabels="False">
+                    <syncfusion:SfMaskedEntry x:Name="debitMask"
+                                  MaskType="RegEx" 
+                                  Mask="\d{4} \d{4} \d{4} \d{4}" 
+                                  Keyboard="Numeric"/>
+                </core:SfTextInputLayout>
+
+
+
+            </VerticalStackLayout>
+            <Button Text="SUBMIT" Grid.Row="1" HeightRequest="40" CornerRadius="20" Margin="15,20,15,20" />
+        </Grid>
+    </ScrollView>
+    <localCore:SampleView.OptionView>
+        <VerticalStackLayout VerticalOptions="Start">
+            <HorizontalStackLayout Margin="10,20,10,10" Spacing="20">
+                <Label Text="PromptChar" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center"/>
+                <syncfusion:SfComboBox x:Name="promptCharComboBox" IsClearButtonVisible="False" FontFamily="Roboto-Regular" WidthRequest="150" SelectedIndex="0" SelectionChanged="PromptCharComboBox_SelectionChanged" >
+                    <syncfusion:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>_</x:String>
+                            <x:String>*</x:String>
+                            <x:String>#</x:String>
+                        </x:Array>
+                    </syncfusion:SfComboBox.ItemsSource>
+                </syncfusion:SfComboBox>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

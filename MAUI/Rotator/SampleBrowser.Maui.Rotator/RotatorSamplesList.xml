@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Navigation">
+		<Control ControlName="Rotator"
+				 Title="Rotator"
+				 Image="rotator.png"
+				 Description="Data control used to display image data and navigate through them."
+				 StatusTag="New"
+		         IsPreview="True">
+			<Sample SampleName="GettingStarted"
+					Title="Getting Started"
+					SearchTags="Rotator, Items Collection"
+					StatusTag="New"
+					CodeViewerPath="Rotator/GettingStarted/" />
+			<Sample SampleName="StoryPage"
+					Platforms="Android,iOS"
+					Title="Story Page"
+					SearchTags="Rotator, Items Collection, Story , Status"
+					StatusTag="New"
+					CodeViewerPath="Rotator/StoryPage/" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

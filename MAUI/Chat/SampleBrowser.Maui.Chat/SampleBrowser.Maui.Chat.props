@@ -1,0 +1,32 @@
+﻿
+<Project>
+	<ItemGroup>
+				
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chat\GettingStarted\View\GettingStarted.xaml.cs">
+			<Link>Samples\Chat\GettingStarted\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chat\GettingStarted\ViewModel\GettingStartedViewModel.cs">
+			<Link>Samples\Chat\GettingStarted\ViewModel\GettingStartedViewModel.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chat\GettingStarted\Helper\GettingStartedBehavior.cs">
+			<Link>Samples\Chat\GettingStarted\Helper\GettingStartedBehavior.cs</Link>
+		</Compile>
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\ChatSamplesList.xml" >
+			<Link>ChatSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chat\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\Chat\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+</Project>
