@@ -291,7 +291,10 @@ Platforms supported by each .NET MAUI control are listed below.
 		<td>
 		Yes<br/>
 		</td>
+<<<<<<< HEAD
 	
+=======
+>>>>>>> parent of 60e1b4a (Update README.md)
 	</tr>
 	<tr>
 	    <td rowspan="6" valign="top">
