@@ -273,7 +273,7 @@ Platforms supported by each .NET MAUI control are listed below.
 		</td>
 	</tr>
     <tr>
-	    <td rowspan="1" valign="top">
+	    <td rowspan="2" valign="top">
 			LAYOUT<br/>
 		</td>	
 		<td>
@@ -291,10 +291,23 @@ Platforms supported by each .NET MAUI control are listed below.
 		<td>
 		Yes<br/>
 		</td>
-<<<<<<< HEAD
-	
-=======
->>>>>>> parent of 60e1b4a (Update README.md)
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/parallax-view/overview">Parallax View</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
 	</tr>
 	<tr>
 	    <td rowspan="6" valign="top">
