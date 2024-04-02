@@ -61,7 +61,7 @@
                             <gauge:GaugeAnnotation.Content>
                                 <HorizontalStackLayout>
                                     <Label Text="33 C  :"
-                                                           TextColor="Black"
+                                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                                            FontAttributes="Bold" />
                                     <Label Text=" 91.4 F"
                                                            TextColor="#FF00A8B5"

@@ -5,7 +5,7 @@
                       xmlns:sfEffectsView="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-                      BackgroundColor="#FAFAFA">
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
         <StackLayout Padding="10" Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
             <Border x:Name="rippleEffectBorder" Padding="0" Background="Transparent">

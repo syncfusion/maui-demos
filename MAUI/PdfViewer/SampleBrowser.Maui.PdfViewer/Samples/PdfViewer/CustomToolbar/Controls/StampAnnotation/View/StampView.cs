@@ -27,7 +27,17 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
 
         public StampView()
         {
-
+            Shadow = new Shadow
+            {
+                Offset = new Point(-1, 0),
+                Brush = Color.FromRgba("#000000"),
+#if IOS
+                Radius = 1,
+#else
+                Radius = 15,
+#endif
+                Opacity = 0.5f
+            };
         }
 
         public void OnStampSelected()

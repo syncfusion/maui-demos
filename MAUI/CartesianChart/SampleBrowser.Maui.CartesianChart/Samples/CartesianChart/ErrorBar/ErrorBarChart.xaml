@@ -4,8 +4,15 @@
                       xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <StackLayout Padding="20" HorizontalOptions="Fill" x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" x:Name="layout">
 
             <StackLayout.Resources>
                 <Label x:Key="title" x:Name="titleName" Text="Sales Distribution of Cars by Region"
@@ -13,7 +20,7 @@
                           LineBreakMode="WordWrap" Padding="0,0,0,5"/>
             </StackLayout.Resources>
 
-            <chart:SfCartesianChart PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" x:Name="errorBarChart" 
+            <chart:SfCartesianChart HorizontalOptions="Fill" VerticalOptions="FillAndExpand" x:Name="errorBarChart" 
                                     Title="{StaticResource title}">
                 <chart:SfCartesianChart.BindingContext>
                     <local:ErrorBarViewModel x:Name="ViewModel"/>
@@ -31,7 +38,7 @@
                     </chart:NumericalAxis>
                 </chart:SfCartesianChart.YAxes>
                 <chart:SfCartesianChart.Series>
-                    <chart:ScatterSeries  ItemsSource="{Binding EnergyProductions}"  x:Name="scatterSeries1"   XBindingPath="Name"   YBindingPath="Value" PointHeight="10" PointWidth="10"/>
+                    <chart:ScatterSeries  ItemsSource="{Binding EnergyProductions}" Fill="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" x:Name="scatterSeries1" XBindingPath="Name" YBindingPath="Value" PointHeight="10" PointWidth="10"/>
                     <chart:ErrorBarSeries ItemsSource="{Binding EnergyProductions}" x:Name="errorBar"  
                                           XBindingPath="Name"  
                                           YBindingPath="Value"   
@@ -41,6 +48,23 @@
                                           Mode="Vertical"
                                           HorizontalDirection="Both" 
                                           VerticalDirection="Both">
+
+                        <chart:ErrorBarSeries.VerticalLineStyle>
+                            <chart:ErrorBarLineStyle Stroke="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+                        </chart:ErrorBarSeries.VerticalLineStyle>
+
+                        <chart:ErrorBarSeries.HorizontalLineStyle>
+                            <chart:ErrorBarLineStyle Stroke="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+                        </chart:ErrorBarSeries.HorizontalLineStyle>
+
+                        <chart:ErrorBarSeries.VerticalCapLineStyle>
+                            <chart:ErrorBarCapLineStyle Stroke="{AppThemeBinding Default={StaticResource ContentForeground}}" />
+                        </chart:ErrorBarSeries.VerticalCapLineStyle>
+
+                        <chart:ErrorBarSeries.HorizontalCapLineStyle>
+                            <chart:ErrorBarCapLineStyle Stroke="{AppThemeBinding Default={StaticResource ContentForeground}}" />
+                        </chart:ErrorBarSeries.HorizontalCapLineStyle>
+
                     </chart:ErrorBarSeries>
                     <chart:ScatterSeries  ItemsSource="{Binding EnergyProductions}"  x:Name="scatterSeries2"   XBindingPath="Name"   YBindingPath="Value" PointHeight="10" PointWidth="10"/>
                 </chart:SfCartesianChart.Series>
@@ -61,7 +85,7 @@
                                  SelectedItem="{Binding Source={x:Reference ViewModel}, Path=ErrorBarType[0]}"
                                  VerticalOptions="Start" HorizontalOptions="Fill" 
                                  x:Name="typePicker" 
-                                 SelectedIndex="0"
+                                 SelectedIndex="0" BackgroundColor="{AppThemeBinding Dark=lightgray}"
                                  SelectedIndexChanged="typePicker_SelectedIndexChanged">
             </Picker>
         </Grid>
@@ -75,7 +99,7 @@
                                  ItemsSource="{Binding Source={x:Reference ViewModel},Path=ErrorBarMode}" 
                                  SelectedItem="{Binding Source={x:Reference ViewModel}, Path=ErrorBarMode[0]}"
                                  VerticalOptions="Start" HorizontalOptions="Fill" 
-                                 x:Name="modePicker" 
+                                 x:Name="modePicker" BackgroundColor="{AppThemeBinding Dark=lightgray}"
                                  SelectedIndex="0"
                                  SelectedIndexChanged="modePicker_SelectedIndexChanged">
                 </Picker>
@@ -90,7 +114,7 @@
                               ItemsSource="{Binding Source={x:Reference ViewModel},Path=ErrorBarDirection}" 
                               SelectedItem="{Binding Source={x:Reference ViewModel}, Path=ErrorBarDirection[0]}"
                               VerticalOptions="Start" HorizontalOptions="Fill" 
-                              x:Name="directionPicker" 
+                              x:Name="directionPicker"  BackgroundColor="{AppThemeBinding Dark=lightgray}"
                               SelectedIndex="0"
                               SelectedIndexChanged="directionPicker_SelectedIndexChanged">
                 </Picker>
@@ -101,7 +125,7 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Text="Horizontal Error " Padding="5" FontSize="15" />
-                    <Stepper Grid.Row="0" Grid.Column="1" Minimum="1" Maximum="10" Increment="1" x:Name="horStepper"> </Stepper>
+                    <Stepper Grid.Row="0" Grid.Column="1" Minimum="1" Maximum="10" BackgroundColor="{AppThemeBinding Dark=lightgray}" Increment="1" x:Name="horStepper"> </Stepper>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -109,7 +133,7 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Text="Vertical Error " Padding="5" FontSize="15" />
-                    <Stepper Grid.Row="0" Grid.Column="1" Minimum="5" Maximum="40" Increment="5" x:Name="verStepper" ></Stepper>
+                    <Stepper Grid.Row="0" Grid.Column="1" Minimum="5" Maximum="40" BackgroundColor="{AppThemeBinding Dark=lightgray}" Increment="5" x:Name="verStepper"  ></Stepper>
                 </Grid>
             </VerticalStackLayout>
         </ScrollView>

@@ -9,7 +9,6 @@
             <Setter Property="Opacity" Value="0.6"/>
             <Setter Property="Padding" Value="4" />
             <Setter Property="BorderWidth" Value="0" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}"/>
             <Style.Triggers>
                 <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="#14000000" />
@@ -18,15 +17,15 @@
         </Style>
     </ContentView.Resources>
     <Frame 
-        BackgroundColor="#F3EDF7" CornerRadius="20" HasShadow="False"
+        BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}" CornerRadius="20" HasShadow="False"
         HorizontalOptions="Center" VerticalOptions="Center" 
         HeightRequest="160" WidthRequest="320" >
-        <Grid BackgroundColor="#F3EDF7">
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="1*"/>    
-             </Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
             <Grid Grid.Row="0"  VerticalOptions="Start">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
@@ -36,14 +35,16 @@
                         x:Name="Title" 
                         Text="Open Web Page" 
                         FontFamily="Roboto-Medium"
+                        TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"
                         Grid.Column="0" Opacity="0.87" 
                         FontSize="20" />
                 <Button 
                         Grid.Column="1" 
-                        Text="&#xe705;" 
+                        Text="&#xe755;" 
                         TextColor="Black"
                         VerticalOptions="Start"
-                        FontSize="13.65"
+                        FontSize="20"
+                    FontFamily="MauiSampleFontIcon"
                         Style="{StaticResource buttonIconStyle}" Clicked="Close_Clicked" />
             </Grid>
             <Label  x:Name="Message"
@@ -51,7 +52,8 @@
                     FontFamily="Roboto-Regular"
                VerticalTextAlignment="Center" 
                     LineBreakMode="WordWrap"
-                    TextColor="#DE000000" />
+                    TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#DE000000}"
+                    />
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -74,6 +76,6 @@
                         Clicked="Open_Clicked"
                         VerticalOptions="End"/>
             </Grid>
-        </Grid>  
+        </Grid>
     </Frame>
 </ContentView>

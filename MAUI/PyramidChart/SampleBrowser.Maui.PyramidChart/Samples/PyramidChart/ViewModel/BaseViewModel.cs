@@ -18,10 +18,10 @@ namespace SampleBrowser.Maui.PyramidChart.SfPyramidChart
 
         public ObservableCollection<Brush> PaletteBrushes { get; set; }
         public ObservableCollection<Brush> SelectionBrushes { get; set; }
-
         public ObservableCollection<Brush> CustomColor_1 { get; set; }
         public ObservableCollection<Brush> CustomColor_2 { get; set; }
         public ObservableCollection<Brush> CustomColor_3 { get; set; }
+        public ObservableCollection<Brush> ThemePaletteBrushes3 { get; set; }
 
         private bool enableAnimation = true;
         public bool EnableAnimation
@@ -92,6 +92,19 @@ namespace SampleBrowser.Maui.PyramidChart.SfPyramidChart
                 new SolidColorBrush(Color.FromArgb("#4E9BA2"))
 
             };
+
+            ThemePaletteBrushes3 = new ObservableCollection<Brush>()
+            {
+                new SolidColorBrush(Color.FromArgb("#A033F5")),
+                new SolidColorBrush(Color.FromArgb("#E75A6E")),
+                new SolidColorBrush(Color.FromArgb("#0DC920")),
+                new SolidColorBrush(Color.FromArgb("#2EC4B6")),
+            };
         }
+    }
+
+    public class ChartColorModel : ObservableCollection<Brush>
+    {
+
     }
 }

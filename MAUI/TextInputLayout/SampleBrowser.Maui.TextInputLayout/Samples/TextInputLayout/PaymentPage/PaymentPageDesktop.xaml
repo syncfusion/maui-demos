@@ -6,87 +6,64 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-                      BackgroundColor="White">
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.Resources>
         <ResourceDictionary>
 
             <Style TargetType="syncfusion:SfTextInputLayout" x:Key="InputLayoutStyle">
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup>
-                            <VisualState Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="Stroke" Value="#79747E"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState Name="Focused">
-                                <VisualState.Setters>
-                                    <Setter Property="Stroke" Value="#6200EE"/>
-                                    <Setter Property="HintLabelStyle">
-                                        <syncfusion:LabelStyle TextColor="#6200EE" FontFamily="Roboto-Regular" FontSize="14"/>
-                                    </Setter>
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState Name="Error">
-                                <VisualState.Setters>
-                                    <Setter Property="Stroke" Value="#B3261E"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
+                
                 <Setter Property="ContainerType" Value="Outlined"/>
-                <Setter Property="ContainerBackground" Value="Transparent"/>
+                
                 <Setter Property="HintLabelStyle">
-                    <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" FontSize="14"/>
+                    <syncfusion:LabelStyle  FontFamily="Roboto-Regular" FontSize="14"/>
                 </Setter>
                 <Setter Property="HelperLabelStyle">
-                    <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular"/>
+                    <syncfusion:LabelStyle  FontFamily="Roboto-Regular"/>
                 </Setter>
                 <Setter Property="ErrorLabelStyle">
-                    <syncfusion:LabelStyle TextColor="#B3261E" FontFamily="Roboto-Regular"/>
+                    <syncfusion:LabelStyle FontFamily="Roboto-Regular"/>
                 </Setter>
             </Style>
         </ResourceDictionary>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <Grid ColumnDefinitions="*,*" Background="#F5F5F5" Margin="-7">           
+        <Grid ColumnDefinitions="*,*" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" >           
 
             <Image Source="{imageExtension:SfImageResource creditcard.png}" />
 
-            <Frame Background="White" Padding="25,30,25,27" TranslationY="-4" HasShadow="False" CornerRadius="10" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" Padding="25,25,25,27" TranslationY="-4" HasShadow="False" CornerRadius="10" Grid.Column="1" >
 
-                <VerticalStackLayout Grid.Column="1" Padding="10,0,15,10" Spacing="20" WidthRequest="313" VerticalOptions="Center" >
+                <VerticalStackLayout  Padding="10,0,15,10" Spacing="20" WidthRequest="313" VerticalOptions="Center"  >
 
-                    <Label Text="Card Number" Margin="0,0,0,-20" FontFamily="Roboto-Regular" TextColor="#79747E"/>
-                    <HorizontalStackLayout Margin="0,0,0,-15" Spacing="7">
+                    <Label Text="Card Number" Margin="0,0,0,-20"  FontFamily="Roboto-Regular" TextColor="{AppThemeBinding Light={StaticResource TextColourAlt1Light}, Dark={StaticResource TextColourAlt1}}"/>
+                    <HorizontalStackLayout  Spacing="7" Margin="0,0,0,-15" >
                         <syncfusion:SfTextInputLayout x:Name="CardNumberField" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" >
-                            <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry_TextChanged"/>
+                            <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry_TextChanged" HeightRequest="40"/>
                         </syncfusion:SfTextInputLayout>
 
                         <syncfusion:SfTextInputLayout x:Name="CardNumberField1" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" >
-                            <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry2_TextChanged"/>
+                            <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry2_TextChanged" HeightRequest="40"/>
                         </syncfusion:SfTextInputLayout>
 
                         <syncfusion:SfTextInputLayout x:Name="CardNumberField2" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" >
-                            <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry3_TextChanged"/>                            
+                            <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry3_TextChanged" HeightRequest="40"/>                            
                         </syncfusion:SfTextInputLayout>
 
                         <syncfusion:SfTextInputLayout x:Name="CardNumberField3" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="66" >
-                            <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" />                           
+                            <Entry Keyboard="Numeric" MaxLength="4" ReturnType="Next" HeightRequest="40" />                           
                         </syncfusion:SfTextInputLayout>
                     </HorizontalStackLayout>
 
                     <syncfusion:SfTextInputLayout x:Name="PayNameField" Style="{StaticResource InputLayoutStyle}" Hint="Name" HelperText="Name on your card" ErrorText="Name cannot be empty">
-                        <Entry />                        
+                        <Entry HeightRequest="40" />                        
                     </syncfusion:SfTextInputLayout>
 
-                    <HorizontalStackLayout  Spacing="5" Margin="0,0,0,-10" WidthRequest="313" HorizontalOptions="Center">
+                    <HorizontalStackLayout  Spacing="5" Margin="0,0,0,-10" WidthRequest="313" HorizontalOptions="{OnPlatform Default=Center, MacCatalyst=Start}">
                         <syncfusion:SfTextInputLayout x:Name="MonthField" Style="{StaticResource InputLayoutStyle}" Hint="Month" ErrorText="Invalid" WidthRequest="106" >
 
-                            <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference MonthField}" DropDownIconColor="{Binding Stroke}" IsClearButtonVisible="False" IsDropdownButtonVisible="True">
+                            <editors:SfComboBox MaxDropDownHeight="150" HeightRequest="40" BindingContext="{x:Reference MonthField}" DropDownIconColor="{Binding Stroke}" IsClearButtonVisible="False" IsDropdownButtonVisible="True">
                                 <editors:SfComboBox.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>01</x:String>
@@ -108,7 +85,7 @@
                         </syncfusion:SfTextInputLayout>
 
                         <syncfusion:SfTextInputLayout x:Name="YearField" Style="{StaticResource InputLayoutStyle}" Hint="Year" ErrorText="Invalid" WidthRequest="106">
-                            <editors:SfComboBox MaxDropDownHeight="150" BindingContext="{x:Reference YearField}" DropDownIconColor="{Binding Stroke}" IsClearButtonVisible="False" IsDropdownButtonVisible="True">
+                            <editors:SfComboBox MaxDropDownHeight="150" HeightRequest="40" BindingContext="{x:Reference YearField}" DropDownIconColor="{Binding Stroke}" IsClearButtonVisible="False" IsDropdownButtonVisible="True">
 
                                 <editors:SfComboBox.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
@@ -128,14 +105,14 @@
                         </syncfusion:SfTextInputLayout>
 
                         <syncfusion:SfTextInputLayout x:Name="CVVField" Style="{StaticResource InputLayoutStyle}" Hint="CVV" CharMaxLength="3" ClipToBounds="False" ErrorText="Invalid" WidthRequest="68" >
-                            <Entry IsPassword="True" MaxLength="3" Keyboard="Numeric"/>                           
+                            <Entry IsPassword="True" MaxLength="3" Keyboard="Numeric" HeightRequest="40"/>                           
                         </syncfusion:SfTextInputLayout>
 
                     </HorizontalStackLayout>
 
-                    <Button Margin="0,38,0,0" x:Name="submitButton"
+                    <Button Margin="0,33,0,0" x:Name="submitButton"
                      Text="Pay Now" FontFamily="Roboto-Regular"
-                     BackgroundColor="#6200EE"
+                     BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}"
                      Clicked="SubmitButton_Clicked"
                      HorizontalOptions="FillAndExpand"/>
                 </VerticalStackLayout>

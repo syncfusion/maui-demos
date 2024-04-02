@@ -4,13 +4,20 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
         <chart:SfCartesianChart x:Name="chart" HorizontalOptions="Fill" VerticalOptions="Fill">
             <chart:SfCartesianChart.BindingContext>
                 <local:ZoomViewModel x:Name="ViewModel"/>
             </chart:SfCartesianChart.BindingContext>
             <chart:SfCartesianChart.Title>
-                <Label Text="Activity Summary" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Activity Summary" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
             </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.XAxes>
                 <chart:DateTimeAxis ShowMajorGridLines="False" EnableAutoIntervalOnZooming="True" >
@@ -38,13 +45,13 @@
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
             <chart:SfCartesianChart.Series>
-                <chart:AreaSeries ItemsSource="{Binding ZoomData}" XBindingPath="Date" YBindingPath="Value">
-                    <chart:AreaSeries.Fill>
+                <chart:AreaSeries ItemsSource="{Binding ZoomData}" Fill="{AppThemeBinding Light={StaticResource AreaGradientLight}, Dark={StaticResource AreaGradientDark}}" XBindingPath="Date" YBindingPath="Value">
+                    <!--<chart:AreaSeries.Fill>
                         <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                             <GradientStop Color="#00bdae" Offset="1.0"/>
                             <GradientStop Color="White" Offset="0.0"/>
                         </LinearGradientBrush>
-                    </chart:AreaSeries.Fill>
+                    </chart:AreaSeries.Fill>-->
                 </chart:AreaSeries>
             </chart:SfCartesianChart.Series>
             <chart:SfCartesianChart.ZoomPanBehavior>

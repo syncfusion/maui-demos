@@ -4,12 +4,19 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
         <StackLayout>
             <StackLayout.BindingContext>
                 <local:SplineSeriesViewModel x:Name="viewModel"/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="Chart1"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+            <chart:SfCartesianChart x:Name="Chart1"  PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.Resources>
                     <DoubleCollection x:Key="dashArray">
                         <x:Double>6</x:Double>
@@ -19,7 +26,7 @@
                     </DoubleCollection>
                 </chart:SfCartesianChart.Resources>
                 <chart:SfCartesianChart.Title>
-                    <Label Text="Total Investment (% of GDP)" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                    <Label Text="Total Investment (% of GDP)" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
                 </chart:SfCartesianChart.Title>
                 <chart:SfCartesianChart.Legend>
                     <chart:ChartLegend ToggleSeriesVisibility="True"/>
@@ -45,17 +52,17 @@
                 <chart:SfCartesianChart.Series>
                     <chart:SplineSeries StrokeDashArray="{StaticResource dashArray}" Label="Brazil" EnableTooltip="True" EnableAnimation="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="High" ShowMarkers="True" LegendIcon="SeriesType">
                         <chart:SplineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings Width="8" Height="8" Fill="White" Stroke="#314A6E" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Width="8" Height="8" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" StrokeWidth="1"/>
                         </chart:SplineSeries.MarkerSettings>
                     </chart:SplineSeries>
                     <chart:SplineSeries StrokeDashArray="{StaticResource dashArray}"  Label="Sweden" EnableTooltip="True" EnableAnimation="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Low" ShowMarkers="True" LegendIcon="SeriesType">
                         <chart:SplineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings Width="8" Height="8" Fill="White" Stroke="#48988B" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Width="8" Height="8" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" StrokeWidth="1"/>
                         </chart:SplineSeries.MarkerSettings>
                     </chart:SplineSeries>
                     <chart:SplineSeries StrokeDashArray="{StaticResource dashArray}"  Label="Greece" EnableTooltip="True" EnableAnimation="True" StrokeWidth="1" ItemsSource="{Binding DashedData}" XBindingPath="Data" YBindingPath="Value" ShowMarkers="True" LegendIcon="SeriesType">
                         <chart:SplineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings Width="8" Height="8" Fill="White" Stroke="#5E498C" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Width="8" Height="8" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series3Light}, Dark={StaticResource series3Dark}}" StrokeWidth="1"/>
                         </chart:SplineSeries.MarkerSettings>
                     </chart:SplineSeries>
                 </chart:SfCartesianChart.Series>

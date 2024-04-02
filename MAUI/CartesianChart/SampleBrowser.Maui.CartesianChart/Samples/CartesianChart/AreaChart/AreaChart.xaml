@@ -4,8 +4,16 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Content>
-        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
+        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" HorizontalOptions="Fill" VerticalOptions="Fill">
             <chart:SfCartesianChart.Legend>
                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
             </chart:SfCartesianChart.Legend>
@@ -13,7 +21,7 @@
                 <local:AreaSeriesViewModel/>
             </chart:SfCartesianChart.BindingContext>
             <chart:SfCartesianChart.Title>
-                <Label Text="Average Sales Comparison" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Average Sales Comparison" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
             </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.XAxes>
                 <chart:CategoryAxis EdgeLabelsDrawingMode="Shift" Interval="2" ShowMajorGridLines="false">
@@ -39,13 +47,13 @@
             </chart:SfCartesianChart.YAxes>
 
             <chart:SfCartesianChart.Series>
-                <chart:AreaSeries Label="Product A" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="#74BD6F" Fill="#C474BD6F" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="High" LegendIcon="SeriesType">
+                <chart:AreaSeries Label="Product A" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="{AppThemeBinding Light={StaticResource series4Light}, Dark={StaticResource series4Dark}}" Fill="{AppThemeBinding Light={StaticResource series4Light30}, Dark={StaticResource series4Dark30}}" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="High" LegendIcon="SeriesType">
                 </chart:AreaSeries>
-                <chart:AreaSeries Label="Product B" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="#5E498C" Fill="#C45E498C" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Low" LegendIcon="SeriesType">
+                <chart:AreaSeries Label="Product B" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="{AppThemeBinding Light={StaticResource series3Light}, Dark={StaticResource series3Dark}}" Fill="{AppThemeBinding Light={StaticResource series3Light30}, Dark={StaticResource series3Dark30}}" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Low" LegendIcon="SeriesType">
                 </chart:AreaSeries>
-                <chart:AreaSeries Label="Product C" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="#48988B" Fill="#C448988B" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Value" LegendIcon="SeriesType">
+                <chart:AreaSeries Label="Product C" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" Fill="{AppThemeBinding Light={StaticResource series2Light30}, Dark={StaticResource series2Dark30}}" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Value" LegendIcon="SeriesType">
                 </chart:AreaSeries>
-                <chart:AreaSeries Label="Product D" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="#314A6E" Fill="#C4314A6E" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Size" LegendIcon="SeriesType">
+                <chart:AreaSeries Label="Product D" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" Fill="{AppThemeBinding Light={StaticResource series1Light30}, Dark={StaticResource series1Dark30}}" StrokeWidth="2" ItemsSource="{Binding AreaData1}" XBindingPath="Name" YBindingPath="Size" LegendIcon="SeriesType">
                 </chart:AreaSeries>
             </chart:SfCartesianChart.Series>
         </chart:SfCartesianChart>

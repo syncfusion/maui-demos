@@ -13,5 +13,11 @@ public partial class AnnotationToolbar : ContentView
 	{
         BindingContext = bindingContext;
         InitializeComponent();
+
+		if (DeviceInfo.Idiom == DeviceIdiom.Tablet)
+			scrollabilityIndicator.IsVisible = false;
+#if IOS
+			scrollabilityIndicator.IsVisible = false;
+#endif
 	}
 }

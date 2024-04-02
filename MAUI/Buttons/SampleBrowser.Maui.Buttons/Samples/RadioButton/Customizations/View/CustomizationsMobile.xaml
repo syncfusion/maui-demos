@@ -8,15 +8,26 @@
              xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.RadioButton"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.Resources>
-        <Style x:Key="CheckBoxNormalStyle"  TargetType="button:SfCheckBox">
-            <Setter Property="TextColor" Value="Black"/>
+        <Style x:Key="CheckBoxNormalStyle"  TargetType="button:SfRadioButton">
             <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+
+                            </VisualState.Setters>
+                        </VisualState>
+
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
         </Style>
          <Style x:Key="EntryNormalStyle"  TargetType="Entry">
-            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
             <Setter Property="FontSize" Value="15"/>
         </Style>
     </localCore:SampleView.Resources>
@@ -39,26 +50,30 @@
                                 HorizontalTextAlignment="Start" 
                                 FontSize="15"
                                 FontFamily="Roboto-Regular"
+                                Style="{StaticResource CheckBoxNormalStyle}"
                                 StrokeThickness="{Binding Radius,Mode=TwoWay}">
             </button:SfRadioButton>
 
             <Grid Grid.Row="1" Margin="8,5,5,5">
-                <ScrollView>
+                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
                     <StackLayout Spacing="3">
                         <Label Text="Options" FontFamily="Roboto-Medium" FontSize="16"/>
-                        <Core:SfTextInputLayout ContainerType="Outlined" Margin="0,10,5,0" ContainerBackground="Transparent"
+                        <Core:SfTextInputLayout ContainerType="Outlined"
+                                                InputViewPadding="20"
+                                                Margin="0,10,5,0" ContainerBackground="Transparent"
                                                 Hint="Text">
-                            <Entry  TextColor="#212121" MinimumHeightRequest="0" FontFamily="Roboto-Regular"
+                            <Entry  TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                    MinimumHeightRequest="0" FontFamily="Roboto-Regular"
                                     Style="{StaticResource EntryNormalStyle}"
                                     Placeholder="Enter the Text"
                                     Text="{Binding Text,Mode=TwoWay}" />
                         </Core:SfTextInputLayout>
                         <StackLayout Margin="5,0,10,0" Spacing="3">
-                            <tabView:SfTabView WidthRequest="340"
+                            <tabView:SfTabView WidthRequest="340"                                               
                                                HorizontalOptions="Center"
                                                VerticalOptions="Center"
                                                HeightRequest="130">
-                                <tabView:SfTabItem Header="Text Color" FontFamily="Roboto-Regular"  HeightRequest="40" >
+                                <tabView:SfTabItem Header="Text Color" FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="Android" Value ="11"/>
@@ -107,7 +122,7 @@
                                         </StackLayout>
                                     </tabView:SfTabItem.Content>
                                 </tabView:SfTabItem>
-                                <tabView:SfTabItem Header="Checked Color" FontFamily="Roboto-Regular" HeightRequest="40">
+                                <tabView:SfTabItem Header="Checked Color" FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="Android" Value ="11"/>
@@ -156,7 +171,7 @@
                                         </StackLayout>
                                     </tabView:SfTabItem.Content>
                                 </tabView:SfTabItem>
-                                <tabView:SfTabItem Header="UnChecked Color" FontFamily="Roboto-Regular" HeightRequest="40">
+                                <tabView:SfTabItem Header="UnChecked Color" FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="Android" Value ="11"/>
@@ -219,10 +234,10 @@
                                         VerticalOptions="CenterAndExpand"
                                         Minimum="1" 
                                         Maximum="5" 
-                                        MaximumTrackColor="#E0E0E0"
-                                        MinimumTrackColor="#4285F4" 
-                                        Value="{Binding Radius,Mode=TwoWay}"  
-                                        ThumbColor="#4285F4">
+                                        MaximumTrackColor="{AppThemeBinding Light=#E0E0E0, Dark=#404040}"
+                                        MinimumTrackColor="{AppThemeBinding Light=#4285F4, Dark=White}"
+                                        ThumbColor="{AppThemeBinding Light=#4285F4, Dark=White}"
+                                        Value="{Binding Radius,Mode=TwoWay}" >
                                 </Slider>
                                 <Label Text="{Binding Radius}"  
                                        Grid.Column="1" 

@@ -12,8 +12,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 public partial class FileOperationListView : ContentView
 {
     public event EventHandler<ItemTappedEventArgs>? ItemTapped;
-    public FileOperationListView()
-	{
+    internal void Initialize()
+    {
         InitializeComponent();
         AddItems();
     }
@@ -21,6 +21,7 @@ public partial class FileOperationListView : ContentView
     {
         openLayout.Children.Add(CreateView("\uE712", "Open", true));
         saveLayout.Children.Add(CreateView("\uE75f", "Save", false));
+        printLayout.Children.Add(CreateView("\uE77f", "Print", false));
     }
     private void ItemClicked(object? sender, EventArgs e)
     {
@@ -43,6 +44,10 @@ public partial class FileOperationListView : ContentView
             {
                 viewModel.ExportAnnotations();
             }
+            else if (grid!=null && grid.Children[1] is Label printIconName && printIconName.Text.Equals("Print"))
+            {
+                viewModel.PrintDocument();
+            }
         }
         ItemTapped?.Invoke(this, new ItemTappedEventArgs(grid!.Children[0]));
     }
@@ -52,6 +57,13 @@ public partial class FileOperationListView : ContentView
         childRow.WidthRequest = 205;
         childRow.HeightRequest = 40;
         childRow.PointerPressed += ItemClicked;
+        Color lightThemeColor = new Color();
+        Color darkThemeColor = new Color();
+        if(Application.Current != null)
+        {
+            lightThemeColor = (Color)Application.Current.Resources["IconColourLight"];
+            darkThemeColor = (Color)Application.Current.Resources["IconColour"];
+        }
         Label iconLabel = new Label()
         {
             Padding = new Thickness(16, 0, 12, 0),
@@ -63,6 +75,7 @@ public partial class FileOperationListView : ContentView
             VerticalTextAlignment = TextAlignment.Center,
             Text = icon,
         };
+        iconLabel.SetAppThemeColor(Label.TextColorProperty,lightThemeColor, darkThemeColor);
         childRow.Children.Add(iconLabel);
         Label iconNameLabel = new Label()
         {
@@ -74,6 +87,7 @@ public partial class FileOperationListView : ContentView
             VerticalTextAlignment = TextAlignment.Center,
             Text = iconName,
         };
+        iconNameLabel.SetAppThemeColor(Label.TextColorProperty, lightThemeColor, darkThemeColor);
         childRow.Children.Add(iconNameLabel);
         if(isExpand)
         {
@@ -88,6 +102,7 @@ public partial class FileOperationListView : ContentView
                 VerticalTextAlignment = TextAlignment.Center,
                 Text = "\uE704"
             };
+            expandLabel.SetAppThemeColor(Label.TextColorProperty, lightThemeColor, darkThemeColor);
             childRow.Children.Add(expandLabel);
         }
         return childRow;

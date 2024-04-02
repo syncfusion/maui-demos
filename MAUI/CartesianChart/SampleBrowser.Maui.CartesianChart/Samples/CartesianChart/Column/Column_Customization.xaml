@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
         <StackLayout>
             <StackLayout.BindingContext>
@@ -11,7 +18,7 @@
             </StackLayout.BindingContext>
             <chart:SfCartesianChart Grid.Row="0" x:Name="Chart3" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.Title>
-                    <Label Text="PC Vendor Shipments - 2015 Q1" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                    <Label Text="PC Vendor Shipments - 2015 Q1" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
                 </chart:SfCartesianChart.Title>
                 <chart:SfCartesianChart.XAxes>
                     <chart:CategoryAxis IsVisible="False" >
@@ -22,12 +29,14 @@
                     </chart:NumericalAxis>
                 </chart:SfCartesianChart.YAxes>
                 <chart:SfCartesianChart.Series>
-                    <local:ColumnSeriesExt EnableAnimation="{Binding EnableAnimation}" ShowDataLabels="True" PaletteBrushes="{Binding PaletteBrushes}"
-                                         ItemsSource="{Binding ColumnData}" XBindingPath="Name" YBindingPath="Value">
+                    <local:ColumnSeriesExt EnableAnimation="{Binding EnableAnimation}" ShowDataLabels="True" PaletteBrushes="{AppThemeBinding Default={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}"
+                                         ItemsSource="{Binding ColumnData}" 
+                                          TrackColor="{AppThemeBinding Light={StaticResource TrackColorLight}, Dark={StaticResource TrackColorDark}}"
+                                           XBindingPath="Name" YBindingPath="Value">
                         <local:ColumnSeriesExt.DataLabelSettings>
                             <chart:CartesianDataLabelSettings UseSeriesPalette="False" LabelPlacement="Outer">
                                 <chart:CartesianDataLabelSettings.LabelStyle>
-                                    <chart:ChartDataLabelStyle TextColor="Black" FontSize="16" LabelFormat="0.00'M"/>
+                                    <chart:ChartDataLabelStyle TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" FontSize="16" LabelFormat="0.00'M"/>
                                 </chart:CartesianDataLabelSettings.LabelStyle>
                             </chart:CartesianDataLabelSettings>
                         </local:ColumnSeriesExt.DataLabelSettings>

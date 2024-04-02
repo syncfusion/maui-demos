@@ -14,6 +14,11 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         private Syncfusion.Maui.Picker.SfTimePicker alarmTimePicker;
         private Entry alarmMessageEntry;
 
+        /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
         public event EventHandler? OnCreated;
         public AlarmPopup()
         {
@@ -27,6 +32,9 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
             this.alarmMessageEntry = new Entry();
             this.alarmMessageEntry.HeightRequest = 40;
             this.alarmMessageEntry.Placeholder = "Enter Alarm Message";
+            this.alarmMessageEntry.PlaceholderColor = isLightTheme ? Color.FromArgb("#611c1b1f") : Color.FromArgb("#61e6e1e5");
+            this.alarmMessageEntry.TextColor = isLightTheme ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0");
+            this.alarmMessageEntry.BackgroundColor = isLightTheme ? Color.FromArgb("#F7F2FB") : Color.FromArgb("#25232A");
             this.alarmMessageEntry.Text = string.Empty;
             this.alarmMessageEntry.Margin = new Thickness(5, 0);
             stack.Add(this.alarmMessageEntry);

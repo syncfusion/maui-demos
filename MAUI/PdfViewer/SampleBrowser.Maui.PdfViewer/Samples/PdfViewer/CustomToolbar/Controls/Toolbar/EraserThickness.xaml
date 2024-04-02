@@ -6,7 +6,7 @@
              x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.EraserThickness">
 
 
-    <Grid x:Name="MyGrid">
+    <Grid x:Name="MyGrid" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>

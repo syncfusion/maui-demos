@@ -22,9 +22,11 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
         public ObservableCollection<Brush> PaletteBrushes { get; set; }
         public ObservableCollection<Brush> SelectionBrushes { get; set; }
         public ObservableCollection<Brush> CustomColor1 { get; set; }
-
         public ObservableCollection<Brush> CustomColor2 { get; set; }
         public ObservableCollection<Brush> AlterColor1 { get; set; }
+        public ObservableCollection<Brush> ThemePaletteBrushes { get; set; }
+        public ObservableCollection<Brush> CenterViewThemeBrushes { get; set; }
+
         public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
 
         public Array PieGroupMode
@@ -93,6 +95,25 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
                 new SolidColorBrush(Color.FromArgb("#346bf5")),
                 new SolidColorBrush(Color.FromArgb("#ff9d00")),
             };
+
+            ThemePaletteBrushes = new ObservableCollection<Brush>()
+            {
+                new SolidColorBrush(Color.FromArgb("#2A9AF3")),
+                new SolidColorBrush(Color.FromArgb("#0DC920")),
+                new SolidColorBrush(Color.FromArgb("#F5921F")),
+                new SolidColorBrush(Color.FromArgb("#E64191")),
+                new SolidColorBrush(Color.FromArgb("#2EC4B6")),
+                new SolidColorBrush(Color.FromArgb("#A033F5")),
+                new SolidColorBrush(Color.FromArgb("#FDCD25")),
+            };
+
+            CenterViewThemeBrushes = new ObservableCollection<Brush>()
+            {
+                new SolidColorBrush(Color.FromArgb("#2EC4B6")),
+                new SolidColorBrush(Color.FromArgb("#E75A6E")),
+                new SolidColorBrush(Color.FromArgb("#FDCD25")),
+                new SolidColorBrush(Color.FromArgb("#0DC920")),
+            };
         }
     }
 
@@ -113,5 +134,10 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
         {
             return value;
         }
+    }
+
+    public class ChartColorModel : ObservableCollection<Brush>
+    {
+
     }
 }

@@ -4,7 +4,12 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
              xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:converter="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core"
              xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Resources>
+        <converter:InvertedBoolConverter x:Key="invertedBoolConverter"/>
+    </localCore:SampleView.Resources>
+
     <localCore:SampleView.Content>
             <Grid>
             <Grid.Margin>
@@ -55,19 +60,19 @@
                         <ColumnDefinition Width="{OnIdiom Desktop = 0.95*, Phone = 0.8*, Default=0.9*}"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackLayout Grid.Column="0">
+                    <StackLayout Grid.Column="0" Margin="3" >
                         <Label Text="{Binding SelectedDate, StringFormat='{}{0:ddd}'}"
                            TextTransform="Uppercase"
                            FontSize="14" 
+                               Padding="0,5,0,0"
                            Margin="0,10,0,0"
-                           BackgroundColor="White"
                            HorizontalTextAlignment="Center"
-                           TextColor="Gray" />
-                        <AbsoluteLayout BackgroundColor="White" 
-                                                    Margin="0"
-                                                    Grid.Row="1"
-                                                    Padding="0">
-                            <BoxView Color="Blue" IsVisible="{Binding IsToday}"
+                           TextColor="{DynamicResource SfSchedulerNormalViewHeaderDayTextColor}" />
+                    <AbsoluteLayout
+                                Margin="0"
+                                Grid.Row="1"
+                                Padding="0">
+                        <BoxView Color="{DynamicResource SfSchedulerNormalTodayHighlightBrush}" IsVisible="{Binding IsToday}"
                                  CornerRadius="18"
                                  WidthRequest="36"   
                                  HeightRequest="36"
@@ -75,11 +80,16 @@
                                  AbsoluteLayout.LayoutFlags="PositionProportional"
                                  VerticalOptions="Center"
                                  HorizontalOptions="Center" />
-
-                            <Label HorizontalTextAlignment="Center"
+                        <Label HorizontalTextAlignment="Center" x:Name="todayLabel" IsVisible="{Binding IsToday}"
+                                VerticalTextAlignment="Center"
+                                TextColor="{DynamicResource SfSchedulerNormalTodayTextColor}"
+                                AbsoluteLayout.LayoutBounds="0.5,0.3,36,36"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                Text="{Binding SelectedDate, StringFormat='{}{0:dd}'}"/>
+                        <Label HorizontalTextAlignment="Center"
+                               IsVisible="{Binding IsToday, Converter={StaticResource invertedBoolConverter}}"
                                VerticalTextAlignment="Center"
-                               BackgroundColor="Transparent"
-                               TextColor="{Binding DateTextColor}"
+                               TextColor="{DynamicResource SfSchedulerNormalViewHeaderDayTextColor}"
                                AbsoluteLayout.LayoutBounds="0.5,0.3,36,36"
                                AbsoluteLayout.LayoutFlags="PositionProportional"
                                Text="{Binding SelectedDate, StringFormat='{}{0:dd}'}"/>
@@ -95,13 +105,13 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid Margin="0,0,0,2" Background="{Binding Background}">
+                                    <Grid Margin="0,0,0,4" Background="{Binding Background}">
                                         <StackLayout Padding="5,5,10,0" Orientation="Vertical">
                                             <Label Text = "{Binding EventName}" FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}" FontAttributes="Bold" TextColor="White" />
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding From, StringFormat='{}{0:hh:mm tt}'}" FontSize="10" TextColor="White" />
-                                                <Label Text=" - " TextColor="White" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center" />
-                                                <Label Text="{Binding To, StringFormat='{}{0:hh:mm tt}'}" FontSize="10" TextColor="White"/>
+                                                <Label Text="{Binding From, StringFormat='{}{0:hh:mm tt}'}" FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}" TextColor="White" />
+                                                <Label Text=" - " TextColor="White" FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}" VerticalOptions="Center" HorizontalOptions="Center" />
+                                                <Label Text="{Binding To, StringFormat='{}{0:hh:mm tt}'}" FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}" TextColor="White"/>
                                             </StackLayout>
                                         </StackLayout>
                                     </Grid>

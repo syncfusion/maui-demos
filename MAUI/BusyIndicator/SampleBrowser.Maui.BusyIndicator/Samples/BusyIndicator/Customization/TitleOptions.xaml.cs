@@ -29,35 +29,46 @@ namespace SampleBrowser.Maui.BusyIndicator.SfBusyIndicator
             this.busyIndicator.FontSize = e.NewValue * 10;
         }
 
-
-        private void RadioButton_CheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-            this.busyIndicator.FontAttributes = FontAttributes.None;
-        }
-
-        private void RadioButton_CheckedChanged_1(object sender, CheckedChangedEventArgs e)
-        {
-            this.busyIndicator.FontAttributes = FontAttributes.Bold;
-        }
-
-        private void RadioButton_CheckedChanged_2(object sender, CheckedChangedEventArgs e)
-        {
-            this.busyIndicator.FontAttributes = FontAttributes.Italic;
-        }
-
-        private void RadioButton_CheckedChanged_3(object sender, CheckedChangedEventArgs e)
-        {
-            this.busyIndicator.TitlePlacement = Syncfusion.Maui.Core.BusyIndicatorTitlePlacement.Top;
-        }
-
-        private void RadioButton_CheckedChanged_4(object sender, CheckedChangedEventArgs e)
-        {
-            this.busyIndicator.TitlePlacement = Syncfusion.Maui.Core.BusyIndicatorTitlePlacement.Bottom;
-        }
-
         private void Slider_ValueChanged_1(object sender, ValueChangedEventArgs e)
         {
             this.busyIndicator.TitleSpacing = e.NewValue * 10;
+        }
+
+        private void RadioButton_CheckedChanged(object sender, Syncfusion.Maui.Buttons.CheckedChangedEventArgs e)
+        {
+            if (e.CurrentItem != null && this.busyIndicator != null)
+            {
+                if (e.CurrentItem.Text == "None")
+                {
+                    this.busyIndicator.FontAttributes = FontAttributes.None;
+                }
+                else if (e.CurrentItem.Text == "Bold")
+                {
+                    this.busyIndicator.FontAttributes = FontAttributes.Bold;
+                }
+                else if (e.CurrentItem.Text == "Italic")
+                {
+                    this.busyIndicator.FontAttributes = FontAttributes.Italic;
+                }
+            }
+           
+           
+        }
+
+        private void RadioButton_CheckedChanged_1(object sender, Syncfusion.Maui.Buttons.CheckedChangedEventArgs e)
+        {
+            if (e.CurrentItem != null && this.busyIndicator != null)
+            {
+                if (e.CurrentItem.Text == "Top")
+                {
+                    this.busyIndicator.TitlePlacement = Syncfusion.Maui.Core.BusyIndicatorTitlePlacement.Top;
+                }
+                else if (e.CurrentItem.Text == "Bottom")
+                {
+                    this.busyIndicator.TitlePlacement = Syncfusion.Maui.Core.BusyIndicatorTitlePlacement.Bottom;
+
+                }
+            }
         }
     }
 }

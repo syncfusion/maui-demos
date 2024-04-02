@@ -48,6 +48,7 @@ public partial class Annotations : SampleView
 #else
         StampView = DesktopStampView;
         toolbar = DesktopToolbar;
+        DesktopToolbar.StampViewDesktop = DesktopStampView;
 #endif
         PdfViewer.UndoCommand!.CanExecuteChanged += UndoCommand_CanExecuteChanged;
         UpdateToolbarProperties();
@@ -76,21 +77,37 @@ public partial class Annotations : SampleView
             {
                 viewModel.IsSaveLayoutVisible = false;
             }
+            if (DeviceInfo.Current.Idiom == DeviceIdiom.Phone)
+            {
+                if (e.PropertyName == nameof(PdfViewer.AnnotationMode))
+                {
+                    toolbar!.IsVisible = PdfViewer.AnnotationMode != AnnotationMode.Signature;
+                    bottomToolbar!.IsVisible = PdfViewer.AnnotationMode != AnnotationMode.Signature;
+                }
+            }
         }
     }
 
     public void AddItems()
     {
         saveLayout.Children.Add(CreateView("\uE75f", "Save", 16));
-        importLayout.Children.Add(CreateView("\uE782", "Import Annotation",19));
-        exportLayout.Children.Add(CreateView("\uE781", "Export Annotation",19));
+        importLayout.Children.Add(CreateView("\uE782", "Import Annotation", 19));
+        exportLayout.Children.Add(CreateView("\uE781", "Export Annotation", 19));
+        printLayout.Children.Add(CreateView("\uE77f", "Print", 19));
     }
-    private Grid CreateView(string icon, string iconName,int iconSize)
+    private Grid CreateView(string icon, string iconName, int iconSize)
     {
         GestureGrid childRow = new GestureGrid();
         childRow.WidthRequest = 200;
         childRow.HeightRequest = 40;
         childRow.PointerPressed += ItemClicked;
+        Color lightColor = new Color();
+        Color darkColor = new Color();
+        if (Application.Current != null)
+        {
+            lightColor = (Color)Application.Current.Resources["IconColourLight"];
+            darkColor = (Color)Application.Current.Resources["IconColour"];
+        }
         Label iconLabel = new Label()
         {
             Padding = new Thickness(20, 0, 0, 0),
@@ -101,16 +118,18 @@ public partial class Annotations : SampleView
             VerticalOptions = LayoutOptions.Center,
             Text = icon,
         };
+        iconLabel.SetAppThemeColor(Label.TextColorProperty, lightColor, darkColor);
         childRow.Children.Add(iconLabel);
         Label iconNameLabel = new Label()
         {
             Padding = new Thickness(15, 0, 0, 0),
-            Margin = new Thickness(30, 0, 0, 0),
+            Margin = new Thickness(35, 0, 0, 0),
             TextColor = new Color(0, 0, 0, 0.6f),
             FontSize = 16,
             VerticalOptions = LayoutOptions.Center,
             Text = iconName,
         };
+        iconNameLabel.SetAppThemeColor(Label.TextColorProperty, lightColor, darkColor);
         childRow.Children.Add(iconNameLabel);
         return childRow;
     }
@@ -130,6 +149,8 @@ public partial class Annotations : SampleView
                 bindingContext.ImportAnnotations();
             else if (operation.Contains("Export"))
                 bindingContext.ExportAnnotations();
+            else if (operation.Contains("Print"))
+                bindingContext.PrintDocument();
             bindingContext.IsFileOperationListVisible = false;
         }
     }
@@ -161,6 +182,91 @@ public partial class Annotations : SampleView
                     viewModel.ColorPaletteMargin = new Thickness(Width - sizeRequest.Request.Width - 20, viewModel.ColorPaletteMargin.Top, viewModel.ColorPaletteMargin.Right, viewModel.ColorPaletteMargin.Bottom);
             }
         }
+        InitializeControlIfNull(e.PropertyName);
+    }
+
+    private void InitializeControlIfNull(string? propertyName)
+    {
+        if (propertyName == nameof(viewModel.IsFreeTextFillColorVisble))
+        {
+            if (viewModel.IsFreeTextFillColorVisble && freeTextAnnotationColorPalatte.Content == null)
+                freeTextAnnotationColorPalatte.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsEraserThicknessToolbarVisible))
+        {
+            if (viewModel.IsEraserThicknessToolbarVisible && eraserThicknessBar.Content == null)
+                eraserThicknessBar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsLineAndArrowColorPalleteVisible))
+        {
+            if (viewModel.IsLineAndArrowColorPalleteVisible && lineAndArrowColorPalette.Content == null)
+                lineAndArrowColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsShapeColorPalleteVisible))
+        {
+            if (viewModel.IsShapeColorPalleteVisible && shapeColorPalette.Content == null)
+                shapeColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsTextMarkUpColorPalleteVisible))
+        {
+            if (viewModel.IsTextMarkUpColorPalleteVisible && textMarkupColorPalette.Content == null)
+                textMarkupColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStampOpacitySliderbarVisible))
+        {
+            if (viewModel.IsStampOpacitySliderbarVisible && stampOpacityBar.Content == null)
+                stampOpacityBar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsInkColorPalleteVisible))
+        {
+            if (viewModel.IsInkColorPalleteVisible && inkColorPalette.Content == null)
+                inkColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStickyNoteColorPalleteVisible))
+        {
+            if (viewModel.IsStickyNoteColorPalleteVisible && stickyNoteColorPalette.Content == null)
+                stickyNoteColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsTextMarkupListVisible))
+        {
+            if (viewModel.IsTextMarkupListVisible && textmarkupView.Content == null)
+                textmarkupView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsShapeListVisible))
+        {
+            if (viewModel.IsShapeListVisible && shapeListView.Content == null)
+                shapeListView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStickyNoteListVisible))
+        {
+            if (viewModel.IsStickyNoteListVisible && DesktopStickyNoteListView.Content == null)
+                DesktopStickyNoteListView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStampListVisible))
+        {
+            if (viewModel.IsStampListVisible && DesktopStampView.Content == null)
+                DesktopStampView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStampViewVisible))
+        {
+            if (viewModel.IsStampViewVisible && MobileStampView.Content == null)
+                MobileStampView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsColorToolbarVisible))
+        {
+            if (viewModel.IsColorToolbarVisible && colorToolBar.Content == null)
+                colorToolBar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsFillColorToolbarVisible))
+        {
+            if (viewModel.IsFillColorToolbarVisible && fillColorToolBar.Content == null)
+                fillColorToolBar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStickyNoteToolbarVisible))
+        {
+            if (viewModel.IsStickyNoteToolbarVisible && stickyNoteToolbar.Content == null)
+                stickyNoteToolbar.Initialize();
+        }
     }
 
     private void ViewModel_StickyNoteSelected(object? sender, EventArgs e)
@@ -171,7 +277,7 @@ public partial class Annotations : SampleView
             ShowToast("Tap on the page to insert the sticky note");
         }
     }
-    
+
     private void StampView_StampSelected(object? sender, EventArgs e)
     {
         PdfViewer.AnnotationMode = AnnotationMode.None;
@@ -240,11 +346,13 @@ public partial class Annotations : SampleView
                 {
                     StampType type = StampView.stampType;
                     StampAnnotation builtStamp = new StampAnnotation(type, e.PageNumber, point);
+                    RectF bounds = new RectF(builtStamp.Bounds.X - builtStamp.Bounds.Width / 2, builtStamp.Bounds.Y - builtStamp.Bounds.Height / 2, builtStamp.Bounds.Width, builtStamp.Bounds.Height);
+                    builtStamp.Bounds = bounds;
                     PdfViewer.AddAnnotation(builtStamp);
                 }
                 else if (CustomStamp && CustomStampImageStream != null)
                 {
-                    StampAnnotation customStamp = new StampAnnotation(CustomStampImageStream, e.PageNumber, new RectF(point.X, point.Y, (float)CustomStampWidth, (float)CustomStampHeight));
+                    StampAnnotation customStamp = new StampAnnotation(CustomStampImageStream, e.PageNumber, new RectF((float)(point.X - CustomStampWidth / 2), (float)(point.Y - CustomStampHeight / 2), (float)CustomStampWidth, (float)CustomStampHeight));
                     PdfViewer.AddAnnotation(customStamp);
                     CustomStamp = false;
                 }
@@ -259,7 +367,7 @@ public partial class Annotations : SampleView
                 if (bindingContextForSticky.IsStickyNoteMode)
                 {
                     PointF point = new PointF(e.PagePosition.X, e.PagePosition.Y);
-                    StickyNoteAnnotation builtStickyNote = new StickyNoteAnnotation(bindingContextForSticky.StickyIcon,"",e.PageNumber, point);
+                    StickyNoteAnnotation builtStickyNote = new StickyNoteAnnotation(bindingContextForSticky.StickyIcon, "", e.PageNumber, point);
                     PdfViewer.AddAnnotation(builtStickyNote);
                     bindingContextForSticky.IsStickyNoteMode = false;
                 }
@@ -288,6 +396,17 @@ public partial class Annotations : SampleView
             bindingContext.IsFreeTextFillColorVisble = false;
             bindingContext.IsFreeTextSliderVisible = false;
             bindingContext.IsFreeTextFontListVisible = false;
+            bindingContext.ColorPaletteHighlightColor = Colors.Transparent;
+            bindingContext.IsEraserThicknessToolbarVisible = false;
+            bindingContext.StickyNoteIconChangeHighlightColor = Colors.Transparent;
+            bindingContext.FileOperationHighlightColor = Colors.Transparent;
+            bindingContext.InkHighlightColor = Colors.Transparent;
+            bindingContext.ShapeHighlightColor = Colors.Transparent;
+            bindingContext.TextMarkupHighlightColor = Colors.Transparent;
+            bindingContext.StickyNoteHighlightColor = Colors.Transparent;
+            bindingContext.FreeTextHighlightColor = Colors.Transparent;
+            bindingContext.StampHighlightColor = Colors.Transparent;
+            bindingContext.ColorPaletteHighlightColor = Colors.Transparent;
 #endif
             bindingContext.IsFileOperationListVisible = false;
         }
@@ -302,7 +421,7 @@ public partial class Annotations : SampleView
         string currentTappedDocument = "";
         if (grid!.Children[0] is Label iconName)
         {
-            currentTappedDocument= iconName.Text;
+            currentTappedDocument = iconName.Text;
         }
         if (this.BindingContext is CustomToolbarViewModel bindingContext)
         {
@@ -313,11 +432,11 @@ public partial class Annotations : SampleView
                 bindingContext.IsFilePickerVisible = false;
                 bindingContext.HideOverlayToolbars();
 #if ANDROID || IOS
-                bindingContext.BottomToolbarContent= new AnnotationToolbar(viewModel);
+                bindingContext.BottomToolbarContent = new AnnotationToolbar(viewModel);
 #endif
                 previousDocument = currentTappedDocument;
             }
-            bindingContext.IsFileOperationListVisible= false;
+            bindingContext.IsFileOperationListVisible = false;
         }
     }
 
@@ -351,7 +470,7 @@ public partial class Annotations : SampleView
             bindingContext.IsShapeListVisible = false;
             bindingContext.IsStickyNoteListVisible = false;
             bindingContext.IsStampListVisible = false;
-            
+
         }
     }
 
@@ -443,8 +562,15 @@ public partial class Annotations : SampleView
         viewModel?.ExportAnnotations();
     }
 
+    private void printButton_Clicked(object sender, EventArgs e)
+    {
+        viewModel?.PrintDocument();
+    }
+
     private void OnCreateStampClicked(object sender, StampDialogEventArgs e)
     {
+        if (stampDialog.Content == null)
+            stampDialog.Initialize();
         if (e.IsVisible == true)
             stampDialog.IsVisible = false;
         else
@@ -515,6 +641,8 @@ public partial class Annotations : SampleView
 
     private void OnCreateStampMobileClicked(object sender, StampDialogMobileEventArgs e)
     {
+        if (stampDialogMobile.Content == null)
+            stampDialogMobile.Initialize();
         if (e.IsVisible == true)
             stampDialogMobile.IsVisible = false;
         else

@@ -37,7 +37,7 @@ public class WeatherData : INotifyPropertyChanged
 
     #region Field
     private string? weatherType;
-    private string? date;
+    private DateTime? date;
     private string? temperature;
     private string? weatherIcon;
     private string? weatherImage;
@@ -58,7 +58,7 @@ public class WeatherData : INotifyPropertyChanged
     /// <summary>
     /// Gets or sets the value of Date and notifies user when value gets changed
     /// </summary>
-    public string? Date
+    public DateTime? Date
     {
         get { return date; }
         set { date = value; RaisePropertyChanged("Date"); }

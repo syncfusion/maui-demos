@@ -16,7 +16,7 @@
             <Style TargetType="Border">
                 <Setter Property="Stroke" Value="#6200EE" />
                 <Setter Property="StrokeThickness" Value="0" />
-                <Setter Property="BackgroundColor" Value="#F3EDF7"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"/>
             </Style>
         </ResourceDictionary>
     </localCore:SampleView.Resources>
@@ -37,26 +37,26 @@
                 <ColumnDefinition Width="{OnPlatform WinUI=300, MacCatalyst=300, Default=0}"/>
             </Grid.ColumnDefinitions>
 
-            <StackLayout BackgroundColor="#F2F2F2" Orientation="Vertical">
+            <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" Orientation="Vertical">
                 <tabView:SfTabView x:Name="tabView" ItemsSource="{Binding ShimmerTypes}"
                                    SelectionChanged="SfTabView_SelectionChanged"
                                    TabWidthMode="SizeToContent"
                                    TabBarHeight="40"
-                                   TabBarBackground="#F2F2F2">
-                    <tabView:SfTabItem Header="Feed" TextColor="#6200EE"/>
-                    <tabView:SfTabItem Header="Video" TextColor="#6200EE"/>
-                    <tabView:SfTabItem Header="Shopping" TextColor="#6200EE"/>
-                    <tabView:SfTabItem Header="Article" TextColor="#6200EE"/>
-                    <tabView:SfTabItem Header="Profile" TextColor="#6200EE"/>
-                    <tabView:SfTabItem Header="Persona" TextColor="#6200EE"/>
+                                   TabBarBackground="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}">
+                    <tabView:SfTabItem Header="Feed"/>
+                    <tabView:SfTabItem Header="Video"/>
+                    <tabView:SfTabItem Header="Shopping"/>
+                    <tabView:SfTabItem Header="Article"/>
+                    <tabView:SfTabItem Header="Profile"/>
+                    <tabView:SfTabItem Header="Persona"/>
                 </tabView:SfTabView>
 
                 <shimmer:SfShimmer x:Name="shimmer"
                                    Margin="2"
                                    HeightRequest="{OnPlatform Android=240,iOS=270,Default=270}"
-                                   BackgroundColor="White"
+                                   BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                    AnimationDuration="{Binding Duration}"
-                                   Type="CirclePersona"
+                                   Type="Feed"
                                    VerticalOptions="Start"
                                    WaveColor="{Binding WaveColor}"
                                    WaveWidth="{Binding WaveWidth}"
@@ -95,7 +95,7 @@
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                         </Border.GestureRecognizers>
-                        <Label Text="&#xe74a;" TextColor="#343434" VerticalTextAlignment="Center" 
+                        <Label Text="&#xe74a;" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" VerticalTextAlignment="Center" 
                                HorizontalTextAlignment="Center"
                                FontSize="24"
                                FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
@@ -109,7 +109,7 @@
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                         </Border.GestureRecognizers>
-                        <Label Text="&#xe74a;" TextColor="#343434" VerticalTextAlignment="Center" 
+                        <Label Text="&#xe74a;" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" VerticalTextAlignment="Center" 
                                HorizontalTextAlignment="Center"
                                FontSize="24"
                                FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
@@ -123,7 +123,7 @@
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                         </Border.GestureRecognizers>
-                        <Label Text="&#xe74a;" TextColor="#343434" VerticalTextAlignment="Center" 
+                        <Label Text="&#xe74a;" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" VerticalTextAlignment="Center" 
                                HorizontalTextAlignment="Center"
                                FontSize="24"
                                FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
@@ -137,7 +137,7 @@
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                         </Border.GestureRecognizers>
-                        <Label Text="&#xe74a;" TextColor="#343434" VerticalTextAlignment="Center" 
+                        <Label Text="&#xe74a;" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" VerticalTextAlignment="Center" 
                                HorizontalTextAlignment="Center"
                                FontSize="24"
                                FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
@@ -151,7 +151,7 @@
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                         </Border.GestureRecognizers>
-                        <Label Text="&#xe74a;" TextColor="#343434" VerticalTextAlignment="Center" 
+                        <Label Text="&#xe74a;" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" VerticalTextAlignment="Center" 
                                HorizontalTextAlignment="Center"
                                FontSize="24"
                                FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
@@ -218,7 +218,7 @@
 
                 <Slider x:Name="repeatCountSlider"
                         HorizontalOptions="FillAndExpand"
-                        Maximum="4"
+                        Maximum="4" Margin="5,0,5,0"
                         MaximumTrackColor="Gray"
                         Minimum="1"
                         MinimumTrackColor="#6200EE"
@@ -232,7 +232,7 @@
 
                 <Slider x:Name="sliderWaveWidth"
                             HorizontalOptions="FillAndExpand"
-                            Maximum="200"
+                            Maximum="200" Margin="5,0,5,0"
                             MaximumTrackColor="Gray"
                             Minimum="50"
                             MinimumTrackColor="#6200EE"
@@ -246,7 +246,7 @@
 
                 <Slider x:Name="sliderAnimationDuration"
                             HorizontalOptions="FillAndExpand"
-                            Maximum="3000"
+                            Maximum="3000" Margin="5,0,5,0"
                             MaximumTrackColor="Gray"
                             Minimum="1000"
                             MinimumTrackColor="#6200EE"

@@ -20,10 +20,9 @@
         </Style>
 
         <Style TargetType="Label">
-            <Setter Property="TextColor"
-                    Value="Black" />
             <Setter Property="HorizontalOptions"
                     Value="Center" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
         </Style>
     </sb:SampleView.Resources>
 
@@ -38,8 +37,8 @@
                                   Grid.Column="0"
                                   NumberFormat="#0">
                     <sliders:SfSlider.Tooltip>
-                        <sliders:SliderTooltip NumberFormat="#0"
-                                               Position="Right" />
+                        <sliders:SliderTooltip NumberFormat="#0" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}" 
+                                               Position="Right" TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfSlider.Tooltip>
                 </sliders:SfSlider>
                 <Label Grid.Row="1"
@@ -51,12 +50,13 @@
                                   Grid.Column="1"
                                   IsEnabled="False">
                     <sliders:SfSlider.TrackStyle>
-                        <sliders:SliderTrackStyle ActiveFill="Gray"
-                                                  InactiveFill="LightGray" />
+                        <sliders:SliderTrackStyle  ActiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledActiveTrackFillBrush}}"
+                                 InactiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledInactiveTrackFillBrush}}" />
                     </sliders:SfSlider.TrackStyle>
                     <sliders:SfSlider.ThumbStyle>
-                        <sliders:SliderThumbStyle Fill="Gray" />
+                        <sliders:SliderThumbStyle Fill="{AppThemeBinding Default={StaticResource SfSliderDisabledThumbFillBrush}}"/>
                     </sliders:SfSlider.ThumbStyle>
+
                 </sliders:SfSlider>
                 <Label Grid.Row="1"
                        Grid.Column="1"

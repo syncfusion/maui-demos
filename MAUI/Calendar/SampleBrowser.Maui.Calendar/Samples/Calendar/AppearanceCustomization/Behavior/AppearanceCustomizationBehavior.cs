@@ -27,6 +27,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         private SfComboBox? comboBox;
 
         /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
+        /// <summary>
         /// Begins when the behavior attached to the view 
         /// </summary>
         /// <param name="bindable">bindable value</param>
@@ -36,7 +41,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             Border border = bindable.Content.FindByName<Border>("border");
             border.IsVisible = true;
 #if MACCATALYST
-            border.Stroke = Color.FromArgb("#E6E6E6");
+            border.Stroke = isLightTheme ? Colors.White : Color.FromRgba("#1C1B1F");
 #else
             border.Stroke = Colors.Transparent;
 #endif
@@ -51,7 +56,8 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #endif
             this.calendar = bindable.Content.FindByName<SfCalendar>("circleCalendar");
 #endif
-            this.calendar.SelectionBackground = Color.FromRgba("#0A3A74").WithAlpha(0.5f);
+            this.calendar.SelectionBackground = isLightTheme ? Color.FromRgba("#0A3A74").WithAlpha(0.5f) : Color.FromRgba("#3494EC").WithAlpha(0.5f);
+            this.calendar.TodayHighlightBrush = isLightTheme ? Color.FromRgba("#0A3A74") : Color.FromRgba("#3494EC");
             this.calendar.SelectionShape = CalendarSelectionShape.Circle;
             this.comboBox = bindable.Content.FindByName<SfComboBox>("comboBox");
             this.comboBox.ItemsSource = new List<string>() { "Circle", "Rectangle" };

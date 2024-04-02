@@ -16,31 +16,31 @@ namespace SampleBrowser.Maui.DataGrid
 {
     public class SelectionBehavior : Behavior<SampleView>
     {
-        private Microsoft.Maui.Controls.Picker? selectionPicker;
+        private Syncfusion.Maui.Inputs.SfComboBox? comboBox;
         private Syncfusion.Maui.DataGrid.SfDataGrid? datagrid;
 
         protected override void OnAttachedTo(SampleView bindable)
         {
             this.datagrid = bindable.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
-            this.selectionPicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("SelectionPicker");
+            this.comboBox = bindable.FindByName<Syncfusion.Maui.Inputs.SfComboBox>("comboBox");
 
-            selectionPicker.SelectedIndexChanged += SelectionPicker_SelectedIndexChanged;
+            comboBox.SelectionChanged += SelectionPicker_SelectedIndexChanged;
             base.OnAttachedTo(bindable);
         }
 
         protected override void OnDetachingFrom(SampleView bindable)
         {
-            this.selectionPicker!.SelectedIndexChanged -= SelectionPicker_SelectedIndexChanged;
+            this.comboBox!.SelectionChanged -= SelectionPicker_SelectedIndexChanged;
 
             this.datagrid = null;
-            this.selectionPicker = null;
+            this.comboBox = null;
 
             base.OnDetachingFrom(bindable);
         }
 
         private void SelectionPicker_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            switch (this.selectionPicker!.SelectedIndex)
+            switch (this.comboBox!.SelectedIndex)
             {
                 case 0:
                     SetSelectionMode(Syncfusion.Maui.DataGrid.DataGridSelectionMode.None);

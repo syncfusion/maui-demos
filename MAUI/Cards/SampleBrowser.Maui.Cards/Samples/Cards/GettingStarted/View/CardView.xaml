@@ -3,10 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleBrowser.Maui.Cards.SfCards.CardView"
              xmlns:cards="clr-namespace:Syncfusion.Maui.Cards;assembly=Syncfusion.Maui.Cards"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Cards.SfCards"
-             Background="WhiteSmoke">
+             Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+    <localCore:SampleView.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Default={StaticResource PrimaryBackground}}"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Default={StaticResource PrimaryForeground}}"/>
+        </Style>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -20,7 +28,7 @@
                  VerticalOptions="{OnPlatform WinUI=Center}"
                  Grid.Row="2"/>
             </Grid>
-            <Frame HasShadow="False" Padding="0" Margin="10"
+            <Frame HasShadow="False" Padding="0" Margin="10" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}"
                    Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" CornerRadius="10"
                    Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" 
                    VerticalOptions="{OnPlatform Default=Center, WinUI=Center, MacCatalyst=Center}"
@@ -50,7 +58,7 @@
                                         <Label Grid.Row="3" Text="{Binding FirstCardDetails.CardHolderName}" FontSize="18" TextColor="White" FontFamily="Roboto-Medium"/>
                                     </Grid>
                                 </Grid>
-                                <Grid Grid.Column="1" Background="White" Padding="20">
+                                <Grid Grid.Column="1" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Padding="20">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height=".3*"/>
                                         <RowDefinition Height=".3*"/>
@@ -60,7 +68,7 @@
                                     <Label Text="{Binding FirstCardDetails.CardDueDate}" HorizontalOptions="Start" VerticalOptions="Start" Padding="5" FontSize="10" BackgroundColor="{Binding FirstCardDetails.DueIndicatorColor}" TextColor="White" FontFamily="Roboto-Medium"/>
                                     <Label Grid.Row="1" Text="total due" HorizontalOptions="Start" VerticalOptions="End" FontSize="10" TextColor="Gray" FontFamily="Roboto-Regular"/>
                                     <Label Grid.Row="2" Text="{Binding FirstCardDetails.CardDueAmount}" HorizontalOptions="Start" VerticalOptions="End" FontSize="25" FontFamily="Roboto-Medium"/>
-                                    <Button Grid.Row="3" Text="Pay now" HorizontalOptions="Fill" BackgroundColor="Black" VerticalOptions="End" FontFamily="Roboto-Medium"/>
+                                    <Button Grid.Row="3" Text="Pay now" HorizontalOptions="Fill" VerticalOptions="End" FontFamily="Roboto-Medium"/>
                                 </Grid>
                             </Grid>
                         </cards:SfCardView>
@@ -86,7 +94,7 @@
                                         <Label Grid.Row="3" Text="{Binding SecondCardDetails.CardHolderName}" FontSize="18" TextColor="White" FontFamily="Roboto-Medium"/>
                                     </Grid>
                                 </Grid>
-                                <Grid Grid.Column="1" Background="White" Padding="20">
+                                <Grid Grid.Column="1" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Padding="20">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height=".3*"/>
                                         <RowDefinition Height=".3*"/>
@@ -96,7 +104,7 @@
                                     <Label Text="{Binding SecondCardDetails.CardDueDate}" HorizontalOptions="Start" VerticalOptions="Start" Padding="5" FontSize="10" BackgroundColor="{Binding SecondCardDetails.DueIndicatorColor}" TextColor="White" FontFamily="Roboto-Medium"/>
                                     <Label Grid.Row="1" Text="total due" HorizontalOptions="Start" VerticalOptions="End" FontSize="10" TextColor="Gray" FontFamily="Roboto-Regular"/>
                                     <Label Grid.Row="2" Text="{Binding SecondCardDetails.CardDueAmount}" HorizontalOptions="Start" VerticalOptions="End" FontSize="25" FontFamily="Roboto-Medium"/>
-                                    <Button Grid.Row="3" Text="Pay now" HorizontalOptions="Fill" BackgroundColor="Black" VerticalOptions="End" FontFamily="Roboto-Medium"/>
+                                    <Button Grid.Row="3" Text="Pay now" HorizontalOptions="Fill" VerticalOptions="End" FontFamily="Roboto-Medium"/>
                                 </Grid>
                             </Grid>
                         </cards:SfCardView>
@@ -122,7 +130,7 @@
                                         <Label Grid.Row="3" Text="{Binding ThirdCardDetails.CardHolderName}" FontSize="18" TextColor="White" FontFamily="Roboto-Medium"/>
                                     </Grid>
                                 </Grid>
-                                <Grid Grid.Column="1" Background="White" Padding="20">
+                                <Grid Grid.Column="1" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Padding="20">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height=".3*"/>
                                         <RowDefinition Height=".3*"/>
@@ -132,7 +140,7 @@
                                     <Label Text="{Binding ThirdCardDetails.CardDueDate}" HorizontalOptions="Start" VerticalOptions="Start" Padding="5" FontSize="10" BackgroundColor="{Binding ThirdCardDetails.DueIndicatorColor}" TextColor="White" FontFamily="Roboto-Medium"/>
                                     <Label Grid.Row="1" Text="total due" HorizontalOptions="Start" VerticalOptions="End" FontSize="10" TextColor="Gray" FontFamily="Roboto-Regular"/>
                                     <Label Grid.Row="2" Text="{Binding ThirdCardDetails.CardDueAmount}" HorizontalOptions="Start" VerticalOptions="End" FontSize="25" FontFamily="Roboto-Medium"/>
-                                    <Button Grid.Row="3" Text="Pay now" HorizontalOptions="Fill" BackgroundColor="Black" VerticalOptions="End" FontFamily="Roboto-Medium"/>
+                                    <Button Grid.Row="3" Text="Pay now" HorizontalOptions="Fill" VerticalOptions="End" FontFamily="Roboto-Medium"/>
                                 </Grid>
                             </Grid>
                         </cards:SfCardView>
@@ -158,7 +166,7 @@
                                         <Label Grid.Row="3" Text="{Binding FourthCardDetails.CardHolderName}" FontSize="18" TextColor="White" FontFamily="Roboto-Medium"/>
                                     </Grid>
                                 </Grid>
-                                <Grid Grid.Column="1" Background="White" Padding="20">
+                                <Grid Grid.Column="1" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Padding="20">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height=".3*"/>
                                         <RowDefinition Height=".3*"/>
@@ -168,7 +176,7 @@
                                     <Label Text="{Binding FourthCardDetails.CardDueDate}" HorizontalOptions="Start" VerticalOptions="Start" Padding="5" FontSize="10" BackgroundColor="{Binding FourthCardDetails.DueIndicatorColor}" TextColor="White" FontFamily="Roboto-Medium"/>
                                     <Label Grid.Row="1" Text="total due" HorizontalOptions="Start" VerticalOptions="End" FontSize="10" TextColor="Gray" FontFamily="Roboto-Regular"/>
                                     <Label Grid.Row="2" Text="{Binding FourthCardDetails.CardDueAmount}" HorizontalOptions="Start" VerticalOptions="End" FontSize="25" FontFamily="Roboto-Medium"/>
-                                    <Button Grid.Row="3" Text="Pay now" HorizontalOptions="Fill" BackgroundColor="Black" VerticalOptions="End" FontFamily="Roboto-Medium"/>
+                                    <Button Grid.Row="3" Text="Pay now" HorizontalOptions="Fill" VerticalOptions="End" FontFamily="Roboto-Medium"/>
                                 </Grid>
                             </Grid>
                         </cards:SfCardView>
@@ -194,7 +202,7 @@
                                         <Label Grid.Row="3" Text="{Binding FifthCardDetails.CardHolderName}" FontSize="18" TextColor="White" FontFamily="Roboto-Medium"/>
                                     </Grid>
                                 </Grid>
-                                <Grid Grid.Column="1" Background="White" Padding="20">
+                                <Grid Grid.Column="1" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Padding="20">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height=".3*"/>
                                         <RowDefinition Height=".3*"/>
@@ -204,7 +212,7 @@
                                     <Label Text="{Binding FifthCardDetails.CardDueDate}" HorizontalOptions="Start" VerticalOptions="Start" Padding="5" FontSize="10" BackgroundColor="{Binding FifthCardDetails.DueIndicatorColor}" TextColor="White" FontFamily="Roboto-Medium"/>
                                     <Label Grid.Row="1" Text="total due" HorizontalOptions="Start" VerticalOptions="End" FontSize="10" TextColor="Gray" FontFamily="Roboto-Regular"/>
                                     <Label Grid.Row="2" Text="{Binding FifthCardDetails.CardDueAmount}" HorizontalOptions="Start" VerticalOptions="End" FontSize="25" FontFamily="Roboto-Medium"/>
-                                    <Button Grid.Row="3" Text="Paid" HorizontalOptions="Fill" BackgroundColor="Black" VerticalOptions="End" IsEnabled="False" FontFamily="Roboto-Medium"/>
+                                    <Button Grid.Row="3" Text="Paid" HorizontalOptions="Fill" VerticalOptions="End" IsEnabled="False" FontFamily="Roboto-Medium"/>
                                 </Grid>
                             </Grid>
                         </cards:SfCardView>
@@ -241,11 +249,11 @@
                 <Grid Padding="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="60"/>
                     </Grid.ColumnDefinitions>
                     <Label Text="Indicator" VerticalOptions="Center" />
-                    <Switch x:Name="indicatorSwitch" Grid.Column="1"
-                            HorizontalOptions="End" VerticalOptions="Center" IsToggled="False"/>
+                    <buttons:SfSwitch x:Name="indicatorSwitch" Grid.Column="1"
+                            HorizontalOptions="End" VerticalOptions="Center" IsOn="False"/>
                 </Grid>
                 <Grid x:Name="indicatorPositionOption" Padding="5" IsVisible="False">
                     <Grid.ColumnDefinitions>
@@ -253,17 +261,8 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Text="Indicator position" VerticalOptions="Center" />
-                    <Picker x:Name="indicatorPositionPicker" Grid.Column="1" SelectedItem="{Binding IndicatorPosition}">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Left</x:String>
-                                <x:String>Right</x:String>
-                                <x:String>Top</x:String>
-                                <x:String>Bottom</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                </Grid>
+                        <editors:SfComboBox x:Name="indicatorPositionComboBox" Grid.Column="1" IsClearButtonVisible="False" Margin="5,15,0,0" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}" HorizontalOptions="End" />
+                    </Grid>
             </StackLayout>
             </ScrollView>
         </ContentView>

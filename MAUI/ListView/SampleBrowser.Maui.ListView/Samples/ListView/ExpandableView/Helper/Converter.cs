@@ -17,15 +17,15 @@ namespace SampleBrowser.Maui.ListView.SfListView
         {
             if (value == null)
             {
-                return "\ue72B";
+                return "\ue708";
             }
            else if((bool)value)
             {
-                return "\ue72C";
+                return "\ue70B";
             }
             else
             {
-                return "\ue72B";
+                return "\ue708";
             }
         }
 
@@ -41,15 +41,15 @@ namespace SampleBrowser.Maui.ListView.SfListView
         {
             if (value == null)
             {
-                return "\ue72E"; 
+                return "\ue717"; 
             }
             if ((bool)value)
             {
-                return "\ue72D";
+                return "\ue789";
             }
             else
             {
-                return "\ue72E";
+                return "\ue717";
             }
         }
 

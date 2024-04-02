@@ -4,7 +4,6 @@
 		<Control Title="Maps" ControlName="SfMaps" Image="maps.png" Description="Easily visualize data over a geographical area.">
       <Category Title="Shape Layer">
           <Sample Title="Range Color Mapping" SampleName="RangeColorMap" SearchTags="Range Color Mapping" CodeViewerPath="Maps/ColorMapping/" Description="This sample shows the population density of the world map with range color mapping." VideoLink="https://youtu.be/ibUB70vM5DU?t=370"/>
-          <Sample Title="Equal Color Mapping" SampleName="EqualColorMap" SearchTags="Equal Color Mapping" CodeViewerPath="Maps/ColorMapping/" Description="This sample shows European time zones using equal color mapping."/>
           <Sample Title="Bubble" SampleName="Bubble" SearchTags="Bubble" CodeViewerPath="Maps/Bubble/" Description="This sample shows the statistics of the facebook users using the bubble support."/>
           <Sample Title="Marker" SampleName="Marker" SearchTags="Marker" CodeViewerPath="Maps/Marker/" Description="This sample showcases the world map with different time zones using markers." VideoLink="https://www.youtube.com/watch?v=ibUB70vM5DU&amp;t=462s"/>
           <Sample Title="Selection" SampleName="Selection" SearchTags="Selection" CodeViewerPath="Maps/Selection/" Description="This sample showcases a map with simple Selection."/>

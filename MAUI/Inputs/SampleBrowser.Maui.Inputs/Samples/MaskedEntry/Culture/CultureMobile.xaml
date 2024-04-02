@@ -6,7 +6,7 @@
              xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.Resources>
         <Style TargetType="inputs:SfMaskedEntry">
@@ -19,11 +19,11 @@
         </Style>
     </localCore:SampleView.Resources>
 
-    <Grid WidthRequest="313" RowDefinitions="70,*" RowSpacing="20" VerticalOptions="Center">
+    <Grid WidthRequest="313" RowDefinitions="70,*" RowSpacing="20" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
         <HorizontalStackLayout HeightRequest="46" Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
 
             <StackLayout WidthRequest="42" HeightRequest="34" VerticalOptions="Center" x:Name="usStack">
-                <Frame VerticalOptions="FillAndExpand" Grid.Column="0" x:Name="usFrame" BackgroundColor="Transparent" CornerRadius="0" BorderColor="Black" Padding="2" HasShadow="False">
+                <Frame VerticalOptions="FillAndExpand" Grid.Column="0" x:Name="usFrame" BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" CornerRadius="0" BorderColor="{AppThemeBinding Light={DynamicResource Border}, Dark={DynamicResource BorderLight}}" Padding="2" HasShadow="False">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="USImageButton_Clicked"/>
                     </Frame.GestureRecognizers>
@@ -59,40 +59,40 @@
 
 
         <VerticalStackLayout Grid.Row="1" Spacing="50">
-            <Frame BorderColor="Gray" CornerRadius="10" Margin="-10">
-                <VerticalStackLayout Margin="0,-10,0,-20">
+            <Frame  CornerRadius="10" Margin="-10" BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}">
+                <VerticalStackLayout Margin="0,-10,0,-20" >
                     <VerticalStackLayout>
-                        <Label Text="Amount"/>
+                        <Label Text="Amount" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
                         <inputs:SfMaskedEntry x:Name="cultureMask" MaskType="Simple" 
-                                  Mask="$ 0,000.00"  PromptChar="_"/>
+                                  Mask="$ 0,000.00"  PromptChar="_" Keyboard="Numeric"/>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
-                        <Label Text="Name"/>
-                        <Entry Placeholder="Name on your card" Margin="0,0,0,15"/>
+                        <Label Text="Name" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                        <inputs:SfMaskedEntry Placeholder="Name on your card" Margin="0,0,0,15"/>
                     </VerticalStackLayout>
 
                     <Grid ColumnDefinitions="*, 0.8*" Margin="0">
                         <VerticalStackLayout Grid.Column="0">
-                            <Label Text="Card Number"/>
-                            <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{4}-\d{4}-\d{4}-\d{4}" PromptChar="_"/>
+                            <Label Text="Card Number" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                            <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{4} \d{4} \d{4} \d{4}" PromptChar="_" Keyboard="Numeric"/>
                         </VerticalStackLayout>
 
                         <Grid Grid.Column="1" ColumnDefinitions="*,*" ColumnSpacing="15" Margin="20,0,0,0">
                             <VerticalStackLayout Grid.Column="0">
-                                <Label Text="MM/YY"/>
-                                <inputs:SfMaskedEntry MaskType="Simple" Mask="00/00" PromptChar="_"/>
+                                <Label Text="MM/YY" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                                <inputs:SfMaskedEntry MaskType="Simple" Mask="00/00" PromptChar="_" Keyboard="Numeric"/>
                             </VerticalStackLayout>
 
                             <VerticalStackLayout Grid.Column="1">
-                                <Label Text="CVV"/>
-                                <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{3}" PromptChar="_"/>
+                                <Label Text="CVV" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                                <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{3}" PromptChar="_" Keyboard="Numeric"/>
                             </VerticalStackLayout>
                         </Grid>
                     </Grid>
                 </VerticalStackLayout>
             </Frame>
-            <Button Text="Pay Now" FontFamily="Roboto-Regular" />
+            <Button Text="Pay Now" FontFamily="Roboto-Regular" CornerRadius="20"/>
         </VerticalStackLayout>
     </Grid>
 </localCore:SampleView>

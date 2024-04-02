@@ -55,6 +55,18 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         public double Mali { get; set; }
 
+        public double TotalGross { get; set; }
+
+        public double TotalGrossInBillion { get; set; }
+
+        public double GrossLastYearDelta { get; set; }
+
+        public double AverageGross { get; set; }
+
+        public double Releases { get; set; }
+
+        public string? TopMovie { get; set; }
+
         public ChartDataModel() { }
 
         public ChartDataModel(string department, List<double> employeeAges)
@@ -174,6 +186,17 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
             Year = year;
             Ethiopia = ethiopia;
             Mali = mali;
+        }
+
+        public ChartDataModel(string year, double totalGross, double grossLastYearDelta, double averageGross, double releases, string topMovie)
+        {
+            Year = year;
+            TotalGross = totalGross;
+            GrossLastYearDelta = grossLastYearDelta;
+            AverageGross = averageGross;
+            Releases = releases;
+            TopMovie = topMovie;
+            TotalGrossInBillion = TotalGross / 1000000000;
         }
     }
 }

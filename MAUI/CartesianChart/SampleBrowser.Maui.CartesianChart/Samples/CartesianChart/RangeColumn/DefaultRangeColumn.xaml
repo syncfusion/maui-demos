@@ -4,9 +4,15 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:chart="http://schemas.syncfusion.com/maui">
-
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <StackLayout HorizontalOptions="Fill" Padding="20" x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" x:Name="layout">
 
             <StackLayout.BindingContext>
                 <local:RangeColumnSerieViewModel/>
@@ -39,7 +45,7 @@
 
             <chart:RangeColumnSeries EnableAnimation="True"
                                      ShowDataLabels="True"
-                                     Fill="#314A6E"
+                                     Fill="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}"
                                      ItemsSource="{Binding TemperatureData}"
                                      XBindingPath="Name"
                                      High="Value"

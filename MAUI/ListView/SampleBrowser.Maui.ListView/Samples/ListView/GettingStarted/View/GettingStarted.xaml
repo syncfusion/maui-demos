@@ -5,8 +5,7 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
-             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
-    BackgroundColor="White">
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView">
     <localCore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
     </localCore:SampleView.Resources>
@@ -19,7 +18,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" FontFamily="Roboto-Medium" CharacterSpacing="0.25" Text="Read Recipes" TextColor="#E3000000" FontSize="16" Margin="16,10,0,0"/>
+            <Label Grid.Column="0" FontFamily="Roboto-Medium" CharacterSpacing="0.25" Text="Read Recipes" FontSize="16" Margin="16,10,0,0"/>
             <ListView:SfListView Grid.Row="1" x:Name="listView" ItemsSource="{Binding RecipeInfo}"
                          ScrollBarVisibility="Always"
                          SelectionMode="None" 
@@ -48,11 +47,11 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="60"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Row="0" Grid.Column="0"  Text="{Binding RecipeName}" LineBreakMode="WordWrap" TextColor="#DE000000" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=14,MacCatalyst=16}" CharacterSpacing="0.1"/>
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding RecipeTime}" TextColor="#666666" FontSize="{OnPlatform Default=10,WinUI=12,MacCatalyst=12}" FontFamily="Roboto-Regular" HorizontalOptions="End" CharacterSpacing="0.15" Margin="0,0,11,0"/>
-                                <Label Grid.Row="1" Grid.Column="0" LineBreakMode="WordWrap" TextColor="#666666" LineHeight="{OnPlatform iOS={OnIdiom Tablet=1.2, Default=1.025}, Default=1.2}" Text="{Binding RecipeDescription}" FontFamily="Roboto-Regular" FontSize="14" CharacterSpacing="0.1" Margin="0,4,0,0" />
+                                <Label Grid.Row="0" Grid.Column="0"  Text="{Binding RecipeName}" LineBreakMode="WordWrap" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=14,MacCatalyst=16}" CharacterSpacing="0.1"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding RecipeTime}" FontSize="{OnPlatform Default=10,WinUI=12,MacCatalyst=12}" FontFamily="Roboto-Regular" HorizontalOptions="End" CharacterSpacing="0.15" Margin="0,0,11,0" Opacity="0.8"/>
+                                <Label Grid.Row="1" Grid.Column="0" LineBreakMode="WordWrap" LineHeight="{OnPlatform iOS={OnIdiom Tablet=1.2, Default=1.025}, Default=1.2}" Text="{Binding RecipeDescription}" FontFamily="Roboto-Regular" FontSize="14" CharacterSpacing="0.1" Margin="0,4,0,0" Opacity="0.8" />
                             </Grid>
-                            <BoxView Grid.Row="1" Grid.Column="1" BackgroundColor="LightGray" HeightRequest="1" VerticalOptions="End" />
+                            <BoxView Grid.Row="1" Grid.Column="1" Color="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" HeightRequest="1" VerticalOptions="End" />
                         </Grid>
                     </DataTemplate>
                 </ListView:SfListView.ItemTemplate>

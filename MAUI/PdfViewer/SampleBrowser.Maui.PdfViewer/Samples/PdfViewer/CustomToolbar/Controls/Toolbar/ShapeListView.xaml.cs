@@ -11,9 +11,9 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class ShapeListView : ContentView
 {
-    public ShapeListView()
-	{
-		InitializeComponent();
+    internal void Initialize()
+    {
+        InitializeComponent();
         listView.ItemsSource = new List<AnnotationButtonItem>()
         {
             new AnnotationButtonItem()

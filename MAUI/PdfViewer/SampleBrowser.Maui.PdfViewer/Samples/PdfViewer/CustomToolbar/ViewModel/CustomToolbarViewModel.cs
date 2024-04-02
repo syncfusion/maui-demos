@@ -45,6 +45,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         private bool _showHyperlinkDialog = false;
         private bool _showOutlineView = false;
         private bool _showMoreView = false;
+        private bool _showPageLayoutOptions = false;
+        private bool _showDesktopMoreView = false;
         private bool _isTextMarkupListVisible = false;
         private bool _isShapeListVisible = false;
         private bool _isStickyNoteListVisible = false;
@@ -64,7 +66,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         private bool _isfreeTextstrokechanging = false;
         private bool _isfreeTextToolsVisible = false;
         private bool _isfontSliderVisible = false;
-        private bool _isFreeTextFontColorPalatteVisible=false;
+        private bool _isFreeTextFontColorPalatteVisible = false;
+        private bool _isSecondaryToolbarVisible = false;
         private StickyNoteIcon _stickyNoteIcon = StickyNoteIcon.Note;
         private bool _isFileListViewVisible = false;
         private Color _selectedColor = new();
@@ -72,6 +75,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         bool _isReadOnly = false;
         bool _isEditMode = false;
         bool _isFileOpenVisible = true;
+        bool _isPageLayoutVisible = true;
 
         bool isStickyNoteToolbarVisible;
         ContentView bottomToolbarContent;
@@ -109,6 +113,11 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         Color? stickyNoteHighlightColor = Colors.Transparent;
         Color? stampHighlightColor = Colors.Transparent;
         Color? freeTextHighlightColor = Colors.Transparent;
+        Color? colorPaletteHighlightColor = Colors.Transparent;
+        Color? pageLayoutHighlightColor = Colors.Transparent;
+        Color? moreOptionsHighlightColor = Colors.Transparent;
+        Color? stickyNoteIconChangeHighlightColor = Colors.Transparent;
+        Color? fileOperationHighlightColor = Colors.Transparent;
         float selectedOpacity;
         float selectedFontSize;
         float selectedFillColorOpacity = 1;
@@ -155,6 +164,19 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 {
                     _isFileOpenVisible = value;
                     OnPropertyChanged(nameof(IsFileOpenVisible));
+                }
+            }
+        }
+
+        public bool IsPageLayoutVisible
+        {
+            get => _isPageLayoutVisible;
+            set
+            {
+                if (_isPageLayoutVisible != value)
+                {
+                    _isPageLayoutVisible = value;
+                    OnPropertyChanged(nameof(IsPageLayoutVisible));
                 }
             }
         }
@@ -265,6 +287,19 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
+        public bool IsSecondaryToolbarVisible
+        {
+            get => _isSecondaryToolbarVisible;
+            set
+            {
+                if (_isSecondaryToolbarVisible != value)
+                {
+                    _isSecondaryToolbarVisible = value;
+                    OnPropertyChanged(nameof(IsSecondaryToolbarVisible));
+                }
+            }
+        }
+
         public bool IsTextMarkupListVisible
         {
             get => _isTextMarkupListVisible;
@@ -299,6 +334,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 if (_isFileOperationListVisible != value)
                 {
                     _isFileOperationListVisible = value;
+                    if(_isFileOperationListVisible == false)
+                        FileOperationHighlightColor = Colors.Transparent;
                     OnPropertyChanged(nameof(IsFileOperationListVisible));
                 }
             }
@@ -689,6 +726,32 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
+        public bool ShowPageLayoutOptions
+        {
+            get => _showPageLayoutOptions;
+            set
+            {
+                if (_showPageLayoutOptions != value)
+                {
+                    _showPageLayoutOptions = value;
+                    OnPropertyChanged(nameof(ShowPageLayoutOptions));
+                }
+            }
+        }
+
+        public bool ShowDesktopMoreOptions
+        {
+            get => _showDesktopMoreView;
+            set
+            {
+                if (_showDesktopMoreView != value)
+                {
+                    _showDesktopMoreView = value;
+                    OnPropertyChanged(nameof(ShowDesktopMoreOptions));
+                }
+            }
+        }
+
         public Thickness ColorPaletteMargin
         {
             get => _colorPaletteMargin;
@@ -1013,6 +1076,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             IsFilePickerVisible = false;
             ShowMoreOptions = false;
             IsStampViewVisible = false;
+            ShowDesktopMoreOptions = false;
+            ShowPageLayoutOptions = false;
         }
 
         /// <summary>
@@ -1041,7 +1106,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             try
             {
 #endif
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 #if ANDROID
             }
             catch (Java.Lang.NullPointerException) { }
@@ -1216,11 +1281,11 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                             BottomToolbarContent = new InkToolbar(this) { IsDeleteButtonVisible = true };
                         else if (selectedAnnotation is HighlightAnnotation || selectedAnnotation is UnderlineAnnotation || selectedAnnotation is StrikeOutAnnotation || selectedAnnotation is SquigglyAnnotation)
                             BottomToolbarContent = new TextMarkUpPropertyToolbar(this) { IsDeleteButtonVisible = true };
-                        else if(selectedAnnotation is StampAnnotation)
+                        else if (selectedAnnotation is StampAnnotation)
                             BottomToolbarContent = new StampPropertyToolbar(this) { IsDeleteButtonVisible = true };
                         else if (selectedAnnotation is StickyNoteAnnotation)
-                            BottomToolbarContent = new StickyNotePropertyToolbar(this) { IsDeleteButtonVisible = true};
-                        else if(selectedAnnotation is FreeTextAnnotation)
+                            BottomToolbarContent = new StickyNotePropertyToolbar(this) { IsDeleteButtonVisible = true };
+                        else if (selectedAnnotation is FreeTextAnnotation)
                             BottomToolbarContent = new FreetextPropertyToolbar(this) { IsDeleteButtonVisible = true };
 #endif
                         if (selectedAnnotation is StickyNoteAnnotation stickyNoteAnnotation)
@@ -1235,7 +1300,6 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                             IsDeleteButtonVisible = false;
                             IsLockButtonVisible = false;
                             IsUnlockButtonVisible = true;
-                            IsAnnotationsToolsVisible = false;
                         }
                         else
                         {
@@ -1243,8 +1307,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                             IsDeleteButtonVisible = true;
                             IsLockButtonVisible = true;
                             IsUnlockButtonVisible = false;
-                            IsAnnotationsToolsVisible = false;
                         }
+                        IsSecondaryToolbarVisible = true;
                     }
                 }
             }
@@ -1559,6 +1623,80 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             }
         }
 
+        public Color? FileOperationHighlightColor
+        {
+            get
+            {
+                return fileOperationHighlightColor;
+            }
+            set
+            {
+                if (fileOperationHighlightColor != value)
+                {
+                    fileOperationHighlightColor = value;
+                    OnPropertyChanged(nameof(FileOperationHighlightColor));
+                }
+            }
+        }
+
+        public Color? ColorPaletteHighlightColor
+        {
+            get
+            {
+                return colorPaletteHighlightColor;
+            }
+            set
+            {
+                if (colorPaletteHighlightColor != value)
+                {
+                    colorPaletteHighlightColor = value;
+                    OnPropertyChanged(nameof(ColorPaletteHighlightColor));
+                }
+            }
+        }
+
+        public Color? PageLayoutHighlightColor
+        {
+            get => pageLayoutHighlightColor;
+            set
+            {
+                if (pageLayoutHighlightColor != value)
+                {
+                    pageLayoutHighlightColor = value;
+                    OnPropertyChanged(nameof(PageLayoutHighlightColor));
+                }
+            }
+        }
+
+        public Color? MoreOptionsHighlightColor
+        {
+            get => moreOptionsHighlightColor;
+            set
+            {
+                if (moreOptionsHighlightColor != value)
+                {
+                    moreOptionsHighlightColor = value;
+                    OnPropertyChanged(nameof(MoreOptionsHighlightColor));
+                }
+            }
+        }
+
+        public Color? StickyNoteIconChangeHighlightColor
+        {
+            get
+            {
+                return stickyNoteIconChangeHighlightColor;
+            }
+            set
+            {
+                if (stickyNoteIconChangeHighlightColor != value)
+                {
+                    stickyNoteIconChangeHighlightColor = value;
+                    OnPropertyChanged(nameof(StickyNoteIconChangeHighlightColor));
+                }
+            }
+        }
+
         public Color? InkEraserHighlightColor
         {
             get
@@ -1864,6 +2002,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             IsFillColorToolbarVisible = false;
             IsStampOpacityToolbarVisible = false;
             IsFontSliderVisible = false;
+            ShowDesktopMoreOptions = false;
         }
 
         void OnEditCommand(object parameter)
@@ -1967,10 +2106,10 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
 #if ANDROID || IOS
                     BottomToolbarContent = new TextMarkupToolbar(this);
 #endif
-                    if (pdfViewer.AnnotationMode == AnnotationMode.None)
-                        IsTextMarkupListVisible = !IsTextMarkupListVisible;
+                    IsTextMarkupListVisible = !IsTextMarkupListVisible;
                     pdfViewer.AnnotationMode = AnnotationMode.None;
                     ClearButtonHighlights();
+                    TextMarkupHighlightColor = IsTextMarkupListVisible ? Color.FromRgba(0, 0, 0, 20) : Colors.Transparent;
                     IsFileOperationListVisible = false;
                     IsShapeListVisible = false;
                     IsStickyNoteListVisible = false;
@@ -1979,6 +2118,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsFreetextColorPalatteisible = false;
                     IsFreeTextFillColorVisble = false;
                     IsFreeTextSliderVisible = false;
+                    FileOperationHighlightColor = Colors.Transparent;
                     CloseAllDialogs();
                 }
                 else if (parameter.Equals("FreeTextColor"))
@@ -2020,6 +2160,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsInkColorPalleteVisible = false;
                     IsEditLayoutVisible = false;
                     IsDeleteButtonVisible = false;
+                    FileOperationHighlightColor = Colors.Transparent;
+                    IsFileOperationListVisible = false;
                     CloseAllDialogs();
 #endif
                     SetSliderValues();
@@ -2064,6 +2206,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsFreetextColorPalatteisible = false;
                     IsFreeTextFillColorVisble = false;
                     IsFreeTextSliderVisible = false;
+                    FileOperationHighlightColor = Colors.Transparent;
                     pdfViewer.AnnotationMode = pdfViewer.AnnotationMode == AnnotationMode.Ink ? AnnotationMode.None : AnnotationMode.Ink;
 #if ANDROID || IOS
                     BottomToolbarContent = new InkToolbar(this);
@@ -2087,6 +2230,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsFreeTextSliderVisible = false;
                     pdfViewer.AnnotationMode = pdfViewer.AnnotationMode == AnnotationMode.InkEraser ? AnnotationMode.None : AnnotationMode.InkEraser;
                     ClearButtonHighlights();
+                    FileOperationHighlightColor = Colors.Transparent;
                     InkEraserHighlightColor = pdfViewer.AnnotationMode == AnnotationMode.None ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
 #if ANDROID || IOS
                     if (pdfViewer.AnnotationMode == AnnotationMode.None)
@@ -2110,10 +2254,10 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
 #if ANDROID || IOS
                     BottomToolbarContent = new ShapesToolbar(this);
 #endif
-                    if (pdfViewer.AnnotationMode == AnnotationMode.None)
-                        IsShapeListVisible = !IsShapeListVisible;
+                    IsShapeListVisible = !IsShapeListVisible;
                     pdfViewer.AnnotationMode = AnnotationMode.None;
                     ClearButtonHighlights();
+                    ShapeHighlightColor = IsShapeListVisible ? Color.FromRgba(0, 0, 0, 20) : Colors.Transparent;
                     IsStickyNoteListVisible = false;
                     IsFileOperationListVisible = false;
                     IsTextMarkupListVisible = false;
@@ -2122,11 +2266,13 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsFreetextColorPalatteisible = false;
                     IsFreeTextFillColorVisble = false;
                     IsFreeTextSliderVisible = false;
+                    FileOperationHighlightColor = Colors.Transparent;
                     CloseAllDialogs();
                 }
                 else if (parameter.Equals("FileOperation"))
                 {
                     IsFileOperationListVisible = !IsFileOperationListVisible;
+                    FileOperationHighlightColor = IsFileOperationListVisible ? Color.FromRgba(0, 0, 0, 20) : Colors.Transparent;
                     IsShapeListVisible = false;
                     IsStickyNoteMode = false;
                     IsTextMarkupListVisible = false;
@@ -2137,7 +2283,9 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsFreeTextSliderVisible = false;
                     pdfViewer.AnnotationMode = AnnotationMode.None;
                     ShapeHighlightColor = Colors.Transparent;
+                    ClearButtonHighlights();
                     CloseAllDialogs();
+                    ClearButtonHighlights();
                 }
                 else if (parameter.Equals("Back"))
                 {
@@ -2145,6 +2293,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     CloseAllDialogs();
                     HideOverlayToolbars();
                     IsStickyNoteToolbarVisible = false;
+                    IsStickyNoteMode = false;
                     pdfViewer.AnnotationMode = AnnotationMode.None;
                     if (selectedAnnotation != null)
                         pdfViewer.DeselectAnnotation(selectedAnnotation);
@@ -2267,11 +2416,37 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 }
                 else if (parameter.Equals("More"))
                 {
-                    bool showMoreOptions = ShowMoreOptions;
                     pdfViewer.AnnotationMode = AnnotationMode.None;
+                    ClearButtonHighlights();
+                    FileOperationHighlightColor = Colors.Transparent;
+                    IsFileOperationListVisible = false;
+#if !WINDOWS && !MACCATALYST
+                    bool showMoreOptions = ShowMoreOptions;
                     BottomToolbarContent = new AnnotationToolbar(this);
                     CloseAllDialogs();
                     ShowMoreOptions = !showMoreOptions;
+                    MoreOptionsHighlightColor = !ShowMoreOptions ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
+#else
+                    bool showMoreOptions = ShowDesktopMoreOptions;
+                    CloseAllDialogs();
+                    ShowDesktopMoreOptions = !showMoreOptions;
+#endif
+                }
+                else if (parameter.Equals("PageLayout"))
+                {
+                    pdfViewer.AnnotationMode = AnnotationMode.None;
+                    ClearButtonHighlights();
+#if !WINDOWS && !MACCATALYST
+                    bool showLayoutOptions = ShowPageLayoutOptions;
+                    BottomToolbarContent = new AnnotationToolbar(this);
+                    CloseAllDialogs();
+                    ShowPageLayoutOptions = !showLayoutOptions;
+                    PageLayoutHighlightColor = !ShowPageLayoutOptions ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
+#endif
+                }
+                else if (parameter.Equals("SearchButton"))
+                {
+                    ClearButtonHighlights();
                 }
                 else if (parameter.Equals("Stamp"))
                 {
@@ -2281,6 +2456,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     bool isStampViewVisible = IsStampViewVisible;
                     CloseAllDialogs();
                     IsStampViewVisible = !isStampViewVisible;
+                    IsFileOperationListVisible = false;
 #elif MACCATALYST || WINDOWS
                     bool isStampListVisible = IsStampListVisible;
                     CloseAllDialogs();
@@ -2293,6 +2469,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsFreetextColorPalatteisible = false;
                     IsFreeTextFillColorVisble = false;
                     IsFreeTextSliderVisible = false;
+                    IsFileOperationListVisible = false;
+                    FileOperationHighlightColor = Colors.Transparent;
 #endif
                     StampHighlightColor = IsStampListVisible ? Color.FromRgba(0, 0, 0, 20) : Colors.Transparent;
                 }
@@ -2316,10 +2494,14 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsFreetextColorPalatteisible = false;
                     IsFreeTextFillColorVisble = false;
                     IsFreeTextSliderVisible = false;
+                    FileOperationHighlightColor = Colors.Transparent;
+                    IsFileOperationListVisible = false;
                     CloseAllDialogs();
                 }
                 else if (parameter.Equals("StickyIconChange"))
                 {
+                    ColorPaletteHighlightColor = Colors.Transparent;
+                    StickyNoteIconChangeHighlightColor = IsStickyNoteListVisible ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     IsFreeTextFontListVisible = false;
                     IsFreetextColorPalatteisible = false;
                     IsFreeTextFillColorVisble = false;
@@ -2358,6 +2540,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 }
                 else if (parameter.Equals("ColorPalette"))
                 {
+                    StickyNoteIconChangeHighlightColor = Colors.Transparent;
                     IsDeleteButtonVisible = pdfViewer.AnnotationMode == AnnotationMode.None;
                     if (pdfViewer.AnnotationMode == AnnotationMode.Square || pdfViewer.AnnotationMode == AnnotationMode.Circle || pdfViewer.AnnotationMode == AnnotationMode.Polygon || SelectedAnnotation is SquareAnnotation || SelectedAnnotation is CircleAnnotation || SelectedAnnotation is PolygonAnnotation)
                     {
@@ -2370,6 +2553,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsEraserThicknessToolbarVisible = false;
                         IsLineAndArrowColorPalleteVisible = false;
                         IsShapeColorPalleteVisible = !IsShapeColorPalleteVisible;
+                        ColorPaletteHighlightColor = !IsShapeColorPalleteVisible ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     }
                     else if (pdfViewer.AnnotationMode == AnnotationMode.Line || pdfViewer.AnnotationMode == AnnotationMode.Arrow || pdfViewer.AnnotationMode == AnnotationMode.Polyline || SelectedAnnotation is LineAnnotation || SelectedAnnotation is PolylineAnnotation)
                     {
@@ -2382,6 +2566,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsEraserThicknessToolbarVisible = false;
                         IsShapeColorPalleteVisible = false;
                         IsLineAndArrowColorPalleteVisible = !IsLineAndArrowColorPalleteVisible;
+                        ColorPaletteHighlightColor = !IsLineAndArrowColorPalleteVisible ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     }
                     else if (pdfViewer.AnnotationMode == AnnotationMode.Squiggly || pdfViewer.AnnotationMode == AnnotationMode.Highlight || pdfViewer.AnnotationMode == AnnotationMode.StrikeOut || pdfViewer.AnnotationMode == AnnotationMode.Underline || SelectedAnnotation is UnderlineAnnotation || SelectedAnnotation is SquigglyAnnotation || SelectedAnnotation is HighlightAnnotation || SelectedAnnotation is StrikeOutAnnotation)
                     {
@@ -2395,6 +2580,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsEraserThicknessToolbarVisible = false;
                         IsStrokeOnlyShape = false;
                         IsTextMarkUpColorPalleteVisible = !IsTextMarkUpColorPalleteVisible;
+                        ColorPaletteHighlightColor = !IsTextMarkUpColorPalleteVisible ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     }
                     else if (pdfViewer.AnnotationMode == AnnotationMode.Ink || SelectedAnnotation is InkAnnotation)
                     {
@@ -2407,6 +2593,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsStickyIconChangeButtonVisible = false;
                         IsEraserThicknessToolbarVisible = false;
                         IsInkColorPalleteVisible = !IsInkColorPalleteVisible;
+                        ColorPaletteHighlightColor = !IsInkColorPalleteVisible ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     }
                     if (SelectedAnnotation is StampAnnotation)
                     {
@@ -2419,6 +2606,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsStickyIconChangeButtonVisible = false;
                         IsEraserThicknessToolbarVisible = false;
                         IsStampOpacitySliderbarVisible = !IsStampOpacitySliderbarVisible;
+                        ColorPaletteHighlightColor = !IsStampOpacitySliderbarVisible ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     }
                     else if (SelectedAnnotation is StickyNoteAnnotation)
                     {
@@ -2430,6 +2618,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsLineAndArrowColorPalleteVisible = false;
                         IsStampOpacitySliderbarVisible = false;
                         IsEraserThicknessToolbarVisible = false;
+                        ColorPaletteHighlightColor = !IsStickyNoteColorPalleteVisible ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     }
                     else if (pdfViewer.AnnotationMode == AnnotationMode.InkEraser)
                     {
@@ -2442,6 +2631,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsStickyIconChangeButtonVisible = false;
                         IsShapeColorPalleteVisible = false;
                         IsEraserThicknessToolbarVisible = !IsEraserThicknessToolbarVisible;
+                        ColorPaletteHighlightColor = !IsEraserThicknessToolbarVisible ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     }
                     else if (pdfViewer.AnnotationMode == AnnotationMode.FreeText || SelectedAnnotation is FreeTextAnnotation)
                     {
@@ -2455,6 +2645,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         IsShapeColorPalleteVisible = false;
                         IsEraserThicknessToolbarVisible = false;
                         IsFreeTextFillColorVisble = !IsFreeTextFillColorVisble;
+                        ColorPaletteHighlightColor = !IsFreeTextFillColorVisble ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
                     }
                 }
                 else if (SelectedAnnotation is FreeTextAnnotation)
@@ -2483,6 +2674,48 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 {
                     IsFreeTextFontColorPalatteVisible = false;
                     IsFreeTextFillColorVisble = !IsFreeTextFillColorVisble;
+                    ColorPaletteHighlightColor = !IsFreeTextFillColorVisble ? Colors.Transparent : Color.FromRgba(0, 0, 0, 20);
+                }
+                if (parameter.Equals("Annotations"))
+                {
+                    CloseAllDialogs();
+                    ResetLayouts();
+                    pdfViewer.AnnotationMode = AnnotationMode.None;
+                    IsSecondaryToolbarVisible = !IsSecondaryToolbarVisible;
+                    IsEditLayoutVisible = false;
+                    IsDeleteButtonVisible = false;
+                    IsFileOperationListVisible = false;
+                    FileOperationHighlightColor = Colors.Transparent;
+                }
+                if (parameter.Equals("Continuous page"))
+                {
+                    pdfViewer.PageLayoutMode = PageLayoutMode.Continuous;
+                    ShowDesktopMoreOptions = false;
+                    ShowPageLayoutOptions = false;
+                }
+                else if (parameter.Equals("Page by page"))
+                {
+                    pdfViewer.PageLayoutMode = PageLayoutMode.Single;
+                    ShowDesktopMoreOptions = false;
+                    ShowPageLayoutOptions = false;
+                }
+                if (parameter.Equals("Signature"))
+                {
+                    pdfViewer.AnnotationMode = AnnotationMode.Signature;
+                    FileOperationHighlightColor = Colors.Transparent;
+                    IsFileOperationListVisible = false;
+                    ResetLayouts();
+                    ClearButtonHighlights();
+                }
+                if (parameter.Equals("Outline"))
+                {
+                    FileOperationHighlightColor = Colors.Transparent;
+                    IsFileOperationListVisible = false;
+                }
+                if (parameter.Equals("Search"))
+                {
+                    FileOperationHighlightColor = Colors.Transparent;
+                    IsFileOperationListVisible = false;
                 }
             }
             SetSelectedAnnotationIcon();
@@ -2490,6 +2723,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                 IsEditLayoutVisible = pdfViewer.AnnotationMode != AnnotationMode.None;
             if (pdfViewer.AnnotationMode == AnnotationMode.FreeText)
                 IsEditLayoutVisible = true;
+            else if (pdfViewer.AnnotationMode == AnnotationMode.Signature)
+                IsEditLayoutVisible = false;
         }
 
         internal void CloseFreeTextColorPallete()
@@ -2525,6 +2760,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     IsStickyNoteMode = false;
                     IsTextMarkupListVisible = false;
                     IsStampListVisible = false;
+                    IsColorToolbarVisible = false;
 #endif
         }
 
@@ -2537,6 +2773,9 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             InkEraserHighlightColor = Colors.Transparent;
             FreeTextHighlightColor = Colors.Transparent;
             StampHighlightColor = Colors.Transparent;
+            ColorPaletteHighlightColor = Colors.Transparent;
+            MoreOptionsHighlightColor = Colors.Transparent;
+            PageLayoutHighlightColor = Colors.Transparent;
         }
 
         internal void LockAllAnnotationsAndFields(bool setLock)
@@ -2639,7 +2878,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                         }
 
                     }
-                    else if (IsColorToolbarVisible || IsStampOpacityToolbarVisible || isDeskTopColorToolbarVisible || isStampOpacitySliderbarVisible || IsFreetextColorPalatteisible|| IsFreeTextFontColorPalatteVisible)
+                    else if (IsColorToolbarVisible || IsStampOpacityToolbarVisible || isDeskTopColorToolbarVisible || isStampOpacitySliderbarVisible || IsFreetextColorPalatteisible || IsFreeTextFontColorPalatteVisible)
                     {
                         if (selectedAnnotation is ShapeAnnotation shape)
                         {
@@ -3083,6 +3322,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         internal async void SaveDocument()
         {
             IsFileOperationListVisible = false;
+            IsFilePickerVisible = false;
             ShowMoreOptions = false;
             Stream outStream = new MemoryStream();
             await pdfViewer.SaveDocumentAsync(outStream);
@@ -3143,6 +3383,12 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
         internal bool AnnotationModeIsInkEraser()
         {
             return pdfViewer.AnnotationMode == AnnotationMode.InkEraser ? true : false;
+        }
+        internal void PrintDocument()
+        {
+            IsFileOperationListVisible = false;
+            ShowMoreOptions = false;
+            pdfViewer.PrintDocument();
         }
     }
 }

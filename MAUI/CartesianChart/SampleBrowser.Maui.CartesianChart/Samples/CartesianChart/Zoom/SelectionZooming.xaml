@@ -4,8 +4,15 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <chart:SfCartesianChart HorizontalOptions="Fill" VerticalOptions="Fill" x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}">
+        <chart:SfCartesianChart HorizontalOptions="Fill" VerticalOptions="Fill" x:Name="Chart" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}">
             <chart:SfCartesianChart.BindingContext>
                 <local:ScatterSeriesViewModel/>
             </chart:SfCartesianChart.BindingContext>
@@ -17,7 +24,7 @@
                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
             </chart:SfCartesianChart.Legend>
             <chart:SfCartesianChart.Title>
-                <Label Text="Height vs Weight" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Height vs Weight" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
             </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.XAxes>
                 <chart:NumericalAxis ShowTrackballLabel="True" ShowMajorGridLines="False" EdgeLabelsDrawingMode="Shift" Minimum="100" Maximum="220" Interval="20">
@@ -25,6 +32,10 @@
                         <chart:ChartAxisTitle Margin="5,10,5,2" Text="Height (in cm)">
                         </chart:ChartAxisTitle>
                     </chart:NumericalAxis.Title>
+                    <chart:NumericalAxis.TrackballLabelStyle>
+                        <chart:ChartLabelStyle LabelFormat="#.#" Background="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
+                    </chart:NumericalAxis.TrackballLabelStyle>
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.XAxes>
             <chart:SfCartesianChart.YAxes>
@@ -33,6 +44,11 @@
                         <chart:ChartAxisTitle Text="Weight (in pounds)">
                         </chart:ChartAxisTitle>
                     </chart:NumericalAxis.Title>
+                    <chart:NumericalAxis.TrackballLabelStyle>
+                        <chart:ChartLabelStyle LabelFormat="#.#" Background="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
+                    </chart:NumericalAxis.TrackballLabelStyle>
+                  
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
             <chart:SfCartesianChart.Series>

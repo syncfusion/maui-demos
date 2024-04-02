@@ -16,36 +16,36 @@ namespace SampleBrowser.Maui.DataGrid
 {
     public class StylingBehavior : Behavior<SampleView>
     {
-        private Microsoft.Maui.Controls.Picker? visibilityPicker;
-        private Microsoft.Maui.Controls.Picker? headerVisibilityPicker;
+        private Syncfusion.Maui.Inputs.SfComboBox? visibilityComboBox;
+        private Syncfusion.Maui.Inputs.SfComboBox? headerVisibilityComboBox;
         private Syncfusion.Maui.DataGrid.SfDataGrid? datagrid;
 
         protected override void OnAttachedTo(SampleView bindable)
         {
             this.datagrid = bindable.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
-            this.visibilityPicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("VisibilityPicker");
-            this.headerVisibilityPicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("HeaderVisibilityPicker");
+            this.visibilityComboBox = bindable.FindByName<Syncfusion.Maui.Inputs.SfComboBox>("VisibilityComboBox");
+            this.headerVisibilityComboBox = bindable.FindByName<Syncfusion.Maui.Inputs.SfComboBox>("HeaderVisibilityComboBox");
 
-            this.visibilityPicker.SelectedIndexChanged += StylingPicker_SelectedIndexChanged;
-            this.headerVisibilityPicker.SelectedIndexChanged += HeaderVisibilityPicker_SelectedIndexChanged; ;
+            this.visibilityComboBox.SelectionChanged += StylingPicker_SelectedIndexChanged;
+            this.headerVisibilityComboBox.SelectionChanged += HeaderVisibilityPicker_SelectedIndexChanged; ;
             base.OnAttachedTo(bindable);
         }
 
         protected override void OnDetachingFrom(SampleView bindable)
         {
-            this.visibilityPicker!.SelectedIndexChanged -= StylingPicker_SelectedIndexChanged;
-            this.headerVisibilityPicker!.SelectedIndexChanged -= HeaderVisibilityPicker_SelectedIndexChanged;
+            this.visibilityComboBox!.SelectionChanged -= StylingPicker_SelectedIndexChanged;
+            this.headerVisibilityComboBox!.SelectionChanged -= HeaderVisibilityPicker_SelectedIndexChanged;
 
             this.datagrid = null;
-            this.visibilityPicker = null;
-            this.headerVisibilityPicker = null;
+            this.visibilityComboBox = null;
+            this.headerVisibilityComboBox = null;
 
             base.OnDetachingFrom(bindable);
         }
 
         private void StylingPicker_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            switch (this.visibilityPicker!.SelectedIndex)
+            switch (this.visibilityComboBox!.SelectedIndex)
             {
                 case 0:
                     SetGriLinesVisibility(Syncfusion.Maui.DataGrid.GridLinesVisibility.Horizontal);
@@ -67,7 +67,7 @@ namespace SampleBrowser.Maui.DataGrid
 
         private void HeaderVisibilityPicker_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            switch (this.headerVisibilityPicker!.SelectedIndex)
+            switch (this.headerVisibilityComboBox!.SelectedIndex)
             {
                 case 0:
                     SetGriLinesVisibility(Syncfusion.Maui.DataGrid.GridLinesVisibility.Horizontal, true);

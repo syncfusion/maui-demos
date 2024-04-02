@@ -15,35 +15,13 @@
 
     <localCore:SampleView.Content>
         <Grid RowSpacing="{OnPlatform iOS=10, Android=6}" Padding="0,20,0,20" RowDefinitions="Auto,Auto,Auto,*,Auto" ColumnDefinitions="{OnPlatform Android=350, iOS=380}" HorizontalOptions="Center" VerticalOptions="Start">
-            <Label Text="Choose the application name" TextColor="#6750A4" HorizontalOptions="Start" FontSize="16"  FontAttributes="Bold" FontFamily="Roboto-Regular"/>
-            <editors:SfComboBox       x:Name="combobox"
-                                      Grid.Row="1"
-                                      HeightRequest="{OnPlatform Android=50, iOS=40}"
-                                      ItemsSource="{Binding AppCollection}"
-                                      Placeholder="Enter App Name" 
-                                      PlaceholderColor="#adb2bb" 
-                                      FontSize="16"
-                                      MaxDropDownHeight="200"
-                                      TextMemberPath="AppName"
-                                      DisplayMemberPath="AppName"
-                                      TextSearchMode="Contains"
-                                      SelectionMode="Multiple"
-                                      IsClearButtonVisible="True"
-                                      IsEditable="True"
-                                      SelectionChanged="OnSelectionChanged">
-                <editors:SfComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <HorizontalStackLayout Padding="10,10" Spacing="12" >
-                            <Image Source="{Binding AppImage}" WidthRequest="28" HeightRequest="28" />
-                            <Label Text="{Binding AppName}" VerticalOptions="Center"/>
-                        </HorizontalStackLayout>
-                    </DataTemplate>
-                </editors:SfComboBox.ItemTemplate>
-            </editors:SfComboBox>
+            <Label Text="Choose the application name" TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}" HorizontalOptions="Start" FontSize="16"  FontAttributes="Bold" FontFamily="Roboto-Regular"/>
+            
+            <Grid x:Name="comboBoxLayout" Grid.Row="1"></Grid>
+            
+            <Label Grid.Row="2" x:Name="selectedApplicationsLabel" Text="Selected applications" FontSize="16" Margin="0,30,0,0" FontAttributes="Bold" FontFamily="Roboto-Regular"></Label>
 
-            <Label Grid.Row="2" Text="Selected applications" FontSize="16" Margin="0,30,0,0" FontAttributes="Bold" FontFamily="Roboto-Regular"></Label>
-
-            <ScrollView Grid.Row="3" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Margin="0,10,0,0">
+            <ScrollView Grid.Row="3" x:Name="selectedApplications" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Margin="0,10,0,0">
                 <VerticalStackLayout x:Name="listview" Grid.Row="1" HeightRequest="{OnPlatform iOS=550}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
@@ -51,12 +29,12 @@
                                 <Grid Padding="5" ColumnDefinitions="60,*,50" VerticalOptions="Center">
                                     <Image Source="{Binding AppImage}" WidthRequest="40" HeightRequest="40"/>
                                     <VerticalStackLayout Grid.Column="1" Padding="0,3,0,0" Spacing="3">
-                                        <Label Text="{Binding AppName}" FontAttributes="Bold" TextColor="#3a3a3b" FontSize="14"/>
-                                        <Label Text="{Binding Date}" TextColor="#515152" FontSize="10"/>
+                                        <Label Text="{Binding AppName}" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}" FontSize="14"/>
+                                        <Label Text="{Binding Date}" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" FontSize="10"/>
                                     </VerticalStackLayout>
                                     <Image Grid.Column="2" Source="{imageExtension:SfImageResource download.png}" WidthRequest="40" HeightRequest="40"/>
                                 </Grid>
-                                <BoxView Color="Gray" HeightRequest="1"/>
+                                <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" HeightRequest="1"/>
                             </VerticalStackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
@@ -64,7 +42,7 @@
             </ScrollView>
 
             <Grid ColumnDefinitions="*,*" Grid.Row="4" ColumnSpacing="10" VerticalOptions="EndAndExpand" x:Name="installButtons">
-                <Border HorizontalOptions="Center" Stroke="#9e9e9e" HeightRequest="40">
+                <Border HorizontalOptions="Center"  HeightRequest="40">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="30"/>
                     </Border.StrokeShape>
@@ -72,7 +50,7 @@
                         <core:SfEffectsView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ClearButton_Tapped"/>
                         </core:SfEffectsView.GestureRecognizers>
-                        <Label Text="Uninstall"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="#6750A4" TextColor="White" WidthRequest="150"/>
+                        <Label Text="Uninstall"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}" TextColor="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}" WidthRequest="150"/>
                     </core:SfEffectsView>
                 </Border>
 
@@ -84,10 +62,27 @@
                         <core:SfEffectsView.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ClearButton_Tapped"/>
                         </core:SfEffectsView.GestureRecognizers>
-                        <Label  Text="Update" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="#6750A4" TextColor="White" WidthRequest="150"/>
+                        <Label  Text="Update" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}" TextColor="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}" WidthRequest="150"/>
                     </core:SfEffectsView>
                 </Border>
             </Grid>
         </Grid>
     </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <VerticalStackLayout VerticalOptions="Start">
+            <HorizontalStackLayout Margin="10,20,10,10"  Spacing="20" >
+                <Label Text="TokensWrapMode" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center"/>
+                <editors:SfComboBox IsEditable="False" x:Name="tokensWrapModeCombobox" FontFamily="Roboto-Regular" WidthRequest="200" IsClearButtonVisible="False" SelectedIndex="1" SelectionChanged="tokensWrapModeCombobox_SelectionChanged" >
+                    <editors:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>None</x:String>
+                            <x:String>Wrap</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
+                </editors:SfComboBox>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </localCore:SampleView.OptionView>
+
 </localCore:SampleView>

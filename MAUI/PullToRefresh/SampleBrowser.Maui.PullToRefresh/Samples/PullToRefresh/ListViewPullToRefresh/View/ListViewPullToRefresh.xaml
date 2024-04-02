@@ -10,7 +10,7 @@
                       xmlns:pulltoRefresh="clr-namespace:Syncfusion.Maui.PullToRefresh;assembly=Syncfusion.Maui.PullToRefresh">
     <localCore:SampleView.Resources>
         <local:DatetimeToStringConverter x:Key="dateTimeConverter" />
-        <local:TextColorConverter x:Key="textColorConverter" />
+        <local:TextOpacityConverter x:Key="textOpacityConverter" />
         <local:FontAttributeConverter x:Key="fontAttributeConverter" />
         <local:GroupHeaderTextConverter x:Key="groupHeaderTextConverter" />
         <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
@@ -37,7 +37,6 @@
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0"
                                Text="Inbox"
-                               TextColor="Black"
                                FontSize="18"
                                FontFamily="Roboto-Medium"
                                Margin="16,0,0,0"
@@ -57,7 +56,6 @@
                                             <Grid HeightRequest="16"
                                                   Margin="16, 0, 16, 0">
                                                 <Label Text="{Binding Key, Converter={StaticResource groupHeaderTextConverter}}"
-                                                       TextColor="#49454F"
                                                        VerticalOptions="CenterAndExpand"
                                                        FontFamily="Roboto-Regular"
                                                        FontSize="12"
@@ -95,7 +93,7 @@
                                                    HeightRequest="42"
                                                    WidthRequest="42" />
                                             <Label Text="{Binding ProfileName}"
-                                                   TextColor="#FFFFFF"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColour}, Dark={StaticResource TextColourLight}}"
                                                    FontSize="14"
                                                    HorizontalTextAlignment="Center"
                                                    HorizontalOptions="Center"
@@ -108,7 +106,7 @@
                                         <Label Grid.Row="0"
                                                Grid.Column="1"
                                                Text="{Binding Name}"
-                                               TextColor="{Binding IsOpened, Converter={StaticResource textColorConverter}}"
+                                               Opacity="{Binding IsOpened, Converter={StaticResource textOpacityConverter}}"
                                                FontFamily="Roboto-Medium"
                                                FontSize="14"
                                                Margin="0, 2, 0, 0"
@@ -119,7 +117,7 @@
                                                Grid.Column="1"
                                                Grid.ColumnSpan="2"
                                                Text="{Binding Subject}"
-                                               TextColor="{Binding IsOpened, Converter={StaticResource textColorConverter}}"
+                                               Opacity="{Binding IsOpened, Converter={StaticResource textOpacityConverter}}"
                                                Margin="0, 0, 58, 0"
                                                FontFamily="Roboto-Medium"
                                                FontSize="14"
@@ -133,14 +131,13 @@
                                                FontFamily="Roboto-Regular"
                                                FontSize="13"
                                                Margin="0, 0, 26, 0"
-                                               TextColor="#49454F"
                                                LineBreakMode="TailTruncation" />
 
                                         <Label Grid.Row="0"
                                                Grid.Column="2"
                                                x:Name="date"
                                                Text="{Binding Date, Converter={StaticResource dateTimeConverter}}"
-                                               TextColor="{Binding IsOpened, Converter={StaticResource textColorConverter}, ConverterParameter={x:Reference date}}"
+                                               Opacity="{Binding IsOpened, Converter={StaticResource textOpacityConverter}, ConverterParameter={x:Reference date}}"
                                                FontFamily="Roboto-Regular"
                                                HorizontalOptions="End"
                                                HorizontalTextAlignment="End"
@@ -149,9 +146,9 @@
                                         <Label Grid.Row="2"
                                                Grid.Column="2"
                                                Rotation="45"
-                                               Text="&#xe708;"
+                                               Text="&#xe771;"
                                                FontSize="16"
-                                               FontFamily='{OnPlatform Android=PullToRefreshFontIcon.ttf#,WinUI=PullToRefreshFontIcon.ttf#PullToRefreshFontIcon,MacCatalyst=PullToRefreshFontIcon,iOS=PullToRefreshFontIcon}'
+                                               FontFamily="MauiSampleFontIcon"
                                                IsVisible="{Binding IsAttached}"
                                                HorizontalOptions="End"
                                                VerticalOptions="Center">
@@ -159,9 +156,9 @@
 
                                         <Label Grid.Row="2"
                                                Grid.Column="2"
-                                               Text="&#xe70a;"
+                                               Text="&#xe796;"
                                                FontSize="16"
-                                               FontFamily='{OnPlatform Android=PullToRefreshFontIcon.ttf#,WinUI=PullToRefreshFontIcon.ttf#PullToRefreshFontIcon,MacCatalyst=PullToRefreshFontIcon,iOS=PullToRefreshFontIcon}'
+                                               FontFamily="MauiSampleFontIcon"
                                                IsVisible="{Binding IsImportant}"
                                                HorizontalOptions="End"
                                                VerticalOptions="Center">

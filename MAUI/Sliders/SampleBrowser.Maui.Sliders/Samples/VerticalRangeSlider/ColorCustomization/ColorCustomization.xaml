@@ -29,7 +29,7 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                     Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
             <Setter Property="HorizontalOptions"
                     Value="Center" />
         </Style>
@@ -67,7 +67,7 @@
                                        Grid.Column="1"
                                        ShowDividers="True">
                     <sliders:SfRangeSlider.ThumbStyle>
-                        <sliders:SliderThumbStyle Fill="White"
+                        <sliders:SliderThumbStyle  Fill="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                                   Stroke="#FF5722"
                                                   StrokeThickness="2" />
                     </sliders:SfRangeSlider.ThumbStyle>
@@ -84,8 +84,8 @@
                     <sliders:SfRangeSlider.DividerStyle>
                         <sliders:SliderDividerStyle ActiveRadius="5"
                                                     InactiveRadius="5"
-                                                    ActiveFill="White"
-                                                    InactiveFill="White"
+                                                    ActiveFill="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                                    InactiveFill="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                                     ActiveStroke="#3DFF5722"
                                                     InactiveStroke="#FF5722"
                                                     ActiveStrokeThickness="2"

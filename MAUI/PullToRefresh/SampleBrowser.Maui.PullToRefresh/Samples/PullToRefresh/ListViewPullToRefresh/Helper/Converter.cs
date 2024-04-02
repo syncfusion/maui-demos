@@ -73,12 +73,12 @@ public class FontAttributeConverter : IValueConverter
 
 #endregion
 
-#region TextColorConverter
+#region TextOpacityConverter
 
 /// <summary>
-/// Converter class helps to convert TextColor based on IsOpened property.
+/// Converter class helps to convert TextOpacity based on IsOpened property.
 /// </summary>
-public class TextColorConverter : IValueConverter
+public class TextOpacityConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
@@ -88,16 +88,16 @@ public class TextColorConverter : IValueConverter
         {
             if (!isOpened)
             {
-                return Color.FromArgb("#6750A4");
+                return 1;
             }
         }
 
         if (!isOpened)
         {
-            return Color.FromArgb("#1C1B1F");
+            return 1;
         }
 
-        return Color.FromArgb("#49454F");
+        return 0.8;
     }
 
     public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

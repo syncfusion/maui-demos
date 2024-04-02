@@ -4,9 +4,16 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10">
-            <chart:SfCartesianChart x:Name="categoryChart" PaletteBrushes="{Binding PaletteBrushes}">
+        <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10, 0, 10, 0">
+            <chart:SfCartesianChart x:Name="categoryChart" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}">
                 <chart:SfCartesianChart.BindingContext>
                     <local:TapToAddViewModel x:Name="realTimeViewModel"/>
                 </chart:SfCartesianChart.BindingContext>
@@ -20,7 +27,7 @@
                 <chart:SfCartesianChart.Series>
                     <chart:LineSeries x:Name="lineSeries"  ItemsSource="{Binding LiveChartData}" XBindingPath="Value" ShowMarkers="True" YBindingPath="Size">
                         <chart:LineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings  Width="8" Height="8" Fill="white" Stroke="#314A6E" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings  Width="8" Height="8" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" StrokeWidth="1"/>
                         </chart:LineSeries.MarkerSettings>
                     </chart:LineSeries>
                 </chart:SfCartesianChart.Series>

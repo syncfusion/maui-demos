@@ -25,7 +25,7 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
             <Setter Property="HorizontalOptions"
                     Value="Center" />
         </Style>
@@ -53,7 +53,7 @@
                         <VerticalStackLayout>
                             <HorizontalStackLayout>
                                 <Label Text="{Binding Source={x:Reference slider}, Path=Value}"
-                                       TextColor="White" />
+                                       TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" />
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
                     </sliders:SfSlider.ThumbIcon>
@@ -68,24 +68,21 @@
                                   HorizontalOptions="Center"
                                   Value="{Binding Value}">
                     <sliders:SfSlider.ThumbIcon>
-                        <VerticalStackLayout>
-                            <HorizontalStackLayout>
-                                <Label Text="{Binding IconText}"
-                                       FontAttributes="Bold"
-                                       TextColor="White">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="iOS,MacCatalyst"
-                                                Value="metro" />
-                                            <On Platform="UWP"
-                                                Value="Sliders-Icons.ttf#metro" />
-                                            <On Platform="Android"
-                                                Value="Sliders-Icons.ttf#metro" />
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
-                            </HorizontalStackLayout>
-                        </VerticalStackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="&#xe70b;" HorizontalOptions="Center" 
+                                   HorizontalTextAlignment="Center" Grid.Row="0"
+                                   TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontSize="16" Margin="0,0,0,-4"
+                                   FontFamily="MauiSampleFontIcon">
+                            </Label>
+                            <Label Text="&#xe708;" HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                   FontFamily="MauiSampleFontIcon" 
+                                   FontSize="16" Grid.Row="1" Margin="0,-4,0,0" />
+                        </Grid>
                     </sliders:SfSlider.ThumbIcon>
                 </sliders:SfSlider>
 

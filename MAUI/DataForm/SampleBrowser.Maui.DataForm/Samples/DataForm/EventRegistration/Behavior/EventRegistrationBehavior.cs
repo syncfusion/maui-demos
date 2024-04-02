@@ -10,6 +10,7 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
     using Microsoft.Maui;
     using SampleBrowser.Maui.Base;
     using Syncfusion.Maui.DataForm;
+    using Syncfusion.Maui.Popup;
 
     /// <summary>
     /// Represents a behavior class for event registration sample.
@@ -31,11 +32,22 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// </summary>
         private Button? submitButton;
 
+        /// <summary>
+        /// Holds the popup object.
+        /// </summary>
+        private SfPopup? popup;
+
         /// <inheritdoc/>
         protected override void OnAttachedTo(SampleView bindable)
         {
             base.OnAttachedTo(bindable);
             this.dataForm = bindable.Content.FindByName<SfDataForm>("eventForm");
+            this.popup = bindable.Content.FindByName<SfPopup>("popup");
+
+            if (this.popup != null)
+            {
+                popup.FooterTemplate = DataFormSampleHelper.GetFooterTemplate(popup);
+            }
 
             if (this.dataForm != null)
             {
@@ -75,20 +87,30 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// Invokes on submit button click.
         /// </summary>
         /// <param name="sender">The submit button.</param>
-        private async void OnSubmitButtonClicked(object? sender, EventArgs e)
+        private void OnSubmitButtonClicked(object? sender, EventArgs e)
         {
-            if (this.dataForm != null && App.Current?.MainPage != null)
+            if (this.dataForm == null || this.popup == null)
             {
-                if (this.dataForm.Validate())
-                {
-                    EventRegistrationModel eventRegistration = (EventRegistrationModel)this.dataForm.DataObject;
-                    await App.Current.MainPage.DisplayAlert("Hi " + eventRegistration.FirstName, "You have registered for the " + eventRegistration.Event + " event"  , "OK");
-                }
-                else
-                {
-                    await App.Current.MainPage.DisplayAlert("", "Please enter the required details", "OK");
-                }
+                return;
             }
+
+            EventRegistrationModel eventRegistration = (EventRegistrationModel)this.dataForm.DataObject;
+            popup.HeaderTitle = "Hi " + eventRegistration.FirstName;
+            if (this.dataForm.Validate())
+            {
+                popup.ShowHeader = true;
+                popup.Message = "You have registered for the " + eventRegistration.Event + " event";
+                popup.HeaderHeight = 65;
+                this.UpdateContentTemplate(true);
+            }
+            else
+            {
+                popup.ShowHeader = false;
+                popup.Message = "Please enter the required details";
+                this.UpdateContentTemplate(false);
+            }
+
+            popup.Show();
         }
 
         /// <summary>
@@ -128,6 +150,18 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
                     e.DataFormItem.LabelTextStyle = new DataFormTextStyle { FontSize = 12 };
 #endif
                 }
+            }
+        }
+
+        /// <summary>
+        /// Method to update the content template.
+        /// </summary>
+        /// <param name="isValidate">Check whether is validate.</param>
+        private void UpdateContentTemplate(bool isValidate)
+        {
+            if (this.popup != null && this.dataForm != null)
+            {
+                popup.ContentTemplate = DataFormSampleHelper.GetContentTemplate(popup, isValidate);
             }
         }
 

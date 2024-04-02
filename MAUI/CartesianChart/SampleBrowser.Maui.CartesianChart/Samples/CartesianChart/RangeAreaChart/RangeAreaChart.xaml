@@ -20,13 +20,13 @@
                         <DataTemplate x:Key="template1">
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="0,1">
-                                    <Ellipse TranslationY="-2" TranslationX="2" Stroke="White" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="#C474BD6F" Margin="2,3,7,0" />
-                                    <Label Text="Arizona" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
+                                    <Ellipse TranslationY="-2" TranslationX="2" Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="#C474BD6F" Margin="2,3,7,0" />
+                                    <Label Text="Arizona" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
                                 </StackLayout>
-                                <BoxView Color="Gray" HeightRequest="1" WidthRequest="65"/>
+                                <BoxView Color="{AppThemeBinding Default={StaticResource ContentBackground}}" HeightRequest="1" WidthRequest="65"/>
                                 <StackLayout Orientation="Vertical" VerticalOptions="Fill" Spacing="0" Padding="3" Margin="0" Grid.Row="1">
-                                    <Label Text="{Binding Item.Value,StringFormat='High : {0}&#186;C'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
-                                    <Label Text="{Binding Item.Size,StringFormat='Low  : {0}&#186;C'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
+                                    <Label Text="{Binding Item.Value,StringFormat='High : {0}&#186;C'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
+                                    <Label Text="{Binding Item.Size,StringFormat='Low  : {0}&#186;C'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
@@ -38,7 +38,7 @@
                 </chart:SfCartesianChart.ZoomPanBehavior>
 
                 <chart:SfCartesianChart.Title>
-                    <Label Text="Temperature Variation in Arizona" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                    <Label Text="Temperature Variation in Arizona" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
                 </chart:SfCartesianChart.Title>
 
                 <chart:SfCartesianChart.XAxes>

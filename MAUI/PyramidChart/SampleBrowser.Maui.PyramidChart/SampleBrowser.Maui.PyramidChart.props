@@ -13,6 +13,10 @@
 			<Link>Samples\PyramidChart\Interaction\Tooltip.xaml.cs</Link>
 			<DependentUpon>Tooltip.xaml</DependentUpon>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PyramidChart\PyramidChartResource\PyramidChartColorResources.xaml.cs">
+			<Link>Samples\PyramidChart\PyramidChartResource\PyramidChartColorResources.xaml.cs</Link>
+			<DependentUpon>PyramidChartColorResources.xaml</DependentUpon>
+		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PyramidChart\ViewModel\BaseViewModel.cs">
 			<Link>Samples\PyramidChart\ViewModel\BaseViewModel.cs</Link>
 		</Compile>
@@ -47,4 +51,11 @@
 			<Link>\Samples\PyramidChart\Interaction\Tooltip.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PyramidChart\PyramidChartResource\PyramidChartColorResources.xaml">
+			<Link>Samples\PyramidChart\PyramidChartResource\PyramidChartColorResources.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
 </Project>

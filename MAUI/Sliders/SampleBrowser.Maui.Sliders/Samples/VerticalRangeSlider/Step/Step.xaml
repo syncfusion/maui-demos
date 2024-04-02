@@ -11,7 +11,8 @@
                     Value="Vertical" />
             <Setter Property="Tooltip">
                 <Setter.Value>
-                    <sliders:SliderTooltip Position="Right" />
+                    <sliders:SliderTooltip Position="Right"  Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                           TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                 </Setter.Value>
             </Setter>
             <Setter Property="ShowLabels"
@@ -27,7 +28,8 @@
                     Value="Vertical" />
             <Setter Property="Tooltip">
                 <Setter.Value>
-                    <sliders:SliderTooltip  Position="Right" />
+                    <sliders:SliderTooltip  Position="Right"  Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                            TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                 </Setter.Value>
             </Setter>
             <Setter Property="ShowLabels"
@@ -40,7 +42,7 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
             <Setter Property="HorizontalOptions"
                     Value="Center" />
         </Style>

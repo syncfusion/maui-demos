@@ -6,11 +6,11 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="description" LineBreakMode="WordWrap" Text="This example demonstrates how to create slides with text, table, and images in a PowerPoint presentation file."
-                  VerticalOptions="Center" TextColor="Black" Margin="0,0,10,0">
+                  VerticalOptions="Center" Margin="0,0,10,0">
             </Label>
             <Label x:Name="label1" Text=" "></Label>
             <Label x:Name="buttonDescription" LineBreakMode="WordWrap" Text="Click the &quot;Generate Document&quot; button to view the generated PowerPoint presentation. Please note that a PowerPoint-compatible viewer is required to open and view the PowerPoint presentation file."
-                  VerticalOptions="Center" TextColor="Black" Margin="0,0,10,0">
+                  VerticalOptions="Center" Margin="0,0,10,0">
             </Label>
             <Label x:Name="label2" Text=" "></Label>
             <Button x:Name="btnGenerateDocument" Clicked ="OnButtonClicked" Text ="Generate Document" HorizontalOptions="Start"></Button>

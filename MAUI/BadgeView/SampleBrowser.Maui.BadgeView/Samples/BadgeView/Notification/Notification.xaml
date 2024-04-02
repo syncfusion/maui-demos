@@ -6,7 +6,7 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
                       xmlns:local="clr-namespace:SampleBrowser.Maui.BadgeView.SfBadgeView"
-                      BackgroundColor="White">
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageConverter"/>
     </localCore:SampleView.Resources>
@@ -15,14 +15,14 @@
     </localCore:SampleView.BindingContext>
 
     <localCore:SampleView.Content>
-        <Grid BackgroundColor="#f7f7f7">
+        <Grid BackgroundColor="#f7f7f7" WidthRequest="{OnPlatform WinUI=400,MacCatalyst=400}">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
             <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
                 <VerticalStackLayout x:Name="listView" 
-                      BackgroundColor="White"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                        BindableLayout.ItemsSource="{Binding Collection}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
@@ -53,13 +53,13 @@
                                         </Grid.RowDefinitions>
 
                                         <Label LineBreakMode="NoWrap"
-                                                   TextColor="Black"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                                    VerticalOptions="End"
                                                    FontSize="{OnIdiom Phone='16',Desktop='20',Tablet='18'}"
                                                    Text="{Binding Name}" />
                                         <Label Grid.Row="1" 
                                                    Grid.Column="0"
-                                                   TextColor="#777777"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                                    VerticalOptions="Start"
                                                    LineBreakMode="NoWrap"
                                                FontSize="12"
@@ -77,7 +77,7 @@
                                                    Margin="0,0,10,0" 
                                                    HorizontalOptions="Center"
                                                    VerticalOptions="Center"
-                                                   TextColor="Black" 
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                                 FontSize="12"
                                                    Text="{Binding Time}" />
                                         <badge:SfBadgeView   HeightRequest="26"  BadgeText="{Binding Count}"  Grid.Row="1">
@@ -90,15 +90,15 @@
                                         </badge:SfBadgeView>
                                     </Grid>
                                 </Grid>
-                                <StackLayout Grid.Row="1" BackgroundColor="#E4E4E4" HeightRequest="1"/>
+                                <StackLayout Grid.Row="1" BackgroundColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" HeightRequest="1"/>
                             </Grid>
 
                         </DataTemplate>
-                    </BindableLayout.ItemTemplate>
+                    </BindableLayout.ItemTemplate> 
                 </VerticalStackLayout>
             </ScrollView>
             <Grid Grid.Row="1" HorizontalOptions="FillAndExpand"  
-                  VerticalOptions="FillAndExpand" BackgroundColor="#f7f7f7">
+                  VerticalOptions="FillAndExpand" BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource TileBackground}}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -113,25 +113,20 @@
                         <RowDefinition Height="20" />
                     </Grid.RowDefinitions>
 
-                    <Label Text="&#xe703;"
+                    <Label Text="&#xe721;"
                                                  HorizontalOptions="FillAndExpand"
                                                  HorizontalTextAlignment="Center"
                                                  VerticalOptions="End" 
                                                  FontAttributes="Bold" 
-                                                 TextColor="#777777" 
-                                                 FontSize="28">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String" >
-                                <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
-                                <On Platform="WinUI" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                                <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                            </OnPlatform>
-                        </Label.FontFamily>
+                                                 TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}" 
+                                                 FontSize="28"
+                                                 FontFamily="MauiSampleFontIcon">
+                      
                     </Label>
 
                     <Label Grid.Row="1" FontSize="12" HorizontalTextAlignment="Center" 
                            VerticalTextAlignment="Center" Margin="0,-5,0,0" Text="Status" 
-                           TextColor="#777777"/>
+                           TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"/>
                 </Grid>
 
                 <Grid x:Name="callsBadgeGrid" Grid.Column="1" HorizontalOptions="Center">
@@ -145,19 +140,13 @@
                                        HorizontalOptions="Center"
                                        BadgeText="3">
                         <Grid WidthRequest="60">
-                            <Label Text="&#xe700;" 
+                            <Label Text="&#xe763;" 
                                    FontAttributes="Bold"  
                                    HorizontalOptions="Center"
                                    VerticalOptions="End" 
-                                   TextColor="#777777" 
-                                   FontSize="28">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String" >
-                                        <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
-                                        <On Platform="WinUI" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                                        <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
+                                   TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}" 
+                                   FontSize="28"
+                                   FontFamily="MauiSampleFontIcon">
                             </Label>
                         </Grid>
                         <badge:SfBadgeView.BadgeSettings>
@@ -170,7 +159,7 @@
 
                     <Label Text="Calls" Grid.Row="1" Margin="-8,-5,0,0"
                            FontSize="12" HorizontalTextAlignment="Center" 
-                           VerticalTextAlignment="Center" TextColor="#777777"/>
+                           VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"/>
                 </Grid>
 
                 <Grid x:Name="chatBadgeGrid" Grid.Column="3" HorizontalOptions="Center">
@@ -184,84 +173,65 @@
                                        HorizontalOptions="Center"
                                        BadgeText="8">
                         <Grid WidthRequest="60" >
-                            <Label Text="&#xe701;" 
+                            <Label Text="&#xe7b8;" 
                                    FontAttributes="Bold"
                                    HorizontalOptions="Center"
                                    HorizontalTextAlignment="Center"
                                    VerticalOptions="End" 
-                                   TextColor="#777777" 
-                                   FontSize="28">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String" >
-                                        <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
-                                        <On Platform="WinUI" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                                        <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
+                                   TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}" 
+                                   FontSize="28"
+                                   FontFamily="MauiSampleFontIcon">
                             </Label>
                         </Grid>
                         <badge:SfBadgeView.BadgeSettings>
                             <badge:BadgeSettings FontSize="12" 
                                                  Offset="-4,10"
-                                                 Type="Error"
-                                                 Animation="Scale">
+                                                 Type="Error">
                             </badge:BadgeSettings>
                         </badge:SfBadgeView.BadgeSettings>
                     </badge:SfBadgeView>
 
                     <Label Text="Chats" Grid.Row="1" Margin="0,-5,0,0" 
                            FontSize="12" HorizontalTextAlignment="Center" 
-                           VerticalTextAlignment="Center" TextColor="#777777"/>
+                           VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"/>
                 </Grid>
 
-                <Grid Grid.Column="2" BackgroundColor="#f7f7f7" HorizontalOptions="Center">
+                <Grid Grid.Column="2"  HorizontalOptions="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
 
-                    <Label x:Name="fontIconLabel2" Text="&#xe702;" 
-                                         FontAttributes="Bold" TextColor="#777777" 
+                    <Label x:Name="fontIconLabel2" Text="&#xe76d;" 
+                                         FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
                                          FontSize="28" HorizontalOptions="FillAndExpand"
                                          HorizontalTextAlignment="Center"
-                                         VerticalOptions="End">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String" >
-                                <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
-                                <On Platform="WinUI" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                                <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                            </OnPlatform>
-                        </Label.FontFamily>
+                                         VerticalOptions="End"
+                                         FontFamily="MauiSampleFontIcon">
                     </Label>
 
                     <Label Text="Camera" Grid.Row="1"  FontSize="12" Margin="0,-5,0,0" 
                            HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
-                           TextColor="#777777"/>
+                           TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"/>
                 </Grid>
 
-                <Grid Grid.Column="4" BackgroundColor="#f7f7f7" HorizontalOptions="Center">
+                <Grid Grid.Column="4"  HorizontalOptions="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
-                    
+
                     <Label x:Name="fontIconLabel4" 
-                                         Text="&#xe704;" FontAttributes="Bold" 
-                                         TextColor="#777777" FontSize="28" 
+                                         Text="&#xe73b;" FontAttributes="Bold" 
+                                         TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}" FontSize="28" 
                                          HorizontalOptions="FillAndExpand"
                                          HorizontalTextAlignment="Center"
-                                         VerticalOptions="End">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String" >
-                                <On Platform="iOS,MacCatalyst" Value="FONT Sf Badge view" />
-                                <On Platform="WinUI" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                                <On Platform="Android" Value="BadgeViewFont.ttf#FONT Sf Badge view" />
-                            </OnPlatform>
-                        </Label.FontFamily>
+                                         VerticalOptions="End"
+                                         FontFamily="MauiSampleFontIcon">
                     </Label>
                     <Label Text="Settings" Grid.Row="1" FontSize="12" Margin="0,-5,0,0" 
                            HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
-                           TextColor="#777777"/>
+                           TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"/>
                 </Grid>
             </Grid>
         </Grid>

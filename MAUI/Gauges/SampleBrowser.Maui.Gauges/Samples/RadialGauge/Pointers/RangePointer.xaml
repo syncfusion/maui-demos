@@ -41,7 +41,7 @@
                                 <Label Text="50 / 100"
                                                        FontSize="22"
                                                        FontAttributes="Bold"
-                                                       TextColor="Black">
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}">
                                 </Label>
                             </gauge:GaugeAnnotation.Content>
                         </gauge:GaugeAnnotation>

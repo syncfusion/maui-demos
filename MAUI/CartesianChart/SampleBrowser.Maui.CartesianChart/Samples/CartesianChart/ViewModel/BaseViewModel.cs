@@ -43,6 +43,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         public BaseViewModel()
         {
+
             PaletteBrushes = new ObservableCollection<Brush>()
             {
                new SolidColorBrush(Color.FromArgb("#314A6E")),
@@ -51,6 +52,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
                  new SolidColorBrush(Color.FromArgb("#74BD6F")),
                  new SolidColorBrush(Color.FromArgb("#597FCA"))
             };
+
             CustomColor2 = new ObservableCollection<Brush>()
             {
                 new SolidColorBrush(Color.FromArgb("#519085")),
@@ -68,7 +70,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
                 new SolidColorBrush(Color.FromArgb("#7642A9")),
                 new SolidColorBrush(Color.FromArgb("#495963"))
             };
-            
+
             CustomColor4 = new ObservableCollection<Brush>()
             {
                 new SolidColorBrush(Color.FromArgb("#95DB9C")),
@@ -89,5 +91,10 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
                  new SolidColorBrush(Color.FromArgb("#48988B")),
             };
         }
+    }
+
+    public class ChartColorModel : ObservableCollection<Brush>
+    {
+
     }
 }

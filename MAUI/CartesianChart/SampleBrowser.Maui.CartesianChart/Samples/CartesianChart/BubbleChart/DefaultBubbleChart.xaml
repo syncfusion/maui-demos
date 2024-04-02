@@ -5,9 +5,15 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:chart="http://schemas.syncfusion.com/maui">
-
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <StackLayout HorizontalOptions="Fill" Padding="10" x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" x:Name="layout">
 
             <StackLayout.Resources>
                 <Label x:Key="title" x:Name="titleName" Text="Literacy rate vs. GDP per capita by Country - 2018"
@@ -35,12 +41,16 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Item.Name,StringFormat='{0}'}" HorizontalTextAlignment="Center" Margin="0,0,0,2" HorizontalOptions="Center" VerticalTextAlignment="Center" FontFamily="Helvetica" FontAttributes="Bold" TextColor="White" FontSize="10"></Label>
-                            <BoxView Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Color="Gray" HeightRequest="1" />
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Item.Name,StringFormat='{0}'}" HorizontalTextAlignment="Center" Margin="0,0,0,2" HorizontalOptions="Center" VerticalTextAlignment="Center" FontFamily="Helvetica" FontAttributes="Bold" FontSize="10"
+                                   TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
+                            <BoxView Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Color="{AppThemeBinding Default={StaticResource ContentBackground}}" HeightRequest="1" />
                             <StackLayout Grid.Row="2" Grid.Column="0" Orientation="Vertical"  VerticalOptions="Fill" Spacing="0" Padding="2" Margin="0">
-                                <Label Text="{Binding Item.Value,StringFormat='Literacy rate         : {0}%'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="10"></Label>
-                                <Label Text="{Binding Item.High,StringFormat='GDP growth rate : {0}'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="10"></Label>
-                                <Label Text="{Binding Item.Low,StringFormat='Population           : {0}B'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="10"></Label>
+                                <Label Text="{Binding Item.Value,StringFormat='Literacy rate         : {0}%'}" VerticalTextAlignment="Center" HorizontalOptions="Start" FontFamily="Helvetica" FontSize="10"
+                                    TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
+                                <Label Text="{Binding Item.High,StringFormat='GDP growth rate : {0}'}" VerticalTextAlignment="Center" HorizontalOptions="Start" FontFamily="Helvetica" FontSize="10"
+                                        TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
+                                <Label Text="{Binding Item.Low,StringFormat='Population           : {0}B'}" VerticalTextAlignment="Center" HorizontalOptions="Start" FontFamily="Helvetica" FontSize="10"
+                                    TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
                             </StackLayout>
                         </Grid>
                     </DataTemplate>
@@ -59,6 +69,7 @@
                 <chart:BubbleSeries  MinimumRadius="{OnPlatform Default=15,Android=8,iOS=8}"
                                      MaximumRadius="{OnPlatform Default=30,Android=15,iOS=15}"
                                      SizeValuePath="Low"  Opacity="0.7" EnableAnimation="True"
+                                     PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}"
                                      EnableTooltip="True" TooltipTemplate="{StaticResource tooltiptemplate}"             
                                      ItemsSource="{Binding GDPGrowthCollection}" ShowDataLabels="False"
                                       XBindingPath="Value"  YBindingPath="High"/>

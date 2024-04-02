@@ -11,7 +11,7 @@ namespace SampleBrowser.Maui.Backdrop.SfBackdropPage;
 
 public partial class InitialPage : SampleView
 {
-	public InitialPage()
+    public InitialPage()
 	{
 		InitializeComponent();
     }
@@ -23,8 +23,8 @@ public partial class InitialPage : SampleView
             var page = Application.Current.MainPage as NavigationPage;
             if (page != null)
             {
-                page.BarBackgroundColor = Color.FromArgb("#6200EE");
-                page.BarTextColor = Colors.White;
+                page.BarBackgroundColor = Application.Current.RequestedTheme == AppTheme.Light ? Color.FromArgb("#6750A4") : Color.FromArgb("#D0BCFF");
+                page.BarTextColor = Application.Current.RequestedTheme == AppTheme.Light ? Colors.White : Color.FromArgb("#381E72");
             }
         }
 

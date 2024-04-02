@@ -6,7 +6,7 @@
                xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
                xmlns:local="clr-namespace:SampleBrowser.Maui.SignaturePad.SfSignaturePad"
                x:Class="SampleBrowser.Maui.SignaturePad.SfSignaturePad.GettingStarted"
-               Background="White">
+               Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <sb:SampleView.BindingContext>
         <local:InvoiceViewModel />
@@ -15,22 +15,22 @@
     <sb:SampleView.Resources>
         <Style TargetType="BoxView">
             <Setter Property="Color"
-                    Value="LightGray" />
+                    Value="{AppThemeBinding Light={StaticResource TileHeaderBorderLight}, Dark={StaticResource TileHeaderBorder}}" /> 
         </Style>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="#606F85" />
+                    Value="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}" />
         </Style>
     </sb:SampleView.Resources>
 
     <sb:SampleView.Content>
-        <Grid Padding="5">
+        <Grid Padding="5" HorizontalOptions="{OnPlatform Android=Center}">
             <Grid.Triggers>
                 <DataTrigger TargetType="Grid"
                              Binding="{Binding IsOpen, Source={x:Reference Popup}}"
                              Value="True">
-                    <Setter Property="Background"
-                            Value="#E3E3E3" />
+                    <Setter Property="Background"                            
+                            Value="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" />
                 </DataTrigger>
 
                 <DataTrigger TargetType="Grid"
@@ -53,15 +53,15 @@
                     <DataTrigger TargetType="ScrollView"
                                  Binding="{Binding IsOpen, Source={x:Reference Popup}}"
                                  Value="False">
-                        <Setter Property="IsEnabled"
+                        <Setter Property="IsEnabled" 
                                 Value="True" />
                     </DataTrigger>
                 </ScrollView.Triggers>
 
-                <Border Stroke="#D2D2D2"
+                <Border Stroke="{AppThemeBinding Light={StaticResource TileHeaderBorderLight}, Dark={StaticResource TileHeaderBorder}}"
                         StrokeThickness="{OnPlatform Default=0, MacCatalyst=1, WinUI=1}"
-                        Background="Transparent"
-                        MaximumWidthRequest="{OnPlatform MacCatalyst=500, WinUI=500}"
+                        Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}"
+                        MaximumWidthRequest="{OnPlatform MacCatalyst=500, WinUI=500}" 
                         HorizontalOptions="Center">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="4" />
@@ -73,7 +73,7 @@
 
                         <Label Grid.Row="0"
                                Text="INVOICE"
-                               TextColor="#5b7ed7"
+                               TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}"
                                FontSize="Title"
                                FontAttributes="Bold"
                                HorizontalTextAlignment="Center"
@@ -210,7 +210,7 @@
                                HorizontalTextAlignment="End"
                                HorizontalOptions="End" />
 
-                        <Grid Grid.Row="8"
+                        <Grid Grid.Row="8" ColumnSpacing="10"
                               ColumnDefinitions="175,*"
                               Background="Transparent"
                               VerticalOptions="Start">
@@ -222,12 +222,12 @@
                                     <TapGestureRecognizer Tapped="OnSignatureContainerTapped" />
                                 </ev:SfEffectsView.GestureRecognizers>
 
-                                <Border Stroke="#D2D2D2"
+                                <Border Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
                                         StrokeThickness="1"
                                         StrokeShape="Rectangle"
                                         HeightRequest="75"
                                         HorizontalOptions="Fill"
-                                        Background="Transparent">
+                                        Background="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}">
 
                                     <Grid Background="Transparent">
                                         <Image Source="{Binding ImageSource}"
@@ -257,18 +257,19 @@
                     </Grid>
                 </Border>
             </ScrollView>
-
             <local:Popup x:Name="Popup"
                          WidthRequest="350"
-                         HeightRequest="300"
+                         HeightRequest="300"   
                          HorizontalOptions="Center"
-                         VerticalOptions="Center" />
+                         VerticalOptions="Center" />          
         </Grid>
     </sb:SampleView.Content>
 
     <sb:SampleView.OptionView>
-        <VerticalStackLayout Background="White">
+        <ScrollView>
+        <VerticalStackLayout Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
             <Label Text="Minimum Stroke Thickness"
+                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                    Padding="14,0" />
             <sliders:SfSlider Minimum="1"
                               Maximum="10"
@@ -280,7 +281,9 @@
 
                 <sliders:SfSlider.LabelStyle>
                     <sliders:SliderLabelStyle ActiveFontSize="Caption"
-                                              InactiveFontSize="Caption" />
+                                              InactiveFontSize="Caption" 
+                                              ActiveTextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" 
+                                              InactiveTextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                 </sliders:SfSlider.LabelStyle>
             </sliders:SfSlider>
 
@@ -298,9 +301,12 @@
 
                 <sliders:SfSlider.LabelStyle>
                     <sliders:SliderLabelStyle ActiveFontSize="Caption"
-                                              InactiveFontSize="Caption" />
+                                              InactiveFontSize="Caption" 
+                                              ActiveTextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" 
+                                              InactiveTextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                 </sliders:SfSlider.LabelStyle>
             </sliders:SfSlider>
         </VerticalStackLayout>
+        </ScrollView>
     </sb:SampleView.OptionView>
 </sb:SampleView>

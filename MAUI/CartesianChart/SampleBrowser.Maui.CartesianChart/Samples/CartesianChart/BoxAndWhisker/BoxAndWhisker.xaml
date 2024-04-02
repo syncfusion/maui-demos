@@ -6,7 +6,7 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
-        <StackLayout HorizontalOptions="Fill" Padding="20" x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" x:Name="layout">
 
             <StackLayout.Resources>
                 <Label x:Key="title" x:Name="titleName" Text="Charpy Impact Test"
@@ -27,13 +27,15 @@
                     <chart:NumericalAxis  x:Name="yAxis">
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
-            <chart:BoxAndWhiskerSeries ItemsSource="{Binding DataSets}"
+                <chart:BoxAndWhiskerSeries ItemsSource="{Binding DataSets}"
                                        x:Name="BoxAndWhisker1"
                                        XBindingPath="Levels"
                                        YBindingPath="Energy"   
-                                       EnableAnimation="True"
+                                       EnableAnimation="True" 
+                                       Stroke="{AppThemeBinding Default={StaticResource ContentForeground}}"
                                        ShowOutlier="True"
-                                       ShowMedian="True"/>
+                                       ShowMedian="True">
+                </chart:BoxAndWhiskerSeries>
         </chart:SfCartesianChart>
 
             <HorizontalStackLayout x:Name="hyperLinkLayout" Margin="5,5,0,0">

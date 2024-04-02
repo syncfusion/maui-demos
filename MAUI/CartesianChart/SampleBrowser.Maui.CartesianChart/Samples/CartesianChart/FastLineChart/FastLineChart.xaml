@@ -13,7 +13,7 @@
             <chart:SfCartesianChart.Title>
                 <Label Text="Loaded 100K Points" Margin="0,0,0,5" 
                                        HorizontalOptions="Fill" HorizontalTextAlignment="Center" 
-                                       VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                       VerticalOptions="Center" FontSize="16"/>
             </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.XAxes>
                 <chart:DateTimeAxis ShowMinorGridLines="False"

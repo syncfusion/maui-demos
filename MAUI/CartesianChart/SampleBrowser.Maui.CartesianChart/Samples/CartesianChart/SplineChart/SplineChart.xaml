@@ -4,18 +4,24 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
-
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
 <localCore:SampleView.Content>
     <StackLayout>
         <StackLayout.BindingContext>
             <local:SplineSeriesViewModel />
         </StackLayout.BindingContext>
-        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+            <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
             <chart:SfCartesianChart.Legend>
             <chart:ChartLegend ToggleSeriesVisibility="True"/>
         </chart:SfCartesianChart.Legend>
         <chart:SfCartesianChart.Title>
-            <Label Text="Average High/Low Temperature of London" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+            <Label Text="Average High/Low Temperature of London" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
         </chart:SfCartesianChart.Title>
         <chart:SfCartesianChart.XAxes>
             <chart:CategoryAxis ShowMajorGridLines="false" PlotOffsetStart="10" PlotOffsetEnd="10" AxisLineOffset="10">
@@ -38,12 +44,12 @@
             <chart:SfCartesianChart.Series>
                     <chart:SplineSeries Label="High" EnableTooltip="True" EnableAnimation="True" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Value" StrokeWidth="1" ShowMarkers="True" LegendIcon="SeriesType" >
                     <chart:SplineSeries.MarkerSettings>
-                        <chart:ChartMarkerSettings Width="8" Height="8" Fill="White" Stroke="#314A6E" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Width="8" Height="8" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" StrokeWidth="1"/>
                     </chart:SplineSeries.MarkerSettings>
                 </chart:SplineSeries>
                     <chart:SplineSeries Label="Low" EnableTooltip="True" EnableAnimation="True" ItemsSource="{Binding SplineData1}" XBindingPath="Name" YBindingPath="Size" StrokeWidth="1" ShowMarkers="True" LegendIcon="SeriesType">
                     <chart:SplineSeries.MarkerSettings>
-                        <chart:ChartMarkerSettings Width="8" Height="8" Fill="White" Stroke="#48988B" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Width="8" Height="8" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" StrokeWidth="1"/>
                     </chart:SplineSeries.MarkerSettings>
                 </chart:SplineSeries>
             </chart:SfCartesianChart.Series>

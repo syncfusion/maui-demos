@@ -9,12 +9,15 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class SearchViewDesktop : SearchView
 {
-    public SearchViewDesktop()
-	{
-        this.BindingContext = this;
-		InitializeComponent();
-        AssignControls();
-        OnInitialized();
+    internal void Initialize()
+    {
+        if (this.Content == null)
+        {
+            this.BindingContext = this;
+            InitializeComponent();
+            AssignControls();
+            OnInitialized();
+        }
     }
 
     void AssignControls()

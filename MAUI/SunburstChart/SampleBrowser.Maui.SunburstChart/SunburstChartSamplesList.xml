@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
 	<ControlCategory Name="Data Visualization">
-		<Control Title="Sunburst Chart" Image="sunburstchart.png" StatusTag="New" IsPreview="true" ControlName="SfSunburstChart" Description="Visualize hierarchical data using concentric circles with interactive features.">
+		<Control Title="Sunburst Chart" Image="sunburstchart.png" ControlName="SfSunburstChart" Description="Visualize hierarchical data using concentric circles with interactive features.">
       <Sample SearchTags="sunburst" Name="SunburstChart" SampleName="DefaultSunburstChart" Title="Getting started" CodeViewerPath="SunburstChart/SunburstChartDemo/"/>
       <Sample SearchTags="datalabel" Name="Datalabel" SampleName="DataLabel" Title="Data label" CodeViewerPath="SunburstChart/SunburstChartDemo/"/>
 			<Sample SearchTags="tooltip" Name="Tooltip" SampleName="ToolTip" Title="Tooltip" CodeViewerPath="SunburstChart/Interaction/"/>
-      <Sample SearchTags="centerview" Platforms="Windows,Android,iOS," Name="Centerview" SampleName="CenterView" Title="Center elevation" CodeViewerPath="SunburstChart/SunburstChartDemo/"/>
+      <!--<Sample SearchTags="centerview" Platforms="Windows,Android,iOS," Name="Centerview" SampleName="CenterView" Title="Center elevation" CodeViewerPath="SunburstChart/SunburstChartDemo/"/>-->
     </Control>
 	</ControlCategory>
 </SyncfusionControls>

@@ -15,219 +15,81 @@ using System.Threading.Tasks;
 #nullable disable
 namespace SampleBrowser.Maui.ListView.SfListView
 {
-    public class LoadMoreViewModel : INotifyPropertyChanged
+    public class LoadMoreViewModel
     {
-        private readonly int totalItems = 22;
-        private readonly ProductRepository productRepository;
-        private int totalOrderedItems = 0;
-        private double totalPrice = 0;
-
-        public ObservableCollection<Product> Products { get; set; }
-
-        public ObservableCollection<Product> Products1 { get; set; }
-
-        public ObservableCollection<Product> Orders { get; set; }
-
-        public Command<object> AddCommand { get; set; }
-
-        public Command<object> RemoveButtonCommand { get; set; }
-
+        private readonly int totalItems = 18;
+        private readonly ListViewProductReviewInfoRepository reviewInfoRepository;
+        public ObservableCollection<ListViewProductReviewInfo> ReviewInfo { get; set; }
         public Command<object> LoadMoreItemsCommand { get; set; }
-
-        public Command<object> OrderListCommand { get; set; }
-
-        public Command<object> RemoveOrderCommand { get; set; }
-
-
-        public Command CheckoutCommand { get; set; }
-
-        public int TotalOrderedItems
-        {
-            get { return totalOrderedItems; }
-            set
-            {
-                if (totalOrderedItems != value)
-                {
-                    totalOrderedItems = value;
-                    RaisePropertyChanged("TotalOrderedItems");
-                }
-            }
-        }
-
-        public double TotalPrice
-        {
-            get { return totalPrice; }
-            set
-            {
-                if (totalPrice != value)
-                {
-                    totalPrice = value;
-                    RaisePropertyChanged("TotalPrice");
-                }
-            }
-        }
 
         public LoadMoreViewModel()
         {
-            productRepository = new ProductRepository();
-            Products = new ObservableCollection<Product>();
-            Products1 = new ObservableCollection<Product>();
-            Orders = new ObservableCollection<Product>();
+            reviewInfoRepository = new ListViewProductReviewInfoRepository();
+            ReviewInfo = new ObservableCollection<ListViewProductReviewInfo>();
 
-            GenerateSource();
-
-            if (DeviceInfo.Platform == DevicePlatform.MacCatalyst)
-                AddProducts(0, 11);
+            if(DeviceInfo.Platform == DevicePlatform.MacCatalyst)
+            {
+                GenerateSource(11);
+            }
             else
-                AddProducts(0, 6);
-
-            AddCommand = new Command<object>(AddQuantity);
-            OrderListCommand = new Command<object>(NavigateOrdersPage);
-            CheckoutCommand = new Command(CheckOut);
-            RemoveOrderCommand = new Command<object>(RemoveOrder);
+            {
+                GenerateSource(7);
+            }
             LoadMoreItemsCommand = new Command<object>(LoadMoreItems, CanLoadMoreItems);
-            RemoveButtonCommand = new Command<object>(RemoveButton);
         }
-
-
-        private void RemoveButton(object obj)
+        private void GenerateSource(int value)
         {
-            var p = obj as Product;
-            if (p.Quantity > 0 == true)
+            for (int i = 0; i < value; i++)
             {
-                p.Quantity--;
-            }
-            else
-            {
-                p.Quantity = 0;
-            }
-        }
-
-        private void RemoveOrder(object obj)
-        {
-            var p = obj as Product;
-            p.Quantity = 0;
-        }
-
-        private async void CheckOut(object obj)
-        {
-            var checkout = await Application.Current.MainPage.DisplayAlert("Checkout", "Do you want to checkout?", "Yes", "No");
-            if (checkout)
-            {
-                while (Orders.Count > 0)
+                var name = reviewInfoRepository.AuthorNames[i];
+                var p = new ListViewProductReviewInfo()
                 {
-                    Orders[Orders.Count - 1].Quantity = 0;
-                }
-
-                await Application.Current.MainPage.DisplayAlert("", "Your order has been placed.", "OK");
-#pragma warning disable CS0618 // Type or member is obsolete
-#pragma warning disable CS0612 // Type or member is obsolete
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    if (obj != null)
-                        (obj as ContentPage).Navigation.PopAsync();
-                });
-#pragma warning restore CS0612 // Type or member is obsolete
-#pragma warning restore CS0618 // Type or member is obsolete
-            }
-        }
-
-        private void NavigateOrdersPage(object obj)
-        {
-            var sampleView = obj as SampleView;
-            var ordersPage = new LoadMoreOrdersPage
-            {
-                BindingContext = this
-            };
-            sampleView.Navigation.PushAsync(ordersPage);
-        }
-
-        private void AddProducts(int index, int count)
-        {
-            for (int i = index; i < index + count; i++)
-            {
-                var name = productRepository.Names[i];
-                var p = new Product()
-                {
-                    Name = name,
-                    Weight = productRepository.Weights[i],
-                    Price = productRepository.Prices[i],
-                    Image = productRepository.FruitNames[i] + ".jpg"
+                    AuthorName = name,
+                    Comments = reviewInfoRepository.AuthorComments[i],
+                    AuthorImage = reviewInfoRepository.AuthorImages[i],
+                    Rating = reviewInfoRepository.Ratings[i],
                 };
 
-                p.PropertyChanged += (s, e) =>
-                {
-                    var product = s as Product;
-                    if (e.PropertyName == "Quantity")
-                    {
-                        if (Orders.Contains(product) && product.Quantity <= 0)
-                            Orders.Remove(product);
-                        else if (!Orders.Contains(product) && product.Quantity > 0)
-                            Orders.Add(product);
+                ReviewInfo.Add(p);
 
-                        TotalOrderedItems = Orders.Count;
-                        TotalPrice = 0;
-                        for (int j = 0; j < Orders.Count; j++)
-                        {
-                            var order = Orders[j];
-                            TotalPrice += order.TotalPrice;
-                        }
-                    }
-                };
-
-                Products.Add(p);
             }
         }
-
-        private void GenerateSource()
+        private async void LoadMoreItems(object obj)
         {
-            for (int i = 0; i < productRepository.Names.Length; i++)
+            var listview = obj as Syncfusion.Maui.ListView.SfListView;
+            if (listview != null)
             {
-                var name = productRepository.Names[i];
-                var p = new Product()
-                {
-                    Name = name,
-                    Weight = productRepository.Weights[i],
-                    Price = productRepository.Prices[i],
-                    Image = productRepository.FruitNames[i] + ".jpg"
-                };
+                listview.IsLazyLoading = true;
+                await Task.Delay(2500);
+                var index = ReviewInfo.Count;
+                var count = index + 2 >= totalItems ? totalItems - index : 2;
+                AddProducts(index, count);
 
-                Products1.Add(p);
+                listview.IsLazyLoading = false;
             }
         }
 
         private bool CanLoadMoreItems(object obj)
         {
-            if (Products.Count >= totalItems)
+            if (ReviewInfo.Count >= totalItems)
                 return false;
             return true;
         }
-
-        private async void LoadMoreItems(object obj)
+        private void AddProducts(int index, int count)
         {
-            var listview = obj as Syncfusion.Maui.ListView.SfListView;
-            listview.IsLazyLoading = true;
-            await Task.Delay(2500);
-
-            var index = Products.Count;
-            var count = index + 3 >= totalItems ? totalItems - index : 3;
-            AddProducts(index, count);
-
-            listview.IsLazyLoading = false;
+            for (int i = index; i < index + count; i++)
+            {
+                var name = reviewInfoRepository.AuthorNames[i];
+                var p = new ListViewProductReviewInfo()
+                {
+                    AuthorName = name,
+                    Comments = reviewInfoRepository.AuthorComments[i],
+                    AuthorImage = reviewInfoRepository.AuthorImages[i],
+                    Rating = reviewInfoRepository.Ratings[i],
+                };
+                ReviewInfo.Add(p);
+            }
         }
 
-        private void AddQuantity(object obj)
-        {
-            var p = obj as Product;
-            p.Quantity += 1;
-        }
-
-        private void RaisePropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

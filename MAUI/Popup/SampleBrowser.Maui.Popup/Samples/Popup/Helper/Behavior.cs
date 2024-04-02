@@ -23,9 +23,9 @@ namespace SampleBrowser.Maui.Popup.SfPopup
         private Syncfusion.Maui.Popup.SfPopup? ActionSheetPopup;
         protected override void OnAttachedTo(SampleView sampleView)
         {
-            ActionSheetPopup = sampleView.Resources["Actionsheet"] as Syncfusion.Maui.Popup.SfPopup;
+            this.ActionSheetPopup = sampleView.Resources["Actionsheet"] as Syncfusion.Maui.Popup.SfPopup;
             sampleView.LayoutChanged += SampleView_LayoutChanged;
-            base.OnAttachedTo(sampleView);            
+            base.OnAttachedTo(sampleView);
         }
 
         private void SampleView_LayoutChanged(object? sender, EventArgs e)
@@ -41,12 +41,13 @@ namespace SampleBrowser.Maui.Popup.SfPopup
             {
                 ActionSheetPopup!.WidthRequest = 360;
             }
+            
             ActionSheetPopup!.StartY = (int)(screenHeight - ActionSheetPopup!.HeightRequest);
 #else
             ActionSheetPopup!.WidthRequest = 360;
 #endif          
 #if IOS || MACCATALYST
-            ActionSheetPopup.Refresh();            
+            ActionSheetPopup.Refresh();
 #endif
 
         }
@@ -54,8 +55,9 @@ namespace SampleBrowser.Maui.Popup.SfPopup
         protected override void OnDetachingFrom(SampleView sampleView)
         {
             sampleView.LayoutChanged -= SampleView_LayoutChanged;
-            base.OnDetachingFrom(sampleView);            
-        }        
+            this.ActionSheetPopup = null;
+            base.OnDetachingFrom(sampleView);
+        }
     }
 
     public class DataFormBehavior : Behavior<SfDataForm>
@@ -74,19 +76,12 @@ namespace SampleBrowser.Maui.Popup.SfPopup
                 {
                     e.DataFormItem.LeadingView = new Label()
                     {
-                        Text = "\ue707",
-#if ANDROID
-                        FontFamily = "PopupFontIcons.ttf#",
-#elif WINDOWS
-                        FontFamily = "PopupFontIcons.ttf#PopupFontIcons",
-#else
-                        FontFamily = "PopupFontIcons",
-#endif
-
+                        Text = "\ue760",
+                        FontFamily = "MauiSampleFontIcon",
                         VerticalTextAlignment = TextAlignment.Center,
                         FontSize = 24,
                         HeightRequest = 24,
-                        TextColor = Colors.Gray,
+                        TextColor = Application.Current?.RequestedTheme == AppTheme.Light ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0"),
                         FontAttributes = FontAttributes.Bold,
                     };
                 }
@@ -94,54 +89,36 @@ namespace SampleBrowser.Maui.Popup.SfPopup
                 {
                     e.DataFormItem.LeadingView = new Label()
                     {
-                        Text = "\ue706",
-#if ANDROID
-                        FontFamily = "PopupFontIcons.ttf#",
-#elif WINDOWS
-                        FontFamily = "PopupFontIcons.ttf#PopupFontIcons",
-#else
-                        FontFamily = "PopupFontIcons",
-#endif
+                        Text = "\ue75C",
+                        FontFamily = "MauiSampleFontIcon",
                         VerticalTextAlignment = TextAlignment.Center,
                         FontSize = 24,
                         HeightRequest = 24,
-                        TextColor = Colors.Gray,                        
+                        TextColor = Application.Current?.RequestedTheme == AppTheme.Light ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0")
                     };
                 }
                 if (e.DataFormItem.FieldName == "Password")
                 {
                     e.DataFormItem.LeadingView = new Label()
                     {
-                        Text = "\ue708",
-#if ANDROID
-                        FontFamily = "PopupFontIcons.ttf#",
-#elif WINDOWS
-                        FontFamily = "PopupFontIcons.ttf#PopupFontIcons",
-#else
-                        FontFamily = "PopupFontIcons",
-#endif
+                        Text = "\ue751",
+                        FontFamily = "MauiSampleFontIcon",
                         VerticalTextAlignment = TextAlignment.Center,
                         FontSize = 24,
                         HeightRequest = 24,
-                        TextColor = Colors.Gray,                       
+                        TextColor = Application.Current?.RequestedTheme == AppTheme.Light ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0"),
                     };
                 }
                 if (e.DataFormItem.FieldName == "RePassword")
                 {
                     e.DataFormItem.LeadingView = new Label()
                     {
-                        Text = "\ue708",
-#if ANDROID
-                        FontFamily = "PopupFontIcons.ttf#",
-#elif WINDOWS
-                        FontFamily = "PopupFontIcons.ttf#PopupFontIcons",
-#else
-                        FontFamily = "PopupFontIcons",
-#endif
+                        Text = "\ue751",
+                        FontFamily = "MauiSampleFontIcon",
                         VerticalTextAlignment = TextAlignment.Center,
                         FontSize = 24,
                         HeightRequest = 24,
-                        TextColor = Colors.Gray,                        
+                        TextColor = Application.Current?.RequestedTheme == AppTheme.Light ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0"),
                     };
                 }
             }

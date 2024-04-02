@@ -42,6 +42,7 @@ public partial class ReadOnly : SampleView
         PdfViewer.TextSelectionChanged += PdfViewer_TextSelectionChanged;
         BindingContext = viewModel;
         viewModel.IsFileOpenVisible = false;
+        viewModel.IsPageLayoutVisible = false;
 #if ANDROID || IOS
         SearchView = MobileSearchView;
         toolbar = MobileToolbar;

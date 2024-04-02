@@ -14,6 +14,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar;
 
 public class AppearanceViewModel : INotifyPropertyChanged
 {
+    /// <summary>
+    /// Check the application theme is light or dark.
+    /// </summary>
+    private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
     private DataTemplate circleTemplate;
 
     private DataTemplate rectTemplate;
@@ -42,14 +47,14 @@ public class AppearanceViewModel : INotifyPropertyChanged
             Grid grid = new Grid();
 
             Border border = new Border();
-            border.BackgroundColor = Color.FromRgba("#F5F5F5");
+            border.BackgroundColor = isLightTheme ? Color.FromRgba("#F5F5F5") : Color.FromRgba("#E6E1E51F");
             border.StrokeShape = new RoundRectangle()
             {
                 CornerRadius = new CornerRadius(25)
             };
 
             border.SetBinding(Border.StrokeThicknessProperty, "Date", converter: new DateToStrokeConverter());
-            border.Stroke = Color.FromArgb("#0A3A74");
+            border.Stroke = isLightTheme ? Color.FromArgb("#0A3A74") : Color.FromArgb("#3494EC");
 
             Label label = new Label();
             label.SetBinding(Label.TextProperty, "Date.Day");
@@ -69,14 +74,14 @@ public class AppearanceViewModel : INotifyPropertyChanged
             Grid grid = new Grid();
 
             Border border = new Border();
-            border.BackgroundColor = Color.FromRgba("#F5F5F5");
+            border.BackgroundColor = isLightTheme ? Color.FromRgba("#F5F5F5") : Color.FromRgba("#E6E1E51F");
             border.StrokeShape = new RoundRectangle()
             {
                 CornerRadius = new CornerRadius(2)
             };
 
             border.SetBinding(Border.StrokeThicknessProperty, "Date", converter: new DateToStrokeConverter());
-            border.Stroke = Color.FromArgb("#0A3A74");
+            border.Stroke = isLightTheme ? Color.FromArgb("#0A3A74") : Color.FromArgb("#3494EC");
 
             Label label = new Label();
             label.SetBinding(Label.TextProperty, "Date.Day");

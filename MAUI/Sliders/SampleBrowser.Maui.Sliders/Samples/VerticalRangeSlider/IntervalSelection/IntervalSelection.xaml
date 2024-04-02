@@ -34,7 +34,7 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                   Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
             <Setter Property="HorizontalOptions"
                     Value="Center" />
         </Style>

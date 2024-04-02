@@ -22,7 +22,7 @@
                                                              Fill="#FF00A8B5" />
                     </gauge:RadialAxis.AxisLineStyle>
                     <gauge:RadialAxis.AxisLabelStyle>
-                        <gauge:GaugeLabelStyle FontAttributes="Bold" />
+                        <gauge:GaugeLabelStyle FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                     </gauge:RadialAxis.AxisLabelStyle>
                     <gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialTickStyle LengthUnit="Factor"

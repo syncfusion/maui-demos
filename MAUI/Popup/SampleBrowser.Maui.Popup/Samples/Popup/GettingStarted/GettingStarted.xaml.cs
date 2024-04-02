@@ -7,6 +7,7 @@
 #endregion
 
 using SampleBrowser.Maui.Base;
+using Syncfusion.Maui.Popup;
 
 namespace SampleBrowser.Maui.Popup.SfPopup
 {

@@ -7,12 +7,13 @@
     xmlns:ev="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
     xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.Switch"
-    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localcore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="#1C1B1F" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
             <Setter Property="FontFamily" Value="Roboto" />
             <Setter Property="VerticalOptions" Value="Center" />
         </Style>

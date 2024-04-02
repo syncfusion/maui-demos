@@ -4,10 +4,18 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Content>       
                 <chart:SfCartesianChart x:Name="Chart2" IsTransposed="True" HorizontalOptions="Fill" VerticalOptions="Fill">
                     <chart:SfCartesianChart.Title>
-                        <Label Text="Transportation Method (by Miles)" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                        <Label Text="Transportation Method (by Miles)" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
                     </chart:SfCartesianChart.Title>
                     <chart:SfCartesianChart.BindingContext>
                         <local:BarSeriesViewModel/>
@@ -28,8 +36,12 @@
                     </chart:SfCartesianChart.YAxes>
 
                     <chart:SfCartesianChart.Series>
-                        <local:CustomBarChart Label="Maldives visit" ShowDataLabels="True" Width="0.5" EnableAnimation="{Binding EnableAnimation}" CornerRadius="25"  PaletteBrushes="{Binding PaletteBrushes}" 
-                                                      ItemsSource="{Binding RundedBarData}" XBindingPath="Name" YBindingPath="Value">
+                <local:CustomBarChart Label="Maldives visit" ShowDataLabels="True" Width="0.5" 
+                                      EnableAnimation="{Binding EnableAnimation}" CornerRadius="25"  
+                                      PaletteBrushes="{AppThemeBinding Default={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" 
+                                      ItemsSource="{Binding RundedBarData}" 
+                                      TrackColor="{AppThemeBinding Light={StaticResource TrackColorLight}, Dark={StaticResource TrackColorDark}}"
+                                      XBindingPath="Name" YBindingPath="Value">
                             <local:CustomBarChart.DataLabelSettings>
                                 <chart:CartesianDataLabelSettings UseSeriesPalette="True" LabelPlacement="Inner">
                                     <chart:CartesianDataLabelSettings.LabelStyle>

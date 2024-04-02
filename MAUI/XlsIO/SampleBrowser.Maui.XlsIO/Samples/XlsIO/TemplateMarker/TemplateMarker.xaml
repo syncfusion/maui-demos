@@ -10,11 +10,11 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="SampleDescription" LineBreakMode="WordWrap" Text="This example demonstrates how to import data to a predefined Excel template."
-                 VerticalOptions="Center" TextColor="Black">
+                 VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
             <Label x:Name="Text1" LineBreakMode="WordWrap" Text="Click the &quot;Input Template&quot; button to view the predefined Excel template. Click the &quot;Generate Document&quot; button to view the created Excel document after importing the data. Please note that an Excel-compatible viewer is required to open and view the Excel file."
-                  VerticalOptions="Center" TextColor="Black">
+                  VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
             <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">

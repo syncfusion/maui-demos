@@ -134,7 +134,7 @@ public partial class Arcs : SampleView
         }
     }
 
-    private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+    private void Picker_SelectedIndexChanged(object sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
     {
         if (picker.SelectedIndex == 0)
         {
@@ -148,9 +148,13 @@ public partial class Arcs : SampleView
         UpdateLayer();
     }
 
-    private void Switch_Toggled(object sender, ToggledEventArgs e)
+    private void Switch_Toggled(object sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
     {
-        isEnableDashArray = e.Value;
+        if (e.NewValue != null)
+        {
+            isEnableDashArray = e.NewValue.Value;
+        }
+
         UpdateLayer();
     }
 

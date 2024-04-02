@@ -9,7 +9,6 @@
             <Setter Property="Opacity" Value="0.6"/>
             <Setter Property="Padding" Value="4" />
             <Setter Property="BorderWidth" Value="0" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}"/>
             <Style.Triggers>
                 <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="#14000000" />
@@ -18,8 +17,8 @@
         </Style>
     </ContentView.Resources>
     <Frame
-        HeightRequest="160" WidthRequest="320" HorizontalOptions="Center" VerticalOptions="Center"
-        BackgroundColor="#F3EDF7" HasShadow="False" CornerRadius="20" >
+        HeightRequest="160" WidthRequest="320" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}"
+        HasShadow="False" CornerRadius="20" >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -28,8 +27,8 @@
             </Grid.RowDefinitions>
             <Label 
                 x:Name="Title" Grid.Row="0" FontSize="20" FontFamily="Roboto-Medium"
-                VerticalOptions="Start" VerticalTextAlignment="Start"/>
-            <Label x:Name="Message" FontFamily="Roboto-Regular" Grid.Row="1" TextColor="#DE000000" VerticalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                VerticalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}" VerticalTextAlignment="Start"/>
+            <Label x:Name="Message" FontFamily="Roboto-Regular" Grid.Row="1" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#DE000000}" VerticalTextAlignment="Center" LineBreakMode="WordWrap"/>
             <Button x:Name="OkButton" Grid.Row="2" Style="{StaticResource buttonIconStyle}" Text="CLOSE"
                     Padding="4" TextColor="#6200EE" Clicked="Ok_Clicked"
                     FontFamily="Roboto-Medium"

@@ -5,27 +5,33 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Resources>
-        <DataTemplate x:Key="tooltipTemplate">
-            <HorizontalStackLayout>
-                <Label Grid.Column="1"
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:PyramidChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="tooltipTemplate">
+                <HorizontalStackLayout>
+                    <Label Grid.Column="1"
                               Text="{Binding Item.Name}"
                                FontSize="12"
-                               TextColor="White"
+                               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                HorizontalOptions="Center"
                                VerticalOptions="Center" />
-                <Label Text="{Binding Item.Value,StringFormat=': {0}%'}"
+                    <Label Text="{Binding Item.Value,StringFormat=': {0}%'}"
                                FontSize="12"
-                               TextColor="White"
+                               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                HorizontalOptions="Center"
                                VerticalOptions="Center" />
-            </HorizontalStackLayout>
-        </DataTemplate>
+                </HorizontalStackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
     </localCore:SampleView.Resources>
     <chart:SfPyramidChart x:Name="Chart" HorizontalOptions="Fill" VerticalOptions="Fill"
                           Margin="{OnPlatform Android='0,0,0,50', iOS='0,0,0,50', Default='0,0,0,0'}"
                           ShowDataLabels="True" 
-                          PaletteBrushes="{Binding PaletteBrushes}" 
-                          StrokeWidth="2" Stroke="White" 
+                           PaletteBrushes="{AppThemeBinding Default={StaticResource PaletteBrushesLight1}, Dark={StaticResource PaletteBrushesDark1}}" 
+                          StrokeWidth="2" Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" 
                           ItemsSource="{Binding MusicData}" 
                           XBindingPath="Name"
                           EnableTooltip="True"
@@ -35,8 +41,11 @@
             <local:ViewModel/>
         </chart:SfPyramidChart.BindingContext>
         <chart:SfPyramidChart.Title>
-            <Label Text="Percentage of Listeners - Year 2007" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+            <Label Text="Percentage of Listeners - Year 2007" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
         </chart:SfPyramidChart.Title>
+        <chart:SfPyramidChart.TooltipBehavior>
+            <chart:ChartTooltipBehavior Background="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+        </chart:SfPyramidChart.TooltipBehavior>
         <chart:SfPyramidChart.DataLabelSettings>
             <chart:PyramidDataLabelSettings UseSeriesPalette="False">
                 <chart:PyramidDataLabelSettings.LabelStyle>

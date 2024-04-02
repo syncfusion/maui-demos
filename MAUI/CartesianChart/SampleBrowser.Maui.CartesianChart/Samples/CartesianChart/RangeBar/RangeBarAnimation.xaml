@@ -5,9 +5,15 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:chart="http://schemas.syncfusion.com/maui">
-
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <StackLayout HorizontalOptions="Fill" Padding="20"  x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" x:Name="layout">
 
             <StackLayout.Resources>
                 <Label x:Key="title" x:Name="titleName" Text="Range Bar Chart Dynamic Animation"
@@ -30,7 +36,7 @@
                     </chart:NumericalAxis>
                 </chart:SfCartesianChart.YAxes>
 
-                <chart:RangeColumnSeries EnableTooltip="False" Fill="#314A6E" EnableAnimation="True"                  
+                <chart:RangeColumnSeries EnableTooltip="False" Fill="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" EnableAnimation="True"                  
                                         ItemsSource="{Binding DynamicRangeColumnMotionAnimation}" 
                                         XBindingPath="Value1"  High="Value" Low="Size"/>
             </chart:SfCartesianChart>

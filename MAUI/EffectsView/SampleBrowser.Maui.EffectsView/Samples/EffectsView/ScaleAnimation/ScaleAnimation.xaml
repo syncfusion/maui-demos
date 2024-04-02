@@ -5,7 +5,8 @@
                       xmlns:local="clr-namespace:SampleBrowser.Maui.EffectsView.SfEffectsView"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-                      x:Class="SampleBrowser.Maui.EffectsView.SfEffectsView.ScaleAnimation">
+                      x:Class="SampleBrowser.Maui.EffectsView.SfEffectsView.ScaleAnimation"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     
     <localCore:SampleView.Content>
         <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
@@ -14,7 +15,7 @@
                      VerticalOptions="Center"
                      RowSpacing="20">
 
-            <Label Grid.Row="0" HeightRequest="30" Text="Touch down to select the photo" TextColor="Black" HorizontalTextAlignment="Center" />
+                <Label Grid.Row="0" HeightRequest="30" Text="Touch down to select the photo" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" HorizontalTextAlignment="Center" />
 
             <Grid Grid.Row="1">
                 <Grid.BindingContext>
@@ -27,7 +28,7 @@
                 <sfEffectsView:SfEffectsView x:Name="Friends" 
                                              TouchUpEffects="{Binding TouchUpEffectsValue}" 
 										     TouchDownEffects="None"
-										     BackgroundColor="AliceBlue"  
+										     BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}"  
 										     SelectionBackground="Transparent" 
 										     ScaleFactor="{Binding ScaleFactorValue}" 
 										     ScaleAnimationDuration="{Binding ScaleDuration}"

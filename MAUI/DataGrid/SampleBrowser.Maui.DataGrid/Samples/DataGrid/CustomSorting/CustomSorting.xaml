@@ -7,8 +7,7 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
-    xmlns:data="clr-namespace:Syncfusion.Maui.Data;assembly=Syncfusion.Maui.Data"
-    BackgroundColor="White">
+    xmlns:data="clr-namespace:Syncfusion.Maui.Data;assembly=Syncfusion.Maui.Data">
     <localCore:SampleView.Resources>
         <local:CustomSortComparer x:Key="Comparer" />
         <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
@@ -18,15 +17,26 @@
             <On Platform="Android,iOS" Value="120"></On>
         </OnPlatform>
         <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-5,-7"/>
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
         </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
     </localCore:SampleView.Resources>
     <localCore:SampleView.BindingContext>
         <local:OrderInfoViewModel>
         </local:OrderInfoViewModel>
     </localCore:SampleView.BindingContext>
     <localCore:SampleView.Content>
-        <sfgrid:SfDataGrid x:Name="dataGrid" 
+        
+        <sfgrid:SfDataGrid x:Name="dataGrid"
                            Margin="{StaticResource margin}"
                            RowHeight="48"
                            SortingMode="Single"
@@ -36,9 +46,6 @@
                            ItemsSource="{Binding OrdersInfo}"
                            AutoGenerateColumnsMode="None"
                            ColumnWidthMode="Fill">
-            <sfgrid:SfDataGrid.DefaultStyle>
-                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium"></sfgrid:DataGridStyle>
-            </sfgrid:SfDataGrid.DefaultStyle>
 
             <sfgrid:SfDataGrid.Columns>
 

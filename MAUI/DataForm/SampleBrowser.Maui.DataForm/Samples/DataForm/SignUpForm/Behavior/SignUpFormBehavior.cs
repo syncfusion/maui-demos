@@ -9,6 +9,7 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
 {
     using SampleBrowser.Maui.Base;
     using Syncfusion.Maui.DataForm;
+    using Syncfusion.Maui.Popup;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -32,10 +33,23 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// </summary>
         private Button? cancelButton;
 
+        /// <summary>
+        /// Holds the popup object.
+        /// </summary>
+        private SfPopup? popup;
+
         protected override void OnAttachedTo(SampleView bindable)
         {
             base.OnAttachedTo(bindable);
             this.dataForm = bindable.Content.FindByName<SfDataForm>("signUpForm");
+            this.popup = bindable.Content.FindByName<SfPopup>("popup");
+
+            if (this.popup != null)
+            {
+                popup.FooterTemplate = DataFormSampleHelper.GetFooterTemplate(popup);
+                popup.ContentTemplate = DataFormSampleHelper.GetContentTemplate(popup);
+            }
+
             if (dataForm != null)
             {
                 dataForm.ColumnCount = 2;
@@ -108,19 +122,26 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// </summary>
         /// <param name="sender">The sign up button.</param>
         /// <param name="e">The event arguments.</param>
-        private async void OnSignUpButtonClicked(object? sender, EventArgs e)
+        private void OnSignUpButtonClicked(object? sender, EventArgs e)
         {
-            if (this.dataForm != null && App.Current?.MainPage != null)
+            if (this.popup == null)
+            {
+                return;
+            }
+
+            if (this.dataForm != null)
             {
                 if (this.dataForm.Validate())
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Signed up successfully", "OK");
+                    popup.Message = "Signed up successfully";
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Please enter the required details", "OK");
+                    popup.Message = "Please enter the required details";
                 }
             }
+
+            popup.Show();
         }
 
         /// <summary>

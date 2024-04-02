@@ -37,11 +37,7 @@ public partial class Marker : SampleView
     private async void StartTimer()
     {
         await Task.Delay(500);
-        if (Application.Current != null)
-        {
-            Application.Current.Dispatcher.StartTimer(new TimeSpan(0, 0, 0, 1, 0), UpdateMarker);
-        }
-
+        this.Dispatcher.StartTimer(new TimeSpan(0, 0, 0, 1, 0), UpdateMarker);
         canStopTimer = false;
     }
 

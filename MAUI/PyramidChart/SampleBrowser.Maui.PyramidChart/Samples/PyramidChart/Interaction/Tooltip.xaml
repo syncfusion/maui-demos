@@ -10,21 +10,21 @@
             <Grid ColumnDefinitions="*" RowDefinitions="Auto,Auto,Auto">
                 <HorizontalStackLayout HorizontalOptions="Center"  Grid.Row="0">
                     <Label Text="{Binding Item.Name}"  FontSize="14"
-                               TextColor="White"
+                               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
                   
                     <Label  HorizontalTextAlignment="Center"
                                Text="{Binding Item.Value,StringFormat=': {0}%'}"
                                FontSize="14"
-                               TextColor="White" FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold"
                                HorizontalOptions="Center"
                                VerticalOptions="Center" />
                 </HorizontalStackLayout>
                 <BoxView 
                     Grid.Row="1"
                     HeightRequest="1"
-                    Color="Gray"
+                    Color="{AppThemeBinding Default={StaticResource ContentBackground}}"
                     Margin="1"/>
                 <VerticalStackLayout Grid.Row="2" Grid.Column="1" Spacing="2" BindableLayout.ItemsSource="{Binding Item.LearningCategories}">
                     <BindableLayout.ItemTemplate>
@@ -34,7 +34,7 @@
                             <Label 
                                Text=" {Binding Category}"
                                FontSize="Caption"
-                               TextColor="White"
+                               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                HorizontalOptions="Start" HorizontalTextAlignment="Start"
                                VerticalOptions="Center" />
                             </HorizontalStackLayout>
@@ -50,9 +50,9 @@
             <chart:SfPyramidChart HorizontalOptions="Fill"
                                   VerticalOptions="Fill"
                                   Margin="{OnPlatform Android='0,0,0,50', iOS='0,0,0,50', Default='0,0,0,0'}"
-                                  PaletteBrushes="{Binding CustomColor_1}"
+                                  PaletteBrushes="{Binding ThemePaletteBrushes3}"
                                   StrokeWidth="2"
-                                  Stroke="White"
+                                  Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                   ItemsSource="{Binding PyramidData}"
                                   XBindingPath="Name"
                                   YBindingPath="Value"
@@ -74,13 +74,15 @@
             <chart:SfPyramidChart.Legend>
                 <chart:ChartLegend Placement="{OnPlatform WinUI='Bottom',MacCatalyst='Bottom',Default='Top'}"/>
             </chart:SfPyramidChart.Legend>
-                <chart:SfPyramidChart.Title>
+            <chart:SfPyramidChart.TooltipBehavior>
+                <chart:ChartTooltipBehavior Background="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+            </chart:SfPyramidChart.TooltipBehavior>
+            <chart:SfPyramidChart.Title>
                 <Label Text="Average Rates of Learning Retention"
                            HorizontalOptions="Fill"
                            HorizontalTextAlignment="Center"
                            VerticalOptions="Center"
-                           FontSize="16"
-                           TextColor="Black" />
+                           FontSize="16"/>
                 </chart:SfPyramidChart.Title>
             </chart:SfPyramidChart>
     </localCore:SampleView.Content>

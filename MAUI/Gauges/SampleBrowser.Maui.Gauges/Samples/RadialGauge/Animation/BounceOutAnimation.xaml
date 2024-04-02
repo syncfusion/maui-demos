@@ -28,7 +28,7 @@
                                                StrokeThickness="1" />
                     </gauge:RadialAxis.MinorTickStyle>
                     <gauge:RadialAxis.AxisLabelStyle>
-                        <gauge:GaugeLabelStyle FontSize="11" />
+                        <gauge:GaugeLabelStyle FontSize="11" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                     </gauge:RadialAxis.AxisLabelStyle>
                     <gauge:RadialAxis.Pointers>
                         <gauge:NeedlePointer AnimationEasing="{x:Static Easing.BounceOut}"

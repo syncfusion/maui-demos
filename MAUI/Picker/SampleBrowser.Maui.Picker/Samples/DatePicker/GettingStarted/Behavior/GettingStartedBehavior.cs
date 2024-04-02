@@ -8,6 +8,7 @@
 namespace SampleBrowser.Maui.Picker.SfDatePicker
 {
     using SampleBrowser.Maui.Base;
+    using Syncfusion.Maui.Buttons;
     using Syncfusion.Maui.Inputs;
     using Syncfusion.Maui.Picker;
     using System.Collections.ObjectModel;
@@ -22,7 +23,7 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
         /// <summary>
         /// The show header switch
         /// </summary>
-        private Switch? showHeaderSwitch, showColumnHeaderSwitch, showFooterSwitch;
+        private SfSwitch? showHeaderSwitch, showColumnHeaderSwitch, showFooterSwitch;
 
         /// <summary>
         /// The date format combo box.
@@ -35,6 +36,11 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
         private ObservableCollection<object>? formats;
 
         /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
+        /// <summary>
         /// Begins when the behavior attached to the view 
         /// </summary>
         /// <param name="sampleView">bindable value</param>
@@ -45,18 +51,20 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
 #if IOS || MACCATALYST
             Border border = sampleView.Content.FindByName<Border>("border");
             border.IsVisible = true;
-            border.Stroke = Color.FromArgb("#E6E6E6");
+            border.Stroke = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
             this.datePicker = sampleView.Content.FindByName<SfDatePicker>("DatePicker1");
 #else
             Frame frame = sampleView.Content.FindByName<Frame>("frame");
             frame.IsVisible = true;
-            frame.BorderColor = Color.FromArgb("#E6E6E6");
+            frame.BorderColor = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
             this.datePicker = sampleView.Content.FindByName<SfDatePicker>("DatePicker");
 #endif
 
-            this.showHeaderSwitch = sampleView.Content.FindByName<Switch>("showHeaderSwitch");
-            this.showColumnHeaderSwitch = sampleView.Content.FindByName<Switch>("showColumnHeaderSwitch");
-            this.showFooterSwitch = sampleView.Content.FindByName<Switch>("showFooterSwitch");
+            this.datePicker.HeaderView.Height = 50;
+            this.datePicker.HeaderView.Text = "Select a Date";
+            this.showHeaderSwitch = sampleView.Content.FindByName<SfSwitch>("showHeaderSwitch");
+            this.showColumnHeaderSwitch = sampleView.Content.FindByName<SfSwitch>("showColumnHeaderSwitch");
+            this.showFooterSwitch = sampleView.Content.FindByName<SfSwitch>("showFooterSwitch");
 
             formats = new ObservableCollection<object>()
             {
@@ -70,17 +78,17 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
 
             if (this.showHeaderSwitch != null)
             {
-                this.showHeaderSwitch.Toggled += ShowHeaderSwitch_Toggled;
+                this.showHeaderSwitch.StateChanged += ShowHeaderSwitch_Toggled;
             }
 
             if (this.showColumnHeaderSwitch != null)
             {
-                this.showColumnHeaderSwitch.Toggled += ShowColumnHeaderSwitch_Toggled;
+                this.showColumnHeaderSwitch.StateChanged += ShowColumnHeaderSwitch_Toggled;
             }
 
             if (this.showFooterSwitch != null)
             {
-                this.showFooterSwitch.Toggled += ShowFooterSwitch_Toggled;
+                this.showFooterSwitch.StateChanged += ShowFooterSwitch_Toggled;
             }
         }
 
@@ -89,30 +97,18 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowHeaderSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowHeaderSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.datePicker != null)
+            if (this.datePicker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
-                    this.datePicker.HeaderView = new PickerHeaderView()
-                    {
-                        Height = 50,
-                        Text = "Select a Date",
-                        Background = Color.FromArgb("#6750A4"),
-                        TextStyle = new PickerTextStyle()
-                        {
-                            TextColor = Colors.White,
-                            FontSize = 15,
-                        },
-                    };
+                    this.datePicker.HeaderView.Height = 50;
+                    this.datePicker.HeaderView.Text = "Select a Date";
                 }
-                else if (e.Value == false)
+                else if (e.NewValue.Value == false)
                 {
-                    this.datePicker.HeaderView = new PickerHeaderView()
-                    {
-                        Height = 0,
-                    };
+                    this.datePicker.HeaderView.Height = 0;
                 }
             }
         }
@@ -122,11 +118,11 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowColumnHeaderSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowColumnHeaderSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.datePicker != null)
+            if (this.datePicker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
                     this.datePicker.ColumnHeaderView = new DatePickerColumnHeaderView()
                     {
@@ -136,7 +132,7 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
                         YearHeaderText = "Year",
                     };
                 }
-                if (e.Value == false)
+                if (e.NewValue.Value == false)
                 {
                     this.datePicker.ColumnHeaderView = new DatePickerColumnHeaderView()
                     {
@@ -151,28 +147,17 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowFooterSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowFooterSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.datePicker != null)
+            if (this.datePicker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
-                    this.datePicker.FooterView = new PickerFooterView()
-                    {
-                        Height = 40,
-                        TextStyle = new PickerTextStyle()
-                        {
-                            TextColor = Color.FromArgb("#6750A4"),
-                            FontSize = 15,
-                        },
-                    };
+                    this.datePicker.FooterView.Height = 40;
                 }
-                else if (e.Value == false)
+                else if (e.NewValue.Value == false)
                 {
-                    this.datePicker.FooterView = new PickerFooterView()
-                    {
-                        Height = 0,
-                    };
+                    this.datePicker.FooterView.Height = 0;
                 }
             }
         }
@@ -182,7 +167,7 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void FormatComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+        private void FormatComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
             if (this.datePicker == null || e.AddedItems == null || formatComboBox == null)
             {
@@ -235,19 +220,19 @@ namespace SampleBrowser.Maui.Picker.SfDatePicker
             base.OnDetachingFrom(sampleView);
             if (this.showHeaderSwitch != null)
             {
-                this.showHeaderSwitch.Toggled -= ShowHeaderSwitch_Toggled;
+                this.showHeaderSwitch.StateChanged -= ShowHeaderSwitch_Toggled;
                 this.showHeaderSwitch = null;
             }
 
             if (this.showColumnHeaderSwitch != null)
             {
-                this.showColumnHeaderSwitch.Toggled -= ShowColumnHeaderSwitch_Toggled;
+                this.showColumnHeaderSwitch.StateChanged -= ShowColumnHeaderSwitch_Toggled;
                 this.showColumnHeaderSwitch = null;
             }
 
             if (this.showFooterSwitch != null)
             {
-                this.showFooterSwitch.Toggled -= ShowFooterSwitch_Toggled;
+                this.showFooterSwitch.StateChanged -= ShowFooterSwitch_Toggled;
                 this.showFooterSwitch = null;
             }
         }

@@ -15,11 +15,11 @@ public partial class InkColorCode : ContentView
     Ellipse? selectedColorButtonHighlight;
 
     Button? PreButton = null;
-    public InkColorCode()
-	{
-		InitializeComponent();
-        Colorpaletteborder.Content = MyGrid;
-        this.Content = Colorpaletteborder;
+    internal void Initialize()
+    {
+        InitializeComponent();
+        colorPaletteBorder.Content = MyGrid;
+        this.Content = colorPaletteBorder;
         this.PropertyChanged += InkColorCode_PropertyChanged;
     }
 
@@ -46,7 +46,7 @@ public partial class InkColorCode : ContentView
     }
 
 #if MACCATALYST
-    Frame Colorpaletteborder = new Frame()
+    Frame colorPaletteBorder = new Frame()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         BorderColor = Color.FromArgb("#26000000"),
@@ -61,10 +61,10 @@ public partial class InkColorCode : ContentView
             Radius = 8,
             Opacity = 0.5f
         },
-        WidthRequest = 280,
+        WidthRequest = 290,
     };
 #else
-    Border Colorpaletteborder = new Border()
+    Border colorPaletteBorder = new Border()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         Stroke = Color.FromArgb("#26000000"),

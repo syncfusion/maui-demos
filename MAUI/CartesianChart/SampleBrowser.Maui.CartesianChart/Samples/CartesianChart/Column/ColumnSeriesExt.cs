@@ -22,6 +22,14 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
             return new ColumnSegmentExt();
         }
 
+        public static readonly BindableProperty TrackColorProperty =
+    BindableProperty.Create(nameof(TrackColor), typeof(SolidColorBrush), typeof(ColumnSeriesExt), new SolidColorBrush(Color.FromArgb("#E7E0EC")));
+
+        public SolidColorBrush TrackColor
+        {
+            get { return (SolidColorBrush)GetValue(TrackColorProperty); }
+            set { SetValue(TrackColorProperty, value); }
+        }
 
         protected override void DrawDataLabel(ICanvas canvas, Brush? fillcolor, string label, PointF point, int index)
         {
@@ -79,6 +87,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         private void DrawTrackPath(ICanvas canvas, RectF trackRect)
         {
+            if (Series is not ColumnSeriesExt series) return;
             PathF path = new();
             path.MoveTo(trackRect.Left, trackRect.Bottom);
             path.LineTo(trackRect.Left, trackRect.Top);
@@ -88,7 +97,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
             path.Close();
             canvas.ClipPath(path);
 
-            canvas.SetFillPaint(new SolidColorBrush(mauiColor.FromArgb("#f7f7f7")), trackRect);
+            canvas.SetFillPaint(series.TrackColor, trackRect);
             canvas.FillPath(path);
         }
 

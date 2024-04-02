@@ -16,6 +16,10 @@
 			<Link>Samples\DataGrid\ColumnTypes\ColumnTypes.xaml.cs</Link>
 			<DependentUpon>ColumnTypes.xaml</DependentUpon>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\UnboundViews\UnboundViews.xaml.cs">
+			<Link>Samples\DataGrid\UnboundViews\UnboundViews.xaml.cs</Link>
+			<DependentUpon>UnboundViews.xaml</DependentUpon>
+		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\ConditionalStyling\ConditionalStyling.xaml.cs">
 			<Link>Samples\DataGrid\ConditionalStyling\ConditionalStyling.xaml.cs</Link>
 			<DependentUpon>ConditionalStyling.xaml</DependentUpon>
@@ -52,6 +56,10 @@
 			<Link>Samples\DataGrid\Editing\Editing.xaml.cs</Link>
 			<DependentUpon>Editing.xaml</DependentUpon>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Resizing\Resizing.xaml.cs">
+			<Link>Samples\DataGrid\Resizing\Resizing.xaml.cs</Link>
+			<DependentUpon>Resizing.xaml</DependentUpon>
+		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Grouping\Grouping.xaml.cs">
 			<Link>Samples\DataGrid\Grouping\Grouping.xaml.cs</Link>
 			<DependentUpon>Grouping.xaml</DependentUpon>
@@ -83,6 +91,14 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Summaries\Summaries.xaml.cs">
 			<Link>Samples\DataGrid\Summaries\Summaries.xaml.cs</Link>
 			<DependentUpon>Summaries.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\PullToRefresh\PullToRefresh.xaml.cs">
+			<Link>Samples\DataGrid\PullToRefresh\PullToRefresh.xaml.cs</Link>
+			<DependentUpon>PullToRefresh.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\LoadMore\LoadMore.xaml.cs">
+			<Link>Samples\DataGrid\LoadMore\LoadMore.xaml.cs</Link>
+			<DependentUpon>LoadMore.xaml</DependentUpon>
 		</Compile>
 
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Model\OrderInfo.cs">
@@ -131,6 +147,12 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\ViewModel\SalesInfoViewModel.cs">
 			<Link>Samples\DataGrid\ViewModel\SalesInfoViewModel.cs</Link>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\ViewModel\PullToRefreshViewModel.cs">
+			<Link>Samples\DataGrid\ViewModel\PullToRefreshViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\ViewModel\LoadMoreViewModel.cs">
+			<Link>Samples\DataGrid\ViewModel\LoadMoreViewModel.cs</Link>
+		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\Behaviors\RowHeightBehavior.cs">
 			<Link>Samples\DataGrid\Helpers\Behaviors\RowHeightBehavior.cs</Link>
 		</Compile>
@@ -161,8 +183,20 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\Behaviors\CustomGroupingBehavior.cs">
 			<Link>Samples\DataGrid\Helpers\Behaviors\CustomGroupingBehavior.cs</Link>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\Behaviors\PullToRefreshBehavior.cs">
+			<Link>Samples\DataGrid\Helpers\Behaviors\PullToRefreshBehavior.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\Behaviors\LoadMoreBehavior.cs">
+			<Link>Samples\DataGrid\Helpers\Behaviors\LoadMoreBehavior.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\Behaviors\UnboundViewsBehaviors.cs">
+			<Link>Samples\DataGrid\Helpers\Behaviors\UnboundViewsBehaviors.cs</Link>
+		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\TextForegroundConverter.cs">
 			<Link>Samples\DataGrid\Helpers\TextForegroundConverter.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\UnboundViewsConverter.cs">
+			<Link>Samples\DataGrid\Helpers\UnboundViewsConverter.cs</Link>
 		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\ItemSourceSelector.cs">
 			<Link>Samples\DataGrid\Helpers\ItemSourceSelector.cs</Link>
@@ -175,9 +209,6 @@
 		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\ConditionalStylingConverter.cs">
 			<Link>Samples\DataGrid\Helpers\ConditionalStylingConverter.cs</Link>
-		</Compile>
-		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Helpers\ConditionalStylingForegroundConverter.cs">
-			<Link>Samples\DataGrid\Helpers\ConditionalStylingForegroundConverter.cs</Link>
 		</Compile>
 	</ItemGroup>
 
@@ -210,6 +241,11 @@
 	<ItemGroup>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\ColumnTypes\ColumnTypes.xaml">
 			<Link>Samples\DataGrid\ColumnTypes\ColumnTypes.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\UnboundViews\UnboundViews.xaml">
+			<Link>Samples\DataGrid\UnboundViews\UnboundViews.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
@@ -250,6 +286,11 @@
 	<ItemGroup>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Editing\Editing.xaml">
 			<Link>Samples\DataGrid\Editing\Editing.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Resizing\Resizing.xaml">
+			<Link>Samples\DataGrid\Resizing\Resizing.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
@@ -294,6 +335,18 @@
 	<ItemGroup>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Summaries\Summaries.xaml">
 			<Link>Samples\DataGrid\Summaries\Summaries.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\PullToRefresh\PullToRefresh.xaml">
+			<Link>Samples\DataGrid\PullToRefresh\PullToRefresh.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\LoadMore\LoadMore.xaml">
+			<Link>Samples\DataGrid\LoadMore\LoadMore.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
 

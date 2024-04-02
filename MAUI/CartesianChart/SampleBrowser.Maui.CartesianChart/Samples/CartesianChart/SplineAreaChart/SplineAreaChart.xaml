@@ -4,8 +4,15 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
+        <chart:SfCartesianChart x:Name="Chart" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" HorizontalOptions="Fill" VerticalOptions="Fill">
             <chart:SfCartesianChart.BindingContext>
                 <local:SplineAreaSeriesViewModel/>
             </chart:SfCartesianChart.BindingContext>
@@ -13,7 +20,7 @@
                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
             </chart:SfCartesianChart.Legend>
             <chart:SfCartesianChart.Title>
-                <Label Text="Inflation Rate in Percentage" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Inflation Rate in Percentage" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
             </chart:SfCartesianChart.Title>
 
             <chart:SfCartesianChart.XAxes>
@@ -37,10 +44,10 @@
             </chart:SfCartesianChart.YAxes>
 
             <chart:SfCartesianChart.Series>
-                <chart:SplineAreaSeries Label="India" EnableTooltip="True" EnableAnimation="{Binding EnableAnimation}" Stroke="#314A6E" StrokeWidth="2" ItemsSource="{Binding SplineAreaData1}" XBindingPath="Value1" YBindingPath="Value" LegendIcon="SeriesType">
+                <chart:SplineAreaSeries Label="India" EnableTooltip="True" EnableAnimation="{Binding EnableAnimation}" Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" StrokeWidth="2" ItemsSource="{Binding SplineAreaData1}" XBindingPath="Value1" YBindingPath="Value" LegendIcon="SeriesType">
                 </chart:SplineAreaSeries>
 
-                <chart:SplineAreaSeries Label="China" EnableTooltip="True" EnableAnimation="{Binding EnableAnimation}" Stroke="#48988B" StrokeWidth="2" ItemsSource="{Binding SplineAreaData1}" XBindingPath="Value1" YBindingPath="Size" LegendIcon="SeriesType">
+                <chart:SplineAreaSeries Label="China" EnableTooltip="True" EnableAnimation="{Binding EnableAnimation}" Stroke="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" StrokeWidth="2" ItemsSource="{Binding SplineAreaData1}" XBindingPath="Value1" YBindingPath="Size" LegendIcon="SeriesType">
                 </chart:SplineAreaSeries>
             </chart:SfCartesianChart.Series>
         </chart:SfCartesianChart>

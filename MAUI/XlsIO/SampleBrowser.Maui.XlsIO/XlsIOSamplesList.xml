@@ -12,7 +12,7 @@
 	  <Sample SearchTags="DataValidation" SampleName="DataValidation" Title="Data Validation" Description="This example shows how to set data validation rules for cells in Excel document." CodeViewerPath="XlsIO/DataValidation"/>
 	  <Sample SearchTags="TemplateMarker, Marker" SampleName="TemplateMarker" Title="Template Marker" Description="This example demonstrates the usage of template marker which is a special symbol and shows how import data to Excel document." CodeViewerPath="XlsIO/TemplateMarker"/>
       <Sample SearchTags="Table, Tables" SampleName="Table" Title="Table" Description="This example demonstrates how to create a table on a range of cells." CodeViewerPath="XlsIO/Table"/>
-	  <Sample SearchTags="PivotTable, PivotTables" SampleName="PivotTable" Title="PivotTable" Description="This example demonstrates how to create a pivot table using Essential XlsIO." CodeViewerPath="XlsIO/PivotTable" StatusTag="New"/>
+	  <Sample SearchTags="PivotTable, PivotTables" SampleName="PivotTable" Title="PivotTable" Description="This example demonstrates how to create a pivot table using Essential XlsIO." CodeViewerPath="XlsIO/PivotTable"/>
 	  <Sample SearchTags="Slicer, Slicers" SampleName="Slicer" Title="Slicer" Description="This example demonstrates how to create and use slicers in table." CodeViewerPath="XlsIO/Slicer"/>
 	  <Sample SearchTags="WhatIfAnalysis, What-IF Analysis" SampleName="WhatIfAnalysis" Title="What-If Analysis" Description="The sample shows how to create different scenarios of What-If Analysis." CodeViewerPath="XlsIO/WhatIfAnalysis"/>
       <Category Title="Shapes">
@@ -20,7 +20,7 @@
       <Sample SearchTags="Comments, Notes" SampleName="Comments" Title="Comments" Description="This example demonstrates how to add notes and comments in Excel documents." CodeViewerPath="XlsIO/Comments"/>
       </Category>
         <Category Title="Conversions" StatusTag="Updated">
-	   <Sample SearchTags="WorksheettoImage, image" SampleName="WorksheetToImage" Title="Worksheet to Image" Description="This example demonstrates how to convert a Excel worksheet to image." StatusTag="Updated" CodeViewerPath="XlsIO/WorksheetToImage"/>
+	   <Sample SearchTags="WorksheettoImage, image" SampleName="WorksheetToImage" Title="Worksheet to Image" Description="This example demonstrates how to convert a Excel worksheet to image." CodeViewerPath="XlsIO/WorksheetToImage"/>
 	   <Sample SearchTags="ExcelToPDF, PDF" SampleName="ExcelToPDF" Title="Excel to PDF" Description="This example demonstrates how to convert a Excel document to PDF." StatusTag="Updated" CodeViewerPath="XlsIO/ExcelToPDF"/>
       </Category> 
     </Control>

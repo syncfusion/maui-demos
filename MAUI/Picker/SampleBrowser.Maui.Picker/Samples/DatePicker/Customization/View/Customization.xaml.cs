@@ -19,6 +19,10 @@ public partial class Customization : SampleView
     public Customization()
     {
         InitializeComponent();
+        this.datePicker.HeaderView.Height = 50;
+        this.datePicker.HeaderView.Text = "Select the Date";
+
+        this.datePicker.FooterView.Height = 40;
     }
 
     private void OnTapGestureTapped(object sender, EventArgs e)
@@ -170,23 +174,28 @@ public class ToDoDetails : INotifyPropertyChanged
 
 public class DateTimeToColorConverter : IValueConverter
 {
+    /// <summary>
+    /// Check the application theme is light or dark.
+    /// </summary>
+    private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value != null && value is DateTime date)
         {
             if (date.Date == DateTime.Now.Date)
             {
-                return Color.FromArgb("#6750A4");
+                return isLightTheme ? Color.FromArgb("#6750A4") : Color.FromArgb("#D0BCFF");
             }
             else if (date.Date < DateTime.Now.Date)
             {
-                return Color.FromArgb("#20000000");
+                return isLightTheme ? Color.FromArgb("#20000000") : Color.FromArgb("#CAC4D0");
             }
 
-            return Color.FromArgb("#AA000000");
+            return isLightTheme ? Color.FromArgb("#AA000000") : Color.FromArgb("#CAC4D0");
         }
 
-        return Color.FromArgb("#AA000000");
+        return isLightTheme ? Color.FromArgb("#AA000000") : Color.FromArgb("#CAC4D0");
     }
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
@@ -200,6 +209,11 @@ public class CustomPopUp : SfPopup
     private Syncfusion.Maui.Picker.SfDatePicker picker;
     Entry entry;
 
+    /// <summary>
+    /// Check the application theme is light or dark.
+    /// </summary>
+    private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
     public CustomPopUp()
     {
         this.picker = new Syncfusion.Maui.Picker.SfDatePicker();
@@ -212,6 +226,9 @@ public class CustomPopUp : SfPopup
         this.entry = new Entry();
         this.entry.HeightRequest = 40;
         this.entry.Placeholder = "No Title";
+        this.entry.PlaceholderColor = isLightTheme ? Color.FromArgb("#611c1b1f") : Color.FromArgb("#61e6e1e5");
+        this.entry.TextColor = isLightTheme ? Color.FromArgb("#49454F") : Color.FromArgb("#CAC4D0");
+        this.entry.BackgroundColor = isLightTheme ? Color.FromArgb("#F7F2FB") : Color.FromArgb("#25232A");
         this.entry.Margin = new Thickness(5, 0);
         stack.Add(this.entry);
         Label label1 = new Label();

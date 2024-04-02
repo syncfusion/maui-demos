@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ParallaxView.SfParallaxView"
+             xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             x:Class="SampleBrowser.Maui.ParallaxView.SfParallaxView.GettingStarted"
+             xmlns:parallax="clr-namespace:Syncfusion.Maui.ParallaxView;assembly=Syncfusion.Maui.ParallaxView">
+
+    <localCore:SampleView.Resources>
+        <imageExtention:SfImageSourceConverter x:Key="imageconverter"/>
+        <local:FavoriteColorConverter x:Key="favoriteIconColorConverter"/>
+        <local:FavoriteConverter x:Key="favoriteIconConverter"/>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+
+        <Border StrokeThickness="{OnPlatform WinUI='4', MacCatalyst='4'}" Stroke="Transparent" Margin="{OnPlatform Android='-1', iOS='-2', MacCatalyst='20'}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="{OnPlatform WinUI='10', MacCatalyst='10'}" />
+            </Border.StrokeShape>
+            <Grid>
+
+                <Grid.BindingContext>
+                    <local:ViewModel/>
+                </Grid.BindingContext>
+
+                <parallax:SfParallaxView Source="{Binding Source={x:Reference listView}}">
+                    <parallax:SfParallaxView.Content>
+                        <Image  Source="{imageExtention:SfImageResource parallaxbackground.png}" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill" />
+                    </parallax:SfParallaxView.Content>
+                </parallax:SfParallaxView>
+
+                <local:CustomListView BackgroundColor="Transparent" RowHeight="80"
+                                                  x:Name="listView" ItemsSource="{Binding InboxInfo}">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Margin="0,16,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="72"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="40" WidthRequest="40" 
+                                                      HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Image Source="{Binding Image,Converter={StaticResource imageconverter}}" HeightRequest="40"
+                                                           WidthRequest="40" />
+                                        <Label Text="{Binding ProfileName}" TextColor="#FFFFFF" FontSize="16" HorizontalTextAlignment="Center"
+                                                           HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center"
+                                                           FontFamily="Roboto-Regular" CharacterSpacing="0.25"/>
+                                    </Grid>
+
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Subject}"  FontSize="14" TextColor="#FFFFFF" FontAttributes="Bold" LineBreakMode="TailTruncation" CharacterSpacing="0.25"/>
+
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Description}" FontSize="14" TextColor="#FFFFFF"  Margin="0,4,0,0" LineBreakMode="TailTruncation" CharacterSpacing="0.25"/>
+
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Date}" TextColor="#FFFFFF"
+                                                        HorizontalOptions="End" HorizontalTextAlignment="End" FontSize="10" Margin="0,0,16,0" 
+                                                        CharacterSpacing="0.15"/>
+
+                                    <Label Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="0,0,16,0"
+                                                        Text="{Binding IsFavorite,Converter={StaticResource favoriteIconConverter}}" 
+                                                        FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
+                                                        TextColor="{Binding IsFavorite,Converter={StaticResource favoriteIconColorConverter}}"
+                                                        HorizontalOptions="End" FontSize="18" VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.FavoritesImageCommand, Source={x:Reference listView}}" 
+                                                            CommandParameter="{Binding .}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+
+                </local:CustomListView>
+
+            </Grid>
+        </Border>
+
+    </localCore:SampleView.Content>
+</localCore:SampleView>

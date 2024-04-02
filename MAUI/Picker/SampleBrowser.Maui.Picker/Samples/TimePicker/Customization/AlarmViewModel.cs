@@ -94,6 +94,11 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
 
     public class ViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
         private ObservableCollection<AlarmDetails> alarmCollection;
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -115,9 +120,9 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         {
             this.alarmCollection = new ObservableCollection<AlarmDetails>()
             {
-                new AlarmDetails() { AlarmTime = new TimeSpan(4, 0, 0), AlarmMessage = "Wake Up", IsAlarmEnabled = true, AlarmTextColor = Colors.Black, AlarmSecondaryTextColor=Colors.Gray },
-                new AlarmDetails() { AlarmTime = new TimeSpan(5, 0, 0), AlarmMessage = "Morning Workout", IsAlarmEnabled = true, AlarmTextColor = Colors.Black, AlarmSecondaryTextColor=Colors.Gray },
-                new AlarmDetails() { AlarmTime = new TimeSpan(13, 0, 0), AlarmMessage = "No Alarm Message", IsAlarmEnabled = false, AlarmTextColor = Colors.Gray, AlarmSecondaryTextColor=Colors.LightGray },
+                new AlarmDetails() { AlarmTime = new TimeSpan(4, 0, 0), AlarmMessage = "Wake Up", IsAlarmEnabled = true, AlarmTextColor = isLightTheme ? Colors.Black : Colors.White, AlarmSecondaryTextColor= isLightTheme ? Colors.Gray : Color.FromArgb("#CAC4D0") },
+                new AlarmDetails() { AlarmTime = new TimeSpan(5, 0, 0), AlarmMessage = "Morning Workout", IsAlarmEnabled = true, AlarmTextColor = isLightTheme ? Colors.Black : Colors.White, AlarmSecondaryTextColor= isLightTheme ? Colors.Gray :Color.FromArgb("#CAC4D0") },
+                new AlarmDetails() { AlarmTime = new TimeSpan(13, 0, 0), AlarmMessage = "No Alarm Message", IsAlarmEnabled = false, AlarmTextColor = isLightTheme ? Colors.Gray : Color.FromArgb("#CAC4D0"), AlarmSecondaryTextColor=Color.FromArgb("#CAC4D0") },
             };
         }
 

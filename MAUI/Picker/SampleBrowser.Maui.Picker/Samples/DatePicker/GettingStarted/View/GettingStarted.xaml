@@ -5,32 +5,17 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:datePicker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
-             xmlns:local="clr-namespace:SampleBrowser.Maui.Picker.SfDatePicker" Background="WhiteSmoke" Margin="{OnPlatform WinUI=-10, MacCatalyst=-10, Default=0}">
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Picker.SfDatePicker" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Margin="{OnPlatform WinUI=-10, MacCatalyst=-10, Default=0}">
 
     <localCore:SampleView.Content>
         <Grid WidthRequest="300" HeightRequest="370" HorizontalOptions="Center" VerticalOptions="Center">
             <Frame x:Name="frame" IsVisible="{OnPlatform WinUI=True, Android=True, Default=False}" BackgroundColor="White" HasShadow="False" CornerRadius="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0">
-                <datePicker:SfDatePicker x:Name="DatePicker" HeightRequest="370">
-                    <datePicker:SfDatePicker.HeaderView>
-                        <datePicker:PickerHeaderView Height="50" Background="#6750A4" Text="Select a Date">
-                            <datePicker:PickerHeaderView.TextStyle>
-                                <datePicker:PickerTextStyle TextColor="White" FontSize="15" />
-                            </datePicker:PickerHeaderView.TextStyle>
-                        </datePicker:PickerHeaderView>
-                    </datePicker:SfDatePicker.HeaderView>
-                </datePicker:SfDatePicker>
+                <datePicker:SfDatePicker x:Name="DatePicker" HeightRequest="370" />
             </Frame>
 
             <Border x:Name="border" IsVisible="{OnPlatform WinUI=False, Android=False, Default=True}" BackgroundColor="White" StrokeThickness="2" StrokeShape="RoundRectangle 5,5,5,5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0">
-                <datePicker:SfDatePicker x:Name="DatePicker1" HeightRequest="370">
-                    <datePicker:SfDatePicker.HeaderView>
-                        <datePicker:PickerHeaderView Height="50" Background="#6750A4" Text="Select a Date">
-                            <datePicker:PickerHeaderView.TextStyle>
-                                <datePicker:PickerTextStyle TextColor="White" FontSize="15" />
-                            </datePicker:PickerHeaderView.TextStyle>
-                        </datePicker:PickerHeaderView>
-                    </datePicker:SfDatePicker.HeaderView>
-                </datePicker:SfDatePicker>
+                <datePicker:SfDatePicker x:Name="DatePicker1" HeightRequest="370"/>
             </Border>
         </Grid>
     </localCore:SampleView.Content>
@@ -42,29 +27,29 @@
 
                     <Grid x:Name="showHeaderGrid" HeightRequest="50">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.8*"/>
-                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text="Show Header"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Gray"/>
-                        <Switch  x:Name="showHeaderSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsToggled="True" HorizontalOptions="End" />
+                        <Label Text="Show Header"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="showHeaderSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="True" HorizontalOptions="End" />
                     </Grid>
 
                     <Grid x:Name="showColumnHeaderGrid" HeightRequest="50">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.8*"/>
-                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text="Show Column Header"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Gray"/>
-                        <Switch  x:Name="showColumnHeaderSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsToggled="True" HorizontalOptions="End" />
+                        <Label Text="Show Column Header"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="showColumnHeaderSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="True" HorizontalOptions="End" />
                     </Grid>
 
                     <Grid x:Name="showFooterGrid" HeightRequest="50">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.8*"/>
-                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text="Show Footer"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Gray"/>
-                        <Switch  x:Name="showFooterSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsToggled="False" HorizontalOptions="End" />
+                        <Label Text="Show Footer"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="showFooterSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="False" HorizontalOptions="End" />
                     </Grid>
 
                     <Grid  x:Name="formatGrid" HeightRequest="50">
@@ -73,11 +58,11 @@
                             <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Date Format"  Margin="0,15,0,0" x:Name="dateFormat" Grid.Column="0"
-                        LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Gray"/>
+                        LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
 
                         <editors:SfComboBox x:Name="formatComboBox" FontSize="12" Grid.Column="1"
-                                Margin="5,15,0,0" VerticalOptions="Center"
-                                HorizontalOptions="End" />
+                                Margin="5,15,0,0" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"
+                                HorizontalOptions="End" IsClearButtonVisible="False" />
                     </Grid>
 
                 </StackLayout>

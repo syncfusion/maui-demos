@@ -8,7 +8,7 @@
                       Background="White">
 
     <localCore:SampleView.Content>
-        <Grid Margin="20">
+        <Grid Background="{DynamicResource SfMapsNormalBackground}">
             <Grid.BindingContext>
                 <local:BubbleViewModel />
             </Grid.BindingContext>
@@ -19,6 +19,7 @@
             <Label Grid.Row="0"
                    HorizontalOptions="Center"
                    Text="Facebook Users Statistics"
+                   TextColor="{DynamicResource SfMapsDataLabelTextColor}"
                    FontSize="Subtitle"
                    Margin="0,0,0,20" />
             <maps:SfMaps Grid.Row="1">

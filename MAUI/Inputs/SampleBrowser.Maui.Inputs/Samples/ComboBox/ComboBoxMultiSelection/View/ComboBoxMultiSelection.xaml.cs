@@ -15,14 +15,18 @@ namespace SampleBrowser.Maui.Inputs.SfComboBox;
 
 public partial class ComboBoxMultiSelection : SampleView
 {
-   
     public ComboBoxMultiSelection()
     {
         InitializeComponent();
+        
 #if ANDROID || IOS
-        this.Content = new ComboBoxMultiSelectionMobile();
+        ComboBoxMultiSelectionMobile mobile = new ComboBoxMultiSelectionMobile();
+        this.Content = mobile.Content;
+        this.OptionView = mobile.OptionView;
 #else
-        this.Content = new ComboBoxMultiSelectionDesktop();
+        ComboBoxMultiSelectionDesktop desktop = new ComboBoxMultiSelectionDesktop();
+        this.Content = desktop.Content;
+        this.OptionView = desktop.OptionView;
 #endif
     }
 }

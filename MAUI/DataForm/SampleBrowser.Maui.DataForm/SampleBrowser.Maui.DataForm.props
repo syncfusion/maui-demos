@@ -95,6 +95,10 @@
 		<Link>Samples\DataForm\PaymentForm\Model\PaymentFormModel.cs</Link>
 	</Compile>
 
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\DataForm\Helper\DataFormSampleHelper.cs">
+		<Link>Samples\DataForm\Helper\DataFormSampleHelper.cs</Link>
+	</Compile>
+
 </ItemGroup>
   
 <ItemGroup>

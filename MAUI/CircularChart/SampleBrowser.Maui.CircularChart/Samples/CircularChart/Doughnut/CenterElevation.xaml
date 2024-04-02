@@ -15,7 +15,7 @@
             </chart:SfCircularChart.Resources>
 
             <chart:SfCircularChart.Title>
-                <Label Text="Land Use in a Country" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Land Use in a Country" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
             </chart:SfCircularChart.Title>
             <chart:SfCircularChart.BindingContext>
                 <local:DoughnutSeriesViewModel x:Name="doughnutViewModel"/>
@@ -25,7 +25,7 @@
             </chart:SfCircularChart.Legend>
            
             <chart:SfCircularChart.Series>
-                <chart:DoughnutSeries x:Name="series" PaletteBrushes="{Binding CustomColor2}" ItemsSource="{Binding CenterElevationData}" InnerRadius="0.55" StartAngle="300" EndAngle="660" XBindingPath="Name" ShowDataLabels="True" YBindingPath="Value" LegendIcon="SeriesType">
+                <chart:DoughnutSeries x:Name="series" PaletteBrushes="{Binding CenterViewThemeBrushes}" ItemsSource="{Binding CenterElevationData}" InnerRadius="0.55" StartAngle="300" EndAngle="660" XBindingPath="Name" ShowDataLabels="True" YBindingPath="Value" LegendIcon="SeriesType">
                     <chart:DoughnutSeries.DataLabelSettings>
                         <chart:CircularDataLabelSettings>
                             <chart:CircularDataLabelSettings.LabelStyle>
@@ -35,18 +35,18 @@
                     </chart:DoughnutSeries.DataLabelSettings>
                     <chart:DoughnutSeries.CenterView>
                         <Border x:Name="border" HeightRequest="{Binding CenterHoleSize}" WidthRequest="{Binding CenterHoleSize}"
-                                BackgroundColor="GhostWhite">
+                                BackgroundColor="{AppThemeBinding Default={StaticResource ContentBackground}}">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="{Binding CenterHoleSize,Converter={StaticResource innerRadiusConverter},Source={x:Reference series}}"/>
                             </Border.StrokeShape>
                             <Border.Shadow>
-                                <Shadow Brush="Black" Opacity="{OnPlatform Android='0.6',iOS='0.6',WinUI='0.5',MacCatalyst='0.5'}" Radius="{OnPlatform Android='20',iOS='20',WinUI='50',MacCatalyst='50'}"/>
+                                <Shadow Brush="{AppThemeBinding Default={StaticResource ContentForeground}}" Opacity="{OnPlatform Android='0.6',iOS='0.6',WinUI='0.5',MacCatalyst='0.5'}" Radius="{OnPlatform Android='20',iOS='20',WinUI='50',MacCatalyst='50'}"/>
                             </Border.Shadow>
                             <StackLayout>
-                                <Label Text="Total :" FontAttributes="Bold" TextColor="Black" FontSize="17"
+                                <Label Text="Total :" FontAttributes="Bold" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" FontSize="17"
                                    VerticalOptions="EndAndExpand"
                                    HorizontalOptions="Center" Margin="5"/>
-                                <Label Text="357,580 km²" TextColor="Black" FontSize="16"
+                                <Label Text="357,580 km²" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" FontSize="16"
                                    VerticalOptions="StartAndExpand"
                                    HorizontalOptions="Center" Margin="5"/>
                             </StackLayout>

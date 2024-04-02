@@ -12,7 +12,7 @@
         WidthRequest="176" 
         HeightRequest="260"
         Padding="0,8,0,8"
-        BackgroundColor="#EEE8F4"
+        BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
         IsVisible="{OnPlatform Default=true,Android=false,iOS=false}">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="5" />
@@ -37,17 +37,18 @@
                             </Grid.ColumnDefinitions>
                         <HorizontalStackLayout>
                             <Label
-                             Padding="16,0,12,0"
-                                TextColor="#49454F"
+                             Padding="16,0,8,0"
+                                HeightRequest="18"
+                                TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"
                             FontSize="18"
                             FontFamily="Maui Material Assets"
                             VerticalOptions="Center"
                             Text="{Binding Icon}">
                             </Label>
                             <Label
-                                Padding="15,0,0,0"
-                                TextColor="#49454F"
-                                FontSize="16" 
+                                Padding="8,0,0,0"
+                                TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"
+                                FontSize="16"                           
                                 FontFamily="Roboto"
                                 VerticalOptions="Center"
                                 Text="{Binding IconName}">

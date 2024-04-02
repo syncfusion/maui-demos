@@ -5,13 +5,13 @@
                       xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
-                      Background="White"
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                       Margin="0,0,0,10">
     
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
         <local:GraphicsDrawable x:Key="GraphicsDrawable" />
     </localCore:SampleView.Resources>
@@ -100,13 +100,13 @@
                                                 OffsetY="1">
                         <gauge:LinearContentPointer.Content>
                             <Label Text="°C"
-                                   TextColor="Black" />
+                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                         </gauge:LinearContentPointer.Content>
                     </gauge:LinearContentPointer>
                 </gauge:SfLinearGauge.MarkerPointers>
             </local:ThermometerGauge1>
             <local:ThermometerGauge2 x:Name="thermometerGauge2"
-                                     Orientation="Vertical"
+                                     Orientation="Vertical" BackgroundColor="Transparent"
                                      HorizontalOptions="End"
                                      ShowLine="False"
                                      MinorTicksPerInterval="0"
@@ -122,7 +122,7 @@
                                                 Position="Inside">
                         <gauge:LinearContentPointer.Content>
                             <Label Text="°F"
-                                   TextColor="Black" />
+                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                         </gauge:LinearContentPointer.Content>
                     </gauge:LinearContentPointer>
                 </gauge:SfLinearGauge.MarkerPointers>

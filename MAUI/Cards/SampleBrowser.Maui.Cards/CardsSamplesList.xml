@@ -3,11 +3,9 @@
 	<ControlCategory Name="Layouts">
 		<Control Title="Cards"
 				 Image="cards.png"
-				 StatusTag="New" IsPreview="true"
 				 ControlName="SfCards"
-				 Description="The Cards control allows you to create a dismissible card or a stack of cards where one card is visible at a time until you swipe to see the next card.">
+				 Description="A container control that allows users to create dismissible cards or a stack of cards.">
 			<Sample Title="Card view" SampleName="CardView" CodeViewerPath="Cards/GettingStarted/"/>
-			<Sample Title="Card manager" SampleName="CreditCard" CodeViewerPath="Cards/CardManager/"/>
 		</Control>
 	</ControlCategory>
 </SyncfusionControls>

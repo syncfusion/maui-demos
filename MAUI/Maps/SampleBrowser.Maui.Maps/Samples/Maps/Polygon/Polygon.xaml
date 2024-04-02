@@ -58,10 +58,11 @@
             <HorizontalStackLayout Grid.Row="1"
                                    HorizontalOptions="End"
                                    VerticalOptions="End"
-                                   Background="White">
+                                   Background="{DynamicResource SfMapsNormalBackground}">
                 <Label Text="©"
                        Padding="2"
-                       FontSize="16" />
+                       FontSize="16"
+                       TextColor="{DynamicResource SfMapsDataLabelTextColor}" />
                 <Label Padding="2" 
                        Text="OpenStreetMap contributors"
                        TextColor="Blue">

@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
              xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
     <localCore:SampleView.Content>
         <Grid>
@@ -49,13 +50,15 @@
                         Grid.Column="0"
                         LineBreakMode="WordWrap"
                         FontSize="14"
-                       TextColor="Gray"
+                      TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"
                         VerticalOptions="Center"
                         HorizontalOptions="Start"
                         />
-                <RadioButton x:Name="option1" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="Default" VerticalOptions="Start"/>
-                <RadioButton x:Name="option2" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="15 minutes" VerticalOptions="Start" IsChecked="True"/>
-                <RadioButton x:Name="option3"  Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="30 minutes" VerticalOptions="Start" />
+                <buttons:SfRadioGroup>
+                    <buttons:SfRadioButton x:Name="option1" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Default" VerticalOptions="Start"/>
+                    <buttons:SfRadioButton x:Name="option2" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="15 minutes" VerticalOptions="Start" IsChecked="True"/>
+                    <buttons:SfRadioButton x:Name="option3" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="30 minutes" VerticalOptions="Start" />
+                </buttons:SfRadioGroup>
             </VerticalStackLayout>
         </ContentView>
     </localCore:SampleView.OptionView>

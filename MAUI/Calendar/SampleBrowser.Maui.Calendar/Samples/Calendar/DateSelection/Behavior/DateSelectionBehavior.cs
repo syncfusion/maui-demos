@@ -50,6 +50,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         private CalendarDateRange dateRange = new CalendarDateRange(DateTime.Now, DateTime.Now.AddDays(3));
 
         /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
+        /// <summary>
         /// Begins when the behavior attached to the view 
         /// </summary>
         /// <param name="bindable">bindable value</param>
@@ -60,7 +65,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             Border border = bindable.Content.FindByName<Border>("border");
             border.IsVisible = true;
 #if MACCATALYST
-            border.Stroke = Color.FromArgb("#E6E6E6");
+            border.Stroke = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
 #else
             border.Stroke = Colors.Transparent;
 #endif
@@ -73,7 +78,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #if ANDROID
             frame.BorderColor = Colors.Transparent;
 #else
-            frame.BorderColor = Color.FromArgb("#E6E6E6");
+            frame.BorderColor = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
 #endif
             this.calendar = bindable.Content.FindByName<SfCalendar>("dateSelection");
             this.label = bindable.Content.FindByName<Label>("label");

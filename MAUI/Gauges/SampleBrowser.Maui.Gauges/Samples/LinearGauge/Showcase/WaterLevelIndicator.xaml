@@ -5,12 +5,12 @@
                       xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
-                      Background="White">
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
         <local:GraphicsDrawable x:Key="GraphicsDrawable" />
     </localCore:SampleView.Resources>
@@ -55,7 +55,7 @@
                         <gauge:LinearContentPointer.Content>
                             <Label Text="150 ml"
                                    x:Name="waterLevelLabel"
-                                   TextColor="Black"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                    FontAttributes="Bold" />
                         </gauge:LinearContentPointer.Content>
                     </gauge:LinearContentPointer>

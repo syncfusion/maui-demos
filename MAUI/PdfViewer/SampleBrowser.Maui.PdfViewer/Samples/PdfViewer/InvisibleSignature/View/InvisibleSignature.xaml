@@ -30,8 +30,7 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Padding" Value="4" />
             <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}" />
-            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
             <Setter Property="BackgroundColor" Value="Transparent"/>
 
             <Style.Triggers>
@@ -60,7 +59,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" HeightRequest="48" BackgroundColor="#F3EDF7" >                       
+                    <Grid Grid.Row="0" HeightRequest="48" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}" >
                         <HorizontalStackLayout x:Name="Toolbar" Spacing="8" HorizontalOptions="End" >
                             <Button x:Name="CompleteSigning" HeightRequest="30" Text="Complete Signing"
                                     IsEnabled="{Binding IsCompleteSigningEnable}"
@@ -79,10 +78,10 @@
                             </Grid.ColumnDefinitions>
                             <Label Text="&#xe78b;" Margin="10,0,10,0" VerticalOptions="Center" Grid.Column="0"
                                        FontSize="17"
-                                       FontFamily="Maui Material Assets" /> 
-                                <Label Text="{Binding ValidationMessage}" LineBreakMode="WordWrap" Grid.Column="1"
+                                       FontFamily="Maui Material Assets" />
+                            <Label Text="{Binding ValidationMessage}" LineBreakMode="WordWrap" Grid.Column="1"
                                        FontSize="Caption" Margin="4,0,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            </Grid>
+                        </Grid>
                         <Grid x:Name="errormsg" IsVisible="{Binding IsErrorMsgVisible}"  HeightRequest="30" Background="PaleVioletRed">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -93,7 +92,7 @@
                                        FontFamily="Maui Material Assets" />
                             <Label Text="{Binding ValidationMessage}" LineBreakMode="WordWrap" Grid.Column="1"
                                        FontSize="Caption" Margin="4,0,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            
+
                         </Grid>
                         <Grid x:Name="invalidmsg" IsVisible="{Binding IsInvalidMsgVisible}" HeightRequest="30" Background="LightYellow">
                             <Grid.ColumnDefinitions>
@@ -105,13 +104,13 @@
                                        FontFamily="Maui Material Assets" />
                             <Label Text="{Binding ValidationMessage}" LineBreakMode="WordWrap" Grid.Column="1"
                                        FontSize="Caption" Margin="4,0,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
-                          </Grid>
+                        </Grid>
                     </VerticalStackLayout>
                     <syncfusion:SfPdfViewer 
                             x:Name="PdfViewer" 
                             Grid.Row="2"
                             DocumentSource="{Binding DocumentStream}"
-                            DocumentLoaded="PdfViewer_DocumentLoaded" />                   
+                            DocumentLoaded="PdfViewer_DocumentLoaded" />
                 </Grid>
             </Grid>
         </Border>

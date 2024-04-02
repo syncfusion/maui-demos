@@ -6,17 +6,41 @@
 // applicable laws. 
 #endregion
 using Syncfusion.Maui.PdfViewer;
+using Syncfusion.Maui.TabView;
 
 namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class StampViewMobile : StampView
 {
     public event EventHandler<StampDialogMobileEventArgs?>? CreateStampMobileClicked;
-    public StampViewMobile()
-	{
-		InitializeComponent();
+
+    internal void Initialize()
+    {
+        InitializeComponent();
         AssignControls();
-	}
+        tabView.SelectionChanged += OnSelectionChanged;
+    }
+
+    private void OnSelectionChanged(object? sender, TabSelectionChangedEventArgs e)
+    {
+        if (e.OldIndex != e.NewIndex)
+        {
+            if (sender is View view && view.Parent is Border border)
+            {
+                if (StandardStamps.IsSelected)
+                {
+                    StandardStamps.TextColor = Color.FromArgb("#FF6750A4");
+                    CustomStamps.TextColor = Color.FromArgb("#49454F");
+                }
+                else if (CustomStamps.IsSelected)
+                {
+                    StandardStamps.TextColor = Color.FromArgb("#49454F");
+                    CustomStamps.TextColor = Color.FromArgb("#FF6750A4");
+                }
+
+            }
+        }
+    }
 
     void AssignControls()
     {

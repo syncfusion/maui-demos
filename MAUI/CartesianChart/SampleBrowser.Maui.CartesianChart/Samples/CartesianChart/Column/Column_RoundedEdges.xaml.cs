@@ -34,7 +34,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
             var y = ActualYAxis.ValueToPoint(50);
 
             canvas.SaveState();
-            var color = Color.FromArgb("#F06C64");
+            var color = Color.FromArgb("#E75A6E");
             var text = "Overflow";
             var size = text.Measure(12);
             var textY = y - (float)size.Height * 2;

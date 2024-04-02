@@ -5,7 +5,7 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
              xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
-                      Background="{OnPlatform WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke, Default=White}" Margin="{OnPlatform WinUI=-10, MacCatalyst=-10, Default=0}"
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Margin="{OnPlatform WinUI=-10, MacCatalyst=-10, Default=0}"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Picker.SfDatePicker">
 
     <localCore:SampleView.Resources>
@@ -13,7 +13,7 @@
         
         <DataTemplate x:Key="frameTemplate">
             <Grid HeightRequest="60" Padding="0, 5">
-                <Frame BackgroundColor="White" BorderColor="LightGray" HasShadow="False" CornerRadius="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0" >
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" BorderColor="LightGray" HasShadow="False" CornerRadius="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0" >
                     <Grid VerticalOptions="Center" HeightRequest="50" WidthRequest="300">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.2*"/>
@@ -23,7 +23,7 @@
 
                         <Label FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}" TextColor="{Binding Date, Converter={StaticResource ColorConverter}}" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" Text="&#xe72e;" />
 
-                        <Label Grid.Column="1" Text="{Binding Subject}" Margin="0, 0, 5, 0" TextColor="#AA000000" FontSize="13" VerticalOptions="Center" LineBreakMode="WordWrap"/>
+                        <Label Grid.Column="1" Text="{Binding Subject}" Margin="0, 0, 5, 0" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" FontSize="13" VerticalOptions="Center" LineBreakMode="WordWrap"/>
 
                         <Label Grid.Column="2" Text="{Binding DateString}" FontSize="13" TextColor="{Binding Date, Converter={StaticResource ColorConverter}}"  VerticalTextAlignment="Center" LineBreakMode="WordWrap"/>
 
@@ -37,8 +37,8 @@
 
         <DataTemplate x:Key="borderTemplate">
             <Grid HeightRequest="60" Padding="0, 5">
-                <Frame BackgroundColor="White" BorderColor="LightGray" HasShadow="False" CornerRadius="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0" >
-                    <Grid VerticalOptions="Center" HeightRequest="50">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" BorderColor="LightGray" HasShadow="False" CornerRadius="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0" >
+                    <Grid VerticalOptions="Center" HeightRequest="50" WidthRequest="300">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.2*"/>
                             <ColumnDefinition Width="0.5*"/>
@@ -47,7 +47,7 @@
 
                         <Label FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}" TextColor="{Binding Date, Converter={StaticResource ColorConverter}}" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" Text="&#xe72e;" />
 
-                        <Label Grid.Column="1" Text="{Binding Subject}" Margin="0, 0, 5, 0" TextColor="#AA000000" FontSize="13" VerticalOptions="Center" LineBreakMode="WordWrap"/>
+                        <Label Grid.Column="1" Text="{Binding Subject}" Margin="0, 0, 5, 0" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" FontSize="13" VerticalOptions="Center" LineBreakMode="WordWrap"/>
 
                         <Label Grid.Column="2" Text="{Binding DateString}" FontSize="13" TextColor="{Binding Date, Converter={StaticResource ColorConverter}}"  VerticalTextAlignment="Center" LineBreakMode="WordWrap"/>
 
@@ -71,13 +71,13 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Image Margin="20" Source="{converters:SfImageResource gettingstarted.png}"  MaximumWidthRequest="500" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
-            <Grid Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" WidthRequest="{OnPlatform WinUI=350, MacCatalyst=350, Default=350}" HorizontalOptions="{OnPlatform Android=Center, iOS=Center, MacCatalyst=End, WinUI=End}" Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" BackgroundColor="White" Margin="{OnPlatform WinUI=10, MacCatalyst=10, Default=0}">
+            <Grid Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" WidthRequest="{OnPlatform WinUI=350, MacCatalyst=350, Default=350}" HorizontalOptions="{OnPlatform Android=Center, iOS=Center, MacCatalyst=End, WinUI=End}" Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" Margin="{OnPlatform WinUI=10, MacCatalyst=10, Default=0}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label Text="TASKS" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Text="TASKS" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                 <CollectionView Grid.Row="1" WidthRequest="{OnPlatform WinUI=330, MacCatalyst=330, Default=350}" ItemTemplate="{OnPlatform Android={StaticResource frameTemplate}, WinUI={StaticResource frameTemplate}, Default={StaticResource borderTemplate}}" ItemsSource="{Binding DataSource}" SelectionMode="None" VerticalScrollBarVisibility="Never" Margin="10, 0" />
 
                 <Grid Grid.Row="1" HeightRequest="50" VerticalOptions="End" HorizontalOptions="End" Margin ="10">
@@ -94,16 +94,7 @@
                     </Grid.GestureRecognizers>
                 </Grid>
 
-                <picker:SfDatePicker Mode="Dialog" x:Name="datePicker" OkButtonClicked="OnDatePickerOkButtonClicked" CancelButtonClicked="OnDatePickerCancelButtonClicked" Closed="OnDatePickerClosed">
-                    <picker:SfDatePicker.HeaderView>
-                        <picker:PickerHeaderView Height="50" Text="Select the Date"/>
-                    </picker:SfDatePicker.HeaderView>
-
-                    <picker:SfDatePicker.FooterView>
-                        <picker:PickerFooterView Height="40"/>
-                    </picker:SfDatePicker.FooterView>
-                </picker:SfDatePicker>
-
+                <picker:SfDatePicker Mode="Dialog" x:Name="datePicker" BackgroundColor="Transparent" OkButtonClicked="OnDatePickerOkButtonClicked" CancelButtonClicked="OnDatePickerCancelButtonClicked" Closed="OnDatePickerClosed"/>
                 <local:CustomPopUp x:Name="popup" OnCreated="OnPopupItemCreated"/>
             </Grid>
         </Grid>

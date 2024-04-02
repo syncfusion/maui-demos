@@ -6,11 +6,11 @@
                       x:Class="SampleBrowser.Maui.BadgeView.SfBadgeView.Offset">
 
     <localCore:SampleView.Resources>
-        <Style x:Key="DemoLabelStyle" TargetType="Label">
+        <Style x:Key="DemoButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"/>
         </Style>
     </localCore:SampleView.Resources>
 
@@ -25,21 +25,22 @@
                                HorizontalOptions="Center"
                                WidthRequest="200"
                                HeightRequest="100">
-                    <Grid BackgroundColor="#EEEEEE" Margin="5">
-                        <Label Text="With Offset"
-                               Style="{StaticResource DemoLabelStyle}"/>
-                    </Grid>
+                    <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                            Margin="10" Text="With Offset"
+                            Style="{StaticResource DemoButtonStyle}"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                            CornerRadius="0"/>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Offset="-20,30"/>
                     </badge:SfBadgeView.BadgeSettings>
                 </badge:SfBadgeView>
                 <VerticalStackLayout Spacing="0">
                 <Label HorizontalTextAlignment="Center" Text="Horizontal Offset" Margin="0,20,0,0" />
-                <Slider Minimum="-30" Maximum="0" Value="-20" ValueChanged="Slider_ValueChanged" />
+                    <Slider Minimum="-30" Maximum="0" Value="-20" ValueChanged="Slider_ValueChanged" MaximumTrackColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="0">
                     <Label HorizontalTextAlignment="Center" Text="Vertical Offset" />
-                <Slider Minimum="0" Maximum="45" Value="30" ValueChanged="Slider_ValueChanged1" />
+                    <Slider Minimum="0" Maximum="45" Value="30" ValueChanged="Slider_ValueChanged1" MaximumTrackColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" />
                 </VerticalStackLayout>
             </VerticalStackLayout>
         </ScrollView>

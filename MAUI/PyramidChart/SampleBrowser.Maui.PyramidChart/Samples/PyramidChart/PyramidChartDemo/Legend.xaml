@@ -7,7 +7,13 @@
              xmlns:converter="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core">
 
     <localCore:SampleView.Resources>
-        <converter:BrushToColorConverter x:Key="brushToColor" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:PyramidChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <converter:BrushToColorConverter x:Key="brushToColor" />
+        </ResourceDictionary>
     </localCore:SampleView.Resources>
     
     <localCore:SampleView.Content>
@@ -15,10 +21,10 @@
                              HorizontalOptions="Fill"
                              VerticalOptions="FillAndExpand"
                              Margin="{OnPlatform Android='0,0,0,50', iOS='0,0,0,50', Default='0,0,0,0'}"
-                              PaletteBrushes="{Binding CustomColor_1}"
+                            PaletteBrushes="{AppThemeBinding Default={StaticResource PaletteBrushesLight2}, Dark={StaticResource PaletteBrushesDark2}}" 
                              StrokeWidth="2"
-                             Stroke="White"
-                              ItemsSource="{Binding FinancialData}"
+                             Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                             ItemsSource="{Binding FinancialData}"
                              XBindingPath="Name"
                              YBindingPath="Size"
                              ShowDataLabels="True">
@@ -30,8 +36,7 @@
                        HorizontalOptions="Fill"
                        HorizontalTextAlignment="Center"
                        VerticalOptions="Center"
-                       FontSize="16"
-                       TextColor="Black" />
+                       FontSize="16" />
             </chart:SfPyramidChart.Title>
 
             <chart:SfPyramidChart.Legend>
@@ -45,7 +50,6 @@
                                        HorizontalOptions="End"
                                        HorizontalTextAlignment="Center"
                                        Text="{Binding Item.Value,StringFormat='{0:C}'}"
-                                       TextColor="Black"
                                        Padding="5" />
 
                                 <BoxView Grid.Column="1"
@@ -60,8 +64,6 @@
                                        FontSize="13"
                                        VerticalTextAlignment="Center"
                                        Text=" {Binding Item.Name}"
-                                   
-                                       TextColor="Black"
                                        HorizontalOptions="Start"
                                        HorizontalTextAlignment="Center"
                                        Padding="5" />

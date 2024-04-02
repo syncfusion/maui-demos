@@ -8,12 +8,12 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="SampleDescription" LineBreakMode="WordWrap" Text="The sample shows how to create different scenarios of What-If Analysis."
-                 VerticalOptions="Center" TextColor="Black">
+                 VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
-            <Label x:Name="textBlock1" LineBreakMode="WordWrap" Text="Click the &quot;Input Template&quot; button to view the input Excel workbook." TextColor="Black"/>
+            <Label x:Name="textBlock1" LineBreakMode="WordWrap" Text="Click the &quot;Input Template&quot; button to view the input Excel workbook."/>
             <Label Text=" "></Label>
-            <Label x:Name="textBlock2"   LineBreakMode="WordWrap" Text="Click the &quot;Create Document&quot; button to view the created Excel document. Please note that an Excel-compatible viewer is required to open and view the Excel file." TextColor="Black"/>
+            <Label x:Name="textBlock2"   LineBreakMode="WordWrap" Text="Click the &quot;Create Document&quot; button to view the created Excel document. Please note that an Excel-compatible viewer is required to open and view the Excel file."/>
             <Label Text=" "></Label>
             <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">                
                 <Button x:Name="btnInput" Clicked ="btnInput_Click" Text ="Input Template" HorizontalOptions="Start" VerticalOptions="Center"></Button>

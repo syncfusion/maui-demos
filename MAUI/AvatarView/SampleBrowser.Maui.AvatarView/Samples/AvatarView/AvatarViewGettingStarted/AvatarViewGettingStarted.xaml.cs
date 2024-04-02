@@ -5,10 +5,15 @@
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
+using Microsoft.Maui.Platform;
 using SampleBrowser.Maui.Base;
 using Syncfusion.Maui.Core;
 using System.Collections.ObjectModel;
+
+#if ANDROID
+using Android.Content.Res;
+#endif
+
 
 namespace SampleBrowser.Maui.AvatarView.SfAvatarView;
 public partial class AvatarViewGettingStarted : SampleView
@@ -305,7 +310,6 @@ public partial class AvatarViewGettingStarted : SampleView
     public AvatarViewGettingStarted()
     {
         InitializeComponent();
-        this.StatusIndicatorCheck.CheckedChanged += StatusIndicatorSwitch_Toggled;
 
         PopulateColorCollection();
 
@@ -315,19 +319,15 @@ public partial class AvatarViewGettingStarted : SampleView
         this.BindingContext = this;
     }
 
-    private void StatusIndicatorSwitch_Toggled(object? sender, CheckedChangedEventArgs e)
+    private void StatusIndicatorCheck_StateChanged(object sender, Syncfusion.Maui.Buttons.StateChangedEventArgs e) 
     {
-        if (this.StatusIndicatorCheck.IsChecked)
-        {
+        if (this.StatusIndicatorCheck.IsChecked == true) {
             this.StatusBadge.BadgeSettings!.Icon = BadgeIcon.Available;
         }
-        else
-        {
-            this.StatusBadge.BadgeSettings!.Type = BadgeType.None;
-            this.StatusBadge.BadgeSettings.Icon = BadgeIcon.None;
+        else {
+            this.StatusBadge.BadgeSettings!.Icon = BadgeIcon.None;
         }
     }
-
     private void SetAvatarName()
     {
         if (tappedAvatar == null)
@@ -437,7 +437,6 @@ public partial class AvatarViewGettingStarted : SampleView
         {
             item.InitialsColor = Colors.Transparent;
             item.Stroke = Color.FromArgb("#9E9E9E");
-            item.StrokeThickness = 1;
         }
 
         tappedAvatar.Stroke = Color.FromArgb("#6200EE");
@@ -495,5 +494,42 @@ public partial class AvatarViewGettingStarted : SampleView
             }
         }
     }
+
+  
+}
+
+public class SfEntry : Entry {
+    public SfEntry() {
+
+#if ANDROID
+        Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderline", (h, v) =>
+        {
+            if (v is SfEntry) {
+                h.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Colors.Transparent.ToPlatform());
+            }
+        });
+#endif
+#if WINDOWS
+            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderline", (h, v) =>
+            {
+                if (v is SfEntry)
+                {
+                    h.PlatformView.BorderThickness = new Microsoft.UI.Xaml.Thickness(0);
+                    h.PlatformView.Padding = new Microsoft.UI.Xaml.Thickness(8, 0, 0, 0);
+                    h.PlatformView.Resources["TextControlBorderThemeThicknessFocused"] = new Microsoft.UI.Xaml.Thickness(0);
+                }
+            });
+#endif
+#if MACCATALYST
+            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderline", (h, v) =>
+            {
+                if (v is SfEntry)
+                {
+                    h.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
+                }
+            });
+#endif
+    }
+
 }
 

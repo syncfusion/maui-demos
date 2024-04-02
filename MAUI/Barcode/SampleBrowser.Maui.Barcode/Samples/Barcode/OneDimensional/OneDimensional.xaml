@@ -4,7 +4,7 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       x:Class="SampleBrowser.Maui.Barcode.SfBarcodeGenerator.OneDimensional"
                       xmlns:barcode="clr-namespace:Syncfusion.Maui.Barcode;assembly=Syncfusion.Maui.Barcode"
-                      Background="White">
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
         <ScrollView HorizontalOptions="Center">
             <StackLayout HorizontalOptions="Center">
@@ -34,14 +34,14 @@
                         <Label Text="Codabar"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports 0-9,-,$,:,/,.,+ "
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -77,14 +77,14 @@
                         <Label Text="Code39"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports A-Z, 0-9,-, ., $, /, +, %, and space"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -120,14 +120,14 @@
                         <Label Text="Code39 Extended"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports only ASCII characters"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -163,14 +163,14 @@
                         <Label Text="Code93"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports  A-Z, 0-9 , -, ., $, /, +, % and space"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -206,14 +206,14 @@
                         <Label Text="Code128"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Support 0-9, A-Z, a-z and special characters"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
@@ -248,14 +248,14 @@
                         <Label Text="Code128A"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Support 0-9, A-Z and special characters"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -291,14 +291,14 @@
                         <Label Text="Code128B"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Support 0-9, A-Z and special characters"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -334,14 +334,14 @@
                         <Label Text="Code128C"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Support even number of digits"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -377,14 +377,14 @@
                         <Label Text="UPC-A"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports 11 numbers as input"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -420,14 +420,14 @@
                         <Label Text="UPC-E"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports 6 numbers as input"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -463,14 +463,14 @@
                         <Label Text="EAN-8"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Text="Supports 8 numbers as input"
                                Grid.Row="1"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                LineHeight="1.2"
                                FontFamily="Roboto-Regular"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
@@ -506,14 +506,14 @@
                         <Label Text="EAN-13"
                                Margin='{OnPlatform Default="0,5,0,0", Android="0"}'
                                LineBreakMode="WordWrap"
-                               TextColor="#DE000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                FontFamily="Roboto-Medium"
                                FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
                         <Label Grid.Row="1"
                                Text="Supports 13 numbers as input"
                                LineBreakMode="WordWrap"
                                Margin='{OnPlatform Android="0,5,5,0", Default="0,5,0,0"}'
-                               TextColor="#99000000"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, WinUI=14}" />
                     </Grid>
                 </Grid>

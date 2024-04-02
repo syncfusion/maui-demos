@@ -33,7 +33,7 @@
                                   ShowLabels="True">
 
                     <sliders:SfSlider.Tooltip>
-                        <sliders:SliderTooltip />
+                        <sliders:SliderTooltip Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}" TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfSlider.Tooltip>
                 </sliders:SfSlider>
 
@@ -53,7 +53,7 @@
                                           ShowLabels="True">
 
                     <sliders:SfDateTimeSlider.Tooltip>
-                        <sliders:SliderTooltip />
+                        <sliders:SliderTooltip Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}" TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfDateTimeSlider.Tooltip>
                 </sliders:SfDateTimeSlider>
             </Grid>

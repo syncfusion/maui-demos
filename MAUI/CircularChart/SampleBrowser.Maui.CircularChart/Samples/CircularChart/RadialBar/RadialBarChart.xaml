@@ -5,22 +5,36 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CircularChart.SfCircularChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:chart="http://schemas.syncfusion.com/maui">
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CircularChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Content>
         <Grid>
             <chart:SfCircularChart x:Name="chart"   HorizontalOptions="Fill" VerticalOptions="FillAndExpand" >
+
                 <chart:SfCircularChart.Resources>
-                    <DataTemplate x:Key="tooltipTemplate">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Item.Name}" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica"
-					                FontSize="14"	HorizontalOptions="Center"	VerticalOptions="Center"/>
-                            <Label Text="{Binding Item.Value, StringFormat='  :  \{0}M'}"
-					               TextColor="White"	FontAttributes="Bold"	FontSize="14" FontFamily="Helvetica"
-					               HorizontalOptions="Center" VerticalOptions="Center"/>
-                        </StackLayout>
-                    </DataTemplate>
+                    <ResourceDictionary>
+
+                        <DataTemplate x:Key="tooltipTemplate">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Item.Name}" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold" FontFamily="Helvetica"
+	                FontSize="14"	HorizontalOptions="Center"	VerticalOptions="Center"/>
+                                <Label Text="{Binding Item.Value, StringFormat='  :  \{0}M'}"
+	               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"	FontAttributes="Bold" FontSize="14" FontFamily="Helvetica"
+	               HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </ResourceDictionary>
+                   
                 </chart:SfCircularChart.Resources>
                 <chart:SfCircularChart.Title>
-                    <Label Text="Project Cost Breakdown" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                    <Label Text="Project Cost Breakdown" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
                 </chart:SfCircularChart.Title>
                 <chart:SfCircularChart.BindingContext>
                     <local:RadialBarSeriesViewModel x:Name="radialBarSeriesViewModel"/>
@@ -29,14 +43,16 @@
                     <chart:ChartLegend  Placement="{OnPlatform WinUI='Bottom', MacCatalyst='Bottom', iOS='Top', Android='Top'}">
                     </chart:ChartLegend>
                 </chart:SfCircularChart.Legend>
+                <chart:SfCircularChart.TooltipBehavior>
+                    <chart:ChartTooltipBehavior Background="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+                </chart:SfCircularChart.TooltipBehavior>
                 <chart:SfCircularChart.Series>
-                    <chart:RadialBarSeries x:Name="radialBarSeries"  Radius="0.9" 
+                    <chart:RadialBarSeries x:Name="radialBarSeries" Radius="0.9" TrackFill="{AppThemeBinding Light={StaticResource TrackColorLight}, Dark={StaticResource TrackColorDark}}"
                                            StartAngle="{Binding Source={x:Reference startAngle}, Path=Value, Mode=TwoWay}" 
-                                           EndAngle="{Binding Source={x:Reference endAngle}, Path=Value, Mode=TwoWay}"   TrackStroke="gray"
-                                           ItemsSource="{Binding RadialBarSeriesData}" 
+                                           EndAngle="{Binding Source={x:Reference endAngle}, Path=Value, Mode=TwoWay}"   
+                                           ItemsSource="{Binding RadialBarSeriesData}"  PaletteBrushes="{AppThemeBinding Light={StaticResource RadialPaletteBrushesLight1}, Dark={StaticResource RadialPaletteBrushesDark1}}"
                                            XBindingPath="Name" YBindingPath="Value"  EnableAnimation="True"
-                                           TrackStrokeWidth="{Binding Source={x:Reference trackStrokeWidth}, 
-                                                              Path=Value, Mode=TwoWay}"
+                                           TrackStrokeWidth="{Binding Source={x:Reference trackStrokeWidth}, Path=Value, Mode=TwoWay}"
                                            MaximumValue="15"  EnableTooltip="True" 
                                            GapRatio="{OnPlatform Android='0.4',WinUI='0.3',MacCatalyst='0.4',iOS='0.5'}"
                                            CapStyle="{Binding Source={x:Reference capStyle}, Path=SelectedItem}" 

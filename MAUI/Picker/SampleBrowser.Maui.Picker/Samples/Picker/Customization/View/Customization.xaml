@@ -14,14 +14,6 @@
         <Grid WidthRequest="280" HeightRequest="330" HorizontalOptions="Center" VerticalOptions="Center">
             <Frame x:Name="frame" IsVisible="{OnPlatform WinUI=True, Android=True, Default=False}" BackgroundColor="White" BorderColor="LightGray" HasShadow="False" CornerRadius="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0">
                 <picker:SfPicker x:Name="Picker" HeightRequest="330">
-                    <picker:SfPicker.HeaderView>
-                        <picker:PickerHeaderView Height="50" Background="LightGray" Text="Select a Color">
-                            <picker:PickerHeaderView.TextStyle>
-                                <picker:PickerTextStyle TextColor="Black" FontSize="18" />
-                            </picker:PickerHeaderView.TextStyle>
-                        </picker:PickerHeaderView>
-                    </picker:SfPicker.HeaderView>
-
                     <picker:SfPicker.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -42,24 +34,11 @@
                     <picker:SfPicker.Columns>
                         <picker:PickerColumn HeaderText="Colors" ItemsSource="{Binding DataSource}" SelectedIndex="4"/>
                     </picker:SfPicker.Columns>
-
-                    <picker:SfPicker.SelectionView>
-                        <picker:PickerSelectionView Padding="0" CornerRadius="0" Background="Transparent" Stroke="LightGray"/>
-                    </picker:SfPicker.SelectionView>
-
                 </picker:SfPicker>
             </Frame>
 
             <Border x:Name="border" IsVisible="{OnPlatform WinUI=False, Android=False, Default=True}" BackgroundColor="White" StrokeThickness="2" Stroke="LightGray" StrokeShape="RoundRectangle 5,5,5,5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0">
                 <picker:SfPicker x:Name="Picker1" HeightRequest="330">
-                    <picker:SfPicker.HeaderView>
-                        <picker:PickerHeaderView Height="50" Background="LightGray" Text="Select a Color">
-                            <picker:PickerHeaderView.TextStyle>
-                                <picker:PickerTextStyle TextColor="Black" FontSize="18" />
-                            </picker:PickerHeaderView.TextStyle>
-                        </picker:PickerHeaderView>
-                    </picker:SfPicker.HeaderView>
-
                     <picker:SfPicker.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -80,11 +59,6 @@
                     <picker:SfPicker.Columns>
                         <picker:PickerColumn HeaderText="Colors" ItemsSource="{Binding DataSource}" SelectedIndex="4"/>
                     </picker:SfPicker.Columns>
-
-                    <picker:SfPicker.SelectionView>
-                        <picker:PickerSelectionView Padding="0" CornerRadius="0" Background="Transparent" Stroke="LightGray"/>
-                    </picker:SfPicker.SelectionView>
-
                 </picker:SfPicker>
             </Border>
         </Grid>

@@ -11,6 +11,7 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
     using Syncfusion.Maui.Inputs;
     using Syncfusion.Maui.Picker;
     using System.Collections.ObjectModel;
+    using Syncfusion.Maui.Buttons;
 
     public class GettingStartedBehavior : Behavior<SampleView>
     {
@@ -22,7 +23,7 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         /// <summary>
         /// The show header switch
         /// </summary>
-        private Switch? showHeaderSwitch, showColumnHeaderSwitch, showFooterSwitch;
+        private SfSwitch? showHeaderSwitch, showColumnHeaderSwitch, showFooterSwitch;
 
         /// <summary>
         /// The date format combo box.
@@ -35,6 +36,11 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         private ObservableCollection<object>? formats;
 
         /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
+        /// <summary>
         /// Begins when the behavior attached to the view 
         /// </summary>
         /// <param name="bindable">bindable value</param>
@@ -45,32 +51,34 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
 #if IOS || MACCATALYST
             Border border = bindable.Content.FindByName<Border>("border");
             border.IsVisible = true;
-            border.Stroke = Color.FromArgb("#E6E6E6");
+            border.Stroke = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
             this.timePicker = bindable.Content.FindByName<SfTimePicker>("TimePicker1");
 #else
             Frame frame = bindable.Content.FindByName<Frame>("frame");
             frame.IsVisible = true;
-            frame.BorderColor = Color.FromArgb("#E6E6E6");
+            frame.BorderColor = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
             this.timePicker = bindable.Content.FindByName<SfTimePicker>("TimePicker");
 #endif
 
-            this.showHeaderSwitch = bindable.Content.FindByName<Switch>("showHeaderSwitch");
-            this.showColumnHeaderSwitch = bindable.Content.FindByName<Switch>("showColumnHeaderSwitch");
-            this.showFooterSwitch = bindable.Content.FindByName<Switch>("showFooterSwitch");
+            this.timePicker.HeaderView.Height = 50;
+            this.timePicker.HeaderView.Text = "Select a Time";
+            this.showHeaderSwitch = bindable.Content.FindByName<SfSwitch>("showHeaderSwitch");
+            this.showColumnHeaderSwitch = bindable.Content.FindByName<SfSwitch>("showColumnHeaderSwitch");
+            this.showFooterSwitch = bindable.Content.FindByName<SfSwitch>("showFooterSwitch");
 
             if (this.showHeaderSwitch != null)
             {
-                this.showHeaderSwitch.Toggled += ShowHeaderSwitch_Toggled;
+                this.showHeaderSwitch.StateChanged += ShowHeaderSwitch_Toggled;
             }
 
             if (this.showColumnHeaderSwitch != null)
             {
-                this.showColumnHeaderSwitch.Toggled += ShowColumnHeaderSwitch_Toggled;
+                this.showColumnHeaderSwitch.StateChanged += ShowColumnHeaderSwitch_Toggled;
             }
 
             if (this.showFooterSwitch != null)
             {
-                this.showFooterSwitch.Toggled += ShowFooterSwitch_Toggled;
+                this.showFooterSwitch.StateChanged += ShowFooterSwitch_Toggled;
             }
 
             formats = new ObservableCollection<object>()
@@ -89,30 +97,18 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowHeaderSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowHeaderSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.timePicker != null)
+            if (this.timePicker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
-                    this.timePicker.HeaderView = new PickerHeaderView()
-                    {
-                        Height = 50,
-                        Text = "Select a time",
-                        Background = Color.FromArgb("#6750A4"),
-                        TextStyle = new PickerTextStyle()
-                        {
-                            TextColor = Colors.White,
-                            FontSize = 15,
-                        },
-                    };
+                    this.timePicker.HeaderView.Height = 50;
+                    this.timePicker.HeaderView.Text = "Select a time";
                 }
-                else if (e.Value == false)
+                else if (e.NewValue.Value == false)
                 {
-                    this.timePicker.HeaderView = new PickerHeaderView()
-                    {
-                        Height = 0,
-                    };
+                    this.timePicker.HeaderView.Height = 0;
                 }
             }
         }
@@ -122,18 +118,18 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowColumnHeaderSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowColumnHeaderSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.timePicker != null)
+            if (this.timePicker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
                     this.timePicker.ColumnHeaderView = new TimePickerColumnHeaderView()
                     {
                         Height = 40,
                     };
                 }
-                if (e.Value == false)
+                if (e.NewValue.Value == false)
                 {
                     this.timePicker.ColumnHeaderView = new TimePickerColumnHeaderView()
                     {
@@ -148,28 +144,17 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowFooterSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowFooterSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.timePicker != null)
+            if (this.timePicker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
-                    this.timePicker.FooterView = new PickerFooterView()
-                    {
-                        Height = 40,
-                        TextStyle = new PickerTextStyle()
-                        {
-                            TextColor = Color.FromArgb("#6750A4"),
-                            FontSize = 15,
-                        },
-                    };
+                    this.timePicker.FooterView.Height = 40;
                 }
-                else if (e.Value == false)
+                else if (e.NewValue.Value == false)
                 {
-                    this.timePicker.FooterView = new PickerFooterView()
-                    {
-                        Height = 0,
-                    };
+                    this.timePicker.FooterView.Height = 0;
                 }
             }
         }
@@ -179,7 +164,7 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void FormatComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+        private void FormatComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
             if (this.timePicker == null || e.AddedItems == null || this.formatComboBox == null)
             {
@@ -236,19 +221,19 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
             base.OnDetachingFrom(bindable);
             if (this.showHeaderSwitch != null)
             {
-                this.showHeaderSwitch.Toggled -= ShowHeaderSwitch_Toggled;
+                this.showHeaderSwitch.StateChanged -= ShowHeaderSwitch_Toggled;
                 this.showHeaderSwitch = null;
             }
 
             if (this.showColumnHeaderSwitch != null)
             {
-                this.showColumnHeaderSwitch.Toggled -= ShowColumnHeaderSwitch_Toggled;
+                this.showColumnHeaderSwitch.StateChanged -= ShowColumnHeaderSwitch_Toggled;
                 this.showColumnHeaderSwitch = null;
             }
 
             if (this.showFooterSwitch != null)
             {
-                this.showFooterSwitch.Toggled -= ShowFooterSwitch_Toggled;
+                this.showFooterSwitch.StateChanged -= ShowFooterSwitch_Toggled;
                 this.showFooterSwitch = null;
             }
         }

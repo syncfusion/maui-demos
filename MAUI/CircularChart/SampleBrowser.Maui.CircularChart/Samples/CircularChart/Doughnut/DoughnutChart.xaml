@@ -4,11 +4,19 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CircularChart.SfCircularChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CircularChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
     <localCore:SampleView.Content>
 
         <chart:SfCircularChart x:Name="chart" HorizontalOptions="Fill" VerticalOptions="Fill">
             <chart:SfCircularChart.Title>
-                <Label Text="Project Cost Breakdown" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Project Cost Breakdown" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
             </chart:SfCircularChart.Title>
             <chart:SfCircularChart.BindingContext>
                 <local:DoughnutSeriesViewModel x:Name="doughnutViewModel"/>
@@ -18,9 +26,9 @@
             </chart:SfCircularChart.Legend>
             <chart:SfCircularChart.Series>
                 <chart:DoughnutSeries x:Name="series" ExplodeIndex="{Binding SelectedIndex}" ExplodeOnTouch="True" ShowDataLabels="True"
-                                                         Radius="0.9" 
-                                                         PaletteBrushes="{Binding PaletteBrushes}" 
-                                                         ItemsSource="{Binding DoughnutSeriesData}" XBindingPath="Name" YBindingPath="Value" EnableAnimation="False" StrokeWidth="1" Stroke="White" LegendIcon="SeriesType">
+                                      Radius="0.9" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight1}, Dark={StaticResource PaletteBrushesDark1}}" ItemsSource="{Binding DoughnutSeriesData}" 
+                                      XBindingPath="Name" YBindingPath="Value" EnableAnimation="False" StrokeWidth="1" 
+                                      Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" LegendIcon="SeriesType">
                     <chart:DoughnutSeries.CenterView>
                         <StackLayout x:Name="layout" HeightRequest="{Binding CenterHoleSize}" WidthRequest="{Binding CenterHoleSize}">
                             <Label Text="{Binding Name,Source={x:Reference doughnutViewModel}}" FontSize="13"  HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="5"/>

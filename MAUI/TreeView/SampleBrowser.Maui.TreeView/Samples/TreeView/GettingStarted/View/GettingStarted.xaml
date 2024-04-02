@@ -26,7 +26,8 @@
                         Grid.Column="2"
                         Orientation="Horizontal"
                         VerticalScrollBarVisibility="Never" 
-                        HorizontalScrollBarVisibility="Default" >
+                        HorizontalScrollBarVisibility="Default" 
+                         BackgroundColor="White">
 
                 <Grid x:Name="imageGrid" VerticalOptions="Start">
                     <Image x:Name="mainImage" 
@@ -39,7 +40,7 @@
                 </Grid>
             </ScrollView>
 
-            <BoxView Grid.Column="1" WidthRequest="1.5" Background="#d3d3d3" Opacity="0.12"/>
+            <BoxView Grid.Column="1" WidthRequest="1.5" Opacity="0.12"/>
             <Grid Grid.Column="0" 
                       MaximumWidthRequest="{OnPlatform WinUI=350, MacCatalyst=400}"
                    HorizontalOptions="{OnPlatform Default=Fill}">

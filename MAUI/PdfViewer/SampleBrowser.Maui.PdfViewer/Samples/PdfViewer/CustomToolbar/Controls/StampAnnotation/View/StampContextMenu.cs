@@ -17,6 +17,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
 {
     public class StampContextMenu: ContentView
     {
+        Color lightThemeColor = new Color();
+        Color darkThemeColor = new Color();
         StackLayout stackLayout = new StackLayout();
         Border contextMenuborder = new Border()
         {
@@ -38,6 +40,12 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
             contextMenuborder.Content = stackLayout;
             this.Content = contextMenuborder;
             stackLayout.Spacing = 0;
+            if (Application.Current != null)
+            {
+                lightThemeColor = (Color)Application.Current.Resources["SampleBrowserBackgroundLight"];
+                darkThemeColor = (Color)Application.Current.Resources["BackgroundDark"];
+            }
+            contextMenuborder.SetAppThemeColor(Label.BackgroundColorProperty, lightThemeColor, darkThemeColor);
         }
 
         public void AddSeparator()
@@ -89,13 +97,19 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
 
     public class GestureGrid : Grid, Syncfusion.Maui.Core.Internals.ITouchListener
     {
+        Color darkThemeHoverColor = new Color();
+        Color lightThemeHoverColor = new Color();
         public GestureGrid()
         {
             this.AddTouchListener(this);
+            if (Application.Current != null)
+            {
+                lightThemeHoverColor = (Color)Application.Current.Resources["BlackOverlayHoveredLight"];
+                darkThemeHoverColor = (Color)Application.Current.Resources["FilledInputBackgroundFocused"];
+            }
         }
 
         internal event EventHandler<EventArgs>? PointerPressed;
-
         Color normalColor = Colors.Transparent;
         Color mouseHoverColor = Color.FromArgb("#141C1B1F");
         Color pressedColor = Color.FromArgb("#261C1B1E");
@@ -113,7 +127,7 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer
                     PointerPressed?.Invoke(this, EventArgs.Empty);
                     break;
                 case PointerActions.Entered:
-                    this.BackgroundColor = mouseHoverColor;
+                    this.SetAppThemeColor(Label.BackgroundColorProperty, lightThemeHoverColor, darkThemeHoverColor);
                     break;
                 case PointerActions.Exited:
                     this.BackgroundColor = normalColor;

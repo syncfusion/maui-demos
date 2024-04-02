@@ -8,7 +8,7 @@
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
     </localCore:SampleView.Resources>
 
@@ -55,7 +55,7 @@
                                         <Label x:Name="angleAnnotationLabel1"
                                                Text="30%"
                                                FontSize="Small"
-                                               TextColor="Black" />
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
                             </gauge:RadialAxis.Annotations>
@@ -102,7 +102,7 @@
                                         <Label x:Name="angleAnnotationLabel2"
                                                Text="30%"
                                                FontSize="Small"
-                                               TextColor="Black" />
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
                             </gauge:RadialAxis.Annotations>
@@ -149,7 +149,7 @@
                                         <Label x:Name="angleAnnotationLabel3"
                                                Text="30%"
                                                FontSize="Small"
-                                               TextColor="Black" />
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
                             </gauge:RadialAxis.Annotations>
@@ -196,7 +196,7 @@
                                         <Label x:Name="angleAnnotationLabel4"
                                                Text="30%"
                                                FontSize="Small"
-                                               TextColor="Black" />
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
                             </gauge:RadialAxis.Annotations>

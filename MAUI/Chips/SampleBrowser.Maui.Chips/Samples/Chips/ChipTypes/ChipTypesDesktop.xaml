@@ -5,7 +5,8 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.Chips"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.BindingContext>
         <local:ChipViewModel />
@@ -20,7 +21,7 @@
 
     <localCore:SampleView.Content>
         <Grid ColumnDefinitions="*,520" MinimumWidthRequest="400"
-              BackgroundColor="#e5e5e5"
+              BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
 			  Margin="-10">
             <StackLayout>
                 <Label Text="Filter the item(s)" FontFamily="Roboto-Medium" FontSize="26" Margin="20,50,40,5"/>
@@ -30,10 +31,10 @@
 							<On Platform="MacCatalyst" Value="500"/>
 							<On Platform="WinUI" Value="560"/>
 						</OnPlatform>
-					</Image.HeightRequest>
-				</Image>
+                    </Image.HeightRequest> 
+                </Image>
             </StackLayout>
-            <Frame Margin="40,25,40,30" HasShadow="False" Grid.Column="1" CornerRadius="6" Padding="20,0,20,10">
+            <Frame Margin="40,25,40,30" HasShadow="False" Grid.Column="1" CornerRadius="6" Padding="20,0,20,10" BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}">
                 <ScrollView >
                     <StackLayout>
                         <Label FontFamily="Roboto-Medium"
@@ -43,11 +44,7 @@
                             <core:SfChipGroup ChipPadding="2,0,0,0" 
                                               SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
                                               ItemsSource="{Binding ChoiceItems}" 
-                                              ChipType="Choice"
-                                              ChipTextColor="Black"
-                                              ChipBackground="Transparent"
-                                              SelectedChipTextColor="White"
-                                              SelectedChipBackground="#512bd4">
+                                              ChipType="Choice">
                             </core:SfChipGroup>
                         </ScrollView>
                         <Label FontFamily="Roboto-Medium"
@@ -64,6 +61,8 @@
                                     <Entry VerticalOptions="Center" 
                                            FontSize="15" 
 										   FontFamily="Roboto-Regular"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}"
                                            Placeholder="{Binding PlaceHolderText,Mode=TwoWay}"
                                            WidthRequest="140" 
                                            Text="{Binding InputText}">
@@ -98,15 +97,10 @@
                                Margin="{StaticResource LabelMargin}" 
                                Text="Filter by features (Filter Chips)"/>
                         <ScrollView  Margin="{StaticResource ChipMargin}" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                            <core:SfChipGroup SelectionIndicatorColor="White"
-                                              ChipPadding="2,0,0,0"
+                            <core:SfChipGroup ChipPadding="2,0,0,0"
                                               ItemsSource="{Binding FilterItems,Mode=TwoWay}"
                                               SelectedItem="{Binding SelectedFilterItems,Mode=TwoWay}"
-                                              ChipType="Filter"
-                                              ChipTextColor="Black"
-                                              ChipBackground="Transparent"
-                                              SelectedChipTextColor="White"
-                                              SelectedChipBackground="#512bd4">
+                                              ChipType="Filter">
                             </core:SfChipGroup>
                         </ScrollView>
                         <Label FontFamily="Roboto-Medium"
@@ -120,7 +114,7 @@
                             </core:SfChipGroup>
                         </ScrollView>
                         <ScrollView>
-                            <Frame BackgroundColor="#f2f2f2" HasShadow="False" Padding="10,10,20,90"
+                            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" HasShadow="False" Padding="10,10,20,90"
 							   Margin="0,20,0,10" VerticalOptions="Start">
                                 <StackLayout>
                                     <Label FontFamily="Roboto-Medium" VerticalOptions="Start"

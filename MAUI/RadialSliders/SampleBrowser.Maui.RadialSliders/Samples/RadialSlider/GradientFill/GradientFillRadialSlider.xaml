@@ -8,7 +8,7 @@
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
     </localCore:SampleView.Resources>
 
@@ -50,7 +50,7 @@
                                     <gauge:GaugeAnnotation.Content>
                                         <Label x:Name="fahrenheitAnnotationLabel"
                                                FontAttributes="Bold"
-                                               TextColor="Black"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                                FontSize="Medium" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
@@ -65,7 +65,7 @@
                                                        DirectionValue="90">
                                     <gauge:GaugeAnnotation.Content>
                                         <Label x:Name="celsiusAnnotationLabel"
-                                               TextColor="Black"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                                FontSize="Small" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>

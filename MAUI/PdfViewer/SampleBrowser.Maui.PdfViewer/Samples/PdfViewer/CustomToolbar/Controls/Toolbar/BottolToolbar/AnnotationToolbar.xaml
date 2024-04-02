@@ -8,11 +8,13 @@
         <Style x:Key="buttonIconStyle" TargetType="Button">
             <Setter Property="BorderWidth" Value="0" />
             <Setter Property="FontSize" Value="18" />
-            <Setter Property="Padding" Value="4" />
+            <Setter Property="Padding" Value="8" />
             <Setter Property="VerticalOptions" Value="Center" />
             <Setter Property="FontFamily" Value="Maui Material Assets" />
-            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
             <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="40" />
             <Style.Triggers>
                 <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="Transparent"/>
@@ -27,43 +29,60 @@
             </Style.Triggers>
         </Style>
     </ContentView.Resources>
-    <Grid ColumnDefinitions="0.5*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,1*,0.5*">
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F7F2FB}">
+        <ScrollView Orientation="Horizontal" HorizontalOptions="Center">
+            <HorizontalStackLayout Spacing="20" Margin="20,0,20,0">
         <Button Text="&#xe72e;"
                     Command="{Binding ToolbarCommand}"
+                    ToolTipProperties.Text="Press to add a text markup"
                     CommandParameter="TextMarkup"
-                    Grid.Column="1"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe788;"
                     Command="{Binding ToolbarCommand}"
+                    ToolTipProperties.Text="Press to add a text box"
                     CommandParameter="FreeText"
-                    Grid.Column="3"
                     FontSize="20"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe766;"
                     Command="{Binding ToolbarCommand}"
+                    ToolTipProperties.Text="Press to draw freehand drawing"
                     CommandParameter="Ink"
-                    Grid.Column="5"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe764;"
                     Command="{Binding ToolbarCommand}"
+                    ToolTipProperties.Text="Press to erase freehand drawings"
                     CommandParameter="InkEraser"
-                    Grid.Column="7"
                     FontSize="21"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe73b;"
                     Command="{Binding ToolbarCommand}"
+                    ToolTipProperties.Text="Press to add shapes"
                     CommandParameter="Shapes"
-                    Grid.Column="9"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe761;"
                     Command="{Binding ToolbarCommand}"
+                    ToolTipProperties.Text="Press to add stamp"
                     CommandParameter="Stamp"
-                    Grid.Column="11"
                     Style="{StaticResource buttonIconStyle}" />
         <Button Text="&#xe775;"
                     Command="{Binding ToolbarCommand}"
+                    ToolTipProperties.Text="Press to add sticky note"
                     CommandParameter="StickyNote"
-                    Grid.Column="13"
                     Style="{StaticResource buttonIconStyle}"/>
+        <Button Text="&#xe737;"
+                    Command="{Binding ToolbarCommand}"
+                    ToolTipProperties.Text="Press to add signature"
+                    CommandParameter="Signature"
+                    Style="{StaticResource buttonIconStyle}"/>
+    </HorizontalStackLayout>
+    </ScrollView>
+        <BoxView x:Name="scrollabilityIndicator" WidthRequest="80" HorizontalOptions="End">
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                    <GradientStop Color="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F7F2FB}" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
     </Grid>
 </ContentView>

@@ -9,6 +9,7 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
 {
     using SampleBrowser.Maui.Base;
     using Syncfusion.Maui.DataForm;
+    using Syncfusion.Maui.Popup;
 
     /// <summary>
     /// Represents a behavior class for contact form.
@@ -25,11 +26,23 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// </summary>
         private Button? saveButton;
 
+        /// <summary>
+        /// Holds the popup object.
+        /// </summary>
+        private SfPopup? popup;
+
         /// <inheritdoc/>
         protected override void OnAttachedTo(SampleView bindable)
         {
             base.OnAttachedTo(bindable);
             this.dataForm = bindable.Content.FindByName<SfDataForm>("contactForm");
+            this.popup = bindable.Content.FindByName<SfPopup>("popup");
+
+            if (this.popup != null)
+            {
+                popup.FooterTemplate = DataFormSampleHelper.GetFooterTemplate(popup);
+                popup.ContentTemplate = DataFormSampleHelper.GetContentTemplate(popup);
+            }
 
             if (this.dataForm != null)
             {
@@ -63,33 +76,40 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// </summary>
         /// <param name="sender">The data form.</param>
         /// <param name="e">The event arguments.</param>
-        private async void OnDataFormValidateForm(object? sender, DataFormValidateFormEventArgs e)
+        private void OnDataFormValidateForm(object? sender, DataFormValidateFormEventArgs e)
         {
-            if (this.dataForm != null && App.Current?.MainPage != null)
+            if (this.popup == null)
+            {
+                return;
+            }
+
+            if (this.dataForm != null)
             {
                 if (e.ErrorMessage != null && e.ErrorMessage.Count > 0)
                 {
                     if (e.ErrorMessage.Count == 2)
                     {
-                        await App.Current.MainPage.DisplayAlert("", "Please enter the contact name and mobile number", "OK");
+                        popup.Message = "Please enter the contact name and mobile number";
                     }
                     else
                     {
                         if (e.ErrorMessage.ContainsKey(nameof(ContactFormModel.Name)))
                         {
-                            await App.Current.MainPage.DisplayAlert("", "Please enter the contact name", "OK");
+                            popup.Message = "Please enter the contact name";
                         }
                         else
                         {
-                            await App.Current.MainPage.DisplayAlert("", "Please enter the mobile number", "OK");
+                            popup.Message = "Please enter the mobile number";
                         }
                     }
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Contact saved", "OK");
+                    popup.Message = "Contact saved";
                 }
             }
+
+            popup.Show();
         }
 
         /// <summary>

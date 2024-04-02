@@ -9,14 +9,14 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="SampleDescription" LineBreakMode="WordWrap" Text="This example demonstrates how to convert an Excel worksheet to an image."
-                 VerticalOptions="Center" TextColor="Black">
+                 VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
             <Label x:Name="Content_1" LineBreakMode="WordWrap" Text="Click the &quot;Input Template&quot; button to view the input Excel worksheet. Please note that an Excel-compatible viewer is required to open and view the Excel file."
-                  VerticalOptions="Center" TextColor="Black">
+                  VerticalOptions="Center">
             </Label>
             <Label x:Name="Content_2" LineBreakMode="WordWrap" Text="Click the &quot;Convert To Image&quot; button to view the converted image."
-                  VerticalOptions="Center" TextColor="Black">
+                  VerticalOptions="Center">
             </Label>
             <Label Text=" "></Label>
             <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">

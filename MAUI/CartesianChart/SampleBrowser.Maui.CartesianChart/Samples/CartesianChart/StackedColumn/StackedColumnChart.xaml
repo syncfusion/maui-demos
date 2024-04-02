@@ -5,9 +5,12 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:converter="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core"
              xmlns:chart="http://schemas.syncfusion.com/maui">
-
-
     <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
         <converter:BrushToColorConverter x:Key="brushToColor" />
         <DataTemplate x:Key="tooltipTemplate">
             <HorizontalStackLayout Spacing="10">
@@ -27,7 +30,7 @@
             <StackLayout.BindingContext>
                 <local:StackedColumnViewModel />
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="chart" Title="{StaticResource title}" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" >
+            <chart:SfCartesianChart x:Name="chart" Title="{StaticResource title}" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" >
 
                 <chart:SfCartesianChart.XAxes>
                 <chart:CategoryAxis x:Name="xAxis" LabelPlacement="BetweenTicks" IsVisible="true" ShowMajorGridLines="false">

@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<localCore:SampleView 
-             x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Sorting"
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
-             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
-             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
-             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
-    BackgroundColor="White">
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Sorting"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
     <localCore:SampleView.BindingContext>
         <local:OrderInfoViewModel>
         </local:OrderInfoViewModel>
@@ -20,8 +19,62 @@
             <On Platform="iOS, WinUI, MacCatalyst" Value="5"></On>
         </OnPlatform>
         <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-5,-7"/>
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
         </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Color x:Key="trackLightThemeColor">#6750A4</Color>
+        <Color x:Key="trackDarkThemeColor">#D0BCFF</Color>
+        <Color x:Key="thumbLightThemeColor">#FFFFFF</Color>
+        <Color x:Key="thumbDarkThemeColor">#381E72</Color>
+        <Color x:Key="trackOffLightThemeColor">#E7E0EC</Color>
+        <Color x:Key="trackOffDarkThemeColor">#49454F</Color>
+        <Color x:Key="thumbOffLightThemeColor">#79747E</Color>
+        <Color x:Key="thumbOffDarkThemeColor">#938F99</Color>
+        <Style TargetType="editors:SfSwitch" x:Key="sfSwitchStyle">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="On">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <editors:SwitchSettings ThumbBackground="{AppThemeBinding Light={StaticResource thumbLightThemeColor}, Dark={StaticResource thumbDarkThemeColor}}"
+                                                                TrackBackground="{AppThemeBinding Light={StaticResource trackLightThemeColor}, Dark={StaticResource trackDarkThemeColor}}"
+                                                                TrackHeightRequest="20"
+                                                                TrackWidthRequest="42"
+                                                                ThumbHeightRequest="12"
+                                                                ThumbWidthRequest="12" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Off">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <editors:SwitchSettings ThumbBackground="{AppThemeBinding Light={StaticResource thumbOffLightThemeColor}, Dark={StaticResource thumbOffDarkThemeColor}}"
+                                                                TrackBackground="{AppThemeBinding Light={StaticResource trackOffLightThemeColor}, Dark={StaticResource trackOffDarkThemeColor}}"
+                                                                TrackHeightRequest="20"
+                                                                TrackWidthRequest="42"
+                                                                ThumbHeightRequest="12"
+                                                                ThumbWidthRequest="12" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>    
     </localCore:SampleView.Resources>
     <localCore:SampleView.Behaviors>
         <local:SortingBehavior></local:SortingBehavior>
@@ -37,9 +90,7 @@
                            ColumnWidthMode="Fill"
                            HorizontalScrollBarVisibility="Always"
                            VerticalScrollBarVisibility="Always">
-            <sfgrid:SfDataGrid.DefaultStyle>
-                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium"></sfgrid:DataGridStyle>
-            </sfgrid:SfDataGrid.DefaultStyle>
+
             <sfgrid:SfDataGrid.SortColumnDescriptions>
                 <sfgrid:SortColumnDescription ColumnName="OrderID" SortDirection="Descending" />
             </sfgrid:SfDataGrid.SortColumnDescriptions>
@@ -100,7 +151,15 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Switch Margin="5,0,0,0" x:Name="sorting" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="True" Grid.Column="1" Grid.Row="0"></Switch>
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="sorting"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="True"
+                                  Grid.Column="1"
+                                  Grid.Row="0"
+                                  Style="{StaticResource sfSwitchStyle}">
+                </editors:SfSwitch>
                 <Label
                    Grid.Row="0"
                    Grid.Column="0"
@@ -109,7 +168,16 @@
                    Text="Allow sorting"
                    VerticalOptions="Center" />
 
-                <Switch Margin="5,0,0,0" x:Name="multiSorting" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="False" Grid.Column="1" Grid.Row="2"></Switch>
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="multiSorting"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="False"
+                                  Grid.Column="1"
+                                  Grid.Row="2"
+                                  Style="{StaticResource sfSwitchStyle}">
+                    
+                </editors:SfSwitch>
                 <Label
                    Grid.Row="2"
                    Grid.Column="0"
@@ -118,7 +186,16 @@
                    Text="Allow multiple column sorting"
                    VerticalOptions="Center" />
 
-                <Switch Margin="5,0,0,0" x:Name="triSorting" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="False" Grid.Column="1" Grid.Row="1"></Switch>
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="triSorting"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="False"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  Style="{StaticResource sfSwitchStyle}">
+                    
+                </editors:SfSwitch>
                 <Label
                    Grid.Row="1"
                    Grid.Column="0"
@@ -127,7 +204,16 @@
                    Text="Allow tri-state sorting"
                    VerticalOptions="Center" />
 
-                <Switch Margin="5,0,0,0" x:Name="columnSorting" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="True" Grid.Column="1" Grid.Row="3"></Switch>
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="columnSorting"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="True"
+                                  Grid.Column="1"
+                                  Grid.Row="3"
+                                  Style="{StaticResource sfSwitchStyle}">
+                    
+                </editors:SfSwitch>
                 <Label
                    Grid.Row="3"
                    Grid.Column="0"
@@ -136,12 +222,14 @@
                    Text="Allow sorting for city column"
                    VerticalOptions="Center" />
 
-                <Switch Margin="5,0,0,0"
-                    Grid.Column="1" Grid.Row="4"
-                    x:Name="showSortNumbers" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" 
-                    IsToggled="False" />
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  Grid.Column="1"
+                                  Grid.Row="4"
+                                  x:Name="showSortNumbers"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="False"
+                                  Style="{StaticResource sfSwitchStyle}" />
                 <Label
                    Grid.Row="4"
                    Grid.Column="0"

@@ -7,17 +7,17 @@
 	<localCore:SampleView.Content>
 		<StackLayout Margin="10">
             <Label x:Name="description" LineBreakMode="WordWrap" Text="This example demonstrates how to encrypt and decrypt a Word document."
-                 VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0"/>
+                 VerticalOptions="Center" Margin="0,0,5,0"/>
 			<Label x:Name="label1" Text=" "></Label>
             <Label x:Name="note" LineBreakMode="WordWrap" Text="Use the password &quot;syncfusion&quot; to open an encrypted Word document."
-                 VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0"/>
+                 VerticalOptions="Center" Margin="0,0,5,0"/>
 			<Label x:Name="label2" Text=" "></Label>
             <Label x:Name="encryptButtonDescription" LineBreakMode="WordWrap" Text="Click the &quot;Encrypt Document&quot; button to view the encrypted Word document."
-                  VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0">
+                  VerticalOptions="Center" Margin="0,0,5,0">
 			</Label>
 			<Label x:Name="label3" Text=" "></Label>
             <Label x:Name="decryptButtonDescription" LineBreakMode="WordWrap" Text="Click the &quot;Decrypt Document&quot; button to view the decrypted Word document. Please note that a Word-compatible viewer is required to open and view the Word document."
-                  VerticalOptions="Center" TextColor="Black" Margin="0,0,5,0">
+                  VerticalOptions="Center" Margin="0,0,5,0">
 			</Label>
 			<Label x:Name="label4" Text=" "></Label>
             <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">

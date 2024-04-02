@@ -6,7 +6,8 @@
     xmlns:carousel="clr-namespace:Syncfusion.Maui.Carousel;assembly=Syncfusion.Maui.Carousel"
     xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
     xmlns:local="clr-namespace:SampleBrowser.Maui.Carousel.Carousel"
-    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localcore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
@@ -14,7 +15,7 @@
             <Setter Property="FontFamily" Value="Roboto" />
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="TextColor" Value="#1C1B1F" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />
             <Setter Property="Margin" Value="0,15,0,0" />
         </Style>
@@ -63,7 +64,7 @@
                 FontSize="14"
                 HorizontalTextAlignment="Center"
                 Text="Vast Eurasian nation with rich cultural heritage, diverse landscapes, and a complex geopolitical history."
-                TextColor="#49454F"
+                TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                 WidthRequest="300" />
         </VerticalStackLayout>
 

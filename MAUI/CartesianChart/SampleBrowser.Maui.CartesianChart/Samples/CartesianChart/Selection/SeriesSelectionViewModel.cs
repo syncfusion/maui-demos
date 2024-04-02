@@ -14,7 +14,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
     {
         public ObservableCollection<Brush> CustomAlphaColor { get; set; }
         public ObservableCollection<ChartDataModel> SelectionData { get; set; }
-
+        public ObservableCollection<Brush> Brushes { get; set; }
 
         public SeriesSelectionViewModel()
         {
@@ -37,7 +37,15 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
                 new ChartDataModel("BGD",26.3,68.4, 5.3),
 #endif
             };
-        }
 
+            Brushes = new ObservableCollection<Brush>
+             {
+                 new SolidColorBrush(Color.FromArgb("#2A9AF3")),
+                 new SolidColorBrush(Color.FromArgb("#0DC920")),
+                 new SolidColorBrush(Color.FromArgb("#F5921F")),
+                 new SolidColorBrush(Color.FromArgb("#E64191")),
+                 new SolidColorBrush(Color.FromArgb("#2EC4B6"))
+             };
+        }
     }
 }

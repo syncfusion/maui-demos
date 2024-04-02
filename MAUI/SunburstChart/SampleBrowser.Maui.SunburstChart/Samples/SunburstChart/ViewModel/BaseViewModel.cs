@@ -44,10 +44,11 @@ namespace SampleBrowser.Maui.SunburstChart.SfSunburstChart
         {
             CustomBrush1 = new ObservableCollection<Brush>()
             {
-               new SolidColorBrush(Color.FromArgb("#08CDAA")),
-               new SolidColorBrush(Color.FromArgb("#06B1E2")),
-               new SolidColorBrush(Color.FromArgb("#CDB509")),
-               new SolidColorBrush(Color.FromArgb("#F954A3")),
+               new SolidColorBrush(Color.FromArgb("#2A9AF3")),
+               new SolidColorBrush(Color.FromArgb("#0DC920")),
+               new SolidColorBrush(Color.FromArgb("#F5921F")),
+               new SolidColorBrush(Color.FromArgb("#E64191")),
+               new SolidColorBrush(Color.FromArgb("#2EC4B6")),
             };
 
             CustomBrush2 = new ObservableCollection<Brush>()
@@ -68,5 +69,10 @@ namespace SampleBrowser.Maui.SunburstChart.SfSunburstChart
                new SolidColorBrush(Color.FromArgb("#D4F954A3")),
             };
         }
+    }
+
+    public class ChartColorModel : ObservableCollection<Brush>
+    {
+
     }
 }

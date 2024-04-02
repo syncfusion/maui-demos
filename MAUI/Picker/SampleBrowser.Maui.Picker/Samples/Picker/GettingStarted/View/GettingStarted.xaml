@@ -4,8 +4,9 @@
              x:Class="SampleBrowser.Maui.Picker.SfPicker.GettingStarted"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
-                      xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-             xmlns:local="clr-namespace:SampleBrowser.Maui.Picker.SfPicker"  Background="WhiteSmoke" Margin="{OnPlatform WinUI=-10, MacCatalyst=-10, Default=0}">
+             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Picker.SfPicker"  Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Margin="{OnPlatform WinUI=-10, MacCatalyst=-10, Default=0}">
 
     <localCore:SampleView.Content>
         <Grid Padding="10">
@@ -22,43 +23,15 @@
 
                 <Grid Grid.Row="0" WidthRequest="320" HeightRequest="330" HorizontalOptions="Center" VerticalOptions="Center">
                     <Frame x:Name="frame" BackgroundColor="White" IsVisible="{OnPlatform WinUI=True, Android=True, Default=False}" HasShadow="False" CornerRadius="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0" >
-                        <picker:SfPicker x:Name="Picker" HeightRequest="330"  SelectionChanged="OnPickerSelectionChanged">
-
-                            <picker:SfPicker.HeaderView>
-                                <picker:PickerHeaderView Height="50" Text="Select a Country" Background="#6750A4">
-                                    <picker:PickerHeaderView.TextStyle>
-                                        <picker:PickerTextStyle FontSize="15" TextColor="White" />
-                                    </picker:PickerHeaderView.TextStyle>
-                                </picker:PickerHeaderView>
-                            </picker:SfPicker.HeaderView>
-
-                            <picker:SfPicker.SelectionView>
-                                <picker:PickerSelectionView Padding="0" CornerRadius="0" Background="#6750A4"/>
-                            </picker:SfPicker.SelectionView>
-
-                        </picker:SfPicker>
+                        <picker:SfPicker x:Name="Picker" HeightRequest="330"  SelectionChanged="OnPickerSelectionChanged" />
                     </Frame>
 
                     <Border x:Name="border" BackgroundColor="White" IsVisible="{OnPlatform WinUI=False, Android=False, Default=True}" StrokeThickness="2" StrokeShape="RoundRectangle 5,5,5,5" Margin="0" Padding="0">
-                        <picker:SfPicker x:Name="Picker1" HeightRequest="330" SelectionChanged="OnPickerSelectionChanged">
-
-                            <picker:SfPicker.HeaderView>
-                                <picker:PickerHeaderView Height="50" Text="Select a Country" Background="#6750A4">
-                                    <picker:PickerHeaderView.TextStyle>
-                                        <picker:PickerTextStyle FontSize="15" TextColor="White" />
-                                    </picker:PickerHeaderView.TextStyle>
-                                </picker:PickerHeaderView>
-                            </picker:SfPicker.HeaderView>
-
-                            <picker:SfPicker.SelectionView>
-                                <picker:PickerSelectionView Padding="0" CornerRadius="0" Background="#6750A4"/>
-                            </picker:SfPicker.SelectionView>
-
-                        </picker:SfPicker>
+                        <picker:SfPicker x:Name="Picker1" HeightRequest="330" SelectionChanged="OnPickerSelectionChanged" />
                     </Border>
                 </Grid>
 
-                <Grid Grid.Row="1" Margin="0, 10, 0, 10" Padding="5" BackgroundColor="White">
+                <Grid Grid.Row="1" Margin="0, 10, 0, 10" Padding="5" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource Border}}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"/>
                         <RowDefinition Height="1"/>
@@ -69,13 +42,13 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label HeightRequest="30" Text="Event Log" FontSize="15" VerticalTextAlignment="Center" HorizontalOptions="Start" />
-                        <Button Grid.Column="1" Text="Clear" BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Blue" VerticalOptions="Center" HorizontalOptions="End" Clicked="OnClearButtonClicked"/>
+                        <Label HeightRequest="30" Text="Event Log" FontSize="15" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                        <Button Grid.Column="1" Text="Clear" BackgroundColor="Transparent" BorderColor="Transparent" TextColor="{AppThemeBinding Light={StaticResource BadgeColour3Light}, Dark={StaticResource BadgeColour3}}" VerticalOptions="Center" HorizontalOptions="End" Clicked="OnClearButtonClicked"/>
                     </Grid>
                     <BoxView Grid.Row="1" BackgroundColor="LightGray"/>
                     <ScrollView Grid.Row="2" VerticalScrollBarVisibility="Always" Margin="0, 10, 0, 0">
                         <StackLayout Padding="5, 0" x:Name="labelStack">
-                            <Label Text="Australia has been selected" VerticalOptions="Center"/>
+                            <Label Text="Australia has been selected" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                         </StackLayout>
                     </ScrollView>
                 </Grid>
@@ -95,20 +68,20 @@
 
                     <Grid x:Name="showHeaderGrid" HeightRequest="50">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.8*"/>
-                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text="Show Header"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Gray"/>
-                        <Switch  x:Name="showHeaderSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsToggled="True" HorizontalOptions="End" />
+                        <Label Text="Show Header"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch  x:Name="showHeaderSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="True" HorizontalOptions="End" />
                     </Grid>
 
                     <Grid x:Name="showFooterGrid" HeightRequest="50">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.8*"/>
-                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text="Show Footer"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Gray"/>
-                        <Switch  x:Name="showFooterSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsToggled="False" HorizontalOptions="End" />
+                        <Label Text="Show Footer"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch  x:Name="showFooterSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="False" HorizontalOptions="End" />
                     </Grid>
 
                 </StackLayout>

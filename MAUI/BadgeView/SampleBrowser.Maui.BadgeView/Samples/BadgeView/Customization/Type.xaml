@@ -18,7 +18,7 @@
                                            WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                            HeightRequest="80"
                                            BadgeText="99"
-                                           BackgroundColor="White">
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                         <Grid RowDefinitions="*,20">
                             <Image Source="{imageExtension:SfImageResource facebook.png}" 
                                    HorizontalOptions="Center" 
@@ -27,13 +27,13 @@
                                    VerticalOptions="Start" />
                             <Label Grid.Row="1"
                                            Text="Success"  
-                                           TextColor="Black"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            HorizontalOptions="Center"
                                            VerticalOptions="End"/>
                         </Grid>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Type="Success"
-                                                     Stroke="White"
+                                                     Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                                      StrokeThickness="2"
                                                      FontSize="15"/>
                     </badge:SfBadgeView.BadgeSettings>
@@ -44,7 +44,7 @@
                                            WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                            HeightRequest="80"
                                            BadgeText="99"
-                                           BackgroundColor="White">
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                     <Grid RowDefinitions="*,20">
                             <Image Source="{imageExtension:SfImageResource facebook.png}" 
                                    HorizontalOptions="Center" 
@@ -53,13 +53,13 @@
                                    VerticalOptions="Start" />
                         <Label Grid.Row="1"
                                            Text="Dark"  
-                                           TextColor="Black"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            HorizontalOptions="Center"
                                            VerticalOptions="End"/>
                     </Grid>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Type="Dark"
-                                                     Stroke="White"
+                                                     Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                                      StrokeThickness="2"
                                                      FontSize="15"/>
                     </badge:SfBadgeView.BadgeSettings>
@@ -70,7 +70,7 @@
                                            WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                            HeightRequest="80"
                                            BadgeText="99"
-                                           BackgroundColor="White">
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                         <Grid RowDefinitions="*,20">
                             <Image Source="{imageExtension:SfImageResource facebook.png}" 
                                    HorizontalOptions="Center" 
@@ -79,13 +79,13 @@
                                    VerticalOptions="Start" />
                             <Label Grid.Row="1"
                                            Text="Info"  
-                                           TextColor="Black"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            HorizontalOptions="Center"
                                            VerticalOptions="End"/>
                         </Grid>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Type="Info"
-                                                     Stroke="White"
+                                                     Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                                      StrokeThickness="2"
                                                      FontSize="15"/>
                     </badge:SfBadgeView.BadgeSettings>
@@ -96,7 +96,7 @@
                                            WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                            HeightRequest="80"
                                            BadgeText="99"
-                                           BackgroundColor="White">
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                         <Grid RowDefinitions="*,20">
                             <Image Source="{imageExtension:SfImageResource facebook.png}" 
                                    HorizontalOptions="Center" 
@@ -105,16 +105,15 @@
                                    VerticalOptions="Start" />
                             <Label Grid.Row="1"
                                            Text="Light"  
-                                           TextColor="Black"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            HorizontalOptions="Center"
                                            VerticalOptions="End"/>
                         </Grid>
                     <badge:SfBadgeView.BadgeSettings>
-                        <badge:BadgeSettings TextColor="Black"
-                                                     Type="Light"
-                                                     Stroke="Black"
-                                                     StrokeThickness="1"
-                                                     FontSize="15"/>
+                        <badge:BadgeSettings  Type="Light"                                                     
+                                                Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                                StrokeThickness="1"
+                                                FontSize="15"/>
                     </badge:SfBadgeView.BadgeSettings>
                 </badge:SfBadgeView>
 
@@ -123,7 +122,7 @@
                                            WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                            HeightRequest="80"
                                            BadgeText="99"
-                                           BackgroundColor="White">
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                         <Grid RowDefinitions="*,20">
                             <Image Source="{imageExtension:SfImageResource facebook.png}" 
                                    HorizontalOptions="Center" 
@@ -132,13 +131,13 @@
                                    VerticalOptions="Start" />
                             <Label Grid.Row="1"
                                            Text="Primary"  
-                                           TextColor="Black"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            HorizontalOptions="Center"
                                            VerticalOptions="End"/>
                         </Grid>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Type="Primary"
-                                                     Stroke="White"
+                                                     Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                                      StrokeThickness="2"
                                                      FontSize="15"/>
                     </badge:SfBadgeView.BadgeSettings>
@@ -149,7 +148,7 @@
                                       Grid.Column="2" WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                        HeightRequest="80"
                                        BadgeText="99"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                         <Grid RowDefinitions="*,20" ColumnDefinitions="Auto">
                             <Image Grid.Row="0" Source="{imageExtension:SfImageResource facebook.png}" 
                                HorizontalOptions="Center" 
@@ -159,13 +158,13 @@
                             <Label Grid.Row="1" 
                                    Text="Secondary" 
                                    FontSize="13"
-                                   TextColor="Black"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                    HorizontalOptions="Center"
                                    VerticalOptions="End"/>
                         </Grid>
                         <badge:SfBadgeView.BadgeSettings>
                             <badge:BadgeSettings Type="Secondary"
-                                                 Stroke="White"
+                                                 Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                                  StrokeThickness="2"
                                                  FontSize="15"/>
                         </badge:SfBadgeView.BadgeSettings>
@@ -178,7 +177,7 @@
                                            WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                            HeightRequest="80"
                                            BadgeText="99"
-                                           BackgroundColor="White">
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                         <Grid RowDefinitions="*,20">
                             <Image Source="{imageExtension:SfImageResource facebook.png}" 
                                    HorizontalOptions="Center" 
@@ -187,13 +186,13 @@
                                    VerticalOptions="Start" />
                             <Label Grid.Row="1"
                                            Text="Warning" 
-                                           TextColor="Black" 
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" 
                                            HorizontalOptions="Center"
                                            VerticalOptions="End"/>
                         </Grid>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Type="Warning"
-                                                     Stroke="White"
+                                                     Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                                      StrokeThickness="2"
                                                      FontSize="15"/>
                     </badge:SfBadgeView.BadgeSettings>
@@ -204,7 +203,7 @@
                                            WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                            HeightRequest="80"
                                            BadgeText="99"
-                                           BackgroundColor="White">
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                         <Grid RowDefinitions="*,20">
                             <Image Source="{imageExtension:SfImageResource facebook.png}" 
                                    HorizontalOptions="Center" 
@@ -213,13 +212,13 @@
                                    VerticalOptions="Start" />
                             <Label Grid.Row="1"
                                            Text="Error" 
-                                           TextColor="Black"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            HorizontalOptions="Center"
                                            VerticalOptions="End"/>
                         </Grid>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Type="Error"
-                                                     Stroke="White"
+                                                     Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                                      StrokeThickness="2"
                                                      FontSize="15"/>
                     </badge:SfBadgeView.BadgeSettings>
@@ -230,7 +229,7 @@
                                            WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'
                                            HeightRequest="80"
                                            BadgeText="99"
-                                           BackgroundColor="White">
+                                           BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                         <Grid RowDefinitions="*,20">
                             <Image Source="{imageExtension:SfImageResource facebook.png}" 
                                    HorizontalOptions="Center" 
@@ -239,14 +238,14 @@
                                    VerticalOptions="Start" />
                             <Label Grid.Row="1"
                                            Text="None" 
-                                           TextColor="Black" 
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            HorizontalOptions="Center"
                                            VerticalOptions="End"/>
                         </Grid>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Type="None"
                                                      Background="DeepPink"
-                                                     Stroke="White"
+                                                     Stroke="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                                      StrokeThickness="2"
                                                      FontSize="15"/>
                     </badge:SfBadgeView.BadgeSettings>

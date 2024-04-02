@@ -4,19 +4,15 @@
 		<Control ControlName="Carousel"
 				 Title="Carousel"
 				 Image="carousel.png"
-				 Description="Provides an intuitive interface for navigating through a collection of views."
-				 StatusTag="New"
-		         IsPreview="True">
+				 Description="Provides an intuitive interface for navigating through a collection of views.">
 			<Sample SampleName="GettingStarted"
 					Title="Getting Started"
 					SearchTags="Carousel, Items Collection"
-					StatusTag="New"
 					CodeViewerPath="Carousel/GettingStarted/"
 					VideoLink=""/>
 			<Sample SampleName="LoadMore"
 					Title="Load More"
 					SearchTags="Carousel, LoadMore"
-					StatusTag="New"
 					CodeViewerPath="Carousel/LoadMore/"
 					VideoLink=""/>
 		</Control>

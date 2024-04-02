@@ -9,7 +9,7 @@
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
     </localCore:SampleView.Resources>
 
@@ -60,7 +60,7 @@
                                             <Label x:Name="thumpAnnotationLabel1"
                                                    Text="75%"
                                                    FontSize="Small"
-                                                   TextColor="Black" />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                         </gauge:GaugeAnnotation.Content>
                                     </gauge:GaugeAnnotation>
                                 </gauge:RadialAxis.Annotations>
@@ -70,7 +70,7 @@
                     <Label Text="Circle thumb"
                            FontSize="Micro"
                            HorizontalOptions="Center"
-                           TextColor="Black" />
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
@@ -113,7 +113,7 @@
                                             <Label x:Name="thumpAnnotationLabel2"
                                                    Text="75%"
                                                    FontSize="Small"
-                                                   TextColor="Black" />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                         </gauge:GaugeAnnotation.Content>
                                     </gauge:GaugeAnnotation>
                                 </gauge:RadialAxis.Annotations>
@@ -123,7 +123,7 @@
                     <Label Text="Rectangle thumb"
                            FontSize="Micro"
                            HorizontalOptions="Center"
-                           TextColor="Black" />
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
@@ -174,7 +174,7 @@
                                             <Label x:Name="thumpAnnotationLabel3"
                                                    Text="75%"
                                                    FontSize="Small"
-                                                   TextColor="Black" />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                         </gauge:GaugeAnnotation.Content>
                                     </gauge:GaugeAnnotation>
                                 </gauge:RadialAxis.Annotations>
@@ -184,7 +184,7 @@
                     <Label Text="Image thumb"
                            FontSize="Micro"
                            HorizontalOptions="Center"
-                           TextColor="Black" />
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                 </VerticalStackLayout>
 
             </StackLayout>

@@ -11,9 +11,11 @@ public partial class ToolbarMobile : ToolbarView
 {
 	public ToolbarMobile()
 	{
-		InitializeComponent();
+#if !WINDOWS && !MACCATALYST
+        InitializeComponent();
         AssignControls();
-	}
+#endif
+    }
 
     void AssignControls()
     {

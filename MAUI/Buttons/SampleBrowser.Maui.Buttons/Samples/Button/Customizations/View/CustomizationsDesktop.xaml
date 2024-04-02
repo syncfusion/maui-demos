@@ -8,30 +8,32 @@
              xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.Button"
-             BackgroundColor="White"
-             WidthRequest="380">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" 
+             WidthRequest="400">
 
     <localCore:SampleView.Resources>
         <Style x:Key="CheckBoxNormalStyle"  TargetType="button:SfCheckBox">
-            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
             <Setter Property="CheckedColor" Value="#6200EE"/>
             <Setter Property="FontFamily" Value="Roboto-Regular"/>
         </Style>
         <Style x:Key="EntryNormalStyle"  TargetType="Entry">
-            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
             <Setter Property="FontFamily" Value="Roboto-Regular"/>
         </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <Grid WidthRequest="380" HorizontalOptions="Center">
+
+        <Grid WidthRequest="380"  HorizontalOptions="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border Margin="5,10" Grid.Row="0" BackgroundColor="#f6f6f8" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
+
+            <Border Margin="5,10"  Grid.Row="0" Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
                 <Grid>
-                <button:SfButton  x:Name="cartButton"
+                    <button:SfButton  x:Name="cartButton"
                                      Background="#6200EE" 
                                      StrokeThickness="{Binding BorderWidth}" 
                                      WidthRequest="150" 
@@ -41,12 +43,12 @@
                                      CornerRadius="{Binding CornerRadius,Mode=TwoWay}">
                     <button:SfButton.Content>
                         <DataTemplate>
-                            <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center"  >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid Padding="5,0,5,0">
+                                <Grid Padding="5,0,5,0" >
                                     <Label Text="&#xE7BF;" 
                                            HorizontalTextAlignment="Center" 
                                            VerticalOptions="Center"
@@ -62,7 +64,7 @@
                                            HorizontalTextAlignment="Center" 
                                            FontSize="15" 
                                            HeightRequest="20" 
-                                           TextColor="{Binding TextColor}"               
+                                           TextColor="{Binding TextColor}"
                                            VerticalTextAlignment="Center" 
                                            VerticalOptions="Center" 
                                            LineBreakMode="NoWrap" >
@@ -74,8 +76,8 @@
                 </button:SfButton>
                </Grid>
             </Border>
-            <Border Grid.Row="1" Margin="5,0,5,10" BackgroundColor="#f6f6f8" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
-            <Grid>
+            <Border Grid.Row="1" Margin="5,0,5,10" Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
+                <Grid>
                     <ScrollView VerticalScrollBarVisibility="Never">
                         <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
                             <Core:SfTextInputLayout ContainerType="Outlined" Hint="Text" Margin="10,5,15,0">
@@ -84,15 +86,12 @@
                Placeholder="ADD TO CART"/>
                             </Core:SfTextInputLayout>
                             <tabView:SfTabView
-                                    Margin="15,0"
-                                    IndicatorBackground="#c6c6c6"
-							        TabBarBackground="White"
+                                    Margin="15,0" 
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center"
                                     HeightRequest="130">
                                 <tabView:SfTabItem Header="Text Color" 
-										   FontFamily="Roboto-Regular" 
-										   HeightRequest="40">
+										   FontFamily="Roboto-Regular" >
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="WinUI" Value ="12"/>
@@ -141,7 +140,7 @@
                                         </StackLayout>
                                     </tabView:SfTabItem.Content>
                                 </tabView:SfTabItem>
-                                <tabView:SfTabItem Header="Background" FontFamily="Roboto-Regular" HeightRequest="40">
+                                <tabView:SfTabItem Header="Background" FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="WinUI" Value ="12"/>
@@ -190,7 +189,7 @@
                                         </StackLayout>
                                     </tabView:SfTabItem.Content>
                                 </tabView:SfTabItem>
-                                <tabView:SfTabItem Header="Border Color" FontFamily="Roboto-Regular" HeightRequest="40">
+                                <tabView:SfTabItem Header="Border Color" FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="WinUI" Value ="12"/>

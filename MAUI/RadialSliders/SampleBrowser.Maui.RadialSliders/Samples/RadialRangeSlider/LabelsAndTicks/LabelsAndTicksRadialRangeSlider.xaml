@@ -8,7 +8,7 @@
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
     </localCore:SampleView.Resources>
 
@@ -88,7 +88,7 @@
                                         <Label Text="12 AM"
                                                x:Name="clockAnnotationLabel1"
                                                FontSize="Small"
-                                               TextColor="Black" />
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
                                 <gauge:GaugeAnnotation>
@@ -96,7 +96,7 @@
                                         <Label Text=" - "
                                                x:Name="clockAnnotationLabel2"
                                                FontSize="Small"
-                                               TextColor="Black" />
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
                                 <gauge:GaugeAnnotation  x:Name="EndValueAnnotation"
@@ -107,7 +107,7 @@
                                         <Label Text="9 AM"
                                                x:Name="clockAnnotationLabel3"
                                                FontSize="Small"
-                                               TextColor="Black" />
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
                             </gauge:RadialAxis.Annotations>

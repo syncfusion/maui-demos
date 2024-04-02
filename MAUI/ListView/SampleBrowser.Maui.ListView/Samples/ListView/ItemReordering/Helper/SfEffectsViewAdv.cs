@@ -25,11 +25,15 @@ namespace SampleBrowser.Maui.ListView.SfListView
                 if (e.Action == PointerActions.Entered)
                 {
                     this.ApplyEffects(SfEffects.Highlight, RippleStartPosition.Default, new System.Drawing.Point((int)e.TouchPoint.X, (int)e.TouchPoint.Y), false);
-                }                
-                else if (e.Action == PointerActions.Exited)
+                }
+                else if (e.Action == PointerActions.Pressed)
+                {
+                    this.ApplyEffects(SfEffects.Ripple, RippleStartPosition.Default, new System.Drawing.Point((int)e.TouchPoint.X, (int)e.TouchPoint.Y), false);
+                }
+                else if(e.Action == PointerActions.Released || e.Action == PointerActions.Cancelled || e.Action == PointerActions.Exited)
                 {
                     this.Reset();
-                }             
+                }
             }
         }
     }

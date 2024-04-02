@@ -27,7 +27,7 @@
                                                              Thickness="0.01" />
                         </gauge:RadialAxis.AxisLineStyle>
                         <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle FontSize="10" />
+                            <gauge:GaugeLabelStyle FontSize="10" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                         </gauge:RadialAxis.AxisLabelStyle>
                         <gauge:RadialAxis.MajorTickStyle>
                             <gauge:RadialTickStyle LengthUnit="Factor"
@@ -63,7 +63,7 @@
                                                                                          Thickness="0.02" />
                                                     </gauge:RadialAxis.AxisLineStyle>
                                                     <gauge:RadialAxis.AxisLabelStyle>
-                                                        <gauge:GaugeLabelStyle FontSize="6" />
+                                                        <gauge:GaugeLabelStyle FontSize="6" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                                                     </gauge:RadialAxis.AxisLabelStyle>
                                                     <gauge:RadialAxis.MajorTickStyle>
                                                         <gauge:RadialTickStyle LengthUnit="Factor"
@@ -113,7 +113,7 @@
                                                                                          Thickness="0.02" />
                                                     </gauge:RadialAxis.AxisLineStyle>
                                                     <gauge:RadialAxis.AxisLabelStyle>
-                                                        <gauge:GaugeLabelStyle FontSize="6" />
+                                                        <gauge:GaugeLabelStyle FontSize="6" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                                                     </gauge:RadialAxis.AxisLabelStyle>
                                                     <gauge:RadialAxis.MajorTickStyle>
                                                         <gauge:RadialTickStyle LengthUnit="Factor"

@@ -8,6 +8,7 @@
 #endregion
 
 using Microsoft.Maui.Controls.Shapes;
+using System.ComponentModel;
 
 namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 public partial class StampPropertyToolbar : PropertyToolbar
@@ -36,5 +37,21 @@ public partial class StampPropertyToolbar : PropertyToolbar
         }
         if (selectedColorButtonHighlight.Parent == null)
             opacityGrid.Children.Add(selectedColorButtonHighlight);
+    }
+    private void deleteButtonLayout_PropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == "IsVisible")
+        {
+            if (deleteButtonLayout.IsVisible)
+            {
+                deleteButtonLayout.Margin = new Thickness(10, 0, 0, 0);
+                lockUnlokButtonLayout.Margin = new Thickness(10, 0, 0, 0);
+            }
+            else
+            {
+                deleteButtonLayout.Margin = new Thickness(0, 0, 0, 0);
+                lockUnlokButtonLayout.Margin = new Thickness(0, 0, 0, 0);
+            }
+        }
     }
 }

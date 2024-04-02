@@ -29,11 +29,15 @@ namespace SampleBrowser.Maui.DataGrid
             var viewModel = dataContext as DealerInfoViewModel;
 
             // Returns ShipCity collection based on ShipCountry.
-            if (viewModel!.ShipCity.ContainsKey(countryName!))
+            if (countryName != null && viewModel!.ShipCity.ContainsKey(countryName!))
             {
                 string[] shipcities = null!;
                 viewModel.ShipCity.TryGetValue(countryName!, out shipcities!);
                 return shipcities.ToList();
+            }
+            if (countryName == null)
+            {
+                orderinfo.ShipCity = null;
             }
 
             return null!;

@@ -5,8 +5,7 @@
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
-             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
-    BackgroundColor="White">
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
     <localCore:SampleView.BindingContext>
         <local:SalesViewModel>
         </local:SalesViewModel>
@@ -14,7 +13,6 @@
     <localCore:SampleView.Resources>
         <ResourceDictionary>
             <local:ConditionalStylingConverter x:Key="customstyle"/>
-            <local:ConditionalStylingForegroundConverter x:Key="foreGroundColor"></local:ConditionalStylingForegroundConverter>            
         </ResourceDictionary>
         <OnPlatform x:Key="maximumWidth"
             x:TypeArguments="x:Double">
@@ -26,8 +24,18 @@
             <On Platform="WinUI,MacCatalyst" Value="300"></On>
         </OnPlatform>
         <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-7,-7"/>
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
         </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
     </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
 
@@ -38,70 +46,66 @@
                            RowHeight="48"
                            HorizontalScrollBarVisibility="Always"
                            VerticalScrollBarVisibility="Always"
-                            ItemsSource="{Binding DailySalesDetails}"
+                           ItemsSource="{Binding DailySalesDetails}"
                            ColumnWidthMode="Fill">
-            <sfgrid:SfDataGrid.DefaultStyle>
-                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" HeaderRowTextColor="#212121"  RowTextColor="#212121"></sfgrid:DataGridStyle>
-            </sfgrid:SfDataGrid.DefaultStyle>
             <sfgrid:SfDataGrid.Columns>
-                <sfgrid:DataGridTextColumn   MappingName="Name" HeaderText="Name">
+                <sfgrid:DataGridTextColumn   MappingName="Name"
+                                             HeaderText="Name">
 
                 </sfgrid:DataGridTextColumn>
-                <sfgrid:DataGridTextColumn Format="C" HeaderText="QS1"
-                               CellTextAlignment="Center"
-                               HeaderTextAlignment="Center"
-                               MappingName="QS1"
-                               MaximumWidth="{StaticResource maximumWidth}">
-                    <sfgrid:DataGridTextColumn.CellStyle>
-                        <Style TargetType="sfgrid:DataGridCell">
-                            <Setter Property="Background" Value="{Binding QS1, Converter={StaticResource customstyle}, ConverterParameter=QS1}" />
-                            <Setter Property="TextColor" Value="{Binding QS1,Converter={StaticResource foreGroundColor}}"></Setter>
-                        </Style>
-                    </sfgrid:DataGridTextColumn.CellStyle>
-
-                </sfgrid:DataGridTextColumn>
-                <sfgrid:DataGridTextColumn Format="C" HeaderText="QS2"
-                               CellTextAlignment="Center"
-                               HeaderTextAlignment="Center"
-                               MappingName="QS2"
-                               MaximumWidth="{StaticResource maximumWidth}"
-                               >
-                    <sfgrid:DataGridTextColumn.CellStyle >
-                        <Style TargetType="sfgrid:DataGridCell">
-                            <Setter Property="Background" Value="{Binding QS2, Converter={StaticResource customstyle}, ConverterParameter=QS2}" />
-                            <Setter Property="TextColor" Value="{Binding QS2,Converter={StaticResource foreGroundColor}}"></Setter>
-                        </Style>
-                    </sfgrid:DataGridTextColumn.CellStyle>
-                </sfgrid:DataGridTextColumn>
-
                 <sfgrid:DataGridTextColumn Format="C"
-                             HeaderText="QS3"
-                               CellTextAlignment="Center"
-                               HeaderTextAlignment="Center"
-                               MappingName="QS3"
-                             
-                               MaximumWidth="{StaticResource maximumWidth}"
-                               >
+                                           HeaderText="QS1"
+                                           CellTextAlignment="Center"
+                                           HeaderTextAlignment="Center"
+                                           MappingName="QS1"
+                                           MaximumWidth="{StaticResource maximumWidth}">
                     <sfgrid:DataGridTextColumn.CellStyle>
                         <Style TargetType="sfgrid:DataGridCell">
-                            <Setter Property="Background" Value="{Binding QS3, Converter={StaticResource customstyle}, ConverterParameter=QS3}" />
-                            <Setter Property="TextColor" Value="{Binding QS3,Converter={StaticResource foreGroundColor}}"></Setter>
+                            <Setter Property="Background"
+                                    Value="{Binding QS1, Converter={StaticResource customstyle}, ConverterParameter=QS1}" />
+                        </Style>
+                    </sfgrid:DataGridTextColumn.CellStyle>
+
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn Format="C"
+                                           HeaderText="QS2"
+                                           CellTextAlignment="Center"
+                                           HeaderTextAlignment="Center"
+                                           MappingName="QS2"
+                                           MaximumWidth="{StaticResource maximumWidth}">
+                    <sfgrid:DataGridTextColumn.CellStyle>
+                        <Style TargetType="sfgrid:DataGridCell">
+                            <Setter Property="Background"
+                                    Value="{Binding QS2, Converter={StaticResource customstyle}, ConverterParameter=QS2}" />
                             
                         </Style>
                     </sfgrid:DataGridTextColumn.CellStyle>
                 </sfgrid:DataGridTextColumn>
 
                 <sfgrid:DataGridTextColumn Format="C"
-                               MappingName="QS4"
-                               CellTextAlignment="Center"
-                               HeaderTextAlignment="Center"
-                                           HeaderText="QS4"
-                               MaximumWidth="{StaticResource maximumWidth}"
-                               >
+                                           HeaderText="QS3"
+                                           CellTextAlignment="Center"
+                                           HeaderTextAlignment="Center"
+                                           MappingName="QS3"
+                                           MaximumWidth="{StaticResource maximumWidth}">
                     <sfgrid:DataGridTextColumn.CellStyle>
                         <Style TargetType="sfgrid:DataGridCell">
-                            <Setter Property="Background" Value="{Binding QS4, Converter={StaticResource customstyle}, ConverterParameter=QS4}" />
-                            <Setter Property="TextColor" Value="{Binding QS4,Converter={StaticResource foreGroundColor}}"></Setter>
+                            <Setter Property="Background"
+                                    Value="{Binding QS3, Converter={StaticResource customstyle}, ConverterParameter=QS3}" />
+                        </Style>
+                    </sfgrid:DataGridTextColumn.CellStyle>
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn Format="C"
+                                           MappingName="QS4"
+                                           CellTextAlignment="Center"
+                                           HeaderTextAlignment="Center"
+                                           HeaderText="QS4"
+                                           MaximumWidth="{StaticResource maximumWidth}">
+                    <sfgrid:DataGridTextColumn.CellStyle>
+                        <Style TargetType="sfgrid:DataGridCell">
+                            <Setter Property="Background"
+                                    Value="{Binding QS4, Converter={StaticResource customstyle}, ConverterParameter=QS4}" />
                         </Style>
                     </sfgrid:DataGridTextColumn.CellStyle>
                 </sfgrid:DataGridTextColumn>

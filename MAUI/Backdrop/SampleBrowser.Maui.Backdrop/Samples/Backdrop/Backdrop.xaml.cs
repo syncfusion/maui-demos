@@ -7,7 +7,6 @@
 #endregion
 namespace SampleBrowser.Maui.Backdrop.SfBackdropPage;
 using Syncfusion.Maui.Backdrop;
-using Syncfusion.Maui.Sliders;
 
 public partial class Backdrop : SfBackdropPage
 {
@@ -77,7 +76,7 @@ public partial class Backdrop : SfBackdropPage
         this.autoButton.Background = normalColor;
     }
 
-    private void cornerRadiusSlider_ValueChanged(object sender, SliderValueChangedEventArgs e)
+    private void cornerRadiusSlider_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         switch (edgeShapeSide)
         {

@@ -9,10 +9,10 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="SampleDescription" LineBreakMode="WordWrap" Text="This example demonstrates how to create a pivot table using Essential XlsIO."
-                 VerticalOptions="Center" TextColor="Black">
+                 VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
-            <Label x:Name="textBlock1" LineBreakMode="WordWrap" Text="Click the &quot;Create Pivot Table&quot; button to view the created Excel file generated using Essential XlsIO. Please note that an Excel-compatible viewer is required to open and view the Excel file." TextColor="Black"/>
+            <Label x:Name="textBlock1" LineBreakMode="WordWrap" Text="Click the &quot;Create Pivot Table&quot; button to view the created Excel file generated using Essential XlsIO. Please note that an Excel-compatible viewer is required to open and view the Excel file."/>
            
             <Label Text=" "/>
             <Grid>

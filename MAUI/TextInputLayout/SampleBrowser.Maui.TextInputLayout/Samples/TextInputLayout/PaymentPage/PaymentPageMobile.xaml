@@ -6,47 +6,24 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-                      BackgroundColor="White">
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.Resources>
         <ResourceDictionary>
 
             <Style TargetType="syncfusion:SfTextInputLayout" x:Key="InputLayoutStyle">
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup>
-                            <VisualState Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="Stroke" Value="#79747E"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState Name="Focused">
-                                <VisualState.Setters>
-                                    <Setter Property="Stroke" Value="#6200EE"/>
-                                    <Setter Property="HintLabelStyle">
-                                        <syncfusion:LabelStyle TextColor="#6200EE" FontFamily="Roboto-Regular" FontSize="14"/>
-                                    </Setter>
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState Name="Error">
-                                <VisualState.Setters>
-                                    <Setter Property="Stroke" Value="#B3261E"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
+                
                 <Setter Property="ContainerType" Value="Outlined"/>
-                <Setter Property="ContainerBackground" Value="Transparent"/>
+               
                 <Setter Property="HeightRequest" Value="63"/>
                 <Setter Property="HintLabelStyle">
-                    <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" FontSize="14"/>
+                    <syncfusion:LabelStyle  FontFamily="Roboto-Regular" FontSize="14"/>
                 </Setter>
                 <Setter Property="HelperLabelStyle">
-                    <syncfusion:LabelStyle TextColor="#79747E" FontFamily="Roboto-Regular" />
+                    <syncfusion:LabelStyle  FontFamily="Roboto-Regular" />
                 </Setter>
                 <Setter Property="ErrorLabelStyle">
-                    <syncfusion:LabelStyle TextColor="#B3261E" FontFamily="Roboto-Regular"/>
+                    <syncfusion:LabelStyle FontFamily="Roboto-Regular"/>
                 </Setter>
 
             </Style>
@@ -57,7 +34,7 @@
         <ScrollView>
             <VerticalStackLayout Padding="10,0,15,0" Spacing="20" WidthRequest="350" VerticalOptions="Center" >
 
-                <Label Text="Card Number" FontFamily="Roboto-Regular" Margin="0,0,0,-20" TextColor="#79747E"/>
+                <Label Text="Card Number" FontFamily="Roboto-Regular" Margin="0,0,0,-20" TextColor="{AppThemeBinding Light={StaticResource TextColourAlt1Light}, Dark={StaticResource TextColourAlt1}}"/>
                 <HorizontalStackLayout Margin="0,0,0,-15" Spacing="{OnPlatform Android=19, iOS=17}">
                     <syncfusion:SfTextInputLayout x:Name="CardNumberField" Style="{StaticResource InputLayoutStyle}" Hint="0000" EnableFloating="False" EnableHintAnimation="False" WidthRequest="{OnPlatform Android=66, iOS=68}" >
                         <Entry  Keyboard="Numeric" MaxLength="4" ReturnType="Next" TextChanged="Entry_TextChanged"/>
@@ -130,7 +107,7 @@
                      Text="Pay Now"
                      Margin="0,45,0,0"
                      FontFamily="Roboto-Regular"
-                     BackgroundColor="#6200EE"
+                     BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}"
                      Clicked="SubmitButton_Clicked"
                      HorizontalOptions="FillAndExpand"/>
             </VerticalStackLayout>

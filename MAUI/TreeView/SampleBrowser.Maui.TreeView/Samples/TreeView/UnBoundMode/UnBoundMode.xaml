@@ -12,6 +12,7 @@
         <Grid>
             <Image Source="{converters:SfImageResource feedbackform.png}" Aspect="Fill" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
             <Frame Padding="0"
+                   Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                    BorderColor="{OnPlatform Default=Transparent, WinUI=#C2C2C2, MacCatalyst=#C2C2C2}"
                    CornerRadius="10"
                    VerticalOptions="{OnPlatform MacCatalyst=Center}"

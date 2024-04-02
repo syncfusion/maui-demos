@@ -30,7 +30,7 @@
                     <badge:SfBadgeView WidthRequest="60"
                                        HeightRequest="60"
                                        HorizontalOptions="Center"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                             <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
                                HorizontalOptions="Center" 
                                WidthRequest="60"
@@ -44,7 +44,7 @@
                     </badge:SfBadgeView>
 
                     <Label Text="Add"  
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
@@ -53,7 +53,7 @@
                     <badge:SfBadgeView WidthRequest="60"
                                        HeightRequest="60"
                                        HorizontalOptions="Center"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                             <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
                                HorizontalOptions="Center" 
                                WidthRequest="60"
@@ -67,7 +67,7 @@
                     </badge:SfBadgeView>
 
                     <Label Text="Available"  
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
@@ -76,7 +76,7 @@
                     <badge:SfBadgeView WidthRequest="60"
                                        HeightRequest="60"
                                        HorizontalOptions="Center"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                             <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
                                HorizontalOptions="Center" 
                                WidthRequest="60"
@@ -90,7 +90,7 @@
                     </badge:SfBadgeView>
 
                     <Label Text="Away"  
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
@@ -99,7 +99,7 @@
                     <badge:SfBadgeView WidthRequest="60"
                                        HeightRequest="60"
                                        HorizontalOptions="Center"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                             <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
                                HorizontalOptions="Center" 
                                WidthRequest="60"
@@ -113,7 +113,7 @@
                     </badge:SfBadgeView>
 
                     <Label Text="Busy"  
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
@@ -122,7 +122,7 @@
                     <badge:SfBadgeView WidthRequest="60"
                                        HeightRequest="60"
                                        HorizontalOptions="Center"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                             <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
                                HorizontalOptions="Center" 
                                WidthRequest="60"
@@ -136,7 +136,7 @@
                     </badge:SfBadgeView>
 
                     <Label Text="Delete"  
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
@@ -145,7 +145,7 @@
                     <badge:SfBadgeView WidthRequest="60"
                                        HeightRequest="60"
                                        HorizontalOptions="Center"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                             <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
                                HorizontalOptions="Center" 
                                WidthRequest="60"
@@ -159,7 +159,7 @@
                     </badge:SfBadgeView>
 
                     <Label Text="Dot"  
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
@@ -168,7 +168,7 @@
                     <badge:SfBadgeView WidthRequest="60"
                                        HeightRequest="60"
                                        HorizontalOptions="Center"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                             <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
                                HorizontalOptions="Center" 
                                WidthRequest="60"
@@ -182,7 +182,7 @@
                     </badge:SfBadgeView>
 
                     <Label Text="Prohibit1"  
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
@@ -191,7 +191,7 @@
                     <badge:SfBadgeView WidthRequest="60"
                                        HeightRequest="60"
                                        HorizontalOptions="Center"
-                                       BackgroundColor="White">
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                             <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
                                HorizontalOptions="Center" 
                                WidthRequest="60"
@@ -205,7 +205,7 @@
                     </badge:SfBadgeView>
 
                     <Label Text="Prohibit2"  
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            HorizontalOptions="Center" />
                 </VerticalStackLayout>
             </Grid>

@@ -4,15 +4,22 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" Padding="20">
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
             <StackLayout.BindingContext>
                 <local:TooltipViewModel/>
             </StackLayout.BindingContext>
-            <chart:SfCartesianChart x:Name="tooltipChart" PaletteBrushes="{Binding PaletteBrushes}" VerticalOptions="FillAndExpand">
+            <chart:SfCartesianChart x:Name="tooltipChart" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" VerticalOptions="FillAndExpand">
                 <chart:SfCartesianChart.Title >
                     <VerticalStackLayout Margin="0,0,0,5">
-                        <Label Text="Labor Force" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                        <Label Text="Labor Force" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
                     </VerticalStackLayout>
                 </chart:SfCartesianChart.Title>
                 <chart:SfCartesianChart.Legend>
@@ -22,23 +29,23 @@
                     <ResourceDictionary>
                         <DataTemplate x:Key="template1">
                             <StackLayout>
-                                <Label Text="Germany" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
-                                <BoxView Color="Gray" HeightRequest="1" WidthRequest="100" />
+                                <Label Text="Germany" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
+                                <BoxView Color="{AppThemeBinding Default={StaticResource ContentBackground}}" HeightRequest="1" WidthRequest="100" />
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Fill" Spacing="0" Padding="3" Margin="0">
-                                    <Ellipse TranslationY="-1" Stroke="White" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="#314A6E" Margin="0,3,3,0" />
-                                    <Label Text="{Binding Item.Value1}"  VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
-                                    <Label Text="{Binding Item.Value,StringFormat=' :  {0}M'}" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="White" FontFamily="Helvetica" Margin="0,0,3,0"  FontSize="12" />
+                                    <Ellipse TranslationY="-1" Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" Margin="0,3,3,0" />
+                                    <Label Text="{Binding Item.Value1}"  VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
+                                    <Label Text="{Binding Item.Value,StringFormat=' :  {0}M'}" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" Margin="0,0,3,0"  FontSize="12" />
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
                         <DataTemplate x:Key="template2">
                             <StackLayout>
-                                <Label Text="Mexico" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
-                                <BoxView Color="Gray" HeightRequest="1" WidthRequest="100" />
+                                <Label Text="Mexico" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
+                                <BoxView Color="{AppThemeBinding Default={StaticResource ContentBackground}}" HeightRequest="1" WidthRequest="100" />
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Fill" Spacing="0" Padding="3" Margin="0">
-                                    <Ellipse TranslationY="-1"  Stroke="White" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="#48988B" Margin="0,3,3,0" />
-                                    <Label Text="{Binding Item.Value1}"  VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
-                                    <Label Text="{Binding Item.Size,StringFormat=' :  {0}M'}" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="White" FontFamily="Helvetica" Margin="0,0,3,0"  FontSize="12" />
+                                    <Ellipse TranslationY="-1"  Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" Margin="0,3,3,0" />
+                                    <Label Text="{Binding Item.Value1}"  VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
+                                    <Label Text="{Binding Item.Size,StringFormat=' :  {0}M'}" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" Margin="0,0,3,0"  FontSize="12" />
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
@@ -72,12 +79,12 @@
                 <chart:SfCartesianChart.Series>
                     <chart:LineSeries TooltipTemplate="{StaticResource template1}" EnableTooltip="True" EnableAnimation="True" Label="Germany" StrokeWidth="1" ItemsSource="{Binding ChartData1}" XBindingPath="Value1" YBindingPath="Value" ShowMarkers="True">
                         <chart:LineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings Width="10" Height="10" Fill="white" Stroke="#314A6E" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Width="10" Height="10" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" StrokeWidth="1"/>
                         </chart:LineSeries.MarkerSettings>
                     </chart:LineSeries>
                     <chart:LineSeries TooltipTemplate="{StaticResource template2}" EnableTooltip="True" EnableAnimation="True" Label="Mexico" StrokeWidth="1" ItemsSource="{Binding ChartData1}" XBindingPath="Value1" YBindingPath="Size" ShowMarkers="True">
                         <chart:LineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings Width="10" Height="10" Fill="white" Stroke="#48988B" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Width="10" Height="10" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" StrokeWidth="1"/>
                         </chart:LineSeries.MarkerSettings>
                     </chart:LineSeries>
                 </chart:SfCartesianChart.Series>

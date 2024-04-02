@@ -4,7 +4,7 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:barcode="clr-namespace:Syncfusion.Maui.Barcode;assembly=Syncfusion.Maui.Barcode"
                       x:Class="SampleBrowser.Maui.Barcode.SfBarcodeGenerator.BoardingPass"
-                      Background="White">
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.Content>
 
@@ -61,7 +61,7 @@
 
                     </StackLayout>
 
-                    <Frame BackgroundColor="White"
+                    <Frame BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                            CornerRadius="30"
                            Margin="0,20">
                         <StackLayout>
@@ -140,7 +140,7 @@
                                                             WidthRequest="270"
                                                             HorizontalOptions="Center"
                                                             VerticalOptions="Center"
-                                                            BackgroundColor="White">
+                                                            BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                                     <barcode:SfBarcodeGenerator.Symbology>
                                         <barcode:Code128 Module="1" />
                                     </barcode:SfBarcodeGenerator.Symbology>

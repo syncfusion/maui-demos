@@ -5,23 +5,32 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:maps="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
                       xmlns:local="clr-namespace:SampleBrowser.Maui.Maps"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
                       Background="White">
 
     <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
         <ResourceDictionary>
             <DataTemplate x:Key="markerTemplate">
                 <StackLayout>
-                    <Ellipse WidthRequest="8"
-                             HeightRequest="8"
-                             Fill="Red" />
+                    <Image Source="{imageExtension:SfImageResource map_pin.png}"
+                           Scale="1"
+                           Aspect="Fill"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           HeightRequest="25"
+                           WidthRequest="25" />
                     <Label Text="{Binding Name}"
+                           TextColor="{DynamicResource SfMapsDataLabelTextColor}"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
                            FontSize="Caption"
-                           FontAttributes="Bold" />
+                           FontAttributes="Bold"
+                           />
                     <Label Text="{Binding Time}"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
+                           TextColor="{DynamicResource SfMapsDataLabelTextColor}"
                            FontSize="8" />
                 </StackLayout>
 
@@ -30,7 +39,7 @@
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <Grid Margin="20">
+        <Grid Background="{DynamicResource SfMapsNormalBackground}">
             <Grid.BindingContext>
                 <local:MarkerViewModel />
             </Grid.BindingContext>
@@ -41,6 +50,7 @@
             <Label Grid.Row="0"
                    HorizontalOptions="Center"
                    Text="World Clock"
+                   TextColor="{DynamicResource SfMapsDataLabelTextColor}"
                    FontSize="Subtitle"
                    Margin="0,0,0,20" />
             <maps:SfMaps Grid.Row="1">
@@ -49,7 +59,6 @@
                                         ShapeHoverFill="Transparent"
                                         ShapeHoverStroke="Transparent"
                                         ShapeHoverStrokeThickness="0"
-                                        ShapeFill="#dadadb"
                                         ShapeStrokeThickness="0"
                                         Markers="{Binding Markers}"
                                         MarkerTemplate="{StaticResource markerTemplate}">

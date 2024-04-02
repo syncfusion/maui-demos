@@ -18,12 +18,11 @@ public partial class ColorCode : ContentView
     Ellipse? selectedColorButtonHighlightStroke;
 
     Button? PreButton = null;
-    public ColorCode()
+    internal void Initialize()
     {
         InitializeComponent();
-
-        Colorpaletteborder.Content = MyGrid;
-        this.Content = Colorpaletteborder;
+        colorPaletteBorder.Content = MyGrid;
+        this.Content = colorPaletteBorder;
         tabView.SelectionChanged += OnSelectionChanged;
         this.PropertyChanged += ColorCode_PropertyChanged;
     }
@@ -62,7 +61,7 @@ public partial class ColorCode : ContentView
         }
     }
 #if MACCATALYST
-    Frame Colorpaletteborder = new Frame()
+    Frame colorPaletteBorder = new Frame()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         BorderColor = Color.FromArgb("#26000000"),
@@ -77,10 +76,10 @@ public partial class ColorCode : ContentView
             Radius = 8,
             Opacity = 0.5f
         },
-        WidthRequest = 280,
+        WidthRequest = 290,
     };
 #else
-    Border Colorpaletteborder = new Border()
+    Border colorPaletteBorder = new Border()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         Stroke = Color.FromArgb("#26000000"),
@@ -110,13 +109,13 @@ public partial class ColorCode : ContentView
             {
                 if (Fill.IsSelected)
                 {
-                    grid.HeightRequest = 350;
+                    colorPaletteBorder.HeightRequest = 370;
                     Fill.TextColor = Color.FromArgb("#6750A4");
                     Stroke.TextColor = Color.FromArgb("#49454F");
                 }
                 else if (Stroke.IsSelected)
                 {
-                    grid.HeightRequest = 370;
+                    colorPaletteBorder.HeightRequest = 395;
                     Stroke.TextColor = Color.FromArgb("#6750A4");
                     Fill.TextColor = Color.FromArgb("#49454F");
                 }
@@ -163,7 +162,7 @@ public partial class ColorCode : ContentView
                 bindingContext.CloseFreeTextColorPallete();
                 bindingContext.ColorCommand.Execute(button.BackgroundColor);
             }
-                
+
         }
         if (selectedColorButtonHighlight.Parent == null)
         {
@@ -226,7 +225,7 @@ public partial class ColorCode : ContentView
             bindingContext.CloseFreeTextColorPallete();
             bindingContext.ThicknessCommand.Execute(thickness);
         }
-            
+
     }
 
     private void ShapeStrokeOpacitySlidervalue_Chnaged(object sender, EventArgs e)

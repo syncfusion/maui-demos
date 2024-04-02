@@ -11,10 +11,9 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class StickyNoteListView : ContentView
 {
-    
-    public StickyNoteListView()
-	{
-		InitializeComponent();
+    internal void Initialize()
+    {
+        InitializeComponent();
         listView.ItemsSource = new List<AnnotationButtonItem>()
         {
             new AnnotationButtonItem()
@@ -57,7 +56,7 @@ public partial class StickyNoteListView : ContentView
 
     private void SfListView_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
     {
-        
+
         if (e.DataItem is AnnotationButtonItem stickyNoteDetails && BindingContext is CustomToolbarViewModel viewModel)
         {
             viewModel.ToolbarCommand.Execute(stickyNoteDetails.IconName);

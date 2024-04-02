@@ -20,7 +20,7 @@ namespace SampleBrowser.Maui.DataGrid
     {
         private Syncfusion.Maui.DataGrid.SfDataGrid? datagrid;
 
-        private Microsoft.Maui.Controls.Picker? collectionTypePicker;
+        private Syncfusion.Maui.Inputs.SfComboBox? comboBox;
 
         private OrderInfoViewModel? orderInfoViewModel;
 
@@ -31,10 +31,10 @@ namespace SampleBrowser.Maui.DataGrid
         protected override void OnAttachedTo(SampleView bindable)
         {
             this.datagrid = bindable.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
+            this.comboBox = bindable.FindByName<Syncfusion.Maui.Inputs.SfComboBox>("comboBox");
             this.orderInfoViewModel = new OrderInfoViewModel();
-            this.collectionTypePicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("CollectionTypePicker");
 
-            this.collectionTypePicker.SelectedIndexChanged += this.SelectionPicker_SelectedIndexChanged!;
+            this.comboBox.SelectionChanged += this.SelectionPicker_SelectedIndexChanged!;
             base.OnAttachedTo(bindable);
         }
 
@@ -44,10 +44,10 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="bindable">A sampleView type of bindAble</param>
         protected override void OnDetachingFrom(SampleView bindable)
         {
-            this.collectionTypePicker!.SelectedIndexChanged -= this.SelectionPicker_SelectedIndexChanged!;
+            this.comboBox!.SelectionChanged -= this.SelectionPicker_SelectedIndexChanged!;
 
             this.datagrid = null;
-            this.collectionTypePicker = null;
+            this.comboBox = null;
             base.OnDetachingFrom(bindable);
         }
 
@@ -58,7 +58,7 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="e">EventArgs e</param>
         private void SelectionPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.collectionTypePicker!.SelectedIndex == 0)
+            if (this.comboBox!.SelectedIndex == 0)
             {
                 this.datagrid!.Columns.Clear();
                 this.datagrid.ItemsSource = this.orderInfoViewModel!.OrdersInfo;
@@ -93,7 +93,7 @@ namespace SampleBrowser.Maui.DataGrid
                 this.datagrid.Columns.Add(shipCountryColumn);
                 this.datagrid.Columns.Add(checkBoxColumn);
             }
-            else if (this.collectionTypePicker.SelectedIndex == 1)
+            else if (this.comboBox.SelectedIndex == 1)
             {
                 this.datagrid!.Columns.Clear();
                 this.datagrid.ItemsSource = this.GetDataTable();

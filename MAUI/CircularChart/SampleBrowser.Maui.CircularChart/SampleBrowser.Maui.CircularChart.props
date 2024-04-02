@@ -45,6 +45,10 @@
       <Link>Samples\CircularChart\Interaction\Selection.xaml.cs</Link>
       <DependentUpon>Selection.xaml</DependentUpon>
     </Compile>
+	 <Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\CircularChartResource\CircularChartColorResources.xaml.cs">
+		  <Link>Samples\CircularChart\CircularChartResource\CircularChartColorResources.xaml.cs</Link>
+		  <DependentUpon>CircularChartColorResources.xaml</DependentUpon>
+	 </Compile>
 
     <Compile Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\Pie\PieSeriesViewModel.cs">
       <Link>Samples\CircularChart\Pie\PieSeriesViewModel.cs</Link>
@@ -139,4 +143,11 @@
       <Link>Samples\CircularChart\Interaction\Selection.xaml</Link>
     </MauiXaml>
   </ItemGroup>
+
+  <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\CircularChart\CircularChartResource\CircularChartColorResources.xaml">
+			<Link>Samples\CircularChart\CircularChartResource\CircularChartColorResources.xaml</Link>
+		</MauiXaml>
+ </ItemGroup>
+	
 </Project>

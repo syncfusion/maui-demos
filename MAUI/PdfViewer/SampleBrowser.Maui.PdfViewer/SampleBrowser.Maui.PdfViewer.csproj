@@ -83,6 +83,7 @@
 	  <None Remove="Samples\Pdf\Annotations1.pdf" />
 	  <None Remove="Samples\Pdf\certificate.pfx" />
 	  <None Remove="Samples\Pdf\form_document.pdf" />
+	  <None Remove="Samples\Pdf\handwritten-signature.pdf" />
 	  <None Remove="Samples\Pdf\InvisibleDigitalSignature.pdf" />
 	  <None Remove="Samples\Pdf\PDF_Succinctly1.pdf" />
 	  <None Remove="Samples\Pdf\restrictedDocument.pdf" />
@@ -98,6 +99,7 @@
 	  <EmbeddedResource Include="Samples\Pdf\certificate.pfx" />
 	  <EmbeddedResource Include="Samples\Pdf\corrupted_document.pdf" />
 	  <EmbeddedResource Include="Samples\Pdf\form_document.pdf" />
+	  <EmbeddedResource Include="Samples\Pdf\handwritten-signature.pdf" />
 	  <EmbeddedResource Include="Samples\Pdf\InvisibleDigitalSignature.pdf" />
 	  <EmbeddedResource Include="Samples\Pdf\password_protected_document.pdf" />
 	  <EmbeddedResource Include="Samples\Pdf\Invoice.pdf" />
@@ -110,31 +112,38 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <PackageReference Include="SampleBrowser.Maui.Base" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Compression.NET" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.Core" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.SignaturePad" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.PdfToImageConverter" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.Sliders" version="24.2.3" />
-		<PackageReference Include="Syncfusion.PDF.NET" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.PdfViewer" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.TabView" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.ListView" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.DataSource" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.GridCommon" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Pdf.Imaging.NET" version="24.2.3" />
-		<PackageReference Include="Syncfusion.Maui.Buttons" version="24.2.3" />
+	  <PackageReference Include="SampleBrowser.Maui.Base" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Compression.NET" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.Core" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.SignaturePad" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.PdfToImageConverter" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.Sliders" version="25.1.35" />
+		<PackageReference Include="Syncfusion.PDF.NET" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.PdfViewer" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.TabView" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.ListView" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.DataSource" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.GridCommon" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Pdf.Imaging.NET" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.Buttons" version="25.1.35" />
+		<PackageReference Include="Syncfusion.Maui.Popup" version="25.1.35" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\ColorToolbar.xaml.cs">
 	    <DependentUpon>ColorToolbar.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\AnnotationSecondaryToolbar.xaml.cs">
+	    <DependentUpon>AnnotationSecondaryToolbar.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\InkColorCode.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
 	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkUp.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\DesktopMoreOptions.xaml.cs">
+	    <DependentUpon>DesktopMoreOptions.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ToolbarDesktop.xaml.cs">
 	    <DependentUpon>ToolbarDesktop.xaml</DependentUpon>
@@ -187,6 +196,9 @@
 	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\TextMarkupToolbar - Copy.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\AnnotationSecondaryToolbar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\InkColorCode.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -200,6 +212,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextMarkupColorCode.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\DesktopMoreOptions.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Samples\PdfViewer\CustomToolbar\Controls\Toolbar\TextmarkupView.xaml">

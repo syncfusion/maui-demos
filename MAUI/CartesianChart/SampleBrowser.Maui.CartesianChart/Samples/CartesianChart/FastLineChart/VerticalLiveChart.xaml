@@ -4,10 +4,17 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
         <chart:SfCartesianChart IsTransposed="True" HorizontalOptions="Fill" 
                                                 x:Name="verticalLiveChart"
-                                                PaletteBrushes="{Binding PaletteBrushes}" VerticalOptions="Fill">
+                                                PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" VerticalOptions="Fill">
 
             <chart:SfCartesianChart.BindingContext>
                 <local:RealTimeVerticalChartViewModel x:Name="realTimeVerticalChartViewModel"/>
@@ -16,7 +23,7 @@
             <chart:SfCartesianChart.Title>
                 <Label Text="Seismograph Analysis of Country" Margin="0,0,0,5" 
                                        HorizontalOptions="Fill" HorizontalTextAlignment="Center" 
-                                       VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                       VerticalOptions="Center" FontSize="16"/>
             </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.XAxes>
                 <chart:NumericalAxis ShowMajorGridLines="False">

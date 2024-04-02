@@ -10,12 +10,13 @@ using Microsoft.Maui.Controls.Shapes;
 namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 public partial class EraserThickness : ContentView
 {
-    public EraserThickness()
+    internal void Initialize()
     {
         InitializeComponent();
         Thicknessborder.Content = MyGrid;
         this.Content = Thicknessborder;
     }
+
     Border Thicknessborder = new Border()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),

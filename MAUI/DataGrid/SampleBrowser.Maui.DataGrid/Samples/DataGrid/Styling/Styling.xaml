@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Styling"
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
-             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
-             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
-             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
-    BackgroundColor="White">
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
     <localCore:SampleView.BindingContext>
         <local:OrderInfoViewModel>
         </local:OrderInfoViewModel>
@@ -17,12 +17,27 @@
     </localCore:SampleView.Behaviors>
 
     <localCore:SampleView.Resources>
-        <Style TargetType="sfgrid:DataGridHeaderRow">
-            <Setter Property="Background" Value="#0074E3"/>
-        </Style>
+        <Color x:Key="lightThemeColor">#66C4D4FD</Color>
+        <Color x:Key="darkThemeColor">#661849A9</Color>
+        <Color x:Key="headerLightThemeColor">#C4D4FD</Color>
+        <Color x:Key="headerDarkThemeColor">#1849A9</Color>
         <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-            <On Platform="WinUI,MacCatalyst" Value="-4,-5,-7,-7"/>
+            <On Platform="WinUI,MacCatalyst" Value="-4"/>
         </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderRow">
+            <Setter Property="Background"
+                    Value="{AppThemeBinding Light={StaticResource headerLightThemeColor}, Dark={StaticResource headerDarkThemeColor}}" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
@@ -33,14 +48,12 @@
                            HeaderGridLinesVisibility="Horizontal"
                            HeaderRowHeight="52"
                            RowHeight="48"
-                           SelectionMode="Single"
-                           NavigationMode="Cell"
                            ItemsSource="{Binding OrdersInfo}"
                            ColumnWidthMode="Fill"
                            HorizontalScrollBarVisibility="Always"
                            VerticalScrollBarVisibility="Always">
             <sfgrid:SfDataGrid.DefaultStyle>
-                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" AlternateRowBackground="#EEF5FD" SelectedRowTextColor="Black" HeaderRowTextColor="White" SelectionBackground="#E3F2FD" RowTextColor="#212121" ></sfgrid:DataGridStyle>
+                <sfgrid:DataGridStyle AlternateRowBackground="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}"></sfgrid:DataGridStyle>
             </sfgrid:SfDataGrid.DefaultStyle>
             <sfgrid:SfDataGrid.Columns>
                 <sfgrid:DataGridNumericColumn Format="D" MappingName="OrderID"
@@ -67,69 +80,76 @@
 
     <localCore:SampleView.OptionView>
         <ContentView>
-        <Grid ColumnSpacing="10" RowSpacing="10" Padding="20">
+            <Grid ColumnSpacing="10"
+                  RowSpacing="10"
+                  Padding="20">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <Label 
-                Grid.Row="0" Grid.Column="0"
-                HorizontalOptions="Start"
-                Text="Grid lines visibility"
-                LineBreakMode="WordWrap"
-                VerticalOptions="Center" 
-                FontSize="15">
-            </Label>
-            <Picker 
-                Grid.Row="0" Grid.Column="1"
-                x:Name="VisibilityPicker"
-                VerticalOptions="Center"
-                HorizontalOptions="FillAndExpand">
-                
-                <Picker.Items>
-                    <x:String>Horizontal</x:String>
-                    <x:String>Vertical</x:String>
-                    <x:String>Both</x:String>
-                    <x:String>None</x:String>
-                </Picker.Items>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalOptions="Start"
+                       Text="Grid lines visibility"
+                       LineBreakMode="WordWrap"
+                       VerticalOptions="Center"
+                       FontSize="15">
+                </Label>
 
-                <Picker.SelectedItem>
-                    <x:String>Horizontal</x:String>
-                </Picker.SelectedItem>
-            </Picker>
+                <editors:SfComboBox  x:Name="VisibilityComboBox"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="StartAndExpand">
+                    <editors:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Horizontal</x:String>
+                            <x:String>Vertical</x:String>
+                            <x:String>Both</x:String>
+                            <x:String>None</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
 
-            <Label 
-                Grid.Row="1" Grid.Column="0"
-                HorizontalOptions="Start"
-                LineBreakMode="WordWrap"
-                Text="Header grid lines visibility"
-                VerticalOptions="Center" 
-                FontSize="15">
-            </Label>
-            <Picker 
-                Grid.Row="1" Grid.Column="1"
-                x:Name="HeaderVisibilityPicker"
-                VerticalOptions="Center"
-                HorizontalOptions="FillAndExpand">
-                
-                <Picker.Items>
-                    <x:String>Horizontal</x:String>
-                    <x:String>Vertical</x:String>
-                    <x:String>Both</x:String>
-                    <x:String>None</x:String>
-                </Picker.Items>
+                    <editors:SfComboBox.SelectedItem>
+                        <x:String>Horizontal</x:String>
+                    </editors:SfComboBox.SelectedItem>
+                </editors:SfComboBox>
 
-                <Picker.SelectedItem>
-                    <x:String>Horizontal</x:String>
-                </Picker.SelectedItem>
-            </Picker>
-        </Grid>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       HorizontalOptions="Start"
+                       LineBreakMode="WordWrap"
+                       Text="Header grid lines visibility"
+                       VerticalOptions="Center"
+                       FontSize="15">
+                </Label>
+
+                <editors:SfComboBox  x:Name="HeaderVisibilityComboBox"
+                                     Grid.Row="1"
+                                     Grid.Column="1"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="StartAndExpand">
+                    <editors:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Horizontal</x:String>
+                            <x:String>Vertical</x:String>
+                            <x:String>Both</x:String>
+                            <x:String>None</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
+
+                    <editors:SfComboBox.SelectedItem>
+                        <x:String>Horizontal</x:String>
+                    </editors:SfComboBox.SelectedItem>
+                </editors:SfComboBox>
+
+            </Grid>
         </ContentView>
     </localCore:SampleView.OptionView>
 

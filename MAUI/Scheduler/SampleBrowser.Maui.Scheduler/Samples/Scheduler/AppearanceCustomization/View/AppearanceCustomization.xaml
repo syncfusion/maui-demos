@@ -26,7 +26,8 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0" Background="{Binding DataItem.Background}" IsClippedToBounds="True">
-                            <Label Text="{Binding DataItem.EventName}" VerticalOptions="Center" TextColor="White" LineBreakMode="WordWrap" MaxLines="1" FontSize="Caption" FontAttributes="Bold" Margin="5,5,5,0"/>
+                            <Label Text="{Binding DataItem.EventName}" HorizontalOptions="{OnPlatform Default=Start, MacCatalyst=Center, WinUI=Center}"
+                                   VerticalOptions="Center" TextColor="White" LineBreakMode="WordWrap" MaxLines="1" FontSize="Caption" FontAttributes="Bold" Margin="5,5,5,0"/>
                         </Grid>
                         <Grid Grid.Row="1" Background="{Binding DataItem.Background}" Opacity="0.8" IsClippedToBounds="True" >
                             <Grid.RowDefinitions>
@@ -34,7 +35,7 @@
                                 <RowDefinition Height="0.7*"/>
                             </Grid.RowDefinitions>
                             <Image Aspect="AspectFit" VerticalOptions="Center" Margin="0, 10, 0, 10" HorizontalOptions="Center" HeightRequest="{OnPlatform Android= 30, iOS=30, MacCatalyst=50, WinUI=50}" WidthRequest="{OnPlatform Android= 30, iOS=30, MacCatalyst=50,  WinUI=50}" Source="{Binding DataItem.Location,Converter={StaticResource imageConverter}}"/>
-                            <Label Text="{Binding DataItem.Notes}" VerticalOptions="Start" Grid.Row="1" TextColor="White" LineBreakMode="WordWrap" Margin="3,3,3,0" FontSize="10" />
+                            <Label Text="{Binding DataItem.Notes}" VerticalOptions="Start" Grid.Row="1" TextColor="White" LineBreakMode="WordWrap" Margin="3,3,3,0" FontSize="{OnPlatform Android= 10, iOS=10, MacCatalyst=12, WinUI=12}" />
                         </Grid>
                         <BoxView Grid.Row="2" Background="{Binding DataItem.Background}"/>
                     </Grid>
@@ -87,6 +88,9 @@
                                 AllowedViews="Week,WorkWeek,Month,TimelineDay,TimelineWeek,TimelineWorkWeek,TimelineMonth"
                                 View="Week"
                                 SelectedAppointmentBackground="Transparent">
+                    <schedule:SfScheduler.CellSelectionView>
+                    <schedule:SchedulerCellSelectionView Background="{DynamicResource SfSchedulerNormalWeekNumberBackground}" Stroke="Transparent"/>
+                    </schedule:SfScheduler.CellSelectionView>
                     <schedule:SfScheduler.AppointmentMapping>
                         <schedule:SchedulerAppointmentMapping
                         Subject="EventName"
@@ -106,7 +110,7 @@
                             <schedule:SchedulerMonthView.CellStyle>
                                 <schedule:SchedulerMonthCellStyle>
                                     <schedule:SchedulerMonthCellStyle.TextStyle>
-                                    <schedule:SchedulerTextStyle FontSize="{OnPlatform Default=14, WinUI=12}"/>
+                                    <schedule:SchedulerTextStyle TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}" FontSize="{OnPlatform Default=14, WinUI=12}"/>
                                     </schedule:SchedulerMonthCellStyle.TextStyle>
                                     <schedule:SchedulerMonthCellStyle.LeadingMonthTextStyle>
                                     <schedule:SchedulerTextStyle TextColor="LightGray" FontSize="{OnPlatform Default=14, WinUI=12}"/>

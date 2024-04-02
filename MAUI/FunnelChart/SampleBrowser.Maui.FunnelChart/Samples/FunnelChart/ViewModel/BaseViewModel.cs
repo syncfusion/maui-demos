@@ -18,7 +18,6 @@ namespace SampleBrowser.Maui.FunnelChart.SfFunnelChart
 
         public ObservableCollection<Brush> PaletteBrushes { get; set; }
         public ObservableCollection<Brush> SelectionBrushes { get; set; }
-
         public ObservableCollection<Brush> CustomColor_1 { get; set; }
         public ObservableCollection<Brush> CustomColor_2 { get; set; }
 
@@ -81,5 +80,10 @@ namespace SampleBrowser.Maui.FunnelChart.SfFunnelChart
                 new SolidColorBrush(Color.FromArgb("#E99941"))
             };
         }
+    }
+
+    public class ChartColorModel : ObservableCollection<Brush>
+    {
+
     }
 }

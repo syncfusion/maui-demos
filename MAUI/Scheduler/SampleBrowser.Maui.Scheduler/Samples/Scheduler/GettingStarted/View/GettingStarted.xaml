@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
              xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:switch="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
     <localCore:SampleView.Content>
         <Grid>
@@ -54,18 +55,17 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         LineBreakMode="WordWrap"
-                        FontSize="14"
+                        FontSize="16"
                         VerticalOptions="Center"
                         HorizontalOptions="Start"
-                        TextColor="Gray"/>
-                <Switch  x:Name="allowViewNavigationSwitch"
+                        TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+                <switch:SfSwitch x:Name="allowViewNavigationSwitch"
                          Grid.Row="0"
                          Grid.Column="1"
-                          Margin="5,0,0,0"
                          VerticalOptions="Center"
-                         IsToggled="True"
+                         IsOn="True"
                          HorizontalOptions="End">
-                </Switch>
+                </switch:SfSwitch>
 
              </Grid>
 
@@ -79,18 +79,17 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         LineBreakMode="WordWrap"
-                        FontSize="14"
+                        FontSize="16"
                         VerticalOptions="Center"
                         HorizontalOptions="Start"
-                        TextColor="Gray"/>
-                <Switch  x:Name="weekNumberSwitch"
+                        TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+                    <switch:SfSwitch  x:Name="weekNumberSwitch"
                          Grid.Row="0"
                          Grid.Column="1"
-                          Margin="5,0,0,0"
-                         IsToggled="True"
+                         IsOn="True"
                          VerticalOptions="Center"
                          HorizontalOptions="End">
-                </Switch>
+                </switch:SfSwitch>
 
               </Grid>
 
@@ -104,18 +103,17 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         LineBreakMode="WordWrap"
-                        FontSize="14"
+                        FontSize="16"
                         VerticalOptions="Center"
                         HorizontalOptions="Start"
-                        TextColor="Gray"/>
-                    <Switch  x:Name="trailingDatesSwitch"
+                        TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+                    <switch:SfSwitch x:Name="trailingDatesSwitch"
                          Grid.Row="0"
                          Grid.Column="1"
-                          Margin="5,0,0,0"
-                         IsToggled="True"
+                         IsOn="True"
                          VerticalOptions="Center"
                          HorizontalOptions="End">
-                    </Switch>
+                    </switch:SfSwitch>
                 </Grid>
 
                 <Grid x:Name="currentTimeIndicatorGrid" HeightRequest="50">
@@ -128,18 +126,17 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         LineBreakMode="WordWrap"
-                        FontSize="14"
+                        FontSize="16"
                         VerticalOptions="Center"
                         HorizontalOptions="Start"
-                        TextColor="Gray"/>
-                <Switch  x:Name="currentTimeIndicatorSwitch"
+                        TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+                <switch:SfSwitch x:Name="currentTimeIndicatorSwitch"
                          Grid.Row="0"
                          Grid.Column="1"
-                          Margin="5,0,0,0"
                          VerticalOptions="Center"
-                         IsToggled="True"
+                         IsOn="True"
                          HorizontalOptions="End">
-                </Switch>
+                </switch:SfSwitch>
                </Grid>
 
             <Grid x:Name="visibleDaysGrid" HeightRequest="50">
@@ -153,17 +150,16 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         LineBreakMode="WordWrap"
-                        FontSize="14"
+                        FontSize="16"
                         HorizontalOptions="Start"
                         VerticalOptions="Center"
-                        TextColor="Gray"/>
-                <Switch  x:Name="visibleDaysSwitch"
+                        TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+                <switch:SfSwitch x:Name="visibleDaysSwitch"
                          Grid.Row="0"
                          Grid.Column="1"
                          VerticalOptions="Center"
-                         Margin="5,0,0,0"
                          HorizontalOptions="End">
-                </Switch>
+                </switch:SfSwitch>
               </Grid>
 
             </StackLayout>

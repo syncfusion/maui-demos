@@ -15,6 +15,10 @@
 			<Link>Samples\Popup\Helper\Converter.cs</Link>
 		</Compile>
 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Popup\Helper\SfEffectsViewAdv.cs">
+			<Link>Samples\Popup\Helper\SfEffectsViewAdv.cs</Link>
+		</Compile>
+
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Popup\Model\GettingStartedModel.cs">
 			<Link>Samples\Popup\Model\GettingStartedModel.cs</Link>
 		</Compile>

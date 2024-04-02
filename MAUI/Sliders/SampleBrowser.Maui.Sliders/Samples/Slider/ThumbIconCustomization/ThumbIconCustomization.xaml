@@ -29,14 +29,13 @@
                                   StepSize="1">
                     
                     <sliders:SfSlider.ThumbStyle>
-                        <sliders:SliderThumbStyle Radius="14" />
+                        <sliders:SliderThumbStyle Radius="14" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalThumbFillBrush}}"/>
                     </sliders:SfSlider.ThumbStyle>
                     
                     <sliders:SfSlider.ThumbIcon>
                         <VerticalStackLayout>
                             <HorizontalStackLayout>
-                                <Label Text="{Binding Source={x:Reference slider}, Path=Value}"
-                                       TextColor="White" />
+                                <Label Text="{Binding Source={x:Reference slider}, Path=Value}" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
                     </sliders:SfSlider.ThumbIcon>
@@ -54,28 +53,21 @@
                                   Value="{Binding Value}">
                     
                     <sliders:SfSlider.ThumbStyle>
-                        <sliders:SliderThumbStyle Radius="14" />
+                        <sliders:SliderThumbStyle Radius="14" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalThumbFillBrush}}" />
                     </sliders:SfSlider.ThumbStyle>
-                    
+
                     <sliders:SfSlider.ThumbIcon>
-                        <VerticalStackLayout>
-                            <HorizontalStackLayout>
-                                <Label Text="{Binding IconText}"
-                                       FontAttributes="Bold"
-                                       TextColor="White">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="iOS,MacCatalyst"
-                                                Value="metro" />
-                                            <On Platform="UWP"
-                                                Value="Sliders-Icons.ttf#metro" />
-                                            <On Platform="Android"
-                                                Value="Sliders-Icons.ttf#metro" />
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
-                            </HorizontalStackLayout>
-                        </VerticalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="&#xe70a;" Background="Transparent" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                       FontFamily="MauiSampleFontIcon" Margin="0,0,-4,0"
+                                       FontSize="18" HorizontalOptions="EndAndExpand" 
+                                       HorizontalTextAlignment="End">
+                            </Label>
+                            <Label Text="&#xe709;" Background="Transparent" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                       FontSize="18" HorizontalOptions="StartAndExpand" Margin="-4,0,0,0"
+                                       HorizontalTextAlignment="Start">
+                            </Label>
+                        </HorizontalStackLayout>
                     </sliders:SfSlider.ThumbIcon>
                 </sliders:SfSlider>
             </Grid>

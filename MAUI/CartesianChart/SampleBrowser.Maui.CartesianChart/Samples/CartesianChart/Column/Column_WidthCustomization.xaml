@@ -14,7 +14,7 @@
                     <chart:ChartLegend ToggleSeriesVisibility="True" />
                 </chart:SfCartesianChart.Legend>
                 <chart:SfCartesianChart.Title>
-                    <Label Text="Beijing Olympics Medals Count - 2022" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                    <Label Text="Beijing Olympics Medals Count - 2022" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
                 </chart:SfCartesianChart.Title>
                 <chart:SfCartesianChart.XAxes>
                     <chart:CategoryAxis ShowMajorGridLines="False" LabelPlacement="BetweenTicks">

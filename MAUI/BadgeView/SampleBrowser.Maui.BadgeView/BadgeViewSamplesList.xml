@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
 	<ControlCategory Name="Notification">
-		<Control Title="BadgeView" ControlName="SfBadgeView" Description="Badge shows a circle or rectangle which contain a number or message." Image="badgeview.png">
+		<Control Title="Badge View" ControlName="SfBadgeView" Description="Badge shows a circle or rectangle which contain a number or message." Image="badgeview.png">
 			<Category Title="Features">
 				<Sample Title="Offset" SampleName="Offset" Description="Showcases the badge with different offset values." SearchTags="badgeView, badge, offset" CodeViewerPath="BadgeView/Customization/" VideoLink="https://www.youtube.com/watch?v=wlh2eMPYZY0" />
 				<Sample Title="Type" SampleName="Type" Description="Showcases the different badge types available in the Badge View" SearchTags="badgeView, badge, type, badge type" CodeViewerPath="BadgeView/Customization/" VideoLink="https://www.youtube.com/watch?v=wlh2eMPYZY0" />

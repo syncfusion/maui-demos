@@ -133,6 +133,8 @@ public class ToolbarView : Microsoft.Maui.Controls.ContentView
             viewModel.BottomToolbarContent = new AnnotationToolbar(viewModel);
         }
 #else
+        if (ParentView != null && ParentView.SearchView is SearchViewDesktop searchViewDesktop)
+            searchViewDesktop.Initialize();
         ParentView?.CloseAllDialogs();
         if (BindingContext is CustomToolbarViewModel viewModel)
         {

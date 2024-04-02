@@ -13,6 +13,10 @@ namespace SampleBrowser.Maui.SignaturePad.SfSignaturePad
               BindableProperty.Create(nameof(Padding), typeof(double), typeof(CrossIcon),
                   0d, propertyChanged: OnPaddingChanged);
 
+        public static readonly BindableProperty TextColorProperty =
+              BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(CrossIcon),
+                  Colors.Black, propertyChanged: OnTextColorChanged);
+
         public event EventHandler? Clicked;
 
         public CrossIcon()
@@ -31,6 +35,13 @@ namespace SampleBrowser.Maui.SignaturePad.SfSignaturePad
             set { SetValue(PaddingProperty, value); }
         }
 
+        public Color TextColor
+        {
+            get { return (Color)GetValue(TextColorProperty); }
+            set { SetValue(TextColorProperty, value); }
+        }
+
+
         protected override void OnHandlerChanged()
         {
             base.OnHandlerChanged();
@@ -47,6 +58,11 @@ namespace SampleBrowser.Maui.SignaturePad.SfSignaturePad
         }
 
         private static void OnPaddingChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            ((CrossIcon)bindable).Invalidate();
+        }
+
+        private static void OnTextColorChanged(BindableObject bindable, object oldValue, object newValue)
         {
             ((CrossIcon)bindable).Invalidate();
         }
@@ -70,7 +86,7 @@ namespace SampleBrowser.Maui.SignaturePad.SfSignaturePad
         {
             bounds = bounds.Inflate(-(float)icon.Padding, -(float)icon.Padding);
 
-            canvas.StrokeColor = Colors.Black;
+            canvas.StrokeColor = icon.TextColor;
             canvas.StrokeSize = 1.5f;
             canvas.DrawLine(bounds.Left, bounds.Top, bounds.Right, bounds.Bottom);
             canvas.DrawLine(bounds.Right, bounds.Top, bounds.Left, bounds.Bottom);

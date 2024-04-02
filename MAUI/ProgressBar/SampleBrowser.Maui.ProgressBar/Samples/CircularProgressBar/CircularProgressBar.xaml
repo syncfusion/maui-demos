@@ -60,11 +60,11 @@
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Label x:Name="CustomContentProgressBarLabel"
-                                           TextColor="#FF512BD4"
+                                           TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
                                            HorizontalTextAlignment="Center">
                                     </Label>
                                     <Label Grid.Row="1"
-                                           TextColor="#FF512BD4"
+                                           TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
                                            Text="used"
                                            FontSize="12"
                                            HorizontalTextAlignment="Center">
@@ -88,7 +88,7 @@
                                             Text="&#xe769;"
                                             FontSize="Large"
                                             FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
-                                            TextColor="#FF512BD4"
+                                            TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
                                             HorizontalOptions="Center"
                                             VerticalOptions="Center"
                                             BackgroundColor="Transparent"
@@ -150,7 +150,7 @@
                             <progressBar:SfCircularProgressBar.Content>
                                 <StackLayout>
                                     <Label x:Name="TrackInsideProgressBarProgressLabel"
-                                           TextColor="#FF512BD4"
+                                           TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
                                            HorizontalOptions="CenterAndExpand"
                                            VerticalOptions="CenterAndExpand"
                                            HeightRequest="45"

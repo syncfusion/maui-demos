@@ -22,13 +22,14 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="Background" Value="#6200EE"/>
-                                    <Setter Property="TextColor" Value="White"/>
+                                    <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}"/>
+                                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}"/>
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">
                                 <VisualState.Setters>
-                                    <Setter Property="Background" Value="#C8C8C8"/>
+                                    <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource PrimaryBackgroundDisabledLight}, Dark={StaticResource PrimaryBackgroundDisabled}}"/>
+                                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryForegroundDisabledLight}, Dark={StaticResource PrimaryForegroundDisabled}}"/>
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -43,8 +44,8 @@
             <ScrollView>
             <StackLayout Spacing="15">
             <Label x:Name="paymentmodelbl" Text="Payment methods" Margin="10,5" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Medium"/>
-            <Label Text="CREDIT AND DEBIT CARDS" FontSize="14" Margin="10" FontAttributes="Bold" TextColor="#555555" FontFamily="Roboto-Regular"/>
-            <Frame CornerRadius="10" Padding="5" HasShadow="False"  BorderColor="LightGray" Margin="10,0">
+                    <Label Text="CREDIT AND DEBIT CARDS" FontSize="14" Margin="10" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontFamily="Roboto-Regular"/>
+                    <Frame CornerRadius="10" Padding="5" HasShadow="False"  BorderColor="LightGray" Margin="10,0" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                 <Grid ColumnDefinitions="40,*">
                     <syncfusion:SfRadioButton VerticalOptions="Start" x:Name="bankDebitCard" GroupKey="{StaticResource payment mode}"/>
                     <StackLayout Grid.Column="1" VerticalOptions="Center">
@@ -53,7 +54,7 @@
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
                                 </Label.GestureRecognizers>
                             </Label>
-                            <Label HorizontalOptions="Start"  FontAttributes="Bold" FontSize="10" TextColor="Black" Text="**5028 | Aaron">
+                                <Label HorizontalOptions="Start"  FontAttributes="Bold" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="**5028 | Aaron">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
                                 </Label.GestureRecognizers>
@@ -61,7 +62,7 @@
                         </StackLayout>
                 </Grid>
             </Frame>
-            <Frame CornerRadius="10"  Padding="5"  HasShadow="False"  BorderColor="LightGray" Margin="10,0">
+                    <Frame CornerRadius="10"  Padding="5"  HasShadow="False"  BorderColor="LightGray" Margin="10,0" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                 <Grid ColumnDefinitions="40,*">
                     <syncfusion:SfRadioButton VerticalOptions="Start" x:Name="bankCreditCard" GroupKey="{StaticResource payment mode}"/>
                     <StackLayout Grid.Column="1" VerticalOptions="Center">
@@ -70,7 +71,7 @@
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                                 </Label.GestureRecognizers>
                             </Label>
-                            <Label HorizontalOptions="Start"  FontAttributes="Bold" FontSize="10" TextColor="Black" Text="**5028 | Aaron">
+                                <Label HorizontalOptions="Start"  FontAttributes="Bold" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="**5028 | Aaron">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                                 </Label.GestureRecognizers>
@@ -78,7 +79,7 @@
                         </StackLayout>
                 </Grid>
             </Frame>
-            <Frame CornerRadius="10"  Padding="5"  HasShadow="False"  BorderColor="LightGray" Margin="10,0">
+                    <Frame CornerRadius="10"  Padding="5"  HasShadow="False"  BorderColor="LightGray" Margin="10,0" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                 <Grid ColumnDefinitions="40,*">
                     <syncfusion:SfRadioButton VerticalOptions="Start" x:Name="creditCard" GroupKey="{StaticResource payment mode}"/>
                     <StackLayout Grid.Column="1" VerticalOptions="Center">
@@ -87,7 +88,7 @@
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
                                 </Label.GestureRecognizers>
                             </Label>
-                            <Label HorizontalOptions="Start"  FontAttributes="Bold" FontSize="10" TextColor="Black" Text="**0859 | Stephan">
+                                <Label HorizontalOptions="Start"  FontAttributes="Bold" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="**0859 | Stephan">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
                                 </Label.GestureRecognizers>
@@ -95,14 +96,14 @@
                         </StackLayout>
                 </Grid>
             </Frame>
-            <Label Text="MORE WAYS TO PAY" FontSize="14" Margin="10,25,10,10" FontAttributes="Bold" TextColor="#555555" FontFamily="Roboto-Regular"/>
-            <Frame CornerRadius="10"  Padding="5"  HasShadow="False" BorderColor="LightGray" Margin="10,0">
+                    <Label Text="MORE WAYS TO PAY" FontSize="14" Margin="10,25,10,10" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontFamily="Roboto-Regular"/>
+                    <Frame CornerRadius="10"  Padding="5"  HasShadow="False" BorderColor="LightGray" Margin="10,0" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"> 
                     <syncfusion:SfRadioButton x:Name="debitOrCreditCard" Text="Debit or Credit Card" FontAttributes="Bold"  FontFamily="Roboto-Regular" GroupKey="{StaticResource payment mode}"/>
                 </Frame>
-            <Frame CornerRadius="10"  Padding="5"   HasShadow="False" BorderColor="LightGray" Margin="10,0">
+            <Frame CornerRadius="10"  Padding="5"   HasShadow="False" BorderColor="LightGray" Margin="10,0" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                     <syncfusion:SfRadioButton x:Name="netBanking" Text="Net Banking"  FontFamily="Roboto-Regular" FontAttributes="Bold" GroupKey="{StaticResource payment mode}"/>
                 </Frame>
-            <Frame CornerRadius="10"  Padding="5"  HasShadow="False"  BorderColor="LightGray" Margin="10,0">
+                    <Frame CornerRadius="10"  Padding="5"  HasShadow="False"  BorderColor="LightGray" Margin="10,0" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                 <HorizontalStackLayout>
                     <syncfusion:SfRadioButton x:Name="cashButton" GroupKey="{StaticResource payment mode}"/>
                     <StackLayout>

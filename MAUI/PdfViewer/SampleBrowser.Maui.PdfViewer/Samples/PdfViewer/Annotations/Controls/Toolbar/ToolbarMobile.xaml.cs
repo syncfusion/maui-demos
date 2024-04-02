@@ -11,8 +11,10 @@ public partial class AnnotationToolbarMobile : AnnotationToolbarView
 {
 	public AnnotationToolbarMobile()
 	{
-		InitializeComponent();
+#if !WINDOWS && !MACCATALYST
+        InitializeComponent();
         AssignControls();
+#endif
 	}
 
     void AssignControls()

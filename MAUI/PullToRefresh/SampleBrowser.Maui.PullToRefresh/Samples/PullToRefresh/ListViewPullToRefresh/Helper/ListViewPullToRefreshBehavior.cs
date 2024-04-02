@@ -106,7 +106,10 @@ public class ListViewPullToRefreshBehavior : Behavior<SampleView>
     /// <param name="e">Represents the event args.</param>
     private void ListView_ItemTapped(object? sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
     {
-        (e.DataItem as InboxInfo) !.IsOpened = true;
+        if(e.ItemType == ItemType.Record)
+        {
+            (e.DataItem as InboxInfo)!.IsOpened = true;
+        }
     }
 
     /// <summary>

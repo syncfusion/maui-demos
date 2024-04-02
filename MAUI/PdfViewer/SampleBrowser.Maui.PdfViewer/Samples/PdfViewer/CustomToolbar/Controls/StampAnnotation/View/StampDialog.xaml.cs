@@ -16,7 +16,7 @@ public partial class StampDialog : ContentView
 
     public event EventHandler<CustomStampEventArgs?>? CustomStampCreated;
 
-    public StampDialog()
+    internal void Initialize()
     {
         InitializeComponent();
         this.PropertyChanged += StampDialogPropertyChanged;
@@ -24,7 +24,7 @@ public partial class StampDialog : ContentView
 
     private async void StampDialogPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
-        if(e.PropertyName=="IsVisible" && this.IsVisible==true)
+        if (e.PropertyName == "IsVisible" && this.IsVisible == true)
         {
             await Task.Delay(250);
             createEntry?.Focus();
@@ -57,6 +57,10 @@ public partial class StampDialog : ContentView
     private void OnCloseClicked(object sender, EventArgs e)
     {
         this.IsVisible = false;
+        if (BindingContext is CustomToolbarViewModel viewModel)
+        {
+            viewModel.StampHighlightColor = Colors.Transparent;
+        }
     }
 
     private void OnApplyClicked(object sender, EventArgs e)
@@ -73,16 +77,16 @@ public partial class StampDialog : ContentView
     {
         if (PreButton != null)
         {
-            PreButton.HeightRequest = 35;
-            PreButton.WidthRequest = 35;
+            PreButton.HeightRequest = 40;
+            PreButton.WidthRequest = 40;
             PreButton.CornerRadius = 20;
         }
         PreButton = sender as Button;
         if (selectedColorButtonHighlight == null)
         {
             selectedColorButtonHighlight = new Ellipse();
-            selectedColorButtonHighlight.WidthRequest = 35;
-            selectedColorButtonHighlight.HeightRequest = 35;
+            selectedColorButtonHighlight.WidthRequest = 40;
+            selectedColorButtonHighlight.HeightRequest = 40;
             selectedColorButtonHighlight.VerticalOptions = LayoutOptions.Center;
             selectedColorButtonHighlight.HorizontalOptions = LayoutOptions.Center;
             selectedColorButtonHighlight.Stroke = Brush.Black;
@@ -90,9 +94,9 @@ public partial class StampDialog : ContentView
         }
         if (sender is Button button)
         {
-            button.HeightRequest = 30;
-            button.WidthRequest = 30;
-            button.CornerRadius = 15;
+            button.HeightRequest = 32;
+            button.WidthRequest = 32;
+            button.CornerRadius = 16;
             button.HorizontalOptions = LayoutOptions.Center;
             button.VerticalOptions = LayoutOptions.Center;
             int column = Grid.GetColumn(button);
@@ -157,7 +161,7 @@ public class CustomStampEventArgs : EventArgs
         StampView = stampView;
         CustomStampLabel = customStampLabel;
     }
-    
+
     public CustomStampEventArgs(Border? stampeView)
     {
         StampView = stampeView;

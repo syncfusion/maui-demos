@@ -6,13 +6,14 @@
     xmlns:carousel="clr-namespace:Syncfusion.Maui.Carousel;assembly=Syncfusion.Maui.Carousel"
     xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
     xmlns:local="clr-namespace:SampleBrowser.Maui.Carousel.Carousel"
-    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localcore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Roboto" />
-            <Setter Property="TextColor" Value="#1C1B1F" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
             <Setter Property="FontSize" Value="20" />
             <Setter Property="HorizontalOptions" Value="Start" />
             <Setter Property="VerticalOptions" Value="Center" />
@@ -48,7 +49,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Border
-                                Background="#FFFFFF"
+                                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                 HeightRequest="150"
                                 HorizontalOptions="Center"
                                 Stroke="#CAC4D0"
@@ -56,7 +57,7 @@
                                 StrokeThickness="1"
                                 WidthRequest="150">
                                 <Label
-                                    BackgroundColor="White"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                     FontFamily="CarouselIcon"
                                     FontSize="75"
                                     HeightRequest="75"
@@ -74,7 +75,7 @@
                 <carousel:SfCarousel.LoadMoreView>
                     <Grid HeightRequest="150" WidthRequest="150">
                         <Border
-                            Background="#FFFFFF"
+                            Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                             HeightRequest="150"
                             HorizontalOptions="Center"
                             Stroke="#CAC4D0"
@@ -89,7 +90,7 @@
                                 HorizontalOptions="Center"
                                 HorizontalTextAlignment="Center"
                                 Text="Load More"
-                                TextColor="#1C1B1F"
+                                TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                 VerticalOptions="Center"
                                 VerticalTextAlignment="Center"
                                 WidthRequest="106" />
@@ -111,7 +112,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Border
-                                Background="#FFFFFF"
+                                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                 HeightRequest="150"
                                 HorizontalOptions="Center"
                                 Stroke="#CAC4D0"
@@ -119,7 +120,7 @@
                                 StrokeThickness="1"
                                 WidthRequest="150">
                                 <Label
-                                    BackgroundColor="White"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                     FontFamily="CarouselIcon"
                                     FontSize="75"
                                     HeightRequest="75"
@@ -138,7 +139,7 @@
                 <carousel:SfCarousel.LoadMoreView>
                     <Grid HeightRequest="200" WidthRequest="200">
                         <Border
-                            Background="#FFFFFF"
+                            Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                             HeightRequest="150"
                             HorizontalOptions="Center"
                             Stroke="#CAC4D0"
@@ -148,13 +149,13 @@
 
                             <Label
                                 Margin="0"
-                                BackgroundColor="#FFFFFF"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                 FontFamily="RobotoMedium"
                                 FontSize="18"
                                 HorizontalOptions="Center"
                                 HorizontalTextAlignment="Center"
                                 Text="Load More"
-                                TextColor="#1C1B1F"
+                                TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                 VerticalOptions="Center"
                                 VerticalTextAlignment="Center"
                                 WidthRequest="106" />

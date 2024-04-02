@@ -35,6 +35,11 @@
 			<Link>Samples\PullToRefresh\PullToRefreshView\Helper\PullToRefreshViewBehavior.cs</Link>
 		</Compile>
 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PullToRefresh\PullToRefreshView\Helper\PullToRefreshConverter.cs">
+			<Link>Samples\PullToRefresh\PullToRefreshView\Helper\PullToRefreshConverter.cs</Link>
+		</Compile>
+
+
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PullToRefresh\PullToRefreshView\Model\WeatherData.cs">
 			<Link>Samples\PullToRefresh\PullToRefreshView\Model\WeatherData.cs</Link>
 		</Compile>

@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
-             Background="#F5F5F5" Margin='{OnPlatform WinUI="-4, -4, -6, -6",MacCatalyst="-4, -4, -6, -6"}'>
+             Margin='{OnPlatform WinUI="-4, -4, -6, -6",MacCatalyst="-4, -4, -6, -6"}'>
 
     <localCore:SampleView.BindingContext>
         <local:ExpandableListViewModel x:Name="viewModel"/>
@@ -24,7 +24,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="Choose Your Foods" FontSize="16" FontFamily="Roboto-Medium" TextColor="#000000"
+            <Label Grid.Row="0" Text="Choose Your Foods" FontSize="17" FontFamily="Roboto-Medium"
                    CharacterSpacing="0.15" VerticalOptions="Center" VerticalTextAlignment="Center" Margin="16,0,0,0"/>
 
             <ListView:SfListView Grid.Row="1" x:Name="listView" ItemsSource="{Binding FoodCategoryInfo}"
@@ -33,13 +33,13 @@
 
                 <ListView:SfListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid BackgroundColor="#FFFFFF">
+                        <Grid >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <Grid Grid.Row="0" BackgroundColor="#FFFFFF">
+                            <Grid Grid.Row="0">
                                 <Grid.Behaviors>
                                     <local:GridBehavior ListView="{x:Reference listView}"/>
                                 </Grid.Behaviors>
@@ -50,16 +50,16 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="0" Text="{Binding FoodIcon}" FontSize="26" TextColor="#666666"
-                                   FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}' 
+                                <Label Grid.Column="0" Text="{Binding FoodIcon}" FontSize="26"
+                                   FontFamily="MauiSampleFontIcon" 
                                    HorizontalOptions="Center" VerticalOptions="Center"/>
 
-                                <Label Grid.Column="1" Text="{Binding FoodCategory}" TextColor="#000000" FontSize="14"
+                                <Label Grid.Column="1" Text="{Binding FoodCategory}" FontSize="14"
                                   FontFamily="Roboto-Medium" CharacterSpacing="0.1" VerticalOptions="Center" HorizontalOptions="Start"/>
 
                                 <Label Grid.Column="2" Text="{Binding IsExpanded,Converter={StaticResource ExpandCollapseIconConverter}}"
-                                   FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
-                                   FontSize="14" TextColor="#99000000" VerticalOptions="Center" Margin="0,0,16,0"/>
+                                   FontFamily="MauiSampleFontIcon"
+                                   FontSize="14" VerticalOptions="Center" Margin="0,0,16,0"/>
 
                             </Grid>
 
@@ -69,12 +69,12 @@
                                     <RowDefinition Height="240"/>
                                 </Grid.RowDefinitions>
 
-                                <BoxView Grid.Row="0" HeightRequest="1" BackgroundColor="#1F000000" Opacity="0.5"/>
+                                <BoxView Grid.Row="0" Color="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" HeightRequest="1" />
 
                                 <ListView:SfListView Grid.Row="1" ItemSize="40" ItemsSource="{Binding FoodMenuCollection}" IsVisible="{Binding IsExpanded}" >
                                     <ListView:SfListView.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid BackgroundColor="#FFFFFF">
+                                            <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto"/>
                                                     <ColumnDefinition Width="*"/>
@@ -84,11 +84,10 @@
                                                     <TapGestureRecognizer Command="{Binding Source={x:Reference viewModel}, Path=SelectCommand}" CommandParameter="{Binding .}"/>
                                                 </Grid.GestureRecognizers>
 
-                                                <Label Text="{Binding IsSelected,Converter={StaticResource foodSelectionIconConverter}}" FontSize="16"
-                                                   FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
-                                                   TextColor="#666666" Margin="40,0,12,0" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                                                <Label Text="{Binding IsSelected,Converter={StaticResource foodSelectionIconConverter}}" FontSize="16" TextColor="{AppThemeBinding Light=#666666, Dark=#CAC4D0}"
+                                                   FontFamily="MauiSampleFontIcon" Margin="40,0,12,0" VerticalOptions="Center" VerticalTextAlignment="Center"/>
 
-                                                <Label Grid.Column="1" Text="{Binding FoodName}" FontSize="14" TextColor="#000000"
+                                                <Label Grid.Column="1" Text="{Binding FoodName}" FontSize="14"
                                                    CharacterSpacing="0.25" FontFamily="Roboto-Regular" VerticalOptions="Center" VerticalTextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>

@@ -26,14 +26,13 @@
                                        StepSize="1">
 
                     <sliders:SfRangeSlider.ThumbStyle>
-                        <sliders:SliderThumbStyle Radius="14" />
+                        <sliders:SliderThumbStyle Radius="14" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalThumbFillBrush}}"/>
                     </sliders:SfRangeSlider.ThumbStyle>
 
                     <sliders:SfRangeSlider.StartThumbIcon>
                         <VerticalStackLayout>
                             <HorizontalStackLayout>
-                                <Label Text="{Binding Source={x:Reference slider}, Path=RangeStart}"
-                                       TextColor="White" />
+                                <Label Text="{Binding Source={x:Reference slider}, Path=RangeStart}" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
                     </sliders:SfRangeSlider.StartThumbIcon>
@@ -41,8 +40,7 @@
                     <sliders:SfRangeSlider.EndThumbIcon>
                         <VerticalStackLayout>
                             <HorizontalStackLayout>
-                                <Label Text="{Binding Source={x:Reference slider}, Path=RangeEnd}"
-                                       TextColor="White" />
+                                <Label Text="{Binding Source={x:Reference slider}, Path=RangeEnd}" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
                     </sliders:SfRangeSlider.EndThumbIcon>
@@ -61,48 +59,24 @@
                                        RangeEnd="6">
 
                     <sliders:SfRangeSlider.ThumbStyle>
-                        <sliders:SliderThumbStyle Radius="14" />
+                        <sliders:SliderThumbStyle Radius="14" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalThumbFillBrush}}"/>
                     </sliders:SfRangeSlider.ThumbStyle>
 
                     <sliders:SfRangeSlider.StartThumbIcon>
                         <VerticalStackLayout>
-                            <HorizontalStackLayout>
-                                <Label Text="&#xe700;"
-                                       FontAttributes="Bold"
-                                       TextColor="White">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="iOS,MacCatalyst"
-                                                Value="metro" />
-                                            <On Platform="UWP"
-                                                Value="Sliders-Icons.ttf#metro" />
-                                            <On Platform="Android"
-                                                Value="Sliders-Icons.ttf#metro" />
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
-                            </HorizontalStackLayout>
+                            <Label Text="&#xe70a;" HorizontalOptions="Center" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                   HorizontalTextAlignment="End" FontSize="18"
+                                   FontFamily="MauiSampleFontIcon">
+                            </Label>
                         </VerticalStackLayout>
                     </sliders:SfRangeSlider.StartThumbIcon>
 
                     <sliders:SfRangeSlider.EndThumbIcon>
                         <VerticalStackLayout>
-                            <HorizontalStackLayout>
-                                <Label Text="&#xe701;"
-                                       FontAttributes="Bold"
-                                       TextColor="White">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="iOS,MacCatalyst"
-                                                Value="metro" />
-                                            <On Platform="UWP"
-                                                Value="Sliders-Icons.ttf#metro" />
-                                            <On Platform="Android"
-                                                Value="Sliders-Icons.ttf#metro" />
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
-                            </HorizontalStackLayout>
+                            <Label Text="&#xe709;" HorizontalOptions="Center" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                   HorizontalTextAlignment="Center" FontSize="18" 
+                                   FontFamily="MauiSampleFontIcon">
+                            </Label>
                         </VerticalStackLayout>
                     </sliders:SfRangeSlider.EndThumbIcon>
                 </sliders:SfRangeSlider>

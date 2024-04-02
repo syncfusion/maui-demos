@@ -10,6 +10,8 @@
 
     <localCore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+        <Color x:Key="lightThemeColor">#E7E0EC</Color>
+        <Color x:Key="darkThemeColor">#49454F</Color>
     </localCore:SampleView.Resources>
     
     <localCore:SampleView.BindingContext>
@@ -26,7 +28,6 @@
     <localCore:SampleView.Content>
         <Grid ColumnDefinitions=".45*,420">
             <Grid Grid.Column="0" 
-                  Background="#F7F7F7"
                   RowDefinitions="0.2*,0.8*">
                 <VerticalStackLayout Margin="22,20,15,12"
                                      Spacing="5" 
@@ -70,7 +71,6 @@
 
                         <Label Text="{Binding TotalPrice}"
                                Margin="0,12,0,0"
-                               TextColor="#6200EE"
                                FontSize="20"
                                FontFamily="RobotoMedium"
                                FontAttributes="Bold"/>
@@ -91,12 +91,10 @@
                                                         SegmentHeight="36"
                                                         CornerRadius="36"
                                                         SegmentCornerRadius="36"
-                                                        Background="Transparent"
                                                         SelectedIndex="{Binding SelectedColoredIndex, Mode=TwoWay}"
                                                         ItemsSource="{Binding SpeakerColorOptionsInfo}">
                                 <buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                    <buttons:SelectionIndicatorSettings SelectionIndicatorPlacement="Border"
-                                                                        Background="#6200EE" />
+                                    <buttons:SelectionIndicatorSettings SelectionIndicatorPlacement="Border" />
                                 </buttons:SfSegmentedControl.SelectionIndicatorSettings>
                             </buttons:SfSegmentedControl>
                         </StackLayout>
@@ -118,12 +116,11 @@
                                                         SelectedIndex="{Binding SelectedWarrantyOption, Mode=TwoWay}"
                                                         StrokeThickness="1">
                                 <buttons:SfSegmentedControl.TextStyle>
-                                    <buttons:SegmentTextStyle FontSize="14" 
+                                    <buttons:SegmentTextStyle FontSize="14"
                                                               FontFamily="Roboto-Regular" />
                                 </buttons:SfSegmentedControl.TextStyle>
                                 <buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                    <buttons:SelectionIndicatorSettings Background="#6200EE" 
-                                                                        TextColor="White"/>
+                                    <buttons:SelectionIndicatorSettings SelectionIndicatorPlacement="Fill" />
                                 </buttons:SfSegmentedControl.SelectionIndicatorSettings>
                             </buttons:SfSegmentedControl>
                         </StackLayout>
@@ -148,17 +145,15 @@
                                                             WidthRequest="330"
                                                             VerticalOptions="Fill"
                                                             Stroke="Transparent"
+                                                            SegmentBackground="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}"
                                                             HorizontalOptions="Start"
-                                                            SegmentBackground="#DCDCDD"
                                                             ItemsSource="{Binding SpeakerDeliveryOptionsInfo}"
                                                             SelectedIndex="{Binding SelectedDeliveryOption, Mode=TwoWay}">
                                     <buttons:SfSegmentedControl.TextStyle>
-                                        <buttons:SegmentTextStyle FontSize="14" FontFamily="Roboto" />
+                                        <buttons:SegmentTextStyle FontSize="14" 
+                                                                  FontFamily="Roboto" />
                                     </buttons:SfSegmentedControl.TextStyle>
-                                    <buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                        <buttons:SelectionIndicatorSettings Background="#6200EE" />
-                                    </buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                </buttons:SfSegmentedControl>
+                                                                   </buttons:SfSegmentedControl>
                             </HorizontalStackLayout>
                         </StackLayout>
                     </StackLayout>
@@ -182,11 +177,9 @@
                                              SelectedIndex="0"
                                              ItemsSource="{Binding SpeakerResultsOptionInfo}">
                     <buttons:SfSegmentedControl.TextStyle>
-                        <buttons:SegmentTextStyle FontSize="14" FontFamily="Roboto" />
+                        <buttons:SegmentTextStyle FontSize="14" 
+                                                  FontFamily="Roboto" />
                     </buttons:SfSegmentedControl.TextStyle>
-                    <buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                        <buttons:SelectionIndicatorSettings Background="#6200EE" />
-                    </buttons:SfSegmentedControl.SelectionIndicatorSettings>
                     <buttons:SfSegmentedControl.Margin>
                         <OnPlatform x:TypeArguments="thickness:Thickness">
                             <On Platform="MacCatalyst" Value="3,20,3,0"/>

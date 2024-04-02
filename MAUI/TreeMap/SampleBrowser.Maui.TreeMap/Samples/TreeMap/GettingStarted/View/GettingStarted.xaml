@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      xmlns:treemap="clr-namespace:Syncfusion.Maui.TreeMap;assembly=Syncfusion.Maui.TreeMap"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.TreeMap.SfTreeMap"
+                      xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+                      x:Class="SampleBrowser.Maui.TreeMap.SfTreeMap.GettingStarted">
+
+    <localCore:SampleView.Margin>
+        <OnPlatform x:TypeArguments="thickness:Thickness">
+            <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
+            <On Platform="WinUI" Value="-10"/>
+        </OnPlatform>
+    </localCore:SampleView.Margin>
+
+    <localCore:SampleView.BindingContext>
+        <local:GettingStartedViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <Grid RowDefinitions="auto, 0.95*">
+            <VerticalStackLayout>
+                <Label Text="International Airport Count in South America by Country"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="14"
+                       Padding="3"
+                       FontAttributes="Bold"/>
+            </VerticalStackLayout>
+            <treemap:SfTreeMap x:Name="treeMap"
+                               DataSource="{Binding AirportDetails}"
+                               Grid.Row="1"
+                               Margin="8"
+                               RangeColorValuePath="Count"
+                               PrimaryValuePath="Count"
+                               ShowToolTip="True">
+                <treemap:SfTreeMap.LeafItemSettings>
+                    <treemap:TreeMapLeafItemSettings LabelPath="State"
+                                                     Spacing="0"/>
+                </treemap:SfTreeMap.LeafItemSettings>
+                <treemap:SfTreeMap.LeafItemBrushSettings>
+                    <treemap:TreeMapRangeBrushSettings>
+                        <treemap:TreeMapRangeBrushSettings.RangeBrushes>
+                            <treemap:TreeMapRangeBrush LegendLabel="32"
+                                                       From="32"
+                                                       To="32"
+                                                       Brush="#634D6F" />
+                            <treemap:TreeMapRangeBrush LegendLabel="31"
+                                                       From="27"
+                                                       To="31"
+                                                       Brush="#B34D6D" />
+                            <treemap:TreeMapRangeBrush LegendLabel="26"
+                                                       From="8"
+                                                       To="26"
+                                                       Brush="#557C5C" />
+                            <treemap:TreeMapRangeBrush LegendLabel="7"
+                                                       From="6"
+                                                       To="7"
+                                                       Brush="#44537F" />
+                            <treemap:TreeMapRangeBrush LegendLabel="5"
+                                                       From="4"
+                                                       To="5"
+                                                       Brush="#637392" />
+                            <treemap:TreeMapRangeBrush LegendLabel="3"
+                                                       From="3" 
+                                                       To="3" 
+                                                       Brush ="#7C754D" />
+                            <treemap:TreeMapRangeBrush LegendLabel="2"
+                                                       From="2" 
+                                                       To="2" 
+                                                       Brush ="#2E7A64"/>
+                            <treemap:TreeMapRangeBrush LegendLabel="1"
+                                                       From="0"
+                                                       To="1"
+                                                       Brush="#95659A"/>
+                        </treemap:TreeMapRangeBrushSettings.RangeBrushes>
+                    </treemap:TreeMapRangeBrushSettings>
+                </treemap:SfTreeMap.LeafItemBrushSettings>
+                <treemap:SfTreeMap.LegendSettings>
+                    <treemap:TreeMapLegendSettings ShowLegend="True" />
+                </treemap:SfTreeMap.LegendSettings>
+                <treemap:SfTreeMap.ToolTipTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Path Data="M13.4002 12.48L12.1402 9.05999L12.6502 8.54999C12.6925 8.50814 12.7262 8.4583 12.7491 8.40337C12.772 8.34845 12.7838 8.28951 12.7838 8.22999C12.7838 8.17046 12.772 8.11153 12.7491 8.0566C12.7262 8.00167 12.6925 7.95184 12.6502 7.90999C12.564 7.82389 12.4471 7.77553 12.3252 7.77553C12.2034 7.77553 12.0865 7.82389 12.0002 7.90999L11.8002 8.10999L11.5402 7.39999L12.1702 6.77999C12.2563 6.69374 12.3047 6.57686 12.3047 6.45499C12.3047 6.33312 12.2563 6.21623 12.1702 6.12999C12.0833 6.04916 11.9689 6.00423 11.8502 6.00423C11.7315 6.00423 11.6172 6.04916 11.5302 6.12999L11.1902 6.46999L10.8102 5.46999C11.1902 5.09999 11.5802 4.71999 11.9502 4.33999C12.4847 3.8419 12.9065 3.2354 13.1877 2.56109C13.4688 1.88678 13.6026 1.1602 13.5802 0.429988C13.573 0.335197 13.5314 0.2463 13.4633 0.180007C13.3952 0.113714 13.3052 0.0745895 13.2102 0.0699876C12.481 0.0509533 11.7561 0.187352 11.0837 0.470117C10.4112 0.752883 9.80669 1.17554 9.31022 1.70999L8.31022 2.78999L7.01022 2.26999L7.35022 1.92999C7.39255 1.88814 7.42615 1.8383 7.44909 1.78338C7.47202 1.72845 7.48383 1.66951 7.48383 1.60999C7.48383 1.55046 7.47202 1.49153 7.44909 1.4366C7.42615 1.38167 7.39255 1.33184 7.35022 1.28999C7.26398 1.20389 7.14709 1.15553 7.02522 1.15553C6.90335 1.15553 6.78646 1.20389 6.70022 1.28999L6.06022 1.91999L5.35022 1.65999L5.55022 1.45999C5.63632 1.37374 5.68468 1.25686 5.68468 1.13499C5.68468 1.01312 5.63632 0.896232 5.55022 0.809988C5.50837 0.767659 5.45854 0.734054 5.40361 0.711118C5.34868 0.688183 5.28974 0.676374 5.23022 0.676374C5.17069 0.676374 5.11176 0.688183 5.05683 0.711118C5.0019 0.734054 4.95207 0.767659 4.91022 0.809988L4.40022 1.31999L1.09022 0.0999876C0.98475 0.0605345 0.868473 0.0611388 0.763419 0.101686C0.658365 0.142233 0.571833 0.219906 0.52022 0.319988C0.470045 0.407382 0.450657 0.50909 0.465162 0.608814C0.479667 0.708539 0.527226 0.800508 0.600219 0.869988L6.09022 5.12999C5.43022 5.91999 4.79022 6.77999 4.17022 7.56999C3.68022 8.23999 3.17022 8.93999 2.77022 9.65999L1.46022 9.05999C1.34043 9.00169 1.20523 8.98286 1.07407 9.00622C0.942904 9.02958 0.822522 9.09391 0.73022 9.18999L0.20022 9.71999C0.138233 9.78053 0.0889773 9.85286 0.0553479 9.93271C0.0217186 10.0126 0.00439453 10.0983 0.00439453 10.185C0.00439453 10.2716 0.0217186 10.3574 0.0553479 10.4373C0.0889773 10.5171 0.138233 10.5894 0.20022 10.65L2.92022 13.37C3.04341 13.4897 3.20843 13.5567 3.38022 13.5567C3.55201 13.5567 3.71703 13.4897 3.84022 13.37L4.38022 12.83C4.47251 12.7353 4.53424 12.6151 4.55742 12.485C4.5806 12.3548 4.56416 12.2207 4.51022 12.1L3.96022 10.86C4.68022 10.42 5.38022 9.93999 6.06022 9.44999C6.74022 8.95999 7.66022 8.20999 8.42022 7.55999L12.5802 12.93C12.655 13.0119 12.7563 13.0647 12.8662 13.0792C12.9762 13.0936 13.0877 13.0687 13.181 13.0088C13.2744 12.949 13.3436 12.8581 13.3764 12.7522C13.4092 12.6462 13.4034 12.5321 13.3602 12.43L13.4002 12.48Z" 
+                                  WidthRequest="14"
+                                  HeightRequest="14"
+                                  Fill="{Binding Background}"
+                                  VerticalOptions="Center"/>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Airports:"
+                                           Margin="8,0,0,0"
+                                           TextColor="{AppThemeBinding Light=White, Dark=Black}" />
+                                    <Label Text="{Binding PrimaryValueText}"
+                                           Margin="5,0,8,0"
+                                           TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Counts:" 
+                                           Margin="8,0,0,0"
+                                           TextColor="{AppThemeBinding Light=White, Dark=Black}" />
+                                    <Label Text="{Binding Item.Count}"
+                                           Margin="5,0,8,0"
+                                           TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </treemap:SfTreeMap.ToolTipTemplate>
+            </treemap:SfTreeMap>
+        </Grid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" 
+                         Margin="0,0,0,10">
+
+                <Grid ColumnDefinitions="0.5*,0.5*"
+                      Margin="0,10">
+                    <Label Text="Layout Type"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           Margin="0,0,4,0"/>
+                    <editors:SfComboBox x:Name="layoutTypePicker"
+                                        SelectedItem="Squarified"
+                                        IsClearButtonVisible="False"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center" 
+                                        MaxDropDownHeight="160">
+                        <editors:SfComboBox.ItemsSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+                                <x:String>Squarified</x:String>
+                                <x:String>Horizontal</x:String>
+                                <x:String>Vertical</x:String>
+                                <x:String>Auto</x:String>
+                            </ListCollection:List>
+                        </editors:SfComboBox.ItemsSource>
+                    </editors:SfComboBox>
+                </Grid>
+
+                <Grid ColumnDefinitions="0.5*,0.5*">
+                    <Label Text="Selection Mode"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           Margin="0,0,4,0"/>
+                    <editors:SfComboBox x:Name="selectionModePicker"
+                                        ItemsSource="{Binding SelectionModeInfo}"
+                                        SelectedItem="{Binding SelectionModeInfo[1]}"
+                                        IsClearButtonVisible="False"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center" />
+                </Grid>
+
+                <Label Text="Text overflow settings"
+                       Margin="0,10"
+                       HorizontalOptions="StartAndExpand"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+
+                <Grid ColumnDefinitions="0.5*,0.5*" 
+                      Margin="0,10">
+                    <Label Text="Text overflow mode"
+                           VerticalOptions="Center" />
+
+                    <editors:SfComboBox x:Name="textFormatOptionInfoPicker"
+                                        SelectedItem="{Binding TextFormatOptionInfo[0]}"
+                                        IsClearButtonVisible="False"
+                                        ItemsSource="{Binding TextFormatOptionInfo}"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:GettingStartedBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

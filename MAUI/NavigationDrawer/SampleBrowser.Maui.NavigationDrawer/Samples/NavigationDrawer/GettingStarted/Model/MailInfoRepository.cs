@@ -218,7 +218,7 @@ public class MailInfoRepository
         "My Analytics | Collaboration Edition",
         "You've joined the Blog Team Site group",
         "Microsoft .NET News: Get started with .NET 6.0 and watch sessions from .NET Conf 2022 on demand",
-        "Microsoft .NET News: Learn about the new tools and updates for .NET developers",
+        "Microsoft .NET News: Learn about new tools and updates for .NET developers",
     };
 
     internal string[] Descriptions = new string[] {
@@ -229,7 +229,7 @@ public class MailInfoRepository
         "One codebase, many platforms: .NET Multiplatform App UI is generally available.",
         "You have two new messages.",
         "Explore resources to get started with .NET MAUI.",
-        "Get Started: Java for Beginners",
+        "Get started: Java for beginners",
         "How to learn and get started with Stack Overflow.",
         "Hello and welcome to Outlook.",
         "This email message was sent automatically by Microsoft Outlook while testing the settings of your account.",

@@ -21,7 +21,7 @@ public class PullToRefreshViewModel : INotifyPropertyChanged
     private readonly string[] weatherTypes = { "Sunny", "Rain", "Snow", "Cloudy", "Thunderstorms", "Partly Cloudy", "Foggy" };
     private readonly string[] backgrounds = { "#FFF4C3", "#D5F3FF", "#E4EDF6", "#D5F7FF", "#D0D0D0", "#FFE2B8", "#D5EBFF" };
     private readonly string[] weatherImages = { "sunny", "heavyrain", "snowwithcloudy", "mostlycloudy", "thunderstrom", "partlysunny", "foggywithcloudy" };
-    private readonly string[] weatherIcons = { "\ue700", "\ue705", "\ue704", "\ue702", "\ue703", "\ue707", "\ue706"};
+    private readonly string[] weatherIcons = { "\ue78e", "\ue793", "\ue792", "\ue790", "\ue791", "\ue795", "\ue794"};
     private WeatherData? data;
     private ObservableCollection<WeatherData>? selectedData;
     private ObservableCollection<WindDetails>? windDetailList;
@@ -104,7 +104,7 @@ public class PullToRefreshViewModel : INotifyPropertyChanged
         {
             WeatherData data = new WeatherData();
             data.WeatherType = this.weatherTypes[i];
-            data.Date = GetDate(i).ToString("ddd d");
+            data.Date = GetDate(i);
             data.Temperature = this.UpdateTemperature(data.WeatherType);
             data.BackgroundColor = this.backgrounds[i];
             data.WeatherImage = this.weatherImages[i] + ".png";
@@ -112,8 +112,6 @@ public class PullToRefreshViewModel : INotifyPropertyChanged
 
             array.Add(data);
         }
-
-        array[0].Date = "Today";
 
         return array;
     }
@@ -136,8 +134,7 @@ public class PullToRefreshViewModel : INotifyPropertyChanged
     /// <returns>date time value</returns>
     private DateTime GetDate(int i)
     {
-        var datetime = new DateTime(2023, 4, 17, 13, 12, 53);
-        return datetime.AddDays(i);
+        return DateTime.Today.AddDays(i);
     }
 
     /// <summary>

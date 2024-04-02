@@ -9,6 +9,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 {
     using SampleBrowser.Maui.Base;
     using Syncfusion.Maui.Calendar;
+    using Syncfusion.Maui.Buttons;
 
     internal class CalendarIdentifierBehavior : Behavior<SampleView>
     {
@@ -20,7 +21,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <summary>
         /// The radio buttons collection.
         /// </summary>
-        private IEnumerable<RadioButton>? radioButtons;
+        private IEnumerable<SfRadioButton>? radioButtons;
 
         /// <summary>
         /// Begins when the behavior attached to the view 
@@ -35,8 +36,8 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             Border border = bindable.Content.FindByName<Border>("desktopBorder");
             border.IsVisible = true;
             this.calendar = bindable.Content.FindByName<SfCalendar>("desktopIdentifier1");
-            Grid optionView = bindable.Content.FindByName<Grid>("desktopOptionView");
-            this.radioButtons = optionView.Children.OfType<RadioButton>();
+            VerticalStackLayout optionView = bindable.Content.FindByName<VerticalStackLayout>("desktopOptionView");
+            this.radioButtons = optionView.Children.OfType<SfRadioButton>();
 #elif IOS
             Grid mobileLayout = bindable.Content.FindByName<Grid>("mobileCalendar");
             mobileLayout.IsVisible = true;
@@ -46,7 +47,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             Border optionBorder = bindable.Content.FindByName<Border>("mobileOptionBorder");
             optionBorder.IsVisible = true;
             HorizontalStackLayout optionView = bindable.Content.FindByName<HorizontalStackLayout>("mobileOptionBorderView");
-            this.radioButtons = optionView.Children.OfType<RadioButton>();
+            this.radioButtons = optionView.Children.OfType<SfRadioButton>();
 #elif ANDROID
             Grid mobileLayout = bindable.Content.FindByName<Grid>("mobileCalendar");
             mobileLayout.IsVisible = true;
@@ -56,29 +57,29 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             Frame optionFrame = bindable.Content.FindByName<Frame>("mobileOptionFrame");
             optionFrame.IsVisible = true;
             HorizontalStackLayout optionView = bindable.Content.FindByName<HorizontalStackLayout>("mobileOptionFrameView");
-            this.radioButtons = optionView.Children.OfType<RadioButton>();
+            this.radioButtons = optionView.Children.OfType<SfRadioButton>();
 #else
             HorizontalStackLayout desktopLayout = bindable.Content.FindByName<HorizontalStackLayout>("desktopCalendar");
             desktopLayout.IsVisible = true;
             Frame frame = bindable.Content.FindByName<Frame>("desktopFrame");
             frame.IsVisible = true;
             this.calendar = bindable.Content.FindByName<SfCalendar>("desktopIdentifier");
-            Grid optionView = bindable.Content.FindByName<Grid>("desktopOptionView");
-            this.radioButtons = optionView.Children.OfType<RadioButton>();
+            VerticalStackLayout optionView = bindable.Content.FindByName<VerticalStackLayout>("desktopOptionView");
+            this.radioButtons = optionView.Children.OfType<SfRadioButton>();
 #endif
 
             if (this.radioButtons != null)
             {
                 foreach (var item in this.radioButtons)
                 {
-                    string? radioButtonText = item.Content.ToString();
+                    string? radioButtonText = item.Text.ToString();
                     //// Handle the is checked on xaml does not rendered correctly on windows.
                     if (this.calendar != null && string.Equals(radioButtonText, "Hijri"))
                     {
                         item.IsChecked = true;
                     }
 
-                    item.CheckedChanged += OnRadioButton_CheckedChanged;
+                    item.StateChanged += OnRadioButton_StateChanged;
                 }
             }
         }
@@ -94,7 +95,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             {
                 foreach (var item in this.radioButtons)
                 {
-                    item.CheckedChanged -= OnRadioButton_CheckedChanged;
+                    item.StateChanged -= OnRadioButton_StateChanged;
                 }
 
                 this.radioButtons = null;
@@ -106,9 +107,14 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// </summary>
         /// <param name="sender">Return the object</param>
         /// <param name="e">Event Arguments</param>
-        private void OnRadioButton_CheckedChanged(object? sender, CheckedChangedEventArgs e)
+        private void OnRadioButton_StateChanged(object? sender, StateChangedEventArgs e)
         {
-            string? radioButtonText = (sender as RadioButton)?.Content.ToString();
+            if (e.IsChecked == false)
+            {
+                return;
+            }
+
+            string? radioButtonText = (sender as SfRadioButton)?.Text.ToString();
             if (calendar == null)
             {
                 return;

@@ -37,27 +37,27 @@
                         </Grid.RowDefinitions>
 
                         <Label LineBreakMode="TailTruncation"
-                                   TextColor="#DE000000"
                                    Text="{Binding DocumentName}" 
                                    FontFamily="Roboto-Regular"
                                    CharacterSpacing="0.15"
                                    FontSize="{OnPlatform Default=16,WinUI=14}" />
 
-                        <Label Grid.Row="1" TextColor="#99000000" 
+                        <Label Grid.Row="1"
                                        Grid.Column="0"
                                        LineBreakMode="NoWrap"                               
                                        FontFamily="Roboto-Regular"
                                        CharacterSpacing="0.25"
                                        Text="{Binding DocumentSize}"
                                        Margin="0,2,0,0"
-                                       FontSize="14" />
+                                       FontSize="14"
+                               Opacity="0.8"/>
 
                     </Grid>
                     <Label Grid.Column="2" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="End" Margin="0,0,16,0"
                            FontSize="{OnPlatform Android=Large, WinUI=Medium, iOS=Large, MacCatalyst=Large}"
                            Text="{Binding IsSelected, Converter={StaticResource SelectionIconConverter}}" TextColor="{Binding Path=IsSelected, Converter={StaticResource IconColorConverter}}"
-                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, WinUI=ListViewFontIcons.ttf#ListViewFontIcons}"/>
-                    <BoxView Grid.Row="1" Grid.Column="1" VerticalOptions="Start" Grid.ColumnSpan="2" BackgroundColor="LightGray" HeightRequest="1.5"/>
+                           FontFamily="MauiSampleFontIcon"/>
+                    <BoxView Grid.Row="1" Grid.Column="1" Color="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" VerticalOptions="Start" Grid.ColumnSpan="2" HeightRequest="1.5"/>
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>
@@ -74,7 +74,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Label LineBreakMode="NoWrap" Grid.Column="0" TextColor="#E3000000"
+                <Label LineBreakMode="NoWrap" Grid.Column="0"
                        Text="{Binding HeaderInfo}" FontFamily="Roboto-Medium"
                        FontSize="16"  HorizontalOptions="Start" VerticalOptions="Center"/>
 
@@ -83,7 +83,7 @@
                            FontSize="{OnPlatform Android=Large, WinUI=Medium, iOS=Large, MacCatalyst=Large}"
                            Text="{Binding IsAllSelected, Converter={StaticResource SelectionIconConverter}}" 
                            TextColor="{Binding Path=IsAllSelected, Converter={StaticResource IconColorConverter}}"
-                           FontFamily="{OnPlatform iOS=ListViewFontIcons, MacCatalyst=ListViewFontIcons, Android=ListViewFontIcons.ttf#, WinUI=ListViewFontIcons.ttf#ListViewFontIcons}"
+                           FontFamily="MauiSampleFontIcon"
                            VerticalTextAlignment="Center" VerticalOptions="Center" />
                 </Grid>
             </Grid>

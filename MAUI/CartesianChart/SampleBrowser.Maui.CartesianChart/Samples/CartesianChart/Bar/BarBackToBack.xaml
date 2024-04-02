@@ -13,7 +13,7 @@
                     <local:BarSeriesViewModel/>
                 </chart:SfCartesianChart.BindingContext>
                 <chart:SfCartesianChart.Title>
-                <Label Text="GDP growth by Country" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="GDP growth by Country" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
                 </chart:SfCartesianChart.Title>
                 <chart:SfCartesianChart.XAxes >
                 <chart:CategoryAxis ShowMajorGridLines="False">

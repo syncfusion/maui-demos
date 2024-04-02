@@ -2,7 +2,7 @@
 <SyncfusionControls>
   <ControlCategory Name="Picker">
 	  
-	  <Control Title="Picker" Image="picker.png" ControlName="SfPicker" Description="It is a versatile user interface element designed for making selections from a set of options.">
+	  <Control Title="Picker" Image="picker.png" ControlName="SfPicker" Description="A versatile UI element designed for making selections from a set of options.">
 		  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="Picker/GettingStarted/"/>
 		  <Sample Title="Flight booking" SampleName="FlightBooking" CodeViewerPath="Picker/FlightBooking/"/>
 	  </Control>

@@ -9,6 +9,7 @@ namespace SampleBrowser.Maui.Picker.SfPicker
 {
     using SampleBrowser.Maui.Base;
     using Syncfusion.Maui.Picker;
+    using Syncfusion.Maui.Buttons;
 
     public class GettingStartedBehavior : Behavior<SampleView>
     {
@@ -20,7 +21,12 @@ namespace SampleBrowser.Maui.Picker.SfPicker
         /// <summary>
         /// The show header switch
         /// </summary>
-        private Switch? showHeaderSwitch, showFooterSwitch;
+        private SfSwitch? showHeaderSwitch, showFooterSwitch;
+
+        /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
 
         /// <summary>
         /// Begins when the behavior attached to the view 
@@ -33,36 +39,31 @@ namespace SampleBrowser.Maui.Picker.SfPicker
 #if IOS || MACCATALYST
             Border border = sampleView.Content.FindByName<Border>("border");
             border.IsVisible = true;
-            border.Stroke = Color.FromArgb("#E6E6E6");
+            border.Stroke = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
             this.picker = sampleView.Content.FindByName<SfPicker>("Picker1");
 #else
             Frame frame = sampleView.Content.FindByName<Frame>("frame");
             frame.IsVisible = true;
-            frame.BorderColor = Color.FromArgb("#E6E6E6");
+            frame.BorderColor = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
             this.picker = sampleView.Content.FindByName<SfPicker>("Picker");
 #endif
+            this.picker.HeaderView.Height = 50;
+            this.picker.HeaderView.Text = "Select a Country";
 
-            this.picker.TextStyle = new PickerTextStyle()
-            {
-                TextColor = Color.FromRgba(0, 0, 0, 128),
-            };
+            this.picker.SelectionView.Padding = 0;
+            this.picker.SelectionView.CornerRadius = 0;
 
-            this.picker.SelectedTextStyle = new PickerTextStyle()
-            {
-                TextColor = Colors.Black,
-            };
-
-            this.showHeaderSwitch = sampleView.Content.FindByName<Switch>("showHeaderSwitch");
-            this.showFooterSwitch = sampleView.Content.FindByName<Switch>("showFooterSwitch");
+            this.showHeaderSwitch = sampleView.Content.FindByName<SfSwitch>("showHeaderSwitch");
+            this.showFooterSwitch = sampleView.Content.FindByName<SfSwitch>("showFooterSwitch");
 
             if (this.showHeaderSwitch != null)
             {
-                this.showHeaderSwitch.Toggled += ShowHeaderSwitch_Toggled;
+                this.showHeaderSwitch.StateChanged += ShowHeaderSwitch_Toggled;
             }
 
             if (this.showFooterSwitch != null)
             {
-                this.showFooterSwitch.Toggled += ShowFooterSwitch_Toggled;
+                this.showFooterSwitch.StateChanged += ShowFooterSwitch_Toggled;
             }
         }
 
@@ -71,30 +72,18 @@ namespace SampleBrowser.Maui.Picker.SfPicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowHeaderSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowHeaderSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.picker != null)
+            if (this.picker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
-                    this.picker.HeaderView = new PickerHeaderView()
-                    {
-                        Height = 50,
-                        Text = "Select a Country",
-                        Background = Color.FromArgb("#6750A4"),
-                        TextStyle = new PickerTextStyle()
-                        {
-                            TextColor = Colors.White,
-                            FontSize = 15,
-                        },
-                    };
+                    this.picker.HeaderView.Height = 50;
+                    this.picker.HeaderView.Text = "Select a Country";
                 }
-                else if (e.Value == false)
+                else if (e.NewValue.Value == false)
                 {
-                    this.picker.HeaderView = new PickerHeaderView()
-                    {
-                        Height = 0,
-                    };
+                    this.picker.HeaderView.Height = 0;
                 }
             }
         }
@@ -104,11 +93,11 @@ namespace SampleBrowser.Maui.Picker.SfPicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowColumnHeaderSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowColumnHeaderSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.picker != null)
+            if (this.picker != null && e.NewValue.HasValue)
             {
-                this.picker.ColumnHeaderView.Height = e.Value == true ? 40 : 0;
+                this.picker.ColumnHeaderView.Height = e.NewValue.Value == true ? 40 : 0;
             }
         }
 
@@ -117,28 +106,17 @@ namespace SampleBrowser.Maui.Picker.SfPicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowFooterSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowFooterSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.picker != null)
+            if (this.picker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
-                    this.picker.FooterView = new PickerFooterView()
-                    {
-                        Height = 40,
-                        TextStyle = new PickerTextStyle()
-                        {
-                            TextColor = Color.FromArgb("#6750A4"),
-                            FontSize = 15,
-                        },
-                    };
+                    this.picker.FooterView.Height = 40;
                 }
-                else if (e.Value == false)
+                else if (e.NewValue.Value == false)
                 {
-                    this.picker.FooterView = new PickerFooterView()
-                    {
-                        Height = 0,
-                    };
+                    this.picker.FooterView.Height = 0;
                 }
             }
         }
@@ -152,13 +130,13 @@ namespace SampleBrowser.Maui.Picker.SfPicker
             base.OnDetachingFrom(sampleView);
             if (this.showHeaderSwitch != null)
             {
-                this.showHeaderSwitch.Toggled -= ShowHeaderSwitch_Toggled;
+                this.showHeaderSwitch.StateChanged -= ShowHeaderSwitch_Toggled;
                 this.showHeaderSwitch = null;
             }
 
             if (this.showFooterSwitch != null)
             {
-                this.showFooterSwitch.Toggled -= ShowFooterSwitch_Toggled;
+                this.showFooterSwitch.StateChanged -= ShowFooterSwitch_Toggled;
                 this.showFooterSwitch = null;
             }
         }

@@ -23,6 +23,7 @@
                 <Label HorizontalOptions="Center"
                        Text="2005 YTD"
                        FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                        FontSize="20"
                        Margin="0,0,0,10"/>
 
@@ -76,7 +77,7 @@
                             <gauge:LinearContentPointer.Content>
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="Revenue"
-                                           TextColor="#333333"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            FontAttributes="Bold"
                                            HorizontalTextAlignment="End" />
                                     <Label Text=" U.S. $"
@@ -138,7 +139,7 @@
                             <gauge:LinearContentPointer.Content>
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="Profit"
-                                           TextColor="#333333"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            FontAttributes="Bold"
                                            HorizontalTextAlignment="End" />
                                 </StackLayout>
@@ -197,7 +198,7 @@
                             <gauge:LinearContentPointer.Content>
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="Avg Order Size"
-                                           TextColor="#333333"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            FontAttributes="Bold"
                                            HorizontalTextAlignment="End" />
                                     <Label Text="U.S. $"
@@ -261,7 +262,7 @@
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="New Customers"
                                            FontAttributes="Bold"
-                                           TextColor="#333333"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            HorizontalTextAlignment="End" />
                                     <Label Text="Count"
                                            FontSize="12"
@@ -322,7 +323,7 @@
                             <gauge:LinearContentPointer.Content>
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="Cust Satisfaction"
-                                           TextColor="#333333"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                            FontAttributes="Bold"
                                            HorizontalTextAlignment="End" />
                                     <Label Text="Top Rating of 5"

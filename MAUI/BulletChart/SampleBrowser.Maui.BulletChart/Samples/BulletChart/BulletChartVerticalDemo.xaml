@@ -52,12 +52,13 @@
                        HorizontalOptions="Center"
                        Text="2005 YTD"
                        FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                        FontSize="20"
                        Margin="0,10,0,10" />
 
                 <VerticalStackLayout Grid.Row="1">
                     <Label Text="Revenue"
-                           TextColor="#333333"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            FontAttributes="Bold" />
                     <Label Text="U.S. $"
                            TextColor="#808080"
@@ -113,7 +114,7 @@
                 <VerticalStackLayout Grid.Row="1"
                                      Grid.Column="1">
                     <Label Text="Profit "
-                           TextColor="#333333"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            FontAttributes="Bold" />
 
                     <gauge:SfLinearGauge VerticalOptions="Center"
@@ -168,7 +169,7 @@
                 <VerticalStackLayout Grid.Row="1"
                                      Grid.Column="2">
                     <Label Text="Avg Order Size"
-                           TextColor="#333333"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            FontAttributes="Bold" />
                     <Label Text="U.S. $"
                            TextColor="#808080"
@@ -226,7 +227,7 @@
                                      Grid.Row="2"
                                      Grid.ColumnSpan="2">
                     <Label Text="New Customers"
-                           TextColor="#333333"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            FontAttributes="Bold" />
                     <Label Text="Count"
                            FontSize="12"
@@ -283,7 +284,7 @@
                                      Grid.Column="1"
                                      Grid.ColumnSpan="2">
                     <Label Text="Cust Satisfaction"
-                           TextColor="#333333"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                            FontAttributes="Bold" />
                     <Label Text="Top Rating of 5"
                            FontSize="12"

@@ -43,7 +43,7 @@
                                                            WidthRequest="60" />
                                     <Label Text="73°F"
                                                            FontSize="15" 
-                                                           TextColor="Black"
+                                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                                            HorizontalTextAlignment="Center"
                                                            FontAttributes="Bold" />
                                 </VerticalStackLayout>

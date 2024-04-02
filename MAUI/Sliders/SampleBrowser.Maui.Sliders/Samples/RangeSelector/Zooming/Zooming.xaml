@@ -19,7 +19,7 @@
                            HorizontalTextAlignment="Center"
                            HorizontalOptions="Center"
                            VerticalTextAlignment="Center"
-                           TextColor="White"
+                           TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
                            FontAttributes="Bold"
                            FontFamily="Helvetica"
                            Margin="0,2,0,2"
@@ -35,7 +35,7 @@
                                  Spacing="0"
                                  Padding="3"
                                  Margin="0">
-                        <Ellipse Stroke="White"
+                        <Ellipse Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                  StrokeThickness="2"
                                  HeightRequest="10"
                                  WidthRequest="10"
@@ -45,7 +45,7 @@
                         <Label Text="{Binding Item.X, StringFormat='{0:MMM dd} :'}"
                                VerticalTextAlignment="Center"
                                HorizontalOptions="Start"
-                               TextColor="White"
+                               TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                FontFamily="Helvetica"
                                FontSize="12"
                                Margin="3,0,3,0" />
@@ -53,7 +53,7 @@
                         <Label Text="{Binding Item.Y,StringFormat=' {0.000}'}"
                                VerticalTextAlignment="Center"
                                HorizontalOptions="End"
-                               TextColor="White"
+                              TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                FontFamily="Helvetica"
                                Margin="0,0,3,0"
                                FontSize="12" />
@@ -75,7 +75,6 @@
                 <charts:SfCartesianChart.Title>
                     <Label Text="EUR Exchange Rate From USD 2017"
                            FontSize="18"
-                           TextColor="Black"
                            VerticalOptions="Center"
                            HorizontalOptions="Center" />
                 </charts:SfCartesianChart.Title>
@@ -154,7 +153,8 @@
                 </sliders:SfDateTimeRangeSelector.ThumbOverlayStyle>
 
                 <sliders:SfDateTimeRangeSelector.LabelStyle>
-                    <sliders:SliderLabelStyle Offset="4"
+                    <sliders:SliderLabelStyle Offset="4" ActiveTextColor="{AppThemeBinding Default={StaticResource SfSliderNormalActiveLabelTextColor}}"
+                                              InactiveTextColor="{AppThemeBinding Default={StaticResource SfSliderNormalActiveLabelTextColor}}"
                                               InactiveFontSize="{OnPlatform 14, Android=10, iOS=10}"
                                               ActiveFontSize="{OnPlatform 14, Android=10, iOS=10}" />
                 </sliders:SfDateTimeRangeSelector.LabelStyle>

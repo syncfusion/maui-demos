@@ -103,7 +103,7 @@
     </localcore:SampleView.Resources>
 
     <localcore:SampleView.Content>
-        <Grid Padding="5" >
+        <Grid Padding="5"  BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -117,7 +117,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <button:SfButton Grid.Row="0" Grid.Column="0" Text="Primary Button" TextColor="White" Style="{StaticResource sfButtonStyle}"/>
+            <button:SfButton Grid.Row="0" Grid.Column="0" Text="Primary Button" HeightRequest="50" WidthRequest="150" CornerRadius="25"/>
             <button:SfButton Grid.Row="1" Grid.Column="0" Text="Flat Button" TextColor="Blue" Background="White" Style="{StaticResource sfButtonStyle}" />
             <button:SfButton Grid.Row="2" Grid.Column="0"  Style="{StaticResource sfButtonStyle}">
                 <button:SfButton.Content>
@@ -128,13 +128,13 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid Padding="0,0,5,0">
-                                <Label Text="&#xEB52;" 
+                                <Label Text="&#xe78a;"
                                    HorizontalTextAlignment="Center" 
                                    VerticalOptions="Center"
                                    VerticalTextAlignment="Center"
                                    HorizontalOptions="Start" 
                                    FontSize="24" 
-                                   FontFamily="SegmentIcon"
+                                   FontFamily="MauiSampleFontIcon"
                                    TextColor="White">
                                 </Label>
                             </Grid>
@@ -159,8 +159,8 @@
                     <DataTemplate>
                         <Grid HorizontalOptions="Center" VerticalOptions="Center">
                             <Grid Padding="5,0,5,0"  Grid.Column="1" >
-                                <Label Text="&#xEB52;" 
-                                       FontFamily="SegmentIcon"
+                                <Label Text="&#xe78a;"
+                                       FontFamily="MauiSampleFontIcon"
                                        HorizontalTextAlignment="Center" 
                                        VerticalOptions="Center"
                                        VerticalTextAlignment="Center"
@@ -175,8 +175,8 @@
 
             </button:SfButton>
             <button:SfButton Grid.Row="4" Grid.Column="0" Text="Linear Gradient" TextColor="White" CornerRadius="25,50,25,50" Style="{StaticResource linearVisualStyle}"/>
-            <button:SfButton Grid.Row="0" Grid.Column="1" Text="Normal Button" Background="#D8D6D7" TextColor="Black" Style="{StaticResource sfButtonStyle}"/>
-            <button:SfButton Grid.Row="1" Grid.Column="1" Text="Outline Button" TextColor="Blue" CornerRadius="0" Background="White" Stroke="Blue" StrokeThickness="2" Style="{StaticResource sfButtonStyle}"/>
+            <button:SfButton Grid.Row="0" Grid.Column="1" Text="Normal Button" HeightRequest="50" WidthRequest="150" CornerRadius="0"/>
+            <button:SfButton Grid.Row="1" Grid.Column="1" Text="Outline Button" TextColor="Blue" HeightRequest="50" WidthRequest="150" CornerRadius="0" Background="White" Stroke="Blue" StrokeThickness="2"/>
             <button:SfButton Grid.Row="2" Grid.Column="1"  Style="{StaticResource sfButtonStyle}">
                 <button:SfButton.Content>
                     <DataTemplate>
@@ -199,8 +199,8 @@
                                 </Label>
                             </Grid>
                             <Grid Padding="5,0,5,0"  Grid.Column="1" >
-                                <Label Text="&#xEB52;" 
-                                       FontFamily="SegmentIcon"
+                                <Label Text="&#xe78a;"
+                                       FontFamily="MauiSampleFontIcon"
                                             HorizontalTextAlignment="Center" 
                                             VerticalOptions="Center"
                                             VerticalTextAlignment="Center"
@@ -220,8 +220,8 @@
                     <DataTemplate>
                         <Grid HorizontalOptions="Center" VerticalOptions="Center">
                             <Grid Padding="5,0,5,0"  Grid.Column="1" >
-                                <Label Text="&#xEB52;" 
-                                       FontFamily="SegmentIcon"
+                                <Label Text="&#xe78a;"
+                                       FontFamily="MauiSampleFontIcon"
                                        HorizontalTextAlignment="Center" 
                                        VerticalOptions="Center"
                                        VerticalTextAlignment="Center"

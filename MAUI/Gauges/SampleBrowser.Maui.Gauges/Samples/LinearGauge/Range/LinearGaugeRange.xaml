@@ -5,11 +5,11 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.LinearGaugeRange"
                       xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
-                      Background="White">
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
 
     </localCore:SampleView.Resources>
@@ -34,7 +34,7 @@
                            Text="Horizontal"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           TextColor="White" />
+                           TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" />
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Button_Clicked" />
                     </Grid.GestureRecognizers>
@@ -47,12 +47,13 @@
                                     HeightRequest="35"
                                     StrokeThickness="2"
                                     CornerRadius="0,3,0,3"
+                                     Fill="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource SampleBrowserBackground}}"
                                     Stroke="#ff0074E3" />
                     <Label x:Name="verticalLabel"
                            Text="Vertical"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           TextColor="Black" />
+                           TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Button_Clicked_1" />
                     </Grid.GestureRecognizers>

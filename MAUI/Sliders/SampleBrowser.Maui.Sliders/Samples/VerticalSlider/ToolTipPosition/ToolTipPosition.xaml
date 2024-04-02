@@ -30,7 +30,7 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
             <Setter Property="HorizontalOptions"
                     Value="Center" />
         </Style>
@@ -51,8 +51,9 @@
                                   Interval="10">
 
                     <sliders:SfSlider.Tooltip>
-                        <sliders:SliderTooltip Position="Right"
-                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" />
+                        <sliders:SliderTooltip Position="Right" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}"
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfSlider.Tooltip>
                 </sliders:SfSlider>
 
@@ -73,9 +74,10 @@
                                           DateFormat="h tt">
 
                     <sliders:SfDateTimeSlider.Tooltip>
-                        <sliders:SliderTooltip DateFormat="hh:mm tt"
+                        <sliders:SliderTooltip DateFormat="hh:mm tt"  Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
                                                Position="Left"
-                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" />
+                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}"
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfDateTimeSlider.Tooltip>
                 </sliders:SfDateTimeSlider>
 

@@ -8,6 +8,7 @@
 using SampleBrowser.Maui.Base;
 using SampleBrowser.Maui.Inputs.Samples.ComboBox.ComboBoxMultiSelection.Model;
 using SampleBrowser.Maui.Inputs.Samples.ComboBox.ComboBoxMultiSelection.ViewModel;
+using Syncfusion.Maui.Inputs;
 using System.Collections;
 using System.Collections.ObjectModel;
 namespace SampleBrowser.Maui.Inputs.SfComboBox;
@@ -16,38 +17,157 @@ public partial class ComboBoxMultiSelectionMobile : SampleView
 {
     ApplicationViewModel applicationViewModel = new ApplicationViewModel();
 
+
+    Syncfusion.Maui.Inputs.SfComboBox? comboBox;
+
+    DataTemplate? itemTemplate;
+
     ObservableCollection<Applicationlist> Items;
     public ComboBoxMultiSelectionMobile()
 	{
 		InitializeComponent();
         Items = new ObservableCollection<Applicationlist>();
         this.BindingContext = applicationViewModel;
-        if (combobox.SelectedItems != null)
+        this.SetItemTemplate();
+        this.comboBox = WrapComboBox();
+
+        if (comboBox.SelectedItems != null)
         {
-            combobox.SelectedItems?.Add(applicationViewModel.AppCollection[0]);
-           
+            comboBox.SelectedItems.Add(applicationViewModel.AppCollection[0]);
         }
+        comboBox.SelectionChanged += OnSelectionChanged;
+        comboBoxLayout.Children.Add(comboBox);
         BindableLayout.SetItemsSource(listview, Items);
     }
 
-    private void OnSelectionChanged(object sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
+    private void SetItemTemplate()
     {
-        if (e.AddedItems != null && (e.AddedItems is ICollection && ((ICollection)e.AddedItems).Count > 0))
+        itemTemplate = new DataTemplate(() =>
         {
-            foreach (object item in e.AddedItems)
+            var horizontalStackLayout = new HorizontalStackLayout
             {
-                Items.Add((Applicationlist)item);
-            }
-        }
-        else if (e.RemovedItems != null && (e.RemovedItems is ICollection && ((ICollection)e.RemovedItems).Count > 0))
+                Padding = new Thickness(10, 10),
+                Spacing = 12
+            };
+
+            var image = new Image();
+            image.SetBinding(Image.SourceProperty, "AppImage");
+            image.WidthRequest = 28;
+            image.HeightRequest = 28;
+
+            var label = new Label();
+            label.SetBinding(Label.TextProperty, "AppName");
+            label.VerticalOptions = LayoutOptions.Center;
+
+            horizontalStackLayout.Children.Add(image);
+            horizontalStackLayout.Children.Add(label);
+
+            return horizontalStackLayout;
+        });
+    }
+
+    private Syncfusion.Maui.Inputs.SfComboBox WrapComboBox()
+    {
+        if (this.comboBox != null)
         {
-            foreach (object item in e.RemovedItems)
-            {
-                Items.Remove((Applicationlist)item);
-            }
+            this.comboBox.SelectionChanged -= OnSelectionChanged;
+            this.comboBox = null;
         }
-        BindableLayout.SetItemsSource(listview, Items);
-        if (combobox.SelectedItems?.Count > 0)
+        var wrapComboBox = new Syncfusion.Maui.Inputs.SfComboBox()
+        {
+            Placeholder = "Enter App Name",
+            PlaceholderColor = Color.FromRgba("#adb2bb"),
+            FontSize = 16,
+            MaxDropDownHeight = 200,
+            TextMemberPath = "AppName",
+            DisplayMemberPath = "AppName",
+            TextSearchMode = Syncfusion.Maui.Inputs.ComboBoxTextSearchMode.Contains,
+            SelectionMode = Syncfusion.Maui.Inputs.ComboBoxSelectionMode.Multiple,
+            TokensWrapMode = Syncfusion.Maui.Inputs.ComboBoxTokensWrapMode.Wrap,
+            EnableAutoSize = true,
+            IsClearButtonVisible = true,
+        };
+        wrapComboBox.ItemTemplate = itemTemplate;
+        wrapComboBox.ItemsSource = applicationViewModel.AppCollection;
+        wrapComboBox.SelectionChanged += OnSelectionChanged;
+        wrapComboBox.SelectedItems?.Add(applicationViewModel.AppCollection[0]);
+        wrapComboBox.SelectedItems?.Add(applicationViewModel.AppCollection[1]);
+        this.comboBox = wrapComboBox;
+        return wrapComboBox;
+    }
+    private Syncfusion.Maui.Inputs.SfComboBox NoneComboBox()
+    {
+        if (this.comboBox != null)
+        {
+            this.comboBox.SelectionChanged -= OnSelectionChanged;
+            this.comboBox = null;
+        }
+
+        var noneComboBox = new Syncfusion.Maui.Inputs.SfComboBox()
+        {
+            Placeholder = "Enter App Name",
+            PlaceholderColor = Color.FromRgba("#adb2bb"),
+            FontSize = 16,
+            MaxDropDownHeight = 200,
+            TextMemberPath = "AppName",
+            DisplayMemberPath = "AppName",
+            TextSearchMode = Syncfusion.Maui.Inputs.ComboBoxTextSearchMode.Contains,
+            SelectionMode = Syncfusion.Maui.Inputs.ComboBoxSelectionMode.Multiple,
+            IsClearButtonVisible = true,
+            Padding = new(4, 0, 0, 0),
+            IsEditable = true,
+        };
+#if ANDROID
+        noneComboBox.HeightRequest = 50;
+#else
+        noneComboBox.HeightRequest = 40;
+#endif
+        noneComboBox.ItemTemplate = itemTemplate;
+        noneComboBox.ItemsSource = applicationViewModel.AppCollection;
+        noneComboBox.SelectionChanged += OnSelectionChanged;
+        noneComboBox.SelectedItems?.Add(applicationViewModel.AppCollection[0]);
+        noneComboBox.SelectedItems?.Add(applicationViewModel.AppCollection[1]);
+        this.comboBox = noneComboBox;
+        return noneComboBox;
+    }
+
+    private void OnSelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
+    {
+        if (comboBox != null)
+        {
+            if (e.AddedItems != null && (e.AddedItems is ICollection && ((ICollection)e.AddedItems).Count > 0))
+            {
+                foreach (object item in e.AddedItems)
+                {
+                    Items.Add((Applicationlist)item);
+                }
+            }
+            else if (e.RemovedItems != null && (e.RemovedItems is ICollection && ((ICollection)e.RemovedItems).Count > 0))
+            {
+                foreach (object item in e.RemovedItems)
+                {
+                    Items.Remove((Applicationlist)item);
+                }
+            }
+            BindableLayout.SetItemsSource(listview, Items);
+            InstallButtonsVisible();
+        }
+    }
+
+    private void ClearButton_Tapped(object sender, TappedEventArgs e)
+    {
+        if (comboBox != null && comboBox.SelectedItems != null)
+        {
+            comboBox.SelectedItems.Clear();
+            Items.Clear();
+            listview.Clear();
+            installButtons.IsVisible = false;
+        }
+    }
+
+    private void InstallButtonsVisible()
+    {
+        if (comboBox != null && comboBox.SelectedItems?.Count > 0)
         {
             installButtons.IsVisible = true;
         }
@@ -57,14 +177,30 @@ public partial class ComboBoxMultiSelectionMobile : SampleView
         }
     }
 
-    private void ClearButton_Tapped(object sender, TappedEventArgs e)
+    private void tokensWrapModeCombobox_SelectionChanged(object sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
     {
-        if (combobox.SelectedItems != null)
+        switch (tokensWrapModeCombobox.SelectedIndex)
         {
-            combobox.SelectedItems.Clear();
-            Items.Clear();
-            listview.Clear();
-            installButtons.IsVisible = false;
+            case 0:
+                comboBoxLayout.Clear();
+                Items.Clear();
+                comboBoxLayout.Add(NoneComboBox());
+                foreach (object item in comboBox?.SelectedItems!)
+                {
+                    Items.Add((Applicationlist)item);
+                }
+                selectedApplications.IsVisible = true;
+                selectedApplicationsLabel.IsVisible = true;
+                InstallButtonsVisible();
+                break;
+            case 1:
+                comboBoxLayout.Clear();
+                Items.Clear();
+                comboBoxLayout.Add(WrapComboBox());
+                selectedApplications.IsVisible = false;
+                selectedApplicationsLabel.IsVisible = false;
+                InstallButtonsVisible();
+                break;
         }
     }
 }

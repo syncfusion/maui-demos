@@ -20,8 +20,9 @@ namespace SampleBrowser.Maui.DataGrid
 
         private Syncfusion.Maui.DataGrid.SfDataGrid? dataGrid;
         private OrderInfoViewModel? viewModel;
-        private Microsoft.Maui.Controls.Picker? optionsList;
-        private Microsoft.Maui.Controls.Picker? columnsList;
+        private Syncfusion.Maui.Inputs.SfComboBox? optionsList;
+        private Syncfusion.Maui.Inputs.SfComboBox? columnsList;
+
         private SearchBar? filterText;
 
         /// <summary>
@@ -31,8 +32,8 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="e">OnColumnsSelectionChanged event args</param>
         public void OnColumnsSelectionChanged(object sender, EventArgs e)
         {
-            Microsoft.Maui.Controls.Picker newPicker = (Microsoft.Maui.Controls.Picker)sender;
-            this.viewModel!.SelectedColumn = GetColumnMappingName((string)newPicker.SelectedItem);
+           Syncfusion.Maui.Inputs.SfComboBox newPicker = (Syncfusion.Maui.Inputs.SfComboBox)sender;
+            this.viewModel!.SelectedColumn = GetColumnMappingName((string)newPicker.SelectedItem!);
             if (this.viewModel.SelectedColumn == "All Columns")
             {
                 this.viewModel.SelectedCondition = "Contains";
@@ -42,16 +43,17 @@ namespace SampleBrowser.Maui.DataGrid
             else
             {
                 this.optionsList!.IsVisible = true;
+                var Items = (this.optionsList.ItemsSource as IEnumerable<string>)!.ToList();
                 foreach (var prop in typeof(OrderInfo).GetProperties())
                 {
                     if (prop.Name == this.viewModel.SelectedColumn)
                     {
                         if (prop.PropertyType == typeof(string))
                         {
-                            this.optionsList.Items.Clear();
-                            this.optionsList.Items.Add("Equals");
-                            this.optionsList.Items.Add("Does Not Equal");
-                            this.optionsList.Items.Add("Contains");
+                            Items.Clear();
+                            Items.Add("Equals");
+                            Items.Add("Does Not Equal");
+                            Items.Add("Contains");
                             if (this.viewModel.SelectedCondition == "Equals")
                             {
                                 this.optionsList.SelectedIndex = 1;
@@ -67,9 +69,9 @@ namespace SampleBrowser.Maui.DataGrid
                         }
                         else
                         {
-                            this.optionsList.Items.Clear();
-                            this.optionsList.Items.Add("Equals");
-                            this.optionsList.Items.Add("Does Not Equal");
+                            Items.Clear();
+                            Items.Add("Equals");
+                            Items.Add("Does Not Equal");
                             if (this.viewModel.SelectedCondition == "Equals")
                             {
                                 this.optionsList.SelectedIndex = 0;
@@ -91,10 +93,11 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="e">OnFilterOptionsChanged event args e</param>
         public void OnFilterOptionsChanged(object sender, EventArgs e)
         {
-            Microsoft.Maui.Controls.Picker newPicker = (Microsoft.Maui.Controls.Picker)sender;
+            Syncfusion.Maui.Inputs.SfComboBox newPicker = (Syncfusion.Maui.Inputs.SfComboBox)sender;
+            var Items = (newPicker.ItemsSource as IEnumerable<string>)!.ToList(); ;
             if (newPicker.SelectedIndex >= 0)
             {
-                this.viewModel!.SelectedCondition = GetSelectedCondition(newPicker.Items[newPicker.SelectedIndex]);
+                this.viewModel!.SelectedCondition = GetSelectedCondition(Items![newPicker.SelectedIndex]);
                 if (this.filterText!.Text != null)
                 {
                     this.OnFilterChanged();
@@ -140,15 +143,15 @@ namespace SampleBrowser.Maui.DataGrid
             this.viewModel = new OrderInfoViewModel();
             this.dataGrid = bindAble.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
             bindAble.BindingContext = this.viewModel;
-            this.optionsList = bindAble.FindByName<Microsoft.Maui.Controls.Picker>("OptionsList");
-            this.columnsList = bindAble.FindByName<Microsoft.Maui.Controls.Picker>("ColumnsList");
+            this.optionsList = bindAble.FindByName<Syncfusion.Maui.Inputs.SfComboBox>("OptionsList");
+            this.columnsList = bindAble.FindByName<Syncfusion.Maui.Inputs.SfComboBox>("ColumnsList");
             this.filterText = bindAble.FindByName<SearchBar>("filterText");
 
             this.columnsList.SelectedIndex = 0;
             this.viewModel.Filtertextchanged = this.OnFilterChanged;
             this.filterText.TextChanged += this.OnFilterTextChanged!;
-            this.columnsList.SelectedIndexChanged += this.OnColumnsSelectionChanged!;
-            this.optionsList.SelectedIndexChanged += this.OnFilterOptionsChanged!;
+            this.columnsList.SelectionChanged += this.OnColumnsSelectionChanged!;
+            this.optionsList.SelectionChanged += this.OnFilterOptionsChanged!;
             base.OnAttachedTo(bindAble);
         }
 
@@ -158,8 +161,8 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="bindAble">SampleView type of bindAble parameter</param>
         protected override void OnDetachingFrom(SampleView bindAble)
         {
-            this.optionsList!.SelectedIndexChanged -= this.OnFilterOptionsChanged!;
-            this.columnsList!.SelectedIndexChanged -= this.OnColumnsSelectionChanged!;
+            this.optionsList!.SelectionChanged -= this.OnFilterOptionsChanged!;
+            this.columnsList!.SelectionChanged -= this.OnColumnsSelectionChanged!;
             this.filterText!.TextChanged -= this.OnFilterTextChanged!;
             this.dataGrid = null;
             this.optionsList = null;

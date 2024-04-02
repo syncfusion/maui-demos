@@ -35,19 +35,15 @@
 		<Control ControlName="Switch"
 				 Title="Switch"
 				 Image="switch.png"
-				 StatusTag="New"
-				 IsPreview="True"
-				 Description="The switch is a UI element that allows users to turn an item on and off, and provides an optional indeterminate state." >
+				 Description=" The switch allows toggling items with an optional indeterminate state." >
 			<Sample SampleName="GettingStarted"
 					Title="Getting Started"
 					SearchTags="switch, threestate, button"
-					StatusTag="New"
 					CodeViewerPath="Switch/GettingStarted/"
 					VideoLink=""/>
 			<Sample SampleName="Features"
 					Title="Features"
 					SearchTags="switch, threestate, button, switchfeatures"
-					StatusTag="New"
 					CodeViewerPath="Switch/Features/"
 					VideoLink=""/>
 		</Control>
@@ -55,7 +51,7 @@
 		<Control ControlName="CheckBox"
 				 Title="CheckBox"
 				 Image="checkbox.png"
-				 Description="A checkbox is a UI element for toggling between two states, often used for binary choices or multi-selection options." >
+				 Description="A checkbox toggles between two states for binary or multi-selection." >
 			<Sample SampleName="GettingStarted"
 					Title="Getting Started"
 					SearchTags="checkbox, selection, threestates"
@@ -71,7 +67,7 @@
 		<Control ControlName="RadioButton"
 				 Title="Radio Button"
 				 Image="radiobutton.png"
-				 Description="A radio button is a UI element that allows users to select a single option from a list of mutually exclusive choices." >
+				 Description="A radio button selects a single option from a list of choices. " >
 			<Sample SampleName="GettingStarted"
 					Title="Getting Started"
 					SearchTags="radiobutton, twostate, button"

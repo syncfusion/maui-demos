@@ -6,8 +6,7 @@
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
-             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
-    BackgroundColor="White">
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
 
     <localCore:SampleView.BindingContext>
         <local:SalesInfoViewModel/>
@@ -17,9 +16,25 @@
         <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
             <On Platform="Android,iOS" Value="120"></On>
         </OnPlatform>
-        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-9,-7"/>
+        <OnPlatform x:Key="margin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-5" />
         </OnPlatform>
+        <Style TargetType="sfgrid:DataGridCaptionSummaryCell">
+            <Setter Property="Padding"
+                    Value="3,14,16,14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
     </localCore:SampleView.Resources>
     
     <localCore:SampleView.Behaviors>
@@ -31,67 +46,58 @@
             <sfgrid:SfDataGrid x:Name="dataGrid" IndentColumnWidth="40"
                                 Margin="{StaticResource margin}"
                                AllowGroupExpandCollapse="true"
+                               RowHeight="48"
                                AutoGenerateColumnsMode="None"
                                ItemsSource="{Binding DailySalesDetails}"
                                ColumnWidthMode="{OnPlatform Android='Auto',iOS='Auto',WinUI='Fill',MacCatalyst='Fill'}"
-                               VerticalOptions="FillAndExpand"
-                               >
-                <sfgrid:SfDataGrid.DefaultStyle>
-                    <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" CaptionSummaryRowFontFamily="Roboto-Medium" TableSummaryRowFontFamily="Roboto-Medium"/>
-                </sfgrid:SfDataGrid.DefaultStyle>
+                               VerticalOptions="FillAndExpand">
 
                 <sfgrid:SfDataGrid.Columns>
-                    <sfgrid:DataGridTextColumn 
-                                           HeaderTextAlignment="Start"
-                                           MappingName="Name">
+                    <sfgrid:DataGridTextColumn HeaderTextAlignment="Start"
+                                               MappingName="Name">
                     </sfgrid:DataGridTextColumn>
 
                     <sfgrid:DataGridTextColumn Format="C"
-                                           HeaderTextAlignment="Start"
-                                           HeaderText="Q1"
-                                           MappingName="QS1"
-                                           >
+                                               HeaderTextAlignment="Start"
+                                               HeaderText="Q1"
+                                               MappingName="QS1">
                     </sfgrid:DataGridTextColumn>
 
                     <sfgrid:DataGridTextColumn Format="C"
-                                           HeaderTextAlignment="Start"
-                                           HeaderText="Q2"
-                                           MappingName="QS2"
-                                           >
+                                               HeaderTextAlignment="Start"
+                                               HeaderText="Q2"
+                                               MappingName="QS2">
                     </sfgrid:DataGridTextColumn>
 
                     <sfgrid:DataGridTextColumn Format="C"
-                                           HeaderTextAlignment="Start"
-                                           HeaderText="Q3"
-                                           MappingName="QS3"
-                                           >
+                                               HeaderTextAlignment="Start"
+                                               HeaderText="Q3"
+                                               MappingName="QS3">
                     </sfgrid:DataGridTextColumn>
 
                     <sfgrid:DataGridTextColumn Format="C"
-                                           HeaderTextAlignment="Start"
-                                           HeaderText="Q4"
-                                           MappingName="QS4"
-                                           >
+                                               HeaderTextAlignment="Start"
+                                               HeaderText="Q4"
+                                               MappingName="QS4">
                     </sfgrid:DataGridTextColumn>
 
                     <sfgrid:DataGridTextColumn Width="0"
-                                           Format="C"
-                                           HeaderText="Total Sales"
-                                           HeaderTextAlignment="Start"
-                                           MappingName="Total"
-                                           >
+                                               Format="C"
+                                               HeaderText="Total Sales"
+                                               HeaderTextAlignment="Start"
+                                               MappingName="Total">
                     </sfgrid:DataGridTextColumn>
 
                 </sfgrid:SfDataGrid.Columns>
                 <sfgrid:SfDataGrid.TableSummaryRows>
                     <sfgrid:DataGridTableSummaryRow Title="Total Sales : {sum} "
-                                                Position="Bottom"
-                                                ShowSummaryInRow="True">
+                                                    Position="Bottom"
+                                                    ShowSummaryInRow="True">
                         <sfgrid:DataGridTableSummaryRow.SummaryColumns>
                             <sfgrid:DataGridSummaryColumn Name="sum"
-                                                      Format="{}{Sum:c}"
-                                                      MappingName="Total"
-                                                      SummaryType="DoubleAggregate" />
+                                                          Format="{}{Sum:c}"
+                                                          MappingName="Total"
+                                                          SummaryType="DoubleAggregate" />
                         </sfgrid:DataGridTableSummaryRow.SummaryColumns>
                     </sfgrid:DataGridTableSummaryRow>
                 </sfgrid:SfDataGrid.TableSummaryRows>

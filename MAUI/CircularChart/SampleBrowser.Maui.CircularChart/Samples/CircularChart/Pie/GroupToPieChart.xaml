@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CircularChart.SfCircularChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CircularChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Content>
         
         <StackLayout HorizontalOptions="Fill" Padding="20" x:Name="layout">
@@ -17,13 +26,13 @@
                                     <DataTemplate>
                                         <Grid ColumnSpacing="10" ColumnDefinitions="*,Auto">
                                         <Label Text="{Binding Name}"
-                                                   TextColor="White" Grid.Column="0"
+                                                   TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" Grid.Column="0"
                                                    HorizontalOptions="Start" HorizontalTextAlignment="Start"
                                                    FontSize="Caption"
                                                    VerticalOptions="Center"/>
                                             <Label Text="{Binding Converter={StaticResource StingConvert}, ConverterParameter={x:Reference pieSeries1}}"
                                                    FontSize="Caption" Grid.Column="2"
-                                                   TextColor="White" FontAttributes="Bold"
+                                                   TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold"
                                                    HorizontalOptions="End" HorizontalTextAlignment="End"
                                                    VerticalOptions="Center"/>
                                         </Grid>
@@ -39,15 +48,18 @@
             </StackLayout.BindingContext>
             <chart:SfCircularChart x:Name="Chart"  VerticalOptions="FillAndExpand">
                 <chart:SfCircularChart.Title>
-                    <Label Text="World Economy in 2021" Margin="0,0,6,10" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                    <Label Text="World Economy in 2021" Margin="0,0,6,10" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
                 </chart:SfCircularChart.Title>
                 <chart:SfCircularChart.Legend>
                     <chart:ChartLegend/>
                 </chart:SfCircularChart.Legend>
+                <chart:SfCircularChart.TooltipBehavior>
+                    <chart:ChartTooltipBehavior Background="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+                </chart:SfCircularChart.TooltipBehavior>
                 <chart:SfCircularChart.Series>
-                    <chart:PieSeries ShowDataLabels="True" TooltipTemplate="{StaticResource tooltipTemplate}" GroupTo="3" x:Name="pieSeries1" PaletteBrushes="{Binding CustomColor1}"
-                                 StrokeWidth="1" Stroke="White" EnableAnimation="{Binding EnableAnimation}"
-                                 ItemsSource="{Binding GroupToData}" XBindingPath="Name" YBindingPath="Value">
+                    <chart:PieSeries ShowDataLabels="True" TooltipTemplate="{StaticResource tooltipTemplate}" GroupTo="3" x:Name="pieSeries1" 
+                                 StrokeWidth="1" Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" EnableAnimation="{Binding EnableAnimation}"
+                                 ItemsSource="{Binding GroupToData}" XBindingPath="Name" YBindingPath="Value" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight2}, Dark={StaticResource PaletteBrushesDark2}}">
                         <chart:PieSeries.DataLabelSettings>
                             <chart:CircularDataLabelSettings LabelPlacement="Outer">
                                 <chart:CircularDataLabelSettings.LabelStyle>

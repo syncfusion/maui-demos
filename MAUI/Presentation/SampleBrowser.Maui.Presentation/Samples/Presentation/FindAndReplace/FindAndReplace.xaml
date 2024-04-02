@@ -6,7 +6,7 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="description" LineBreakMode="WordWrap" Text="This example demonstrates how to find and replace a specific text or text pattern in the PowerPoint presentation."
-                  VerticalOptions="Center" TextColor="Black" Margin="0,0,10,0">
+                  VerticalOptions="Center" Margin="0,0,10,0">
             </Label>
             <Label x:Name="label1" Text=" "></Label>
             <Label x:Name="label2" Text="Text to Find : {product}"></Label>
@@ -14,11 +14,11 @@
             <Label x:Name="label4" Text="Text to Replace : Service"></Label>
             <Label x:Name="label5" Text=" "></Label>
             <Label x:Name="viewButtonDescription" LineBreakMode="WordWrap" Text="Click the “View Template” button to view the input PowerPoint presentation file."
-                  VerticalOptions="Center" TextColor="Black" Margin="0,0,10,0">
+                  VerticalOptions="Center" Margin="0,0,10,0">
             </Label>
             <Label x:Name="label6" Text=" "></Label>
             <Label x:Name="generateButtonDescription" LineBreakMode="WordWrap" Text="Click the “Replace” button to view the output PowerPoint presentation. Please note that a PowerPoint-compatible viewer is required to open and view the PowerPoint presentation file."
-                  VerticalOptions="Center" TextColor="Black" Margin="0,0,10,0">
+                  VerticalOptions="Center" Margin="0,0,10,0">
             </Label>
             <Label x:Name="label7" Text=" "></Label>
             <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">

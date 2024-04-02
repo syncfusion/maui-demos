@@ -54,12 +54,12 @@ public partial class SearchViewMobile : SearchView, INotifyPropertyChanged
     }
 
     public SearchViewMobile()
-	{
+    {
         this.BindingContext = this;
         InitializeComponent();
-		AssignControls();
-		OnInitialized();
-	}
+        AssignControls();
+        OnInitialized();
+    }
 
 	void AssignControls()
 	{

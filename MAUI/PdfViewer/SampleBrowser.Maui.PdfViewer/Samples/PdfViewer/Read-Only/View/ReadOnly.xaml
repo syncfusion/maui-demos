@@ -16,8 +16,7 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Padding" Value="4" />
             <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}" />
-            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
             <Setter Property="BackgroundColor" Value="Transparent"/>
 
             <Style.Triggers>
@@ -53,7 +52,7 @@
                         IsVisible="{OnPlatform Default=true,Android=false,iOS=false}"/>
                         <local:ToolbarMobile
                         x:Name="MobileToolbar" Grid.Row="0" 
-                        HeightRequest="64" BackgroundColor="#F3EDF7"  
+                        HeightRequest="64" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}"
                         IsVisible="{OnPlatform Default=false,Android=true,iOS=true}"/>
                         <local:SearchViewMobile 
                         x:Name="MobileSearchView"
@@ -82,7 +81,7 @@
                           Margin="0,-12,12,0" 
                           Padding="0"
                           IsVisible="{Binding Source={x:Reference MobileSearchView},Path=IsMoreOptionsVisible}">
-                            <Border BackgroundColor="#EEE8F4">
+                            <Border BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}">
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="8" />
                                 </Border.StrokeShape>
@@ -115,7 +114,7 @@
                                         WidthRequest="87"
                                         FontSize="16"
                                         FontFamily="Roboto"
-                                        TextColor="#49454F"/>
+                                        TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"/>
                                     </HorizontalStackLayout>
                                 </Grid>
                             </Border>

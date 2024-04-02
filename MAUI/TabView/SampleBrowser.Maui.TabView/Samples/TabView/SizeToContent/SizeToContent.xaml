@@ -6,16 +6,13 @@
              xmlns:tabView="http://schemas.syncfusion.com/maui"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
-        <Grid Background="White" Margin="{OnPlatform Android='0,-8,0,0'}">
+        <Grid Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Margin="{OnPlatform Android='0,-8,0,0'}">
             <tabView:SfTabView TabWidthMode="SizeToContent" 
+			                   IndicatorPlacement="Fill"
                                x:Name="tab"
-                               Margin="1,5,1,2"
-                               TabBarBackground="#F2F2F2"
-                               IndicatorBackground="#446200EE"
-                               BackgroundColor="White"
-                               IndicatorPlacement="Fill">
+                               Margin="1,5,1,2">
                 <tabView:SfTabView.Items>
                     <tabView:SfTabItem Header="Alexandar" FontSize="16" FontFamily="Roboto-Regular">
                         <tabView:SfTabItem.Content>
@@ -32,9 +29,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -56,9 +53,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -80,9 +77,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -104,9 +101,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -128,9 +125,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -152,9 +149,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -176,9 +173,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -200,9 +197,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -224,9 +221,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>
@@ -248,9 +245,9 @@
                                             </Frame>
                                         </Grid>
                                         <VerticalStackLayout Grid.Row="1" Spacing="20">
-                                            <Label HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
+                                            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" FontAttributes="Bold" VerticalOptions="Center" Text="Author" FontSize="16" FontFamily="Roboto-Regular"/>
                                             <Label LineBreakMode="WordWrap" FontFamily="Roboto-Regular" FontSize="14"
-                                                   TextColor="Black" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Grid>

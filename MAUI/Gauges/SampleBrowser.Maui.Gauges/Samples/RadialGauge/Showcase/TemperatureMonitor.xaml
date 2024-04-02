@@ -19,13 +19,13 @@
                     <gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialTickStyle LengthUnit="Factor"
                                                              Length="0.265"
-                                                             Stroke="Black"
+                                                             Stroke="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
                                                              StrokeThickness="1.5" />
                     </gauge:RadialAxis.MajorTickStyle>
                     <gauge:RadialAxis.MinorTickStyle>
                         <gauge:RadialTickStyle LengthUnit="Factor"
                                                              Length="0.13"
-                                                             Stroke="Black" />
+                                                             Stroke="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
                     </gauge:RadialAxis.MinorTickStyle>
 
                     <gauge:RadialAxis.Ranges>
@@ -82,7 +82,7 @@
                             <gauge:GaugeAnnotation.Content>
                                 <Label Text="22.5"
                                                        FontAttributes="Bold"
-                                                       TextColor="Black"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                                        FontSize="20" />
                             </gauge:GaugeAnnotation.Content>
                         </gauge:GaugeAnnotation>

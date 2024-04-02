@@ -31,44 +31,100 @@ namespace SampleBrowser.Maui.DataGrid
             {
                 if (valueNew < 6500 && valueNew > 2000)
                 {
-                    return Color.FromArgb("#F4C5BB");
+                    if (Application.Current!.UserAppTheme == AppTheme.Dark)
+                    {
+                        return Color.FromArgb("#A15C07");
+                    }
+                    else
+                    {
+                        return Color.FromArgb("#FFD6AE");
+                    }
                 }
                 else
                 {
-                    return Color.FromArgb("#EA552B");
+                    if (Application.Current!.UserAppTheme == AppTheme.Dark)
+                    {
+                        return Color.FromArgb("#542C0D");
+                    }
+                    else
+                    {
+                        return Color.FromArgb("#FF9C66");
+                    }
                 }
             }
             else if (columnName!.Equals("QS2"))
             {
                 if (valueNew < 6500 && valueNew > 2000)
                 {
-                    return Color.FromArgb("#F8DBAF");
+                    if (Application.Current!.UserAppTheme == AppTheme.Dark)
+                    {
+                        return Color.FromArgb("#2B4212");
+                    }
+                    else
+                    {
+                        return Color.FromArgb("#A6EF67");
+                    }
                 }
                 else
                 {
-                    return Color.FromArgb("#F6BD16");
+                    if (Application.Current!.UserAppTheme == AppTheme.Dark)
+                    {
+                        return Color.FromArgb("#4F7A21");
+                    }
+                    else
+                    {
+                        return Color.FromArgb("#D0F8AB");
+                    }
                 }
             }
             else if (columnName!.Equals("QS3"))
             {
                 if (valueNew < 6500 && valueNew > 2000)
                 {
-                    return Color.FromArgb("#C58FC1");
+                    if (Application.Current!.UserAppTheme == AppTheme.Dark)
+                    {
+                        return Color.FromArgb("#0B4A6F");
+                    }
+                    else
+                    {
+                        return Color.FromArgb("#A4BCFD");
+                    }
                 }
                 else
                 {
-                    return Color.FromArgb("#8B3C97");
+                    if (Application.Current!.UserAppTheme == AppTheme.Dark)
+                    {
+                        return Color.FromArgb("#026AA2");
+                    }
+                    else
+                    {
+                        return Color.FromArgb("#C7D7FE");
+                    }
                 }
             }
             else
             {
                 if (valueNew < 6500 && valueNew > 2000)
                 {
-                    return Color.FromArgb("#7BC182");
+                    if (Application.Current!.UserAppTheme == AppTheme.Dark)
+                    {
+                        return Color.FromArgb("#134E48");
+                    }
+                    else
+                    {
+                        return Color.FromArgb("#73E2A3");
+                    }
                 }
                 else
                 {
-                    return Color.FromArgb("#4CAB4D");
+                    if (Application.Current!.UserAppTheme == AppTheme.Dark)
+                    {
+                        return Color.FromArgb("#107569");
+                    }
+                    else
+                    {
+                        return Color.FromArgb("#AAF0C4");
+                    }
                 }
             }
         }

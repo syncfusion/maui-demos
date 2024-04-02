@@ -9,6 +9,7 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
 {
     using SampleBrowser.Maui.Base;
     using Syncfusion.Maui.DataForm;
+    using Syncfusion.Maui.Popup;
     using System;
 
     internal class FeedbackFormBehavior : Behavior<SampleView>
@@ -23,10 +24,23 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// </summary>
         private Button? sendButton;
 
+        /// <summary>
+        /// Holds the popup object.
+        /// </summary>
+        private SfPopup? popup;
+
         protected override void OnAttachedTo(SampleView bindable)
         {
             base.OnAttachedTo(bindable);
             this.dataForm = bindable.Content.FindByName<SfDataForm>("feedbackForm");
+            this.popup = bindable.Content.FindByName<SfPopup>("popup");
+
+            if (this.popup != null)
+            {
+                popup.FooterTemplate = DataFormSampleHelper.GetFooterTemplate(popup);
+                popup.ContentTemplate = DataFormSampleHelper.GetContentTemplate(popup);
+            }
+
             if (this.dataForm != null)
             {
                 this.dataForm.GenerateDataFormItem += OnGenerateDataFormItem;
@@ -74,20 +88,27 @@ namespace SampleBrowser.Maui.DataForm.SfDataForm
         /// </summary>
         /// <param name="sender">The send button.</param>
         /// <param name="e">The event arguments.</param>
-        private async void OnSubmitButtonClicked(object? sender, EventArgs e)
+        private void OnSubmitButtonClicked(object? sender, EventArgs e)
         {
-            if (this.dataForm != null && App.Current?.MainPage != null)
+            if (this.popup == null)
+            {
+                return;
+            }
+
+            if (this.dataForm != null)
             {
                 if (this.dataForm.Validate())
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Feedback sent successfully", "OK");
+                    popup.Message = "Feedback sent successfully";
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Please enter the required details", "OK");
+                    popup.Message = "Please enter the required details";
                 }
 
             }
+
+            popup.Show();
         }
 
         protected override void OnDetachingFrom(SampleView bindable)

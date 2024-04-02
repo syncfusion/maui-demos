@@ -10,12 +10,16 @@
     </localCore:SampleView.BindingContext>
     <localCore:SampleView.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:SunburstChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+            
             <DataTemplate x:Key="template1">
                 <StackLayout Orientation="Horizontal">
                     <Rectangle HeightRequest="30" WidthRequest="8" Fill="{Binding Fill}"/>
                     <StackLayout Orientation="Vertical">
-                        <Label Text="{Binding Item[0]}" TextColor="White" FontFamily="Helvetica" FontSize="12.5" Padding="5,0,0,0" FontAttributes="Bold"/>
-                        <Label Text="{Binding Item[1],StringFormat='Count : {0}M'}" TextColor="White" FontFamily="Helvetica" FontSize="12" Padding="5,0,0,0" Margin="0,2,0,0"/>
+                        <Label Text="{Binding Item[0]}" FontFamily="Helvetica" FontSize="12.5" Padding="5,0,0,0" FontAttributes="Bold" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
+                        <Label Text="{Binding Item[1],StringFormat='Count : {0}M'}" FontFamily="Helvetica" FontSize="12" Padding="5,0,0,0" Margin="0,2,0,0" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}"/>
                     </StackLayout>
                 </StackLayout>
             </DataTemplate>
@@ -24,10 +28,11 @@
     <localCore:SampleView.Content>
         <chart:SfSunburstChart x:Name="sunburstChart" ItemsSource="{Binding DataSource1}" 
                                 ValueMemberPath="Population" TooltipTemplate="{StaticResource template1}"
-                                PaletteBrushes="{Binding CustomBrush2}" EnableTooltip="True" ShowLabels="True" InnerRadius="0.2">
+                                PaletteBrushes="{AppThemeBinding Default={StaticResource PaletteBrushesLight2}, Dark={StaticResource PaletteBrushesDark2}}" 
+                                EnableTooltip="True" ShowLabels="True" InnerRadius="0.2">
             
             <chart:SfSunburstChart.Title>
-                <Label Text="Product Manufacturing: A Global Perspective" FontAttributes="Bold" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="18" TextColor="Black"/>
+                <Label Text="Product Manufacturing: A Global Perspective" FontAttributes="Bold" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="18"/>
             </chart:SfSunburstChart.Title>
             
             <chart:SfSunburstChart.Legend>

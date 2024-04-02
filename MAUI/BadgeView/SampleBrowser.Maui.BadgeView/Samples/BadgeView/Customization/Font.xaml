@@ -5,15 +5,6 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       x:Class="SampleBrowser.Maui.BadgeView.SfBadgeView.Font">
 
-    <localCore:SampleView.Resources>
-        <Style x:Key="DemoLabelStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="VerticalOptions" Value="Center"/>
-            <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="TextColor" Value="Black"/>
-        </Style>
-    </localCore:SampleView.Resources>
-
     <localCore:SampleView.Content>
         <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
             <VerticalStackLayout WidthRequest="350" 
@@ -23,12 +14,13 @@
                    ColumnDefinitions="*,*">
                     <badge:SfBadgeView Grid.Row="0"
                                        Grid.Column="0"
-                                       BadgeText="5">
-                        <Grid BackgroundColor="#EEEEEE" 
-                                  Margin="10">
-                            <Label Text="Size"
-                                       Style="{StaticResource DemoLabelStyle}"/>
-                        </Grid>
+                                       BadgeText="5" >
+                        <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                                Text="Size"
+                                Margin="10"
+                                FontSize="18"
+                                TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                                CornerRadius="0" />
                         <badge:SfBadgeView.BadgeSettings>
                             <badge:BadgeSettings FontSize="20"/>
                         </badge:SfBadgeView.BadgeSettings>
@@ -37,11 +29,12 @@
                     <badge:SfBadgeView Grid.Row="0"
                                        Grid.Column="1"
                                        BadgeText="5">
-                        <Grid BackgroundColor="#EEEEEE" 
-                                  Margin="10">
-                            <Label Text="Font Attributes" LineBreakMode="WordWrap" HorizontalTextAlignment="Center"
-                                       Style="{StaticResource DemoLabelStyle}"/>
-                        </Grid>
+                        <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                                Text="Font Attributes"
+                                Margin="10"
+                                FontSize="18"
+                                TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                                CornerRadius="0" Padding="0,0,-1,0"/>
                         <badge:SfBadgeView.BadgeSettings>
                             <badge:BadgeSettings FontAttributes="Bold"/>
                         </badge:SfBadgeView.BadgeSettings>
@@ -50,11 +43,12 @@
                     <badge:SfBadgeView Grid.Row="1"
                                        Grid.Column="0"
                                        BadgeText="5">
-                        <Grid BackgroundColor="#EEEEEE" 
-                                  Margin="10">
-                            <Label Text="Padding"
-                                       Style="{StaticResource DemoLabelStyle}"/>
-                        </Grid>
+                        <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                                Text="Padding"
+                                Margin="10"
+                                FontSize="18"
+                                TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                                CornerRadius="0" />
                         <badge:SfBadgeView.BadgeSettings>
                             <badge:BadgeSettings TextPadding="10"/>
                         </badge:SfBadgeView.BadgeSettings>
@@ -63,11 +57,12 @@
                     <badge:SfBadgeView Grid.Row="1"
                                        Grid.Column="1"
                                        BadgeText="5">
-                        <Grid BackgroundColor="#EEEEEE" 
-                                  Margin="10">
-                            <Label Text="Color"
-                                       Style="{StaticResource DemoLabelStyle}"/>
-                        </Grid>
+                        <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                                Text="Color"
+                                Margin="10"
+                                FontSize="18"
+                                TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                                CornerRadius="0" />
                         <badge:SfBadgeView.BadgeSettings>
                             <badge:BadgeSettings FontAttributes="Bold" 
                                                  TextColor="Red"

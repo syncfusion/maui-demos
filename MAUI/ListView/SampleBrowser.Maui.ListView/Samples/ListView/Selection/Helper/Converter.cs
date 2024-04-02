@@ -17,11 +17,11 @@ namespace SampleBrowser.Maui.ListView.SfListView
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value == null)
-                return Color.FromArgb("#6200EE");
+                return Application.Current!.RequestedTheme == AppTheme.Light ? Color.FromArgb("#6200EE") : Color.FromArgb("#CAC4D0");
             else if ((bool)value)
-                return Color.FromArgb("#6200EE");
+                return Application.Current!.RequestedTheme == AppTheme.Light ? Color.FromArgb("#6200EE") : Color.FromArgb("#CAC4D0");
             else
-                return Color.FromArgb("#b3b3b3");
+                return Application.Current!.RequestedTheme == AppTheme.Light ? Color.FromArgb("#b3b3b3") : Color.FromArgb("#CAC4D0");
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
@@ -34,11 +34,11 @@ namespace SampleBrowser.Maui.ListView.SfListView
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value == null)
-                return "\ue703";
+                return "\ue7D0";
             else if ((bool)value)
-                return "\ue702";
+                return "\ue722";
             else
-                return "\ue701";
+                return "\ue723";
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

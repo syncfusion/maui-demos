@@ -7,11 +7,13 @@
         <Style x:Key="buttonIconStyle" TargetType="Button">
             <Setter Property="BorderWidth" Value="0" />
             <Setter Property="FontSize" Value="18" />
-            <Setter Property="Padding" Value="4" />
+            <Setter Property="Padding" Value="8" />
             <Setter Property="VerticalOptions" Value="Center" />
             <Setter Property="FontFamily" Value="Maui Material Assets" />
-            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
             <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="40" />
             <Style.Triggers>
                 <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="Transparent"/>
@@ -26,13 +28,14 @@
             </Style.Triggers>
         </Style>
     </local:PropertyToolbar.Resources>
-    <Grid Margin="15,4,15,4">
-        <HorizontalStackLayout HorizontalOptions="Start" Spacing="10">
+    <Grid Margin="15,4,15,4" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F7F2FB}">
+        <HorizontalStackLayout HorizontalOptions="Start" Spacing="8">
             <Button Text="&#xe72d;"
                     Command="{Binding ToolbarCommand}"
                     CommandParameter="Back"
+                    ToolTipProperties.Text="Press to go back"
                     Style="{StaticResource buttonIconStyle}" />
-            <BoxView BackgroundColor="Gray"
+            <BoxView BackgroundColor="#CAC4D0"
                      WidthRequest="1"
                      HeightRequest="24"
                      VerticalOptions="Center"/>
@@ -56,39 +59,44 @@
                     Grid.Column="0"
                     Command="{Binding EditCommand}"
                     CommandParameter="Thickness"
+                    ToolTipProperties.Text="Press to edit the thickness of a stroke"
                     Style="{StaticResource buttonIconStyle}" />
             <Grid Grid.Column="1" Margin="0,0,10,0">
                 <Ellipse WidthRequest="24" HeightRequest="24"
                      Stroke="#99000000" StrokeThickness="2"
                      HorizontalOptions="Center" VerticalOptions="Center"></Ellipse>
-                <Button WidthRequest="24" BackgroundColor="Transparent" Padding="10" HeightRequest="24" CornerRadius="12" Command="{Binding EditCommand}"
+                <Button WidthRequest="24" BackgroundColor="Transparent" ToolTipProperties.Text="Press to edit the stroke color" Padding="10" HeightRequest="24" CornerRadius="12" Command="{Binding EditCommand}"
                         CommandParameter="Color" />
             </Grid>
             <Button Margin="5,5,2,5" Grid.Column="2" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12"
                     BackgroundColor="#99000000"
+                    ToolTipProperties.Text="Press to edit the fill color"
                     IsVisible="{Binding IsStrokeOnlyShape}"
                     Command="{Binding EditCommand}"
                     CommandParameter="Fill"/>
 
             <HorizontalStackLayout Grid.Column="3" Margin="0,0,0,0" x:Name="lockUnlokButtonLayout" IsVisible="{Binding LockButtonsVisible}">
                 <Button Text="&#xe77b;" IsVisible="{Binding IsLockButtonVisible}"
-                            Command="{Binding ToolbarCommand}" 
+                            Command="{Binding ToolbarCommand}"
+                            ToolTipProperties.Text="Press to lock the annotation"
                             CommandParameter ="LockUnlockButton"
                             Style="{StaticResource buttonIconStyle}"/>
                 <Button Text="&#xe77c;" IsVisible="{Binding IsUnlockButtonVisible}"
                             Command="{Binding ToolbarCommand}"
+                            ToolTipProperties.Text="Press to unlock the annotation"
                             CommandParameter ="LockUnlockButton"
                             Style="{StaticResource buttonIconStyle}" />
             </HorizontalStackLayout>
 
             <HorizontalStackLayout Grid.Column="4" Margin="0,0,0,0" Spacing="10" HorizontalOptions="End" x:Name="deleteButtonLayout" IsVisible="False" PropertyChanged="deleteButtonLayout_PropertyChanged">
-                <BoxView BackgroundColor="Gray"
+                <BoxView BackgroundColor="#CAC4D0"
                      WidthRequest="1"
                      HeightRequest="24"
                      VerticalOptions="Center"/>
                 <Button Text="&#xe70f;"
                             Command="{Binding EditCommand}"
                             CommandParameter="Delete"
+                            ToolTipProperties.Text="Press to delete the annotation"
                             Style="{StaticResource buttonIconStyle}" />
             </HorizontalStackLayout>
         </Grid>

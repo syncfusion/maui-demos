@@ -16,7 +16,7 @@
                                                   Interval="5"
                                                   MinorTicksPerInterval="5">
                     <gauge:RadialAxis.AxisLabelStyle>
-                        <gauge:GaugeLabelStyle FontSize="10" />
+                        <gauge:GaugeLabelStyle FontSize="10" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                     </gauge:RadialAxis.AxisLabelStyle>
                     <gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialTickStyle LengthUnit="Factor"

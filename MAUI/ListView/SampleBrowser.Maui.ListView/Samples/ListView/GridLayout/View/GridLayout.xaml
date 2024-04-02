@@ -5,25 +5,18 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
-             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"   
-    BackgroundColor="White">
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView">
     
     <localCore:SampleView.Behaviors>
         <local:SfListViewGridLayoutBehavior/>
     </localCore:SampleView.Behaviors>
     <localCore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
-        <OnPlatform x:TypeArguments="x:String" x:Key="ListViewFontIconFamily">
-            <On Platform="Android" Value="ListViewFontIcons.ttf#ListViewFontIcons"/>
-            <On Platform="iOS" Value="ListViewFontIcons" />
-            <On Platform="MacCatalyst" Value="ListViewFontIcons" />
-            <On Platform="WinUI" Value="ListViewFontIcons.ttf#ListViewFontIcons"/>
-        </OnPlatform>
         <local:FavoriteIconConverter x:Key="favoriteIconConverter"/>
         <local:FavoriteIconColorConverter x:Key="iconColorConverter"/>
     </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <Grid BackgroundColor="White">
+        <Grid>
             <Grid.BindingContext>
                 <local:GridLayoutViewModel x:Name="viewModel"/>
             </Grid.BindingContext>
@@ -32,7 +25,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" LineBreakMode="NoWrap"  Text="Grouped Photos"  Margin="16,10,0,10" 
-                   FontSize="16" FontFamily="Roboto-Medium" CharacterSpacing="0.25" TextColor="#E3000000" HorizontalOptions="Start" VerticalOptions="Center"/>
+                   FontSize="16" FontFamily="Roboto-Medium" CharacterSpacing="0.25" HorizontalOptions="Start" VerticalOptions="Center"/>
 
             <ListView:SfListView x:Name="listView" 
                                  SelectionMode="None" 
@@ -68,13 +61,13 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Text="{Binding ImageTitle}" TextColor="#DE000000" FontFamily="Roboto-Regular" CharacterSpacing="0.15" FontSize="14" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+                                <Label Grid.Column="0" Text="{Binding ImageTitle}" FontFamily="Roboto-Regular" CharacterSpacing="0.15" FontSize="14" VerticalTextAlignment="Center" VerticalOptions="Center"/>
                                 <Grid Grid.Column="1" >
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.FavoriteImageCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" />
                                     </Grid.GestureRecognizers>
-                                    <Label FontFamily="{StaticResource ListViewFontIconFamily}" Text="{Binding IsFavorite, Converter={StaticResource favoriteIconConverter}}" TextColor="{Binding Path=IsFavorite,Converter={StaticResource iconColorConverter}}"
-                                           FontSize="{OnPlatform WinUI=Medium,Default=Large}" VerticalOptions="CenterAndExpand">
+                                    <Label FontFamily="MauiSampleFontIcon" Text="{Binding IsFavorite, Converter={StaticResource favoriteIconConverter}}" TextColor="{Binding Path=IsFavorite,Converter={StaticResource iconColorConverter}}"
+                                           FontSize="{OnPlatform WinUI=Medium,Default=Large}" VerticalOptions="CenterAndExpand" Opacity="0.8">
                                     </Label>
                                 </Grid>
                             </Grid>

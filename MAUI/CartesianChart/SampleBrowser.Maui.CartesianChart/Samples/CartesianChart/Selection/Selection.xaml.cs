@@ -27,7 +27,7 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
         private void checkbox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             dataPointSelection.Type = e.Value ? ChartSelectionType.Multiple : ChartSelectionType.SingleDeselect;
-            series2.Fill = Color.FromArgb("#40314A6E");
+            //series2.Fill = Color.FromArgb("#40314A6E");
         }
     }
 

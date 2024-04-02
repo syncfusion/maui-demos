@@ -50,7 +50,7 @@
                             <gauge:GaugeAnnotation.Content>
                                 <Label Text="Min"
                                                        FontAttributes="Bold"
-                                                       TextColor="Black" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                             </gauge:GaugeAnnotation.Content>
                         </gauge:GaugeAnnotation>
 
@@ -60,7 +60,7 @@
                                 <Label Text="{Binding Source={x:Reference markerPointer}, 
                                                Path=Value,StringFormat='{0:N0}%'}"
                                                        FontAttributes="Bold"
-                                                       TextColor="Black" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                             </gauge:GaugeAnnotation.Content>
                         </gauge:GaugeAnnotation>
 
@@ -69,7 +69,7 @@
                             <gauge:GaugeAnnotation.Content>
                                 <Label Text="Max"
                                                        FontAttributes="Bold"
-                                                       TextColor="Black" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                             </gauge:GaugeAnnotation.Content>
                         </gauge:GaugeAnnotation>
                     </gauge:RadialAxis.Annotations>

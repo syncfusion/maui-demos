@@ -159,6 +159,9 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\PropertyToolbar.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\PropertyToolbar.cs</Link>
 		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\CircleButton.cs">
+			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\CircleButton.cs</Link>
+		</Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ShapeListView.xaml.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\ShapeListView.xaml.cs</Link>
 		</Compile>
@@ -189,6 +192,12 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\View\FileListView.xaml.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\View\FileListView.xaml.cs</Link>
 		</Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\DesktopMoreOptions.xaml.cs">
+      <Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\DesktopMoreOptions.xaml.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\AnnotationSecondaryToolbar.xaml.cs">
+      <Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\AnnotationSecondaryToolbar.xaml.cs</Link>
+    </Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Converters\AnnotationModeConverter.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\Converters\AnnotationModeConverter.cs</Link>
 		</Compile>
@@ -216,6 +225,18 @@
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\FormFilling\FileService.cs">
 		  <Link>Samples\PdfViewer\FormFilling\FileService.cs</Link>
 		</Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Signature\PdfFileData.cs">
+      <Link>Samples\PdfViewer\Signature\PdfFileData.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Signature\SignatureViewModel.cs">
+      <Link>Samples\PdfViewer\Signature\SignatureViewModel.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Signature\SignatureFileService.cs">
+      <Link>Samples\PdfViewer\Signature\SignatureFileService.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Signature\SignatureView.xaml.cs">
+      <Link>Samples\PdfViewer\Signature\SignatureView.xaml.cs</Link>
+    </Compile>
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FreeTextFillColorPalatte.xaml.cs">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\FreeTextFillColorPalatte.xaml.cs</Link>
 		</Compile>
@@ -269,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\restrictedDocument.pdf">
       <Link>Resources\Pdf\restrictedDocument.pdf</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\handwritten-signature.pdf">
+      <Link>Resources\Pdf\handwritten-signature.pdf</Link>
     </EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
@@ -422,9 +446,19 @@
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\FreetextPropertyToolbar.xaml">
 			<Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\BottolToolbar\FreetextPropertyToolbar.xaml</Link>
 		</MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\DesktopMoreOptions.xaml">
+      <Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\DesktopMoreOptions.xaml</Link>
+    </MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\CustomToolbar\Controls\Toolbar\AnnotationSecondaryToolbar.xaml">
+      <Link>Samples\PdfViewer\CustomToolbar\Controls\Toolbar\AnnotationSecondaryToolbar.xaml</Link>
+    </MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\Signature\SignatureView.xaml">
+      <Link>Samples\PdfViewer\Signature\SignatureView.xaml</Link>
+    </MauiXaml>
     <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\PdfViewer\FormFilling\FormFilling.xaml">
       <Link>Samples\PdfViewer\FormFilling\FormFilling.xaml</Link>
     </MauiXaml>
+
 	</ItemGroup>
 
 

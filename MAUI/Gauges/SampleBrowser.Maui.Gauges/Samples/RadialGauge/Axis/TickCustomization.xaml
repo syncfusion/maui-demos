@@ -33,7 +33,7 @@
                     <gauge:RadialAxis.Pointers>
                         <gauge:NeedlePointer EnableAnimation="True"
                                                              Value="75"
-                                                             NeedleFill="#FF494CA2"
+                                                             NeedleFill="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource TextColourAlt1}}"
                                                              NeedleLengthUnit="Factor"
                                                              NeedleLength="0.8"
                                                              NeedleStartWidth="1"
@@ -41,8 +41,8 @@
                                                              TailWidth="10"
                                                              TailLength="30"
                                                              TailLengthUnit="Pixel"
-                                                             TailFill="#FF494CA2"
-                                                             KnobFill="#FF494CA2"
+                                                             TailFill="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource TextColourAlt1}}"
+                                                             KnobFill="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource TextColourAlt1}}"
                                                              KnobRadius="10"
                                                              KnobSizeUnit="Pixel">
                         </gauge:NeedlePointer>

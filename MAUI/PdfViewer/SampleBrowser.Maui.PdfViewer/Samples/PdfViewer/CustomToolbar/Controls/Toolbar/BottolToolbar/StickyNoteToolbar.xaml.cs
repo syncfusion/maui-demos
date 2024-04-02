@@ -9,8 +9,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class StickyNoteToolbar : ContentView
 {
-	public StickyNoteToolbar()
-	{
-		InitializeComponent();
-	}
+    internal void Initialize()
+    {
+        InitializeComponent();
+    }
 }

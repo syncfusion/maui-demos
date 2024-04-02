@@ -4,8 +4,15 @@
                       xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <StackLayout Padding="20" HorizontalOptions="Fill" x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" x:Name="layout">
 
             <StackLayout.Resources>
                 <Label x:Key="title" x:Name="titleName" Text="Thermal Expansion of Materials"
@@ -42,6 +49,15 @@
                                           HorizontalErrorValue="0.25"
                                           VerticalErrorValue="0.75"
                                           VerticalErrorPath="High">
+
+                        <chart:ErrorBarSeries.VerticalLineStyle>
+                            <chart:ErrorBarLineStyle Stroke="{AppThemeBinding Default={StaticResource OverlayBrush}}"/>
+                        </chart:ErrorBarSeries.VerticalLineStyle>
+
+                        <chart:ErrorBarSeries.VerticalCapLineStyle>
+                            <chart:ErrorBarCapLineStyle Stroke="{AppThemeBinding Default={StaticResource OverlayBrush}}" />
+                        </chart:ErrorBarSeries.VerticalCapLineStyle>
+
                     </chart:ErrorBarSeries>
                 </chart:SfCartesianChart.Series>
             </chart:SfCartesianChart>

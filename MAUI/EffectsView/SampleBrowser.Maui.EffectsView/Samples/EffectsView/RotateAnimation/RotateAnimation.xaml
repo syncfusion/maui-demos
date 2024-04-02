@@ -5,19 +5,19 @@
                       xmlns:sfEffectsView="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-                      BackgroundColor="White">
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
         <StackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="Touch the icon to rotate it" TextColor="Black" HorizontalTextAlignment="Center" />
-            <Frame HorizontalOptions="Center" HasShadow="False" CornerRadius="{OnPlatform Default='70', iOS='0'}" HeightRequest="140" WidthRequest="140" Padding="0">
+            <Label Text="Touch the icon to rotate it" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" HorizontalTextAlignment="Center" />
+            <Frame HorizontalOptions="Center" HasShadow="False" CornerRadius="{OnPlatform Default='70', iOS='70'}" HeightRequest="140" WidthRequest="140" Padding="0" BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}">
             	<sfEffectsView:SfEffectsView x:Name="RotationEffectsView"
 										     TouchDownEffects="Ripple" TouchUpEffects="Rotation" 
 											 RippleAnimationDuration="150"  
 										     RotationAnimationDuration="150" Angle="180" 
 										     InitialRippleFactor="0"
 										     AnimationCompleted="RotationEffectsViewAnimationCompleted">
-                    <Grid BackgroundColor="#F5F5F5">
-                        <Image Source="{imageExtension:SfImageResource refresh.png}" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}">
+                        <Label Text="&#xe714;" FontFamily="MauiSampleFontIcon" Margin="10" FontSize="70"  Style="{StaticResource AltIconStyle}" VerticalOptions="Center" HorizontalOptions="Center"/>
                     </Grid>
                 </sfEffectsView:SfEffectsView>
             </Frame>

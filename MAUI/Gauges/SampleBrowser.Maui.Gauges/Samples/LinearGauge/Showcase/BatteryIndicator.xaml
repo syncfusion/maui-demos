@@ -5,13 +5,13 @@
                       xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
-                      Background="White"
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                       Margin="0,40,0,40">
 
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
         <local:GraphicsDrawable x:Key="GraphicsDrawable" />
     </localCore:SampleView.Resources>
@@ -26,7 +26,7 @@
                        HorizontalOptions="Center"
                        Padding="0,0,0,20"
                        FontSize="Medium"
-                       TextColor="Black" />
+                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                 <gauge:SfLinearGauge ShowLabels="False"
                                      x:Name="batteryIndicatorGauge"
                                      ShowTicks="False"

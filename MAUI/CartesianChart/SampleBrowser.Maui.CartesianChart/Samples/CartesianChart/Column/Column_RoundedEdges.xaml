@@ -4,13 +4,21 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Content>
         <chart:SfCartesianChart x:Name="Chart1" HorizontalOptions="Fill" VerticalOptions="Fill">
             <chart:SfCartesianChart.BindingContext>
                 <local:ColumnSeriesViewModel/>
             </chart:SfCartesianChart.BindingContext>
             <chart:SfCartesianChart.Title>
-                <Label Text="Product Sales Rate Across Week" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Product Sales Rate Across Week" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
             </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.XAxes>
                 <chart:NumericalAxis IsVisible="true" Interval="1" ShowMajorGridLines="false" >
@@ -34,7 +42,8 @@
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
             <chart:SfCartesianChart.Series>
-                <local:RoundedColumnSeries EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" CornerRadius="10" x:Name="columnSeries2" ItemsSource="{Binding RoundedColumnData}" PaletteBrushes="{Binding AlterColor1}"  XBindingPath="Value" YBindingPath="Size">
+                <local:RoundedColumnSeries EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" CornerRadius="10" x:Name="columnSeries2" ItemsSource="{Binding RoundedColumnData}"
+                                           PaletteBrushes="{AppThemeBinding Light={StaticResource AlterBrushesLight}, Dark={StaticResource AlterBrushesDark}}"  XBindingPath="Value" YBindingPath="Size">
                 </local:RoundedColumnSeries>
             </chart:SfCartesianChart.Series>
         </chart:SfCartesianChart>

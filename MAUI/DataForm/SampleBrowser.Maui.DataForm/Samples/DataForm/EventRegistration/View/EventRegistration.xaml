@@ -2,11 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleBrowser.Maui.DataForm.SfDataForm.EventRegistration"
             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+            xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
             xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
-            Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
+            Background="{OnPlatform Default=White, WinUI={DynamicResource SfDataFormNormalBackground}, MacCatalyst=WhiteSmoke}"
             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      
             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
 
     <localCore:SampleView.Margin>
@@ -15,6 +17,11 @@
             <On Platform="UWP" Value="-4,-4,-6,-6"/>
         </OnPlatform>
     </localCore:SampleView.Margin>
+
+    <localCore:SampleView.Resources>
+        <Color x:Key="ButtonForegroundLight">#FFFFFF</Color>
+        <Color x:Key="ButtonForegroundDark">#381E72</Color>
+    </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
         <Grid ColumnDefinitions="0.4*, 0.6*">
@@ -28,6 +35,7 @@
             </Grid>
 
             <Grid x:Name="dataFormGrid" MaximumHeightRequest="{OnPlatform WinUI=640, MacCatalyst=640}" 
+                  BackgroundColor="{DynamicResource SfDataFormNormalBackground}"
                     VerticalOptions="{OnPlatform Default=Fill}" IsClippedToBounds="True"
                     Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" 
                     Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" 
@@ -50,14 +58,14 @@
                     <local:DataFormViewModel/>
                 </Grid.BindingContext>
 
-                <Label Text="Registration Form" FontSize="Subtitle" 
+                <Label Text="Registration Form" FontSize="Subtitle" TextColor="{DynamicResource SfDataFormNormalEditorTextColor}"
                         IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"
                        Margin="20, 15, 0, 0"
                        VerticalOptions="Center"
                         FontAttributes="Bold"/>
 
                 <dataForm:SfDataForm x:Name="eventForm" DataObject="{Binding EventRegistrationModel}"
-                                     ColumnCount="2" ValidationMode="PropertyChanged" Grid.Row="1">
+                                     ColumnCount="2" ValidationMode="PropertyChanged" Grid.Row="1" LayoutType="TextInputLayout">
                     <dataForm:SfDataForm.DefaultLayoutSettings>
                         <dataForm:DataFormDefaultLayoutSettings LabelPosition="Top"/>
                     </dataForm:SfDataForm.DefaultLayoutSettings>
@@ -66,24 +74,28 @@
                 <Line Grid.Row="2" Background="#F5F5F5" />
                 <HorizontalStackLayout x:Name="buttonLayout" Grid.Row="3" HorizontalOptions="End">
 
-                    <Button Text="Cancel " x:Name="clearButton" Background="{StaticResource SecondaryBrush}" TextColor="Black" 
+                    <Button Text="Cancel " x:Name="clearButton" Background="{DynamicResource SfDataFormFocusedEditorStroke}" TextColor="{AppThemeBinding Light={StaticResource ButtonForegroundLight}, Dark={StaticResource ButtonForegroundDark}}"
                             HeightRequest="40"
                             VerticalOptions="Center"
-                            CornerRadius="5"
+                            CornerRadius="20"
                             FontSize="16"
                             WidthRequest="150"
                             HorizontalOptions="Center" />
 
-                    <Button Text="Submit" x:Name="submitButton" Background="{StaticResource PrimaryBrush}" TextColor="White" 
+                    <Button Text="Submit" x:Name="submitButton" Background="{DynamicResource SfDataFormFocusedEditorStroke}" TextColor="{AppThemeBinding Light={StaticResource ButtonForegroundLight}, Dark={StaticResource ButtonForegroundDark}}"
                             HeightRequest="40"
                             VerticalOptions="Center"
-                            CornerRadius="5"
+                            CornerRadius="20"
                             FontSize="16"
                             Margin="20,0,20,0"
                             WidthRequest="150"
                             HorizontalOptions="Center" />
                 </HorizontalStackLayout>
-
+                <popup:SfPopup Grid.Row="0" Grid.RowSpan="3" IsVisible="false" x:Name="popup" FooterHeight="80" ShowHeader="False" ShowFooter="True" HeightRequest="200">
+                    <popup:SfPopup.PopupStyle>
+                        <popup:PopupStyle CornerRadius="15" MessageFontSize="16" HeaderFontSize="18" HeaderFontAttribute="Bold" />
+                    </popup:SfPopup.PopupStyle>
+                </popup:SfPopup>
             </Grid>
         </Grid>
     </localCore:SampleView.Content>

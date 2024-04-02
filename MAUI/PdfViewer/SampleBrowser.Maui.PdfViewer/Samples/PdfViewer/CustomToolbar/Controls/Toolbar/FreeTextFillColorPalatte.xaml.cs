@@ -20,12 +20,11 @@ public partial class FreeTextFillColorPalatte : ContentView
     Ellipse? selectedFontColorHighlight;
 
     Button? PreButton = null;
-    public FreeTextFillColorPalatte()
+    internal void Initialize()
     {
         InitializeComponent();
-
-        Colorpaletteborder.Content = MyGrid;
-        this.Content = Colorpaletteborder;
+        colorPaletteBorder.Content = MyGrid;
+        this.Content = colorPaletteBorder;
         tabView.SelectionChanged += OnSelectionChanged;
         tabView.LayoutChanged += TabView_LayoutChanged;
         this.PropertyChanged += FreeTextFillColorPalatte_PropertyChanged;
@@ -37,7 +36,7 @@ public partial class FreeTextFillColorPalatte : ContentView
         {
             if(Text.IsSelected)
             {
-                grid.HeightRequest = 300;
+                colorPaletteBorder.HeightRequest = 320;
                 Fill.TextColor = Color.FromArgb("#49454F");
                 Stroke.TextColor = Color.FromArgb("#49454F");
                 Text.TextColor = Color.FromArgb("#6750A4");
@@ -92,7 +91,7 @@ public partial class FreeTextFillColorPalatte : ContentView
     }
 
 #if MACCATALYST
-    Frame Colorpaletteborder = new Frame()
+    Frame colorPaletteBorder = new Frame()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         BorderColor = Color.FromArgb("#26000000"),
@@ -107,10 +106,10 @@ public partial class FreeTextFillColorPalatte : ContentView
             Radius = 8,
             Opacity = 0.5f
         },
-        WidthRequest = 280,
+        WidthRequest = 290,
     };
 #else
-    Border Colorpaletteborder = new Border()
+    Border colorPaletteBorder = new Border()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         Stroke = Color.FromArgb("#26000000"),
@@ -140,21 +139,21 @@ public partial class FreeTextFillColorPalatte : ContentView
             {
                 if (Fill.IsSelected)
                 {
-                    grid.HeightRequest = 350;
+                    colorPaletteBorder.HeightRequest = 370;
                     Fill.TextColor = Color.FromArgb("#6750A4");
                     Stroke.TextColor = Color.FromArgb("#49454F");
                     Text.TextColor = Color.FromArgb("#49454F");
                 }
                 else if (Stroke.IsSelected)
                 {
-                    grid.HeightRequest = 370;
+                    colorPaletteBorder.HeightRequest = 390;
                     Stroke.TextColor = Color.FromArgb("#6750A4");
                     Fill.TextColor = Color.FromArgb("#49454F");
                     Text.TextColor = Color.FromArgb("#49454F");
                 }
                 else if(Text.IsSelected)
                 {
-                    grid.HeightRequest = 300;
+                    colorPaletteBorder.HeightRequest = 320;
                     Fill.TextColor = Color.FromArgb("#49454F");
                     Stroke.TextColor = Color.FromArgb("#49454F");
                     Text.TextColor= Color.FromArgb("#6750A4");

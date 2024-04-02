@@ -28,7 +28,7 @@ public partial class OpenStreetMap : SampleView
 
         Button button = previousSelectedButton = (Button)sender;
         string place = button.Text;
-        button.Background = Color.FromRgb(98, 0, 238);
+        button.Background = Color.FromRgba("#6750A4");
         button.TextColor  = Colors.White;
         if (place.Equals("Chichen Itza"))
         {

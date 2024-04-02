@@ -41,7 +41,6 @@
                     </StackLayout>
 
                     <Label Text="{Binding TotalPrice}"
-                           TextColor="#6200EE"
                            FontFamily="RobotoMedium"
                            FontSize="22"/>
                     <StackLayout Margin="0,12,0,0"
@@ -58,12 +57,10 @@
                                                     SegmentHeight="36"
                                                     CornerRadius="36"
                                                     SegmentCornerRadius="36"
-                                                    Background="Transparent"
                                                     SelectedIndex="{Binding SelectedColoredIndex, Mode=TwoWay}"
                                                     ItemsSource="{Binding SpeakerColorOptionsInfo}">
                             <buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                <buttons:SelectionIndicatorSettings SelectionIndicatorPlacement="Border"
-                                                                    Background="#6200EE" />
+                                <buttons:SelectionIndicatorSettings SelectionIndicatorPlacement="Border" />
                             </buttons:SfSegmentedControl.SelectionIndicatorSettings>
                             <buttons:SfSegmentedControl.Margin>
                                 <OnPlatform x:TypeArguments="thickness:Thickness">
@@ -92,10 +89,6 @@
                                 <buttons:SegmentTextStyle FontSize="14" 
                                                           FontFamily="Roboto-Regular" />
                             </buttons:SfSegmentedControl.TextStyle>
-                            <buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                <buttons:SelectionIndicatorSettings Background="#6200EE" 
-                                                                    TextColor="White"/>
-                            </buttons:SfSegmentedControl.SelectionIndicatorSettings>
                         </buttons:SfSegmentedControl>
                     </StackLayout>
 
@@ -118,15 +111,12 @@
                                                     HorizontalOptions="Start"
                                                     Stroke="Transparent"
                                                     WidthRequest="330"
-                                                    SegmentBackground="#DCDCDD"
                                                     ItemsSource="{Binding SpeakerDeliveryOptionsInfo}"
                                                     SelectedIndex="{Binding SelectedDeliveryOption, Mode=TwoWay}">
                             <buttons:SfSegmentedControl.TextStyle>
-                                <buttons:SegmentTextStyle FontSize="14" FontFamily="Roboto" />
+                                <buttons:SegmentTextStyle FontSize="14" 
+                                                          FontFamily="Roboto" />
                             </buttons:SfSegmentedControl.TextStyle>
-                            <buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                <buttons:SelectionIndicatorSettings Background="#6200EE" />
-                            </buttons:SfSegmentedControl.SelectionIndicatorSettings>
                         </buttons:SfSegmentedControl>
                     </StackLayout>
                     <StackLayout Grid.Row="1"
@@ -138,16 +128,13 @@
                         <buttons:SfSegmentedControl x:Name="segmentedControlResultsOption"
                                                     ItemsSource="{Binding SpeakerResultsOptionInfo}"
                                                     VisibleSegmentsCount="1"
-                                                    WidthRequest="{OnPlatform iOS=390,Android=360}"
                                                     Margin="0,12,0,0"
-                                                    HorizontalOptions="Start"
+                                                    HorizontalOptions="Fill"
                                                     SelectedIndex="0" >
                             <buttons:SfSegmentedControl.TextStyle>
-                                <buttons:SegmentTextStyle FontSize="14" FontFamily="Roboto" />
+                                <buttons:SegmentTextStyle FontSize="14"
+                                                          FontFamily="Roboto" />
                             </buttons:SfSegmentedControl.TextStyle>
-                            <buttons:SfSegmentedControl.SelectionIndicatorSettings>
-                                <buttons:SelectionIndicatorSettings Background="#6200EE" />
-                            </buttons:SfSegmentedControl.SelectionIndicatorSettings>
                         </buttons:SfSegmentedControl>
                     </StackLayout>
                 </StackLayout>

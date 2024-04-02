@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleBrowser.Maui.DataForm.SfDataForm.FeedbackForm"
              xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
              xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
              Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
              xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
@@ -15,11 +16,16 @@
         </OnPlatform>
     </localCore:SampleView.Margin>
 
+    <localCore:SampleView.Resources>
+        <Color x:Key="ButtonForegroundLight">#FFFFFF</Color>
+        <Color x:Key="ButtonForegroundDark">#381E72</Color>
+    </localCore:SampleView.Resources>
+
     <localCore:SampleView.Content>
-        <Grid>
+        <Grid BackgroundColor="{DynamicResource SfDataFormNormalBackground}">
             <Image Source="{converters:SfImageResource feedbackform.png}" Aspect="Fill" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
 
-            <Frame HasShadow="False" BackgroundColor="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
+            <Frame HasShadow="False" BackgroundColor="{DynamicResource SfDataFormNormalBackground}"
                     CornerRadius="10"
                     MaximumHeightRequest="{OnPlatform WinUI=500, MacCatalyst= 550}"
                     VerticalOptions="{OnPlatform Default=Fill, WinUI=Center, MacCatalyst=Center}"
@@ -37,7 +43,7 @@
                         <On Platform="MacCatalyst" Value="0, 5"/>
                     </OnPlatform>
                 </Frame.Margin>
-            <Grid>
+                <Grid BackgroundColor ="{DynamicResource SfDataFormNormalBackground}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="{OnPlatform Default=0, WinUI=40, MacCatalyst=40}"/>
                         <RowDefinition Height="{OnPlatform Default=0.9*, WinUI=0.8*, MacCatalyst=0.8*}"/>
@@ -47,7 +53,7 @@
             <Grid.BindingContext>
             <local:DataFormViewModel/>
             </Grid.BindingContext>
-                    <Label Text="Training feedback" FontSize="Subtitle" 
+                    <Label Text="Training feedback" TextColor="{DynamicResource SfDataFormNormalEditorTextColor}" FontSize="Subtitle" 
                            IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"
                            FontAttributes="Bold" VerticalTextAlignment="Center"
                            HorizontalTextAlignment="Center"/>
@@ -60,20 +66,26 @@
                                 HorizontalOptions="{OnPlatform MacCatalyst=Center, WinUI=Center, Default=Fill}">
                             <dataForm:SfDataForm.TextInputLayoutSettings>
                                 <dataForm:TextInputLayoutSettings ShowHelperText="True"
-                                                              FocusedStroke="{StaticResource Primary}"/>
+                                                              FocusedStroke="{DynamicResource SfDataFormFocusedEditorStroke}"/>
                             </dataForm:SfDataForm.TextInputLayoutSettings>
                         </dataForm:SfDataForm>
                     <Line Grid.Row="2" Background="#F5F5F5" />
             <Button x:Name="Send"
                     Text="Send"
-                    Background="{StaticResource PrimaryBrush}"
-                    Grid.Row="3" CornerRadius="5"
+                    TextColor="{AppThemeBinding Light={StaticResource ButtonForegroundLight}, Dark={StaticResource ButtonForegroundDark}}"
+                    Background="{DynamicResource SfDataFormFocusedEditorStroke}"
+                    Grid.Row="3" CornerRadius="20"
                     HorizontalOptions="Fill"
                     FontSize="16"
                     Margin="20, 0, 20, 0"
                     HeightRequest="40"/>
         </Grid>
     </Frame>
+            <popup:SfPopup Grid.Row="0" Grid.RowSpan="3" IsVisible="false" x:Name="popup" FooterHeight="80" ShowHeader="False" ShowFooter="True" HeightRequest="200">
+                <popup:SfPopup.PopupStyle>
+                    <popup:PopupStyle CornerRadius="15" MessageFontSize="16" />
+                </popup:SfPopup.PopupStyle>
+            </popup:SfPopup>
         </Grid>
     </localCore:SampleView.Content>
     <localCore:SampleView.Behaviors>

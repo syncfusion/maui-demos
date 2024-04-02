@@ -4,9 +4,9 @@
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.StampOpacity">
-  
 
-    <Grid x:Name="MyGrid">
+
+    <Grid x:Name="MyGrid" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -15,7 +15,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Text="Opacity" TextColor="#1C1B1F" HorizontalOptions="Start" Margin="15,0,0,0"/>
+            <Label Grid.Row="0" Text="Opacity" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}" HorizontalOptions="Start" Margin="15,0,0,0"/>
             <sliders:SfSlider x:Name="stampOpacitySlider" Grid.Row="1" Minimum="0.1" Value="{Binding SelectedOpacity}" ValueChangeEnd="StampOpacityValue_Changed" Maximum="1" HorizontalOptions="Start" >
                 <sliders:SfSlider.TrackStyle>
                     <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>

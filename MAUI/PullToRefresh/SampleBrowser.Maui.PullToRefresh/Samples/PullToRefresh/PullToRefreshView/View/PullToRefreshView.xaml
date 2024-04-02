@@ -19,6 +19,22 @@
 
     <localCore:SampleView.Resources>
         <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
+        <local:DateToStringConverter x:Key="datestringconverter"/>
+
+        <Style TargetType="sync:ListViewItem">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup>
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="Background"
+        Value= "Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
@@ -92,8 +108,8 @@
                                           HorizontalOptions="CenterAndExpand"
                                           ColumnDefinitions="18, *">
                                         <Label x:Name="locationPin"
-                                               Text="&#xe709;"
-                                               FontFamily='{OnPlatform Android=PullToRefreshFontIcon.ttf#,WinUI=PullToRefreshFontIcon.ttf#PullToRefreshFontIcon,MacCatalyst=PullToRefreshFontIcon,iOS=PullToRefreshFontIcon}'
+                                               Text="&#xe76E;"
+                                               FontFamily="MauiSampleFontIcon"
                                                VerticalOptions="Center"
                                                TextColor="#49454F"
                                                Grid.Column="0" />
@@ -123,7 +139,7 @@
                                            TextColor="#1C1B1F"
                                            Grid.Row="5"
                                            Margin="0, -2, 0, 0"
-                                           Text="1:23 PM, 17 April 2023"
+                                           Text="{Binding Data.Date, Converter={x:StaticResource datestringconverter}}"
                                            FontSize="16"
                                            FontFamily="Roboto-Regular"
                                            HorizontalOptions="Center" />
@@ -140,6 +156,7 @@
                                     <Label x:Name="temperature"
                                            Grid.Row="9"
                                            Text="{Binding Data.Temperature}"
+                                           TextColor="#1C1B1F"
                                            FontSize="64"
                                            FontFamily="Roboto-Medium"
                                            VerticalOptions="Center"
@@ -218,9 +235,10 @@
                                                     </Grid.ColumnDefinitions>
 
                                                     <Label x:Name="airIcon"
-                                                           Text="&#xe701;"
+                                                           Text="&#xe78F;"
+                                                           TextColor="#1C1B1F"
                                                            FontSize="24"
-                                                           FontFamily='{OnPlatform Android=PullToRefreshFontIcon.ttf#,WinUI=PullToRefreshFontIcon.ttf#PullToRefreshFontIcon,MacCatalyst=PullToRefreshFontIcon,iOS=PullToRefreshFontIcon}'
+                                                           FontFamily="MauiSampleFontIcon"
                                                            VerticalOptions="Center"
                                                            Grid.RowSpan="5"
                                                            Grid.Column="0" />
@@ -274,17 +292,19 @@
                                             </Border.StrokeShape>
 
                                             <Grid RowSpacing="4"
-                                                  RowDefinitions="8, 28, 16, 14, 8">
+                                                  RowDefinitions="7, 28, 18, 14, 7">
 
                                                 <Label x:Name="weatherIcon"
                                                        Text="{Binding WeatherIcon}"
+                                                       TextColor="#1C1B1F"
                                                        FontSize="28"
                                                        Grid.Row="1"
                                                        HorizontalOptions="Center"
-                                                       FontFamily='{OnPlatform Android=PullToRefreshFontIcon.ttf#,WinUI=PullToRefreshFontIcon.ttf#PullToRefreshFontIcon,MacCatalyst=PullToRefreshFontIcon,iOS=PullToRefreshFontIcon}' />
+                                                       FontFamily="MauiSampleFontIcon" />
 
                                                 <Label x:Name="listDay"
-                                                       Text="{Binding Date}"
+                                                       Text="{Binding Date, Converter={x:StaticResource datestringconverter}, ConverterParameter={x:Reference listView}}"
+                                                       TextColor="#1C1B1F"
                                                        FontSize="14"
                                                        FontFamily="Roboto-Regular"
                                                        Grid.Row="2"
@@ -314,17 +334,19 @@
                                             </Border.StrokeShape>
 
                                             <Grid RowSpacing="4"
-                                                  RowDefinitions="8, 28, 16, 14, 8">
+                                                  RowDefinitions="7, 28, 18, 14, 7">
 
                                                 <Label x:Name="weatherIcon"
                                                        Text="{Binding WeatherIcon}"
+                                                       TextColor="#1C1B1F"
                                                        FontSize="28"
                                                        Grid.Row="1"
                                                        HorizontalOptions="Center"
-                                                       FontFamily='{OnPlatform Android=PullToRefreshFontIcon.ttf#,WinUI=PullToRefreshFontIcon.ttf#PullToRefreshFontIcon,MacCatalyst=PullToRefreshFontIcon,iOS=PullToRefreshFontIcon}' />
+                                                       FontFamily="MauiSampleFontIcon" />
 
                                                 <Label x:Name="listDay"
-                                                       Text="{Binding Date}"
+                                                       Text="{Binding Date, Converter={x:StaticResource datestringconverter}, ConverterParameter={x:Reference listView}}"
+                                                       TextColor="#1C1B1F"
                                                        FontSize="14"
                                                        FontFamily="Roboto-Regular"
                                                        Grid.Row="2"

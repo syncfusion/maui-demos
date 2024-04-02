@@ -27,7 +27,8 @@
                                   Value="50">
 
                     <sliders:SfSlider.Tooltip>
-                        <sliders:SliderTooltip NumberFormat="#0" />
+                        <sliders:SliderTooltip NumberFormat="#0"  Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}" 
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfSlider.Tooltip>
                 </sliders:SfSlider>
 
@@ -39,29 +40,13 @@
                                   Maximum="100"
                                   Value="50"
                                   IsEnabled="False">
-
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroup>
-                            <VisualState x:Name="Default" />
-
-                            <VisualState x:Name="Disabled">
-                                <VisualState.Setters>
-                                    <Setter Property="TrackStyle">
-                                        <Setter.Value>
-                                            <sliders:SliderTrackStyle ActiveFill="Gray"
-                                                                      InactiveFill="LightGray" />
-                                        </Setter.Value>
-                                    </Setter>
-
-                                    <Setter Property="ThumbStyle">
-                                        <Setter.Value>
-                                            <sliders:SliderThumbStyle Fill="Gray" />
-                                        </Setter.Value>
-                                    </Setter>
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateManager.VisualStateGroups>
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle  ActiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledActiveTrackFillBrush}}"
+                                 InactiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledInactiveTrackFillBrush}}" />
+                    </sliders:SfSlider.TrackStyle>
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="{AppThemeBinding Default={StaticResource SfSliderDisabledThumbFillBrush}}"/>
+                    </sliders:SfSlider.ThumbStyle>
                 </sliders:SfSlider>
             </Grid>
         </ScrollView>

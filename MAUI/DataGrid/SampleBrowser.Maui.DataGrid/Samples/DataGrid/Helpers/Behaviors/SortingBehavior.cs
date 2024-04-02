@@ -18,11 +18,11 @@ namespace SampleBrowser.Maui.DataGrid
     {
 
         private Syncfusion.Maui.DataGrid.SfDataGrid? dataGrid;
-        private Switch? sortingSwitch;
-        private Switch? triSortingSwitch;
-        private Switch? multiSortingSwitch;
-        private Switch? columnSortingSwitch;
-        private Switch? sortNumbersSwitch;
+        private Syncfusion.Maui.Buttons.SfSwitch? sortingSwitch;
+        private Syncfusion.Maui.Buttons.SfSwitch? triSortingSwitch;
+        private Syncfusion.Maui.Buttons.SfSwitch? multiSortingSwitch;
+        private Syncfusion.Maui.Buttons.SfSwitch? columnSortingSwitch;
+        private Syncfusion.Maui.Buttons.SfSwitch? sortNumbersSwitch;
 
         /// <summary>
         /// You can override this method to subscribe to AssociatedObject events and initialize properties.
@@ -31,49 +31,50 @@ namespace SampleBrowser.Maui.DataGrid
         protected override void OnAttachedTo(SampleView bindAble)
         {
             this.dataGrid = bindAble.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid>("dataGrid");
-            this.sortingSwitch = bindAble.FindByName<Switch>("sorting");
-            this.triSortingSwitch = bindAble.FindByName<Switch>("triSorting");
-            this.multiSortingSwitch = bindAble.FindByName<Switch>("multiSorting");
-            this.columnSortingSwitch = bindAble.FindByName<Switch>("columnSorting");
-            this.sortNumbersSwitch = bindAble.FindByName<Switch>("showSortNumbers");
+            this.sortingSwitch = bindAble.FindByName<Syncfusion.Maui.Buttons.SfSwitch>("sorting");
+            this.triSortingSwitch = bindAble.FindByName<Syncfusion.Maui.Buttons.SfSwitch>("triSorting");
+            this.multiSortingSwitch = bindAble.FindByName<Syncfusion.Maui.Buttons.SfSwitch>("multiSorting");
+            this.columnSortingSwitch = bindAble.FindByName<Syncfusion.Maui.Buttons.SfSwitch>("columnSorting");
+            this.sortNumbersSwitch = bindAble.FindByName<Syncfusion.Maui.Buttons.SfSwitch>("showSortNumbers");
 
-            this.sortingSwitch.Toggled += this.Sorting_Toggled!;
-            this.triSortingSwitch.Toggled += this.TriStateSorting_Toggled!;
-            this.multiSortingSwitch.Toggled += this.MultiSorting_Toggled!;
-            this.columnSortingSwitch.Toggled += this.ColumnSorting_Toggled!;
-            this.sortNumbersSwitch.Toggled += SortNumbers_Toggled;
+            this.sortingSwitch.StateChanged += SortingSwitch_StateChanged;
+            this.triSortingSwitch.StateChanged += TriSortingSwitch_StateChanged;
+            this.multiSortingSwitch.StateChanged += MultiSortingSwitch_StateChanged;
+            this.columnSortingSwitch.StateChanged += ColumnSortingSwitch_StateChanged;
+            this.sortNumbersSwitch.StateChanged += SortNumbersSwitch_StateChanged;
             base.OnAttachedTo(bindAble);
         }
 
-        /// <summary>
-        /// You can override this method while View was detached from window
-        /// </summary>
-        /// <param name="bindAble">SampleView type of bindAble parameter</param>
-        protected override void OnDetachingFrom(SampleView bindAble)
+        private void SortNumbersSwitch_StateChanged(object? sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
         {
-            this.sortingSwitch!.Toggled -= this.Sorting_Toggled!;
-            this.triSortingSwitch!.Toggled -= this.TriStateSorting_Toggled!;
-            this.multiSortingSwitch!.Toggled -= this.MultiSorting_Toggled!;
-            this.columnSortingSwitch!.Toggled -= this.ColumnSorting_Toggled!;
-            this.sortNumbersSwitch!.Toggled -= SortNumbers_Toggled;
-
-            this.dataGrid = null;
-            this.sortingSwitch = null;
-            this.triSortingSwitch = null;
-            this.multiSortingSwitch = null;
-            this.columnSortingSwitch = null;
-
-            base.OnDetachingFrom(bindAble);
+            this.dataGrid!.ShowSortNumbers = (bool)e.NewValue!;
         }
 
-        /// <summary>
-        /// Triggers while Switch was enabled 
-        /// </summary>
-        /// <param name="sender">Switch1_Toggled event sender</param>
-        /// <param name="e">Switch1_Toggled event args e</param>
-        private void Sorting_Toggled(object sender, ToggledEventArgs e)
+        private void ColumnSortingSwitch_StateChanged(object? sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
         {
-            if (e.Value)
+            this.dataGrid!.Columns["ShipCity"]!.AllowSorting = (bool)e.NewValue!;
+        }
+
+        private void MultiSortingSwitch_StateChanged(object? sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
+        {
+            if ((bool)e.NewValue!)
+            {
+                this.dataGrid!.SortingMode = Syncfusion.Maui.DataGrid.DataGridSortingMode.Multiple;
+            }
+            else
+            {
+                this.dataGrid!.SortingMode = Syncfusion.Maui.DataGrid.DataGridSortingMode.Single;
+            }
+        }
+
+        private void TriSortingSwitch_StateChanged(object? sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
+        {
+            this.dataGrid!.AllowTriStateSorting = (bool)e.NewValue!;
+        }
+
+        private void SortingSwitch_StateChanged(object? sender, Syncfusion.Maui.Buttons.SwitchStateChangedEventArgs e)
+        {
+            if ((bool)e.NewValue!)
             {
                 this.dataGrid!.SortingMode = Syncfusion.Maui.DataGrid.DataGridSortingMode.Single;
             }
@@ -84,45 +85,24 @@ namespace SampleBrowser.Maui.DataGrid
         }
 
         /// <summary>
-        /// Triggers while Switch was enabled 
+        /// You can override this method while View was detached from window
         /// </summary>
-        /// <param name="sender">Switch2_Toggled event sender</param>
-        /// <param name="e">Switch2_Toggled event args e</param>
-        private void TriStateSorting_Toggled(object sender, ToggledEventArgs e)
+        /// <param name="bindAble">SampleView type of bindAble parameter</param>
+        protected override void OnDetachingFrom(SampleView bindAble)
         {
-            this.dataGrid!.AllowTriStateSorting = e.Value;
-        }
+            this.sortingSwitch!.StateChanged -= SortingSwitch_StateChanged;
+            this.triSortingSwitch!.StateChanged -= TriSortingSwitch_StateChanged;
+            this.multiSortingSwitch!.StateChanged -= MultiSortingSwitch_StateChanged;
+            this.columnSortingSwitch!.StateChanged -= ColumnSortingSwitch_StateChanged;
+            this.sortNumbersSwitch!.StateChanged -= SortNumbersSwitch_StateChanged;
 
-        /// <summary>
-        /// Triggers while Switch was enabled 
-        /// </summary>
-        /// <param name="sender">Switch3_Toggled event sender</param>
-        /// <param name="e">Switch3_Toggled event args e</param>
-        private void MultiSorting_Toggled(object sender, ToggledEventArgs e)
-        {
-            if (e.Value)
-            {
-                this.dataGrid!.SortingMode = Syncfusion.Maui.DataGrid.DataGridSortingMode.Multiple;
-            }
-            else
-            {
-                this.dataGrid!.SortingMode = Syncfusion.Maui.DataGrid.DataGridSortingMode.Single;
-            }
-        }
+            this.dataGrid = null;
+            this.sortingSwitch = null;
+            this.triSortingSwitch = null;
+            this.multiSortingSwitch = null;
+            this.columnSortingSwitch = null;
 
-        /// <summary>
-        /// Triggers while Switch was enabled 
-        /// </summary>
-        /// <param name="sender">Switch4_Toggled event sender</param>
-        /// <param name="e">Switch4_Toggled event args e</param>
-        private void ColumnSorting_Toggled(object sender, ToggledEventArgs e)
-        {
-            this.dataGrid!.Columns["ShipCity"]!.AllowSorting = e.Value;
-        }
-
-        private void SortNumbers_Toggled(object? sender, ToggledEventArgs e)
-        {
-            this.dataGrid!.ShowSortNumbers = e.Value;
+            base.OnDetachingFrom(bindAble);
         }
     }
 }

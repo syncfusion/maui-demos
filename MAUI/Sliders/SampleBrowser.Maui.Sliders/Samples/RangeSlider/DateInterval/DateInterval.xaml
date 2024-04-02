@@ -36,8 +36,9 @@
                                                ShowLabels="True">
 
                     <sliders:SfDateTimeRangeSlider.Tooltip>
-                        <sliders:SliderTooltip DateFormat="MMM yyyy"
-                                               ShowAlways="{Binding IsChecked,Source={x:Reference tooltipCheckBox}}" />
+                        <sliders:SliderTooltip DateFormat="MMM yyyy" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                               ShowAlways="{Binding IsChecked,Source={x:Reference tooltipCheckBox}}" 
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfDateTimeRangeSlider.Tooltip>
                 </sliders:SfDateTimeRangeSlider>
 
@@ -60,8 +61,9 @@
                                                ShowLabels="True">
 
                     <sliders:SfDateTimeRangeSlider.Tooltip>
-                        <sliders:SliderTooltip DateFormat="h:mm tt"
-                                               ShowAlways="{Binding IsChecked,Source={x:Reference tooltipCheckBox}}" />
+                        <sliders:SliderTooltip DateFormat="h:mm tt" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                               ShowAlways="{Binding IsChecked,Source={x:Reference tooltipCheckBox}}" 
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfDateTimeRangeSlider.Tooltip>
                 </sliders:SfDateTimeRangeSlider>
 

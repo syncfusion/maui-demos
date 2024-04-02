@@ -10,12 +10,13 @@ using Microsoft.Maui.Controls.Shapes;
 namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 public partial class StampOpacity : ContentView
 {
-	public StampOpacity()
-	{
-		InitializeComponent();
+    internal void Initialize()
+    {
+        InitializeComponent();
         Opacityborder.Content = MyGrid;
         this.Content = Opacityborder;
     }
+
     Border Opacityborder = new Border()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),

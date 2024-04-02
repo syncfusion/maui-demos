@@ -248,12 +248,9 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         {
             var currentDate = DateTime.Now.AddMonths(-5);
             this.TimeRegions = new ObservableCollection<SchedulerTimeRegion>();
-            Brush backgroundColor = new SolidColorBrush(Colors.LightGray.WithAlpha(0.3f));
-            this.DisabledBackground = backgroundColor;
             this.TimeRegions.Add(new SchedulerTimeRegion()
             {
                 StartTime = new DateTime(currentDate.Year, currentDate.Month, 1, 0, 0, 0),
-                Background = backgroundColor,
                 EndTime = new DateTime(currentDate.Year, currentDate.Month, 1, 9, 0, 0),
                 EnablePointerInteraction = false,
                 RecurrenceRule = "FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR",
@@ -262,7 +259,6 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
             this.TimeRegions.Add(new SchedulerTimeRegion()
             {
                 StartTime = new DateTime(currentDate.Year, currentDate.Month, 1, 18, 0, 0),
-                Background = backgroundColor,
                 EndTime = new DateTime(currentDate.Year, currentDate.Month, 1, 23, 59, 59),
                 EnablePointerInteraction = false,
                 RecurrenceRule = "FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR",
@@ -273,7 +269,6 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
                 StartTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 10, 0, 0),
                 EndTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 11, 0, 0),
                 EnablePointerInteraction = false,
-                Background = backgroundColor,
                 Text = "Break",
                 RecurrenceRule = "FREQ=WEEKLY;INTERVAL=1;BYDAY=TU",
             });
@@ -283,7 +278,6 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
                 StartTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 15, 0, 0),
                 EndTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 16, 0, 0),
                 EnablePointerInteraction = false,
-                Background = backgroundColor,
                 Text = "Break",
                 RecurrenceRule = "FREQ=WEEKLY;INTERVAL=1;BYDAY=WE",
             });
@@ -293,7 +287,6 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
                 StartTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 13, 0, 0),
                 EndTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 14, 0, 0),
                 EnablePointerInteraction = false,
-                Background = backgroundColor,
                 Text = "Lunch",
                 RecurrenceRule = "FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR",
             });

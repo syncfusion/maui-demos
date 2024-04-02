@@ -4,8 +4,10 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-                      BackgroundColor="White">
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.AvatarView.SfAvatarView"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.Resources>
         <ResourceDictionary>
@@ -40,7 +42,8 @@
                 </Grid.RowDefinitions>
                 <Label Text="{Binding TitleText}"
                    VerticalOptions="Start"
-                   HorizontalOptions="Start"/>
+                   HorizontalOptions="Start"
+                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
 
                 <syncfusion:SfBadgeView x:Name="StatusBadge" Margin="0,30,0,0"
                                     VerticalOptions="Center"
@@ -69,39 +72,58 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="40"/>
                                 </Grid.RowDefinitions>
-                                <Entry Text="{Binding FirstName}" Margin="2,0,0,0"  VerticalOptions="End" VerticalTextAlignment="Center" Placeholder="Enter the First Name" TextColor="Black"/>
-                                <Entry Text="{Binding LastName}" Margin="{OnPlatform Default='2,8,0,0', Android='2,0,0,0'}" Grid.Column="1"  VerticalOptions="Center" VerticalTextAlignment="Center" Placeholder="Enter the Last Name" TextColor="Black" />
+                                
+                                <local:SfEntry Text="{Binding FirstName}" 
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" 
+                                       PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}" 
+                                       Margin="2,0,0,0"  VerticalOptions="End" 
+                                       VerticalTextAlignment="Center"
+                                       Placeholder="Enter the First Name" 
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}"/>
+                                <local:SfEntry Text="{Binding LastName}" 
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" 
+                                       PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}" 
+                                       Margin="{OnPlatform Default='2,8,0,0', Android='2,0,0,0'}" Grid.Column="1"  VerticalOptions="Center" 
+                                       VerticalTextAlignment="Center" 
+                                       Placeholder="Enter the Last Name"  
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}"  />
+                             
                             </Grid>
                             <Grid Margin="0,50,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="40"/>
                                 </Grid.ColumnDefinitions>
-                                <Label HorizontalOptions="Start" Text="Show status indicator"/>
-                                <CheckBox IsChecked="True" Grid.Column="1" Color="#6200EE" x:Name="StatusIndicatorCheck" HorizontalOptions="End"/>
+                                <Label HorizontalOptions="Start" Text="Show status indicator" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                                <buttons:SfCheckBox IsChecked="True" Grid.Column="1"  
+                                                    x:Name="StatusIndicatorCheck"
+                                                    StateChanged="StatusIndicatorCheck_StateChanged"
+                                                    HorizontalOptions="End"/>
                             </Grid>
                             <Grid Margin="0,5,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="40"/>
                                 </Grid.ColumnDefinitions>
-                                <Label HorizontalOptions="Start" Text="Use custom picture"/>
-                                <CheckBox HorizontalOptions="End" Grid.Column="1" Color="#6200EE" IsChecked="{Binding UseCustomAvatar}"/>
+                                <Label HorizontalOptions="Start" Text="Use custom picture" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                                <buttons:SfCheckBox  HorizontalOptions="End" Grid.Column="1" 
+                                                     IsChecked="{Binding UseCustomAvatar}"/>
                             </Grid>
                             <Grid Margin="0,5,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="40"/>
                                 </Grid.ColumnDefinitions>
-                                <Label HorizontalOptions="Start" Text="Show double character" />
-                                <CheckBox HorizontalOptions="End" Grid.Column="1" Color="#6200EE" IsChecked="{Binding UseDoubleCharacter}"/>
+                                <Label HorizontalOptions="Start" Text="Show double character" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                <buttons:SfCheckBox  HorizontalOptions="End" Grid.Column="1" 
+                                                     IsChecked="{Binding UseDoubleCharacter}"/>
                             </Grid>
                             <Grid Margin="0,15,0,0" IsEnabled="{Binding UseInitialAvatar}" Opacity="{Binding ColorPickerOpacity}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="130"/>
                                 </Grid.RowDefinitions>
-                                <Label HorizontalOptions="Start" Text="Choose gradient background"/>
+                                <Label HorizontalOptions="Start" Text="Choose gradient background" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                                 <FlexLayout Grid.Row="1" Wrap="Wrap" x:Name="gradientcollection" BindableLayout.ItemsSource="{Binding ColorItemCollection}" WidthRequest="{OnPlatform iOS='350',MacCatalyst='400',Android='350',WinUI='400'}">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>

@@ -6,7 +6,7 @@
              xmlns:tabView="http://schemas.syncfusion.com/maui"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
         <Grid>
             <Grid.Resources>
@@ -16,13 +16,13 @@
                             <VisualStateGroup>
                                 <VisualState x:Name="Normal" >
                                     <VisualState.Setters>
-                                        <Setter Property="TextColor" Value="#32373B" />
+                                        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                         <Setter Property="FontFamily" Value="Roboto-Regular" />
                                     </VisualState.Setters>
                                 </VisualState>
                                 <VisualState x:Name="Selected">
                                     <VisualState.Setters>
-                                        <Setter Property="TextColor" Value="Black" />
+                                        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}" />
                                         <Setter Property="FontFamily" Value="Roboto-Medium" />
                                     </VisualState.Setters>
                                 </VisualState>
@@ -34,14 +34,17 @@
 
             <tabView:SfTabView x:Name="tabView" 
                                TabBarHeight="75"
-                               TabBarBackground="#E6EFF4"
                                TabWidthMode="Default"
-                               TabBarPlacement="Bottom"
-                               BackgroundColor="#FBFCFE"
-                               IndicatorBackground="#5C6165"
+                               TabBarPlacement="Bottom"                                                       
                                IndicatorPlacement="Top" >
                 <tabView:SfTabView.Items>
-                    <tabView:SfTabItem Header="Favorites" ImagePosition="Top" ImageSource="{imageExtension:SfImageResource favorites.png}">
+                    <tabView:SfTabItem Header="Favorites" ImagePosition="Top" >
+                        <tabView:SfTabItem.ImageSource>
+                            <FontImageSource 
+                                Glyph="&#xe73a;"
+                                Color="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                FontFamily="MauiSampleFontIcon"/>
+                        </tabView:SfTabItem.ImageSource>
                         <tabView:SfTabItem.Content>
                             <FlexLayout Wrap="Wrap" Padding="0" AlignItems="Start" AlignContent="Start"  BindableLayout.ItemsSource="{Binding TabModelSource}" >
                                 <BindableLayout.ItemTemplate>
@@ -62,8 +65,7 @@
                                                 </Frame>
                                                 <Label FontSize="Medium" 
                                                        FontFamily="Roboto-Regular" 
-                                                       Text="{Binding Name}" 
-                                                       TextColor="Black" 
+                                                       Text="{Binding Name}"                                                     
                                                        VerticalOptions="End" 
                                                        HorizontalOptions="Center" />
                                             </VerticalStackLayout>
@@ -73,7 +75,13 @@
                             </FlexLayout>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem >
-                    <tabView:SfTabItem Header="Recents" ImagePosition="Top" ImageSource="{imageExtension:SfImageResource recents.png}">
+                    <tabView:SfTabItem Header="Recents" ImagePosition="Top">
+                        <tabView:SfTabItem.ImageSource>
+                            <FontImageSource 
+                                   Glyph="&#xe758;"
+                                   Color="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                   FontFamily="MauiSampleFontIcon"/>
+                        </tabView:SfTabItem.ImageSource>
                         <tabView:SfTabItem.Content>
                             <Grid>
                                 <Grid Grid.Row="1" VerticalOptions="End"  HeightRequest="20">
@@ -105,26 +113,23 @@
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate>
                                                 <Grid ColumnDefinitions="48,*,48" Margin="10,5">
-                                                    <Image Grid.Column="0" 
-                                                           WidthRequest="35" 
-                                                           HeightRequest="35"
+                                                    <Label Grid.Column="0" 
+                                                          FontSize="22"
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Center" 
-                                                           Aspect="AspectFit"
-                                                           Source="{imageExtension:SfImageResource incoming.png}"/>
+                                                           Text="&#xe763;"
+                                                           FontFamily="MauiSampleFontIcon"/>
                                                     <Label Grid.Column="1" 
                                                            VerticalOptions="Center" 
-                                                           HorizontalOptions="Start" 
-                                                           TextColor="#666666"
+                                                           HorizontalOptions="Start"                                                       
                                                            FontSize="16" 
                                                            Text="{Binding}"/>
-                                                    <Image Grid.Column="2" 
-                                                           WidthRequest="40" 
-                                                           HeightRequest="40"
+                                                    <Label Grid.Column="2" 
+                                                           FontSize="22"
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Center" 
-                                                           Aspect="AspectFit"
-                                                           Source="{imageExtension:SfImageResource sim.png}"/>
+                                                           Text="&#xe759;"
+                                                           FontFamily="MauiSampleFontIcon"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </BindableLayout.ItemTemplate>
@@ -133,7 +138,13 @@
                             </Grid>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Contacts" ImagePosition="Top" ImageSource="{imageExtension:SfImageResource usercontact.png}">
+                    <tabView:SfTabItem Header="Contacts" ImagePosition="Top">
+                        <tabView:SfTabItem.ImageSource>
+                            <FontImageSource 
+                                  Glyph="&#xe761;"
+                                  Color="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                  FontFamily="MauiSampleFontIcon"/>
+                        </tabView:SfTabItem.ImageSource>
                         <tabView:SfTabItem.Content>
                             <Grid>
                                 <Grid Grid.Row="1" VerticalOptions="End"  HeightRequest="20">
@@ -175,24 +186,21 @@
                                                     <Label Grid.Column="1" 
                                                            VerticalOptions="Center" 
                                                            HorizontalOptions="Start" 
-                                                           Margin="5,0"
-                                                           TextColor="#666666"
+                                                           Margin="5,0"                                                       
                                                            FontSize="16" 
                                                            Text="{Binding}"/>
-                                                    <Image Grid.Column="2" 
-                                                           WidthRequest="35" 
-                                                           HeightRequest="35"
-                                                           VerticalOptions="Center" 
-                                                           HorizontalOptions="Center" 
-                                                           Aspect="AspectFit"
-                                                           Source="{imageExtension:SfImageResource mail.png}"/>
-                                                    <Image Grid.Column="3" 
-                                                           WidthRequest="35" 
-                                                           HeightRequest="35"
-                                                           VerticalOptions="Center" 
-                                                           HorizontalOptions="Center" 
-                                                           Aspect="AspectFit"
-                                                           Source="{imageExtension:SfImageResource call1.png}"/>
+                                                    <Label Grid.Column="2" 
+                                                             FontSize="22"
+                                                             VerticalOptions="Center" 
+                                                             HorizontalOptions="Center" 
+                                                             Text="&#xe75c;"
+                                                             FontFamily="MauiSampleFontIcon"/>
+                                                    <Label Grid.Column="3" 
+                                                             FontSize="22"
+                                                             VerticalOptions="Center" 
+                                                             HorizontalOptions="Center" 
+                                                             Text="&#xe763;"
+                                                             FontFamily="MauiSampleFontIcon"/>
                                                 </Grid>
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>

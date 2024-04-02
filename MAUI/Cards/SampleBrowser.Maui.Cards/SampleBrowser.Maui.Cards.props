@@ -6,25 +6,25 @@
 			<DependentUpon>CardView.xaml</DependentUpon>
 		</Compile>
 
-		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\View\CreditCard.xaml.cs">
-			<Link>Samples\Cards\CardManager\View\CreditCard.xaml.cs</Link>
-			<DependentUpon>CreditCard.xaml</DependentUpon>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\View\CardManager.xaml.cs">
+			<Link>Samples\Cards\CardManager\View\CardManager.xaml.cs</Link>
+			<DependentUpon>CardManager.xaml</DependentUpon>
 		</Compile>
 
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\GettingStarted\Behavior\GettingStartedBehavior.cs">
 			<Link>Samples\Cards\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
 		</Compile>
 
-		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\Behavior\CreditCardBehavior.cs">
-			<Link>Samples\Cards\CardManager\Behavior\CreditCardBehavior.cs</Link>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\Behavior\CardManagerBehavior.cs">
+			<Link>Samples\Cards\CardManager\Behavior\CardManagerBehavior.cs</Link>
 		</Compile>
 
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\GettingStarted\ViewModel\ViewModel.cs">
 			<Link>Samples\Cards\GettingStarted\ViewModel\ViewModel.cs</Link>
 		</Compile>
 
-		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\ViewModel\CreditCardViewModel.cs">
-			<Link>Samples\Cards\CardManager\ViewModel\CreditCardViewModel.cs</Link>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\ViewModel\CardManagerViewModel.cs">
+			<Link>Samples\Cards\CardManager\ViewModel\CardManagerViewModel.cs</Link>
 		</Compile>
 
 	</ItemGroup>
@@ -37,8 +37,8 @@
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Cards\GettingStarted\View\CardView.xaml">
 			<Link>Samples\Cards\GettingStarted\View\CardView.xaml</Link>
 		</MauiXaml>
-		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\View\CreditCard.xaml">
-			<Link>Samples\Cards\CardManager\View\CreditCard.xaml</Link>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\View\CardManager.xaml">
+			<Link>Samples\Cards\CardManager\View\CardManager.xaml</Link>
 		</MauiXaml>
 
 	</ItemGroup>

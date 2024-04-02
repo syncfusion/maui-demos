@@ -6,7 +6,7 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
     <localCore:SampleView.Content>
-        <StackLayout HorizontalOptions="Fill" Padding="20" x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" x:Name="layout">
             <StackLayout.Resources>
                 <Label x:Key="title" Text="Stock Data of AEIS" FontSize="16" HorizontalTextAlignment="Center" Padding="0,5,0,5"  LineBreakMode="WordWrap"></Label>
             </StackLayout.Resources>

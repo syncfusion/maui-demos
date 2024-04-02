@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SyncfusionControls>
 	<ControlCategory Name="Notification">
-		<Control Title="PullToRefresh" ControlName="SfPullToRefresh" StatusTag="New" IsPreview="true" Image="pulltorefresh.png" Description="Allows the users to update the view by performing the pull-to-refresh action.">
-			<Sample SearchTags="data, weather, list, pull, refresh, slide on top, push, transition, update" SampleName="PullToRefreshView" StatusTag="New" Title="Getting Started" CodeViewerPath="PullToRefresh/PullToRefreshView/" />
-			<Sample SearchTags="list, listview, refresh, slide on top, push, transition, refresh list, data, pull" SampleName="ListViewPullToRefresh" StatusTag="New" Title="Refreshable List" CodeViewerPath="PullToRefresh/ListViewPullToRefresh/" />
+		<Control Title="Pull to Refresh" ControlName="SfPullToRefresh" Image="pulltorefresh.png" Description="Allows the users to update the view by performing the pull-to-refresh action.">
+			<Sample SearchTags="data, weather, list, pull, refresh, slide on top, push, transition, update" SampleName="PullToRefreshView" Title="Getting Started" CodeViewerPath="PullToRefresh/PullToRefreshView/" />
+			<Sample SearchTags="list, listview, refresh, slide on top, push, transition, refresh list, data, pull" SampleName="ListViewPullToRefresh" Title="Refreshable List" CodeViewerPath="PullToRefresh/ListViewPullToRefresh/" />
 		</Control>
 	</ControlCategory>
 </SyncfusionControls>

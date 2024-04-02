@@ -8,7 +8,7 @@
     <ContentView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="#CC000000" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourAlt1Light}, Dark={StaticResource TextColourAlt1}}" />
             <Setter Property="FontSize"
                     Value="14" />
             <Setter Property="Margin"
@@ -71,7 +71,7 @@
                         </gauge:SfLinearGauge.Ranges>
                     </gauge:SfLinearGauge>
 
-                    <Label Text="Multiple ranges" />
+                    <Label Text="Multiple ranges" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                     <gauge:SfLinearGauge EnableAxisAnimation="True"
                                      EnableRangeAnimation="True">
                         <gauge:SfLinearGauge.Ranges>
@@ -84,7 +84,7 @@
                                     <Label Text="Bad"
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"
-                                       TextColor="Black" />
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                 </gauge:LinearRange.Child>
                             </gauge:LinearRange>
                             <gauge:LinearRange StartWidth="40"
@@ -96,7 +96,7 @@
                                     <Label Text="Good"
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"
-                                       TextColor="Black" />
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                 </gauge:LinearRange.Child>
                             </gauge:LinearRange>
                             <gauge:LinearRange StartWidth="40"
@@ -108,7 +108,7 @@
                                     <Label Text="Excellent"
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"
-                                       TextColor="Black" />
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                 </gauge:LinearRange.Child>
                             </gauge:LinearRange>
                         </gauge:SfLinearGauge.Ranges>

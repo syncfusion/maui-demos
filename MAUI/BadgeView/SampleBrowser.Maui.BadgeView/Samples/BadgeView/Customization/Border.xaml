@@ -6,7 +6,7 @@
                       x:Class="SampleBrowser.Maui.BadgeView.SfBadgeView.Border">
 
     <localCore:SampleView.Resources>
-        <Style x:Key="DemoLabelStyle" TargetType="Label">
+        <Style x:Key="DemoButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
@@ -25,11 +25,11 @@
                                HorizontalOptions="Center"
                                WidthRequest="200"
                                HeightRequest="100">
-                    <Grid BackgroundColor="#EEEEEE" 
-                          Margin="10">
-                        <Label Text="Corner Radius"
-                               Style="{StaticResource DemoLabelStyle}"/>
-                    </Grid>
+                    <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                            Margin="10" Text="Corner Radius"
+                            Style="{StaticResource DemoButtonStyle}"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                            CornerRadius="0"/>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings CornerRadius="12"/>
                     </badge:SfBadgeView.BadgeSettings>
@@ -39,11 +39,11 @@
                                HorizontalOptions="Center"
                                WidthRequest="200"
                                HeightRequest="100">
-                    <Grid BackgroundColor="#EEEEEE" 
-                          Margin="10">
-                        <Label Text="Stroke Thickness"
-                               Style="{StaticResource DemoLabelStyle}"/>
-                    </Grid>
+                    <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                            Margin="10" Text="Stroke Thickness"
+                            Style="{StaticResource DemoButtonStyle}"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                            CornerRadius="0"/>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Stroke="DeepPink" 
                                          Type="None"
@@ -58,11 +58,11 @@
                                HorizontalOptions="Center"
                                WidthRequest="200"
                                HeightRequest="100">
-                    <Grid BackgroundColor="#EEEEEE" 
-                          Margin="10">
-                        <Label Text="Stroke"
-                               Style="{StaticResource DemoLabelStyle}"/>
-                    </Grid>
+                    <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                            Margin="10" Text="Stroke"
+                            Style="{StaticResource DemoButtonStyle}"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                            CornerRadius="0"/>
                     <badge:SfBadgeView.BadgeSettings>
                         <badge:BadgeSettings Stroke="Red" 
                                          Type="None"

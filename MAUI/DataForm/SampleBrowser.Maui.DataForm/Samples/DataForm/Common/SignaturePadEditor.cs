@@ -48,23 +48,25 @@ using Syncfusion.Maui.SignaturePad;
             dataFormLabel.LineBreakMode = LineBreakMode.WordWrap;
             FormattedString labelText = new FormattedString();
             dataFormLabel.Margin = new Thickness(0, 0, 0, 5);
-            labelText.Spans.Add(new Span { Text = "By signing below, you agree to the ", TextColor = Color.FromRgba(0, 0, 0, 0.87), FontSize = 14 });
+            labelText.Spans.Add(new Span { Text = "By signing below, you agree to the ", TextColor = this.GetDynamicTextColor("SfDataFormNormalEditorTextColor"), FontSize = 14 });
 
-            Span span = new Span { Text = "terms and conditions", TextColor = Colors.Blue, FontSize = 14, TextDecorations = TextDecorations.Underline };
+            Span span = new Span { Text = "terms and conditions", TextColor = this.GetDynamicTextColor("SfDataFormFocusedEditorStroke"), FontSize = 14, TextDecorations = TextDecorations.Underline };
             span.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(async () => await Launcher.OpenAsync("https://www.syncfusion.com/)")) });
             labelText.Spans.Add(span);
 
             dataFormLabel.FormattedText = labelText;
             Border border = new Border();
             signaturePad = new SfSignaturePad();
+            signaturePad.StrokeColor = this.GetDynamicTextColor("SfDataFormNormalEditorTextColor");
+            signaturePad.Background = this.GetDynamicTextColor("SfDataFormNormalBackground");
 
             signaturePad.DrawCompleted += OnSignaturePadEditorDrawCompleted;
             signaturePad.DrawStarted += OmSignaturePadDrawStarted;
             
             border.Content = signaturePad;
-            border.Stroke = Brush.LightGray;
+            border.Stroke = this.GetDynamicTextColor("SfDataFormNormalEditorStroke");
             border.StrokeThickness = 1;
-            border.Background = Brush.White;
+            border.Background = this.GetDynamicTextColor("SfDataFormNormalBackground");
             border.StrokeShape = new RoundRectangle() { CornerRadius = 5 };
             this.dataFormItem = dataFormItem;
 #if MACCATALYST
@@ -81,7 +83,7 @@ using Syncfusion.Maui.SignaturePad;
             signatureClearButton = new Button
             {
                 Text = "Clear",
-                TextColor = Colors.Blue,
+                TextColor = this.GetDynamicTextColor("SfDataFormNormalEditorTextColor"),
                 HorizontalOptions = LayoutOptions.End,
                 VerticalOptions = LayoutOptions.Center,
                 BorderColor = Colors.Transparent,
@@ -149,5 +151,17 @@ using Syncfusion.Maui.SignaturePad;
                 this.signatureClearButton.IsVisible = true;
             }
         }
+
+        private Color GetDynamicTextColor(string resourceName)
+        {
+            if (App.Current != null && App.Current.Resources.TryGetValue(resourceName, out var colorValue) && colorValue is Color color)
+            {
+                return color;
+            }
+
+            // Return a default color if the resource is not found or is not a Color
+            return Colors.Transparent;
+        }
+
     }
 }

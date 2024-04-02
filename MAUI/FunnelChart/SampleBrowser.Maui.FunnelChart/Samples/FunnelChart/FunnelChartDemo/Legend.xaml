@@ -6,22 +6,28 @@
              xmlns:chart="http://schemas.syncfusion.com/maui"
              xmlns:converter="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core">
 
-
     <localCore:SampleView.Resources>
-        <converter:BrushToColorConverter x:Key="brushToColor" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:FunnelChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <converter:BrushToColorConverter x:Key="brushToColor" />
+        </ResourceDictionary>
     </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Content>
-        <chart:SfFunnelChart   HorizontalOptions="Fill"
-                                 VerticalOptions="FillAndExpand"
-                                 Margin="{OnPlatform Android='0,0,0,50', iOS='0,0,0,50', Default='0,0,0,0'}"
-                                 PaletteBrushes="{Binding CustomColor_1}"
-                                 StrokeWidth="2"
-                                 Stroke="White"
-                               ItemsSource="{Binding RecruitmentData}"
-                               XBindingPath="Name"
-                               YBindingPath="Size"
-                               x:Name="Chart"
-                                 ShowDataLabels="True">
+        <chart:SfFunnelChart  HorizontalOptions="Fill"
+                              VerticalOptions="FillAndExpand"
+                              Margin="{OnPlatform Android='0,0,0,50', iOS='0,0,0,50', Default='0,0,0,0'}"
+                              PaletteBrushes="{AppThemeBinding Default={StaticResource PaletteBrushesLight2}, Dark={StaticResource PaletteBrushesDark2}}" 
+                              StrokeWidth="2"
+                              Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                              ItemsSource="{Binding RecruitmentData}"
+                              XBindingPath="Name"
+                              YBindingPath="Size"
+                              x:Name="Chart"
+                              ShowDataLabels="True">
                 <chart:SfFunnelChart.BindingContext>
                     <local:ViewModel />
                 </chart:SfFunnelChart.BindingContext>
@@ -30,8 +36,7 @@
                            HorizontalOptions="Fill"
                            HorizontalTextAlignment="Center"
                            VerticalOptions="Center"
-                           FontSize="16"
-                           TextColor="Black" />
+                           FontSize="16" />
                 </chart:SfFunnelChart.Title>
             
                 <chart:SfFunnelChart.Legend >
@@ -45,7 +50,6 @@
                                        HorizontalOptions="End"
                                        HorizontalTextAlignment="Center"
                                        Text="{Binding Item.Value}"
-                                       TextColor="Black"
                                        Padding="5" />
 
                                 <BoxView Grid.Column="1"
@@ -60,7 +64,6 @@
                                        FontSize="13"
                                        VerticalTextAlignment="Center"
                                        Text=" {Binding Item.Name}"
-                                       TextColor="Black"
                                        HorizontalOptions="Start"
                                        HorizontalTextAlignment="Center"
                                        Padding="5" />

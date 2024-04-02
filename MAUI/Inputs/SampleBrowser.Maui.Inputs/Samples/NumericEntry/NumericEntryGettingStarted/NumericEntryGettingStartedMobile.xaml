@@ -6,7 +6,8 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
 		     xmlns:viewModel="clr-namespace:SampleBrowser.Maui.Inputs.Samples.NumericEntry.NumericEntryViewModel"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
-             BackgroundColor="White">
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
 	
     <localCore:SampleView.Resources>
@@ -20,56 +21,44 @@
 
 
 
-	
-		<Grid  VerticalOptions="Start"  Margin="15,20,15,0">
-			<VerticalStackLayout Spacing="20" VerticalOptions="Center" >
 
-				<VerticalStackLayout>
-					<Label Text="Fahrenheit (°F)" Margin="{OnPlatform Android='3,0,0,0', iOS='2,10,10,10'}" />
-					<syncfusion:SfNumericEntry BindingContext="{StaticResource numericEntryViewModel}"
-											   Placeholder="{Binding PlaceholderText}"
-											   Minimum="{Binding Minimum}"
-											   Maximum="{Binding Maximum}"											  
-											   AllowNull="{Binding AllowNull}"
-											   CustomFormat="#0.00°F"
-											   Value="{Binding FahrenheitValue,Mode=TwoWay}"/>
-				</VerticalStackLayout>
+        <Grid  VerticalOptions="Fill" BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" >
+            <VerticalStackLayout Spacing="20" Margin="15,20,15,0" VerticalOptions="Start" >
+
+            <core:SfTextInputLayout Hint="Fahrenheit (°F)" ReserveSpaceForAssistiveLabels="False">
+                <syncfusion:SfNumericEntry BindingContext="{StaticResource numericEntryViewModel}" 
+								   Placeholder="{Binding PlaceholderText}"
+                                PlaceholderColor="{AppThemeBinding Light=#C8C8C8, Dark=#6E6E6E}"
+								   CustomFormat="#0.00°F"
+								   Minimum="{Binding Minimum}"
+								   Maximum="{Binding Maximum}"											
+								   AllowNull="{Binding AllowNull}"
+								   Value="{Binding FahrenheitValue,Mode=TwoWay}"/>
+            </core:SfTextInputLayout>
 
 
-				<VerticalStackLayout>
-					<Label Text="Celsius (°C)" Margin="{OnPlatform Android='3,0,0,0', iOS='2,10,10,10'}" />
-					<syncfusion:SfNumericEntry
-							BindingContext="{StaticResource numericEntryViewModel}"
-											   AllowNull="{Binding AllowNull}"
-                                               IsEnabled="False"
-                                               IsEditable="False"
-							                   CustomFormat="#0.00°C"
-										       Value="{Binding CelsiusValue}"/>
-				</VerticalStackLayout>
+            <core:SfTextInputLayout Hint="Celsius (°C)" ReserveSpaceForAssistiveLabels="False">
+                <syncfusion:SfNumericEntry BindingContext="{StaticResource numericEntryViewModel}"
+										   AllowNull="{Binding AllowNull}" IsEnabled="False" IsEditable="False"
+										   CustomFormat="#0.00°C"
+									       Value="{Binding CelsiusValue}"/>
+            </core:SfTextInputLayout>
 
-				<VerticalStackLayout>
-					<Label Text="Kelvin (K)" Margin="{OnPlatform Android='3,0,0,0', iOS='2,10,10,10'}" />
-					<syncfusion:SfNumericEntry
-								BindingContext="{StaticResource numericEntryViewModel}"
-											   AllowNull="{Binding AllowNull}"
-								               CustomFormat="#0.00K"
-                                               IsEnabled="False"
-                                               IsEditable="False"
-											   Value="{Binding KelvinValue}"/>
-				</VerticalStackLayout>
+            <core:SfTextInputLayout Hint="Kelvin (K)" ReserveSpaceForAssistiveLabels="False">
+                <syncfusion:SfNumericEntry BindingContext="{StaticResource numericEntryViewModel}"
+										   AllowNull="{Binding AllowNull}" IsEnabled="False" IsEditable="False"
+										   CustomFormat="#0.00K"
+										   Value="{Binding KelvinValue}"/>
+            </core:SfTextInputLayout>
 
-				<VerticalStackLayout>
-					<Label Text="Rankine (°R)" Margin="{OnPlatform Android='3,0,0,0', iOS='0,10,10,10'}" />
-					<syncfusion:SfNumericEntry
-								 BindingContext="{StaticResource numericEntryViewModel}"
-											   AllowNull="{Binding AllowNull}"
-								               CustomFormat="#0.00°R"
-                                               IsEnabled="False"
-                                               IsEditable="False"
-											   Value="{Binding RankineValue}"/>
-				</VerticalStackLayout>
+            <core:SfTextInputLayout Hint="Rankine (°R)" ReserveSpaceForAssistiveLabels="False">
+                <syncfusion:SfNumericEntry BindingContext="{StaticResource numericEntryViewModel}"
+								   AllowNull="{Binding AllowNull}" IsEditable="False" IsEnabled="False"
+								   CustomFormat="#0.00°R"
+								   Value="{Binding RankineValue}"/>
+            </core:SfTextInputLayout>
 
-			</VerticalStackLayout>
+        </VerticalStackLayout>
 		</Grid>
 
 	
@@ -78,11 +67,11 @@
 			<VerticalStackLayout VerticalOptions="Start">
 
 				<HorizontalStackLayout Spacing="5" Margin="6,5">
-					<CheckBox BindingContext="{StaticResource numericEntryViewModel}" IsChecked="{Binding AllowNull, Mode=TwoWay}" HorizontalOptions="Start" />
+					<buttons:SfCheckBox BindingContext="{StaticResource numericEntryViewModel}" IsChecked="{Binding AllowNull, Mode=TwoWay}" HorizontalOptions="Start" />
 					<Label Text="AllowNull"  VerticalOptions="Center"/>
 				</HorizontalStackLayout>
 
-				<VerticalStackLayout Margin="10" Background="White" >
+				<VerticalStackLayout Margin="10">
 					<Label Text="PlaceholderText" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center" Margin="{OnPlatform Android='3,0', iOS='2,10,10,10'}"/>
 					<Entry  BindingContext="{StaticResource numericEntryViewModel}"
 							Text="{Binding PlaceholderText}"
@@ -90,7 +79,7 @@
 							HorizontalOptions="Start"/>
 				</VerticalStackLayout>
 
-				<VerticalStackLayout Margin="10" Background="White" >
+				<VerticalStackLayout Margin="10">
 					<Label Text="Minimum" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center" Margin="{OnPlatform Android='3,0', iOS='2,10,10,10'}"/>
 					<Entry  BindingContext="{StaticResource numericEntryViewModel}"
 							Text="{Binding Minimum}"
@@ -99,7 +88,7 @@
 							HorizontalOptions="Start"/>
 				</VerticalStackLayout>
 
-				<VerticalStackLayout Margin="10" Background="White" >
+				<VerticalStackLayout Margin="10">
 					<Label Text="Maximum" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center" Margin="{OnPlatform Android='3,0', iOS='2,10,10,10'}"/>
 					<Entry  BindingContext="{StaticResource numericEntryViewModel}"
 							Text="{Binding Maximum}"

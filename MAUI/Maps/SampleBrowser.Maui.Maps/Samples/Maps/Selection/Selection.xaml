@@ -8,7 +8,7 @@
                       Background="White">
 
     <localCore:SampleView.Content>
-        <Grid Margin="20"
+        <Grid Background="{DynamicResource SfMapsNormalBackground}"
               x:Name="sampleGrid">
             <Grid.BindingContext>
                 <local:SelectionViewModel/>
@@ -26,6 +26,7 @@
                    Grid.ColumnSpan="2"
                    HorizontalOptions="Center"
                    Text="2020 US Population Density"
+                   TextColor="{DynamicResource SfMapsDataLabelTextColor}"
                    FontSize="Subtitle" 
                     Margin="0,0,0,20"/>
             <maps:SfMaps Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">

@@ -10,6 +10,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
     using System;
     using Microsoft.Maui.Controls;
     using SampleBrowser.Maui.Base;
+    using Syncfusion.Maui.Buttons;
     using Syncfusion.Maui.Scheduler;
 
     /// <summary>
@@ -25,22 +26,22 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         /// <summary>
         /// The visible days switch.
         /// </summary>
-        private Switch? visibleDaysSwitch;
+        private SfSwitch? visibleDaysSwitch;
 
         /// <summary>
         /// The currenttime indicator switch.
         /// </summary>
-        private Switch? currentTimeIndicatorSwitch;
+        private SfSwitch? currentTimeIndicatorSwitch;
 
         /// <summary>
         /// The weekNumber switch.
         /// </summary>
-        private Switch? weekNumberSwitch;
+        private SfSwitch? weekNumberSwitch;
 
         /// <summary>
         /// The allow view navigation switch
         /// </summary>
-        private Switch? allowViewNavigationSwitch;
+        private SfSwitch? allowViewNavigationSwitch;
 
         /// <summary>
         /// The visible days grid.
@@ -65,7 +66,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         /// <summary>
         /// The trailing dates switch.
         /// </summary>
-        private Switch? trailingDatesSwitch;
+        private SfSwitch? trailingDatesSwitch;
 
         /// <summary>
         /// Begins when the behavior attached to the view 
@@ -76,44 +77,44 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
             base.OnAttachedTo(bindable);
 
             this.scheduler = bindable.Content.FindByName<SfScheduler>("Scheduler");
-            this.visibleDaysSwitch = bindable.FindByName<Switch>("visibleDaysSwitch");
-            this.weekNumberSwitch = bindable.Content.FindByName<Switch>("weekNumberSwitch");
-            this.currentTimeIndicatorSwitch = bindable.Content.FindByName<Switch>("currentTimeIndicatorSwitch");
-            this.allowViewNavigationSwitch = bindable.Content.FindByName<Switch>("allowViewNavigationSwitch");
+            this.visibleDaysSwitch = bindable.FindByName<SfSwitch>("visibleDaysSwitch");
+            this.weekNumberSwitch = bindable.Content.FindByName<SfSwitch>("weekNumberSwitch");
+            this.currentTimeIndicatorSwitch = bindable.Content.FindByName<SfSwitch>("currentTimeIndicatorSwitch");
+            this.allowViewNavigationSwitch = bindable.Content.FindByName<SfSwitch>("allowViewNavigationSwitch");
             this.visibleDaysGrid = bindable.Content.FindByName<Grid>("visibleDaysGrid");
             this.currentTimeIndicatorGrid = bindable.Content.FindByName<Grid>("currentTimeIndicatorGrid");
             this.weekNumberGrid = bindable.Content.FindByName<Grid>("weekNumberGrid");
             this.trailingDatesGrid = bindable.Content.FindByName<Grid>("trailingDatesGrid");
-            this.trailingDatesSwitch = bindable.Content.FindByName<Switch>("trailingDatesSwitch");
+            this.trailingDatesSwitch = bindable.Content.FindByName<SfSwitch>("trailingDatesSwitch");
 
             if (this.currentTimeIndicatorSwitch != null)
             {
-                this.currentTimeIndicatorSwitch.Toggled += CurrentTimeIndicatorSwitch_Toggled;
+                this.currentTimeIndicatorSwitch.StateChanged += OnCurrentTimeIndicatorSwitchStateChanged;
             }
 
             if (this.weekNumberSwitch != null)
             {
-                this.weekNumberSwitch.Toggled += WeekNumberSwitch_Toggled;
+                this.weekNumberSwitch.StateChanged += OnWeekNumberSwitchStateChanged;
             }
 
             if (this.trailingDatesSwitch != null)
             {
-                this.trailingDatesSwitch.Toggled += TrailingDatesSwitch_Toggled;
+                this.trailingDatesSwitch.StateChanged += OnTrailingDatesSwitchStateChanged;
             }
 
             if (this.visibleDaysSwitch != null)
             {
-                this.visibleDaysSwitch.Toggled += VisibleDaysSwitch_Toggled;
+                this.visibleDaysSwitch.StateChanged += OnVisibleDaysSwitchStateChanged;
             }
 
             if (this.allowViewNavigationSwitch != null)
             {
-                this.allowViewNavigationSwitch.Toggled += AllowViewNavigationSwitch_Toggled;
+                this.allowViewNavigationSwitch.StateChanged += OnAllowViewNavigationSwitchStateChanged;
             }
 
             if (this.scheduler != null)
             {
-                this.scheduler.ViewChanged += Scheduler_ViewChanged;
+                this.scheduler.ViewChanged += OnSchedulerViewChanged;
             }
         }
 
@@ -122,14 +123,14 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Args</param>
-        private void VisibleDaysSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void OnVisibleDaysSwitchStateChanged(object? sender, SwitchStateChangedEventArgs e)
         {
             if (this.scheduler == null)
             {
                 return;
             } 
             
-            if (e.Value)
+            if (e.NewValue == true)
             {
                 this.scheduler.DaysView.NumberOfVisibleDays = 3;
                 this.scheduler.TimelineView.NumberOfVisibleDays = 3;
@@ -146,7 +147,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Args</param>
-        private void Scheduler_ViewChanged(object? sender, SchedulerViewChangedEventArgs e)
+        private void OnSchedulerViewChanged(object? sender, SchedulerViewChangedEventArgs e)
         {
             if (e.NewView == SchedulerView.Month)
             {
@@ -217,11 +218,11 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Args</param>
-        private void AllowViewNavigationSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void OnAllowViewNavigationSwitchStateChanged(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.scheduler != null)
+            if (this.scheduler != null && e.NewValue.HasValue)
             {
-                this.scheduler.AllowViewNavigation = e.Value;
+                this.scheduler.AllowViewNavigation = e.NewValue.Value;
             }
         }
 
@@ -230,11 +231,11 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Args</param>
-        private void WeekNumberSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void OnWeekNumberSwitchStateChanged(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.scheduler != null)
+            if (this.scheduler != null && e.NewValue != null)
             {
-                this.scheduler.ShowWeekNumber = e.Value;
+                this.scheduler.ShowWeekNumber = e.NewValue.Value;
             }
         }
 
@@ -243,11 +244,11 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Args</param>
-        private void TrailingDatesSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void OnTrailingDatesSwitchStateChanged(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.scheduler != null)
+            if (this.scheduler != null && e.NewValue != null)
             {
-                this.scheduler.MonthView.ShowLeadingAndTrailingDates = e.Value;
+                this.scheduler.MonthView.ShowLeadingAndTrailingDates = e.NewValue.Value;
             }
         }
 
@@ -256,12 +257,12 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Args</param>
-        private void CurrentTimeIndicatorSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void OnCurrentTimeIndicatorSwitchStateChanged(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.scheduler != null)
+            if (this.scheduler != null && e.NewValue != null)
             {
-                this.scheduler.DaysView.ShowCurrentTimeIndicator = e.Value;
-                this.scheduler.TimelineView.ShowCurrentTimeIndicator = e.Value;
+                this.scheduler.DaysView.ShowCurrentTimeIndicator = e.NewValue.Value;
+                this.scheduler.TimelineView.ShowCurrentTimeIndicator = e.NewValue.Value;
             }
         }
 
@@ -290,7 +291,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
 
             if (this.weekNumberSwitch != null)
             {
-                this.weekNumberSwitch.Toggled -= WeekNumberSwitch_Toggled;
+                this.weekNumberSwitch.StateChanged -= OnWeekNumberSwitchStateChanged;
                 this.weekNumberSwitch = null;
             }
 
@@ -301,31 +302,31 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
 
             if (this.trailingDatesSwitch != null)
             {
-                this.trailingDatesSwitch.Toggled -= TrailingDatesSwitch_Toggled;
+                this.trailingDatesSwitch.StateChanged -= OnTrailingDatesSwitchStateChanged;
                 this.trailingDatesSwitch = null;
             }
 
             if (this.visibleDaysSwitch != null)
             {
-                this.visibleDaysSwitch.Toggled -= VisibleDaysSwitch_Toggled;
+                this.visibleDaysSwitch.StateChanged -= OnVisibleDaysSwitchStateChanged;
                 this.visibleDaysSwitch = null;
             }
 
             if (this.currentTimeIndicatorSwitch != null)
             {
-                this.currentTimeIndicatorSwitch.Toggled -= CurrentTimeIndicatorSwitch_Toggled;
+                this.currentTimeIndicatorSwitch.StateChanged -= OnCurrentTimeIndicatorSwitchStateChanged;
                 this.currentTimeIndicatorSwitch = null;
             }
 
             if (this.allowViewNavigationSwitch != null)
             {
-                this.allowViewNavigationSwitch.Toggled -= AllowViewNavigationSwitch_Toggled;
+                this.allowViewNavigationSwitch.StateChanged -= OnAllowViewNavigationSwitchStateChanged;
                 this.allowViewNavigationSwitch = null;
             }
 
             if (this.scheduler != null)
             {
-                this.scheduler.ViewChanged -= Scheduler_ViewChanged;
+                this.scheduler.ViewChanged -= OnSchedulerViewChanged;
                 this.scheduler = null;
             }
         }

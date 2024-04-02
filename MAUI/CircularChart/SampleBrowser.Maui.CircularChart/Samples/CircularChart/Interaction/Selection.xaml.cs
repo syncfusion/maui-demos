@@ -27,13 +27,13 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
 
             if (e.OldIndexes.Count > 0 && e.NewIndexes.Count == 0)
             {
-                series1.PaletteBrushes = model.PaletteBrushes;
+                series1.PaletteBrushes = model.ThemePaletteBrushes;
             }
 
             foreach (var index in e.NewIndexes)
             {
                 series1.PaletteBrushes = model.SelectionBrushes;
-                if (model.PaletteBrushes[index] is SolidColorBrush brush)
+                if (model.ThemePaletteBrushes[index] is SolidColorBrush brush)
                     dataPointSelection.SelectionBrush = brush;
             }
         }

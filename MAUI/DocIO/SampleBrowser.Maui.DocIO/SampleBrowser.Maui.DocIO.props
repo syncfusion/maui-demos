@@ -46,6 +46,11 @@
 			<DependentUpon>TableOfContents.xaml</DependentUpon>
 		</Compile>
 		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\TableOfFigures\TableOfFigures.xaml.cs">
+			<Link>Samples\DocIO\TableOfFigures\TableOfFigures.xaml.cs</Link>
+			<DependentUpon>TableOfFigures.xaml</DependentUpon>
+		</Compile>
+		
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DocIO\WordToPDF\WordToPDF.xaml.cs">
 			<Link>Samples\DocIO\WordToPDF\WordToPDF.xaml.cs</Link>
 			<DependentUpon>WordToPDF.xaml</DependentUpon>
@@ -111,6 +116,11 @@
 	<ItemGroup>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\TableOfContents\TableOfContents.xaml">
 			<Link>Samples\DocIO\TableOfContents\TableOfContents.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DocIO\TableOfFigures\TableOfFigures.xaml">
+			<Link>Samples\DocIO\TableOfFigures\TableOfFigures.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
@@ -185,6 +195,9 @@
 	  </EmbeddedResource>
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\RevisedDocument.docx">
 	        <Link>Resources\DocIO\RevisedDocument.docx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\DocIO\TableOfFiguresInput.docx">
+	        <Link>Resources\DocIO\TableOfFiguresInput.docx</Link>
 	  </EmbeddedResource>
 	</ItemGroup>
 </Project>

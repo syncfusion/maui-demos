@@ -29,8 +29,7 @@
                 <Label Text="Inflation Rate In Percentage"
                        Grid.ColumnSpan="3"
                        HorizontalOptions="Center"
-                       VerticalOptions="End"
-                       TextColor="Black"
+                       VerticalOptions="Center"
                        FontSize="18" />
 
                 <sliders:SfDateTimeRangeSelector x:Name="rangeSelector"
@@ -46,17 +45,19 @@
                                                  ShowTicks="True"
                                                  ShowLabels="True"
                                                  VerticalOptions="Center"
-                                                 InactiveRegionFill="#99FFFFFF"
+                                                 InactiveRegionFill="Transparent"
                                                  LabelsPlacement="BetweenTicks">
 
                     <sliders:SfDateTimeRangeSelector.LabelStyle>
-                        <sliders:SliderLabelStyle Offset="4"
+                        <sliders:SliderLabelStyle Offset="4" ActiveTextColor="{AppThemeBinding Default={StaticResource SfSliderNormalActiveLabelTextColor}}"
+                                                  InactiveTextColor="{AppThemeBinding Default={StaticResource SfSliderNormalActiveLabelTextColor}}"
                                                   InactiveFontSize="{OnPlatform 14, Android=10, iOS=10}"
                                                   ActiveFontSize="{OnPlatform 14, Android=10, iOS=10}" />
                     </sliders:SfDateTimeRangeSelector.LabelStyle>
 
                     <sliders:SfDateTimeRangeSelector.Tooltip>
-                        <sliders:SliderTooltip DateFormat="MMM d, yyyy" />
+                        <sliders:SliderTooltip DateFormat="MMM d, yyyy" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfDateTimeRangeSelector.Tooltip>
 
                     <charts:SfCartesianChart>
@@ -93,7 +94,6 @@
                 <Label Grid.Row="3"
                        Grid.Column="1"
                        Text="{Binding AverageInflationRate, StringFormat='Average rate  :  {0:0.##}%'}"
-                       TextColor="Black"
                        FontSize="18"
                        HorizontalOptions="Center"
                        VerticalOptions="Start" />

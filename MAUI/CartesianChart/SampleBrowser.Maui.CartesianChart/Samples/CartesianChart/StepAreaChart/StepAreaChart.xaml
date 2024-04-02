@@ -4,8 +4,16 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Content>
-        <StackLayout Padding="10" HorizontalOptions="Fill" x:Name="layout">
+        <StackLayout HorizontalOptions="Fill" x:Name="layout">
             
             <StackLayout.BindingContext>
                 <local:StepAreaSeriesViewModel></local:StepAreaSeriesViewModel>
@@ -17,7 +25,7 @@
                        LineBreakMode="WordWrap" Padding="0,0,0,5"/>
             </StackLayout.Resources>
 
-            <chart:SfCartesianChart PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" x:Name="Chart"
+            <chart:SfCartesianChart PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" x:Name="Chart"
                                     Title="{StaticResource title}">
                 <chart:SfCartesianChart.Legend>
                     <chart:ChartLegend ToggleSeriesVisibility="True"/>
@@ -26,23 +34,23 @@
                     <ResourceDictionary>
                         <DataTemplate x:Key="template1">
                             <StackLayout>
-                                <Label Text="Product A" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
-                                <BoxView Color="Gray" HeightRequest="1" WidthRequest="100" />
+                                <Label Text="Product A" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
+                                <BoxView Color="{AppThemeBinding Default={StaticResource ContentBackground}}" HeightRequest="1" WidthRequest="100" />
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Fill" Spacing="0" Padding="3" Margin="0">
-                                    <Ellipse TranslationY="-1" Stroke="White" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="#C474BD6F" Margin="0,3,3,0" />
-                                    <Label Text="{Binding Item.Date,StringFormat='{0:dd/MM/yyyy}'}"  VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
-                                    <Label Text="{Binding Item.Value,StringFormat=' :  {0}$'}" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="White" FontFamily="Helvetica" Margin="0,0,3,0"  FontSize="12" />
+                                    <Ellipse TranslationY="-1" Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" Margin="0,3,3,0" />
+                                    <Label Text="{Binding Item.Date,StringFormat='{0:dd/MM/yyyy}'}"  VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
+                                    <Label Text="{Binding Item.Value,StringFormat=' :  {0}$'}" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" Margin="0,0,3,0"  FontSize="12" />
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
                         <DataTemplate x:Key="template2">
                             <StackLayout>
-                                <Label Text="Product B" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
-                                <BoxView Color="Gray" HeightRequest="1" WidthRequest="100" />
+                                <Label Text="Product B" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold" FontFamily="Helvetica" Margin="0,2,0,2" FontSize="12" Grid.Row="0"/>
+                                <BoxView Color="{AppThemeBinding Default={StaticResource ContentBackground}}" HeightRequest="1" WidthRequest="100" />
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Fill" Spacing="0" Padding="3" Margin="0">
-                                    <Ellipse TranslationY="-1"  Stroke="White" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="#C45E498C" Margin="0,3,3,0" />
-                                    <Label Text="{Binding Item.Date,StringFormat='{0:dd/MM/yyyy}'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
-                                    <Label Text="{Binding Item.Size,StringFormat=' :  {0}$'}" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="White" FontFamily="Helvetica" Margin="0,0,3,0"  FontSize="12" />
+                                    <Ellipse TranslationY="-1"  Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" StrokeThickness="2" HeightRequest="10" WidthRequest="10" Fill="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" Margin="0,3,3,0" />
+                                    <Label Text="{Binding Item.Date,StringFormat='{0:dd/MM/yyyy}'}" VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" FontSize="12" Margin="3,0,3,0" />
+                                    <Label Text="{Binding Item.Size,StringFormat=' :  {0}$'}" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontFamily="Helvetica" Margin="0,0,3,0"  FontSize="12" />
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
@@ -70,9 +78,9 @@
                 </chart:SfCartesianChart.YAxes >
                 
                 <chart:SfCartesianChart.Series>
-                    <chart:StepAreaSeries Label="Product A" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" TooltipTemplate="{StaticResource template1}" Stroke="#74BD6F" Fill="#C474BD6F" StrokeWidth="2" ItemsSource="{Binding StepAreaData1}" XBindingPath="Date" YBindingPath="Value" LegendIcon="SeriesType" >
+                    <chart:StepAreaSeries Label="Product A" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" TooltipTemplate="{StaticResource template1}" Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" Fill="{AppThemeBinding Light={StaticResource series1Light30}, Dark={StaticResource series1Dark30}}" StrokeWidth="2" ItemsSource="{Binding StepAreaData1}" XBindingPath="Date" YBindingPath="Value" LegendIcon="SeriesType" >
                     </chart:StepAreaSeries>
-                    <chart:StepAreaSeries Label="Product B" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" TooltipTemplate="{StaticResource template2}" Stroke="#5E498C" Fill="#C45E498C"  StrokeWidth="2" ItemsSource="{Binding StepAreaData1}" XBindingPath="Date" YBindingPath="Size" LegendIcon="SeriesType" >
+                    <chart:StepAreaSeries Label="Product B" EnableAnimation="{Binding EnableAnimation}" EnableTooltip="True" TooltipTemplate="{StaticResource template2}" Stroke="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" Fill="{AppThemeBinding Light={StaticResource series2Light30}, Dark={StaticResource series2Dark30}}"  StrokeWidth="2" ItemsSource="{Binding StepAreaData1}" XBindingPath="Date" YBindingPath="Size" LegendIcon="SeriesType" >
                     </chart:StepAreaSeries>
                 </chart:SfCartesianChart.Series>
             </chart:SfCartesianChart>

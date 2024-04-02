@@ -20,7 +20,7 @@ namespace SampleBrowser.Maui.DataGrid
     public class PagingBehavior : Behavior<SampleView>
     {
         private SfDataPager? datapager;
-        private Microsoft.Maui.Controls.Picker? selectionPicker;
+        private Syncfusion.Maui.Inputs.SfComboBox? comboBox;
         private SampleView? samplePage;
 
         /// <summary>
@@ -31,10 +31,11 @@ namespace SampleBrowser.Maui.DataGrid
         {
             this.samplePage = bindAble;
             this.datapager = bindAble.FindByName<SfDataPager>("dataPager");
-            this.selectionPicker = bindAble.FindByName<Microsoft.Maui.Controls.Picker>("SelectionPicker");
-            if (this.selectionPicker != null)
+            this.comboBox = bindAble.FindByName<Syncfusion.Maui.Inputs.SfComboBox>("comboBox");
+
+            if (this.comboBox != null)
             {
-                this.selectionPicker.SelectedIndexChanged += Picker_SelectedIndexChanged;
+                this.comboBox.SelectionChanged += Picker_SelectedIndexChanged;
             }
             base.OnAttachedTo(bindAble);
         }
@@ -45,9 +46,9 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="bindAble">A sampleView type of bindAble</param>
         protected override void OnDetachingFrom(SampleView bindAble)
         {
-            if (this.selectionPicker != null)
+            if (this.comboBox != null)
             {
-                this.selectionPicker.SelectedIndexChanged -= Picker_SelectedIndexChanged;
+                this.comboBox.SelectionChanged -= Picker_SelectedIndexChanged;
             }
 
             this.datapager = null;
@@ -61,11 +62,11 @@ namespace SampleBrowser.Maui.DataGrid
         /// <param name="e">EventArgs e</param>
         private void Picker_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            if (this.selectionPicker!.SelectedIndex == 0)
+            if (this.comboBox!.SelectedIndex == 0)
             {
                 this.datapager!.ButtonShape = DataPagerButtonShape.Circle;
             }
-            else if (this.selectionPicker.SelectedIndex == 1)
+            else if (this.comboBox.SelectedIndex == 1)
             {
                 this.datapager!.ButtonShape = DataPagerButtonShape.Rectangle;
             }

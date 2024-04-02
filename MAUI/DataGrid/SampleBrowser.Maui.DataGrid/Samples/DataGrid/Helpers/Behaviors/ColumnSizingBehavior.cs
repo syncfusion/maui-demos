@@ -17,29 +17,29 @@ namespace SampleBrowser.Maui.DataGrid
     public class ColumnSizingBehavior : Behavior<SampleView>
     {
         private Syncfusion.Maui.DataGrid.SfDataGrid? datagrid;
-        private Microsoft.Maui.Controls.Picker? columnSizingPicker;
+        private Syncfusion.Maui.Inputs.SfComboBox? comboBox;
 
         protected override void OnAttachedTo(SampleView bindable)
         {
             datagrid = bindable.FindByName<Syncfusion.Maui.DataGrid.SfDataGrid?>("dataGrid");
-            columnSizingPicker = bindable.FindByName<Microsoft.Maui.Controls.Picker>("ColumnSizingPicker");
+            this.comboBox = bindable.FindByName<Syncfusion.Maui.Inputs.SfComboBox>("comboBox");
 
-            columnSizingPicker.SelectedIndexChanged += ColumnSizingPicker_SelectedIndexChanged;
+            comboBox.SelectionChanged += ColumnSizingPicker_SelectedIndexChanged;
             base.OnAttachedTo(bindable);
         }
 
         protected override void OnDetachingFrom(SampleView bindable)
         {
-            columnSizingPicker!.SelectedIndexChanged -= ColumnSizingPicker_SelectedIndexChanged;
+            comboBox!.SelectionChanged -= ColumnSizingPicker_SelectedIndexChanged;
             
             datagrid = null;
-            columnSizingPicker = null;
+            comboBox = null;
             base.OnDetachingFrom(bindable);
         }
 
         private void ColumnSizingPicker_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            switch(this.columnSizingPicker!.SelectedIndex)
+            switch(this.comboBox!.SelectedIndex)
             {
                 case 0:
                     SetColumnWidthMode(Syncfusion.Maui.DataGrid.ColumnWidthMode.Fill);

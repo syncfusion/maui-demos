@@ -16,6 +16,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
     public partial class HighlightDates : SampleView
     {
         /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="HighlightDates" /> class.
         /// </summary>
         public HighlightDates()
@@ -28,7 +33,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #if IOS || MACCATALYST
             this.border.IsVisible = true;
 #if MACCATALYST
-            this.border.Stroke = Color.FromArgb("#E6E6E6");
+            this.border.Stroke = isLightTheme ? Colors.White : Color.FromRgba("#1C1B1F");
 #else
             this.border.Stroke = Colors.Transparent;
 #endif
@@ -38,7 +43,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #if ANDROID
             this.frame.BorderColor = Colors.Transparent;
 #else
-            this.frame.BorderColor = Color.FromArgb("#E6E6E6");
+            this.frame.BorderColor = isLightTheme ? Colors.White : Color.FromRgba("#1C1B1F");
 #endif
 #endif
 

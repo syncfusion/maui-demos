@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CircularChart.SfCircularChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CircularChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    
     <localCore:SampleView.Content>
         <StackLayout HorizontalOptions="Fill" Padding="20" x:Name="layout">
             <StackLayout.BindingContext>
@@ -19,13 +28,13 @@
                                 <DataTemplate>
                                     <Grid ColumnSpacing="10" ColumnDefinitions="*,Auto">
                                         <Label Text="{Binding Name}"
-                                                   TextColor="White" Grid.Column="0"
+                                                   TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" Grid.Column="0"
                                                    HorizontalOptions="Start" HorizontalTextAlignment="Start"
                                                    FontSize="Caption"
                                                    VerticalOptions="Center"/>
                                         <Label Text="{Binding Converter={StaticResource StingConvert}, ConverterParameter={x:Reference doughnutSeries1}}"
                                                    FontSize="Caption" Grid.Column="2"
-                                                   TextColor="White" FontAttributes="Bold"
+                                                   TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontAttributes="Bold"
                                                    HorizontalOptions="End" HorizontalTextAlignment="End"
                                                    VerticalOptions="Center"/>
                                     </Grid>
@@ -41,13 +50,18 @@
                     <chart:ChartLegend/>
                 </chart:SfCircularChart.Legend>
                 <chart:SfCircularChart.Title>
-                    <Label Text="The Global Bond Market" Margin="0"  HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" FontSize="16" TextColor="Black"/>
+                    <Label Text="The Global Bond Market" Margin="0"  HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" FontSize="16" />
                 </chart:SfCircularChart.Title>
 
+                <chart:SfCircularChart.TooltipBehavior>
+                    <chart:ChartTooltipBehavior Background="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+                </chart:SfCircularChart.TooltipBehavior>
+
                 <chart:SfCircularChart.Series>
-					<chart:DoughnutSeries ShowDataLabels="True" TooltipTemplate="{StaticResource tooltipTemplate}" x:Name="doughnutSeries1" GroupTo="5"  PaletteBrushes="{Binding CustomColor1}" 
+                    <chart:DoughnutSeries ShowDataLabels="True" TooltipTemplate="{StaticResource tooltipTemplate}" x:Name="doughnutSeries1" GroupTo="5"  
                                       ItemsSource="{Binding GroupToData}" XBindingPath="Name" 
-                                      YBindingPath="Value" EnableAnimation="False" StrokeWidth="1" Stroke="White">
+                                      YBindingPath="Value" EnableAnimation="False" StrokeWidth="1" Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                      PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight2}, Dark={StaticResource PaletteBrushesDark2}}">
                         <chart:DoughnutSeries.DataLabelSettings>
                             <chart:CircularDataLabelSettings LabelPlacement="Outer">
                                 <chart:CircularDataLabelSettings.LabelStyle>

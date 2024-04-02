@@ -16,9 +16,13 @@ namespace SampleBrowser.Maui.Inputs.SfAutocomplete
         {
             InitializeComponent();
 #if ANDROID || IOS
-            this.Content = new AutocompleteMultiSelectionMobile();
+            AutocompleteMultiSelectionMobile mobile = new AutocompleteMultiSelectionMobile();
+            this.Content = mobile.Content;
+            this.OptionView = mobile.OptionView;
 #else
-            this.Content = new AutocompleteMultiSelectionDesktop();
+            AutocompleteMultiSelectionDesktop desktop = new AutocompleteMultiSelectionDesktop();
+            this.Content = desktop.Content;
+            this.OptionView = desktop.OptionView;
 #endif
         }
     }

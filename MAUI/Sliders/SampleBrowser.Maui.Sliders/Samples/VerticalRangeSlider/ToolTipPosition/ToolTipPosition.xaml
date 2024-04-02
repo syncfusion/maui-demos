@@ -30,7 +30,7 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                  Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
             <Setter Property="HorizontalOptions"
                     Value="Center" />
         </Style>
@@ -52,8 +52,9 @@
                                        Interval="10">
 
                     <sliders:SfRangeSlider.Tooltip>
-                        <sliders:SliderTooltip Position="Right"
-                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" />
+                        <sliders:SliderTooltip Position="Right" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" 
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfRangeSlider.Tooltip>
                 </sliders:SfRangeSlider>
 
@@ -74,9 +75,10 @@
                                                DateFormat="h tt">
 
                     <sliders:SfDateTimeRangeSlider.Tooltip>
-                        <sliders:SliderTooltip DateFormat="h:mm tt"
+                        <sliders:SliderTooltip DateFormat="h:mm tt" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
                                                Position="Left"
-                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" />
+                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}" 
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
                     </sliders:SfDateTimeRangeSlider.Tooltip>
                 </sliders:SfDateTimeRangeSlider>
 

@@ -6,6 +6,8 @@
                       xmlns:maps="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
                       xmlns:local="clr-namespace:SampleBrowser.Maui.Maps.SfMaps"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:switch="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
                       Background="White">
     <localCore:SampleView.Resources>
         <ResourceDictionary>
@@ -29,7 +31,7 @@
                              HorizontalOptions="StartAndExpand"
                              VerticalOptions="End">
                     <Label Text="{Binding DataItem.Name}"
-                           TextColor="White"></Label>
+                           TextColor="{DynamicResource SfMapsTooltipTextColor}"></Label>
                 </StackLayout>
             </DataTemplate>
         </ResourceDictionary>
@@ -91,10 +93,11 @@
             <HorizontalStackLayout Grid.Row="1"
                                    HorizontalOptions="End"
                                    VerticalOptions="End"
-                                   Background="White">
+                                   Background="{DynamicResource SfMapsNormalBackground}">
                 <Label Text="©"
                        Padding="2"
-                       FontSize="16" />
+                       FontSize="16"
+                       TextColor="{DynamicResource SfMapsDataLabelTextColor}"/>
                 <Label Padding="2"
                        Text="OpenStreetMap contributors"
                        TextColor="Blue">
@@ -117,13 +120,14 @@
 
                 <Label Text="Layer Type" />
 
-                <Picker x:Name="picker"
-                        Grid.Column="1"
-                        SelectedIndex="0"
-                        ItemsSource="{Binding Source={StaticResource ViewModel}, Path=LayerTypeArray}"
-                        SelectedItem="{Binding Source={StaticResource ViewModel}, Path=LayerTypeArray[0]}"
-                        SelectedIndexChanged="Picker_SelectedIndexChanged">
-                </Picker>
+                <editors:SfComboBox x:Name="picker"
+                                    Grid.Column="1"
+                                    SelectedIndex="0"
+                                    IsClearButtonVisible="false"
+                                    ItemsSource="{Binding Source={StaticResource ViewModel}, Path=LayerTypeArray}"
+                                    SelectedItem="{Binding Source={StaticResource ViewModel}, Path=LayerTypeArray[0]}"
+                                    SelectionChanged="Picker_SelectedIndexChanged">
+                </editors:SfComboBox>
             </Grid>
 
             <Grid>
@@ -135,11 +139,11 @@
                 <Label Text="Show dashes"
                        VerticalOptions="Center" />
 
-                <Switch Grid.Column="1"
-                        IsToggled="False"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Start"
-                        Toggled="Switch_Toggled" />
+                <switch:SfSwitch Grid.Column="1"
+                                 IsOn="False"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="End"
+                                 StateChanged="Switch_Toggled" />
             </Grid>
         </StackLayout>
     </localCore:SampleView.OptionView>

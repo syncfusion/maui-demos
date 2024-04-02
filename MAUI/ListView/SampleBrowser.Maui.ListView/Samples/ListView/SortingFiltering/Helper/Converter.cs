@@ -18,15 +18,15 @@ namespace SampleBrowser.Maui.ListView.SfListView
         {
             if (value == null)
             {
-                return "\ue709";
+                return "\ue745";
             }
             var sortOptions = (ListViewSortOptions)value;
             if (sortOptions == ListViewSortOptions.Ascending)
-                return "\ue709";
+                return "\ue745";
             else if (sortOptions == ListViewSortOptions.Descending)
-                return "\ue719";
+                return "\ue746";
             else
-                return "\ue709";
+                return "\ue745";
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

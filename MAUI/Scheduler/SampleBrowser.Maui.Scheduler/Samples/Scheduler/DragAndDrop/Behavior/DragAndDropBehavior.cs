@@ -8,6 +8,7 @@
 namespace SampleBrowser.Maui.Scheduler.SfScheduler
 {
     using SampleBrowser.Maui.Base;
+    using Syncfusion.Maui.Buttons;
     using Syncfusion.Maui.Scheduler;
     using Scheduler = Syncfusion.Maui.Scheduler.SfScheduler;
 
@@ -15,7 +16,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
     {
         private Scheduler? scheduler;
 
-        private List<RadioButton>? radioButtons;
+        private List<SfRadioButton>? radioButtons;
 
         private int selectedIndex = 1;
 
@@ -24,11 +25,11 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
         {
             base.OnAttachedTo(sampleView);
             this.scheduler = sampleView.Content.FindByName<SfScheduler>("dragAndDrop");
-            this.radioButtons = new List<RadioButton>
+            this.radioButtons = new List<SfRadioButton>
             {
-                sampleView.Content.FindByName<RadioButton>("option1"),
-                sampleView.Content.FindByName<RadioButton>("option2"),
-                sampleView.Content.FindByName<RadioButton>("option3")
+                sampleView.Content.FindByName<SfRadioButton>("option1"),
+                sampleView.Content.FindByName<SfRadioButton>("option2"),
+                sampleView.Content.FindByName<SfRadioButton>("option3")
             };
 
 
@@ -42,16 +43,16 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
             {
                 foreach (var item in this.radioButtons)
                 {
-                    item.CheckedChanged += OnRadioButton_CheckedChanged;
+                    item.StateChanged += OnRadioButtonStateChanged;
                 }
             }
         }
 
-        private void OnRadioButton_CheckedChanged(object? sender, CheckedChangedEventArgs e)
+        private void OnRadioButtonStateChanged(object? sender, StateChangedEventArgs e)
         {
-            var radioButtonText = (sender as RadioButton)?.Content.ToString();
+            var radioButtonText = (sender as SfRadioButton)?.Text;
 
-            if (scheduler == null)
+            if (scheduler == null || e.IsChecked != true)
             {
                 return;
             }
@@ -100,7 +101,7 @@ namespace SampleBrowser.Maui.Scheduler.SfScheduler
             {
                 foreach (var item in this.radioButtons)
                 {
-                    item.CheckedChanged -= OnRadioButton_CheckedChanged;
+                    item.StateChanged -= OnRadioButtonStateChanged;
                 }
 
                 this.radioButtons = null;

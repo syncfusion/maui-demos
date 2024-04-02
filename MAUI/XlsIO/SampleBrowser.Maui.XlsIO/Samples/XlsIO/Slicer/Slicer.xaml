@@ -12,26 +12,26 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="SampleDescription" LineBreakMode="WordWrap" Text="This example demonstrates how to create and use slicers in table."
-                 VerticalOptions="Center" TextColor="Black">
+                 VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
             <Label x:Name="Content_1" LineBreakMode="WordWrap" Text="Click the &quot;Input Template&quot; button to view the input Excel document. Please note that the Microsoft Excel viewer or Microsoft Excel is required to view the Excel document."
-                  VerticalOptions="Center" TextColor="Black">
+                  VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
             <Label x:Name="Content_2" LineBreakMode="WordWrap" Text="Click the &quot;Create Document&quot; button to view the created Excel document."
-                  VerticalOptions="Center" TextColor="Black">
+                  VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
             <Label x:Name="Content_3" LineBreakMode="WordWrap" Text="Choose the columns to create slicers."
-                  VerticalOptions="Center" TextColor="Black">
+                  VerticalOptions="Center">
             </Label>
 
 
 
             <HorizontalStackLayout >
                 <Label x:Name="Content_4" LineBreakMode="WordWrap" Text="Select Column"
-                  VerticalOptions="Center" TextColor="Black" FontAttributes="Bold">
+                  VerticalOptions="Center" FontAttributes="Bold">
                 </Label>
                 <syncfusion:SfTextInputLayout x:Name="Column1" ContainerType="Outlined" OutlineCornerRadius="4" InputViewPadding="5,0,5,0" Margin="20,10,0,0" ContainerBackground="white" WidthRequest="{OnPlatform WinUI=112, Android=120, iOS=112}">
                     <editors:SfComboBox  SelectedIndex="0" Padding="9,0,0,0" WidthRequest="110">
@@ -49,7 +49,7 @@
 
             <HorizontalStackLayout Margin="0,-20,0,0">
                 <Label x:Name="Content_5" LineBreakMode="WordWrap" Text="Select Column"
-                  VerticalOptions="Center" TextColor="Black" FontAttributes="Bold">
+                  VerticalOptions="Center" FontAttributes="Bold">
                 </Label>
                 <syncfusion:SfTextInputLayout x:Name="Column2" ContainerType="Outlined" OutlineCornerRadius="4" InputViewPadding="5,0,5,0" Margin="20,10,0,0" ContainerBackground="white" WidthRequest="{OnPlatform WinUI=112, Android=120, iOS=112}">
                     <editors:SfComboBox SelectedIndex="2" Padding="9,0,0,0" WidthRequest="110">

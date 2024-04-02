@@ -5,10 +5,10 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.LinearGaugeDragPointer"
                       xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
-                      Background="White">
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="#CC000000" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourAlt1Light}, Dark={StaticResource TextColourAlt1}}" />
         </Style>
     </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
@@ -29,9 +29,9 @@
                                         Value="{Binding Source={x:Reference shapePointer1}, Path=Value}"/>
                         <gauge:LinearShapePointer x:Name="shapePointer3" EnableAnimation="True" Value="60"
                                          AnimationEasing="{x:Static Easing.CubicOut}" DragOffset="0"
-                                        Fill="Black" ShapeHeight="10" IsInteractive="True"/>
+                                        Fill="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" ShapeHeight="10" IsInteractive="True"/>
                         <gauge:LinearShapePointer x:Name="shapePointer4" ShapeType="Rectangle" OffsetY="-10"
-                                        Fill="Black" EnableAnimation="True" DragOffset="0"
+                                        Fill="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" EnableAnimation="True" DragOffset="0"
                                               IsInteractive="True"
                                          AnimationEasing="{x:Static Easing.CubicOut}"
                                         Value="{Binding Source={x:Reference shapePointer3}, Path=Value}"
@@ -54,12 +54,12 @@
                                         Value="{Binding Source={x:Reference shapePointer5}, Path=Value}"/>
                         <gauge:LinearShapePointer x:Name="shapePointer7" EnableAnimation="True" Value="60"
                                          AnimationEasing="{x:Static Easing.CubicOut}" DragOffset="0"
-                                        Fill="Black" ShapeHeight="10" IsInteractive="True"
+                                        Fill="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" ShapeHeight="10" IsInteractive="True"
                                         ValueChanging="shapePointer7_ValueChanging"/>
                         <gauge:LinearShapePointer x:Name="shapePointer8" ShapeType="Rectangle" OffsetY="-10"
                                               IsInteractive="True"
                                                ValueChanging="shapePointer7_ValueChanging"
-                                        Fill="Black" EnableAnimation="True" DragOffset="0"
+                                        Fill="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" EnableAnimation="True" DragOffset="0"
                                          AnimationEasing="{x:Static Easing.CubicOut}"
                                         Value="{Binding Source={x:Reference shapePointer7}, Path=Value}"/>
                     </gauge:SfLinearGauge.MarkerPointers>

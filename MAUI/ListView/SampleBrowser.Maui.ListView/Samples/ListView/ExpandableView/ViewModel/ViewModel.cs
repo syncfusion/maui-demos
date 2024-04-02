@@ -184,10 +184,10 @@ namespace SampleBrowser.Maui.ListView.SfListView
         };
         private string[] FoodIcons = new string[]
         {
-            "\ue71D",
-            "\ue71E",
-            "\ue72A",
-            "\ue71F",            
+            "\ue784",
+            "\ue781",
+            "\ue782",
+            "\ue783",
         };
 
         #endregion

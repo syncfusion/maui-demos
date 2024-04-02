@@ -4,8 +4,15 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <chart:SfCartesianChart x:Name="Chart1"  PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="Fill">
+        <chart:SfCartesianChart x:Name="Chart1" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}" HorizontalOptions="Fill" VerticalOptions="Fill">
             <chart:SfCartesianChart.BindingContext>
                 <local:LineSeriesViewModel/>
             </chart:SfCartesianChart.BindingContext>
@@ -21,7 +28,7 @@
                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
             </chart:SfCartesianChart.Legend>
             <chart:SfCartesianChart.Title>
-                <Label Text="Capital Investment as a Share of Exports" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                <Label Text="Capital Investment as a Share of Exports" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
             </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.XAxes>
                 <chart:NumericalAxis Interval="2" Maximum="2016" Minimum="2010" ShowMajorGridLines="false" PlotOffsetEnd="10" PlotOffsetStart="10" AxisLineOffset="10">
@@ -48,17 +55,19 @@
             <chart:SfCartesianChart.Series>
                 <chart:LineSeries Label="Singapore" StrokeDashArray="{StaticResource dashArray}" EnableTooltip="True" EnableAnimation="True" StrokeWidth="1" ItemsSource="{Binding DashedLine}" XBindingPath="Data" YBindingPath="High" ShowMarkers="True" LegendIcon="SeriesType">
                     <chart:LineSeries.MarkerSettings>
-                        <chart:ChartMarkerSettings  Width="8" Height="8" Fill="white" Stroke="#314A6E" StrokeWidth="1"/>
+                        <chart:ChartMarkerSettings  Width="8" Height="8" 
+                                                    Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" 
+                                                    Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" StrokeWidth="1"/>
                     </chart:LineSeries.MarkerSettings>
                 </chart:LineSeries>
                 <chart:LineSeries Label="Saudi Arabia" StrokeDashArray="{StaticResource dashArray}" EnableTooltip="True" EnableAnimation="True" StrokeWidth="1" ItemsSource="{Binding DashedLine}" XBindingPath="Data" YBindingPath="Low" ShowMarkers="True" LegendIcon="SeriesType">
                     <chart:LineSeries.MarkerSettings>
-                        <chart:ChartMarkerSettings  Width="8" Height="8" Fill="white" Stroke="#48988B" StrokeWidth="1"/>
+                        <chart:ChartMarkerSettings  Width="8" Height="8" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" StrokeWidth="1"/>
                     </chart:LineSeries.MarkerSettings>
                 </chart:LineSeries>
                 <chart:LineSeries Label="Spain" StrokeDashArray="{StaticResource dashArray}" EnableTooltip="True" EnableAnimation="True" StrokeWidth="1" ItemsSource="{Binding DashedLine}" XBindingPath="Data" YBindingPath="Value" ShowMarkers="True" LegendIcon="SeriesType">
                     <chart:LineSeries.MarkerSettings>
-                        <chart:ChartMarkerSettings  Width="8" Height="8" Fill="white" Stroke="#5E498C" StrokeWidth="1"/>
+                        <chart:ChartMarkerSettings  Width="8" Height="8" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series3Light}, Dark={StaticResource series3Dark}}" StrokeWidth="1"/>
                     </chart:LineSeries.MarkerSettings>
                 </chart:LineSeries>
             </chart:SfCartesianChart.Series>

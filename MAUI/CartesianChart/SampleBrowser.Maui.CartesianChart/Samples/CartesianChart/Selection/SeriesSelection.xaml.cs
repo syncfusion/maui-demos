@@ -40,20 +40,20 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         List<SolidColorBrush> Brushes = new List<SolidColorBrush>
         {
-             new SolidColorBrush(Color.FromArgb("#314A6E")),
-                 new SolidColorBrush(Color.FromArgb("#48988B")),
-                 new SolidColorBrush(Color.FromArgb("#5E498C")),
-                 new SolidColorBrush(Color.FromArgb("#74BD6F")),
-                 new SolidColorBrush(Color.FromArgb("#597FCA"))
+                 new SolidColorBrush(Color.FromArgb("#2A9AF3")),
+                 new SolidColorBrush(Color.FromArgb("#0DC920")),
+                 new SolidColorBrush(Color.FromArgb("#F5921F")),
+                 new SolidColorBrush(Color.FromArgb("#E64191")),
+                 new SolidColorBrush(Color.FromArgb("#2EC4B6"))
         };
 
         List<SolidColorBrush> AlphaBrushes = new List<SolidColorBrush>
         {
-             new SolidColorBrush(Color.FromArgb("#40314A6E")),
-                 new SolidColorBrush(Color.FromArgb("#4048988B")),
-                 new SolidColorBrush(Color.FromArgb("#405E498C")),
-                 new SolidColorBrush(Color.FromArgb("#4074BD6F")),
-                 new SolidColorBrush(Color.FromArgb("#40597FCA"))
+                 new SolidColorBrush(Color.FromArgb("#402A9AF3")),
+                 new SolidColorBrush(Color.FromArgb("#400DC920")),
+                 new SolidColorBrush(Color.FromArgb("#40F5921F")),
+                 new SolidColorBrush(Color.FromArgb("#40E64191")),
+                 new SolidColorBrush(Color.FromArgb("#402EC4B6"))
         };
 
         private void checkbox_CheckedChanged(object sender, CheckedChangedEventArgs e)

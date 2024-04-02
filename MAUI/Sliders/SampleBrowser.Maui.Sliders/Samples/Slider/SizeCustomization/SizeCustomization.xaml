@@ -64,6 +64,7 @@
                                                     ActiveFill="#FF6E40"
                                                     InactiveFill="#66FF6E40" />
                     </sliders:SfDateTimeSlider.DividerStyle>
+                    
                 </sliders:SfDateTimeSlider>
             </Grid>
         </ScrollView>

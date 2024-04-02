@@ -42,8 +42,12 @@
 		</Compile>
 		
 		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Table\Table.xaml.cs">
-			<Link>Samples\Presentation\Table\Notification.xaml.cs</Link>
+			<Link>Samples\Presentation\Table\Table.xaml.cs</Link>
 			<DependentUpon>Table.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Image\Image.xaml.cs">
+			<Link>Samples\Presentation\Image\Image.xaml.cs</Link>
+			<DependentUpon>Image.xaml</DependentUpon>
 		</Compile>
 	</ItemGroup>
  
@@ -99,6 +103,11 @@
 			<Link>Samples\Presentation\Table\Table.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Image\Image.xaml">
+			<Link>Samples\Presentation\Image\Image.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
 	<ItemGroup>	
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\HeaderFooter.pptx">
 	        <Link>Resources\Presentation\HeaderFooter.pptx</Link>
@@ -120,6 +129,15 @@
 	  </EmbeddedResource>
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\tablet.jpg">
 	        <Link>Resources\Presentation\tablet.jpg</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\About.png">
+	        <Link>Resources\Presentation\About.png</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\About.svg">
+	        <Link>Resources\Presentation\About.svg</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\CycleLogo.jpg">
+	        <Link>Resources\Presentation\CycleLogo.jpg</Link>
 	  </EmbeddedResource>
 	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\Template.pptx">
 	        <Link>Resources\Presentation\Template.pptx</Link>

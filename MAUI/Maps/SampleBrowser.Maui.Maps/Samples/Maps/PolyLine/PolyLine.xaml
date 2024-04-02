@@ -48,21 +48,24 @@
                              HorizontalOptions="StartAndExpand"
                              VerticalOptions="End">
                     <Label Text="{Binding DataItem.Name}"
-                           TextColor="White"></Label>
+                           TextColor="{DynamicResource SfMapsTooltipTextColor}"></Label>
                 </StackLayout>
             </DataTemplate>
 
-            <Style x:Key="buttonStyle" TargetType="Button">
+            <Style x:Key="buttonStyle"
+                   TargetType="Button">
                 <Setter Property="Background"
                         Value="White" />
                 <Setter Property="Padding"
-                        Value="10,5,10,5" />
+                        Value="12,6,12,6" />
                 <Setter Property="CornerRadius"
-                        Value="15" />
+                        Value="8" />
+                <Setter Property="HeightRequest"
+                        Value="32" />
                 <Setter Property="TextColor"
-                        Value="Black" />
+                        Value="#49454F" />
                 <Setter Property="FontSize"
-                        Value="12" />
+                        Value="14" />
                 <Setter Property="Margin"
                         Value="5,0,5,0" />
             </Style>
@@ -153,10 +156,11 @@
             <HorizontalStackLayout Grid.Row="1"
                                    HorizontalOptions="End"
                                    VerticalOptions="End"
-                                   Background="white">
+                                   Background="{DynamicResource SfMapsNormalBackground}">
                 <Label Text="©"
                        Padding="2"
-                       FontSize="16" />
+                       FontSize="16"
+                       TextColor="{DynamicResource SfMapsDataLabelTextColor}"/>
                 <Label Padding="2"
                        Text="OpenStreetMap contributors"
                        TextColor="Blue">

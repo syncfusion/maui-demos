@@ -5,8 +5,7 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
-    BackgroundColor="White">
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
     <localCore:SampleView.BindingContext>
         <local:EmployeeViewModel></local:EmployeeViewModel>
     </localCore:SampleView.BindingContext>
@@ -21,7 +20,7 @@
             <On Platform="WinUI,MacCatalyst" Value="100"></On>
         </OnPlatform>
         <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-6,-7" />
+            <On Platform="WinUI,MacCatalyst" Value="-5" />
         </OnPlatform>
         <OnPlatform x:Key="imageWidth" x:TypeArguments="x:Double">
             <On Platform="iOS,Android">
@@ -36,26 +35,34 @@
             <On Platform="Android,iOS" Value="230"></On>
             <On Platform="WinUI,MacCatalyst" Value="247"></On>
         </OnPlatform>
+        <Color x:Key="lightThemeColor">#1C1B1F</Color>
+        <Color x:Key="darkThemeColor">#E6E1E5</Color>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
         <sfgrid:SfDataGrid x:Name="dataGrid" RowHeight="{StaticResource maxHeight}"
-                           AutoGenerateColumnsMode="None" HeaderRowHeight="52" 
+                           AutoGenerateColumnsMode="None" HeaderRowHeight="52"
                            HorizontalScrollBarVisibility="Always"
                            VerticalScrollBarVisibility="Always"
                             Margin="{StaticResource margin}"
                            ItemsSource="{Binding EmployeeInformation}"
                            ColumnWidthMode="Fill">
 
-            <sfgrid:SfDataGrid.DefaultStyle>
-                <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium"/>
-            </sfgrid:SfDataGrid.DefaultStyle>
-
             <sfgrid:SfDataGrid.Columns>
                 <sfgrid:DataGridTemplateColumn MappingName="Name"  HeaderTextAlignment="Center" MaximumWidth="{StaticResource imageWidth}" MinimumWidth="130">
                     <sfgrid:DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
-                            <Label Text="Profile Picture" FontFamily="Roboto-Medium" FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" Margin="{OnPlatform WinUI='21,16,0,15', MacCatalyst='21,16,0,15', Android='10,0,0,0',iOS='10,8,0,7'}"></Label>
+                            <Label Text="Profile Picture" FontFamily="Roboto-Medium" FontSize="14" HorizontalOptions="Start" VerticalOptions="Center" Margin="{OnPlatform WinUI='21,16,0,15', MacCatalyst='21,16,0,15', Android='10,0,0,0',iOS='10,8,0,7'}"></Label>
                         </DataTemplate>
                     </sfgrid:DataGridTemplateColumn.HeaderTemplate>
                     <sfgrid:DataGridTemplateColumn.CellTemplate>
@@ -78,7 +85,7 @@
 
                     <sfgrid:DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
-                            <Label Text="Customer Name" FontFamily="Roboto-Medium" FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" Margin="{OnPlatform WinUI='0,16,0,15', MacCatalyst='0,16,0,15', Android='10,8,0,7', iOS='10,8,0,7'}"></Label>
+                            <Label Text="Customer Name" FontFamily="Roboto-Medium" FontSize="14" HorizontalOptions="Start" VerticalOptions="Center" Margin="{OnPlatform WinUI='0,16,0,15', MacCatalyst='0,16,0,15', Android='10,8,0,7', iOS='10,8,0,7'}"></Label>
                         </DataTemplate>
                     </sfgrid:DataGridTemplateColumn.HeaderTemplate>
                     <sfgrid:DataGridTemplateColumn.CellTemplate>
@@ -90,45 +97,45 @@
                                       VerticalOptions="Start">
                                         <Label Margin="0,3,0,1"  LineBreakMode="WordWrap" HorizontalTextAlignment="End" FontSize="14"
                                            Text="Name :"
-                                           TextColor="Black">
+                                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                         </Label>
                                         <Label LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Start"
                                                 Margin="0,3,0,1"
                                                HorizontalTextAlignment="End"
                                            Text="Id :"
-                                           TextColor="Black">
+                                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                         </Label>
                                         <Label LineBreakMode="WordWrap" FontFamily="Roboto" FontSize="14" VerticalOptions="Start"                                Margin="0,3,0,1" 
                                                HorizontalTextAlignment="End"
                                            Text="Country :"
-                                           TextColor="Black">
+                                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                         </Label>
                                         <Label  VerticalOptions="Start" LineBreakMode="TailTruncation" FontSize="14"
                                                 Margin="0,3,0,1"
                                                HorizontalTextAlignment="End"
                                            Text="Phone :"
-                                           TextColor="Black">
+                                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                         </Label>
                                     </StackLayout>
                                     <StackLayout  HeightRequest="84" HorizontalOptions="Start" Margin="0,8,0,8" 
                                       VerticalOptions="Start">
                                         <Label LineBreakMode="WordWrap" Margin="0,3,0,1"
                                            Text="{Binding Name}"
-                                           TextColor="Black">
+                                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                         </Label>
                                         <Label LineBreakMode="WordWrap" Margin="0,3,0,1" 
                                            Text="{Binding EmployeeID}"
-                                           TextColor="Black">
+                                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                         </Label>
                                         <Label LineBreakMode="WordWrap"
                                               Margin="0,3,0,1" 
                                            Text="{Binding Country}"
-                                           TextColor="Black">
+                                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                         </Label>
                                         <Label LineBreakMode="WordWrap"
                                                Margin="0,3,0,1" 
                                            Text="{Binding Telephone}"
-                                           TextColor="Black">
+                                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                         </Label>
                                     </StackLayout>
                                 </StackLayout>
@@ -140,7 +147,7 @@
                  <sfgrid:DataGridTemplateColumn MappingName="Name" MinimumWidth="400">
                     <sfgrid:DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
-                            <Label Text="About" FontFamily="Roboto-Medium" FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" Margin="{OnPlatform WinUI='0,16,0,15', MacCatalyst='0,16,0,15'}"></Label>
+                            <Label Text="About" FontFamily="Roboto-Medium" FontSize="14" HorizontalOptions="Start" VerticalOptions="Center" Margin="{OnPlatform WinUI='0,16,0,15', MacCatalyst='0,16,0,15'}"></Label>
                         </DataTemplate>
                     </sfgrid:DataGridTemplateColumn.HeaderTemplate>
                     <sfgrid:DataGridTemplateColumn.CellTemplate>
@@ -150,7 +157,7 @@
                                        LineBreakMode="WordWrap"    
                                        VerticalOptions="Center"
                                        Text="{Binding About}"
-                                       TextColor="Black">
+                                       TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}">
                                 </Label>
                             </ContentView>
                         </DataTemplate>

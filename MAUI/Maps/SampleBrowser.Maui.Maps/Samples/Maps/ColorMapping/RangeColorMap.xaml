@@ -8,7 +8,7 @@
              Background="White">
 
     <localCore:SampleView.Content>
-        <Grid Margin="20">
+        <Grid Background="{DynamicResource SfMapsNormalBackground}">
             <Grid.BindingContext>
                 <local:RangeViewModel/>
             </Grid.BindingContext>
@@ -18,7 +18,8 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0"
                    HorizontalOptions="Center" 
-                   Text="World Population Density (per sq. km.)" 
+                   Text="World Population Density (per sq. km.)"
+                   TextColor="{DynamicResource SfMapsDataLabelTextColor}"
                    FontSize="Subtitle" 
                     Margin="0,0,0,20"/>
             <maps:SfMaps Grid.Row="1">
@@ -43,7 +44,7 @@
                             <maps:MapLegend Placement="Bottom"
                                             SourceType="Shape">
                                 <maps:MapLegend.TextStyle>
-                                    <maps:MapLabelStyle TextColor="Black" />
+                                    <maps:MapLabelStyle TextColor="{DynamicResource SfMapsDataLabelTextColor}" />
                                 </maps:MapLegend.TextStyle>
                             </maps:MapLegend>
                         </maps:MapShapeLayer.Legend>

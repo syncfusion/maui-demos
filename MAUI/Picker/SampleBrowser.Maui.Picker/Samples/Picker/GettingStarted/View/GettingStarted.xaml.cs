@@ -12,14 +12,15 @@ namespace SampleBrowser.Maui.Picker.SfPicker;
 
 public partial class GettingStarted : SampleView
 {
+    /// <summary>
+    /// Check the application theme is light or dark.
+    /// </summary>
+    private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
     public GettingStarted()
     {
         InitializeComponent();
 #if IOS || MACCATALYST
-this.Picker1.SelectedTextStyle = new PickerTextStyle()
-        {
-            TextColor = Colors.White,
-        };
         this.Picker1.Columns.Add(new PickerColumn()
         {
             ItemsSource = new List<string>()
@@ -38,10 +39,7 @@ this.Picker1.SelectedTextStyle = new PickerTextStyle()
             }, 
         });
 #else
-        this.Picker.SelectedTextStyle = new PickerTextStyle()
-        {
-            TextColor = Colors.White,
-        };
+
         this.Picker.Columns.Add(new PickerColumn()
         {
             ItemsSource = new List<string>()

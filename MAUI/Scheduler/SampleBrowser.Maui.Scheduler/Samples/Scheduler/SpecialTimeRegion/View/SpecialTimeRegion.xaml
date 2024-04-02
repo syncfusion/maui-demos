@@ -14,7 +14,6 @@
                 </OnPlatform>
             </Grid.Margin>
             <schedule:SfScheduler x:Name="Scheduler" 
-                                 DisabledDateBackground="{Binding DisabledBackground}"
                                  AppointmentsSource="{Binding SpecialRegionEvents}"
                                  DisplayDate="{Binding DisplayDate}"
                                  AllowViewNavigation="True"

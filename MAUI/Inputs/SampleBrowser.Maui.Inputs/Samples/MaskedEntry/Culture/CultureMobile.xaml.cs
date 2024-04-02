@@ -26,7 +26,7 @@ public partial class CultureMobile : SampleView
         cultureMask.Culture = new CultureInfo("en-IN");
         ResetColor();
         ResetSize();
-        indiaFrame.BorderColor = Colors.Black;
+        indiaFrame.SetAppThemeColor(Microsoft.Maui.Controls.Frame.BorderColorProperty, Color.FromArgb("#49454F"), Color.FromArgb("#CAC4D0"));
         indiaStack.HeightRequest = 34;
         indiaStack.WidthRequest = 42;
 #if IOS
@@ -40,7 +40,7 @@ public partial class CultureMobile : SampleView
         cultureMask.Culture = new CultureInfo("en-US");
         ResetColor();
         ResetSize();
-        usFrame.BorderColor = Colors.Black;
+        usFrame.SetAppThemeColor(Microsoft.Maui.Controls.Frame.BorderColorProperty, Color.FromArgb("#49454F"), Color.FromArgb("#CAC4D0"));
         usStack.HeightRequest = 34;
         usStack.WidthRequest = 42;
 #if IOS
@@ -54,7 +54,7 @@ public partial class CultureMobile : SampleView
         cultureMask.Culture = new CultureInfo("ru-RU");
         ResetColor();
         ResetSize();
-        russiaFrame.BorderColor = Colors.Black;
+        russiaFrame.SetAppThemeColor(Microsoft.Maui.Controls.Frame.BorderColorProperty, Color.FromArgb("#49454F"), Color.FromArgb("#CAC4D0"));
         russiaStack.HeightRequest = 34;
         russiaStack.WidthRequest = 42;
 #if IOS
@@ -69,7 +69,7 @@ public partial class CultureMobile : SampleView
         cultureMask.Culture = new CultureInfo("fr-FR");
         ResetColor();
         ResetSize();
-        franceFrame.BorderColor = Colors.Black;
+        franceFrame.SetAppThemeColor(Microsoft.Maui.Controls.Frame.BorderColorProperty, Color.FromArgb("#49454F"), Color.FromArgb("#CAC4D0"));
         franceStack.HeightRequest = 34;
         franceStack.WidthRequest = 42;
 #if IOS

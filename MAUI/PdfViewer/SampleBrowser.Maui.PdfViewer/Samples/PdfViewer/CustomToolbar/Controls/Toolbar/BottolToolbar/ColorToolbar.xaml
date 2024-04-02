@@ -9,8 +9,7 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Padding" Value="4" />
             <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}" />
-            <Setter Property="TextColor" Value="#99000000"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
             <Setter Property="BackgroundColor" Value="Transparent"/>
             <Style.Triggers>
                 <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
@@ -26,8 +25,8 @@
             </Style.Triggers>
         </Style>
     </ContentView.Resources>
-    <Grid RowDefinitions="*,*">
-        <Grid x:Name="opacitySliderBar" IsVisible="{Binding IsOpacityToolbarVisible}" Grid.Row="0" HeightRequest="48" BackgroundColor="#F3EDF7" >
+    <Grid RowDefinitions="*,*" >
+        <Grid x:Name="opacitySliderBar" IsVisible="{Binding IsOpacityToolbarVisible}" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}" Grid.Row="0" HeightRequest="48" >
             <sliders:SfSlider x:Name="opacitySlider" Minimum="0.1" Maximum="1.0" Value="{Binding SelectedOpacity}" VerticalOptions="End" HorizontalOptions="EndAndExpand" ValueChangeEnd="OpacityValue_Changed">
                 <sliders:SfSlider.TrackStyle>
                     <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>
@@ -44,7 +43,7 @@
             </sliders:SfSlider>
             <BoxView BackgroundColor="Gray" VerticalOptions="End" Opacity="0.5" HeightRequest="0.5" HorizontalOptions="FillAndExpand"/>
         </Grid>
-        <Grid x:Name="colorGrid" Grid.Row="1" HeightRequest="48" BackgroundColor="#F3EDF7" VerticalOptions="End" ColumnDefinitions="1*,1*,1*,1*,1*,1*,1*,1*" >
+        <Grid x:Name="colorGrid" Grid.Row="1" HeightRequest="48" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}" VerticalOptions="End" ColumnDefinitions="1*,1*,1*,1*,1*,1*,1*,1*" >
             <Button x:Name="RedButton" BackgroundColor="#FF0000" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="0" Clicked="ColorButton_Clicked" />
             <Button x:Name="OrangeButton" BackgroundColor="#FFA200" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="1" Clicked="ColorButton_Clicked" />
             <Button x:Name="YellowButton" BackgroundColor="#F3F500" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="2" Clicked="ColorButton_Clicked" />

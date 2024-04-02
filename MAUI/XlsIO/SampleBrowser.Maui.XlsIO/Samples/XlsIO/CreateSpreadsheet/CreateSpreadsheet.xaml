@@ -8,11 +8,11 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="SampleDescription" LineBreakMode="WordWrap" Text="This example demonstrates how to create a simple Excel worksheet with text, numbers, formulas, and styles."
-                 VerticalOptions="Center" TextColor="Black">
+                 VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
             <Label x:Name="Content_1" LineBreakMode="WordWrap" Text="Click the &quot;Generate Document&quot; button to view the created Excel worksheet. Please note that an Excel-compatible viewer is required to open and view the Excel file."
-                 VerticalOptions="Center" TextColor="Black">
+                 VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
             <Button x:Name="btnCreate" Clicked ="btnCreate_Click" Text ="Generate Document" HorizontalOptions="Start" VerticalOptions="Center"></Button>

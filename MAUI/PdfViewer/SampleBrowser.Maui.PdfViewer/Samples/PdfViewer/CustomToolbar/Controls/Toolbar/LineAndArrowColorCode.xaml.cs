@@ -14,11 +14,11 @@ public partial class LineAndArrowColorCode : ContentView
     Ellipse? selectedColorButtonHighlight;
 
     Button? PreButton = null;
-    public LineAndArrowColorCode()
+    internal void Initialize()
     {
         InitializeComponent();
-        Colorpaletteborder.Content = MyGrid;
-        this.Content = Colorpaletteborder;
+        colorPaletteBorder.Content = MyGrid;
+        this.Content = colorPaletteBorder;
         this.PropertyChanged += LineAndArrowColorCode_PropertyChanged;
     }
 
@@ -34,7 +34,7 @@ public partial class LineAndArrowColorCode : ContentView
                     PreButton.WidthRequest = 30;
                     PreButton.CornerRadius = 15;
                     selectedColorButtonHighlight.Stroke = Brush.Transparent;
-                    if (selectedColorButtonHighlight.Parent == null)
+                    if (selectedColorButtonHighlight.Parent != null)
                     {
                         MyInk.Children.Remove(selectedColorButtonHighlight);
                     }
@@ -44,7 +44,7 @@ public partial class LineAndArrowColorCode : ContentView
         }
     }
 #if MACCATALYST
-    Frame Colorpaletteborder = new Frame()
+    Frame colorPaletteBorder = new Frame()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         BorderColor = Color.FromArgb("#26000000"),
@@ -62,7 +62,7 @@ public partial class LineAndArrowColorCode : ContentView
         WidthRequest = 280,
     };
 #else
-    Border Colorpaletteborder = new Border()
+    Border colorPaletteBorder = new Border()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         Stroke = Color.FromArgb("#26000000"),

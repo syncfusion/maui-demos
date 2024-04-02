@@ -10,11 +10,19 @@
     <local:StampView.Content>
         <Grid>
             <HorizontalStackLayout>
-                <Border Margin="0,5,0,0" x:Name="StandardStampMenu" IsVisible="false" StrokeShape="{OnPlatform WinUI=RoundRectangle 4, MacCatalyst=RoundRectangle 5}" 
-                        BackgroundColor="#EEE8F4" 
+                <local:StampContextMenu x:Name="ContextMenu">
+                    <local:StampContextMenu.Shadow>
+                        <Shadow Brush="#000000"
+                                Offset="1,3"
+                                Radius="5"
+                                Opacity="0.30"/>
+                    </local:StampContextMenu.Shadow>
+                </local:StampContextMenu>
+                <Border Margin="0,5,0,0" x:Name="StandardStampMenu" IsVisible="false" StrokeShape="{OnPlatform WinUI=RoundRectangle 4, MacCatalyst=RoundRectangle 5}"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
                         PropertyChanged="StandardStampMenu_PropertyChanged"
                         Stroke="#33000000" HeightRequest="500" WidthRequest="280" VerticalOptions="End">
-                    <ListView RowHeight="44" BackgroundColor="#EEE8F4" Margin="0,8"
+                    <ListView RowHeight="44" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}" Margin="0,8"
                           ItemsSource="{Binding StandardStampItems}"
                           x:Name="StandardStampMenuItems"
                           ItemTapped="Stamp_ItemTapped"
@@ -22,13 +30,31 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout HorizontalOptions="Start" Padding="7,5,19,7">
-                                        <Border Stroke="{Binding BorderColor}" HeightRequest="{Binding BorderHeight}" WidthRequest="{Binding BorderWidth}"
+                                    <StackLayout HorizontalOptions="Start" WidthRequest="280" Padding="0,5,0,7">
+                                        <Border Margin="7,0,19,0" HorizontalOptions="Start" Stroke="{Binding BorderColor}" HeightRequest="{Binding BorderHeight}" WidthRequest="{Binding BorderWidth}"
                                             Background="{Binding BorderBackground}" StrokeThickness="2" 
                                             StrokeShape="{OnPlatform WinUI=RoundRectangle 0, MacCatalyst=RoundRectangle 0}">
-                                            <Label Text="{Binding LabelText}"  CharacterSpacing="0.1"
-                                               TextColor="{Binding LabelTextColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
+                                            <Label Text="{Binding LabelText}"  CharacterSpacing="0.1" TextColor="#49454F" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" >
+                                            </Label>
                                         </Border>
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroupList>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualState x:Name="PointerOver">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" 
+                                        Value="{AppThemeBinding Dark={StaticResource FilledInputBackgroundFocused},Default=#EEE8F4}"/>
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Normal">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" 
+                                        Value="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"/>
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateGroupList>
+                                        </VisualStateManager.VisualStateGroups>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
@@ -37,8 +63,8 @@
                 </Border>
                 <Grid Margin="0,5,0,0" x:Name="CustomStampMenu" IsVisible="false" 
                         HorizontalOptions="Start" VerticalOptions="Start" MaximumHeightRequest="500" WidthRequest="200">
-                    <Border
-                        BackgroundColor="#EEE8F4" Padding="0,7,0,7" HorizontalOptions="Start" VerticalOptions="Start"
+                    <Border BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
+                         Padding="0,7,0,7" HorizontalOptions="Start" VerticalOptions="Start"
                         Stroke="#33000000" MaximumHeightRequest="500" WidthRequest="200" StrokeThickness="1">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="5" />
@@ -50,14 +76,6 @@
                         </ScrollView>
                     </Border>
                 </Grid>
-                <local:StampContextMenu x:Name="ContextMenu">
-                    <local:StampContextMenu.Shadow>
-                        <Shadow Brush="#000000"
-                         Offset="1,3"
-                         Radius="5"
-                         Opacity="0.30"/>
-                    </local:StampContextMenu.Shadow>
-                </local:StampContextMenu>
             </HorizontalStackLayout>
         </Grid>
     </local:StampView.Content>

@@ -11,9 +11,9 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class TextmarkupView : ContentView
 {
-    public TextmarkupView()
-	{
-		InitializeComponent();
+    internal void Initialize()
+    {
+        InitializeComponent();
         listView.ItemsSource = new List<AnnotationButtonItem>()
         {
             new AnnotationButtonItem()
@@ -48,6 +48,7 @@ public partial class TextmarkupView : ContentView
     }
     internal void DisappearHighlight()
     {
-        listView.SelectedItem = null;
+        if(listView != null) 
+            listView.SelectedItem = null;
     }
 }

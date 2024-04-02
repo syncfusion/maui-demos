@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Resizing"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:DataPagerViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="sfgrid:DataGridHeaderCell">
+                <Setter Property="Padding" Value="14,16,14,16"/>
+                <Setter Property="FontFamily"
+                        Value="Roboto-Medium" />
+                <Setter Property="FontSize"
+                        Value="14" />
+            </Style>
+            <Style TargetType="sfgrid:DataGridCell">
+                <Setter Property="Padding"
+                        Value="14,16,14,16" />
+                <Setter Property="FontSize"
+                        Value="14" />
+            </Style>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid x:Name="customLayout">
+            <sfgrid:SfDataGrid x:Name="dataGrid"
+                        AllowResizingColumns="True"
+                        GridLinesVisibility="Both"
+                        HeaderGridLinesVisibility="Both"
+                        ItemsSource="{Binding OrdersInfo}"
+                        AutoGenerateColumnsMode="None"
+                        RowHeight="48">
+
+                <sfgrid:SfDataGrid.Columns x:TypeArguments="sfgrid:Columns">
+                    <sfgrid:DataGridNumericColumn Format="D"
+                                                  MinimumWidth="20"
+                                                  HeaderText="Order ID"
+                                                  Width="180"
+                                                  MappingName="OrderID">
+                    </sfgrid:DataGridNumericColumn>
+
+                    <sfgrid:DataGridNumericColumn Format="D"
+                                                  MinimumWidth="20"
+                                                  HeaderText="Customer ID"
+                                                  Width="180"
+                                                  MappingName="EmployeeID">
+                    </sfgrid:DataGridNumericColumn>
+
+                    <sfgrid:DataGridTextColumn HeaderText="Name"
+                                               MinimumWidth="20"
+                                               Width="150"
+                                               MappingName="CustomerID">
+                    </sfgrid:DataGridTextColumn>
+
+                    <sfgrid:DataGridDateColumn MinimumWidth="20"
+                                               HeaderText="Shipping Date"
+                                               Width="160"
+                                               MappingName="ShippingDate">
+                    </sfgrid:DataGridDateColumn>
+
+                    <sfgrid:DataGridTextColumn HeaderText="City"
+                                               MinimumWidth="20"
+                                               Width="160"
+                                               MappingName="ShipCity">
+                    </sfgrid:DataGridTextColumn>
+
+                    <sfgrid:DataGridTextColumn HeaderText="Country"
+                                               MinimumWidth="20"
+                                               Width="160"
+                                               MappingName="ShipCountry">
+                    </sfgrid:DataGridTextColumn>
+
+                    <sfgrid:DataGridNumericColumn Format="C"
+                                                  HeaderText="Freight"
+                                                  MinimumWidth="20"
+                                                  Width="160"
+                                                  MappingName="Freight">
+                    </sfgrid:DataGridNumericColumn>
+                </sfgrid:SfDataGrid.Columns>
+            </sfgrid:SfDataGrid>
+        </Grid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

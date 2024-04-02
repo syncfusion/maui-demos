@@ -19,10 +19,10 @@ namespace SampleBrowser.Maui.Popup.SfPopup
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value !=null && (bool)value)
-                return "\ue711";
+                return "\ue789";
 
             else
-                return "\ue704";
+                return "\ue717";
            
         }
 
@@ -37,9 +37,9 @@ namespace SampleBrowser.Maui.Popup.SfPopup
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value != null && (bool)value)
-                return "\ue705";
+                return "\ue721";
             else
-                return "\ue704";
+                return "\ue717";
         }
 
         public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
@@ -53,10 +53,10 @@ namespace SampleBrowser.Maui.Popup.SfPopup
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value != null && (bool)value)
-                return Color.FromArgb("#6750A4");
+                return Application.Current!.RequestedTheme == AppTheme.Light ? Color.FromArgb("#6750A4") : Color.FromArgb("#CAC4D0");
 
             else
-                return Color.FromArgb("#49454E");
+                return Application.Current!.RequestedTheme == AppTheme.Light ? Color.FromArgb("#49454E") :  Color.FromArgb("#CAC4D0");
 
         }
 

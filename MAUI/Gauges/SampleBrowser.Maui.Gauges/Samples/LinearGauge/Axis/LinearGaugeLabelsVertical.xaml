@@ -7,7 +7,7 @@
              x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.LinearGaugeLabelsVertical">
     <ContentView.Resources>
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="#CC000000" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourAlt1Light}, Dark={StaticResource TextColourAlt1}}" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Margin" Value="0,30,0,15" />
             <Setter Property="HorizontalOptions" Value="Center"/>

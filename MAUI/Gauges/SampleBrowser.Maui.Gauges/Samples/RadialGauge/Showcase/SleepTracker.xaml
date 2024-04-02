@@ -24,7 +24,7 @@
                                       MinorTicksPerInterval="5"
                                       ShowFirstLabel="False">
                         <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Fill="#e1f5fe">
+                            <gauge:RadialLineStyle>
                                 <gauge:RadialLineStyle.ThicknessUnit>
                                     <OnPlatform x:TypeArguments="gauge:SizeUnit">
                                         <On Platform="Android, UWP"
@@ -59,8 +59,7 @@
                         <gauge:RadialAxis.Ranges>
                             <gauge:RadialRange x:Name="range"
                                                StartValue="20"
-                                               EndValue="6"
-                                               Fill="#2194f3">
+                                               EndValue="6">
                                 <gauge:RadialRange.WidthUnit>
                                     <OnPlatform x:TypeArguments="gauge:SizeUnit">
                                         <On Platform="Android, UWP"

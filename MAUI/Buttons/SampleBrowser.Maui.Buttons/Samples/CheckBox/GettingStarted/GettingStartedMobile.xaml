@@ -29,7 +29,7 @@
                 Grid.Row="1"
                 Margin="10,5"
                 Stroke="Gray"
-                BackgroundColor="White"
+                BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                 StrokeShape="RoundRectangle 10"
                 StrokeThickness="1">
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
@@ -126,7 +126,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Border
-                                BackgroundColor="White"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                 Padding="5"
                                 Stroke="Gray"
                                 StrokeThickness="1"

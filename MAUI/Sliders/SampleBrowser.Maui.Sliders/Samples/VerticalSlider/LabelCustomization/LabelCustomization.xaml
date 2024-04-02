@@ -34,7 +34,7 @@
 
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                 Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
             <Setter Property="HorizontalOptions"
                     Value="Center" />
         </Style>
@@ -66,6 +66,7 @@
                     <sliders:SfSlider.ThumbOverlayStyle>
                         <sliders:SliderThumbOverlayStyle Fill="{Binding OverlayFill}" />
                     </sliders:SfSlider.ThumbOverlayStyle>
+                    
                 </sliders:SfSlider>
 
                 <Label Grid.Row="1"

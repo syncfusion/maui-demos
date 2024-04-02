@@ -5,7 +5,8 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.Chips"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
 	<localCore:SampleView.Resources>
 		<imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
@@ -50,7 +51,7 @@
                         
                             <Label Text="{Binding TotalPrice}"
 								   Margin="22,0" 
-                                   TextColor="#512bd4" 
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}" 
                                    FontSize="20"
                                    FontFamily="Roboto-Medium"
                                    FontAttributes="Bold"/>
@@ -58,17 +59,11 @@
                             <Label FontFamily="Roboto-Medium"
                                    Text="Pick a color"/>
                             <core:SfChipGroup ChipPadding="2,0,0,0"
-                                                
                                                 ItemsSource="{Binding ColorItems}"
                                                 SelectedItem="{Binding SelectedColorItem,Mode=TwoWay}"
-                                                SelectionIndicatorColor="White"
-                                                ChipStroke="#ECECEF"
                                                 ChipStrokeThickness="2"
                                                 ChipType="Choice"
-                                                ChipTextColor="Black"
-                                                ChipBackground="#F4F4F5"
-                                                SelectedChipTextColor="White"
-                                                SelectedChipBackground="#512bd4">
+                                                >
                             </core:SfChipGroup>
 
                         </StackLayout>
@@ -79,15 +74,9 @@
                                 <core:SfChipGroup ChipPadding="2,0,0,0"                                                   
                                                   ItemsSource="{Binding AddOnItems}"
                                                   SelectedItem="{Binding SelectedAddOnItems}"
-                                                  SelectionIndicatorColor="White"
-                                                  ChipStroke="#ECECEF"
                                                   SelectionChanged="SfChipGroup_SelectionChanged"
                                                   ChipStrokeThickness="2"
-                                                  ChipType="Filter"
-                                                  ChipTextColor="Black"
-                                                  ChipBackground="#F4F4F5"
-                                                  SelectedChipTextColor="White"
-                                                  SelectedChipBackground="#512bd4">
+                                                  ChipType="Filter">
                                 </core:SfChipGroup>
 							</ScrollView>
 						</StackLayout>
@@ -98,23 +87,18 @@
                                 <Label Text="{Binding Date}" FontFamily="Roboto-Regular" Opacity=".54"/>
                             </HorizontalStackLayout>
                             <core:SfChipGroup ChipPadding="2,0,0,0" 
-                                                  
                                                   ItemsSource="{Binding DeliveryOptions}" 
                                                   SelectedItem="{Binding SelectedDeliveryOption,Mode=TwoWay}"
-                                                  ChipStroke="#ECECEF"
                                                   ChipStrokeThickness="2"
-                                                  ChipType="Choice"
-                                                  ChipTextColor="Black"
-                                                  ChipBackground="#F4F4F5"
-                                                  SelectedChipTextColor="White"
-                                                  SelectedChipBackground="#512bd4">
+                                                  ChipType="Choice">
                             </core:SfChipGroup>
                         </StackLayout>
                         <StackLayout HorizontalOptions="Center" Margin="25,15,0,10"  VerticalOptions="Start">
                             <Button 
-                                WidthRequest="395" BackgroundColor="#512bd4" FontFamily="Roboto-Regular"
+                                WidthRequest="395" BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}" FontFamily="Roboto-Regular"
                                 CornerRadius="12"
-                                Text="Add to cart"/>
+                                Text="Add to cart"
+                                TextColor="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}"/>
                         </StackLayout>
                     </StackLayout>
                 </Grid>

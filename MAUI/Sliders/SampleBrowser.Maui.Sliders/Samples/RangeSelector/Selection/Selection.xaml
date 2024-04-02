@@ -23,7 +23,6 @@
 
                 <Label Text="Data Usage For April 2019"
                        FontSize="18"
-                       TextColor="Black"
                        Grid.Row="0"
                        Grid.ColumnSpan="3"
                        HorizontalOptions="Center"
@@ -41,7 +40,7 @@
                                                  StepDuration="0,0,1"
                                                  ActiveRegionFill="Transparent"
                                                  InactiveRegionFill="Transparent"
-                                                 HorizontalOptions="Center"
+                                                 HorizontalOptions="Fill"
                                                  VerticalOptions="End">
 
                     <sliders:SfDateTimeRangeSelector.TrackStyle>
@@ -60,7 +59,8 @@
                     </sliders:SfDateTimeRangeSelector.ThumbOverlayStyle>
 
                     <sliders:SfDateTimeRangeSelector.LabelStyle>
-                        <sliders:SliderLabelStyle Offset="0"
+                        <sliders:SliderLabelStyle Offset="0" ActiveTextColor="{AppThemeBinding Default={StaticResource SfSliderNormalActiveLabelTextColor}}"
+                                                  InactiveTextColor="{AppThemeBinding Default={StaticResource SfSliderNormalActiveLabelTextColor}}"
                                                   InactiveFontSize="{OnPlatform 14, Android=10, iOS=10}"
                                                   ActiveFontSize="{OnPlatform 14, Android=10, iOS=10}" />
                     </sliders:SfDateTimeRangeSelector.LabelStyle>
@@ -102,8 +102,7 @@
                        Grid.Column="1"
                        FontSize="18"
                        VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       TextColor="Black" />
+                       HorizontalOptions="Center" />
             </Grid>
         </ScrollView>
     </sb:SampleView.Content>

@@ -4,13 +4,19 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:chart="http://schemas.syncfusion.com/maui">
-    
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <StackLayout HorizontalOptions="Fill" Padding="20">
-            <chart:SfCartesianChart x:Name="trackballChart" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" PaletteBrushes="{Binding PaletteBrushes}">
+        <StackLayout HorizontalOptions="Fill">
+            <chart:SfCartesianChart x:Name="trackballChart" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}">
                 <chart:SfCartesianChart.Title >
                     <VerticalStackLayout Margin="0,0,0,5">
-                        <Label Text="Average Sales Per Person" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                        <Label Text="Average Sales Per Person" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
                     </VerticalStackLayout>
                 </chart:SfCartesianChart.Title>
                 <chart:SfCartesianChart.BindingContext>
@@ -23,10 +29,10 @@
                 <chart:SfCartesianChart.TrackballBehavior>
                     <chart:ChartTrackballBehavior x:Name="trackball" ShowLine="True" ShowMarkers="True" DisplayMode="FloatAllPoints">
                         <chart:ChartTrackballBehavior.LineStyle>
-                            <chart:ChartLineStyle Stroke="black" StrokeWidth="1.5"/>
+                            <chart:ChartLineStyle Stroke="{AppThemeBinding Default={StaticResource ContentForeground}}" StrokeWidth="1.5"/>
                         </chart:ChartTrackballBehavior.LineStyle>
                         <chart:ChartTrackballBehavior.MarkerSettings>
-                            <chart:ChartMarkerSettings Width="10" Height="10" Fill="white" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Width="10" Height="10" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" StrokeWidth="1"/>
                         </chart:ChartTrackballBehavior.MarkerSettings>
                     </chart:ChartTrackballBehavior>
                 </chart:SfCartesianChart.TrackballBehavior>
@@ -57,17 +63,17 @@
                 <chart:SfCartesianChart.Series>
                     <chart:LineSeries EnableTooltip="False" Label="Thomas" StrokeWidth="1" ItemsSource="{Binding ChartData1}" XBindingPath="Date" YBindingPath="Value" ShowMarkers="True">
                         <chart:LineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings Type="Circle" Width="10" Height="10" Fill="white" Stroke="#314A6E" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Type="Circle" Width="10" Height="10" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" StrokeWidth="1"/>
                         </chart:LineSeries.MarkerSettings>
                     </chart:LineSeries>
                     <chart:LineSeries EnableTooltip="False"  Label="Andrew" StrokeWidth="1" ItemsSource="{Binding ChartData1}" XBindingPath="Date" YBindingPath="High" ShowMarkers="True">
                         <chart:LineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings Type="Circle" Width="10" Height="10" Fill="white" Stroke="#48988B" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Type="Circle" Width="10" Height="10" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}" StrokeWidth="1"/>
                         </chart:LineSeries.MarkerSettings>
                     </chart:LineSeries>
                     <chart:LineSeries EnableTooltip="False"  Label="John" StrokeWidth="1" ItemsSource="{Binding ChartData1}" XBindingPath="Date" YBindingPath="Low" ShowMarkers="True">
                         <chart:LineSeries.MarkerSettings>
-                            <chart:ChartMarkerSettings Type="Circle" Width="10" Height="10" Fill="white" Stroke="#5E498C" StrokeWidth="1"/>
+                            <chart:ChartMarkerSettings Type="Circle" Width="10" Height="10" Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" Stroke="{AppThemeBinding Light={StaticResource series3Light}, Dark={StaticResource series3Dark}}" StrokeWidth="1"/>
                         </chart:LineSeries.MarkerSettings>
                     </chart:LineSeries>
                 </chart:SfCartesianChart.Series>

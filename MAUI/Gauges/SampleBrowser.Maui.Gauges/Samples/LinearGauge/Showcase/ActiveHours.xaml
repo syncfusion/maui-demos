@@ -5,18 +5,18 @@
                       xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
-                      Background="White"
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                       Margin="0,40,0,40">
 
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
     </localCore:SampleView.Resources>
 
     <localCore:SampleView.Content>
-        <Grid x:Name="activeHoursLayout"
+        <Grid x:Name="activeHoursLayout" WidthRequest="350"
               HorizontalOptions="Center"
               VerticalOptions="Center">
 
@@ -24,12 +24,11 @@
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center" >
                 <local:ActiveHoursGauge x:Name="activeHoursGauge"
-                                        WidthRequest="{OnPlatform Android=300}"
                                         Maximum="18"
                                         ShowLine="False"
                                         ShowTicks="False">
                     <gauge:SfLinearGauge.LabelStyle>
-                        <gauge:GaugeLabelStyle TextColor="Black"
+                        <gauge:GaugeLabelStyle TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                                FontSize="13" />
                     </gauge:SfLinearGauge.LabelStyle>
                 </local:ActiveHoursGauge>

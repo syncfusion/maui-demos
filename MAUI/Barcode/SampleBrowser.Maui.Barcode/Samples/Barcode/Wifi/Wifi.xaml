@@ -4,7 +4,7 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:barcode="clr-namespace:Syncfusion.Maui.Barcode;assembly=Syncfusion.Maui.Barcode"
                       x:Class="SampleBrowser.Maui.Barcode.SfBarcodeGenerator.Wifi"
-                      Background="White">
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
 
         <ScrollView HorizontalOptions="Center"
@@ -19,7 +19,7 @@
                            TextColor="White"
                            FontFamily="Roboto-Medium"
                            FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=16}" />
-                    <Grid BackgroundColor="White"
+                    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                           HeightRequest="{OnPlatform Android=170, Default= 170}"
                           WidthRequest="{OnPlatform Android=170, Default= 170}"
                           HorizontalOptions="Center"
@@ -49,7 +49,7 @@
                 </StackLayout>
 
                 <BoxView HeightRequest="3"
-                         BackgroundColor="White" />
+                         BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource TileHeaderBorder}}" />
 
                 <StackLayout Margin='20,10'>
                     <Label Text="Status"
@@ -68,7 +68,7 @@
                 </StackLayout>
 
                 <BoxView HeightRequest="3"
-                         BackgroundColor="White" />
+                         BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource TileHeaderBorder}}" />
 
                 <StackLayout Margin='20,10'>
                     <Label Text="Signal strength"
@@ -87,7 +87,7 @@
                 </StackLayout>
 
                 <BoxView HeightRequest="3"
-                         BackgroundColor="White" />
+                         BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource TileHeaderBorder}}" />
 
                 <StackLayout Margin='20,10'>
                     <Label Text="Connection speed"
@@ -106,7 +106,7 @@
                 </StackLayout>
 
                 <BoxView HeightRequest="3"
-                         BackgroundColor="White" />
+                         BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource TileHeaderBorder}}" />
 
                 <StackLayout Margin='20,10'>
                     <Label Text="Security"

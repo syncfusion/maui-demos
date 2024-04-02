@@ -40,7 +40,7 @@ namespace SampleBrowser.Maui.DataGrid
             "Twanna"
         };
         private ObservableCollection<SalesInfo>? dailySalesDetails = null;
-
+        private ObservableCollection<SalesInfo>? minimunSalesDetails = null;
         #endregion
 
         #region Constructor
@@ -74,6 +74,21 @@ namespace SampleBrowser.Maui.DataGrid
             }
         }
 
+        public ObservableCollection<SalesInfo> salesDetails
+        {
+            get
+            {
+                if(minimunSalesDetails == null)
+                {
+                    return this.GetMinimunDetailsByDay(5);
+                }
+                else
+                {
+                    return minimunSalesDetails;
+                }
+            }
+        }
+
         /// <summary>
         /// Generates days with given count
         /// </summary>
@@ -101,6 +116,38 @@ namespace SampleBrowser.Maui.DataGrid
                             QS2 = r.Next(100000, 1000000) * 0.01,
                             QS3 = r.Next(100000, 1000000) * 0.01,
                             QS4 = r.Next(100000, 1000000) * 0.01,
+                        };
+                        s.Total = s.QS1 + s.QS2 + s.QS3 + s.QS4;
+                        s.Date = dt.AddDays(-1 * i);
+                        collection.Add(s);
+                    }
+                }
+            }
+
+            return collection;
+        }
+        public ObservableCollection<SalesInfo> GetMinimunDetailsByDay(int days)
+        {
+            var collection = new ObservableCollection<SalesInfo>();
+            var r = new Random();
+            for (var i = 0; i < days; i++)
+            {
+                var dt = DateTime.Now;
+                foreach (var person in this.salesParsonNames!)
+                {
+                    if (r.Next(0, 3) == 0)
+                    {
+                        continue;
+                    }
+
+                    {
+                        var s = new SalesInfo
+                        {
+                            Name = person,
+                            QS1 = r.Next(100, 1000),
+                            QS2 = r.Next(100, 1000),
+                            QS3 = r.Next(100, 1000),
+                            QS4 = r.Next(100, 1000),
                         };
                         s.Total = s.QS1 + s.QS2 + s.QS3 + s.QS4;
                         s.Date = dt.AddDays(-1 * i);

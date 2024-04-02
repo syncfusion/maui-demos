@@ -9,6 +9,8 @@ namespace SampleBrowser.Maui.Picker.SfPicker
 {
     using SampleBrowser.Maui.Base;
     using System.Globalization;
+    using Syncfusion.Maui.Popup;
+    using Microsoft.Maui.Controls.Internals;
 
     /// <summary>
     /// The Flight booking sample.
@@ -22,6 +24,11 @@ namespace SampleBrowser.Maui.Picker.SfPicker
         private List<string> fromList;
 
         private List<string> toList;
+
+        /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
 
         private static List<string> countries = new List<string>() { "UK", "USA", "India", "UAE", "Germany" };
 
@@ -38,6 +45,12 @@ namespace SampleBrowser.Maui.Picker.SfPicker
         public FlightBooking()
         {
             InitializeComponent();
+
+            if (this.popup != null)
+            {
+                popup.FooterTemplate = this.GetFooterTemplate(popup);
+                popup.ContentTemplate = this.GetContentTemplate(popup);
+            }
 
             from = DateTime.Now.Date;
             to = DateTime.Now.Date;
@@ -74,6 +87,22 @@ namespace SampleBrowser.Maui.Picker.SfPicker
             mobileDepartureDateLabel.Text = fromString;
             mobileReturnDateLabel.Text = fromString;
             mobileReturnDatePicker.MinimumDate = mobileReturnDatePicker.SelectedDate.Date;
+
+            mobileFromPicker.HeaderView.Height = 40;
+            mobileFromPicker.HeaderView.Text = "FROM";
+            mobileFromPicker.FooterView.Height = 40;
+
+            mobileToPicker.HeaderView.Height = 40;
+            mobileToPicker.HeaderView.Text = "TO";
+            mobileToPicker.FooterView.Height = 40;
+
+            mobileDepartureDatePicker.HeaderView.Height = 40;
+            mobileDepartureDatePicker.HeaderView.Text = "Select a date";
+            mobileDepartureDatePicker.FooterView.Height = 40;
+
+            mobileReturnDatePicker.HeaderView.Height = 40;
+            mobileReturnDatePicker.HeaderView.Text = "Select a date";
+            mobileReturnDatePicker.FooterView.Height = 40;
 #else
             departureDatePicker.OkButtonClicked += DepartureDatePicker_OkButtonClicked;
             returnDatePicker.OkButtonClicked += ReturnDatePicker_OkButtonClicked;
@@ -87,6 +116,22 @@ namespace SampleBrowser.Maui.Picker.SfPicker
             departureDateLabel.Text = fromString;
             returnDateLabel.Text = fromString;
             returnDatePicker.MinimumDate = returnDatePicker.SelectedDate.Date;
+
+            fromPicker.HeaderView.Height = 40;
+            fromPicker.HeaderView.Text = "FROM";
+            fromPicker.FooterView.Height = 40;
+
+            toPicker.HeaderView.Height = 40;
+            toPicker.HeaderView.Text = "TO";
+            toPicker.FooterView.Height = 40;
+
+            departureDatePicker.HeaderView.Height = 40;
+            departureDatePicker.HeaderView.Text = "Select a date";
+            departureDatePicker.FooterView.Height = 40;
+
+            returnDatePicker.HeaderView.Height = 40;
+            returnDatePicker.HeaderView.Text = "Select a date";
+            returnDatePicker.FooterView.Height = 40;
 #endif
         }
 
@@ -429,19 +474,156 @@ namespace SampleBrowser.Maui.Picker.SfPicker
         }
 
         /// <summary>
+        /// Method to get the dynamic color.
+        /// </summary>
+        /// <param name="resourceName">The resource name.</param>
+        /// <returns>The color.</returns>
+        private Color GetDynamicColor(string? resourceName = null)
+        {
+            if (resourceName != null && App.Current != null && App.Current.Resources.TryGetValue(resourceName, out var colorValue) && colorValue is Color color)
+            {
+                return color;
+            }
+            else
+            {
+                if (App.Current != null && App.Current.RequestedTheme == AppTheme.Light)
+                {
+                    return Color.FromRgb(0xFF, 0xFF, 0xFF);
+                }
+                else if (App.Current != null && App.Current.RequestedTheme == AppTheme.Dark)
+                {
+                    return Color.FromRgb(0x38, 0x1E, 0x72);
+                }
+            }
+
+            return Colors.Transparent;
+        }
+
+        /// <summary>
+        /// Method to get the Ok button style.
+        /// </summary>
+        /// <returns>The button style.</returns>
+        private Style GetOkButtonStyle()
+        {
+            return new Style(typeof(Button))
+            {
+                Setters =
+                {
+                    new Setter { Property = Button.CornerRadiusProperty, Value = 20 },
+                    new Setter { Property = Button.BorderColorProperty, Value = Color.FromArgb("#6750A4") },
+                    new Setter { Property = Button.BorderWidthProperty, Value = 1 },
+                    new Setter { Property = Button.BackgroundColorProperty, Value = this.GetDynamicColor("SfPickerSelectionStroke") },
+                    new Setter { Property = Button.TextColorProperty, Value = this.GetDynamicColor() },
+                    new Setter { Property = Button.FontSizeProperty, Value = 14 },
+                }
+            };
+        }
+
+        /// <summary>
+        /// Method to get the footer template.
+        /// </summary>
+        /// <param name="popup">The pop up.</param>
+        /// <returns>The data template.</returns>
+        private DataTemplate GetFooterTemplate(SfPopup popup)
+        {
+            var footerTemplate = new DataTemplate(() =>
+            {
+                var grid = new Grid
+                {
+                    ColumnSpacing = 12,
+                    Padding = new Thickness(24)
+                };
+
+                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+
+                var oKButton = new Button
+                {
+                    Text = "OK",
+                    Style = this.GetOkButtonStyle(),
+                    WidthRequest = 96,
+                    HeightRequest = 40
+                };
+
+                oKButton.Clicked += (sender, args) =>
+                {
+                    popup.Dismiss();
+                };
+
+                grid.Children.Add(oKButton);
+                Grid.SetColumn(oKButton, 1);
+
+                return grid;
+            });
+
+            return footerTemplate;
+        }
+
+        /// <summary>
+        /// Method to get the content template.
+        /// </summary>
+        /// <param name="popup">The pop up.</param>
+        /// <returns>The data template.</returns>
+        private DataTemplate GetContentTemplate(SfPopup popup)
+        {
+            var footerTemplate = new DataTemplate(() =>
+            {
+                var grid = new Grid();
+                grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
+                grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.1, GridUnitType.Star) });
+
+                var label = new Label
+                {
+                    LineBreakMode = LineBreakMode.WordWrap,
+                    Padding = new Thickness(24, 24, 0, 0),
+                    FontSize = 16,
+                    HorizontalOptions = LayoutOptions.Start,
+                    HorizontalTextAlignment = TextAlignment.Start
+                };
+
+                label.BindingContext = popup;
+                label.SetBinding(Label.TextProperty, "Message");
+
+                var stackLayout = new StackLayout
+                {
+                    Margin = new Thickness(0, 10, 0, 0),
+                    HeightRequest = 1,
+                };
+
+                stackLayout.BackgroundColor = isLightTheme ? Color.FromArgb("#611c1b1f") : Color.FromArgb("#61e6e1e5");
+                grid.Children.Add(label);
+                grid.Children.Add(stackLayout);
+
+                Grid.SetRow(label, 0);
+                Grid.SetRow(stackLayout, 1);
+
+                return grid;
+            });
+
+            return footerTemplate;
+        }
+
+        /// <summary>
         /// Method to handle the search button clicked event.
         /// </summary>
         /// <param name="sender">The sender object.</param>
         /// <param name="e">The event args.</param>
         private void SearchButton_Clicked(object sender, EventArgs e)
         {
+            if (this.popup == null)
+            {
+                return;
+            }
+
             Random randomNumber = new Random();
             int index = randomNumber.Next(0, 50);
+
 #if ANDROID || IOS
-            Application.Current?.MainPage?.DisplayAlert("Results", "\n" + index + " Flights are available on that dates to depart from " + mobileFromLabel.Text.ToString(), "OK");
+            this.popup.Message = index + " Flights are available on that dates to depart from " + mobileFromLabel.Text.ToString();
 #else
-            Application.Current?.MainPage?.DisplayAlert("Results", "\n" + index + " Flights are available on that dates to depart from " + fromLabel.Text.ToString(), "OK");
+            this.popup.Message = index + " Flights are available on that dates to depart from " + fromLabel.Text.ToString();
 #endif
+            popup.Show();
         }
     }
 }

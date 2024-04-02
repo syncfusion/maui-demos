@@ -63,7 +63,7 @@
                             <Label Text="W"
                                                        FontAttributes="Bold"
                                                        FontSize="18"
-                                                       TextColor="Black" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                         </gauge:GaugeAnnotation.Content>
                     </gauge:GaugeAnnotation>
                     <gauge:GaugeAnnotation DirectionValue="310"
@@ -72,7 +72,7 @@
                             <Label Text="N"
                                                        FontAttributes="Bold"
                                                        FontSize="18"
-                                                       TextColor="Black" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                         </gauge:GaugeAnnotation.Content>
                     </gauge:GaugeAnnotation>
                     <gauge:GaugeAnnotation DirectionValue="129"
@@ -81,7 +81,7 @@
                             <Label Text="S"
                                                        FontAttributes="Bold"
                                                        FontSize="18"
-                                                       TextColor="Black" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                         </gauge:GaugeAnnotation.Content>
                     </gauge:GaugeAnnotation>
                     <gauge:GaugeAnnotation DirectionValue="50"
@@ -90,7 +90,7 @@
                             <Label Text="E"
                                                        FontAttributes="Bold"
                                                        FontSize="18"
-                                                       TextColor="Black" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                         </gauge:GaugeAnnotation.Content>
                     </gauge:GaugeAnnotation>
                 </gauge:RadialAxis.Annotations>

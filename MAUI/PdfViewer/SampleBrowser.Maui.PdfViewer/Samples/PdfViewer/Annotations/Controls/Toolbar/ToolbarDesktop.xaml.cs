@@ -5,10 +5,13 @@
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
+using Syncfusion.Maui.PdfViewer;
+
 namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 
 public partial class AnnotationToolbarDesktop : AnnotationToolbarView
 {
+    internal StampViewDesktop? StampViewDesktop { get; set; }
 	public AnnotationToolbarDesktop()
 	{
 		InitializeComponent();
@@ -61,6 +64,7 @@ public partial class AnnotationToolbarDesktop : AnnotationToolbarView
                     }
                     else
                         viewModel.StampListMargin = new Thickness(this.Bounds.Width - stampContextMenuWidth, 40, 0, 0);
+                    StampViewDesktop?.ShowCustomStamp();
                     if (ParentView != null && ParentView.StampView != null)
                         ParentView.StampView.StampMode = false;
                 }
@@ -72,6 +76,13 @@ public partial class AnnotationToolbarDesktop : AnnotationToolbarView
                 {
                     viewModel.FileOperationListMargin = new Thickness(0, 40, 0, 0);
                     viewModel.IsFileOperationListVisible = !viewModel.IsFileOperationListVisible;
+                    viewModel.FileOperationHighlightColor = viewModel.IsFileOperationListVisible ? Color.FromRgba(0, 0, 0, 20) : Colors.Transparent;
+                    PdfViewer!.AnnotationMode = AnnotationMode.None;
+                    viewModel.ClearButtonHighlights();
+                    viewModel.IsShapeListVisible = false;
+                    viewModel.IsTextMarkupListVisible = false;
+                    viewModel.IsStampListVisible = false;
+                    viewModel.IsStickyNoteMode = false;
                 }
             }
         }

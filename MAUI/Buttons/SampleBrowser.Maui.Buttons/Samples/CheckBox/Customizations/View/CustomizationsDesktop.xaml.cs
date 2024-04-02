@@ -7,6 +7,7 @@
 #endregion
 using SampleBrowser.Maui.Base;
 using SampleBrowser.Maui.Buttons.CheckBox;
+using Syncfusion.Maui.Buttons;
 
 namespace SampleBrowser.Maui.Buttons.CheckBox;
 
@@ -16,6 +17,7 @@ public partial class CustomizationsDesktop : SampleView
     public CustomizationsDesktop()
 	{
 		InitializeComponent();
+       
         viewModel = new ViewModel();
         this.BindingContext = viewModel;
     }

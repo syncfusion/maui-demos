@@ -13,14 +13,17 @@
         <Sample SearchTags="image, insert, word" SampleName="ImageInsertion" Title="Image Insertion" CodeViewerPath="DocIO/ImageInsertion" />
       </Category>
       <Category Title="Conversions">
-        <Sample SearchTags="pdf, word, convert, word-to-pdf" StatusTag="Updated" SampleName="WordToPDF" Title="Word to PDF" CodeViewerPath="DocIO/WordToPDF" />
+        <Sample SearchTags="pdf, word, convert, word-to-pdf" SampleName="WordToPDF" Title="Word to PDF" CodeViewerPath="DocIO/WordToPDF" />
         <Sample SearchTags="markdown, word, convert, markdown-to-word" SampleName="MarkdownToWord" Title="Markdown to Word" CodeViewerPath="DocIO/MarkdownToWord" />
         <Sample SearchTags="rtf, word, convert, rtf-to-word" SampleName="RTFToWord" Title="RTF to Word" CodeViewerPath="DocIO/RTFToWord" />
       </Category>
+      <Category Title="References" StatusTag="Updated">
       <Sample SearchTags="table, content" SampleName="TableOfContents" Title="Table of Contents" CodeViewerPath="DocIO/TableOfContents" />
+      <Sample SearchTags="table, figures" SampleName="TableOfFigures" Title="Table of Figures" CodeViewerPath="DocIO/TableOfFigures" StatusTag="New" />
+      </Category>
       <Sample SearchTags="encrypt, decrypt, security" SampleName="EncryptAndDecrypt" Title="Encrypt and Decrypt" CodeViewerPath="DocIO/EncryptAndDecrypt" />
 	  <Sample SearchTags="compare, review" SampleName="CompareDocuments" Title="Compare Documents" CodeViewerPath="DocIO/CompareDocuments" />
-	  <Sample SearchTags="equation, latex" SampleName="LaTeX" Title="LaTeX" CodeViewerPath="DocIO/LaTeX" StatusTag="New"/>
+	  <Sample SearchTags="equation, latex" SampleName="LaTeX" Title="LaTeX" CodeViewerPath="DocIO/LaTeX" />
     </Control>
   </ControlCategory>
 </SyncfusionControls>

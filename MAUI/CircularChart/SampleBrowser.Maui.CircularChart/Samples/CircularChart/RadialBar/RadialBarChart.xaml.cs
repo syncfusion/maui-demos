@@ -21,7 +21,7 @@ namespace SampleBrowser.Maui.CircularChart.SfCircularChart
         private void InitializeProperties() 
         {
             capStyle.SelectedIndex = 1;
-            trackFill.SelectedIndex = 0;
+            trackFill.SelectedIndex = -1;
             trackStroke.SelectedIndex = 0;
             startAngle.Value = -90;
             endAngle.Value = 270;

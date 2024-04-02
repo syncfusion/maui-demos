@@ -81,15 +81,26 @@
 	<ItemGroup>
 	  <EmbeddedResource Include="ControlList.xml" />
 	  <EmbeddedResource Include="ImageEditorSamplesList.xml" />
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker1.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker2.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker3.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker4.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker5.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker6.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker7.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker8.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker9.svg" BaseSize="500,500"/>
+	  <MauiImage Include="Samples\ImageEditor\CustomView\Images\imageeditorsticker10.svg" BaseSize="500,500"/>
 	  <EmbeddedResource Include="SyncfusionLicense.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
-      <PackageReference Include="SampleBrowser.Maui.Base" version="24.2.3" />
-	  <PackageReference Include="Syncfusion.Maui.Core" version="24.2.3" />
-	  <PackageReference Include="Syncfusion.Maui.Sliders" version="24.2.3" />
-      <PackageReference Include="Syncfusion.Maui.TabView" version="24.2.3" />
-	  <PackageReference Include="Syncfusion.Maui.ImageEditor" version="24.2.3" />
+      <PackageReference Include="SampleBrowser.Maui.Base" version="25.1.35" />
+      <PackageReference Include="Syncfusion.Maui.Buttons" version="25.1.35" />
+	  <PackageReference Include="Syncfusion.Maui.Core" version="25.1.35" />
+	  <PackageReference Include="Syncfusion.Maui.Sliders" version="25.1.35" />
+      <PackageReference Include="Syncfusion.Maui.TabView" version="25.1.35" />
+	  <PackageReference Include="Syncfusion.Maui.ImageEditor" version="25.1.35" />
 	</ItemGroup>
 
 </Project>

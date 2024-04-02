@@ -12,14 +12,14 @@
     <local:StampView.Content>
 
         <Border IsVisible="{OnPlatform Default=false,Android=true,iOS=true}"
-                BackgroundColor="#F3EDF7" HeightRequest="380"
-                Stroke="#33000000" VerticalOptions="End">
+                BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F7F2FB}" HeightRequest="380"
+                Stroke="#33000000" VerticalOptions="End" Padding="0,15,0,0" >
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="12,12,0,0" />
             </Border.StrokeShape>
-            <tabView:SfTabView BackgroundColor="#F3EDF7" >
-                <tabView:SfTabItem Header="Standard Stamps" >
-                    <syncfusion:SfListView ItemSize="40"
+            <tabView:SfTabView BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F7F2FB}" x:Name="tabView">
+                <tabView:SfTabItem Header="Standard Stamps" FontFamily="Roboto" FontAttributes="Bold" FontSize="14" x:Name="StandardStamps" TextColor="#6750A4" >
+                    <syncfusion:SfListView ItemSize="40" Margin="0,6,0,0"
                           ItemsSource="{Binding StandardStampItems}"
                           x:Name="StandardStampMenuItems"
                           ItemTapped="ListView_Tapped"
@@ -30,11 +30,11 @@
                         <syncfusion:SfListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell >
-                                    <StackLayout HorizontalOptions="Start" Padding="19,4,19,0" Spacing="0">
+                                    <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Padding="19,4,16,0" Spacing="0">
                                         <Border Stroke="{Binding BorderColor}" HeightRequest="{Binding BorderHeight}" WidthRequest="{Binding BorderWidth}"
                                             Background="{Binding BorderBackground}" StrokeThickness="2" 
                                             StrokeShape="{OnPlatform Android=RoundRectangle 0, iOS=RoundRectangle 0}">
-                                            <Label Text="{Binding LabelText}"  CharacterSpacing="0.1" 
+                                            <Label Text="{Binding LabelText}" FontFamily="Roboto" CharacterSpacing="0.1" 
                                                TextColor="{Binding LabelTextColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
                                         </Border>
                                     </StackLayout>
@@ -43,7 +43,7 @@
                         </syncfusion:SfListView.ItemTemplate>
                     </syncfusion:SfListView>
                 </tabView:SfTabItem>
-                <tabView:SfTabItem Header="Custom Stamps" >
+                <tabView:SfTabItem Header="Custom Stamps" FontFamily="Roboto" FontAttributes="Bold" FontSize="14" x:Name="CustomStamps" >
                     <Grid>
                         <ScrollView Orientation="Vertical">
                             <VerticalStackLayout HorizontalOptions="Start" Padding="40,10,0,0" Spacing="8" x:Name="CustomStampsList" >

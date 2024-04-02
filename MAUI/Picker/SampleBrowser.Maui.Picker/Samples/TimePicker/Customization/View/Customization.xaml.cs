@@ -8,13 +8,24 @@
 namespace SampleBrowser.Maui.Picker.SfTimePicker
 {
     using SampleBrowser.Maui.Base;
+    using Syncfusion.Maui.Buttons;
 
     public partial class Customization : SampleView
     {
+        /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
         private AlarmDetails? alarmDetails;
         public Customization()
         {
             InitializeComponent();
+            this.alarmEditPicker.HeaderView.Height = 40;
+            this.alarmEditPicker.HeaderView.Text = "Edit Alarm";
+
+            this.alarmEditPicker.FooterView.Height = 40;
+            this.alarmEditPicker.FooterView.OkButtonText = "Save";
         }
 
         private void OnAlarmTapped(object sender, EventArgs e)
@@ -50,19 +61,19 @@ namespace SampleBrowser.Maui.Picker.SfTimePicker
             this.alarmEditPicker.IsOpen = false;
         }
 
-        private void alarmSwitch_Toggled(object sender, ToggledEventArgs e)
+        private void alarmSwitch_Toggled(object sender, SwitchStateChangedEventArgs e)
         {
-            if (sender is Switch toggleSwitch && toggleSwitch.BindingContext != null && toggleSwitch.BindingContext is AlarmDetails alarmDetails)
+            if (sender is SfSwitch toggleSwitch && toggleSwitch.BindingContext != null && toggleSwitch.BindingContext is AlarmDetails alarmDetails && e.NewValue.HasValue)
             {
-                if (e.Value)
+                if (e.NewValue.Value)
                 {
-                    alarmDetails.AlarmTextColor = Colors.Black;
-                    alarmDetails.AlarmSecondaryTextColor = Colors.Gray;
+                    alarmDetails.AlarmTextColor = isLightTheme ? Colors.Black : Colors.White;
+                    alarmDetails.AlarmSecondaryTextColor = isLightTheme ? Colors.Gray : Color.FromArgb("#CAC4D0");
                 }
                 else
                 {
-                    alarmDetails.AlarmTextColor = Colors.Gray;
-                    alarmDetails.AlarmSecondaryTextColor = Colors.LightGray;
+                    alarmDetails.AlarmTextColor = isLightTheme ? Colors.Gray : Color.FromArgb("#CAC4D0");
+                    alarmDetails.AlarmSecondaryTextColor = Color.FromArgb("#CAC4D0");
                 }
             }
 

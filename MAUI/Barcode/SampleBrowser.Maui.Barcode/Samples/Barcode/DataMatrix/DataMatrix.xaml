@@ -4,7 +4,7 @@
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:barcode="clr-namespace:Syncfusion.Maui.Barcode;assembly=Syncfusion.Maui.Barcode"
                       x:Class="SampleBrowser.Maui.Barcode.SfBarcodeGenerator.DataMatrix"
-                      Background="White">
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
         <Grid HorizontalOptions="Center" VerticalOptions="Center">
             <barcode:SfBarcodeGenerator x:Name="barcodeGenerator" Value="http://www.syncfusion.com"
@@ -18,7 +18,6 @@
     </localCore:SampleView.Content>
     <localCore:SampleView.OptionView >
         <ContentView>
-            <StackLayout>
                 <Grid Margin="20,0,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -36,6 +35,8 @@
                            Grid.ColumnSpan="2"
                            Margin="0,10,0,0"
                            Text="http://www.syncfusion.com"
+                           TextColor="{AppThemeBinding Dark={StaticResource TextColour}, Light={StaticResource TextColourLight}}"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}"
                            TextChanged="inputValueEntry_TextChanged"/>
                     <Label x:Name="warningLabel"
                            Grid.Row="2"
@@ -46,7 +47,6 @@
                            VerticalOptions="Start"
                            LineBreakMode="WordWrap"/>
                 </Grid>
-            </StackLayout>
         </ContentView>
     </localCore:SampleView.OptionView>
 </localCore:SampleView>

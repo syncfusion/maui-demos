@@ -28,7 +28,7 @@
         <Grid>
             <Image Source="{converters:SfImageResource feedbackform.png}" Aspect="Fill" IsVisible="{OnPlatform Default=False,WinUI=True,MacCatalyst=True}"/>
             <Grid ColumnDefinitions="0.3*,0.7*" RowDefinitions="56,*">
-                <Label Text="Music Tracks" TextColor="{OnPlatform Default=#E3000000,WinUI=White,MacCatalyst=White}" 
+                <Label Text="Music Tracks" TextColor="{OnPlatform Default={AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}},WinUI=White,MacCatalyst=White}" 
                        FontSize="{OnPlatform Default=16,WinUI=20,MacCatalyst=20}"
                        Grid.ColumnSpan="{OnPlatform Default=2,WinUI=1,MacCatalyst=1}"
                        FontAttributes="{OnPlatform Default=None,WinUI=Bold,MacCatalyst=Bold}" FontFamily="Roboto-Medium"
@@ -36,7 +36,8 @@
                        VerticalOptions="Start" VerticalTextAlignment="Center" 
                        Padding="20,20,0,0" HeightRequest="56" Grid.Row="0"/>
 
-                <Frame HasShadow="False" BackgroundColor="#FFFFFF" CornerRadius="10"
+                <Frame HasShadow="False"  CornerRadius="10" 
+                       Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                     Grid.Row="{OnPlatform Default=1,WinUI=0,MacCatalyst=0}"
                     Grid.Column="{OnPlatform Default=0,WinUI=1,MacCatalyst=1}"
                     Grid.ColumnSpan="{OnPlatform Default=2,WinUI=1,MacCatalyst=1}"
@@ -61,7 +62,7 @@
                                  DragStartMode="OnDragIndicator,OnHold">
                         <ListView:SfListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid VerticalOptions="Center" HeightRequest="72" BackgroundColor="#FFFFFF">
+                                <Grid VerticalOptions="Center" HeightRequest="72">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="72"/>
                                         <ColumnDefinition Width="*"/>
@@ -78,20 +79,20 @@
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
-                                        <Label Text="{Binding SongTitle}" TextColor="#DE000000" FontSize="16" FontFamily="Roboto-Regular"
+                                        <Label Text="{Binding SongTitle}" FontSize="16" FontFamily="Roboto-Regular"
                                        CharacterSpacing="0.15"/>
-                                        <Label Grid.Row="1" Text="{Binding SingerName}" TextColor="#99000000" FontSize="14" FontFamily="Roboto-Regular"
-                                       CharacterSpacing="0.25"/>
+                                        <Label Grid.Row="1" Text="{Binding SingerName}" FontSize="14" FontFamily="Roboto-Regular"
+                                       CharacterSpacing="0.25" Opacity="0.8"/>
                                     </Grid>
 
-                                    <Border WidthRequest="30" HeightRequest="30" Grid.Column="2" StrokeThickness="0" BackgroundColor="Transparent">
+                                    <Border WidthRequest="30" HeightRequest="30" Grid.Column="2" StrokeThickness="0" >
                                         <Border.StrokeShape>
                                             <RoundRectangle CornerRadius="30"/>
                                         </Border.StrokeShape>
                                         <local:SfEffectsViewAdv>
                                             <ListView:DragIndicatorView ListView="{x:Reference listView}">
-                                                <Label Text="&#xe714;" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
-                                               TextColor="#61000000" VerticalOptions="Center" VerticalTextAlignment="Center"
+                                                <Label Text="&#xe776;" FontFamily="MauiSampleFontIcon"
+                                               VerticalOptions="Center" VerticalTextAlignment="Center"
                                                HorizontalTextAlignment="Center" FontSize="20"/>
                                             </ListView:DragIndicatorView>
                                         </local:SfEffectsViewAdv>
@@ -101,7 +102,7 @@
                         </ListView:SfListView.ItemTemplate>
                         <ListView:SfListView.DragItemTemplate>
                             <DataTemplate>
-                                <Grid Opacity="0.8" VerticalOptions="Center" HeightRequest="72" BackgroundColor="#FFFFFF">
+                                <Grid Opacity="0.8" VerticalOptions="Center" HeightRequest="72">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="72"/>
                                         <ColumnDefinition Width="*"/>
@@ -118,15 +119,15 @@
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
-                                        <Label Text="{Binding SongTitle}" TextColor="#DE000000" FontSize="16" FontFamily="Roboto-Regular"
+                                        <Label Text="{Binding SongTitle}" FontSize="16" FontFamily="Roboto-Regular"
                                        CharacterSpacing="0.15"/>
-                                        <Label Grid.Row="1" Text="{Binding SingerName}" TextColor="#99000000" FontSize="14" FontFamily="Roboto-Regular"
+                                        <Label Grid.Row="1" Text="{Binding SingerName}" FontSize="14" FontFamily="Roboto-Regular"
                                        CharacterSpacing="0.25"/>
                                     </Grid>
 
                                     <ListView:DragIndicatorView ListView="{x:Reference listView}" WidthRequest="30" HeightRequest="30" Grid.Column="2" >
-                                        <Label Text="&#xe714;" FontFamily='{OnPlatform Android=ListViewFontIcons.ttf#,WinUI=ListViewFontIcons.ttf#ListViewFontIcons,MacCatalyst=ListViewFontIcons,iOS=ListViewFontIcons}'
-                                               TextColor="#61000000" VerticalOptions="Center" VerticalTextAlignment="Center"
+                                        <Label Text="&#xe776;" FontFamily="MauiSampleFontIcon"
+                                               VerticalOptions="Center" VerticalTextAlignment="Center"
                                                HorizontalTextAlignment="Center" FontSize="20"/>
                                     </ListView:DragIndicatorView>
                                 </Grid>

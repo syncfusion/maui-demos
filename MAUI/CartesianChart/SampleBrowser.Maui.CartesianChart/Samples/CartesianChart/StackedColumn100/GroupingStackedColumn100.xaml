@@ -16,12 +16,12 @@
                 
                 <chart:SfCartesianChart.Title>
                     <StackLayout>
-                        <Label Text="Electricity Consumption from Various Sources" Margin="3" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                        <Label Text="Electricity Consumption from Various Sources" Margin="3" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="6">
                             <BoxView Color="#6EDE8A" WidthRequest="20" HeightRequest="10" CornerRadius="4"/>
-                            <Label Text="United States" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="13" TextColor="Black"/>
+                            <Label Text="United States" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="13"/>
                             <BoxView Color="#DE896E" WidthRequest="20" HeightRequest="10" CornerRadius="4"/>
-                            <Label Text="United Kingdom" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="13" TextColor="Black"/>
+                            <Label Text="United Kingdom" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="13"/>
                         </StackLayout>
                     </StackLayout>
                 </chart:SfCartesianChart.Title>

@@ -5,7 +5,8 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.Chips"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
-             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     
     <localCore:SampleView.BindingContext>
         <local:ChipViewModel />
@@ -23,7 +24,7 @@
                               ChipStroke="{Binding BorderStroke}"
                               ChipStrokeThickness="{Binding BorderThickness}"
                               ChipTextColor="{Binding TextColor}"
-                              CloseButtonColor="{Binding TextColor}"
+                              CloseButtonColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
                               SelectionIndicatorColor="{Binding TextColor}"
                               ChipCornerRadius="{Binding CornerRadius}"
                               ChipType="{Binding ChipType}">
@@ -40,12 +41,12 @@
                 </core:SfChipGroup>
             </StackLayout>
             </ScrollView>
-                <Frame Grid.Column="1" CornerRadius="8" HasShadow="False"  Margin="40,40,10,50" Padding="10,10,0,0" BackgroundColor="#f6f6f8" >
+                <Frame Grid.Column="1" CornerRadius="8" HasShadow="False"  Margin="40,40,10,50" Padding="10,10,0,0" BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" >
                 <StackLayout  Spacing="10" >
                         <StackLayout Margin="14,5,33,0">
                     <tabView:SfTabView WidthRequest="300"
 									   IndicatorBackground="#c6c6c6"
-									   TabBarBackground="White"
+									   TabBarBackground="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}"
                                        HorizontalOptions="Start"
                                        VerticalOptions="Center"
                                        HeightRequest="130">
@@ -212,6 +213,7 @@
                                         Minimum="0" 
                                         Maximum="10" 
                                         MaximumTrackColor="#E0E0E0"
+                                        Background="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
                                         MinimumTrackColor="#4285F4" 
                                         Value="{Binding BorderThickness}" 
                                         ThumbColor="#4285F4">
@@ -243,7 +245,8 @@
                                     VerticalOptions="CenterAndExpand" 
                                     Minimum="0" 
 									Maximum="20" 
-                                    MaximumTrackColor="#E0E0E0" 
+                                    MaximumTrackColor="#E0E0E0"
+                                    Background="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
                                     MinimumTrackColor="#4285F4" 
                                     Value="{Binding LeftCornerRadius,Mode=TwoWay}" 
                                     ThumbColor="#4285F4">
@@ -271,6 +274,7 @@
                                     Grid.Column="1"
                                     HeightRequest="50" 
                                     VerticalOptions="CenterAndExpand"
+                                    Background="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
                                     Minimum="0" 
                                     Maximum="20" 
                                     MaximumTrackColor="#E0E0E0" 

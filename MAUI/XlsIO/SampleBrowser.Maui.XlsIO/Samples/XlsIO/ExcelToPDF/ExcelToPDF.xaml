@@ -8,12 +8,12 @@
     <localCore:SampleView.Content>
         <StackLayout Margin="10">
             <Label x:Name="SampleDescription" LineBreakMode="WordWrap" Text="This example demonstrates how to convert an Excel workbook to PDF."
-                 VerticalOptions="Center" TextColor="Black">
+                 VerticalOptions="Center">
             </Label>
             <Label Text=" "/>
-            <Label x:Name="textBlock1" LineBreakMode="WordWrap" Text="Click the &quot;Input Template&quot; button to view the input Excel workbook. Please note that an Excel-compatible viewer is required to open and view the Excel file." TextColor="Black"/>
+            <Label x:Name="textBlock1" LineBreakMode="WordWrap" Text="Click the &quot;Input Template&quot; button to view the input Excel workbook. Please note that an Excel-compatible viewer is required to open and view the Excel file."/>
             <Label Text=" "></Label>
-            <Label x:Name="textBlock2"   LineBreakMode="WordWrap" Text="Click the &quot;Convert to PDF&quot; button will convert the Excel workbook to PDF. Please note that PDF compatible viewer is required to open and view the PDF document." TextColor="Black"/>
+            <Label x:Name="textBlock2"   LineBreakMode="WordWrap" Text="Click the &quot;Convert to PDF&quot; button will convert the Excel workbook to PDF. Please note that PDF compatible viewer is required to open and view the PDF document."/>
             <Label Text=" "></Label>   
             <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">
                 <Button x:Name="btnInput" Clicked ="btnInput_Click" Text ="Input Template" HorizontalOptions="Start" VerticalOptions="Center"></Button>

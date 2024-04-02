@@ -191,7 +191,10 @@
     </EmbeddedResource>
 	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\CommentsTemplate.xlsx" >
       <Link>Resources\XlsIO\CommentsTemplate.xlsx</Link>
-    </EmbeddedResource> 	
+    </EmbeddedResource>
+	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\PivotCodeDate.xlsx" >
+      <Link>Resources\XlsIO\PivotCodeDate.xlsx</Link>
+    </EmbeddedResource>	
 	<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\XlsIO\Template_Marker_Images\Man1.jpg" >
       <Link>Resources\XlsIO\Template_Marker_Images\Man1.jpg</Link>
     </EmbeddedResource> 	

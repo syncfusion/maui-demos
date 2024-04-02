@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       x:Class="SampleBrowser.Maui.Shimmer.SfShimmer.Articles"
@@ -30,7 +30,8 @@
                     <StackLayout>
                         <ListView ItemsSource="{Binding Info1}" x:Name="listView"
                                   SeparatorVisibility="None"
-                                  VerticalScrollBarVisibility="Never">
+                                  VerticalScrollBarVisibility="Never"
+                                  BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

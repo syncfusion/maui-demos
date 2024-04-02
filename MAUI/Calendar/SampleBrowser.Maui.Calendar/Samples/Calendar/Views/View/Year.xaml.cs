@@ -26,16 +26,21 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         public Color StrokeColor { get; set; }
 
         /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Year" /> class.
         /// </summary>
         public Year()
         {
             InitializeComponent();
 #if MACCATALYST || (!ANDROID && !IOS)
-            this.Background = Brush.WhiteSmoke;
+            this.Background = isLightTheme ? Brush.White : (Brush)Color.FromRgba("#1C1B1F");
             this.Margin = new Thickness(-4, -4, -6, -6);
-            this.BGColor = Colors.White;
-            this.StrokeColor = Color.FromArgb("#E6E6E6");
+            this.BGColor = isLightTheme ? Color.FromArgb("#F7F2FB") : Color.FromArgb("#25232A");
+            this.StrokeColor = Colors.Transparent;
 #else
             this.BGColor = Colors.Transparent;
             this.StrokeColor = Colors.Transparent;

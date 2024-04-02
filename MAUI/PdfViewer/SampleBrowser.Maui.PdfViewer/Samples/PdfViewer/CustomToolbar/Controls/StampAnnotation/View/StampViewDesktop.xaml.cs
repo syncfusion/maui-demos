@@ -5,7 +5,6 @@
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-
 using Microsoft.Maui.Layouts;
 using Syncfusion.Maui.PdfViewer;
 
@@ -16,7 +15,7 @@ public partial class StampViewDesktop : StampView
     public event EventHandler<StampDialogEventArgs?>? CreateStampClicked;
     HorizontalStackLayout? customStampMenuItem;
 
-    public StampViewDesktop()
+    internal void Initialize()
     {
         InitializeComponent();
         AssignControls();
@@ -25,11 +24,20 @@ public partial class StampViewDesktop : StampView
         ContextMenu.AddItem(CreateItem("Standard Stamps", "\uE706", 122, 40));
         customStampMenuItem = CreateItem("Custom Stamps", "\uE706", 120, 40);
         ContextMenu.AddItem(customStampMenuItem);
+        customStampMenuItem.IsVisible = false;
         ContextMenu.AddSeparator();
         ContextMenu.AddItem(CreateItem("Create Stamps", "\uE70d", 120, 40));
         this.ParentChanged += StampViewDesktop_ParentChanged;
+        AnnotationSecondaryToolbar.stampViewDesktop = this;
     }
 
+    public void ShowCustomStamp()
+    {
+        if (CustomStampListLayout != null && customStampMenuItem != null && CustomStampListLayout.Count != 0)
+        {
+            customStampMenuItem.IsVisible = true;
+        }
+    }
     private void StampViewDesktop_ParentChanged(object? sender, EventArgs e)
     {
         if(this.Parent!=null)
@@ -111,7 +119,7 @@ public partial class StampViewDesktop : StampView
     {
         StandardStampMenu.IsVisible = false;
         if (this.Parent is Grid grid)
-            grid.Margin = new Thickness(grid.Margin.Left + 280,
+            grid.Margin = new Thickness(grid.Margin.Left,
                 grid.Margin.Top, grid.Margin.Right, grid.Margin.Bottom);
     }
 
@@ -119,7 +127,7 @@ public partial class StampViewDesktop : StampView
     {
         StandardStampMenu.IsVisible = true;
         if (this.Parent is Grid grid)
-            grid.Margin = new Thickness(grid.Margin.Left - 280,
+            grid.Margin = new Thickness(grid.Margin.Left,
                 grid.Margin.Top, grid.Margin.Right, grid.Margin.Bottom);
         if (CustomStampMenu.IsVisible == true)
             HideCustomStamps();
@@ -129,7 +137,7 @@ public partial class StampViewDesktop : StampView
     {
         CustomStampMenu.IsVisible = false;
         if (this.Parent is Grid grid)
-            grid.Margin = new Thickness(grid.Margin.Left + 160,
+            grid.Margin = new Thickness(grid.Margin.Left,
                 grid.Margin.Top, grid.Margin.Right, grid.Margin.Bottom);
     }
 
@@ -137,7 +145,7 @@ public partial class StampViewDesktop : StampView
     {
         CustomStampMenu.IsVisible = true;
         if (this.Parent is Grid grid)
-            grid.Margin = new Thickness(grid.Margin.Left - 160,
+            grid.Margin = new Thickness(grid.Margin.Left,
                 grid.Margin.Top, grid.Margin.Right, grid.Margin.Bottom);
         if (StandardStampMenu.IsVisible == true)
             HideStandardStamps();

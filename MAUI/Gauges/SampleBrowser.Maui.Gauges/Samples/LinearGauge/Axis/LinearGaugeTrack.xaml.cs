@@ -14,6 +14,10 @@ namespace SampleBrowser.Maui.Gauges.SfLinearGauge
 {
     public partial class LinearGaugeTrack : SampleView
     {
+        /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
 
         public LinearGaugeTrack()
         {
@@ -28,20 +32,20 @@ namespace SampleBrowser.Maui.Gauges.SfLinearGauge
         {
             contentView.Content = new LinearGaugeTrackHorizontal();
             horizontalRectangle.Fill = new SolidColorBrush(Color.FromRgb(0, 116, 227));
-            horizontalLabel.TextColor = Colors.White;
+            horizontalLabel.TextColor = isLightTheme ? Colors.White : Colors.Black;
 
-            verticalLabel.TextColor = Colors.Black;
-            verticalRectangle.Fill = new SolidColorBrush(Colors.White);
+            verticalLabel.TextColor = isLightTheme ? Colors.Black : Colors.White;
+            verticalRectangle.Fill = isLightTheme ? new SolidColorBrush(Colors.White) : Color.FromArgb("#25232A");
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
         {
             contentView.Content = new LinearGaugeTrackVertical();
             verticalRectangle.Fill = new SolidColorBrush(Color.FromRgb(0, 116, 227));
-            verticalLabel.TextColor = Colors.White;
+            verticalLabel.TextColor = isLightTheme ? Colors.White : Colors.Black;
 
-            horizontalLabel.TextColor = Colors.Black;
-            horizontalRectangle.Fill = new SolidColorBrush(Colors.White);
+            horizontalLabel.TextColor = isLightTheme ? Colors.Black : Colors.White;
+            horizontalRectangle.Fill = isLightTheme ? new SolidColorBrush(Colors.White) : Color.FromArgb("#25232A");
         }
 
         #endregion

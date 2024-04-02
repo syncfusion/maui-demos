@@ -6,11 +6,6 @@
       <DependentUpon>RangeColorMapping.xaml</DependentUpon>
     </Compile>
 
-    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Maps\ColorMapping\EqualColorMap.xaml.cs">
-      <Link>Samples\Maps\ColorMapping\EqualColorMap.xaml.cs</Link>
-      <DependentUpon>EqualColorMapping.xaml</DependentUpon>
-    </Compile>
-
     <Compile Include="$(MSBuildThisFileDirectory)\Samples\Maps\Bubble\Bubble.xaml.cs">
       <Link>Samples\Maps\Bubble\Bubble.xaml.cs</Link>
       <DependentUpon>Bubble.xaml</DependentUpon>
@@ -41,14 +36,6 @@
 
     <Compile Include="$(MSBuildThisFileDirectory)\Samples\Maps\ColorMapping\CountryDensity.cs">
       <Link>Samples\Maps\ColorMapping\CountryDensity.cs</Link>
-    </Compile>
-
-    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Maps\ColorMapping\CountryTimeInGMT.cs">
-      <Link>Samples\Maps\ColorMapping\CountryTimeInGMT.cs</Link>
-    </Compile>
-
-    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Maps\ColorMapping\EqualViewModel.cs">
-      <Link>Samples\Maps\ColorMapping\EqualViewModel.cs</Link>
     </Compile>
 
     <Compile Include="$(MSBuildThisFileDirectory)\Samples\Maps\ColorMapping\RangeViewModel.cs">
@@ -127,10 +114,6 @@
     
     <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Maps\ColorMapping\RangeColorMap.xaml">
       <Link>Samples\Maps\ColorMapping\RangeColorMap.xaml</Link>
-    </MauiXaml>
-
-    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Maps\ColorMapping\EqualColorMap.xaml">
-      <Link>Samples\Maps\ColorMapping\EqualColorMap.xaml</Link>
     </MauiXaml>
 
     <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Maps\Bubble\Bubble.xaml">

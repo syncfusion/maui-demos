@@ -12,9 +12,8 @@ namespace SampleBrowser.Maui.PdfViewer.SfPdfViewer;
 public partial class ColorToolbar : ContentView
 {
     Ellipse? selectedColorButtonHighlight;
-
-    public ColorToolbar()
-	{
+    internal void Initialize()
+    {
         InitializeComponent();
         selectedColorButtonHighlight = new Ellipse();
 #if IOS
@@ -60,7 +59,7 @@ public partial class ColorToolbar : ContentView
         }
         if (sender is Button button)
         {
-            if(button!=OpacityButton)
+            if (button != OpacityButton)
             {
                 int column = Grid.GetColumn(button);
                 Grid.SetColumn(selectedColorButtonHighlight, column);

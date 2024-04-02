@@ -5,12 +5,12 @@
                       x:Class="SampleBrowser.Maui.AvatarView.SfAvatarView.GroupView"
                       xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                       xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-                      BackgroundColor="White">
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
         <Grid>
             <Grid Margin="10">
                 <ListView ItemsSource="{Binding GroupCollection}" RowHeight="60"
-                       SelectionMode="None">
+                       SelectionMode="None" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -30,7 +30,7 @@
                                                      ImageSourceMemberPath="Image"
                                                      BackgroundColorMemberPath="Backgroundcolor"
                                                      InitialsMemberPath="Name"/>
-                                    <Grid Grid.Column="1" VerticalOptions="Center">
+                                    <Grid Grid.Column="1" Margin="12,0,0,0" VerticalOptions="Center">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="Auto"/>
@@ -39,13 +39,13 @@
                                            VerticalOptions="Center"
                                            VerticalTextAlignment="Center"
                                            FontSize="14"
-                                           TextColor="Black"/>
+                                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"/>
                                         <Label Grid.Row="1" 
                                            Text="{Binding TotalParticipants}"
                                            VerticalOptions="Center"
                                            VerticalTextAlignment="Center"
                                            FontSize="11"
-                                           TextColor="Gray"/>
+                                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
                                     </Grid>
                                 </Grid>
                             </ViewCell>

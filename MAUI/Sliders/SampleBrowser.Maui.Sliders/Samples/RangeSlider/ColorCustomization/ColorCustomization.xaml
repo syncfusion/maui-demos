@@ -37,6 +37,7 @@
                     <sliders:SfRangeSlider.ThumbOverlayStyle>
                         <sliders:SliderThumbOverlayStyle Fill="#3D009688" />
                     </sliders:SfRangeSlider.ThumbOverlayStyle>
+                    
                 </sliders:SfRangeSlider>
 
                 <Label Grid.Row="3"
@@ -53,7 +54,7 @@
                                        ShowDividers="True">
 
                     <sliders:SfRangeSlider.ThumbStyle>
-                        <sliders:SliderThumbStyle Fill="White"
+                        <sliders:SliderThumbStyle Fill="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                                   Stroke="#FF5722"
                                                   StrokeThickness="2" />
                     </sliders:SfRangeSlider.ThumbStyle>
@@ -70,8 +71,8 @@
                     <sliders:SfRangeSlider.DividerStyle>
                         <sliders:SliderDividerStyle ActiveRadius="5"
                                                     InactiveRadius="5"
-                                                    ActiveFill="White"
-                                                    InactiveFill="White"
+                                                    ActiveFill="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                                    InactiveFill="{AppThemeBinding Default={StaticResource ContentBackground}}"
                                                     ActiveStroke="#3DFF5722"
                                                     InactiveStroke="#FF5722"
                                                     ActiveStrokeThickness="2"

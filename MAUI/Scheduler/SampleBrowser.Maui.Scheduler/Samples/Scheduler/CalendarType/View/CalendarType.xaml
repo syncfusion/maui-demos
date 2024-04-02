@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
              xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
     <localCore:SampleView.Content>
         <Grid>
@@ -52,6 +53,10 @@
     <localCore:SampleView.OptionView>
         <ContentView>
             <Grid x:Name="optionView">
+                <Grid.Resources>
+                    <buttons:SfRadioGroupKey x:Key="CalendarTypeButtons"/>
+                </Grid.Resources>
+                
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -76,18 +81,18 @@
                         Grid.Column="0"
                         Grid.RowSpan="1"
                         Grid.ColumnSpan="2"
-                       TextColor="Gray"/>
+                       TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
 
-                    <RadioButton Grid.Row="1" Grid.Column="0" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="Gregorian" VerticalOptions="Start"/>
-                    <RadioButton Grid.Row="2" Grid.Column="0" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="Hebrew" VerticalOptions="Start"/>
-                    <RadioButton Grid.Row="3" Grid.Column="0" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="Hijri" VerticalOptions="Start" IsChecked="True"/>
-                    <RadioButton Grid.Row="4" Grid.Column="0" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="Japanese" VerticalOptions="Start"/>
-                    <RadioButton Grid.Row="5" Grid.Column="0" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="Korean" VerticalOptions="Start"/>
-                    <RadioButton Grid.Row="1" Grid.Column="1" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="Persian" VerticalOptions="Start" />
-                    <RadioButton Grid.Row="2" Grid.Column="1" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="Taiwan" VerticalOptions="Start" />
-                    <RadioButton Grid.Row="3" Grid.Column="1" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="ThaiBuddhist" VerticalOptions="Start"/>
-                    <RadioButton Grid.Row="4" Grid.Column="1" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Content="UmAlQura" VerticalOptions="Start"/>
-                </Grid>
+                <buttons:SfRadioButton Grid.Row="1" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Gregorian" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="2" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Hebrew" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="3" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Hijri" VerticalOptions="Start" IsChecked="True"/>
+                <buttons:SfRadioButton Grid.Row="4" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Japanese" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="5" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Korean" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="1" Grid.Column="1" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Persian" VerticalOptions="Start" />
+                <buttons:SfRadioButton Grid.Row="2" Grid.Column="1" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Taiwan" VerticalOptions="Start" />
+                <buttons:SfRadioButton Grid.Row="3" Grid.Column="1" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="ThaiBuddhist" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="4" Grid.Column="1" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="UmAlQura" VerticalOptions="Start"/>
+            </Grid>
         </ContentView>
     </localCore:SampleView.OptionView>
     <localCore:SampleView.Behaviors>

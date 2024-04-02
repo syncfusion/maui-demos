@@ -6,8 +6,9 @@
              xmlns:timePicker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
              xmlns:listView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
-                      xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-                      Background="{OnPlatform Default=WhiteSmoke, WinUI=White, MacCatalyst=White}" Margin="{OnPlatform WinUI=-10, MacCatalyst=-10, Default=0}"
+             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Margin="{OnPlatform WinUI=-10, MacCatalyst=-10, Default=0}"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Picker.SfTimePicker">
 
     <localCore:SampleView.Resources>
@@ -24,13 +25,13 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Image Margin="10" Source="{converters:SfImageResource gettingstarted.png}" Aspect="AspectFit" MaximumWidthRequest="500" HorizontalOptions="Fill" VerticalOptions="Fill" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"/>
-            <Grid Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" WidthRequest="{OnPlatform WinUI=350, MacCatalyst=350, Default=350}" HorizontalOptions="{OnPlatform Android=Center, iOS=Center, MacCatalyst=End, WinUI=End}"  Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" BackgroundColor="WhiteSmoke" Margin="{OnPlatform WinUI=10, MacCatalyst=10, Default=0}">
+            <Grid Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" WidthRequest="{OnPlatform WinUI=350, MacCatalyst=350, Default=350}" HorizontalOptions="{OnPlatform Android=Center, iOS=Center, MacCatalyst=End, WinUI=End}"  Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" Margin="{OnPlatform WinUI=10, MacCatalyst=10, Default=0}">
 
                 <CollectionView x:Name="alarmListView" WidthRequest="{OnPlatform WinUI=330, MacCatalyst=330, Default=350}" ItemsSource="{Binding AlarmCollection}" VerticalScrollBarVisibility="Never" HorizontalOptions="Center" Margin="10">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Border x:Name="alarmBorder" StrokeShape="RoundRectangle 5" Stroke="LightGray" BackgroundColor="White" Margin="0,0,0,5" HeightRequest="130" WidthRequest="{OnPlatform WinUI=330}">
+                                <Border x:Name="alarmBorder" StrokeShape="RoundRectangle 5" Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" Margin="0,0,0,5" HeightRequest="130" WidthRequest="{OnPlatform WinUI=330}">
                                     <Grid Padding="5">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="2*"/>
@@ -39,7 +40,7 @@
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="60" />
                                         </Grid.ColumnDefinitions>
                                             <HorizontalStackLayout VerticalOptions="End" Margin="0" Padding="0">
                                             <Label>
@@ -51,7 +52,7 @@
                                                 </Label.FormattedText>
                                             </Label>
                                         </HorizontalStackLayout>
-                                        <Switch x:Name="alarmSwitch" Grid.Column="1" IsToggled="{Binding IsAlarmEnabled}" HorizontalOptions="End" VerticalOptions="Start" OnColor="#6750A4" WidthRequest="50" Toggled="alarmSwitch_Toggled" Margin="0"/>
+                                        <buttons:SfSwitch x:Name="alarmSwitch" Grid.Column="1" IsOn="{Binding IsAlarmEnabled}" HorizontalOptions="End" VerticalOptions="Start" StateChanged="alarmSwitch_Toggled" Margin="0"/>
                                         <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Margin="0, 10, 0, 0" Spacing="5" >
                                             <Label FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}" TextColor="{Binding AlarmSecondaryTextColor}" FontSize="15" HorizontalOptions="Start" Text="&#xe759;" VerticalOptions="Center"/>
                                             <Label Text="{Binding AlarmTime, Converter={StaticResource AlarmTimer}}" TextColor="{Binding AlarmSecondaryTextColor}" />
@@ -67,14 +68,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 <local:AlarmPopup x:Name="alarmPopup" OnCreated="alarmPopup_OnCreated"/>
-                <timePicker:SfTimePicker x:Name="alarmEditPicker" Mode="Dialog" Format="hh_mm_tt" OkButtonClicked="AlarmEditPicker_OkButtonClicked" CancelButtonClicked="alarmEditPicker_CancelButtonClicked">
-                    <timePicker:SfTimePicker.HeaderView>
-                        <timePicker:PickerHeaderView Text="Edit Alarm" Height="40"/>
-                    </timePicker:SfTimePicker.HeaderView>
-                    <timePicker:SfTimePicker.FooterView>
-                        <timePicker:PickerFooterView OkButtonText="Save" Height="40"/>
-                    </timePicker:SfTimePicker.FooterView>
-                </timePicker:SfTimePicker>
+                <timePicker:SfTimePicker x:Name="alarmEditPicker" BackgroundColor="Transparent" InputTransparent="True" Mode="Dialog" Format="hh_mm_tt" OkButtonClicked="AlarmEditPicker_OkButtonClicked" CancelButtonClicked="alarmEditPicker_CancelButtonClicked"/>
 
                 <Grid Grid.Row="1" HeightRequest="50" VerticalOptions="End" HorizontalOptions="End" Margin ="10">
                     <Path Fill="#6750A4">

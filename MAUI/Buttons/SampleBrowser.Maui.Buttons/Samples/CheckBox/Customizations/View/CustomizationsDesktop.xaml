@@ -8,7 +8,7 @@
              xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.CheckBox"
-             BackgroundColor="White"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
              Padding="0"
              WidthRequest="400">
 
@@ -16,12 +16,23 @@
 
     <localCore:SampleView.Resources>
         <Style x:Key="CheckBoxNormalStyle"  TargetType="button:SfCheckBox">
-            <Setter Property="TextColor" Value="Black"/>
             <Setter Property="CheckedColor" Value="#6200EE"/>
             <Setter Property="FontFamily" Value="Roboto-Regular"/>
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                             
+                            </VisualState.Setters>
+                        </VisualState>
+                      
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
         </Style>
         <Style x:Key="EntryNormalStyle"  TargetType="Entry">
-            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark=White}"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontFamily" Value="Roboto-Regular"/>
         </Style>
@@ -34,7 +45,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Border Margin="0,10" BackgroundColor="#f6f6f8" Grid.Row="0" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
+            <Border Margin="0,10"  Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" Grid.Row="0" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
                 <button:SfCheckBox  x:Name="checkBox"
                                      WidthRequest="150" 
                                      HeightRequest="50"
@@ -44,11 +55,10 @@
                                      Text="{Binding Text}"
                                      HorizontalOptions="Center" 
                                      HorizontalTextAlignment="Start" 
-                                     Style="{StaticResource CheckBoxNormalStyle}"
                                      CornerRadius="{Binding CornerRadius,Mode=TwoWay}">
                 </button:SfCheckBox>
             </Border>
-            <Border BackgroundColor="#f6f6f8" Margin="0,10" Padding="5,10" Grid.Row="1" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" Margin="0,10" Padding="5,10" Grid.Row="1" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
                 <Grid>
                     <ScrollView VerticalScrollBarVisibility="Never">
                         <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
@@ -60,15 +70,12 @@
 
 
                             <tabView:SfTabView 
-                                IndicatorBackground="#c6c6c6"
-                                               Margin="5,0"
-							                   TabBarBackground="White"
+                                               Margin="5,0"	
                                                HorizontalOptions="Start"
                                                VerticalOptions="Center"
                                                HeightRequest="130">
                                 <tabView:SfTabItem Header="Text Color" 
-										       FontFamily="Roboto-Regular" 
-										       HeightRequest="40">
+										       FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="WinUI" Value ="12"/>
@@ -117,7 +124,7 @@
                                         </StackLayout>
                                     </tabView:SfTabItem.Content>
                                 </tabView:SfTabItem>
-                                <tabView:SfTabItem Header="Checked Color" FontFamily="Roboto-Regular" HeightRequest="40">
+                                <tabView:SfTabItem Header="Checked Color" FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="WinUI" Value ="12"/>
@@ -166,7 +173,7 @@
                                         </StackLayout>
                                     </tabView:SfTabItem.Content>
                                 </tabView:SfTabItem>
-                                <tabView:SfTabItem Header="Unchecked Color" FontFamily="Roboto-Regular" HeightRequest="40">
+                                <tabView:SfTabItem Header="Unchecked Color" FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="WinUI" Value ="12"/>
@@ -228,10 +235,10 @@
                                         VerticalOptions="CenterAndExpand"
                                         Minimum="0" 
                                         Maximum="10" 
-                                        MaximumTrackColor="#E0E0E0"
-                                        MinimumTrackColor="#6200EE" 
-                                        Value="{Binding Radius,Mode=TwoWay}" 
-                                        ThumbColor="#6200EE">
+                                        MaximumTrackColor="{AppThemeBinding Light=#E0E0E0, Dark=#404040}"
+                                        MinimumTrackColor="{AppThemeBinding Light=#4285F4, Dark=White}"
+                                        ThumbColor="{AppThemeBinding Light=#4285F4, Dark=White}"
+                                        Value="{Binding Radius,Mode=TwoWay}" >
                                     <Slider.Margin>
                                         <OnPlatform x:TypeArguments="Thickness">
                                             <On Platform="WinUI" Value="0,15,0,0"/>

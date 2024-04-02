@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
-             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.TextMarkupColorCode">
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.TextMarkupColorCode"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer">
     <ContentView.Resources>
         <Style x:Key="buttonIconStyle" TargetType="Button">
             <Setter Property="BorderWidth" Value="0" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Padding" Value="4" />
             <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}" />
             <Setter Property="TextColor" Value="#99000000"/>
             <Setter Property="BackgroundColor" Value="Transparent"/>
             <Style.Triggers>
@@ -28,7 +28,7 @@
         </Style>
     </ContentView.Resources>
 
-    <Grid x:Name="MyGrid">
+    <Grid x:Name="MyGrid" Padding="2,0,2,0" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -43,7 +43,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid x:Name="MyTextMarkup" Grid.Row="0" Margin="5">
+            <Grid x:Name="MyTextMarkup" Grid.Row="0" Margin="5" Padding="8,8,8,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -61,50 +61,50 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Margin ="{OnPlatform MacCatalyst=10}" Grid.Row="0" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#FFFFFF" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="0" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#DADADA" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="0" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#B2B2B2" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="0" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#909090" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="0" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#707070" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="0" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#525151" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="0" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#383737" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="0" Grid.Column="7" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#060606" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="0" Grid.Column="0"  BackgroundColor="#FFFFFF" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="0" Grid.Column="1"  BackgroundColor="#DADADA" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="0" Grid.Column="2"  BackgroundColor="#B2B2B2" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="0" Grid.Column="3"  BackgroundColor="#909090" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="0" Grid.Column="4"  BackgroundColor="#707070" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="0" Grid.Column="5"  BackgroundColor="#525151" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="0" Grid.Column="6"  BackgroundColor="#383737" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="0" Grid.Column="7"  BackgroundColor="#060606" Clicked="ColorHeighlightButton_Clicked"/>
 
-                <Button Grid.Row="1" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#FFA6A6" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#FFDEA6" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#FBFBA6" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#A7FFAB" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#A6FFF9" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#ACA9FF" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#E7A6FF" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="1" Grid.Column="7" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#FBA6FB" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="1" Grid.Column="0"  BackgroundColor="#FFA6A6" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="1" Grid.Column="1"  BackgroundColor="#FFDEA6" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="1" Grid.Column="2"  BackgroundColor="#FBFBA6" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="1" Grid.Column="3"  BackgroundColor="#A7FFAB" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="1" Grid.Column="4"  BackgroundColor="#A6FFF9" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="1" Grid.Column="5"  BackgroundColor="#ACA9FF" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="1" Grid.Column="6"  BackgroundColor="#E7A6FF" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="1" Grid.Column="7"  BackgroundColor="#FBA6FB" Clicked="ColorHeighlightButton_Clicked"/>
 
-                <Button Grid.Row="2" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#FF0000" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#FFA200" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#F3F500" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#03FF0F" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#00FFEF" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#1108FF" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#B900FF" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="2" Grid.Column="7" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#F500F3" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="2" Grid.Column="0"  BackgroundColor="#FF0000" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="2" Grid.Column="1"  BackgroundColor="#FFA200" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="2" Grid.Column="2"  BackgroundColor="#F3F500" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="2" Grid.Column="3"  BackgroundColor="#03FF0F" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="2" Grid.Column="4"  BackgroundColor="#00FFEF" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="2" Grid.Column="5"  BackgroundColor="#1108FF" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="2" Grid.Column="6"  BackgroundColor="#B900FF" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="2" Grid.Column="7"  BackgroundColor="#F500F3" Clicked="ColorHeighlightButton_Clicked"/>
 
-                <Button Grid.Row="3" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#D60000" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="3" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#D68800" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="3" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#CACC00" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="3" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#00D60A" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="3" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#00D6C9" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="3" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#0800E0" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="3" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#9B00D6" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="3" Grid.Column="7" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#CC00CA" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="3" Grid.Column="0"  BackgroundColor="#D60000" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="3" Grid.Column="1"  BackgroundColor="#D68800" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="3" Grid.Column="2"  BackgroundColor="#CACC00" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="3" Grid.Column="3"  BackgroundColor="#00D60A" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="3" Grid.Column="4"  BackgroundColor="#00D6C9" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="3" Grid.Column="5"  BackgroundColor="#0800E0" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="3" Grid.Column="6"  BackgroundColor="#9B00D6" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="3" Grid.Column="7"  BackgroundColor="#CC00CA" Clicked="ColorHeighlightButton_Clicked"/>
 
-                <Button Grid.Row="4" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#990000" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="4" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#996100" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="4" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#989900" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="4" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#009907" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="4" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#00998F" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="4" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#060099" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="4" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#6F0099" Clicked="ColorHeighlightButton_Clicked"/>
-                <Button Grid.Row="4" Grid.Column="7" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="30" WidthRequest="30" CornerRadius="15" BackgroundColor="#990098" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="4" Grid.Column="0"  BackgroundColor="#990000" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="4" Grid.Column="1"  BackgroundColor="#996100" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="4" Grid.Column="2"  BackgroundColor="#989900" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="4" Grid.Column="3"  BackgroundColor="#009907" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="4" Grid.Column="4"  BackgroundColor="#00998F" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="4" Grid.Column="5"  BackgroundColor="#060099" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="4" Grid.Column="6"  BackgroundColor="#6F0099" Clicked="ColorHeighlightButton_Clicked"/>
+                <local:CircleButton Grid.Row="4" Grid.Column="7"  BackgroundColor="#990098" Clicked="ColorHeighlightButton_Clicked"/>
             </Grid>
             <Line Grid.Row="1" StrokeThickness="1" BackgroundColor="#CAC4D0"/>
             <Grid Grid.Row="3" Margin="0,10">
@@ -112,7 +112,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="Opacity" TextColor="#1C1B1F" HorizontalOptions="Start" Margin="15,0,0,0"/>
+                <Label Grid.Row="0" Text="Opacity" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=Black}" HorizontalOptions="Start" Margin="15,0,0,0"/>
                 <sliders:SfSlider x:Name="textMarkUpOpacitySlidr"  Grid.Row="1" Minimum="0.1" Value="{Binding SelectedOpacity}" Maximum="1" HorizontalOptions="Start" ValueChangeEnd="TextMarkUpOpacitySliderChanged">
                     <sliders:SfSlider.TrackStyle>
                         <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>

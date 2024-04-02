@@ -20,9 +20,9 @@ namespace SampleBrowser.Maui.ListView.SfListView
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if ((bool)value)
-                return "\ue71A";
+                return "\ue7CF";
             else
-                return "\ue71B";
+                return "\ue73A";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -47,18 +47,18 @@ namespace SampleBrowser.Maui.ListView.SfListView
         }
     }
 
-    public class TextColorConverter : IValueConverter
+    public class TextOpacityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value != null)
             {
                 if ((bool)value)
-                    return Color.FromArgb("#666666");
+                    return 0.8;
                 else
-                    return Color.FromArgb("#000000");
+                    return 1;
             }
-            return Color.FromArgb("#000000");
+            return 1;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

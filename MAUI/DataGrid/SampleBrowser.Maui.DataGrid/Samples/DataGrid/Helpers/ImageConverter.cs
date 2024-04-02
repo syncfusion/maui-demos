@@ -39,15 +39,10 @@ namespace SampleBrowser.Maui.DataGrid
                     var label = parameter as Label;
                     label!.FontFamily = fontFamily;
                     label!.TextColor = Color.FromRgb(76, 175, 80);
-                    return "\ue727";
+                    return "\ue705";
                 }
 
-                return new FontImageSource
-                {
-                    Glyph = "\ue727",
-                    FontFamily = fontFamily,
-                    Color = Color.FromRgb(76, 175, 80)
-                };
+                return " " + string.Format("{0:0.00}", this.data);
             }
             else
             {
@@ -56,15 +51,10 @@ namespace SampleBrowser.Maui.DataGrid
                     var label = parameter as Label;
                     label!.FontFamily = fontFamily;
                     label!.TextColor = Color.FromRgb(239, 83, 80);
-                    return "\ue729";
+                    return "\ue704";
                 }
 
-                return new FontImageSource
-                {
-                    Glyph = "\ue729",
-                    FontFamily = fontFamily,
-                    Color = Color.FromRgb(239, 83, 80)
-                };
+                return string.Format("{0:0.00}", this.data);
             }
         }
 
@@ -85,12 +75,7 @@ namespace SampleBrowser.Maui.DataGrid
 
         private string GetFontFamily()
         {
-            if (Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.Android)
-                return "SB Icons.ttf#";
-            else if (Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.WinUI)
-                return "SB Icons.ttf#SB Icons";
-            else
-                return "SB Icons";
+            return "MauiSampleFontIcon";
         }
 
         #endregion

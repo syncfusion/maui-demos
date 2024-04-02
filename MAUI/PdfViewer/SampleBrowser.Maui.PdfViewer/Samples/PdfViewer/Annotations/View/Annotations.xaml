@@ -8,17 +8,18 @@
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.PdfViewer;assembly=Syncfusion.Maui.PdfViewer"  
     xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
     x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.Annotations">
-    
+
     <localCore:SampleView.Resources>
         <Style x:Key="buttonIconStyle" TargetType="Button">
             <Setter Property="BorderWidth" Value="0" />
             <Setter Property="FontSize" Value="18" />
-            <Setter Property="Padding" Value="4" />
+            <Setter Property="Padding" Value="8" />
             <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}" />
             <Setter Property="TextColor" Value="#99000000"/>
             <Setter Property="BackgroundColor" Value="Transparent"/>
-            
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="40" />
+
             <Style.Triggers>
                 <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="Transparent"/>
@@ -30,7 +31,7 @@
                 <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="#14000000" />
                 </Trigger>
-                
+
             </Style.Triggers>
         </Style>
         <core:InvertedBoolConverter x:Key="invertedBoolConverter"/>
@@ -48,11 +49,11 @@
                         </Grid.RowDefinitions>
                         <local:AnnotationToolbarDesktop
                         x:Name="DesktopToolbar" Grid.Row="0" 
-                        HeightRequest="48" BackgroundColor="#F3EDF7" 
+                        HeightRequest="48" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}"
                         IsVisible="{OnPlatform Default=true,Android=false,iOS=false}"/>
                         <local:AnnotationToolbarMobile
                         x:Name="MobileToolbar" Grid.Row="0" 
-                        HeightRequest="48" BackgroundColor="#F3EDF7"  
+                        HeightRequest="48" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}"
                         IsVisible="{OnPlatform Default=false,Android=true,iOS=true}"/>
                         <syncfusion:SfPdfViewer
                         x:Name="PdfViewer"
@@ -116,8 +117,8 @@
                             </sliders:SfSlider>
                             <BoxView BackgroundColor="Gray" Opacity="0.5" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
                         </Grid>
-                       
-                        
+
+
                         <local:ColorToolbar x:Name="colorToolBar" IsVisible="{Binding IsColorToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1" />
                         <local:ColorToolbar x:Name="fillColorToolBar" IsVisible="{Binding IsFillColorToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1" />
                         <local:StickyNoteToolbar x:Name="stickyNoteToolbar" IsVisible="{Binding IsStickyNoteToolbarVisible}" HeightRequest="96" VerticalOptions="End" Grid.Row="1"/>
@@ -140,9 +141,9 @@
                     HorizontalOptions="Start" VerticalOptions="Start" Margin="{Binding FileOperationListMargin}" 
                     IsVisible="{Binding IsFileOperationListVisible}">
                         <Border
-                    WidthRequest="200" HeightRequest= "{OnPlatform Default=130, MacCatalyst=130}" Padding="0,7,0,7"
+                    WidthRequest="200" HeightRequest= "{OnPlatform Default=180, MacCatalyst=180}" Padding="0,7,0,7"
                     HorizontalOptions="Start" VerticalOptions="Start"
-                    BackgroundColor="#F3EDF7"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}"
                     Stroke="#33000000"
                     StrokeThickness="1">
                             <Border.StrokeShape>
@@ -159,10 +160,15 @@
                                     <RowDefinition Height="Auto"></RowDefinition>
                                     <RowDefinition Height="Auto"></RowDefinition>
                                     <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="5"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <HorizontalStackLayout Grid.Row="0" x:Name="saveLayout"/>
                                 <HorizontalStackLayout Grid.Row="1" x:Name="importLayout"/>
                                 <HorizontalStackLayout Grid.Row="2" x:Name="exportLayout"/>
+                                <Border Grid.Row="3" HeightRequest="1" Background="#CAC4D0">
+                                </Border>
+                                <HorizontalStackLayout Grid.Row="4"  x:Name="printLayout"/>
                             </Grid>
                         </Border>
                     </Grid>
@@ -179,13 +185,13 @@
                         <local:StampViewDesktop x:Name="DesktopStampView" CreateStampClicked="OnCreateStampClicked"/>
                     </Grid>
                     <Grid Margin="15,40,0,0" WidthRequest="190" IsVisible="{OnPlatform Default={Binding IsFileOperationListVisible}, MacCatalyst=False, WinUI=False}"
-                            HeightRequest="180" VerticalOptions="Start" HorizontalOptions="Start">
+                            HeightRequest="185" VerticalOptions="Start" HorizontalOptions="Start">
                         <Border
                             VerticalOptions="Start"
                             HorizontalOptions="End"
-                            BackgroundColor="#EEE8F4"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
                             WidthRequest="190"
-                            HeightRequest="140">
+                            HeightRequest="185">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="5" />
                             </Border.StrokeShape>
@@ -199,8 +205,8 @@
                                 <VerticalStackLayout Spacing="0">
                                     <Grid>
                                         <HorizontalStackLayout>
-                                            <Label Margin="15,0,0,0" FontSize="18" VerticalOptions="Center" VerticalTextAlignment="Center" Text="&#xe75f;" FontFamily="Maui Material Assets" TextColor="#99000000" />
-                                            <Label Margin="10,0,0,0" FontSize="15" VerticalOptions="Center" VerticalTextAlignment="Center" Text="Save" TextColor="#99000000" />
+                                            <Label Margin="15,0,0,0" FontSize="18" VerticalOptions="Center" VerticalTextAlignment="Center" Text="&#xe75f;" FontFamily="Maui Material Assets" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" />
+                                            <Label Margin="10,0,0,0" FontSize="15" VerticalOptions="Center" VerticalTextAlignment="Center" Text="Save" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" />
                                         </HorizontalStackLayout>
                                         <Button WidthRequest="190"
                                             HeightRequest="40"
@@ -210,8 +216,8 @@
                                     </Grid>
                                     <Grid>
                                         <HorizontalStackLayout>
-                                            <Label Margin="15,0,0,0" FontSize="21" VerticalOptions="Center" VerticalTextAlignment="Center" Text="&#xe782;" FontFamily="Maui Material Assets" TextColor="#99000000" />
-                                            <Label Margin="10,0,0,0" FontSize="15" VerticalOptions="Center" VerticalTextAlignment="Center" Text="Import annotations" TextColor="#99000000" />
+                                            <Label Margin="15,0,0,0" FontSize="21" VerticalOptions="Center" VerticalTextAlignment="Center" Text="&#xe782;" FontFamily="Maui Material Assets" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" />
+                                            <Label Margin="10,0,0,0" FontSize="15" VerticalOptions="Center" VerticalTextAlignment="Center" Text="Import annotations" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" />
                                         </HorizontalStackLayout>
                                         <Button WidthRequest="190"
                                             x:Name="importButton"
@@ -221,12 +227,27 @@
                                     </Grid>
                                     <Grid>
                                         <HorizontalStackLayout>
-                                            <Label Margin="15,0,0,0" FontSize="21" VerticalOptions="Center" VerticalTextAlignment="Center" Text="&#xe781;" FontFamily="Maui Material Assets" TextColor="#99000000" />
-                                            <Label Margin="10,0,0,0" FontSize="15" VerticalOptions="Center" VerticalTextAlignment="Center" Text="Export annotations" TextColor="#99000000" />
+                                            <Label Margin="15,0,0,0" FontSize="21" VerticalOptions="Center" VerticalTextAlignment="Center" Text="&#xe781;" FontFamily="Maui Material Assets" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
+                                            <Label Margin="10,0,0,0" FontSize="15" VerticalOptions="Center" VerticalTextAlignment="Center" Text="Export annotations" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
                                         </HorizontalStackLayout>
                                         <Button WidthRequest="190"
                                             x:Name="exportButton"
                                             Clicked="exportButton_Clicked"
+                                            HeightRequest="40"
+                                            Style="{StaticResource buttonIconStyle}" />
+                                    </Grid>
+                                    <Grid Padding="0,2,0,2" HeightRequest="5">
+                                        <Border HeightRequest="1" Background="#CAC4D0">
+                                        </Border>
+                                    </Grid>
+                                    <Grid>
+                                        <HorizontalStackLayout>
+                                            <Label Margin="15,0,0,0" FontSize="21" VerticalOptions="Center" VerticalTextAlignment="Center" Text="&#xe77f;" FontFamily="Maui Material Assets" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" />
+                                            <Label Margin="10,0,0,0" FontSize="15" VerticalOptions="Center" VerticalTextAlignment="Center" Text="Print" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
+                                        </HorizontalStackLayout>
+                                        <Button WidthRequest="190"
+                                            x:Name="printButton"
+                                            Clicked="printButton_Clicked"
                                             HeightRequest="40"
                                             Style="{StaticResource buttonIconStyle}" />
                                     </Grid>
@@ -238,7 +259,7 @@
                     <local:ColorCode x:Name="shapeColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsShapeColorPalleteVisible}"/>
                     <local:LineAndArrowColorCode x:Name="lineAndArrowColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsLineAndArrowColorPalleteVisible}"/>
                     <local:TextMarkupColorCode x:Name="textMarkupColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsTextMarkUpColorPalleteVisible}"/>
-                    <local:StickyNoteColorCode Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsStickyNoteColorPalleteVisible}"/>
+                    <local:StickyNoteColorCode x:Name="stickyNoteColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsStickyNoteColorPalleteVisible}"/>
                     <local:InkColorCode x:Name="inkColorPalette" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsInkColorPalleteVisible}"/>
                     <local:StampOpacity x:Name="stampOpacityBar" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsStampOpacitySliderbarVisible}"/>
                     <local:EraserThickness x:Name="eraserThicknessBar" Margin="{Binding ColorPaletteMargin}" IsVisible="{Binding IsEraserThicknessToolbarVisible}"/>

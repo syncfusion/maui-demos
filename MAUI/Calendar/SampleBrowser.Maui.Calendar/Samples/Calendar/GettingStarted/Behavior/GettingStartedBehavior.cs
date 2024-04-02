@@ -14,6 +14,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
     using Syncfusion.Maui.Calendar;
     using Syncfusion.Maui.DataSource.Extensions;
     using Syncfusion.Maui.Inputs;
+    using Syncfusion.Maui.Buttons;
 
     /// <summary>
     /// Getting started Behavior class
@@ -28,22 +29,22 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <summary>
         /// The current time indicator switch.
         /// </summary>
-        private Switch? enableDatesSwitch;
+        private SfSwitch? enableDatesSwitch;
 
         /// <summary>
         /// The enable swipe selection switch
         /// </summary>
-        private Switch? enableSwipeSelectionSwitch;
+        private SfSwitch? enableSwipeSelectionSwitch;
 
         /// <summary>
         /// The weekNumber switch.
         /// </summary>
-        private Switch? weekNumberSwitch;
+        private SfSwitch? weekNumberSwitch;
 
         /// <summary>
         /// The allow view navigation switch
         /// </summary>
-        private Switch? allowViewNavigationSwitch;
+        private SfSwitch? allowViewNavigationSwitch;
 
         /// <summary>
         /// The week number grid.
@@ -53,7 +54,7 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <summary>
         /// The trailing dates switch.
         /// </summary>
-        private Switch? trailingDatesSwitch;
+        private SfSwitch? trailingDatesSwitch;
 
         /// <summary>
         /// The combo box is a text box component that allows users to type a value or choose
@@ -89,12 +90,12 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// <summary>
         /// The show action buttons switch.
         /// </summary>
-        private Switch? enableActionButtonsSwitch;
+        private SfSwitch? enableActionButtonsSwitch;
 
         /// <summary>
         /// The show today buttons switch.
         /// </summary>
-        private Switch? enableTodayButtonSwitch;
+        private SfSwitch? enableTodayButtonSwitch;
 
         /// <summary>
         /// Begins when the behavior attached to the view 
@@ -107,33 +108,25 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 #if IOS || MACCATALYST
             Border border = bindable.Content.FindByName<Border>("border");
             border.IsVisible = true;
-#if MACCATALYST
-            border.Stroke = Color.FromArgb("#E6E6E6");
-#else
             border.Stroke = Colors.Transparent;
-#endif
             this.calendar = bindable.Content.FindByName<SfCalendar>("Calendar1");
 #else
             Frame frame = bindable.Content.FindByName<Frame>("frame");
             frame.IsVisible = true;
-#if ANDROID
             frame.BorderColor = Colors.Transparent;
-#else
-            frame.BorderColor = Color.FromArgb("#E6E6E6");
-#endif
             this.calendar = bindable.Content.FindByName<SfCalendar>("Calendar");
 #endif
             this.datePicker = bindable.Content.FindByName<DatePicker>("datePicker");
-            this.weekNumberSwitch = bindable.Content.FindByName<Switch>("weekNumberSwitch");
-            this.enableDatesSwitch = bindable.Content.FindByName<Switch>("enableDatesSwitch");
-            this.allowViewNavigationSwitch = bindable.Content.FindByName<Switch>("allowViewNavigationSwitch");
+            this.weekNumberSwitch = bindable.Content.FindByName<SfSwitch>("weekNumberSwitch");
+            this.enableDatesSwitch = bindable.Content.FindByName<SfSwitch>("enableDatesSwitch");
+            this.allowViewNavigationSwitch = bindable.Content.FindByName<SfSwitch>("allowViewNavigationSwitch");
             this.weekNumberGrid = bindable.Content.FindByName<Grid>("weekNumberGrid");
 
-            this.enableSwipeSelectionSwitch = bindable.Content.FindByName<Switch>("enableSwipeSelectionSwitch");
+            this.enableSwipeSelectionSwitch = bindable.Content.FindByName<SfSwitch>("enableSwipeSelectionSwitch");
             this.enableSwipeSelectionGrid = bindable.Content.FindByName<Grid>("enableSwipeSelectionGrid");
 
             this.trailingDatesGrid = bindable.Content.FindByName<Grid>("trailingDatesGrid");
-            this.trailingDatesSwitch = bindable.Content.FindByName<Switch>("trailingDatesSwitch");
+            this.trailingDatesSwitch = bindable.Content.FindByName<SfSwitch>("trailingDatesSwitch");
 
             this.comboBox = bindable.Content.FindByName<SfComboBox>("comboBox");
             comboBox.ItemsSource = Enum.GetValues(typeof(CalendarView)).ToList<CalendarView>();
@@ -156,8 +149,8 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
             directionComboBox.SelectedIndex = 0;
             directionComboBox.SelectionChanged += DirectionComboBox_SelectionChanged;
 
-            this.enableActionButtonsSwitch = bindable.Content.FindByName<Switch>("showActionButtonsSwitch");
-            this.enableTodayButtonSwitch = bindable.Content.FindByName<Switch>("showTodayButtonSwitch");
+            this.enableActionButtonsSwitch = bindable.Content.FindByName<SfSwitch>("showActionButtonsSwitch");
+            this.enableTodayButtonSwitch = bindable.Content.FindByName<SfSwitch>("showTodayButtonSwitch");
 
             this.calendar.MinimumDate = new DateTime(1900, 01, 01);
             this.calendar.MaximumDate = new DateTime(2100, 12, 31);
@@ -175,37 +168,37 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 
             if (this.enableDatesSwitch != null)
             {
-                this.enableDatesSwitch.Toggled += EnablePastDates_Toggled;
+                this.enableDatesSwitch.StateChanged += EnablePastDates_Toggled;
             }
 
             if (this.enableSwipeSelectionSwitch != null)
             {
-                this.enableSwipeSelectionSwitch.Toggled += EnableSwipeSelection_Toggled;
+                this.enableSwipeSelectionSwitch.StateChanged += EnableSwipeSelection_Toggled;
             }
 
             if (this.weekNumberSwitch != null)
             {
-                this.weekNumberSwitch.Toggled += WeekNumberSwitch_Toggled;
+                this.weekNumberSwitch.StateChanged += WeekNumberSwitch_Toggled;
             }
 
             if (this.trailingDatesSwitch != null)
             {
-                this.trailingDatesSwitch.Toggled += TrailingDatesSwitch_Toggled;
+                this.trailingDatesSwitch.StateChanged += TrailingDatesSwitch_Toggled;
             }
 
             if (this.allowViewNavigationSwitch != null)
             {
-                this.allowViewNavigationSwitch.Toggled += AllowViewNavigationSwitch_Toggled;
+                this.allowViewNavigationSwitch.StateChanged += AllowViewNavigationSwitch_Toggled;
             }
 
             if (this.enableActionButtonsSwitch != null)
             {
-                this.enableActionButtonsSwitch.Toggled += EnableActionButtonsSwitch_Toggled;
+                this.enableActionButtonsSwitch.StateChanged += EnableActionButtonsSwitch_Toggled;
             }
 
             if (this.enableTodayButtonSwitch != null)
             {
-                this.enableTodayButtonSwitch.Toggled += EnableTodayButtonSwitch_Toggled;
+                this.enableTodayButtonSwitch.StateChanged += EnableTodayButtonSwitch_Toggled;
             }
 
             if (this.calendar != null && this.datePicker != null)
@@ -387,11 +380,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Arguments</param>
-        private void AllowViewNavigationSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void AllowViewNavigationSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.calendar != null)
+            if (this.calendar != null && e.NewValue.HasValue)
             {
-                this.calendar.AllowViewNavigation = e.Value;
+                this.calendar.AllowViewNavigation = e.NewValue.Value;
             }
         }
 
@@ -400,11 +393,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Arguments</param>
-        private void WeekNumberSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void WeekNumberSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.calendar != null)
+            if (this.calendar != null && e.NewValue.HasValue)
             {
-                this.calendar.MonthView.ShowWeekNumber = e.Value;
+                this.calendar.MonthView.ShowWeekNumber = e.NewValue.Value;
             }
         }
 
@@ -413,11 +406,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Arguments</param>
-        private void TrailingDatesSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void TrailingDatesSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.calendar != null)
+            if (this.calendar != null && e.NewValue.HasValue)
             {
-                this.calendar.ShowTrailingAndLeadingDates = e.Value;
+                this.calendar.ShowTrailingAndLeadingDates = e.NewValue.Value;
             }
         }
 
@@ -426,11 +419,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Arguments</param>
-        private void EnablePastDates_Toggled(object? sender, ToggledEventArgs e)
+        private void EnablePastDates_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.calendar != null)
+            if (this.calendar != null && e.NewValue.HasValue)
             {
-                this.calendar.EnablePastDates = e.Value;
+                this.calendar.EnablePastDates = e.NewValue.Value;
             }
         }
 
@@ -439,11 +432,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Arguments</param>
-        private void EnableSwipeSelection_Toggled(object? sender, ToggledEventArgs e)
+        private void EnableSwipeSelection_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.calendar != null)
+            if (this.calendar != null && e.NewValue.HasValue)
             {
-                this.calendar.EnableSwipeSelection = e.Value;
+                this.calendar.EnableSwipeSelection = e.NewValue.Value;
             }
         }
 
@@ -452,11 +445,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Arguments</param>
-        private void EnableTodayButtonSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void EnableTodayButtonSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.calendar != null)
+            if (this.calendar != null && e.NewValue.HasValue)
             {
-                this.calendar.ShowTodayButton = e.Value;
+                this.calendar.ShowTodayButton = e.NewValue.Value;
             }
         }
 
@@ -465,11 +458,11 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
         /// </summary>
         /// <param name="sender">return the object</param>
         /// <param name="e">Event Arguments</param>
-        private void EnableActionButtonsSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void EnableActionButtonsSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.calendar != null)
+            if (this.calendar != null && e.NewValue.HasValue)
             {
-                this.calendar.ShowActionButtons = e.Value;
+                this.calendar.ShowActionButtons = e.NewValue.Value;
             }
         }
 
@@ -487,43 +480,43 @@ namespace SampleBrowser.Maui.Calendar.SfCalendar
 
             if (this.weekNumberSwitch != null)
             {
-                this.weekNumberSwitch.Toggled -= WeekNumberSwitch_Toggled;
+                this.weekNumberSwitch.StateChanged -= WeekNumberSwitch_Toggled;
                 this.weekNumberSwitch = null;
             }
 
             if (this.trailingDatesSwitch != null)
             {
-                this.trailingDatesSwitch.Toggled -= TrailingDatesSwitch_Toggled;
+                this.trailingDatesSwitch.StateChanged -= TrailingDatesSwitch_Toggled;
                 this.trailingDatesSwitch = null;
             }
 
             if (this.enableDatesSwitch != null)
             {
-                this.enableDatesSwitch.Toggled -= EnablePastDates_Toggled;
+                this.enableDatesSwitch.StateChanged -= EnablePastDates_Toggled;
                 this.enableDatesSwitch = null;
             }
 
             if (this.enableSwipeSelectionSwitch != null)
             {
-                this.enableSwipeSelectionSwitch.Toggled -= EnableSwipeSelection_Toggled;
+                this.enableSwipeSelectionSwitch.StateChanged -= EnableSwipeSelection_Toggled;
                 this.enableDatesSwitch = null;
             }
 
             if (this.allowViewNavigationSwitch != null)
             {
-                this.allowViewNavigationSwitch.Toggled -= AllowViewNavigationSwitch_Toggled;
+                this.allowViewNavigationSwitch.StateChanged -= AllowViewNavigationSwitch_Toggled;
                 this.allowViewNavigationSwitch = null;
             }
 
             if (this.enableActionButtonsSwitch != null)
             {
-                this.enableActionButtonsSwitch.Toggled -= EnableActionButtonsSwitch_Toggled;
+                this.enableActionButtonsSwitch.StateChanged -= EnableActionButtonsSwitch_Toggled;
                 this.enableActionButtonsSwitch = null;
             }
 
             if (this.enableTodayButtonSwitch != null)
             {
-                this.enableTodayButtonSwitch.Toggled -= EnableTodayButtonSwitch_Toggled;
+                this.enableTodayButtonSwitch.StateChanged -= EnableTodayButtonSwitch_Toggled;
                 this.enableTodayButtonSwitch = null;
             }
 

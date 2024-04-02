@@ -11,7 +11,6 @@
             <Setter Property="Opacity" Value="0.6"/>
             <Setter Property="Padding" Value="4" />
             <Setter Property="BorderWidth" Value="0" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}"/>
             <Style.Triggers>
                 <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="#14000000" />
@@ -20,12 +19,13 @@
         </Style>
     </ContentView.Resources>
     <Border 
-        BackgroundColor="#EEE8F4"
+        BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
         Stroke="#33000000" StrokeShape="{OnPlatform WinUI=RoundRectangle 20, MacCatalyst=RoundRectangle 20}"
         StrokeThickness="1" HorizontalOptions="Center" 
         VerticalOptions="Center" HeightRequest="{OnPlatform WinUI=420,MacCatalyst=420}" WidthRequest="{OnPlatform WinUI=340,MacCatalyst=340}" >
-        <Grid BackgroundColor="#EEE8F4">
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -33,13 +33,13 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" BackgroundColor="#EEE8F4"  Margin="20,20,20,15" >
+            <Grid Grid.Row="0" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"  Margin="20,20,20,15" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label  Grid.Column="0" Text="Create Stamp" HeightRequest="32"
-                       TextColor="#1C1B1F" HorizontalOptions="Start" FontSize="20" />
+                       TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=Black}" HorizontalOptions="Start" FontSize="20" />
                 <Button Grid.Column="1" Text="&#xe70b;" TextColor="#49454F" FontSize="24" 
                         FontFamily="Maui Material Assets" Padding="4"
                         Style="{StaticResource buttonIconStyle}" HorizontalOptions="End"
@@ -95,7 +95,7 @@
              TextChanged="OnEntryTextChanged" />
             </inputLayout:SfTextInputLayout>
             
-            <Grid x:Name="stampColor" Grid.Row="4" Margin="12" >
+            <Grid x:Name="stampColor" Grid.Row="4" Margin="16,12,15,12" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto"/>
@@ -111,24 +111,24 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Row="0" Margin="2" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#C10000" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="0" Margin="2" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#089405" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="0" Margin="2" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#A29C06" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="0" Margin="2" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#A007A3" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="0" Margin="2" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#07549A" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="0" Margin="2" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#2E01B0" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="0" Margin="2" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#986504" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="0" Margin="2" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#C10000" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="0" Margin="2" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#089405" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="0" Margin="2" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#A29C06" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="0" Margin="2" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#A007A3" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="0" Margin="2" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#07549A" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="0" Margin="2" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#2E01B0" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="0" Margin="2" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#986504" Clicked="ColorHighlightButton_Clicked"/>
 
-                <Button Grid.Row="1" Margin="2" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#15686A" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="1" Margin="2" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#3D3D3D" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="1" Margin="2" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#6C0B6E" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="1" Margin="2" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#800404" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="1" Margin="2" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#546B08" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="1" Margin="2" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#613E09" Clicked="ColorHighlightButton_Clicked"/>
-                <Button Grid.Row="1" Margin="2" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="35" WidthRequest="35" CornerRadius="20" BackgroundColor="#33076C" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="1" Margin="2" Grid.Column="0" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#15686A" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="1" Margin="2" Grid.Column="1" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#3D3D3D" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="1" Margin="2" Grid.Column="2" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#6C0B6E" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="1" Margin="2" Grid.Column="3" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#800404" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="1" Margin="2" Grid.Column="4" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#546B08" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="1" Margin="2" Grid.Column="5" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#613E09" Clicked="ColorHighlightButton_Clicked"/>
+                <Button Grid.Row="1" Margin="2" Grid.Column="6" BorderWidth="1" BorderColor="Transparent" Padding="1" HeightRequest="40" WidthRequest="40" CornerRadius="20" BackgroundColor="#33076C" Clicked="ColorHighlightButton_Clicked"/>
             </Grid>
 
-            <Grid Grid.Row="5" Margin="0,120,24,24" >
+            <Grid Grid.Row="5" Margin="0,0,24,20" >
                 <Button  Text="Create" TextColor="#6750A4" FontSize="14" FontFamily="Roboto" Opacity="4"
                      Style="{StaticResource buttonIconStyle}" HorizontalOptions="End" VerticalOptions="End"
                      CornerRadius="20" WidthRequest="84" HeightRequest="40"

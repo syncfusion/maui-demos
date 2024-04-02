@@ -6,7 +6,7 @@
              xmlns:tabView="http://schemas.syncfusion.com/maui"
              xmlns:local="clr-namespace:SampleBrowser.Maui.TabView.SfTabView"
              xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
-             BackgroundColor="White">
+            BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
     <localCore:SampleView.Content>
         <Grid >
             <Grid.Resources>
@@ -21,6 +21,7 @@
                 </Style>
                 <Style TargetType="Label">
                     <Setter Property="VerticalOptions" Value="Center"/>
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                 </Style>
                 <Style TargetType="tabView:SfTabItem">
                     <Setter Property="VisualStateManager.VisualStateGroups">
@@ -35,7 +36,7 @@
                                 </VisualState>
                                 <VisualState x:Name="Normal">
                                     <VisualState.Setters>
-                                        <Setter Property="TextColor" Value="Black" />
+                                        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
                                         <Setter Property="FontAttributes" Value="Italic" />
                                         <Setter Property="FontSize" Value="12" />
                                     </VisualState.Setters>
@@ -75,7 +76,7 @@
                                 <DataTemplate>
                                     <HorizontalStackLayout Padding="5,0,5,0">
                                         <Image Source="{imageExtension:SfImageResource document.png}"/>
-                                        <Label Margin="10,20,0,20" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.docx}"/>
+                                        <Label Margin="10,20,0,20" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.docx}"/>
                                     </HorizontalStackLayout>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
@@ -102,7 +103,7 @@
                                 <DataTemplate>
                                     <HorizontalStackLayout Padding="5,0,5,0">
                                         <Image Source="{imageExtension:SfImageResource excel.png}"/>
-                                        <Label Margin="10,20,0,20" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.xlsx}"/>
+                                        <Label Margin="10,20,0,20" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.xlsx}"/>
                                     </HorizontalStackLayout>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
@@ -136,7 +137,7 @@
                                 <DataTemplate>
                                     <HorizontalStackLayout Padding="5,0,5,0">
                                         <Image Source="{imageExtension:SfImageResource pdftab.png}"/>
-                                        <Label Margin="10,20,0,20" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.pdf}"/>
+                                        <Label Margin="10,20,0,20" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.pdf}"/>
                                     </HorizontalStackLayout>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
@@ -160,7 +161,7 @@
                                 <DataTemplate>
                                     <HorizontalStackLayout Padding="5,0,5,0">
                                         <Image Source="{imageExtension:SfImageResource powerpoint.png}"/>
-                                        <Label Margin="10,20,0,20" TextColor="Black" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.pptx}"/>
+                                        <Label Margin="10,20,0,20" Text="{Binding Converter={StaticResource TextToFileNameConverter}, ConverterParameter=.pptx}"/>
                                     </HorizontalStackLayout>
                             </DataTemplate>
                             </BindableLayout.ItemTemplate>

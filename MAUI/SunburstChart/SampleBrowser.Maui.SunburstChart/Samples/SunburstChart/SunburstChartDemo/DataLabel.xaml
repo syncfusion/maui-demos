@@ -5,16 +5,25 @@
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
              xmlns:chart="http://schemas.syncfusion.com/maui">
 
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:SunburstChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
     <localCore:SampleView.BindingContext>
         <local:ViewModel x:Name="datalabelViewModel"/>
     </localCore:SampleView.BindingContext>
     <localCore:SampleView.Content>
         <chart:SfSunburstChart x:Name="sunburstChart" ItemsSource="{Binding DataSource}"
                                 ValueMemberPath="EmployeesCount" VerticalOptions="FillAndExpand" EnableTooltip="True"
-                                PaletteBrushes="{Binding CustomBrush1}" ShowLabels="True" InnerRadius="0.2">
+                                PaletteBrushes="{AppThemeBinding Default={StaticResource PaletteBrushesLight1}, Dark={StaticResource PaletteBrushesDark1}}" 
+                                ShowLabels="True" InnerRadius="0.2">
             
             <chart:SfSunburstChart.Title>
-                <Label Text="Employee Count by Country: A Comprehensive Overview" FontAttributes="Bold" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="18" TextColor="Black"/>
+                <Label Text="Employee Count by Country: A Comprehensive Overview" FontAttributes="Bold" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="18"/>
             </chart:SfSunburstChart.Title>
             
             <chart:SfSunburstChart.Legend>

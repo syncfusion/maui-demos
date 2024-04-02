@@ -14,7 +14,7 @@
             <chart:SfCartesianChart x:Name="Chart2" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" PaletteBrushes="{Binding CustomColor4}" IsTransposed="True">
                 
                 <chart:SfCartesianChart.Title>
-                    <Label Text="Worldwide Delivery of Tesla Cars, by Quarter" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                    <Label Text="Worldwide Delivery of Tesla Cars, by Quarter" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
                 </chart:SfCartesianChart.Title>
                 
                 <chart:SfCartesianChart.Legend>

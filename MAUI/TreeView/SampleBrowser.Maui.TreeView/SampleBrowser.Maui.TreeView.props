@@ -27,6 +27,20 @@
 		  <Link>Samples\TreeView\UnBoundMode\UnBoundMode.xaml.cs</Link>
 		  <DependentUpon>UnBoundMode.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Checkboxes\View\Checkboxes.xaml.cs">
+		  <Link>Samples\TreeView\Checkboxes\View\Checkboxes.xaml.cs</Link>
+		  <DependentUpon>Checkboxes.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\LoadOnDemand\View\LoadOnDemand.xaml.cs">
+		  <Link>Samples\TreeView\LoadOnDemand\View\LoadOnDemand.xaml.cs</Link>
+		  <DependentUpon>LoadOnDemand.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\LoadOnDemand\Model\LoadOnDemandDemoModel.cs">
+		  <Link>Samples\TreeView\LoadOnDemand\Model\LoadOnDemandDemoModel.cs</Link>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\LoadOnDemand\ViewModel\LoadOnDemandDemoViewModel.cs">
+		  <Link>Samples\TreeView\LoadOnDemand\ViewModel\LoadOnDemandDemoViewModel.cs</Link>
+	  </Compile>
 	  
   </ItemGroup>
 
@@ -39,6 +53,18 @@
 	<ItemGroup>
 		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\UnBoundMode\UnBoundMode.xaml">
 			<Link>Samples\TreeView\UnBoundMode\UnBoundMode.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Checkboxes\View\Checkboxes.xaml">
+			<Link>Samples\TreeView\Checkboxes\View\Checkboxes.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\LoadOnDemand\View\LoadOnDemand.xaml">
+			<Link>Samples\TreeView\LoadOnDemand\View\LoadOnDemand.xaml</Link>
 		</MauiXaml>
 	</ItemGroup>
 </Project>

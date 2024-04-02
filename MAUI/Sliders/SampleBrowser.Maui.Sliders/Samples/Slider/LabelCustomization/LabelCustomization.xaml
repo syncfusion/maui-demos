@@ -50,12 +50,15 @@
                     <sliders:SfSlider.ThumbOverlayStyle>
                         <sliders:SliderThumbOverlayStyle Fill="{Binding OverlayFill}" />
                     </sliders:SfSlider.ThumbOverlayStyle>
+                    
                 </sliders:SfSlider>
 
                 <Label Grid.Row="3"
                        Grid.Column="1"
                        Text="Tile size"
                        Margin="24,0,0,0" />
+                
+                
                 <sliders:SfSlider Grid.Row="4"
                                   Grid.ColumnSpan="3"
                                   Minimum="1"

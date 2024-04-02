@@ -25,26 +25,45 @@
                     <On Platform="Android,iOS" Value="110"></On>
                 </OnPlatform>
         <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
-            <On Platform="WinUI,MacCatalyst" Value="-5.5,-5,-7,-6"/>
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
         </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCaptionSummaryCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridTableSummaryCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridGroupSummaryCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
     </localCore:SampleView.Resources>
 
-            <sfgrid:SfDataGrid x:Name="dataGrid" SortingMode="Single"
-                                 GroupCaptionTextFormat="{}{ColumnName} : {Key} - {ItemsCount} Item(s)"
-                                Margin="{StaticResource margin}"
-                                   ItemsSource="{Binding OrdersInfo}"
-                               AutoGenerateColumnsMode="None"
-                               HorizontalScrollBarVisibility="Always"
-                               GroupingMode="Single"
-                               VerticalScrollBarVisibility="Always"
-                               ColumnWidthMode="Fill">
-                
-            <sfgrid:SfDataGrid.DefaultStyle>
-            <sfgrid:DataGridStyle HeaderRowFontFamily="Roboto-Medium" TableSummaryRowFontFamily="Roboto-Medium"
-                                  CaptionSummaryRowFontFamily="Roboto-Medium" GroupSummaryRowFontFamily="Roboto-Medium"/>
-            </sfgrid:SfDataGrid.DefaultStyle>
-                
-            <sfgrid:SfDataGrid.Columns>
+    <sfgrid:SfDataGrid x:Name="dataGrid"
+                       SortingMode="Single"
+                       GroupCaptionTextFormat="{}{ColumnName} : {Key} - {ItemsCount} Item(s)"
+                       Margin="{StaticResource margin}"
+                       ItemsSource="{Binding OrdersInfo}"
+                       AutoGenerateColumnsMode="None"
+                       RowHeight="48"
+                       HorizontalScrollBarVisibility="Always"
+                       GroupingMode="Single"
+                       VerticalScrollBarVisibility="Always"
+                       ColumnWidthMode="Fill">
+        
+        <sfgrid:SfDataGrid.Columns>
             <sfgrid:DataGridNumericColumn Format="D" MinimumWidth="{StaticResource orderIdMinimumWidth}" MappingName="OrderID" HeaderText="Order ID"/>
             <sfgrid:DataGridNumericColumn Format="d" MinimumWidth="{StaticResource customerIdMinimumWidth}" MappingName="EmployeeID" HeaderText="Customer ID"/>
             <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource nameMinimumWidth}" MappingName="FirstName" HeaderText="Name"/>

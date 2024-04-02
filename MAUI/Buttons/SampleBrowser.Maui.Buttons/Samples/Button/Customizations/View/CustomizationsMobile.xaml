@@ -8,15 +8,15 @@
              xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.Button"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localCore:SampleView.Resources>
         <Style x:Key="CheckBoxNormalStyle"  TargetType="button:SfCheckBox">
-            <Setter Property="TextColor" Value="#007DE4"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
             <Setter Property="FontSize" Value="14"/>
         </Style>
          <Style x:Key="EntryNormalStyle"  TargetType="Entry">
-            <Setter Property="TextColor" Value="#007DE4"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
             <Setter Property="FontSize" Value="15"/>
         </Style>
     </localCore:SampleView.Resources>
@@ -31,8 +31,8 @@
             <button:SfButton Grid.Row="0" x:Name="cartButton"
                                  Background="#af2463" 
                                  StrokeThickness="{Binding BorderWidth}" 
-                                 WidthRequest="150" 
-                                 HeightRequest="50" 
+                                 WidthRequest="150"
+                                 HeightRequest="50"
                                  TextColor="{Binding TextColor}"
                                  BackgroundImageSource="{Binding BackgroundImage}"
                                  CornerRadius="{Binding CornerRadius,Mode=TwoWay}">
@@ -72,12 +72,12 @@
                 </button:SfButton>
 
             <Grid Grid.Row="1" Margin="18,0,11,5">
-                <ScrollView>
+                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
                     <StackLayout>
                         <Label Text="Options" Margin="2,0,0,0" FontFamily="Roboto-Medium" FontSize="16"/>
-                        <Core:SfTextInputLayout ContainerType="Outlined" Margin="2,10,10,0" ContainerBackground="Transparent"
+                        <Core:SfTextInputLayout ContainerType="Outlined" Margin="2,10,10,0" InputViewPadding="20" ContainerBackground="Transparent"
                                                 Hint="Text">
-                            <Entry  TextColor="#212121" FontFamily="Roboto-Regular"
+                            <Entry  TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
                                     Style="{StaticResource EntryNormalStyle}"
                                     Text="{Binding Text,Mode=TwoWay}" />
                         </Core:SfTextInputLayout>
@@ -86,7 +86,7 @@
                                                HorizontalOptions="Center"
                                                VerticalOptions="Center"
                                                HeightRequest="130">
-                                <tabView:SfTabItem Header="Text Color" FontFamily="Roboto-Regular"  HeightRequest="40" >
+                                <tabView:SfTabItem Header="Text Color" FontFamily="Roboto-Regular" >
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="Android" Value ="12"/>
@@ -135,7 +135,7 @@
                                         </StackLayout>
                                     </tabView:SfTabItem.Content>
                                 </tabView:SfTabItem>
-                                <tabView:SfTabItem Header="Background" FontFamily="Roboto-Regular" HeightRequest="40">
+                                <tabView:SfTabItem Header="Background" FontFamily="Roboto-Regular" >
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="Android" Value ="12"/>
@@ -184,7 +184,7 @@
                                         </StackLayout>
                                     </tabView:SfTabItem.Content>
                                 </tabView:SfTabItem>
-                                <tabView:SfTabItem Header="Border Color" FontFamily="Roboto-Regular" HeightRequest="40">
+                                <tabView:SfTabItem Header="Border Color" FontFamily="Roboto-Regular">
                                     <tabView:SfTabItem.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="Android" Value ="12"/>

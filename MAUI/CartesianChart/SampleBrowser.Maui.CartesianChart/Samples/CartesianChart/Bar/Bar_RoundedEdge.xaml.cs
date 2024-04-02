@@ -35,6 +35,15 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
         {
             return new BarSegmentExt();
         }
+
+        public static readonly BindableProperty TrackColorProperty =
+BindableProperty.Create(nameof(TrackColor), typeof(SolidColorBrush), typeof(ColumnSeriesExt), new SolidColorBrush(Color.FromArgb("#E7E0EC")));
+
+        public SolidColorBrush TrackColor
+        {
+            get { return (SolidColorBrush)GetValue(TrackColorProperty); }
+            set { SetValue(TrackColorProperty, value); }
+        }
     }
 
     public class BarSegmentExt : ColumnSegment
@@ -53,7 +62,9 @@ namespace SampleBrowser.Maui.CartesianChart.SfCartesianChart
 
         protected override void Draw(ICanvas canvas)
         {
-            canvas.SetFillPaint(new SolidColorBrush(mauiColor.FromArgb("#f7f7f7")), trackRect);
+            if (Series is not CustomBarChart series) return;
+
+            canvas.SetFillPaint(series.TrackColor, trackRect);
             canvas.FillRoundedRectangle(trackRect, 25);
 
             base.Draw(canvas);

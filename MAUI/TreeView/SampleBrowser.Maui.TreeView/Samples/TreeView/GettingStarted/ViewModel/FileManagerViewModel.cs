@@ -13,7 +13,13 @@ namespace SampleBrowser.Maui.TreeView
 {
     internal class FileManagerViewModel
     {
+        private ObservableCollection<object>? checkedItems;
         public ObservableCollection<Folder> Folders { get;set; }
+        public ObservableCollection<object>? CheckedItems
+        {
+            get { return checkedItems; }
+            set { this.checkedItems = value; }
+        }
 
         public FileManagerViewModel() 
         {
@@ -45,7 +51,7 @@ namespace SampleBrowser.Maui.TreeView
             var stone = new File() { FolderName = "Stone.jpg", ImageIcon = "image.png" };
             var wind = new File() { FolderName = "Wind.jpg", ImageIcon = "image.png" };
 
-            var pic1 = new SubFiles() { FolderName = "WIN_20160726_094117.JPG", ImageIcon = "people_circle23.png" };
+            var pic1 = new SubFiles() { FolderName = "WIN_20160726_09.JPG", ImageIcon = "people_circle23.png" };
             var pic2 = new SubFiles() { FolderName = "WIN_20160726.Png", ImageIcon = "people_circle2.png" };
 
             var video1 = new File() { FolderName = "Naturals.mp4", ImageIcon = "video.png" };
@@ -85,6 +91,12 @@ namespace SampleBrowser.Maui.TreeView
             deviceList.Add(music);
             deviceList.Add(picture);
             deviceList.Add(videos);
+
+            checkedItems = new ObservableCollection<object>();
+            checkedItems.Add(video1);
+            checkedItems.Add(global);
+            checkedItems.Add(camera);
+            checkedItems.Add(socialNetwork);
 
             return deviceList;
         }

@@ -10,7 +10,6 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Padding" Value="4" />
             <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontFamily" Value="{OnPlatform iOS=PdfViewerIcon, MacCatalyst=PdfViewerIcon, Android=PdfViewerIcon.ttf#, WinUI=PdfViewerIcon.ttf#PdfViewerIcon}" />
             <Setter Property="TextColor" Value="#99000000"/>
             <Setter Property="BackgroundColor" Value="Transparent"/>
             <Style.Triggers>
@@ -28,7 +27,7 @@
         </Style>
     </ContentView.Resources>
 
-    <Grid x:Name="MyGrid">
+    <Grid x:Name="MyGrid" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -109,7 +108,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="Opacity" TextColor="#1C1B1F" HorizontalOptions="Start" Margin="15,0,0,0"/>
+                <Label Grid.Row="0" Text="Opacity" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=Black}" HorizontalOptions="Start" Margin="15,0,0,0"/>
                 <sliders:SfSlider Grid.Row="1" x:Name="inkOpacitySlider" Minimum="0.1" Maximum="1" Value="{Binding SelectedOpacity}" ValueChangeEnd="OpacitySliderValue_Changed" HorizontalOptions="Start" >
                     <sliders:SfSlider.TrackStyle>
                         <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>
@@ -131,7 +130,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="Stroke Thickness" TextColor="#1C1B1F" HorizontalOptions="Start" Margin="15,0,0,0"/>
+                <Label Grid.Row="0" Text="Stroke Thickness" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=Black}" HorizontalOptions="Start" Margin="15,0,0,0"/>
                 <sliders:SfSlider x:Name="inkThicknessSlider"  Grid.Row="1" Minimum="1" Value="{Binding SelectedThickness}" ValueChangeEnd="Thicknes_ValueChanged" Maximum="12" HorizontalOptions="Start" >
                     <sliders:SfSlider.TrackStyle>
                         <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>

@@ -37,9 +37,9 @@ public partial class CustomToolbar : SampleView
     public double CustomStampHeight { get; set; }
     public bool CustomStamp { get; set; }
     public SearchView SearchView { get; set; }
-    public StampView? StampView { get; set; } 
+    public StampView? StampView { get; set; }
 
-    CustomToolbarViewModel viewModel; 
+    CustomToolbarViewModel viewModel;
     public CustomToolbar()
     {
         InitializeComponent();
@@ -107,7 +107,13 @@ public partial class CustomToolbar : SampleView
         childRow.WidthRequest = 220;
         childRow.HeightRequest = 40;
         childRow.PointerPressed += ListView_ItemTapped;
-
+        Color lightThemeColor = new Color();
+        Color darkThemeColor = new Color();
+        if (Application.Current != null)
+        {
+            lightThemeColor = (Color)Application.Current.Resources["IconColourLight"];
+            darkThemeColor = (Color)Application.Current.Resources["IconColour"];
+        }
         Label iconNameLabel = new Label()
         {
             Padding = new Thickness(16, 0, 0, 0),
@@ -118,6 +124,7 @@ public partial class CustomToolbar : SampleView
             VerticalOptions = LayoutOptions.Center,
             Text = iconName,
         };
+        iconNameLabel.SetAppThemeColor(Label.TextColorProperty, lightThemeColor, darkThemeColor);
         childRow.Children.Add(iconNameLabel);
         return childRow;
     }
@@ -147,6 +154,101 @@ public partial class CustomToolbar : SampleView
                 if (viewModel.ColorPaletteMargin.Left + sizeRequest.Request.Width > Width)
                     viewModel.ColorPaletteMargin = new Thickness(Width - sizeRequest.Request.Width - 20, viewModel.ColorPaletteMargin.Top, viewModel.ColorPaletteMargin.Right, viewModel.ColorPaletteMargin.Bottom);
             }
+        }
+        InitializeControlIfNull(e.PropertyName);
+    }
+
+    private void InitializeControlIfNull(string? propertyName)
+    {
+        if (propertyName == nameof(viewModel.IsFreeTextFillColorVisble))
+        {
+            if (viewModel.IsFreeTextFillColorVisble && freeTextColorPalette.Content == null)
+                freeTextColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsEraserThicknessToolbarVisible))
+        {
+            if (viewModel.IsEraserThicknessToolbarVisible && eraserThicknessBar.Content == null)
+                eraserThicknessBar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsLineAndArrowColorPalleteVisible))
+        {
+            if (viewModel.IsLineAndArrowColorPalleteVisible && lineAndArrowColorPalette.Content == null)
+                lineAndArrowColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsShapeColorPalleteVisible))
+        {
+            if (viewModel.IsShapeColorPalleteVisible && shapeColorPalette.Content == null)
+                shapeColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsTextMarkUpColorPalleteVisible))
+        {
+            if (viewModel.IsTextMarkUpColorPalleteVisible && textMarkupColorPalette.Content == null)
+                textMarkupColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStampOpacitySliderbarVisible))
+        {
+            if (viewModel.IsStampOpacitySliderbarVisible && stampOpacityBar.Content == null)
+                stampOpacityBar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsInkColorPalleteVisible))
+        {
+            if (viewModel.IsInkColorPalleteVisible && inkColorPalette.Content == null)
+                inkColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStickyNoteColorPalleteVisible))
+        {
+            if (viewModel.IsStickyNoteColorPalleteVisible && stickyNoteColorPalette.Content == null)
+                stickyNoteColorPalette.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsTextMarkupListVisible))
+        {
+            if (viewModel.IsTextMarkupListVisible && textmarkupView.Content == null)
+                textmarkupView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsShapeListVisible))
+        {
+            if (viewModel.IsShapeListVisible && shapeListView.Content == null)
+                shapeListView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStickyNoteListVisible))
+        {
+            if (viewModel.IsStickyNoteListVisible && DesktopStickyNoteListView.Content == null)
+                DesktopStickyNoteListView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStampListVisible))
+        {
+            if (viewModel.IsStampListVisible && DesktopStampView.Content == null)
+                DesktopStampView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStampViewVisible))
+        {
+            if (viewModel.IsStampViewVisible && MobileStampView.Content == null)
+                MobileStampView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsColorToolbarVisible))
+        {
+            if (viewModel.IsColorToolbarVisible && colorToolBar.Content == null)
+                colorToolBar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsFillColorToolbarVisible))
+        {
+            if (viewModel.IsFillColorToolbarVisible && fillColorToolBar.Content == null)
+                fillColorToolBar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsStickyNoteToolbarVisible))
+        {
+            if (viewModel.IsStickyNoteToolbarVisible && stickyNoteToolbar.Content == null)
+                stickyNoteToolbar.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.IsFileOperationListVisible))
+        {
+            if (viewModel.IsFileOperationListVisible && menuView.Content == null)
+                menuView.Initialize();
+        }
+        else if (propertyName == nameof(viewModel.ShowDesktopMoreOptions))
+        {
+            if (viewModel.ShowDesktopMoreOptions && desktopMoreView.Content == null)
+                desktopMoreView.Initialize();
         }
     }
 
@@ -254,11 +356,13 @@ public partial class CustomToolbar : SampleView
                 {
                     StampType type = StampView.stampType;
                     StampAnnotation builtStamp = new StampAnnotation(type, e.PageNumber, point);
+                    RectF bounds = new RectF(builtStamp.Bounds.X - builtStamp.Bounds.Width / 2, builtStamp.Bounds.Y - builtStamp.Bounds.Height / 2, builtStamp.Bounds.Width, builtStamp.Bounds.Height);
+                    builtStamp.Bounds = bounds;
                     PdfViewer.AddAnnotation(builtStamp);
                 }
                 else if (CustomStamp && CustomStampImageStream != null)
                 {
-                    StampAnnotation customStamp = new StampAnnotation(CustomStampImageStream, e.PageNumber, new RectF(point.X, point.Y, (float)CustomStampWidth, (float)CustomStampHeight));
+                    StampAnnotation customStamp = new StampAnnotation(CustomStampImageStream, e.PageNumber, new RectF((float)(point.X - CustomStampWidth / 2), (float)(point.Y - CustomStampHeight / 2), (float)CustomStampWidth, (float)CustomStampHeight));
                     PdfViewer.AddAnnotation(customStamp);
                     CustomStamp = false;
                 }
@@ -286,7 +390,12 @@ public partial class CustomToolbar : SampleView
             bindingContext.ShowMoreOptions = false;
             bindingContext.IsStampViewVisible = false;
             bindingContext.StampHighlightColor = Colors.Transparent;
+            bindingContext.ShapeHighlightColor = Colors.Transparent;
+            bindingContext.TextMarkupHighlightColor = Colors.Transparent;
             bindingContext.StickyNoteHighlightColor = Colors.Transparent;
+            bindingContext.ShowPageLayoutOptions = false;
+            bindingContext.MoreOptionsHighlightColor = Colors.Transparent;
+            bindingContext.PageLayoutHighlightColor = Colors.Transparent;
 #if WINDOWS || MACCATALYST
             bindingContext.IsShapeListVisible = false;
             bindingContext.IsStickyNoteListVisible = false;
@@ -298,11 +407,15 @@ public partial class CustomToolbar : SampleView
             bindingContext.IsTextMarkUpColorPalleteVisible = false;
             bindingContext.IsStampOpacitySliderbarVisible = false;
             bindingContext.IsStickyNoteColorPalleteVisible = false;
-			bindingContext.IsFileOperationListVisible = false;
+            bindingContext.IsFileOperationListVisible = false;
             bindingContext.IsFreetextColorPalatteisible = false;
             bindingContext.IsFreeTextFillColorVisble = false;
             bindingContext.IsFreeTextSliderVisible = false;
             bindingContext.IsFreeTextFontListVisible = false;
+            bindingContext.ColorPaletteHighlightColor = Colors.Transparent;
+            bindingContext.IsEraserThicknessToolbarVisible = false;
+            bindingContext.StickyNoteIconChangeHighlightColor = Colors.Transparent;
+            bindingContext.FileOperationHighlightColor = Colors.Transparent;
 #endif
         }
     }
@@ -343,7 +456,8 @@ public partial class CustomToolbar : SampleView
         e.Handled = true;
 
         //Show the password dialog.
-        passwordDialog.Dispatcher.Dispatch(() => {
+        passwordDialog.Dispatcher.Dispatch(() =>
+        {
             passwordDialog.IsVisible = true;
 #if WINDOWS
             passwordDialog.passwordEntry?.Focus();
@@ -487,16 +601,22 @@ public partial class CustomToolbar : SampleView
         {
             toolbar!.PageNumberEntry?.HideKeyboard();
         }
-        if (e.PropertyName == nameof(PdfViewer.IsOutlineViewVisible) && DeviceInfo.Current.Idiom == DeviceIdiom.Phone)
+        if (DeviceInfo.Current.Idiom == DeviceIdiom.Phone)
         {
-            toolbar!.IsVisible = !PdfViewer.IsOutlineViewVisible;
+            if (e.PropertyName == nameof(PdfViewer.IsOutlineViewVisible))
+                toolbar!.IsVisible = !PdfViewer.IsOutlineViewVisible;
+            else if (e.PropertyName == nameof(PdfViewer.AnnotationMode))
+            {
+                toolbar!.IsVisible = PdfViewer.AnnotationMode != AnnotationMode.Signature;
+                bottomToolbar!.IsVisible = PdfViewer.AnnotationMode != AnnotationMode.Signature;
+            }
         }
-        if (e.PropertyName == nameof(PdfViewer.AnnotationMode) && PdfViewer.AnnotationMode == AnnotationMode.None)
+        if (e.PropertyName == nameof(PdfViewer.AnnotationMode))
         {
-            viewModel.ClearButtonHighlights();
+            if (PdfViewer.AnnotationMode == AnnotationMode.None)
+                viewModel.ClearButtonHighlights();
         }
     }
-
 
     private void PdfViewer_AnnotationSelected(object sender, AnnotationEventArgs e)
     {
@@ -504,7 +624,6 @@ public partial class CustomToolbar : SampleView
         if (viewModel.SelectedAnnotation is FreeTextAnnotation)
         {
             viewModel.IsFreetextToolsVisible = false;
-            viewModel.IsAnnotationsToolsVisible = false;
             viewModel.IsEditLayoutVisible = true;
 #if ANDROID || IOS
             viewModel.BottomToolbarContent = new FreetextPropertyToolbar(viewModel);
@@ -543,6 +662,11 @@ public partial class CustomToolbar : SampleView
         viewModel?.SaveDocument();
     }
 
+    private void printButton_Clicked(object sender, EventArgs e)
+    {
+        viewModel.PrintDocument();
+    }
+
     private void thicknessSlider_ValueChanged(object sender, EventArgs e)
     {
         float thickness = (float)ThicknessSlider.Value;
@@ -571,6 +695,8 @@ public partial class CustomToolbar : SampleView
 
     private void OnCreateStampClicked(object sender, StampDialogEventArgs e)
     {
+        if (stampDialog.Content == null)
+            stampDialog.Initialize();
         if (e.IsVisible == true)
             stampDialog.IsVisible = false;
         else
@@ -660,6 +786,8 @@ public partial class CustomToolbar : SampleView
 
     private void OnCreateStampMobileClicked(object sender, StampDialogMobileEventArgs e)
     {
+        if (stampDialogMobile.Content == null)
+            stampDialogMobile.Initialize();
         if (e.IsVisible == true)
             stampDialogMobile.IsVisible = false;
         else
@@ -689,5 +817,25 @@ public partial class CustomToolbar : SampleView
         {
             bindingContext.FontSizeCommand.Execute(thickness);
         }
+    }
+
+    private void continuousPage_Clicked(object sender, EventArgs e)
+    {
+        viewModel.ShowMoreOptions = false;
+        PdfViewer.PageLayoutMode = PageLayoutMode.Continuous;
+        viewModel.ShowPageLayoutOptions = false;
+        viewModel.PageLayoutHighlightColor = Colors.Transparent;
+        pageByPage.BackgroundColor = Colors.Transparent;
+        continousPage.BackgroundColor = Color.FromArgb("#1449454f");
+    }
+
+    private void singlePage_Clicked(object sender, EventArgs e)
+    {
+        viewModel.ShowMoreOptions = false;
+        PdfViewer.PageLayoutMode = PageLayoutMode.Single;
+        viewModel.ShowPageLayoutOptions = false;
+        viewModel.PageLayoutHighlightColor = Colors.Transparent;
+        pageByPage.BackgroundColor = Color.FromArgb("#1449454f");
+        continousPage.BackgroundColor = Colors.Transparent;
     }
 }

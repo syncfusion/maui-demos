@@ -8,7 +8,7 @@
 		<Sample Title="Contact Form" SampleName="ContactForm" CodeViewerPath="DataForm/ContactForm/" VideoLink="https://www.youtube.com/watch?v=c39fzkutfwU"/>
 	    <Sample Title="Sign Up" SampleName="SignUpForm" CodeViewerPath="DataForm/SignUpForm/" VideoLink="https://www.youtube.com/watch?v=Fv__sIKRsIA"/>
     	<Sample Title="Sign In" SampleName="SignInForm" CodeViewerPath="DataForm/SignInForm/"/>
-		<Sample Title="Registration Form" SampleName="EventRegistration" CodeViewerPath="DataForm/EventRegistration/"/>
+		<Sample Title="Registration Form" SampleName="EventRegistration" CodeViewerPath="DataForm/EventRegistration/" />
 		<Sample Title="Payment Form" SampleName="PaymentForm"  CodeViewerPath="DataForm/PaymentForm/"/>
 		<Sample Title="Feedback Form" SampleName="FeedbackForm"  CodeViewerPath="DataForm/FeedbackForm/"/>
 	</Control>

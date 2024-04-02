@@ -12,6 +12,11 @@ namespace SampleBrowser.Maui.Gauges.SfRadialGauge;
 
 public partial class CustomLabel : SampleView
 {
+    /// <summary>
+    /// Check the application theme is light or dark.
+    /// </summary>
+    private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
+
 	public CustomLabel()
 	{
 		InitializeComponent();
@@ -57,7 +62,8 @@ public partial class CustomLabel : SampleView
             e.Text = "N";
             e.Style = new GaugeLabelStyle()
             {
-                FontAttributes = Microsoft.Maui.Controls.FontAttributes.Bold
+                FontAttributes = Microsoft.Maui.Controls.FontAttributes.Bold,
+                TextColor = isLightTheme ? Colors.Black : Colors.White,
             };
         }
     }

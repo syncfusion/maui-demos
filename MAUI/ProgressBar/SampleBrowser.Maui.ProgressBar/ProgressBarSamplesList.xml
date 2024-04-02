@@ -10,5 +10,9 @@
 			<Sample SampleName="CircularProgressBar" Title="Features" CodeViewerPath="CircularProgressBar/" VideoLink="https://www.youtube.com/watch?v=lH_0-2JEKcM" />
 		</Control>
 
+		<Control Title="Step Progress Bar" StatusTag="New" IsPreview="true" ControlName="SfStepProgressBar" Image="stepprogressbar.png" Description="A multi step progress bar tracks the status of a process.">
+			<Sample SampleName="StepProgressBar" Title="Order Tracking" CodeViewerPath="StepProgressBar/" VideoLink="" />
+		</Control>
+
 	</ControlCategory>
 </SyncfusionControls>

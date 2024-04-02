@@ -7,7 +7,7 @@
 
     <localCore:SampleView.Resources>
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
         </Style>
     </localCore:SampleView.Resources>
     
@@ -38,7 +38,7 @@
                                 <gauge:GaugeAnnotation>
                                     <gauge:GaugeAnnotation.Content>
                                         <Label x:Name="annotationLabel" Text="30%"  
-                                           FontSize="Medium" TextColor="Black"/>
+                                           FontSize="Medium" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
                                     </gauge:GaugeAnnotation.Content>
                                 </gauge:GaugeAnnotation>
                             </gauge:RadialAxis.Annotations>

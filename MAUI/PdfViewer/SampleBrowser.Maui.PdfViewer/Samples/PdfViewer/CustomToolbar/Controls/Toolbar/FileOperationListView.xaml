@@ -9,9 +9,9 @@
         VerticalOptions="Start" 
         HorizontalOptions="Start"
         WidthRequest="205" 
-        HeightRequest="100"
+        HeightRequest="140"
         Padding="0,7,0,7"
-        BackgroundColor="#EEE8F4"
+        BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
         IsVisible="{OnPlatform Default=true,Android=false,iOS=false}">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="5" />
@@ -26,9 +26,14 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <HorizontalStackLayout Grid.Row="0" x:Name="openLayout"/>
             <HorizontalStackLayout Grid.Row="1" x:Name="saveLayout"/>
+            <Border Grid.Row="2" HeightRequest="1" Background="#CAC4D0">
+            </Border>
+            <HorizontalStackLayout Grid.Row="3" x:Name="printLayout"/>
         </Grid>
     </Border>
 </ContentView>

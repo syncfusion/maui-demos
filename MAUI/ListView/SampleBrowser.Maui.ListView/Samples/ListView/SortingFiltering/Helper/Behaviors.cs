@@ -20,8 +20,8 @@ namespace SampleBrowser.Maui.ListView.SfListView
 
         private Syncfusion.Maui.ListView.SfListView ListView;
         private SortingFilteringViewModel sortingFilteringViewModel;
-        private Grid sortImageParent;
-        private SearchBar searchBar = null;
+        private Label sortImageParent;
+        private Entry searchBar = null;
         private Grid headerGrid;
 
         #endregion
@@ -51,11 +51,11 @@ namespace SampleBrowser.Maui.ListView.SfListView
             headerGrid = bindable.FindByName<Grid>("headerGrid");
             headerGrid.BindingContext = sortingFilteringViewModel;
 
-            sortImageParent = bindable.FindByName<Grid>("sortImageParent");
+            sortImageParent = bindable.FindByName<Label>("sortImageParent");
             var SortImageTapped = new TapGestureRecognizer() { Command = new Command(SortImageTapped_Tapped) };
             sortImageParent.GestureRecognizers.Add(SortImageTapped);
 
-            searchBar = bindable.FindByName<SearchBar>("filterText");
+            searchBar = bindable.FindByName<Entry>("filterText");
             searchBar.TextChanged += SearchBar_TextChanged;
             InitialSorting();
             base.OnAttachedTo(bindable);
@@ -75,7 +75,7 @@ namespace SampleBrowser.Maui.ListView.SfListView
         #region Events
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            searchBar = (sender as SearchBar);
+            searchBar = (sender as Entry);
             if (ListView.DataSource != null)
             {
                 ListView.DataSource.Filter = FilterContacts;

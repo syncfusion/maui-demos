@@ -4,24 +4,30 @@
              xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
                        xmlns:chart="http://schemas.syncfusion.com/maui">
-
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
     <localCore:SampleView.Content>
-        <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" RowDefinitions="*,Auto" Padding="10">
+        <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" RowDefinitions="*,Auto">
 
             <Grid.BindingContext>
                 <local:SeriesSelectionViewModel x:Name="dataViewModel"/>
             </Grid.BindingContext>
 
-            <chart:SfCartesianChart Margin="0,0,0,5" x:Name="chart" PaletteBrushes="{Binding PaletteBrushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+            <chart:SfCartesianChart Margin="0,0,0,5" x:Name="chart" PaletteBrushes="{Binding Brushes}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
 
                 <chart:SfCartesianChart.Title>
                     <VerticalStackLayout  Margin="0,0,0,20" >
-                        <Label Text="Age Distribution by Country" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="16" TextColor="Black"/>
+                        <Label Text="Age Distribution by Country" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="16" />
                     </VerticalStackLayout>
                 </chart:SfCartesianChart.Title>
 
                 <chart:SfCartesianChart.SelectionBehavior>
-                    <chart:SeriesSelectionBehavior x:Name ="seriesSelection" SelectionChanging="seriesSelection_SelectionChanging" Type="SingleDeselect"/>
+                    <chart:SeriesSelectionBehavior x:Name ="seriesSelection" SelectionBrush="{x:Null}"  SelectionChanging="seriesSelection_SelectionChanging" Type="SingleDeselect"/>
                 </chart:SfCartesianChart.SelectionBehavior>
 
                 <chart:SfCartesianChart.XAxes>
@@ -55,7 +61,7 @@
                     <chart:ChartLegend Placement="Bottom"/>
                 </chart:SfCartesianChart.Legend>
                 <chart:SfCartesianChart.Series>
-                    <chart:ColumnSeries  x:Name="series1" EnableAnimation="{Binding EnableAnimation}" Label="0-14 years" CornerRadius="5,5,0,0" ItemsSource="{Binding SelectionData}" XBindingPath="Name" YBindingPath="Value">
+                    <chart:ColumnSeries x:Name="series1" EnableAnimation="{Binding EnableAnimation}" Label="0-14 years" CornerRadius="5,5,0,0" ItemsSource="{Binding SelectionData}" XBindingPath="Name" YBindingPath="Value">
                     </chart:ColumnSeries>
                     <chart:ColumnSeries  x:Name="series2" EnableAnimation="{Binding EnableAnimation}" Label="15-59 years" CornerRadius="5,5,0,0" ItemsSource="{Binding SelectionData}" XBindingPath="Name" YBindingPath="High">
                     </chart:ColumnSeries>
@@ -71,7 +77,7 @@
             
             <AbsoluteLayout VerticalOptions="Start" Margin="0,40,0,0" HeightRequest="40">
                 <HorizontalStackLayout AbsoluteLayout.LayoutFlags="PositionProportional"  AbsoluteLayout.LayoutBounds="1,0">
-                    <Label Text="Multiple Selection :" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                    <Label Text="Multiple Selection :" VerticalOptions="Center" FontSize="16" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
                     <CheckBox x:Name="checkbox" HeightRequest="35" VerticalOptions="Center" CheckedChanged="checkbox_CheckedChanged"/>
                 </HorizontalStackLayout>
             </AbsoluteLayout>

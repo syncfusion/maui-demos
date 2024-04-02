@@ -27,7 +27,7 @@ public class ViewModel : INotifyPropertyChanged
     /// <summary>
     /// Represents the text color
     /// </summary>
-    private Color textColor = Colors.Black;
+    private Color textColor = Color.FromRgba("#808080");
 
     /// <summary>
     /// Represents the border width

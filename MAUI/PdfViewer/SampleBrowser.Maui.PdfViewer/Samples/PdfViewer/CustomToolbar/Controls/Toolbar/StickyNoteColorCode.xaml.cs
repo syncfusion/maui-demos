@@ -14,15 +14,15 @@ public partial class StickyNoteColorCode : ContentView
     Ellipse? selectedColorButtonHighlight;
 
     Button? PreButton = null;
-    public StickyNoteColorCode()
+    internal void Initialize()
     {
         InitializeComponent();
-        Colorpaletteborder.Content = MyGrid;
-        this.Content = Colorpaletteborder;
+        colorPaletteBorder.Content = MyGrid;
+        this.Content = colorPaletteBorder;
     }
 
 #if MACCATALYST
-    Frame Colorpaletteborder = new Frame()
+    Frame colorPaletteBorder = new Frame()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         BorderColor = Color.FromArgb("#26000000"),
@@ -37,10 +37,10 @@ public partial class StickyNoteColorCode : ContentView
             Radius = 8,
             Opacity = 0.5f
         },
-        WidthRequest = 280,
+        WidthRequest = 290,
     };
 #else
-    Border Colorpaletteborder = new Border()
+    Border colorPaletteBorder = new Border()
     {
         BackgroundColor = Color.FromArgb("#EEE8F4"),
         Stroke = Color.FromArgb("#26000000"),

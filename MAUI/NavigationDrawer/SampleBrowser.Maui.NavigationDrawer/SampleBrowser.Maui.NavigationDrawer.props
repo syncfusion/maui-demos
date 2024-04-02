@@ -36,7 +36,7 @@
 		</Compile>
 
 		<Compile Include="$(msbuildthisfiledirectory)\Samples\NavigationDrawer\GettingStarted\ViewModel\MailInfoViewModel.cs">
-			<Link>Samples\NavigationDrawer\GettingStarted\ViewModel\MailInfoViewModel.cs</Link>
+		  <Link>Samples\NavigationDrawer\GettingStarted\ViewModel\MailInfoViewModel.cs</Link>
 		</Compile>
     
 	</ItemGroup>

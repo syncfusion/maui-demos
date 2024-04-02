@@ -27,6 +27,6 @@ public static class MauiProgram
             });		
 		builder.ConfigureSampleBrowserBase();
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

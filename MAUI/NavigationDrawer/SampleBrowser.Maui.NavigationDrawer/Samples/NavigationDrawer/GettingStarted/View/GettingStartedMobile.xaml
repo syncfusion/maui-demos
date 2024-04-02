@@ -22,28 +22,32 @@
     <localcore:SampleView.Behaviors>
         <local:NavigationDrawerBehavior />
     </localcore:SampleView.Behaviors>
-    
-    <Grid>
+
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}">
         <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer">
             <navigationdrawer:SfNavigationDrawer.DrawerSettings>
-                <navigationdrawer:DrawerSettings DrawerHeaderHeight="177" DrawerWidth="280" ContentBackground="#F7F2FB" DrawerFooterHeight="0">
+                <navigationdrawer:DrawerSettings DrawerHeaderHeight="177" DrawerWidth="320" ContentBackground="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" DrawerFooterHeight="0">
                     <navigationdrawer:DrawerSettings.DrawerHeaderView>
-                        <Grid RowDefinitions="*,Auto,Auto" Padding="25,25,25,20">
-                            <Image Source="{imageExtension:SfImageResource alexuser.png}" VerticalOptions="Center" WidthRequest="72" HeightRequest="72"/>
-                            <Label Grid.Row="1" Text="Leslie Alexander"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#1C1B1F" FontAttributes="Bold" FontSize="20" WidthRequest="148" HeightRequest="24" HorizontalOptions="Center"/>
-                            <Label Grid.Row="2" Text="UX Designer"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#1C1B1F" FontSize="14" WidthRequest="148" HeightRequest="24" HorizontalOptions="Center"/>
-                        </Grid>
+                        <VerticalStackLayout>
+                            <Grid RowDefinitions="*,Auto,Auto" Padding="25,25,25,20">
+                                <Image Source="{imageExtension:SfImageResource person.png}" VerticalOptions="Center" WidthRequest="72" HeightRequest="72"/>
+                                <Label Grid.Row="1" Text="Leslie Alexander" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" WidthRequest="148" HeightRequest="24" HorizontalOptions="Center"/>
+                                <Label Grid.Row="2" Text="UX Designer" Margin="0,5,0,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="14" WidthRequest="148" HeightRequest="24" HorizontalOptions="Center"/>
+                            </Grid>
+                            <BoxView WidthRequest="264" HeightRequest="1" BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBorderLight1}, Dark={StaticResource FilledInputBorder}}"/>
+                        </VerticalStackLayout>
                     </navigationdrawer:DrawerSettings.DrawerHeaderView>
                     <navigationdrawer:DrawerSettings.DrawerContentView>
-                        <VerticalStackLayout Spacing="10" Padding="5,0">
+                        <ScrollView>
+                            <VerticalStackLayout Spacing="10" Padding="5,0" Margin="0,5,0,0">
                             <Border StrokeThickness="0">
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="30"/>
                                 </Border.StrokeShape>
-                                <core:SfEffectsView x:Name="inboxEffects" SelectionBackground="#ab56e3" RippleBackground="#ab56e3" IsSelected="True">
+                                    <core:SfEffectsView x:Name="inboxEffects" SelectionBackground="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}" RippleBackground="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackgroundLight}}" IsSelected="True">
                                     <Grid ColumnSpacing="8" ColumnDefinitions="25,*" Padding="18,10,10,10" HeightRequest="48">
-                                        <Label Text="&#xe703;" FontSize="22" FontFamily="NavigationDrawerFontIcon" VerticalOptions="Center"  />
-                                        <Label Grid.Column="1" Text="Inbox" FontSize="16" TextColor="#49454F"  VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="&#xe78b;" FontSize="22" FontFamily="MauiSampleFontIcon" VerticalOptions="Center"  />
+                                        <Label Grid.Column="1" Text="Inbox" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start"/>
                                     </Grid>
                                 </core:SfEffectsView>
                             </Border>
@@ -51,10 +55,10 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="30"/>
                                 </Border.StrokeShape>
-                                <core:SfEffectsView x:Name="starredEffects" SelectionBackground="#ab56e3" RippleBackground="#ab56e3">
+                                    <core:SfEffectsView x:Name="starredEffects" SelectionBackground="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}" RippleBackground="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackgroundLight}}">
                                     <Grid ColumnSpacing="8" ColumnDefinitions="25,*" Padding="17,10,10,10" HeightRequest="48">
-                                        <Label Text="&#xe700;" FontSize="24" FontFamily="NavigationDrawerFontIcon" VerticalOptions="Center"  />
-                                        <Label Grid.Column="1" Text="Starred" FontSize="16" TextColor="#49454F"  VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="&#xe73a;" FontSize="24" FontFamily="MauiSampleFontIcon" VerticalOptions="Center"  />
+                                        <Label Grid.Column="1" Text="Starred" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start"/>
                                     </Grid>
                                 </core:SfEffectsView>
                             </Border>
@@ -62,10 +66,10 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="30"/>
                                 </Border.StrokeShape>
-                                <core:SfEffectsView x:Name="sentEffects" SelectionBackground="#ab56e3" RippleBackground="#ab56e3">
+                                    <core:SfEffectsView x:Name="sentEffects" SelectionBackground="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}" RippleBackground="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackgroundLight}}">
                                     <Grid ColumnSpacing="6" ColumnDefinitions="25,*" Padding="20,10,10,10" HeightRequest="48">
-                                        <Label Text="&#xe705;" FontSize="21" FontFamily="NavigationDrawerFontIcon" VerticalOptions="Center"  />
-                                        <Label Grid.Column="1" Text="Sent" FontSize="16" TextColor="#49454F"  VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="&#xe76f;" FontSize="21" FontFamily="MauiSampleFontIcon" VerticalOptions="Center"  />
+                                        <Label Grid.Column="1" Text="Sent" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start"/>
                                     </Grid>
                                 </core:SfEffectsView>
                             </Border>
@@ -73,10 +77,10 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="30"/>
                                 </Border.StrokeShape>
-                                <core:SfEffectsView x:Name="draftEffects" SelectionBackground="#ab56e3" RippleBackground="#ab56e3">
+                                    <core:SfEffectsView x:Name="draftEffects" SelectionBackground="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}" RippleBackground="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackgroundLight}}">
                                     <Grid ColumnSpacing="6" ColumnDefinitions="25,*" Padding="20,10,10,10" HeightRequest="48">
-                                        <Label Text="&#xe706;" FontSize="18" FontFamily="NavigationDrawerFontIcon" VerticalOptions="Center"  />
-                                        <Label Grid.Column="1" Text="Draft" FontSize="16" TextColor="#49454F"  VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="&#xe78d;" FontSize="18" FontFamily="MauiSampleFontIcon" VerticalOptions="Center"  />
+                                        <Label Grid.Column="1" Text="Draft" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start"/>
                                     </Grid>
                                 </core:SfEffectsView>
                             </Border>
@@ -84,10 +88,10 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="30"/>
                                 </Border.StrokeShape>
-                                <core:SfEffectsView x:Name="allMailEffects" SelectionBackground="#ab56e3" RippleBackground="#ab56e3">
+                                    <core:SfEffectsView x:Name="allMailEffects" SelectionBackground="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}" RippleBackground="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackgroundLight}}">
                                     <Grid ColumnSpacing="9" ColumnDefinitions="25,*" Padding="18,10,10,10" HeightRequest="48">
-                                        <Label Text="&#xe701;" FontSize="23" FontFamily="NavigationDrawerFontIcon" VerticalOptions="Center"  />
-                                        <Label Grid.Column="1" Text="All mail" FontSize="16" TextColor="#49454F"  VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="&#xe75c;" FontSize="23" FontFamily="MauiSampleFontIcon" VerticalOptions="Center"  />
+                                        <Label Grid.Column="1" Text="All mail" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start"/>
                                     </Grid>
                                 </core:SfEffectsView>
                             </Border>
@@ -95,10 +99,10 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="30"/>
                                 </Border.StrokeShape>
-                                <core:SfEffectsView x:Name="trashEffects" SelectionBackground="#ab56e3" RippleBackground="#ab56e3">
+                                    <core:SfEffectsView x:Name="trashEffects" SelectionBackground="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}" RippleBackground="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackgroundLight}}">
                                     <Grid ColumnSpacing="10" ColumnDefinitions="25,*" Padding="16,10,10,10" HeightRequest="48">
-                                        <Label Text="&#xe702;" FontSize="24" FontFamily="NavigationDrawerFontIcon" VerticalOptions="Center"  />
-                                        <Label Grid.Column="1" Text="Trash" FontSize="16" TextColor="#49454F"  VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="&#xe73c;" FontSize="24" FontFamily="MauiSampleFontIcon" VerticalOptions="Center"  />
+                                        <Label Grid.Column="1" Text="Trash" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start"/>
                                     </Grid>
                                 </core:SfEffectsView>
                             </Border>
@@ -106,31 +110,32 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="0,30,0,30"/>
                                 </Border.StrokeShape>
-                                <core:SfEffectsView x:Name="spamEffects" SelectionBackground="#ab56e3" RippleBackground="#ab56e3">
+                                    <core:SfEffectsView x:Name="spamEffects" SelectionBackground="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}" RippleBackground="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackgroundLight}}">
                                     <Grid ColumnSpacing="10" ColumnDefinitions="25,*" Padding="16,10,10,10" HeightRequest="48">
-                                        <Label Text="&#xe704;" FontSize="24" FontFamily="NavigationDrawerFontIcon" VerticalOptions="Center"  />
-                                        <Label Grid.Column="1" Text="Spam" FontSize="16" TextColor="#49454F"  VerticalOptions="Center" HorizontalOptions="Start"/>
+                                        <Label Text="&#xe78c;" FontSize="24" FontFamily="MauiSampleFontIcon" VerticalOptions="Center"  />
+                                        <Label Grid.Column="1" Text="Spam" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start"/>
                                     </Grid>
                                 </core:SfEffectsView>
                             </Border>
                         </VerticalStackLayout>
+                        </ScrollView>
                     </navigationdrawer:DrawerSettings.DrawerContentView>
                 </navigationdrawer:DrawerSettings>
             </navigationdrawer:SfNavigationDrawer.DrawerSettings>
 
             <navigationdrawer:SfNavigationDrawer.ContentView>
-                <Grid RowDefinitions="Auto,*">
-                    <Grid ColumnDefinitions="Auto,*,Auto" Background="#6750A4" HeightRequest="42" ColumnSpacing="10">
+                <Grid RowDefinitions="Auto,*" Background="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}">
+                    <Grid ColumnDefinitions="Auto,*,Auto" Background="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}" HeightRequest="42" ColumnSpacing="10">
                         <Border Grid.Column="0" StrokeThickness="0" HeightRequest="40" WidthRequest="40" BackgroundColor="Transparent">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="30"/>
                             </Border.StrokeShape>
                             <core:SfEffectsView x:Name="primaryNavigation" TouchDownEffects="Ripple">
-                                <Label Text="&#xe70e;" TextColor="#FFFFFF" FontFamily="MauiSampleBrowserIcon" VerticalOptions="Center" HorizontalOptions="Center" FontSize="28"/>
+                                <Label Text="&#xe731;"  TextColor="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}" FontFamily="MauiSampleFontIcon" VerticalOptions="Center" HorizontalOptions="Center" FontSize="28"/>
                             </core:SfEffectsView>
                         </Border>
-                        <Label Grid.Column="1" x:Name="titleName" Text="Inbox" TextColor="#F7F2FB" FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <Image Grid.Column="2" Source="{imageExtension:SfImageResource alexuser.png}" Margin="0,0,5,0"  VerticalOptions="Center" WidthRequest="35" HeightRequest="35"/>
+                        <Label Grid.Column="1" x:Name="titleName" Text="Inbox" TextColor="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <Image Grid.Column="2" Source="{imageExtension:SfImageResource person.png}" Margin="0,0,5,0"  VerticalOptions="Center" WidthRequest="35" HeightRequest="35"/>
                     </Grid>
 
                     <ListView:SfListView Grid.Row="1"
@@ -150,7 +155,7 @@
                                         <Grid HeightRequest="16"
                                               Margin="16, 0, 16, 0">
                                             <Label Text="{Binding Key, Converter={StaticResource groupHeaderTextConverter}}"
-                                                   TextColor="#49454F"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                                    VerticalOptions="CenterAndExpand"
                                                    FontFamily="Roboto-Regular"
                                                    FontSize="12"
@@ -200,7 +205,7 @@
                                     <Label Grid.Row="0"
                                            Grid.Column="1"
                                            Text="{Binding Name}"
-                                           TextColor="{Binding IsOpened, Converter={StaticResource textColorConverter}}"
+                                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                            FontFamily="Roboto-Medium"
                                            FontSize="14"
                                            Margin="0, 2, 0, 0"
@@ -211,7 +216,7 @@
                                            Grid.Column="1"
                                            Grid.ColumnSpan="2"
                                            Text="{Binding Subject}"
-                                           TextColor="{Binding IsOpened, Converter={StaticResource textColorConverter}}"
+                                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"
                                            Margin="0, 0, 58, 0"
                                            FontFamily="Roboto-Medium"
                                            FontSize="14"
@@ -225,14 +230,14 @@
                                            FontFamily="Roboto-Regular"
                                            FontSize="13"
                                            Margin="0, 0, 26, 0"
-                                           TextColor="#49454F"
+                                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                            LineBreakMode="TailTruncation" />
 
                                     <Label Grid.Row="0"
                                            Grid.Column="2"
                                            x:Name="date"
                                            Text="{Binding Date, Converter={StaticResource dateTimeConverter}}"
-                                           TextColor="{Binding IsOpened, Converter={StaticResource textColorConverter}, ConverterParameter={x:Reference date}}"
+                                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
                                            FontFamily="Roboto-Regular"
                                            HorizontalOptions="End"
                                            HorizontalTextAlignment="End"
@@ -241,9 +246,10 @@
                                     <Label Grid.Row="2"
                                            Grid.Column="2"
                                            Rotation="45"
-                                           Text="&#xe708;"
+                                            Text="&#xe771;"
+                                           TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
                                            FontSize="16"
-                                           FontFamily='{OnPlatform Android=PullToRefreshFontIcon.ttf#,iOS=PullToRefreshFontIcon}'
+                                           FontFamily="MauiSampleFontIcon"
                                            IsVisible="{Binding IsAttached}"
                                            HorizontalOptions="End"
                                            VerticalOptions="Center">
@@ -251,9 +257,10 @@
 
                                     <Label Grid.Row="2"
                                            Grid.Column="2"
-                                           Text="&#xe70a;"
+                                           Text="&#xe796;"
                                            FontSize="16"
-                                           FontFamily='{OnPlatform Android=PullToRefreshFontIcon.ttf#,iOS=PullToRefreshFontIcon}'
+                                           TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                                           FontFamily="MauiSampleFontIcon"
                                            IsVisible="{Binding IsImportant}"
                                            HorizontalOptions="End"
                                            VerticalOptions="Center">
@@ -308,7 +315,7 @@
         <VerticalStackLayout Spacing="20" Margin="10">
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Transition" VerticalOptions="Center"/>
-                <inputs:SfComboBox Grid.Column="1" HeightRequest="35" x:Name="transitioncomboBox" IsClearButtonVisible="False" SelectedItem="SlideOnTop">
+                <inputs:SfComboBox Grid.Column="1" HeightRequest="37" x:Name="transitioncomboBox" IsClearButtonVisible="False" SelectedItem="SlideOnTop">
                     <inputs:SfComboBox.ItemsSource>
                         <ListCollection:List x:TypeArguments="x:String">
                             <x:String>Push</x:String>
@@ -320,7 +327,7 @@
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Position" VerticalOptions="Center"/>
-                <inputs:SfComboBox Grid.Column="1" HeightRequest="35" x:Name="positioncomboBox" IsClearButtonVisible="False" SelectedItem="Left">
+                <inputs:SfComboBox Grid.Column="1" HeightRequest="37" x:Name="positioncomboBox" IsClearButtonVisible="False" SelectedItem="Left">
                     <inputs:SfComboBox.ItemsSource>
                         <ListCollection:List x:TypeArguments="x:String">
                             <x:String>Left</x:String>

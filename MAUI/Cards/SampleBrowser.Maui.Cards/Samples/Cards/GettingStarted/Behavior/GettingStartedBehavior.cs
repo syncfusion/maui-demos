@@ -7,10 +7,12 @@
 #endregion
 namespace SampleBrowser.Maui.Cards.SfCards
 {
-    using Picker = Microsoft.Maui.Controls.Picker;
     using SampleBrowser.Maui.Base;
     using Syncfusion.Maui.Cards;
+    using Syncfusion.Maui.Buttons;
     using System;
+    using Syncfusion.Maui.DataSource.Extensions;
+    using SfComboBox = Syncfusion.Maui.Inputs.SfComboBox;
 
     public class GettingStartedBehavior : Behavior<SampleView>
     {
@@ -20,13 +22,14 @@ namespace SampleBrowser.Maui.Cards.SfCards
 
         private Slider? cornerRadiusSlider;
 
-        private Switch? indicatorSwitch;
-
-        private Picker? indicatorPositionPicker;
+        private SfSwitch? indicatorSwitch;
 
         private Grid? indicatorPositionOption;
 
-
+        /// <summary>
+        /// This combo box is used to choose the indicator position of the cards.
+        /// </summary>
+        private SfComboBox? indicatorPositionComboBox;
 
         /// <summary>
         /// Begins when the behavior attached to the view 
@@ -43,9 +46,13 @@ namespace SampleBrowser.Maui.Cards.SfCards
             this.fifthCard = sampleView.Content.FindByName<SfCardView>("fifthCard");
             this.cornerRadiusLabel = sampleView.Content.FindByName<Label>("cornerRadiusLabel");
             this.cornerRadiusSlider = sampleView.Content.FindByName<Slider>("cornerRadiusSlider");
-            this.indicatorSwitch = sampleView.Content.FindByName<Switch>("indicatorSwitch");
-            this.indicatorPositionPicker = sampleView.Content.FindByName<Picker>("indicatorPositionPicker");
+            this.indicatorSwitch = sampleView.Content.FindByName<SfSwitch>("indicatorSwitch");
             this.indicatorPositionOption = sampleView.Content.FindByName<Grid>("indicatorPositionOption");
+
+            this.indicatorPositionComboBox = sampleView.Content.FindByName<SfComboBox>("indicatorPositionComboBox");
+            this.indicatorPositionComboBox.ItemsSource = Enum.GetValues(typeof(CardIndicatorPosition)).ToList<CardIndicatorPosition>();
+            this.indicatorPositionComboBox.SelectedIndex = 0;
+            this.indicatorPositionComboBox.SelectionChanged += IndicatorPositionComboBox_SelectionChanged;
 
             if (this.cornerRadiusSlider != null)
             {
@@ -54,20 +61,50 @@ namespace SampleBrowser.Maui.Cards.SfCards
 
             if (this.indicatorSwitch != null)
             {
-                this.indicatorSwitch.Toggled += this.IndicatorSwitch_Toggled;
-            }
-
-            if (this.indicatorPositionPicker != null)
-            {
-                this.indicatorPositionPicker.SelectedIndexChanged += this.IndicatorPositionPicker_SelectedIndexChanged;
+                this.indicatorSwitch.StateChanged += this.IndicatorSwitch_StateChanged; ;
             }
         }
 
-        private void IndicatorPositionPicker_SelectedIndexChanged(object? sender, EventArgs e)
+        private void IndicatorSwitch_StateChanged(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.firstCard != null && this.secondCard != null && this.thirdCard != null && this.fourthCard != null && this.fifthCard != null && this.indicatorPositionPicker != null && this.indicatorPositionPicker.SelectedItem != null)
+            if (e.NewValue != null)
             {
-                string? selectedPosition = this.indicatorPositionPicker.SelectedItem.ToString();
+                bool isIndcatorEnabled = e.NewValue.Value;
+                double indicatorThickness = isIndcatorEnabled ? 7 : 0;
+                if (this.firstCard != null && this.secondCard != null && this.thirdCard != null && this.fourthCard != null && this.fifthCard != null && this.indicatorPositionOption != null)
+                {
+                    this.firstCard.IndicatorThickness = indicatorThickness;
+                    this.secondCard.IndicatorThickness = indicatorThickness;
+                    this.thirdCard.IndicatorThickness = indicatorThickness;
+                    this.fourthCard.IndicatorThickness = indicatorThickness;
+                    this.fifthCard.IndicatorThickness = indicatorThickness;
+                    if (isIndcatorEnabled)
+                    {
+                        this.indicatorPositionOption.IsVisible = true;
+                        this.firstCard.IndicatorColor = Color.FromArgb("#E2C799");
+                        this.secondCard.IndicatorColor = Color.FromArgb("#D4BBA0");
+                        this.thirdCard.IndicatorColor = Color.FromArgb("#A4A8AB");
+                        this.fourthCard.IndicatorColor = Color.FromArgb("#19376D");
+                        this.fifthCard.IndicatorColor = Color.FromArgb("#77ABB7");
+                    }
+                    else
+                    {
+                        this.indicatorPositionOption.IsVisible = false;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method for Cards Indication position combo box changed.
+        /// </summary>
+        /// <param name="sender">Return the object.</param>
+        /// <param name="e">Event Arguments.</param>
+        private void IndicatorPositionComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems != null && this.firstCard != null && this.secondCard != null && this.thirdCard != null && this.fourthCard != null && this.fifthCard != null)
+            {
+                string? selectedPosition = e.AddedItems[0].ToString();
                 switch (selectedPosition)
                 {
                     case "Bottom":
@@ -102,33 +139,6 @@ namespace SampleBrowser.Maui.Cards.SfCards
             }
         }
 
-        private void IndicatorSwitch_Toggled(object? sender, ToggledEventArgs e)
-        {
-            bool isIndcatorEnabled = e.Value;
-            double indicatorThickness = isIndcatorEnabled ? 7 : 0;
-            if (this.firstCard != null && this.secondCard != null && this.thirdCard != null && this.fourthCard != null && this.fifthCard != null && this.indicatorPositionOption != null)
-            {
-                this.firstCard.IndicatorThickness = indicatorThickness;
-                this.secondCard.IndicatorThickness = indicatorThickness;
-                this.thirdCard.IndicatorThickness = indicatorThickness;
-                this.fourthCard.IndicatorThickness = indicatorThickness;
-                this.fifthCard.IndicatorThickness = indicatorThickness;
-                if (isIndcatorEnabled)
-                {
-                    this.indicatorPositionOption.IsVisible = true;
-                    this.firstCard.IndicatorColor = Color.FromArgb("#E2C799");
-                    this.secondCard.IndicatorColor = Color.FromArgb("#D4BBA0");
-                    this.thirdCard.IndicatorColor = Color.FromArgb("#A4A8AB");
-                    this.fourthCard.IndicatorColor = Color.FromArgb("#19376D");
-                    this.fifthCard.IndicatorColor = Color.FromArgb("#77ABB7");
-                }
-                else
-                {
-                    this.indicatorPositionOption.IsVisible = false;
-                }
-            }
-        }
-
         private void CornerRadiusSlider_ValueChanged(object? sender, ValueChangedEventArgs e)
         {
             if (this.firstCard != null && this.secondCard != null && this.thirdCard != null && this.fourthCard != null && this.fifthCard != null && this.cornerRadiusLabel != null)
@@ -156,12 +166,12 @@ namespace SampleBrowser.Maui.Cards.SfCards
 
             if (this.indicatorSwitch != null)
             {
-                this.indicatorSwitch.Toggled -= IndicatorSwitch_Toggled;
+                this.indicatorSwitch.StateChanged -= IndicatorSwitch_StateChanged;
             }
 
-            if (this.indicatorPositionPicker != null)
+            if (this.indicatorPositionComboBox != null)
             {
-                this.indicatorPositionPicker.SelectedIndexChanged -= this.IndicatorPositionPicker_SelectedIndexChanged;
+                this.indicatorPositionComboBox.SelectionChanged -= IndicatorPositionComboBox_SelectionChanged;
             }
         }
     }

@@ -15,11 +15,12 @@ public partial class StampDialogMobile : ContentView
     Button? PreButton;
 
     public event EventHandler<CustomStampEventArgs?>? CustomStampCreated;
-    public StampDialogMobile()
-	{
-		InitializeComponent();
+
+    internal void Initialize()
+    {
+        InitializeComponent();
         this.PropertyChanged += StampDialogPropertyChanged;
-	}
+    }
 
     private async void StampDialogPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
@@ -28,7 +29,7 @@ public partial class StampDialogMobile : ContentView
             await Task.Delay(250);
             createEntry?.Focus();
         }
-        else if(e.PropertyName == "IsVisible" && this.IsVisible == false)
+        else if (e.PropertyName == "IsVisible" && this.IsVisible == false)
         {
             InitializeDialog();
         }
@@ -70,16 +71,16 @@ public partial class StampDialogMobile : ContentView
     {
         if (PreButton != null)
         {
-            PreButton.HeightRequest = 35;
-            PreButton.WidthRequest = 35;
+            PreButton.HeightRequest = 40;
+            PreButton.WidthRequest = 40;
             PreButton.CornerRadius = 20;
         }
         PreButton = sender as Button;
         if (selectedColorButtonHighlight == null)
         {
             selectedColorButtonHighlight = new Ellipse();
-            selectedColorButtonHighlight.WidthRequest = 35;
-            selectedColorButtonHighlight.HeightRequest = 35;
+            selectedColorButtonHighlight.WidthRequest = 40;
+            selectedColorButtonHighlight.HeightRequest = 40;
             selectedColorButtonHighlight.VerticalOptions = LayoutOptions.Center;
             selectedColorButtonHighlight.HorizontalOptions = LayoutOptions.Center;
             selectedColorButtonHighlight.Stroke = Brush.Black;
@@ -87,9 +88,10 @@ public partial class StampDialogMobile : ContentView
         }
         if (sender is Button button)
         {
-            button.HeightRequest = 28;
-            button.WidthRequest = 28;
-            button.CornerRadius = 14;
+            button.HeightRequest = 32;
+            button.WidthRequest = 32;
+            button.CornerRadius = 16;
+            createEntry.Unfocus();
             button.HorizontalOptions = LayoutOptions.Center;
             button.VerticalOptions = LayoutOptions.Center;
             int column = Grid.GetColumn(button);
@@ -152,7 +154,7 @@ public partial class StampDialogMobile : ContentView
         label.TextColor = Color.FromArgb("#A007A3");
         border.WidthRequest = 80;
         createEntry.Text = "";
-        if(PreButton != null)
+        if (PreButton != null)
         {
             PreButton.HeightRequest = 35;
             PreButton.WidthRequest = 35;

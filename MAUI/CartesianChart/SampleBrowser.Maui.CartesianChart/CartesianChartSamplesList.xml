@@ -2,7 +2,7 @@
 <SyncfusionControls>
   <ControlCategory Name="Data Visualization">
 	  <Control Title="Cartesian Charts" ControlName="SfCartesianChart" StatusTag="Updated" Image="cartesianchart.png" Description="Plot over 20+ chart types with extensive features like data label, trackball and zooming.">
-      <Category Title="Chart Types">
+      <Category Title="Chart Types" StatusTag="Updated">
         <SubCategory Title="Column">
           <CardLayout>
             <Sample Title="Default column chart" SampleName="ColumnChart" VideoLink="https://www.youtube.com/watch?v=o616GkzdPJk"
@@ -125,12 +125,13 @@
 	 </CardLayout>
 	 </SubCategory>
 
-        <Sample Title="Stacked Area" StatusTag="New" SampleName="StackedAreaChart" SearchTags="stackedarea" CodeViewerPath="CartesianChart/StackedArea/"/>
+        <Sample Title="Stacked Area" SampleName="StackedAreaChart" SearchTags="stackedarea" CodeViewerPath="CartesianChart/StackedArea/"/>
 
-        <Sample Title="100% Stacked Area" StatusTag="New" SampleName="StackedArea100Chart" SearchTags="stackedarea100" CodeViewerPath="CartesianChart/StackedArea100/"/>
-
+        <Sample Title="100% Stacked Area" SampleName="StackedArea100Chart" SearchTags="stackedarea100" CodeViewerPath="CartesianChart/StackedArea100/"/>
 
         <Sample Title="Box Plot" SampleName="BoxAndWhisker" SearchTags="boxandwhisker, box, plot, boxplot,whisker" CodeViewerPath="CartesianChart/BoxAndWhisker/"/>
+		  
+		<Sample Title="Histogram" StatusTag="New" SampleName="HistogramChart" SearchTags="histogram" CodeViewerPath="CartesianChart/HistogramChart/"/>
     
         <SubCategory Title="Waterfall">
           <CardLayout>
@@ -152,7 +153,6 @@
 				  <Sample Title="OHLC chart" SampleName="OHLC" SearchTags="high,low,open,close" CodeViewerPath="CartesianChart/FinancialChart/"/>
 			  </CardLayout>
 		  </SubCategory>
-
       </Category>
       
 		  <Category Title="Real-time Charts">
@@ -168,9 +168,21 @@
 			  <Sample Title="Date Time" SampleName="DateTimeAxisChart" VideoLink="https://www.youtube.com/watch?v=Z_ZIJ1zlVg0" SearchTags="date, axis" CodeViewerPath="CartesianChart/Axis/"/>
 			  <Sample Title="Axis crossing" SampleName="AxisCrossing" SearchTags="axis, crossing" CodeViewerPath="CartesianChart/Axis/"/>
 		  </Category>
+		  <Category Title="Plot band" StatusTag="New">				  
+			  <Sample Title="Horizontal" StatusTag="New" SampleName="HorizontalPlotBand" Platforms="Android,iOS" SearchTags="horizontal plot, band, plotband" CodeViewerPath="CartesianChart/PlotBand/"/>
+			  <Sample Title="Horizontal" StatusTag="New" SampleName="HorizontalPlotBandWindows" Platforms="Windows,MacCatalyst" SearchTags="horizontal plot, band, plot band" CodeViewerPath="CartesianChart/PlotBand/"/>
+			  <Sample Title="Vertical" StatusTag="New" SampleName="VerticalPlotBand" Platforms="Android,iOS" SearchTags="vertical plot, band, plotband" CodeViewerPath="CartesianChart/PlotBand/"/>
+			  <Sample Title="Vertical" StatusTag="New" SampleName="VerticalPlotBandWindows" Platforms="Windows,MacCatalyst" SearchTags="vertical plot, band, plotband" CodeViewerPath="CartesianChart/PlotBand/"/>
+			  <Sample Title="Band recurrence" StatusTag="New" SampleName="PlotBandRecurrence" SearchTags="multiple plot, band, plotband, recurrence" CodeViewerPath="CartesianChart/PlotBand/"/>
+		  </Category>
 		  <Category Title="Legend">
 			  <Sample Title="Legend customization" SampleName="CartesianLegend" SearchTags="legend" CodeViewerPath="CartesianChart/Legend/"/>
 		  </Category>
+
+		  <Category Title="Data label" StatusTag="New">
+			  <Sample Title="Data label template" SampleName="DataLabelTemplate" SearchTags="data label customization, data label template, custom data label" CodeViewerPath="CartesianChart/DataLabel/"/>
+		  </Category>
+
 		  <Category Title="Interactions">
 			  <SubCategory Title="Selection">
 				  <CardLayout>
@@ -187,7 +199,7 @@
                 SearchTags="trackball, crosshair" CodeViewerPath="CartesianChart/Trackball/"/>
 			  <Sample Title="Zooming and Panning" SampleName="ChartZooming" Description="This sample showcases the zooming and panning features." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Zoom/"/>
 			  <Sample Title="Selection Zooming" SampleName="SelectionZooming" Description="This sample demonstrates zooming selection: For desktop, hold the left mouse button, double-click, and drag; for mobile, hold your finger, double-click, and drag to create a selection rectangle." SearchTags="select, highlight" CodeViewerPath="CartesianChart/Zoom/"/>
-			  <Sample Title="Add a point on click" SampleName="TapToAdd" Description="This example shows the pixel-to-data point conversion feature. Tap/click on the chart area to add a data point dynamically on that location." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Interactions/"/>
+			  <!--<Sample Title="Add a point on click" SampleName="TapToAdd" Description="This example shows the pixel-to-data point conversion feature. Tap/click on the chart area to add a data point dynamically on that location." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Interactions/"/>-->
 			  <Sample Title="Auto scrolling" SampleName="AutoScrolling" Description="This sample demonstrates the auto-scrolling feature by showing a fixed number of data points that are always visible on the chart. Pan left to view the previous values." SearchTags="AutoScrolling, autoscrollingdelta, pan, fixed data" CodeViewerPath="CartesianChart/Interactions/"/>
       </Category>
 	  </Control>

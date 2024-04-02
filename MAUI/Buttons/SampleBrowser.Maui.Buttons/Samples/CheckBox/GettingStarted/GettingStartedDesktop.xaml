@@ -9,7 +9,7 @@
              xmlns:listView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.Samples.CheckBox"
              xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
 
     <localcore:SampleView.Resources>
         <ResourceDictionary>
@@ -31,7 +31,7 @@
    
     <localcore:SampleView.Content>
 
-            <Grid ColumnDefinitions="2.5*,7.5*">
+        <Grid ColumnDefinitions="2.5*,7.5*"  BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                 <Border
                     Grid.Column="0"
                     Margin="5"
@@ -78,7 +78,7 @@
                             FontSize="14" 
                             Text="COLORS" />
                         <StackLayout>
-                            <HorizontalStackLayout>
+                            <HorizontalStackLayout >
                                 <Syncfusion:SfCheckBox x:Name="brown" HorizontalOptions="Start" BindingContext="{x:StaticResource ViewModel}" IsChecked="{Binding ColorFilterChecked1}"/>
                                 <Border Style="{x:StaticResource ColorBorder}">
                                     <BoxView Color="SandyBrown" />
@@ -145,7 +145,7 @@
                     StrokeThickness="0.3"
                     StrokeShape="RoundRectangle 10">
 
-                <listView:SfListView BindingContext="{x:StaticResource ViewModel}" SelectionMode="None" ItemSpacing="5" ItemSize="260" ItemsSource="{Binding Filtered}">
+                <listView:SfListView BindingContext="{x:StaticResource ViewModel}" SelectionMode="None" ItemSpacing="5" ItemSize="260" ItemsSource="{Binding Filtered}" >
                     <listView:SfListView.ItemsLayout>
                         <listView:GridLayout SpanCount="3" />
                     </listView:SfListView.ItemsLayout>
@@ -153,7 +153,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Border
-                                    BackgroundColor="White"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
                                     Stroke="Gray"
                                     StrokeThickness="0.3"
                                     StrokeShape="RoundRectangle 0">
@@ -163,7 +163,7 @@
                                             <On Platform="WinUI" Value="0,0,7,0"/>
                                         </OnPlatform>
                                     </Border.Margin>
-                                    <Grid Margin="5" RowDefinitions="7*,3*">
+                                    <Grid Margin="5" RowDefinitions="7*,3*" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
                                         <Image Source="{Binding Image,Converter={StaticResource imageconverter}}"/>
                                         <Grid
                                             RowDefinitions="1*,3*"

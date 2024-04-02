@@ -37,20 +37,20 @@ namespace SampleBrowser.Maui.PyramidChart.SfPyramidChart
            //    new Learning("Watch Videos"), 
            //    }},
            new ChartDataModel("Passive Verbal",50){LearningCategories = new List<Learning>{
-               new Learning("Attending Lecture", Color.FromArgb("#95DB9C")),
-               new Learning("Reading Books", Color.FromArgb("#95DB9C")),
-               new Learning("Listening Others", Color.FromArgb("#95DB9C")),
-               new Learning("Multimedia Listening", Color.FromArgb("#95DB9C"))}},
+               new Learning("Attending Lecture", Color.FromArgb("#A033F5")),
+               new Learning("Reading Books", Color.FromArgb("#A033F5")),
+               new Learning("Listening Others", Color.FromArgb("#A033F5")),
+               new Learning("Multimedia Listening", Color.FromArgb("#A033F5"))}},
            new ChartDataModel("Discussion", 50) {LearningCategories = new List<Learning>{
-               new Learning("Attend Exhibits",Color.FromArgb("#B95375")),
-               new Learning("Group Discussion",Color.FromArgb("#B95375")),
-               new Learning("Watch a Demonstration",Color.FromArgb("#B95375"))}},
+               new Learning("Attend Exhibits",Color.FromArgb("#E75A6E")),
+               new Learning("Group Discussion",Color.FromArgb("#E75A6E")),
+               new Learning("Watch a Demonstration",Color.FromArgb("#E75A6E"))}},
            new ChartDataModel("Practice", 75){LearningCategories = new List<Learning>{
-               new Learning("Hands-on-Workshop",Color.FromArgb("#56BBAF")),
-               new Learning("Develop a Class Project",Color.FromArgb("#56BBAF"))}},
+               new Learning("Hands-on-Workshop",Color.FromArgb("#0DC920")),
+               new Learning("Develop a Class Project",Color.FromArgb("#0DC920"))}},
            new ChartDataModel("Teach Others", 90){LearningCategories = new List<Learning>{
-               new Learning("Simulate Model",Color.FromArgb("#606D7F")),
-               new Learning("Do the Real Thing",Color.FromArgb("#606D7F")) }},
+               new Learning("Simulate Model",Color.FromArgb("#2EC4B6")),
+               new Learning("Do the Real Thing",Color.FromArgb("#2EC4B6")) }},
             };
 
             FinancialData = new ObservableCollection<ChartDataModel>

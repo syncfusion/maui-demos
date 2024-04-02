@@ -7,7 +7,15 @@
              xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
              xmlns:converter="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core"
              xmlns:chart="http://schemas.syncfusion.com/maui">
-  
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CircularChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
     <localCore:SampleView.Content>
         <chart:SfCircularChart x:Name="chart" >
             <chart:SfCircularChart.Resources>
@@ -21,14 +29,14 @@
             </chart:SfCircularChart.BindingContext>
             <chart:SfCircularChart.Title>
                 <Label Text="Percentage of Loan Closure" Margin="0,20,0,0" HorizontalOptions="Fill" 
-                       HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" TextColor="Black" />
+                       HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
             </chart:SfCircularChart.Title>
-            <chart:RadialBarSeries LegendIcon="Circle" ItemsSource="{Binding RadialBarData}" 
-                                   x:Name="series" 
-                               YBindingPath="Value"  
+            <chart:RadialBarSeries LegendIcon="Circle" ItemsSource="{Binding RadialBarData}" TrackFill="{AppThemeBinding Light={StaticResource TrackColorLight}, Dark={StaticResource TrackColorDark}}"
+                                   x:Name="series" PaletteBrushes="{AppThemeBinding Light={StaticResource RadialPaletteBrushesLight2}, Dark={StaticResource RadialPaletteBrushesDark2}}"
+                                   YBindingPath="Value"  
                                    GapRatio="{OnPlatform WinUI='0.4',Android='0.4',iOS='0.5',MacCatalyst='0.4'}" 
-                               CapStyle="BothCurve" XBindingPath="Name" 
-                               Radius="1" MaximumValue="100" PaletteBrushes="{Binding CustomPalette}"  >
+                                   CapStyle="BothCurve" XBindingPath="Name" 
+                                  Radius="1" MaximumValue="100">
                 <chart:RadialBarSeries.CenterView>
                     <Border Stroke="{OnPlatform WinUI='White',Android='White'}" 
                             HeightRequest="{Binding CenterHoleSize}"  
@@ -60,7 +68,7 @@
                 <chart:ChartLegend Placement="{OnPlatform WinUI='Bottom', MacCatalyst='Bottom', iOS='Bottom', Android='Bottom'}">
                     <chart:ChartLegend.ItemTemplate>
                         <DataTemplate>
-                            <Grid HeightRequest="100" Margin="5,0,0,0" WidthRequest="{OnPlatform WinUI='120',Android='80',MacCatalyst='120',iOS='90'}">
+                            <Grid HeightRequest="{OnPlatform WinUI=100,Android=75,MacCatalyst=100,iOS=75}" Margin="5,0,0,0" WidthRequest="{OnPlatform WinUI='120',Android='80',MacCatalyst='120',iOS='90'}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
@@ -105,16 +113,16 @@
                                     </chart:SfCircularChart.Series>
                                 </chart:SfCircularChart>
                                 <Label Grid.Row="0" Grid.Column="1" 
-                                       Margin="{OnPlatform WinUI='10,30,0,0',Android='5,30,0,0',MacCatalyst='10,30,0,0',iOS='5,30,0,0'}" 
-                                       HeightRequest="30" x:Name="label" 
+                                       Margin="{OnPlatform WinUI='10,30,0,0',Android='5,23,0,0',MacCatalyst='10,30,0,0',iOS='5,15,0,0'}" 
+                                       HeightRequest="{OnPlatform WinUI=30,Android=23,MacCatalyst=30,iOS=23}" x:Name="label" 
                                        FontSize="{OnPlatform WinUI='13' ,Android='10',MacCatalyst='13',iOS='10'}"
                                        TextColor="{Binding IconBrush,Converter={StaticResource brushToColor}}" 
                                        HorizontalTextAlignment="Start" VerticalTextAlignment="Start" 
                                        Text="{Binding Item.Value, StringFormat='\{0,0\}%'}">
                                 </Label>
                                 <Label FontSize="{OnPlatform WinUI='13' ,Android='10',MacCatalyst='13',iOS='10'}" Grid.Row="1" 
-                                       Margin="{OnPlatform WinUI='10,0,0,30',Android='5,0,0,30',MacCatalyst='10,0,0,30',iOS='5,0,0,30'}" 
-                                       HeightRequest="30" Text="{Binding Item.Name}" 
+                                       Margin="{OnPlatform WinUI='10,0,0,30',Android='5,0,0,23',MacCatalyst='10,0,0,30',iOS='5,0,0,23'}" 
+                                       HeightRequest="{OnPlatform WinUI=30,Android=23,MacCatalyst=30,iOS=23}" Text="{Binding Item.Name}" 
                                        Grid.Column="1" VerticalTextAlignment="Start"  HorizontalTextAlignment="Start" />
                             </Grid>
                         </DataTemplate>

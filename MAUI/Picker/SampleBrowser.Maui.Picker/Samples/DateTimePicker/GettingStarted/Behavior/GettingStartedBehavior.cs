@@ -11,6 +11,7 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
     using Syncfusion.Maui.Inputs;
     using Syncfusion.Maui.Picker;
     using System.Collections.ObjectModel;
+    using Syncfusion.Maui.Buttons;
 
     public class GettingStartedBehavior : Behavior<SampleView>
     {
@@ -22,7 +23,7 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// <summary>
         /// The show header switch
         /// </summary>
-        private Switch? showHeaderSwitch, showColumnHeaderSwitch, showFooterSwitch;
+        private SfSwitch? showHeaderSwitch, showColumnHeaderSwitch, showFooterSwitch;
 
         /// <summary>
         /// The date format combo box.
@@ -39,6 +40,10 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// </summary>
         private ObservableCollection<object>? timeFormat;
 
+        /// <summary>
+        /// Check the application theme is light or dark.
+        /// </summary>
+        private bool isLightTheme = Application.Current?.RequestedTheme == AppTheme.Light;
 
         /// <summary>
         /// Begins when the behavior attached to the view 
@@ -51,18 +56,18 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
 #if IOS || MACCATALYST
             Border border = sampleView.Content.FindByName<Border>("border");
             border.IsVisible = true;
-            border.Stroke = Color.FromArgb("#E6E6E6");
+            border.Stroke = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
             this.dateTimePicker = sampleView.Content.FindByName<SfDateTimePicker>("DateTimePicker1");
 #else
             Frame frame = sampleView.Content.FindByName<Frame>("frame");
             frame.IsVisible = true;
-            frame.BorderColor = Color.FromArgb("#E6E6E6");
+            frame.BorderColor = isLightTheme ? Color.FromArgb("#CAC4D0") : Color.FromArgb("#49454F");
             this.dateTimePicker = sampleView.Content.FindByName<SfDateTimePicker>("DateTimePicker");
 #endif
 
-            this.showHeaderSwitch = sampleView.Content.FindByName<Switch>("showHeaderSwitch");
-            this.showColumnHeaderSwitch = sampleView.Content.FindByName<Switch>("showColumnHeaderSwitch");
-            this.showFooterSwitch = sampleView.Content.FindByName<Switch>("showFooterSwitch");
+            this.showHeaderSwitch = sampleView.Content.FindByName<SfSwitch>("showHeaderSwitch");
+            this.showColumnHeaderSwitch = sampleView.Content.FindByName<SfSwitch>("showColumnHeaderSwitch");
+            this.showFooterSwitch = sampleView.Content.FindByName<SfSwitch>("showFooterSwitch");
 
             dateFormat = new ObservableCollection<object>()
             {
@@ -86,17 +91,17 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
 
             if (this.showHeaderSwitch != null)
             {
-                this.showHeaderSwitch.Toggled += ShowHeaderSwitch_Toggled;
+                this.showHeaderSwitch.StateChanged += ShowHeaderSwitch_Toggled;
             }
 
             if (this.showColumnHeaderSwitch != null)
             {
-                this.showColumnHeaderSwitch.Toggled += ShowColumnHeaderSwitch_Toggled;
+                this.showColumnHeaderSwitch.StateChanged += ShowColumnHeaderSwitch_Toggled;
             }
 
             if (this.showFooterSwitch != null)
             {
-                this.showFooterSwitch.Toggled += ShowFooterSwitch_Toggled;
+                this.showFooterSwitch.StateChanged += ShowFooterSwitch_Toggled;
             }
         }
 
@@ -105,11 +110,11 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowHeaderSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowHeaderSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.dateTimePicker != null)
+            if (this.dateTimePicker != null && e.NewValue.HasValue)
             {
-                this.dateTimePicker.HeaderView.Height = e.Value == true ? 50 : 0;
+                this.dateTimePicker.HeaderView.Height = e.NewValue.Value == true ? 50 : 0;
             }
         }
 
@@ -118,11 +123,11 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowColumnHeaderSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowColumnHeaderSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.dateTimePicker != null)
+            if (this.dateTimePicker != null && e.NewValue.HasValue)
             {
-                this.dateTimePicker.ColumnHeaderView.Height = e.Value == true ? 40 : 0;
+                this.dateTimePicker.ColumnHeaderView.Height = e.NewValue.Value == true ? 40 : 0;
             }
         }
 
@@ -131,28 +136,17 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void ShowFooterSwitch_Toggled(object? sender, ToggledEventArgs e)
+        private void ShowFooterSwitch_Toggled(object? sender, SwitchStateChangedEventArgs e)
         {
-            if (this.dateTimePicker != null)
+            if (this.dateTimePicker != null && e.NewValue.HasValue)
             {
-                if (e.Value == true)
+                if (e.NewValue.Value == true)
                 {
-                    this.dateTimePicker.FooterView = new PickerFooterView()
-                    {
-                        Height = 40,
-                        TextStyle = new PickerTextStyle()
-                        {
-                            TextColor = Color.FromArgb("#6750A4"),
-                            FontSize = 15,
-                        },
-                    };
+                    this.dateTimePicker.FooterView.Height = 40;
                 }
-                else if (e.Value == false)
+                else if (e.NewValue.Value == false)
                 {
-                    this.dateTimePicker.FooterView = new PickerFooterView()
-                    {
-                        Height = 0,
-                    };
+                    this.dateTimePicker.FooterView.Height = 0;
                 }
             }
         }
@@ -162,7 +156,7 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void DateFormatComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+        private void DateFormatComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
             if (this.dateTimePicker == null || e.AddedItems == null || dateFormatComboBox == null)
             {
@@ -212,7 +206,7 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
         /// </summary>
         /// <param name="sender">Return the object.</param>
         /// <param name="e">The Event Arguments.</param>
-        private void TimeFormatComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+        private void TimeFormatComboBox_SelectionChanged(object? sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
         {
             if (this.dateTimePicker == null || e.AddedItems == null || timeFormatComboBox == null)
             {
@@ -270,19 +264,19 @@ namespace SampleBrowser.Maui.Picker.SfDateTimePicker
             base.OnDetachingFrom(sampleView);
             if (this.showHeaderSwitch != null)
             {
-                this.showHeaderSwitch.Toggled -= ShowHeaderSwitch_Toggled;
+                this.showHeaderSwitch.StateChanged -= ShowHeaderSwitch_Toggled;
                 this.showHeaderSwitch = null;
             }
 
             if (this.showColumnHeaderSwitch != null)
             {
-                this.showColumnHeaderSwitch.Toggled -= ShowColumnHeaderSwitch_Toggled;
+                this.showColumnHeaderSwitch.StateChanged -= ShowColumnHeaderSwitch_Toggled;
                 this.showColumnHeaderSwitch = null;
             }
 
             if (this.showFooterSwitch != null)
             {
-                this.showFooterSwitch.Toggled -= ShowFooterSwitch_Toggled;
+                this.showFooterSwitch.StateChanged -= ShowFooterSwitch_Toggled;
                 this.showFooterSwitch = null;
             }
         }

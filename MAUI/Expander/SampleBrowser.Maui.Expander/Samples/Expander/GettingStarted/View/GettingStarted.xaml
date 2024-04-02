@@ -27,10 +27,10 @@
                 <Image Source="{converters:SfImageResource signinform.png}"
                        Aspect="AspectFit"  Grid.Row="1" Margin="0,-200,0,0"
                         HorizontalOptions="{OnPlatform WinUI=Center}" />
-                <Label Text="Invoice" Margin="{OnPlatform MacCatalyst='-100,200,0,0'}"
-                       FontSize="30" WidthRequest="300" FontAttributes="Bold" TextColor="White" Grid.Row="1" />
+                <Label Text="Invoice" Margin="{OnPlatform MacCatalyst='-100,200,0,0'}" TextColor="{StaticResource White}"
+                       FontSize="30" WidthRequest="300" FontAttributes="Bold" Grid.Row="1" />
             </Grid>
-            <Border Stroke="Transparent" Background="White"
+            <Border Stroke="Transparent" Background="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource TextColourLight}}"
                     Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1,MacCatalyst=1}" 
                     Grid.Column="{OnPlatform Default=0,WinUI=1,MacCatalyst=1}"
                     VerticalOptions="{OnPlatform Default=Fill, WinUI=Center, MacCatalyst=Center}"
@@ -43,7 +43,7 @@
                 <Grid>
                     <local:ExpanderScrollView x:Name="scrollView">
                         <Grid x:Name="layout" HorizontalOptions="{OnPlatform MacCatalyst=Center,WinUI=Center}" >
-                          <Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
                                 <RowDefinition Height="40"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -51,7 +51,7 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label Grid.Row="0" Text="Invoice: #FRU037020142097" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" HeightRequest="40" FontSize="16" FontFamily="Roboto-Regular"  Opacity="1.0" VerticalTextAlignment="Center" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
-                            <Border Grid.Row="1" Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
+                            <Border Grid.Row="1" StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200" IsExpanded="True" >
                                     <syncfusion:SfExpander.Header>
                                         <Grid >
@@ -62,8 +62,8 @@
                                                 <ColumnDefinition Width="35"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="&#xe703;" FontSize="16" Margin="14,2,2,2"
-                                                   FontFamily='{OnPlatform Android=AccordionFontIcons.ttf#,WinUI=AccordionFontIcons.ttf#AccordionFontIcons,MacCatalyst=AccordionFontIcons,iOS=AccordionFontIcons}'
+                                            <Label Text="&#xe757;" FontSize="16" Margin="14,2,2,2"
+                                                   FontFamily="MauiSampleFontIcon"
                                                    VerticalOptions="Center" VerticalTextAlignment="Center"/>
                                             <Label CharacterSpacing="0.25" FontFamily="Roboto-Regular"  Text="Invoice Date" FontSize="14" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
                                         </Grid>
@@ -75,7 +75,7 @@
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Grid.Row="2" Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0"  StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
+                            <Border Grid.Row="2" StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander  AnimationDuration="200" IsExpanded="False">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>
@@ -86,8 +86,8 @@
                                                 <ColumnDefinition Width="35"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="&#xe701;" FontSize="16" Margin="14,2,2,2"
-                                                   FontFamily='{OnPlatform Android=AccordionFontIcons.ttf#,WinUI=AccordionFontIcons.ttf#AccordionFontIcons,MacCatalyst=AccordionFontIcons,iOS=AccordionFontIcons}'
+                                            <Label Text="&#xe74E;" FontSize="16" Margin="14,2,2,2"
+                                                   FontFamily="MauiSampleFontIcon"
                                                    VerticalOptions="Center" VerticalTextAlignment="Center"/>
                                             <Label CharacterSpacing="0.25" FontFamily="Roboto-Regular"  Text="Item(s)" FontSize="14" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
                                         </Grid>
@@ -128,14 +128,14 @@
                                                     <ColumnDefinition Width="*"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Label Text="Total Amount" CharacterSpacing="0.25"  VerticalTextAlignment="Center" TextColor="{StaticResource Primary}" FontSize="14"/>
-                                                <Label Text="$36,220.00" CharacterSpacing="0.25"  HorizontalTextAlignment="End" TextColor="{StaticResource Primary}" VerticalTextAlignment="Center" FontSize="14" Grid.Column="1"/>
+                                                <Label Text="Total Amount" CharacterSpacing="0.25" TextColor="{AppThemeBinding Dark={StaticResource PrimaryBorder}, Light={StaticResource PrimaryBackgroundLight}}" VerticalTextAlignment="Center" FontSize="14"/>
+                                                <Label Text="$36,220.00" CharacterSpacing="0.25" TextColor="{AppThemeBinding Dark={StaticResource PrimaryBorder}, Light={StaticResource PrimaryBackgroundLight}}"  HorizontalTextAlignment="End"  VerticalTextAlignment="Center" FontSize="14" Grid.Column="1"/>
                                             </Grid>
                                         </Grid>
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Grid.Row="3" Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
+                            <Border Grid.Row="3" StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200"  IsExpanded="False">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>
@@ -146,19 +146,14 @@
                                                 <ColumnDefinition Width="35"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="&#xe702;" FontSize="16" Margin="14,2,2,2"
-                                                   FontFamily='{OnPlatform Android=AccordionFontIcons.ttf#,WinUI=AccordionFontIcons.ttf#AccordionFontIcons,MacCatalyst=AccordionFontIcons,iOS=AccordionFontIcons}'
+                                            <Label Text="&#xe786;" FontSize="16" Margin="14,2,2,2"
+                                                   FontFamily="MauiSampleFontIcon"
                                                    VerticalOptions="Center" VerticalTextAlignment="Center"/>
                                             <Label CharacterSpacing="0.25" FontFamily="Roboto-Regular"  Text="Payment Details" FontSize="14" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </syncfusion:SfExpander.Header>
                                     <syncfusion:SfExpander.Content>
                                         <Grid Padding="18,8,18,18"  RowSpacing="6" >
-                                            <Grid.Resources>
-                                                <Style TargetType="Label">
-                                                    <Setter Property="FontFamily" Value="Roboto-Regular"/>
-                                                </Style>
-                                            </Grid.Resources>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="20"/>
                                                 <RowDefinition Height="20"/>
@@ -168,17 +163,17 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label FontSize="14" CharacterSpacing="0.25"  Text="Card Payment"/>
-                                            <Label FontSize="14" CharacterSpacing="0.25"  Text="Third-Party coupons" Grid.Row="1"/>
-                                            <Label FontSize="14" CharacterSpacing="0.25"  Text="Total Amount Paid" TextColor="{StaticResource Primary}" Grid.Row="2"/>
-                                            <Label FontSize="14" CharacterSpacing="0.25"  HorizontalOptions="End" Text="$31,200.00" Grid.Column="1"/>
-                                            <Label FontSize="14" CharacterSpacing="0.25"  HorizontalOptions="End" Text="$5,000.00" Grid.Row="1" Grid.Column="1"/>
-                                            <Label FontSize="14" CharacterSpacing="0.25"  HorizontalOptions="End" Text="$36,200.00" TextColor="{StaticResource Primary}" Grid.Row="2" Grid.Column="1"/>
+                                            <Label FontSize="14" CharacterSpacing="0.25" FontFamily="Roboto-Regular" Text="Card Payment"/>
+                                            <Label FontSize="14" CharacterSpacing="0.25" FontFamily="Roboto-Regular" Text="Third-Party coupons" Grid.Row="1"/>
+                                            <Label FontSize="14" CharacterSpacing="0.25" FontFamily="Roboto-Regular" Text="Total Amount Paid" TextColor="{AppThemeBinding Dark={StaticResource PrimaryBorder}, Light={StaticResource PrimaryBackgroundLight}}" Grid.Row="2"/>
+                                            <Label FontSize="14" CharacterSpacing="0.25" FontFamily="Roboto-Regular" HorizontalOptions="End" Text="$31,200.00" Grid.Column="1"/>
+                                            <Label FontSize="14" CharacterSpacing="0.25" FontFamily="Roboto-Regular" HorizontalOptions="End" Text="$5,000.00" Grid.Row="1" Grid.Column="1"/>
+                                            <Label FontSize="14" CharacterSpacing="0.25" FontFamily="Roboto-Regular" HorizontalOptions="End" Text="$36,200.00" TextColor="{AppThemeBinding Dark={StaticResource PrimaryBorder}, Light={StaticResource PrimaryBackgroundLight}}" Grid.Row="2" Grid.Column="1"/>
                                         </Grid>
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
                             </Border>
-                            <Border Grid.Row="4" Background='{OnPlatform Default="Transparent",MacCatalyst="White"}' StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="#CAC4D0" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
+                            <Border Grid.Row="4"  StrokeShape="RoundRectangle 8,8,8,8" Margin="{OnPlatform Default='8,0,8,8',WinUI='8,0,6,8',MacCatalyst='8,0,6,8'}" Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" StrokeThickness="{OnPlatform MacCatalyst=2,Default=1}" WidthRequest="{OnPlatform MacCatalyst=460,WinUI=330}">
                                 <syncfusion:SfExpander AnimationDuration="200" IsExpanded="True">
                                     <syncfusion:SfExpander.Header>
                                         <Grid>
@@ -189,27 +184,22 @@
                                                 <ColumnDefinition Width="35"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="&#xe704;" FontSize="16" Margin="14,2,2,2"
-                                                   FontFamily='{OnPlatform Android=AccordionFontIcons.ttf#,WinUI=AccordionFontIcons.ttf#AccordionFontIcons,MacCatalyst=AccordionFontIcons,iOS=AccordionFontIcons}'
+                                            <Label Text="&#xe76E;" FontSize="16" Margin="14,2,2,2"
+                                                   FontFamily="MauiSampleFontIcon"
                                                    VerticalOptions="Center" VerticalTextAlignment="Center"/>
                                             <Label CharacterSpacing="0.25" FontFamily="Roboto-Regular" FontSize="14" Text="Address" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </syncfusion:SfExpander.Header>
                                     <syncfusion:SfExpander.Content>
                                         <Grid Padding="18,8,18,18" Grid.Row="1" RowSpacing="1">
-                                            <Grid.Resources>
-                                                <Style TargetType="Label">
-                                                    <Setter Property="FontFamily" Value="Roboto-Regular"/>
-                                                </Style>
-                                            </Grid.Resources>
                                             <Grid.RowDefinitions >
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="Auto"/>
                                             </Grid.RowDefinitions>
-                                            <Label CharacterSpacing="0.25"  FontSize="14" Text="Alex" FontAttributes="Bold"/>
-                                            <Label CharacterSpacing="0.25"  FontSize="14" Text="No.8 Blossom St, Washington, DC 20019" Grid.Row="1"/>
-                                            <Label CharacterSpacing="0.25"  FontSize="14" Text="(202) 547-3555" Grid.Row="2"/>
+                                            <Label CharacterSpacing="0.25" FontFamily="Roboto-Regular" FontSize="14" Text="Alex" FontAttributes="Bold"/>
+                                            <Label CharacterSpacing="0.25" FontFamily="Roboto-Regular" FontSize="14" Text="No.8 Blossom St, Washington, DC 20019" Grid.Row="1"/>
+                                            <Label CharacterSpacing="0.25" FontFamily="Roboto-Regular" FontSize="14" Text="(202) 547-3555" Grid.Row="2"/>
                                         </Grid>
                                     </syncfusion:SfExpander.Content>
                                 </syncfusion:SfExpander>
