@@ -80,7 +80,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	</td>
 	</tr>
 	<tr>
-		<td rowspan="6" valign="top">
+		<td rowspan="10" valign="top">
 			DATA VISUALIZATION<br/>
 		</td>
 		<td>
@@ -133,6 +133,74 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 	</tr>
+	 <tr>
+			<td>
+				<a href="https://help.syncfusion.com/maui/funnel-charts/overview">Funnel Charts</a><br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="https://help.syncfusion.com/maui/pyramid-charts/overview">Pyramid Charts</a><br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+		</tr>
+	<tr>
+			<td>
+				<a href="https://help.syncfusion.com/maui/polar-charts/overview">Polar Charts</a><br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="https://help.syncfusion.com/maui/sunburstchart/overview">Sunburst Chart</a><br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+			<td>
+			Yes<br/>
+			</td>
+		</tr>
 	<tr>
 		<td>
 			<a href="https://help.syncfusion.com/maui/linear-gauge/overview">Linear Gauge</a><br/>
@@ -205,11 +273,28 @@ Platforms supported by each .NET MAUI control are listed below.
 		</td>
 	</tr>
     <tr>
-	    <td rowspan="1" valign="top">
+	    <td rowspan="2" valign="top">
 			LAYOUT<br/>
 		</td>	
 		<td>
 			<a href="https://help.syncfusion.com/maui/listview/overview">ListView</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/parallax-view/overview">Parallax View</a><br/>
 		</td>
 		<td>
 		Yes<br/>
