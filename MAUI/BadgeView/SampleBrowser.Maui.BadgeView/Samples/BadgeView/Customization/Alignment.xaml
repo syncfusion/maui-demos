@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.BadgeView.SfBadgeView.Alignment">
+
+
+    <localCore:SampleView.Content>
+        <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Spacing="20"
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center"
+                                 Padding="10">
+                <badge:SfBadgeView BadgeText="5"
+                               HorizontalOptions="Center"
+                               WidthRequest="150"
+                               HeightRequest="90">
+                    <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                            Text="Start"
+                            Margin="10"
+                            FontSize="18"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                            CornerRadius="0" />
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings BadgeAlignment="Start" CornerRadius="0" Offset="-1,2"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+                <badge:SfBadgeView BadgeText="5" 
+                               HorizontalOptions="Center"
+                               WidthRequest="150"
+                               HeightRequest="80">
+                    <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                            Text="Center"
+                            Margin="10"
+                            FontSize="18"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                            CornerRadius="0" />
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings BadgeAlignment="Center" CornerRadius="0" />
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+                <badge:SfBadgeView BadgeText="5" 
+                               HorizontalOptions="Center"
+                               WidthRequest="150"
+                               HeightRequest="70">
+                    <Button BackgroundColor="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" 
+                            Text="End"
+                            Margin="10"
+                            FontSize="18"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"
+                            CornerRadius="0" />
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings BadgeAlignment="End" CornerRadius="0" />
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

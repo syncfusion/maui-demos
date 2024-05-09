@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Notification">
+
+		<Control Title="Linear Progress Bar" ControlName="SfLinearProgressBar" Image="linearprogressbar.png" Description="Indicates the progress of a task along a line.">
+			<Sample SampleName="LinearProgressBar" Title="Features" CodeViewerPath="LinearProgressBar/" VideoLink="https://www.youtube.com/watch?v=DY29ko7PTXg" />
+		</Control>
+
+		<Control Title="Circular Progress Bar" ControlName="SfCircularProgressBar" Image="circularprogressbar.png" Description="Indicates the progress of a task along a circle.">
+			<Sample SampleName="CircularProgressBar" Title="Features" CodeViewerPath="CircularProgressBar/" VideoLink="https://www.youtube.com/watch?v=lH_0-2JEKcM" />
+		</Control>
+
+		<Control Title="Step Progress Bar" StatusTag="New" IsPreview="true" ControlName="SfStepProgressBar" Image="stepprogressbar.png" Description="A multi step progress bar tracks the status of a process.">
+			<Sample SampleName="StepProgressBar" Title="Order Tracking" CodeViewerPath="StepProgressBar/" VideoLink="" />
+		</Control>
+
+	</ControlCategory>
+</SyncfusionControls>

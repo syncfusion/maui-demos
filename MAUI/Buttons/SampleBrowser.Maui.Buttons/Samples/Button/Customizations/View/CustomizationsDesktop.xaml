@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.Buttons.Button.CustomizationsDesktop"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:Core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.Button"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" 
+             WidthRequest="400">
+
+    <localCore:SampleView.Resources>
+        <Style x:Key="CheckBoxNormalStyle"  TargetType="button:SfCheckBox">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+            <Setter Property="CheckedColor" Value="#6200EE"/>
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+        </Style>
+        <Style x:Key="EntryNormalStyle"  TargetType="Entry">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+
+        <Grid WidthRequest="380"  HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Margin="5,10"  Grid.Row="0" Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
+                <Grid>
+                    <button:SfButton  x:Name="cartButton"
+                                     Background="#6200EE" 
+                                     StrokeThickness="{Binding BorderWidth}" 
+                                     WidthRequest="150" 
+                                     HeightRequest="50"
+                                     BackgroundImageSource="{Binding BackgroundImage}"
+                                     TextColor="{Binding TextColor}"
+                                     CornerRadius="{Binding CornerRadius,Mode=TwoWay}">
+                    <button:SfButton.Content>
+                        <DataTemplate>
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center"  >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Padding="5,0,5,0" >
+                                    <Label Text="&#xE7BF;" 
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalOptions="Center"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalOptions="Start" 
+                                           FontSize="25" 
+                                           FontFamily="SegmentIcon"
+                                           TextColor="{Binding TextColor}"/>
+                                </Grid>
+                                <Grid Padding="0,15,15,15" Grid.Column="1" >
+                                    <Label Text="{Binding Text}"
+                                           HorizontalOptions="Center" 
+                                           HorizontalTextAlignment="Center" 
+                                           FontSize="15" 
+                                           HeightRequest="20" 
+                                           TextColor="{Binding TextColor}"
+                                           VerticalTextAlignment="Center" 
+                                           VerticalOptions="Center" 
+                                           LineBreakMode="NoWrap" >
+                                    </Label>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </button:SfButton.Content>
+                </button:SfButton>
+               </Grid>
+            </Border>
+            <Border Grid.Row="1" Margin="5,0,5,10" Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="0.3">
+                <Grid>
+                    <ScrollView VerticalScrollBarVisibility="Never">
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                            <Core:SfTextInputLayout ContainerType="Outlined" Hint="Text" Margin="10,5,15,0">
+                                <Entry Style="{StaticResource EntryNormalStyle}"
+           Text="{Binding Text,Mode=TwoWay}" 
+               Placeholder="ADD TO CART"/>
+                            </Core:SfTextInputLayout>
+                            <tabView:SfTabView
+                                    Margin="15,0" 
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    HeightRequest="130">
+                                <tabView:SfTabItem Header="Text Color" 
+										   FontFamily="Roboto-Regular" >
+                                    <tabView:SfTabItem.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="WinUI" Value ="12"/>
+                                            <On Platform="MacCatalyst" Value="10"/>
+                                        </OnPlatform>
+                                    </tabView:SfTabItem.FontSize>
+                                    <tabView:SfTabItem.Content>
+                                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <HorizontalStackLayout Spacing="15">
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#E5E4E2" 
+				                                    Clicked="TextColorSegment_Clicked"
+				                                    x:Name="TextColorSegment" >
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#c6c6c6" 
+				                                    Clicked="TextColorSegment_Clicked_1"
+				                                    x:Name="TextColorSegment1" >
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#538eed" 
+				                                    Clicked="TextColorSegment_Clicked_2"
+				                                    x:Name="TextColorSegment2" >
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#af2463" 
+				                                    Clicked="TextColorSegment_Clicked_3"
+				                                    x:Name="TextColorSegment3" >
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#000000" 
+				                                    Clicked="TextColorSegment_Clicked_4"
+				                                    x:Name="TextColorSegment4" >
+                                                </Button>
+                                            </HorizontalStackLayout>
+                                        </StackLayout>
+                                    </tabView:SfTabItem.Content>
+                                </tabView:SfTabItem>
+                                <tabView:SfTabItem Header="Background" FontFamily="Roboto-Regular">
+                                    <tabView:SfTabItem.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="WinUI" Value ="12"/>
+                                            <On Platform="MacCatalyst" Value="10"/>
+                                        </OnPlatform>
+                                    </tabView:SfTabItem.FontSize>
+                                    <tabView:SfTabItem.Content>
+                                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <HorizontalStackLayout Spacing="15">
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#E5E4E2" 
+				                                    Clicked="BackgroundColorSegment_Clicked"
+				                                    x:Name="BackgroundColorSegment">
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#c6c6c6" 
+				                                    Clicked="BackgroundColorSegment_Clicked_1"
+				                                    x:Name="BackgroundColorSegment1">
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#538eed" 
+				                                    Clicked="BackgroundColorSegment_Clicked_2"
+				                                    x:Name="BackgroundColorSegment2">
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#af2463" 
+				                                    Clicked="BackgroundColorSegment_Clicked_3"
+				                                    x:Name="BackgroundColorSegment3">
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#000000" 
+				                                    Clicked="BackgroundColorSegment_Clicked_4"
+				                                    x:Name="BackgroundColorSegment4">
+                                                </Button>
+                                            </HorizontalStackLayout>
+                                        </StackLayout>
+                                    </tabView:SfTabItem.Content>
+                                </tabView:SfTabItem>
+                                <tabView:SfTabItem Header="Border Color" FontFamily="Roboto-Regular">
+                                    <tabView:SfTabItem.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="WinUI" Value ="12"/>
+                                            <On Platform="MacCatalyst" Value="10"/>
+                                        </OnPlatform>
+                                    </tabView:SfTabItem.FontSize>
+                                    <tabView:SfTabItem.Content>
+                                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <HorizontalStackLayout Spacing="15">
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#E5E4E2" 
+				                                    Clicked="BorderColorSegment_Clicked"
+				                                    x:Name="BorderColorSegment" >
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#c6c6c6" 
+				                                    Clicked="BorderColorSegment_Clicked_1"
+				                                    x:Name="BorderColorSegment1" >
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#538eed" 
+				                                    Clicked="BorderColorSegment_Clicked_2"
+				                                    x:Name="BorderColorSegment2" >
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40"
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#af2463" 
+				                                    Clicked="BorderColorSegment_Clicked_3"
+				                                    x:Name="BorderColorSegment3" >
+                                                </Button>
+                                                <Button WidthRequest="40" 
+				                                    HeightRequest="40" 
+				                                    CornerRadius="20" 
+				                                    BackgroundColor="#000000" 
+				                                    Clicked="BorderColorSegment_Clicked_4"
+				                                    x:Name="BorderColorSegment4" >
+                                                </Button>
+                                            </HorizontalStackLayout>
+                                        </StackLayout>
+                                    </tabView:SfTabItem.Content>
+                                </tabView:SfTabItem>
+                            </tabView:SfTabView>
+
+                            <Label Margin="14,0,33,0" FontFamily="Roboto-Regular" FontAttributes="Bold" Text="Border Thickness"/>
+                            <Grid Margin="14,10" RowDefinitions="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="35"/>
+                                </Grid.ColumnDefinitions>
+                                <Slider x:Name="borderSlider"
+                                    HeightRequest="50" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Minimum="0" 
+                                    Maximum="10" 
+                                    MaximumTrackColor="#E0E0E0"
+                                    MinimumTrackColor="#6200EE" 
+                                    Value="{Binding BorderWidth,Mode=TwoWay}" 
+                                    ThumbColor="#6200EE">
+                                    <Slider.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On Platform="WinUI" Value="0,15,0,0"/>
+                                        </OnPlatform>
+                                    </Slider.Margin>
+                                </Slider>
+                                <Label Text="{Binding BorderWidth}"  
+                                   Grid.Column="1" 
+                                   FontFamily="Roboto-Regular"
+                                   HorizontalTextAlignment="Center" 
+                                   VerticalTextAlignment="Center" />
+                            </Grid>
+                            <Label Margin="14,5,33,0" Text="Corner Radius" FontFamily="Roboto-Regular" FontAttributes="Bold"/>
+                            <Grid Margin="14,10,14,5" Padding="0,5,0,0"  RowDefinitions="20" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="35"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Left"  FontFamily="Roboto-Regular"
+					               HorizontalTextAlignment="Start"
+					               VerticalTextAlignment="Center"/>
+                                <Slider x:Name="leftCornerRadius" 
+					                Grid.Column="1" 
+					                HeightRequest="50"
+					                VerticalOptions="CenterAndExpand" 
+					                Minimum="0" 
+									Maximum="50" 
+					                MaximumTrackColor="#E0E0E0" 
+					                MinimumTrackColor="#6200EE" 
+					                Value="{Binding LeftCornerRadius, Mode=TwoWay}" 
+					                ThumbColor="#6200EE">
+                                    <Slider.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On Platform="WinUI" Value="0,15,0,0"/>
+                                        </OnPlatform>
+                                    </Slider.Margin>
+                                </Slider>
+                                <Label Text="{Binding LeftCornerRadius}" 
+                                       Grid.Column="2" FontFamily="Roboto-Regular"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="14,10" Padding="0,0,0,0" RowDefinitions="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="35"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Right" FontFamily="Roboto-Regular"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"/>
+                                <Slider x:Name="rightCornerRadius" 
+                                    Grid.Column="1"
+                                    HeightRequest="50" 
+                                    VerticalOptions="CenterAndExpand"
+                                    Minimum="0" 
+                                    Maximum="50"
+                                    MaximumTrackColor="#E0E0E0"
+                                    MinimumTrackColor="#6200EE"
+                                    ThumbColor="#6200EE"
+                                    Value="{Binding RightCornerRadius, Mode=TwoWay}">
+                                    <Slider.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On Platform="WinUI" Value="0,15,0,0"/>
+                                        </OnPlatform>
+                                    </Slider.Margin>
+
+                                </Slider>
+                                <Label Text="{Binding RightCornerRadius}"  
+                                       HorizontalTextAlignment="Center"
+                                       Grid.Column="2" FontFamily="Roboto-Regular"
+                                       VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="4,0,0,5" HorizontalOptions="Start">
+                                <button:SfCheckBox Text="Show Background Image" 
+                       Style="{StaticResource CheckBoxNormalStyle}"
+                       IsChecked="{Binding CanShowBackgroundImage}"/>
+                            </Grid>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </Border>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.RangePointer"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="rangePointerGauge" HorizontalOptions="Center">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis ShowLabels="False"
+                                                  ShowTicks="False"
+                                                  StartAngle="270"
+                                                  EndAngle="270"
+                                                  Minimum="0"
+                                                  Maximum="100"
+                                                  RadiusFactor="0.8">
+                    <gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialLineStyle ThicknessUnit="Factor"
+                                                             Thickness="0.15" />
+                    </gauge:RadialAxis.AxisLineStyle>
+
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:RangePointer CornerStyle="BothCurve"
+                                                            Value="50"
+                                                            EnableAnimation="True"
+                                                            AnimationEasing="{x:Static Easing.CubicOut}"
+                                                            WidthUnit="Factor"
+                                                            PointerWidth="0.15">
+                            <gauge:RangePointer.GradientStops>
+                                <gauge:GaugeGradientStop Value="13"
+                                                                         Color="#FF6A6EF6" />
+                                <gauge:GaugeGradientStop Value="38"
+                                                                         Color="#FFDB82F5" />
+                            </gauge:RangePointer.GradientStops>
+                        </gauge:RangePointer>
+                    </gauge:RadialAxis.Pointers>
+
+                    <gauge:RadialAxis.Annotations>
+                        <gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="50 / 100"
+                                                       FontSize="22"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}">
+                                </Label>
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+                    </gauge:RadialAxis.Annotations>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

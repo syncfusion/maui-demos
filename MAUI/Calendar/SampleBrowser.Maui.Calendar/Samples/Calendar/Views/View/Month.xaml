@@ -1,0 +1,17 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Calendar.SfCalendar.Month"
+             xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+    <localCore:SampleView.Content>
+        <Grid WidthRequest="{OnPlatform Android=330, Default=350}" HeightRequest="{OnPlatform Android=370, Default=400}" Padding="0">
+            <Frame IsVisible="False" x:Name="frame" HasShadow="False" Background="{Binding BGColor}" BorderColor="{Binding StrokeColor}" CornerRadius="10" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="2">
+                <calendar:SfCalendar x:Name="month" Background="Transparent" View="Month" TodayHighlightBrush="Transparent" AllowViewNavigation="False" NavigationDirection="Horizontal"/>
+            </Frame>
+
+            <Border IsVisible="False" x:Name="border" Background="{Binding BGColor}" Stroke="{Binding StrokeColor}" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10"  HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="2">
+                <calendar:SfCalendar x:Name="month1" Background="Transparent" View="Month" TodayHighlightBrush="Transparent" AllowViewNavigation="False" NavigationDirection="Horizontal"/>
+            </Border>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

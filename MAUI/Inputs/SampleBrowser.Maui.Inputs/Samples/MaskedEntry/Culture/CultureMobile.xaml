@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Inputs.SfMaskedEntry.CultureMobile"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="inputs:SfMaskedEntry">
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <Grid WidthRequest="313" RowDefinitions="70,*" RowSpacing="20" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+        <HorizontalStackLayout HeightRequest="46" Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <StackLayout WidthRequest="42" HeightRequest="34" VerticalOptions="Center" x:Name="usStack">
+                <Frame VerticalOptions="FillAndExpand" Grid.Column="0" x:Name="usFrame" BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}" CornerRadius="0" BorderColor="{AppThemeBinding Light={DynamicResource Border}, Dark={DynamicResource BorderLight}}" Padding="2" HasShadow="False">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="USImageButton_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <Image x:Name="usImage" WidthRequest="{OnPlatform iOS=40}" HeightRequest="{OnPlatform iOS=32}" Grid.Column="0" Source="{imageExtension:SfImageResource usflag.png}" Aspect="Fill"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout WidthRequest="36" HeightRequest="28" x:Name="indiaStack">
+                <Frame VerticalOptions="FillAndExpand" Grid.Column="1" x:Name="indiaFrame" BackgroundColor="Transparent" CornerRadius="0"  Padding="2" HasShadow="False">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="IndiaImageButton_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <Image x:Name="indiaImage" WidthRequest="{OnPlatform iOS=36}" HeightRequest="{OnPlatform iOS=28}" Grid.Column="1" Source="{imageExtension:SfImageResource indiaflag.png}" Aspect="Fill"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout WidthRequest="36" HeightRequest="28" x:Name="russiaStack">
+                <Frame Grid.Column="2" VerticalOptions="FillAndExpand" x:Name="russiaFrame" BackgroundColor="Transparent" CornerRadius="0" BorderColor="Transparent" Padding="2" HasShadow="False">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="RussiaImageButton_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <Image x:Name="russiaImage" WidthRequest="{OnPlatform iOS=36}" HeightRequest="{OnPlatform iOS=28}" Grid.Column="2" Source="{imageExtension:SfImageResource russiaflag.png}" Aspect="Fill"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout WidthRequest="36" HeightRequest="28" x:Name="franceStack">
+                <Frame Grid.Column="3" VerticalOptions="FillAndExpand" x:Name="franceFrame" BackgroundColor="Transparent" CornerRadius="0" BorderColor="Transparent" Padding="2" HasShadow="False">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FranceImageButton_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <Image x:Name="franceImage" WidthRequest="{OnPlatform iOS=36}" HeightRequest="{OnPlatform iOS=28}" Grid.Column="3" Source="{imageExtension:SfImageResource franceflag.png}" Aspect="Fill"/>
+                </Frame>
+            </StackLayout>
+        </HorizontalStackLayout>
+
+
+        <VerticalStackLayout Grid.Row="1" Spacing="50">
+            <Frame  CornerRadius="10" Margin="-10" BackgroundColor="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}">
+                <VerticalStackLayout Margin="0,-10,0,-20" >
+                    <VerticalStackLayout>
+                        <Label Text="Amount" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                        <inputs:SfMaskedEntry x:Name="cultureMask" MaskType="Simple" 
+                                  Mask="$ 0,000.00"  PromptChar="_" Keyboard="Numeric"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="Name" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                        <inputs:SfMaskedEntry Placeholder="Name on your card" Margin="0,0,0,15"/>
+                    </VerticalStackLayout>
+
+                    <Grid ColumnDefinitions="*, 0.8*" Margin="0">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="Card Number" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                            <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{4} \d{4} \d{4} \d{4}" PromptChar="_" Keyboard="Numeric"/>
+                        </VerticalStackLayout>
+
+                        <Grid Grid.Column="1" ColumnDefinitions="*,*" ColumnSpacing="15" Margin="20,0,0,0">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="MM/YY" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                                <inputs:SfMaskedEntry MaskType="Simple" Mask="00/00" PromptChar="_" Keyboard="Numeric"/>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="1">
+                                <Label Text="CVV" TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}"/>
+                                <inputs:SfMaskedEntry MaskType="RegEx" Mask="\d{3}" PromptChar="_" Keyboard="Numeric"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+            <Button Text="Pay Now" FontFamily="Roboto-Regular" CornerRadius="20"/>
+        </VerticalStackLayout>
+    </Grid>
+</localCore:SampleView>

@@ -1,0 +1,100 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>SampleBrowser.Maui.Carousel</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<AnalysisLevelSecurity>latest-recommended</AnalysisLevelSecurity>
+		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+		<Nullable>enable</Nullable>
+		<NoWarn>$(NoWarn);NU1803</NoWarn>
+
+		<!-- Display name -->
+		<ApplicationTitle>SampleBrowser.Maui.Carousel</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.syncfusion.samplebrowser.maui.carousel</ApplicationId>
+		<ApplicationIdGuid>B91FD42F-E73F-48E9-83B7-320695D31C9E</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.18362.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.18362.0</TargetPlatformMinVersion>
+		<Configurations>Debug;Release;Release-Xml</Configurations>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DefineConstants>TRACE;DEBUG;</DefineConstants>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DefineConstants>TRACE;RELEASE;</DefineConstants>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Xml|AnyCPU' ">
+		<DefineConstants>TRACE;RELEASE;</DefineConstants>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+        <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net8.0-android' OR '$(TargetFramework)' == 'net8.0-ios' OR '$(TargetFramework)' == 'net8.0-maccatalyst' OR '$(TargetFramework)' == 'net8.0-windows10.0.19041.0' ">
+        	<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#4822E3" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#4822E3" BaseSize="*,*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\OpenSans-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\OpenSans-Semibold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SegmentIcon.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Regular.ttf" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="ControlList.xml" />
+		<EmbeddedResource Include="CarouselSamplesList.xml" />
+		<EmbeddedResource Include="SyncfusionLicense.txt" />
+		<None Remove="SampleBrowser.Maui.Carousel.nuspec" />
+		<None Remove="SampleBrowser.Maui.Carousel.props" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SampleBrowser.Maui.Base" version="25.2.3" />
+		<PackageReference Include="Syncfusion.Maui.Buttons" version="25.2.3" />
+		<PackageReference Include="Syncfusion.Maui.ListView" version="25.2.3" />
+		<PackageReference Include="Syncfusion.Maui.TabView" version="25.2.3" />
+		<PackageReference Include="Syncfusion.Maui.Core" version="25.2.3" />
+		<PackageReference Include="Syncfusion.Maui.Sliders" version="25.2.3" />
+		<PackageReference Include="Syncfusion.Maui.Carousel" version="25.2.3" />
+	</ItemGroup>
+	
+</Project>
