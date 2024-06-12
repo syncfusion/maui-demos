@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base" 
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+                      xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfDigitalGauge"
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                      x:Class="SampleBrowser.Maui.Gauges.SfDigitalGauge.GettingStartedMobileUI">
+    <localCore:SampleView.BindingContext>
+        <local:ViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+            Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+        </Style>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid HorizontalOptions="Center" Padding="0,25,0,25">
+            <Grid RowSpacing="60">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="*"/>
+                    <RowDefinition Height ="*"/>
+                    <RowDefinition Height ="*"/>
+                    <RowDefinition Height ="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <VerticalStackLayout Grid.Row="0" Spacing="10" >
+                    <Label Text = "7 Segment"
+                               FontSize="28"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                    <gauge:SfDigitalGauge x:Name="sevenSegment" HeightRequest="65" HorizontalOptions="Center"
+                                          Text="{Binding TimeText}"
+                                          DisabledSegmentAlpha="{Binding DisabledSegmentAlpha}"
+                                          CharacterStroke="{Binding CharacterStroke}"                                          DisabledSegmentStroke="{Binding DisabledSegmentStroke}"
+                                          CharacterHeight="{Binding CharacterHeight}"
+                                          CharacterWidth="{Binding CharacterWidth}"
+                                          StrokeWidth="{Binding StrokeWidth}"
+                                          CharacterSpacing="{Binding CharacterSpacing}"
+                                          CharacterType="SevenSegment"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="1" Spacing="10">
+                    <Label Text="14 Segment"
+                               FontSize="28"            
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                    <gauge:SfDigitalGauge x:Name="fourteenSegment" HeightRequest="65" HorizontalOptions="Center"
+                                          Text="{Binding TimeText}"
+                                          DisabledSegmentAlpha="{Binding DisabledSegmentAlpha}"
+                                          CharacterStroke="{Binding CharacterStroke}"
+                                          DisabledSegmentStroke="{Binding DisabledSegmentStroke}"
+                                          CharacterHeight="{Binding CharacterHeight}"
+                                          CharacterWidth="{Binding CharacterWidth}"
+                                          StrokeWidth="{Binding StrokeWidth}"
+                                          CharacterSpacing="{Binding CharacterSpacing}"
+                                          CharacterType="FourteenSegment"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="2" Spacing="10">
+                    <Label Text = "16 Segment" FontSize="28" VerticalTextAlignment="Center" HorizontalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                    <gauge:SfDigitalGauge x:Name="sixteenSegment" HeightRequest="65" HorizontalOptions="Center"
+                                          Text="{Binding TimeText}"
+                                          DisabledSegmentAlpha="{Binding DisabledSegmentAlpha}"
+                                          CharacterStroke="{Binding CharacterStroke}"
+                                          DisabledSegmentStroke="{Binding DisabledSegmentStroke}"
+                                          CharacterHeight="{Binding CharacterHeight}"                                        
+                                          CharacterWidth="{Binding CharacterWidth}"                  
+                                          StrokeWidth="{Binding StrokeWidth}"                                                            
+                                          CharacterSpacing="{Binding CharacterSpacing}"
+                      CharacterType="SixteenSegment"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="3" Spacing="10">
+                    <Label Text = "8*8 Segment" FontSize="28" VerticalTextAlignment="Center" HorizontalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                    <gauge:SfDigitalGauge x:Name="eight_Cross_Eight_Segment" HeightRequest="65" HorizontalOptions="Center"                     
+                                          Text="{Binding TimeText}"                     
+                                          DisabledSegmentAlpha="{Binding DisabledSegmentAlpha}"                   
+                                          CharacterStroke="{Binding CharacterStroke}"                   
+                                          DisabledSegmentStroke="{Binding DisabledSegmentStroke}"                   
+                                          CharacterHeight="{Binding CharacterHeight}"                    
+                                          CharacterWidth="{Binding CharacterWidth}"                    
+                                          StrokeWidth="{Binding StrokeWidth}"                     
+                                          CharacterSpacing="{Binding CharacterSpacing}"                    
+                                          CharacterType="EightCrossEightDotMatrix"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ScrollView Orientation="Vertical">
+            <VerticalStackLayout Padding="0,20" Spacing="40">
+                <Label Text="Stroke Color" Margin="15,0,0,0" VerticalTextAlignment="Center" />
+                <Grid x:Name="strokeColorGrid" Margin="15,-25,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border x:Name="segmentStrokeColor1" BackgroundColor="{Binding StrokeColors[0]}" StrokeThickness="1" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="segmentStrokeColor2" Grid.Column="1" BackgroundColor="{Binding StrokeColors[1]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="segmentStrokeColor3" Grid.Column="2" BackgroundColor="{Binding StrokeColors[2]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="segmentStrokeColor4" Grid.Column="3" BackgroundColor="{Binding StrokeColors[3]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="segmentStrokeColor5" Grid.Column="4" BackgroundColor="{Binding StrokeColors[4]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="segmentStrokeColor6" Grid.Column="5" BackgroundColor="{Binding StrokeColors[5]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                </Grid>
+
+                <Label Text="Disabled Segment Stroke" Margin="15,0,0,0"
+                           VerticalTextAlignment="Center" />
+                <Grid x:Name="diabledStrokeColorGrid" Margin="15,-25,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border x:Name="disabledSegmentStrokeColor1" BackgroundColor="{Binding DisabledStrokeColors[0]}" StrokeThickness="1" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="disabledSegmentStrokeColor2" Grid.Column="1" BackgroundColor="{Binding DisabledStrokeColors[1]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="disabledSegmentStrokeColor3" Grid.Column="2" BackgroundColor="{Binding DisabledStrokeColors[2]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="disabledSegmentStrokeColor4" Grid.Column="3" BackgroundColor="{Binding DisabledStrokeColors[3]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="disabledSegmentStrokeColor5" Grid.Column="4" BackgroundColor="{Binding DisabledStrokeColors[4]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border x:Name="disabledSegmentStrokeColor6" Grid.Column="5" BackgroundColor="{Binding DisabledStrokeColors[5]}" HeightRequest="35" WidthRequest="35">
+                        <Border.StrokeShape>
+                            <Ellipse />
+                        </Border.StrokeShape>
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Label Text="Disabled Segment Alpha"                   
+                           Margin="15,0,0,0"/>
+                    <sliders:SfSlider x:Name="disabledSegmentAlpha" EnableDeferredUpdate="True" DeferredUpdateDelay="100"
+                                      Margin="0,-20,0,0"
+                                      Minimum="0.1"
+                                      Maximum="0.8" 
+                                      Value="{Binding DisabledSegmentAlpha}">
+                        <sliders:SfSlider.Tooltip>
+                            <sliders:SliderTooltip NumberFormat="0.0"/>
+                        </sliders:SfSlider.Tooltip>
+                    </sliders:SfSlider>
+                </Grid>
+
+                <Grid>
+                    <Label Text="Character Width"              
+                            Margin="15,0,0,0"/>
+                    <sliders:SfSlider x:Name="characterWidth" EnableDeferredUpdate="True" DeferredUpdateDelay="100"
+                                      Margin="0,-20,0,0"
+                                      Minimum="20"
+                                      Maximum="35"
+                                      Value="{Binding CharacterWidth}">
+                        <sliders:SfSlider.Tooltip>
+                            <sliders:SliderTooltip NumberFormat="0"/>
+                        </sliders:SfSlider.Tooltip>
+                    </sliders:SfSlider>
+                </Grid>
+
+                <Grid>
+                    <Label Text="Character Height"
+                                Margin="15,0,0,0"/>
+                    <sliders:SfSlider x:Name="characterHeight" EnableDeferredUpdate="True" DeferredUpdateDelay="100"
+                                      Margin="0,-20,0,0" 
+                                      Minimum="30" 
+                                      Maximum="65"
+                                      Value="{Binding CharacterHeight}">
+                        <sliders:SfSlider.Tooltip>
+                            <sliders:SliderTooltip NumberFormat="0"/>
+                        </sliders:SfSlider.Tooltip>
+                    </sliders:SfSlider>
+                </Grid>
+
+                <Grid>
+                    <Label Text="Character Spacing"
+                                Margin="15,0,0,0"/>
+                    <sliders:SfSlider x:Name="characterSpacing" EnableDeferredUpdate="True" DeferredUpdateDelay="100"
+                                      Margin="0,-20,0,0"
+                                      Minimum="2" 
+                                      Maximum="8"
+                                      Value="{Binding CharacterSpacing}">
+                        <sliders:SfSlider.Tooltip>
+                            <sliders:SliderTooltip NumberFormat="0"/>
+                        </sliders:SfSlider.Tooltip>
+                    </sliders:SfSlider>
+                </Grid>
+
+                <Grid>
+                    <Label Text="Stroke Width" 
+                           Margin="15,0,0,0"/>
+                    <sliders:SfSlider x:Name="strokeWidth" EnableDeferredUpdate="True" DeferredUpdateDelay="100"
+                                      Margin="0,-20,0,0" 
+                                      Minimum="1" Maximum="3"
+                                      Value="{Binding StrokeWidth}">
+                        <sliders:SfSlider.Tooltip>
+                            <sliders:SliderTooltip NumberFormat="0"/>
+                        </sliders:SfSlider.Tooltip>
+                    </sliders:SfSlider>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </localCore:SampleView.OptionView>
+
+    <localCore:SampleView.Behaviors>
+        <local:GettingStartedBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

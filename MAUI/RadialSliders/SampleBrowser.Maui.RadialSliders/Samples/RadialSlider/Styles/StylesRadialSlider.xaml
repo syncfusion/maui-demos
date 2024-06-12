@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.RadialSliders.RadialSlider.StylesRadialSlider"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid MinimumWidthRequest="400">
+            <StackLayout x:Name="rootStackLayout"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center">
+
+                <StackLayout x:Name="stackLayout1">
+
+                    <gauge:SfRadialGauge HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                        <gauge:SfRadialGauge.Axes>
+                            <gauge:RadialAxis ShowTicks="False"
+                                              ShowLabels="False"
+                                              StartAngle="270"
+                                              EndAngle="270"
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                <gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialLineStyle Thickness="5"
+                                                           Fill="#bfd6fc" />
+                                </gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialAxis.Pointers>
+                                    <gauge:RangePointer Fill="#2976f6"
+                                                        PointerWidth="5"
+                                                        Value="{Binding Source={x:Reference styleMarker1}, Path=Value}"
+                                                        CornerStyle="BothCurve" />
+                                    <gauge:ShapePointer Value="30"
+                                                        x:Name="styleMarker1"
+                                                        Stroke="#2976f6"
+                                                        OverlayFill="#412976f6"
+                                                        IsInteractive="True"
+                                                        ValueChanging="styleMarker_ValueChanging"
+                                                        ShapeType="Circle"
+                                                        ShapeHeight="20"
+                                                        ShapeWidth="20"
+                                                        BorderWidth="5"
+                                                        Fill="White"
+                                                        AutomationProperties.HelpText="styleAnnotationLabel1" />
+                                </gauge:RadialAxis.Pointers>
+                                <gauge:RadialAxis.Annotations>
+                                    <gauge:GaugeAnnotation>
+                                        <gauge:GaugeAnnotation.Content>
+                                            <Label x:Name="styleAnnotationLabel1"
+                                                   Text="30%"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Small"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                        </gauge:GaugeAnnotation.Content>
+                                    </gauge:GaugeAnnotation>
+                                </gauge:RadialAxis.Annotations>
+                            </gauge:RadialAxis>
+                        </gauge:SfRadialGauge.Axes>
+                    </gauge:SfRadialGauge>
+
+                    <gauge:SfRadialGauge HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                        <gauge:SfRadialGauge.Axes>
+                            <gauge:RadialAxis ShowTicks="False"
+                                              ShowLabels="False"
+                                              StartAngle="270"
+                                              EndAngle="270"
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                <gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialLineStyle Thickness="7"
+                                                           Fill="#dadada" />
+                                </gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialAxis.Pointers>
+                                    <gauge:RangePointer Fill="#7e56d4"
+                                                        Value="{Binding Source={x:Reference styleMarker2}, Path=Value}"
+                                                        CornerStyle="BothCurve"
+                                                        PointerWidth="7" />
+                                    <gauge:ShapePointer Value="30"
+                                                        x:Name="styleMarker2"
+                                                        Fill="#7e56d4"
+                                                        IsInteractive="True"
+                                                        ValueChanging="styleMarker_ValueChanging"
+                                                        ShapeType="Rectangle"
+                                                        ShapeHeight="22"
+                                                        ShapeWidth="15"
+                                                        AutomationProperties.HelpText="styleAnnotationLabel2" />
+                                </gauge:RadialAxis.Pointers>
+                                <gauge:RadialAxis.Annotations>
+                                    <gauge:GaugeAnnotation>
+                                        <gauge:GaugeAnnotation.Content>
+                                            <Label x:Name="styleAnnotationLabel2"
+                                                   Text="30%"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Small"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                        </gauge:GaugeAnnotation.Content>
+                                    </gauge:GaugeAnnotation>
+                                </gauge:RadialAxis.Annotations>
+                            </gauge:RadialAxis>
+                        </gauge:SfRadialGauge.Axes>
+                    </gauge:SfRadialGauge>
+
+                    <gauge:SfRadialGauge HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                        <gauge:SfRadialGauge.Axes>
+                            <gauge:RadialAxis ShowTicks="False"
+                                              ShowLabels="False"
+                                              StartAngle="270"
+                                              EndAngle="270"
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                <gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialLineStyle Thickness="7"
+                                                           Fill="Orange" />
+                                </gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialAxis.Pointers>
+                                    <gauge:RangePointer Fill="White"
+                                                        PointerWidth="4"
+                                                        PointerOffset="2"
+                                                        Value="100" />
+                                    <gauge:RangePointer Fill="Orange"
+                                                        PointerWidth="7"
+                                                        Value="{Binding Source={x:Reference styleMarker3}, Path=Value}" />
+                                    <gauge:ShapePointer Value="30"
+                                                        x:Name="styleMarker3"
+                                                        Stroke="Orange"
+                                                        IsInteractive="True"
+                                                        ValueChanging="styleMarker_ValueChanging"
+                                                        ShapeType="Circle"
+                                                        ShapeHeight="20"
+                                                        ShapeWidth="20"
+                                                        BorderWidth="5"
+                                                        Fill="White"
+                                                        OverlayFill="#41fea619"
+                                                        AutomationProperties.HelpText="styleAnnotationLabel3" />
+                                </gauge:RadialAxis.Pointers>
+                                <gauge:RadialAxis.Annotations>
+                                    <gauge:GaugeAnnotation>
+                                        <gauge:GaugeAnnotation.Content>
+                                            <Label x:Name="styleAnnotationLabel3"
+                                                   Text="30%"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Small"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                        </gauge:GaugeAnnotation.Content>
+                                    </gauge:GaugeAnnotation>
+                                </gauge:RadialAxis.Annotations>
+                            </gauge:RadialAxis>
+                        </gauge:SfRadialGauge.Axes>
+                    </gauge:SfRadialGauge>
+
+                </StackLayout>
+
+                <StackLayout x:Name="stackLayout2">
+
+                    <gauge:SfRadialGauge HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                        <gauge:SfRadialGauge.Axes>
+                            <gauge:RadialAxis ShowTicks="False"
+                                              ShowLabels="False"
+                                              StartAngle="270"
+                                              EndAngle="270"
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                <gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialLineStyle  Fill="#dadada" />
+                                </gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialAxis.Pointers>
+                                    <gauge:RangePointer Fill="White"
+                                                        PointerWidth="7"
+                                                        PointerOffset="2"
+                                                        Value="100" />
+                                    <gauge:RangePointer Fill="#58c28f"
+                                                        PointerWidth="3"
+                                                        PointerOffset="4.5"
+                                                        Value="{Binding Source={x:Reference styleMarker4}, Path=Value}"
+                                                        CornerStyle="BothCurve" />
+                                    <gauge:ShapePointer Value="30"
+                                                        x:Name="styleMarker4"
+                                                        IsInteractive="True"
+                                                        ValueChanging="styleMarker_ValueChanging"
+                                                        ShapeType="Circle"
+                                                        ShapeHeight="20"
+                                                        ShapeWidth="20"
+                                                        Fill="#58c28f"
+                                                        AutomationProperties.HelpText="styleAnnotationLabel4" />
+                                    <gauge:ShapePointer  Value="{Binding Source={x:Reference styleMarker4}, Path=Value}"
+                                                         ShapeType="Circle"
+                                                         ShapeHeight="15"
+                                                         ShapeWidth="15"
+                                                         BorderWidth="2"
+                                                         Stroke="White"
+                                                         Fill="#58c28f" />
+                                </gauge:RadialAxis.Pointers>
+                                <gauge:RadialAxis.Annotations>
+                                    <gauge:GaugeAnnotation>
+                                        <gauge:GaugeAnnotation.Content>
+                                            <Label x:Name="styleAnnotationLabel4"
+                                                   Text="30%"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Small"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                        </gauge:GaugeAnnotation.Content>
+                                    </gauge:GaugeAnnotation>
+                                </gauge:RadialAxis.Annotations>
+                            </gauge:RadialAxis>
+                        </gauge:SfRadialGauge.Axes>
+                    </gauge:SfRadialGauge>
+
+                    <gauge:SfRadialGauge HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                        <gauge:SfRadialGauge.Axes>
+                            <gauge:RadialAxis ShowTicks="False"
+                                              ShowLabels="False"
+                                              StartAngle="270"
+                                              EndAngle="270"
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                <gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialLineStyle  Fill="#2976f6" />
+                                </gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialAxis.Pointers>
+                                    <gauge:RangePointer Fill="Orange"
+                                                        PointerWidth="4"
+                                                        PointerOffset="4"
+                                                        Value="{Binding Source={x:Reference styleMarker5}, Path=Value}"
+                                                        CornerStyle="BothCurve" />
+                                    <gauge:ShapePointer Value="30"
+                                                        x:Name="styleMarker5"
+                                                        Fill="Orange"
+                                                        IsInteractive="True"
+                                                        ValueChanging="styleMarker_ValueChanging"
+                                                        ShapeType="Circle"
+                                                        OverlayRadius="20"
+                                                        AutomationProperties.HelpText="styleAnnotationLabel5" />
+                                </gauge:RadialAxis.Pointers>
+                                <gauge:RadialAxis.Annotations>
+                                    <gauge:GaugeAnnotation>
+                                        <gauge:GaugeAnnotation.Content>
+                                            <Label x:Name="styleAnnotationLabel5"
+                                                   Text="30%"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Small"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                        </gauge:GaugeAnnotation.Content>
+                                    </gauge:GaugeAnnotation>
+                                </gauge:RadialAxis.Annotations>
+                            </gauge:RadialAxis>
+                        </gauge:SfRadialGauge.Axes>
+                    </gauge:SfRadialGauge>
+
+                    <gauge:SfRadialGauge HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                        <gauge:SfRadialGauge.Axes>
+                            <gauge:RadialAxis ShowTicks="False"
+                                              ShowLabels="False"
+                                              StartAngle="270"
+                                              EndAngle="270"
+                                              RadiusFactor="{OnPlatform WinUI='0.6', Default='0.8', MacCatalyst='0.6'}">
+                                <gauge:RadialAxis.AxisLineStyle>
+                                    <gauge:RadialLineStyle  Fill="#dadada"
+                                                            Thickness="2" />
+                                </gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialAxis.Pointers>
+
+                                    <gauge:NeedlePointer Value="30"
+                                                         x:Name="styleMarker6"
+                                                         NeedleStartWidth="3"
+                                                         NeedleEndWidth="3"
+                                                         NeedleFill="#414141"
+                                                         KnobStroke="#414141"
+                                                         KnobFill="White"
+                                                         KnobRadius="0.4"
+                                                         NeedleLength="0.8"
+                                                         KnobStrokeThickness="0.03"
+                                                         IsInteractive="True"
+                                                         ValueChanging="styleMarker_ValueChanging"
+                                                         AutomationProperties.HelpText="styleAnnotationLabel6" />
+                                    <gauge:RangePointer x:Name="styleRangePointer6"
+                                                        Fill="#7e57d5"
+                                                        PointerOffset="0.2"
+                                                        OffsetUnit="Factor"
+                                                        Value="30" />
+
+                                </gauge:RadialAxis.Pointers>
+                                <gauge:RadialAxis.Annotations>
+                                    <gauge:GaugeAnnotation>
+                                        <gauge:GaugeAnnotation.Content>
+                                            <Label x:Name="styleAnnotationLabel6"
+                                                   Text="30"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Small"
+                                                   TextColor="Black" />
+                                        </gauge:GaugeAnnotation.Content>
+                                    </gauge:GaugeAnnotation>
+                                </gauge:RadialAxis.Annotations>
+                            </gauge:RadialAxis>
+                        </gauge:SfRadialGauge.Axes>
+                    </gauge:SfRadialGauge>
+
+                </StackLayout>
+
+            </StackLayout>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,167 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Calendar.SfCalendar.AppointmentBooking"
+             xmlns:popUp="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+             xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"  BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Margin="-4,-4,-6,-6">
+    <Grid>
+        <Grid IsVisible="False" x:Name="deskTop" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="500" WidthRequest="350">
+            <Frame IsVisible="False" x:Name="frame" BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" HasShadow="False" CornerRadius="10" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" HorizontalOptions="Center" Margin="0" Padding="0">
+                <Grid Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.35*"/>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.35*"/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="20" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="Book an Appointment"/>
+                    <calendar:SfCalendar Grid.Row="1" x:Name="appointmentBooking" CornerRadius="0" EnablePastDates="False" AllowViewNavigation="False" SelectionChanged="AppointmentBooking_SelectionChanged" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" NavigationDirection="Horizontal">
+                        <calendar:SfCalendar.HeaderView>
+                            <calendar:CalendarHeaderView Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}"/>
+                        </calendar:SfCalendar.HeaderView>
+                        <calendar:SfCalendar.MonthView>
+                            <calendar:CalendarMonthView NumberOfVisibleWeeks="2">
+                                <calendar:CalendarMonthView.HeaderView>
+                                    <calendar:CalendarMonthHeaderView Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}"/>
+                                </calendar:CalendarMonthView.HeaderView>
+                            </calendar:CalendarMonthView>
+                        </calendar:SfCalendar.MonthView>
+                    </calendar:SfCalendar>
+                    <Label Grid.Row="2" x:Name="label" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                    <Grid Grid.Row="3">
+                        <FlexLayout x:Name="flexLayout" Wrap="Wrap"
+                        JustifyContent="SpaceAround" AlignItems="Center" VerticalOptions="Center" HorizontalOptions="Center">
+                            <FlexLayout.Resources>
+                                <Style TargetType="Button">
+                                    <Setter  Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                                    <Setter  Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"/>
+                                </Style>
+                            </FlexLayout.Resources>
+                            <Button Text="09:00 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="09:30 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="10:00 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="10:30 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="11:00 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="11:30 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="12:00 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="02:00 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="02:30 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="03:00 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="03:30 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="04:00 PM" Clicked="SlotBooking_Changed"/>
+                        </FlexLayout>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Button  Text="Book Appointment" BackgroundColor="#6200EE" HorizontalOptions="Center" Clicked="AppointmentanBooking" TextColor="White" VerticalOptions="Center" WidthRequest="150"/>
+                    </Grid>
+                </Grid>
+            </Frame>
+
+            <Border x:Name="border" IsVisible="False" Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" HorizontalOptions="Center" Margin="0" Padding="0">
+                <Grid Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.35*"/>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.35*"/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="20" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" Text="Book an Appointment"/>
+                    <calendar:SfCalendar Grid.Row="1" x:Name="appointmentBooking1" CornerRadius="0" EnablePastDates="False" AllowViewNavigation="False" SelectionChanged="AppointmentBooking_SelectionChanged" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" NavigationDirection="Horizontal">
+                        <calendar:SfCalendar.HeaderView>
+                            <calendar:CalendarHeaderView Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}"/>
+                        </calendar:SfCalendar.HeaderView>
+                        <calendar:SfCalendar.MonthView>
+                            <calendar:CalendarMonthView NumberOfVisibleWeeks="2">
+                                <calendar:CalendarMonthView.HeaderView>
+                                    <calendar:CalendarMonthHeaderView Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}"/>
+                                </calendar:CalendarMonthView.HeaderView>
+                            </calendar:CalendarMonthView>
+                        </calendar:SfCalendar.MonthView>
+                    </calendar:SfCalendar>
+                    <Label Grid.Row="2" x:Name="label1" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                    <Grid Grid.Row="3">
+                        <FlexLayout x:Name="flexLayout1" Wrap="Wrap"
+                        JustifyContent="SpaceAround" AlignItems="Center" VerticalOptions="Center" HorizontalOptions="Center">
+                            <FlexLayout.Resources>
+                                <Style TargetType="Button">
+                                    <Setter  Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                                    <Setter  Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"/>
+                                </Style>
+                            </FlexLayout.Resources>
+                            <Button Text="09:00 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="09:30 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="10:00 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="10:30 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="11:00 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="11:30 AM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="12:00 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="02:00 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="02:30 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="03:00 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="03:30 PM" Clicked="SlotBooking_Changed"/>
+                            <Button Text="04:00 PM" Clicked="SlotBooking_Changed"/>
+                        </FlexLayout>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Button  Text="Book Appointment" BackgroundColor="#6200EE" HorizontalOptions="Center" Clicked="AppointmentanBooking" TextColor="White" VerticalOptions="Center" WidthRequest="150"/>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}" IsVisible="false" x:Name="mobile">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.10*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.40*"/>
+            </Grid.RowDefinitions>
+            <calendar:SfCalendar Grid.Row="0" x:Name="mobileAppointmentBooking" CornerRadius="0" EnablePastDates="False" AllowViewNavigation="False" SelectionChanged="AppointmentBooking_SelectionChanged" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" NavigationDirection="Horizontal">
+                <calendar:SfCalendar.HeaderView>
+                    <calendar:CalendarHeaderView Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}"/>
+                </calendar:SfCalendar.HeaderView>
+                <calendar:SfCalendar.MonthView>
+                    <calendar:CalendarMonthView NumberOfVisibleWeeks="2">
+                        <calendar:CalendarMonthView.HeaderView>
+                            <calendar:CalendarMonthHeaderView Background="{AppThemeBinding Light={StaticResource BlackOverlaySelectedLight}, Dark={StaticResource BlackOverlaySelected}}"/>
+                        </calendar:CalendarMonthView.HeaderView>
+                    </calendar:CalendarMonthView>
+                </calendar:SfCalendar.MonthView>
+            </calendar:SfCalendar>
+            <Label Grid.Row="1" x:Name="mobileLabel" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+            <Grid Grid.Row="2">
+                <FlexLayout x:Name="mobileFlexLayout" Wrap="Wrap"
+                        JustifyContent="SpaceAround" AlignItems="Center" VerticalOptions="Center" HorizontalOptions="Center">
+                    <FlexLayout.Resources>
+                        <Style TargetType="Button">
+                            <Setter  Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                            <Setter  Property="Background" Value="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"/>
+                        </Style>
+                    </FlexLayout.Resources>
+                    <Button Text="09:00 AM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="09:30 AM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="10:00 AM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="10:30 AM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="11:00 AM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="11:30 AM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="12:00 PM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="02:00 PM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="02:30 PM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="03:00 PM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="03:30 PM" Clicked="SlotBooking_Changed"/>
+                    <Button Text="04:00 PM" Clicked="SlotBooking_Changed"/>
+                </FlexLayout>
+            </Grid>
+            <Grid Grid.Row="3" HorizontalOptions="Center" Padding="0,0,0,30">
+                <Button  Text="Book Appointment" BackgroundColor="#6200EE" HorizontalOptions="Center" Clicked="AppointmentanBooking" TextColor="White" VerticalOptions="End" WidthRequest="150" HeightRequest="50"/>
+                <popUp:SfPopup Grid.Row="0" Grid.RowSpan="3" IsVisible="false" x:Name="popUp" FooterHeight="70" ShowHeader="True" HeaderHeight="65" ShowFooter="True" HeightRequest="200">
+                    <popUp:SfPopup.PopupStyle>
+                        <popUp:PopupStyle CornerRadius="15" MessageFontSize="15" HeaderFontSize="17" HeaderFontAttribute="Bold" />
+                    </popUp:SfPopup.PopupStyle>
+                </popUp:SfPopup>
+            </Grid>
+        </Grid>
+    </Grid>
+</localCore:SampleView>

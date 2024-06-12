@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Navigation">
+		<Control Title="Tab View" StatusTag="Updated" ControlName="SfTabView" Image="tabview.png" Description="A simple tab navigation interface that allows users to explore and switch tabs." >
+			<Sample Title="Getting Started" SampleName="TabViewGettingStarted" Description="This sample shows a simple use case of the Tab View." SearchTags="tabs, tab view, tabbed view, navigation" CodeViewerPath="TabView/TabViewGettingStarted/" VideoLink="https://www.youtube.com/watch?v=DYJmZ3eKfsc" />
+			<Sample Title="Size To content" StatusTag="Updated" WhatsNew="Allows to enable scroll button in .NET MAUI TabView" SampleName="SizeToContent" Description="This sample shows how to display the tabs based on the each tabs text size."  SearchTags="tabs, tab view, tabbed view, autofit, auto, sizetofit, tab width" CodeViewerPath="TabView/SizeToContent/" VideoLink="https://www.youtube.com/watch?v=DYJmZ3eKfsc" />
+			<Sample Title="Customization" SampleName="Customization" SearchTags="tabs, tab view, tabbed view, customization" CodeViewerPath="TabView/Customization/" VideoLink="https://www.youtube.com/watch?v=DYJmZ3eKfsc" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

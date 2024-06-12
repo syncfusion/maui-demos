@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:AnnotationToolbarView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.AnnotationToolbarMobile">
+    <local:AnnotationToolbarView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </local:AnnotationToolbarView.Resources>
+
+    <Grid>
+        <Grid WidthRequest="50" HeightRequest="35" Margin="8,0,0,0" HorizontalOptions="Start" VerticalOptions="Center">
+            <Label FontFamily="Maui Material Assets" HorizontalOptions="End" Margin="0,0,5,0" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" VerticalOptions="Center" Text="&#xe701;" FontSize="16" />
+            <Button x:Name="fileOperation"
+                    WidthRequest="50"
+                    Padding="0,6,15,6"
+                    FontSize="20"
+                    FontFamily="Maui Material Assets"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="FileOperation"
+                    ToolTipProperties.Text="Press to perform file operations"
+                    Text="&#xe780;"  
+                    Style="{StaticResource buttonIconStyle}"/>
+            <Grid BackgroundColor="#F3EDF7" WidthRequest="10" Margin="12,17,0,0" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="4"></Grid>
+        </Grid>
+        <HorizontalStackLayout HorizontalOptions="End" Margin="0,0,8,0" x:Name="undeRedoLayout" IsVisible="{Binding IsSaveLayoutVisible}" Spacing="8">
+            <Button Text="&#xe744;"
+                    FontFamily="Maui Material Assets"
+                    x:Name="mobileUndoButton"
+                    ToolTipProperties.Text="Undo"
+                    Clicked="undoRedoClicked"
+                    FontSize="20"
+                    Style="{StaticResource buttonIconStyle}" />
+
+            <Button Text="&#xe745;"
+                    FontFamily="Maui Material Assets"
+                    FontSize="20"
+                    x:Name="mobileRedoButton"
+                    ToolTipProperties.Text="Redo"
+                    Clicked="undoRedoClicked"
+                    Style="{StaticResource buttonIconStyle}" />
+            </HorizontalStackLayout>
+    </Grid>
+
+</local:AnnotationToolbarView>

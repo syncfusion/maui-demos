@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+              xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+              xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+              xmlns:imageEditor="clr-namespace:Syncfusion.Maui.ImageEditor;assembly=Syncfusion.Maui.ImageEditor"
+              xmlns:local="clr-namespace:SampleBrowser.Maui.ImageEditor.SfImageEditor"
+             x:Class="SampleBrowser.Maui.ImageEditor.SfImageEditor.CustomView">
+
+    <localCore:SampleView.Content>
+        <AbsoluteLayout >
+            <AbsoluteLayout.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-6"/>
+                    <On Platform="WinUI" Value="-6"/>
+                </OnPlatform>
+            </AbsoluteLayout.Margin>
+            <imageEditor:SfImageEditor x:Name="imageEditor" 
+                                       AutoGenerateToolbarItems="False" 
+                                       AbsoluteLayout.LayoutFlags="SizeProportional" 
+                                       AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                                       Source="{converters:SfImageResource Source={OnPlatform Default=imageeditorcustomdesktop.png, Android=imageeditorcustommobile.png, iOS=imageeditorcustommobile.png}}">
+            </imageEditor:SfImageEditor>
+
+            <Border Background="{DynamicResource SfImageEditorNormalToolbarBackgroundColor}" x:Name="deleteButton" 
+                    IsVisible="false" 
+                    WidthRequest="44" 
+                    HeightRequest="44" 
+                    VerticalOptions="Start" 
+                    HorizontalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle StrokeThickness="1" CornerRadius="30" />
+                </Border.StrokeShape>
+                <Label WidthRequest="25" Text="&#xe70f;" 
+                       FontFamily="Maui Material Assets" 
+                       TextColor="{DynamicResource SfImageEditorNormalToolbarIconColor}"
+                       FontSize="20"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center">
+                </Label>
+            </Border>
+        </AbsoluteLayout>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.Behaviors>
+        <local:CustomViewBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>
