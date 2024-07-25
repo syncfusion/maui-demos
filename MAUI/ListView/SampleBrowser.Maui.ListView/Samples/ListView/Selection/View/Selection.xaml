@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.ListView.SfListView.Selection"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView">
+    
+    <localCore:SampleView.Behaviors>
+        <local:SfListViewSelectionBehavior/>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
+            <local:IconColorConverter x:Key="IconColorConverter" />
+            <local:SelectionIconConverter x:Key="SelectionIconConverter" />
+            <DataTemplate x:Name="ItemTemplate"
+                          x:Key="ItemTemplate">
+                <Grid Grid.Row="0"
+                      x:Name="grid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="2" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="72" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="{Binding DocumentImage,Converter={StaticResource imageconverter}}"
+                           HeightRequest="40"
+                           WidthRequest="40"
+                           Grid.Column="0"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+
+                    <Grid Grid.Column="1"
+                          VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label LineBreakMode="TailTruncation"
+                               Text="{Binding DocumentName}"
+                               FontFamily="Roboto-Regular"
+                               CharacterSpacing="0.15"
+                               FontSize="{OnPlatform Default=16,WinUI=14}" />
+
+                        <Label Grid.Row="1"
+                               Grid.Column="0"
+                               LineBreakMode="NoWrap"
+                               FontFamily="Roboto-Regular"
+                               CharacterSpacing="0.25"
+                               Text="{Binding DocumentSize}"
+                               Margin="0,2,0,0"
+                               FontSize="14"
+                               Opacity="0.8" />
+
+                    </Grid>
+                    <Label Grid.Column="2"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="End"
+                           Margin="0,0,16,0"
+                           FontSize="{OnPlatform Android=Large, WinUI=Medium, iOS=Large, MacCatalyst=Large}"
+                           Text="{Binding IsSelected, Converter={StaticResource SelectionIconConverter}}"
+                           TextColor="{Binding Path=IsSelected, Converter={StaticResource IconColorConverter}}"
+                           FontFamily="MauiSampleFontIcon" />
+                    <BoxView Grid.Row="1"
+                             Color="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}"
+                             VerticalOptions="Start"
+                             Grid.ColumnSpan="3"
+                             HeightRequest="1.5" />
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Border Padding="0"
+                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}"
+                StrokeThickness="{OnPlatform Default=0,MacCatalyst=1,WinUI=1}"
+                VerticalOptions="{OnPlatform MacCatalyst=Center}"
+                MaximumWidthRequest="{OnPlatform WinUI=380, MacCatalyst=400}"
+                HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <Border.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst"
+                        Value="20" />
+                    <On Platform="WinUI"
+                        Value="20" />
+                </OnPlatform>
+            </Border.Margin>
+            <Grid Margin="0"
+                  RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid x:Name="headerGrid"
+                      Grid.Row="0"
+                      MaximumHeightRequest="50"
+                      Margin="16,0,16,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label LineBreakMode="NoWrap"
+                           Grid.Column="0"
+                           Text="{Binding HeaderInfo}"
+                           FontFamily="Roboto-Medium"
+                           FontSize="16"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center" />
+
+                    <Grid x:Name="selectAllIconParent"
+                          Grid.Column="1"
+                          HorizontalOptions="End"
+                          HeightRequest="50">
+                        <Label x:Name="selectAllIcon"
+                               FontSize="{OnPlatform Android=Large, WinUI=Medium, iOS=Large, MacCatalyst=Large}"
+                               Text="{Binding IsAllSelected, Converter={StaticResource SelectionIconConverter}}"
+                               TextColor="{Binding Path=IsAllSelected, Converter={StaticResource IconColorConverter}}"
+                               FontFamily="MauiSampleFontIcon"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Grid>
+                <ListView:SfListView x:Name="listView"
+                                     Grid.Row="1"
+                                     ScrollBarVisibility="Always"
+                                     SelectionGesture="Tap"
+                                     SelectionMode="Multiple"
+                                     SelectedItems="{Binding SelectedItems}"
+                                     ItemTemplate="{StaticResource ItemTemplate}"
+                                     ItemSize="72"
+                                     IsStickyHeader="True"
+                                     ItemsSource="{Binding DocumentInfo}">
+                </ListView:SfListView>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

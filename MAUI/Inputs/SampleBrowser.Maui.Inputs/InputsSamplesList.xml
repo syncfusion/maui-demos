@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Editors">
+		
+		<Control Title="Autocomplete" ControlName="SfAutocomplete" StatusTag="Updated" Image="autocomplete.png" Description="Provides useful suggestions to users based on the already typed content.">
+			<Sample Title="Getting Started" SampleName="AutocompleteGettingStarted" SearchTags="autocomplete,dropdown,entry,textbox,filter,suggestion,editor" CodeViewerPath="Autocomplete/AutocompleteGettingStarted/" VideoLink="https://www.youtube.com/watch?v=ontSh2NZvE4"  />
+			<Sample Title="Multiple Selection" WhatsNew="Autocomplete Multi-selection support with tokens and delimiter modes" SampleName="AutocompleteMultiSelection" StatusTag="Updated" SearchTags="autocomplete,dropdown,entry,textbox,filter,suggestion,editor,token,multiple,multiselection" CodeViewerPath="Autocomplete/AutocompleteMultiSelection/"  />
+			<Sample Title="Dropdown Features" SampleName="AutocompleteDropdown" StatusTag="New" SearchTags="autocomplete,dropdown,entry,textbox,filter,suggestion,editor,customization,header,footer,highlightmode" CodeViewerPath="Autocomplete/AutocompleteDrodownFeatures"  />
+		</Control>
+		
+		<Control Title="ComboBox" ControlName="SfComboBox" StatusTag="Updated" Image="combobox.png" Description="Allows users to select items via typing or choosing from a list.">
+			<Sample Title="Getting Started" SampleName="ComboBoxGettingStarted" SearchTags="combobox,picker,dropdown,suggestion,editor" CodeViewerPath="ComboBox/ComboBoxGettingStarted/"  VideoLink="https://www.youtube.com/watch?v=jcfaI0PFmSo" />
+			<Sample Title="Multiple Selection" WhatsNew="ComboBox Multi-selection support with tokens and delimiter modes" SampleName="ComboBoxMultiSelection" StatusTag="Updated" SearchTags="combobox,picker,dropdown,suggestion,editor,token,multiple,multiselection" CodeViewerPath="ComboBox/ComboBoxMultiSelection/" />
+			<Sample Title="Dropdown Features" SampleName="ComboBoxDropdown" StatusTag="New" SearchTags="combobox,picker,dropdown,suggestion,editor,customization,header,footer,highlightmode" CodeViewerPath="ComboBox/ComboBoxDropdown/" />
+		</Control>
+		
+		<Control Title="Rating" ControlName="SfRating" Image="rating.png" Description="Allows the users to select a rating value from a group of visual symbols.">
+			<Sample Title="Getting Started" SampleName="RatingGettingStarted" SearchTags="rating,rate,review,feedback" CodeViewerPath="Rating/RatingGettingStarted/"  VideoLink="https://www.youtube.com/watch?v=yEJzdjPNjBs" />
+			<Sample Title="Read Only" SampleName="ReadOnly" SearchTags="rating,rate,review,feedback,readonly" CodeViewerPath="Rating/ReadOnly/"  VideoLink="https://www.youtube.com/watch?v=yEJzdjPNjBs" />	
+		</Control>
+		
+		<Control Title="Masked Entry" ControlName="SfMaskedEntry" StatusTag="Updated"  Image="maskedentry.png" Description="Allows users to restrict input using a mask pattern.">
+			<Sample Title="Getting Started" WhatsNew="MaskedEntry support input validation and password character" SampleName="MaskedEntryGettingStarted" SearchTags="masked,entry,textbox" CodeViewerPath="MaskedEntry/MaskedEntryGettingStarted/"/>
+			<Sample Title="Culture" SampleName="Culture" SearchTags="masked,entry,textbox,culture" CodeViewerPath="MaskedEntry/Culture/"/>
+		</Control>
+
+		<Control Title="Numeric Entry" ControlName="SfNumericEntry"  Image="numericentry.png" Description="Allows users to restrict input to numeric values using specified format.">
+			<Sample Title="Getting Started" SampleName="NumericEntryGettingStarted" SearchTags="numeric,entry,textbox" CodeViewerPath="NumericEntry/NumericEntryGettingStarted/"/>
+			<Sample Title="Culture and Formatting" SampleName="NumericEntryCultureAndFormatting" SearchTags="numeric,entry,textbox,formatting, culture" CodeViewerPath="NumericEntry/NumericEntryCultureAndFormatting/"/>		   		
+		</Control>
+		
+		<Control Title="NumericUpDown" ControlName="NumericUpDown"  Image="numericupdown.png" Description="Allows users to restrict input to numeric values with value-changing buttons.">
+			<Sample Title="Getting Started"  SampleName="NumericUpDownGettingStarted" SearchTags="numeric,entry,textbox,updownbutton, numericupdown" CodeViewerPath="NumericEntry/NumericEntryGettingStarted/"/>
+		</Control>
+		
+	</ControlCategory>
+</SyncfusionControls>

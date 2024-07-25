@@ -1,0 +1,302 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Calendar.SfCalendar.GettingStarted"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Calendar.SfCalendar"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Margin="-4, -4, -6, -6">
+    <localCore:SampleView.Content>
+        <Grid WidthRequest="350" HeightRequest="400">
+            <Frame IsVisible="False" x:Name="frame" HasShadow="False"
+                   Background="Transparent" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="2">
+                <calendar:SfCalendar x:Name="Calendar" Background="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" CornerRadius="{Binding CornerRadius}" >
+                    <calendar:SfCalendar.FooterView>
+                        <calendar:CalendarFooterView ShowActionButtons="True" ShowTodayButton="True"/>
+                    </calendar:SfCalendar.FooterView>
+                </calendar:SfCalendar>
+            </Frame>
+
+            <Border IsVisible="False" x:Name="border"
+                    Background="Transparent" 
+                    HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="2">
+                <calendar:SfCalendar x:Name="Calendar1" Background="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}" CornerRadius="{Binding CornerRadius}" >
+                    <calendar:SfCalendar.FooterView>
+                        <calendar:CalendarFooterView ShowActionButtons="True" ShowTodayButton="True" />
+                    </calendar:SfCalendar.FooterView>
+                </calendar:SfCalendar>
+            </Border>
+        </Grid>
+    </localCore:SampleView.Content>
+    
+    <localCore:SampleView.BindingContext>
+        <local:ViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView Padding="0, 0, 5, 0">
+                <StackLayout Orientation="Vertical">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Calendar View"  Margin="0,15,0,0" 
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+
+                        <editors:SfComboBox x:Name="comboBox" Grid.Column="1" IsClearButtonVisible="False"
+                                Margin="5,15,0,0" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"
+                                HorizontalOptions="End" />
+                    </Grid>
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Calendar Selection"  Margin="0,15,0,0" 
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+
+                        <editors:SfComboBox x:Name="selectionComboBox" Grid.Column="1" IsClearButtonVisible="False"
+                                Margin="5,15,0,0" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"
+                                HorizontalOptions="End"/>
+                    </Grid>
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Selection shape"  Margin="0,15,0,0" 
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+
+                        <editors:SfComboBox x:Name="selectionShapeComboBox" Grid.Column="1" IsClearButtonVisible="False"
+                                Margin="5,15,0,0" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"
+                                HorizontalOptions="End"/>
+                    </Grid>
+
+                    <Grid  x:Name="selectionDirectionGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Selection Direction"  Margin="0,15,0,0"
+                           x:Name="selectionDirectionText"
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+
+                        <editors:SfComboBox x:Name="directionComboBox" Grid.Column="1" IsClearButtonVisible="False"
+                                Margin="5,15,0,0" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"
+                                HorizontalOptions="End" />
+                    </Grid>
+
+                    <Grid HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Display Date"  Margin="0,15,0,0"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+
+                        <DatePicker x:Name="datePicker" 
+                                Grid.Column="1" 
+                                Margin="5,15,0,0" VerticalOptions="Center"
+                                HorizontalOptions="End"/>
+                    </Grid>
+
+                    <Grid x:Name="allowViewNavigationGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Allow view navigation"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="allowViewNavigationSwitch" 
+                          Grid.Column="1"
+                          Margin="5,0,0,0"
+                          VerticalOptions="Center"
+                          IsOn="True"
+                          HorizontalOptions="End">
+                        </buttons:SfSwitch>
+                    </Grid>
+
+                    <Grid x:Name="weekNumberGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Show week number"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="weekNumberSwitch" 
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         IsOn="False"
+                         VerticalOptions="Center"
+                         HorizontalOptions="End">
+                        </buttons:SfSwitch>
+                    </Grid>
+
+                    <Grid x:Name="trailingDatesGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Show trailing and leading dates"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="trailingDatesSwitch" 
+                         Grid.Column="1" 
+                         Margin="5,0,0,0"
+                         IsOn="True"
+                         VerticalOptions="Center"
+                         HorizontalOptions="End">
+                        </buttons:SfSwitch>
+                    </Grid>
+
+                    <Grid x:Name="enableDatesGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Enable Past Dates"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="enableDatesSwitch" 
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         VerticalOptions="Center"
+                         IsOn="True"
+                         HorizontalOptions="End">
+                        </buttons:SfSwitch>
+                    </Grid>
+
+                    <Grid x:Name="enableSwipeSelectionGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Enable swipe Selection"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="enableSwipeSelectionSwitch" 
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         VerticalOptions="Center"
+                         IsOn="False"
+                         HorizontalOptions="End">
+                        </buttons:SfSwitch>
+                    </Grid>
+
+                    <Grid x:Name="showActionButtonGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Show action buttons"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="showActionButtonsSwitch" 
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         VerticalOptions="Center"
+                         IsOn="True"
+                         HorizontalOptions="End">
+                        </buttons:SfSwitch>
+                    </Grid>
+
+                    <Grid x:Name="showTodayButtonGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Show today button"  
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="showTodayButtonSwitch" 
+                         Grid.Column="1"
+                          Margin="5,0,0,0"
+                         VerticalOptions="Center"
+                         IsOn="True"
+                         HorizontalOptions="End">
+                        </buttons:SfSwitch>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Corner radius"
+                        x:Name="cornerRadiusLabel"
+                        Margin="0,15,0,0"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <sliders:SfSlider x:Name="cornerRadiusSlider"
+                        Grid.Row="1" Margin="0,-30,0,0"
+                        Maximum="30" Minimum="0"              
+                        VerticalOptions="Center"
+                        Value="{Binding CornerRadius}">
+                            <sliders:SfSlider.Tooltip>
+                                <sliders:SliderTooltip NumberFormat="0"/>
+                            </sliders:SfSlider.Tooltip>
+                        </sliders:SfSlider>
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:GettingStartedBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

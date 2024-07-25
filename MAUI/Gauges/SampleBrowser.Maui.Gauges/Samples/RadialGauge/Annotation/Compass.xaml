@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.Compass"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+    <gauge:SfRadialGauge x:Name="compassGauge" HorizontalOptions="Center">
+        <gauge:SfRadialGauge.Axes>
+            <gauge:RadialAxis ShowAxisLine="False"
+                                                  TickPosition="Outside"
+                                                  LabelPosition="Outside"
+                                                  StartAngle="320"
+                                                  EndAngle="320"
+                                                  RadiusFactor="0.6"
+                                                  MinorTicksPerInterval="10"
+                                                  Minimum="0"
+                                                  Maximum="360"
+                                                  ShowLastLabel="False"
+                                                  Interval="30"
+                                                  OffsetUnit="Factor">
+                <gauge:RadialAxis.MajorTickStyle>
+                    <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.12" />
+                </gauge:RadialAxis.MajorTickStyle>
+                <gauge:RadialAxis.MinorTickStyle>
+                    <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.12" />
+                </gauge:RadialAxis.MinorTickStyle>
+                <gauge:RadialAxis.Pointers>
+                    <gauge:ShapePointer Value="90"
+                                                             ShapeType="Triangle" />
+                    <gauge:NeedlePointer Value="310"
+                                                             NeedleLengthUnit="Factor"
+                                                             NeedleLength="0.9"
+                                                             NeedleStartWidth="1"
+                                                             NeedleEndWidth="1"
+                                                             NeedleFill="#FFC4C4C4"
+                                                             KnobRadius="0"
+                                                             TailLengthUnit="Factor"
+                                                             TailLength="0.9"
+                                                             TailWidth="1"
+                                                             TailFill="#FFC4C4C4">
+                    </gauge:NeedlePointer>
+                    <gauge:NeedlePointer Value="221"
+                                                             NeedleLengthUnit="Factor"
+                                                             NeedleLength="0.9"
+                                                             NeedleStartWidth="1"
+                                                             NeedleEndWidth="1"
+                                                             NeedleFill="#FFC4C4C4"
+                                                             KnobRadius="0"
+                                                             TailLengthUnit="Factor"
+                                                             TailLength="0.9"
+                                                             TailWidth="1"
+                                                             TailFill="#FFC4C4C4">
+                    </gauge:NeedlePointer>
+                </gauge:RadialAxis.Pointers>
+
+                <gauge:RadialAxis.Annotations>
+                    <gauge:GaugeAnnotation DirectionValue="230"
+                                                               PositionFactor="0.5">
+                        <gauge:GaugeAnnotation.Content>
+                            <Label Text="W"
+                                                       FontAttributes="Bold"
+                                                       FontSize="18"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                        </gauge:GaugeAnnotation.Content>
+                    </gauge:GaugeAnnotation>
+                    <gauge:GaugeAnnotation DirectionValue="310"
+                                                               PositionFactor="0.5">
+                        <gauge:GaugeAnnotation.Content>
+                            <Label Text="N"
+                                                       FontAttributes="Bold"
+                                                       FontSize="18"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                        </gauge:GaugeAnnotation.Content>
+                    </gauge:GaugeAnnotation>
+                    <gauge:GaugeAnnotation DirectionValue="129"
+                                                               PositionFactor="0.5">
+                        <gauge:GaugeAnnotation.Content>
+                            <Label Text="S"
+                                                       FontAttributes="Bold"
+                                                       FontSize="18"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                        </gauge:GaugeAnnotation.Content>
+                    </gauge:GaugeAnnotation>
+                    <gauge:GaugeAnnotation DirectionValue="50"
+                                                               PositionFactor="0.5">
+                        <gauge:GaugeAnnotation.Content>
+                            <Label Text="E"
+                                                       FontAttributes="Bold"
+                                                       FontSize="18"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                        </gauge:GaugeAnnotation.Content>
+                    </gauge:GaugeAnnotation>
+                </gauge:RadialAxis.Annotations>
+            </gauge:RadialAxis>
+        </gauge:SfRadialGauge.Axes>
+    </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

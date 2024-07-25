@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.FileOperationListView">
+
+    <Border 
+        x:Name="Colors" 
+        VerticalOptions="Start" 
+        HorizontalOptions="Start"
+        WidthRequest="205" 
+        HeightRequest="144"
+        Padding="0,8,0,8"
+        BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
+        IsVisible="{OnPlatform Default=true,Android=false,iOS=false}">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="5" />
+        </Border.StrokeShape>
+        <Border.Shadow>
+            <Shadow Brush="#000000"
+                Offset="1,3"
+                Radius="5"
+                Opacity="0.30"/>
+        </Border.Shadow>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="8"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <HorizontalStackLayout Grid.Row="0" x:Name="openLayout"/>
+            <HorizontalStackLayout Grid.Row="1" x:Name="saveLayout"/>
+            <Border Grid.Row="2" HeightRequest="1" Background="#CAC4D0">
+            </Border>
+            <HorizontalStackLayout Grid.Row="3" x:Name="printLayout"/>
+        </Grid>
+    </Border>
+</ContentView>
