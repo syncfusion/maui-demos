@@ -1,0 +1,57 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.SpecialTimeRegion"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <schedule:SfScheduler x:Name="Scheduler" 
+                                 AppointmentsSource="{Binding SpecialRegionEvents}"
+                                 DisplayDate="{Binding DisplayDate}"
+                                 AllowViewNavigation="True"
+                                 AllowAppointmentDrag="False"
+                                 AllowedViews="Day,Week,WorkWeek,TimelineDay,TimelineWeek,TimelineWorkWeek"
+                                 ViewChanged="OnViewChanged"
+                                 View="Week">
+                    <schedule:SfScheduler.AppointmentMapping>
+                        <schedule:SchedulerAppointmentMapping
+                Subject="EventName"
+                StartTime="From"
+                EndTime="To"
+                Background="Background"
+                IsAllDay="IsAllDay"
+                StartTimeZone="StartTimeZone"
+                EndTimeZone="EndTimeZone"
+                RecurrenceExceptionDates="RecurrenceExceptions"
+                RecurrenceRule="RecurrenceRule"
+                RecurrenceId="RecurrenceId"/>
+                    </schedule:SfScheduler.AppointmentMapping>
+                    <schedule:SfScheduler.MonthView>
+                        <schedule:SchedulerMonthView 
+                               AppointmentDisplayMode="Text" />
+                    </schedule:SfScheduler.MonthView>
+                    <schedule:SfScheduler.DaysView>
+                        <schedule:SchedulerDaysView  
+                               TimeRegions="{Binding TimeRegions}"
+                               MinimumAppointmentDuration="0:30:0" />
+                    </schedule:SfScheduler.DaysView>
+                    <schedule:SfScheduler.TimelineView>
+                        <schedule:SchedulerTimelineView 
+                               TimeRegions="{Binding TimeRegions}"
+                               MinimumAppointmentDuration="0:30:0" />
+                    </schedule:SfScheduler.TimelineView>
+                    <schedule:SfScheduler.BindingContext>
+                        <local:SchedulerDataBindingViewModel/>
+                    </schedule:SfScheduler.BindingContext>
+                </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

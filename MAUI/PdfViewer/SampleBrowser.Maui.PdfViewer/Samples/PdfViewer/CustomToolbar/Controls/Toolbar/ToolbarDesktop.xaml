@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:ToolbarView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.ToolbarDesktop">
+    <local:ToolbarView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="MauiSampleFontIcon" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="40" />
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource IconBackgroundHovered}, Dark={StaticResource IconBackgroundHovered},Default=#49454F}" />
+                                <Setter Property="HeightRequest" Value="40" />
+                                <Setter Property="WidthRequest" Value="40" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#261c1b1e" />
+                                <Setter Property="HeightRequest" Value="40" />
+                                <Setter Property="WidthRequest" Value="40" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#261c1b1e" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="buttonIconStyleWidth60" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="MauiSampleFontIcon" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="60" />
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value= "{AppThemeBinding Light={StaticResource IconBackgroundHovered}, Dark={StaticResource IconBackgroundHovered},Default=#49454F}"/>
+                                <Setter Property="HeightRequest" Value="40" />
+                                <Setter Property="WidthRequest" Value="60" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Focused">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource IconBackgroundFocused}, Dark={StaticResource IconBackgroundFocused},Default=#49454F}" />
+                                <Setter Property="HeightRequest" Value="40" />
+                                <Setter Property="WidthRequest" Value="60" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#261c1b1e" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="buttonIconStyleWidth80" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="MauiSampleFontIcon" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="80" />
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource IconBackgroundHovered}, Dark={StaticResource IconBackgroundHovered},Default=#49454F}" />
+                                <Setter Property="HeightRequest" Value="40" />
+                                <Setter Property="WidthRequest" Value="80" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#261c1b1e" />
+                                <Setter Property="HeightRequest" Value="40" />
+                                <Setter Property="WidthRequest" Value="80" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#261c1b1e" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </local:ToolbarView.Resources>
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F7F2FB}" RowDefinitions="56,Auto">
+        <Grid Grid.Row="0">
+            <HorizontalStackLayout Margin="8,0,0,0" Spacing="8" VerticalOptions="Center" HorizontalOptions="Start">
+                <Grid x:Name="menuGrid" WidthRequest="60" HeightRequest="40" BackgroundColor="{Binding FileOperationHighlightColor}" IsVisible="{Binding IsFileOpenVisible}">
+                    <Label FontFamily="Maui Material Assets" HorizontalOptions="End" Padding="38,12,6,12" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}" VerticalOptions="Center" Text="&#xe701;" FontSize="16" />
+                    <Button
+                            x:Name="fileOperation"
+                            WidthRequest="60"
+                            Padding="8,8,28,8"
+                            FontSize="24"
+                            FontFamily="Maui Material Assets"
+                            Command="{Binding ToolbarCommand}"
+                            Clicked="Button_Clicked"
+                            CommandParameter="FileOperation"
+                            ToolTipProperties.Text="Click to perform file operations"
+                            Text="&#xe77d;"  
+                            Style="{StaticResource buttonIconStyleWidth60}"/>
+                </Grid>
+                <HorizontalStackLayout x:Name="saveLayout" IsVisible="{Binding IsSaveLayoutVisible}">
+                    <Rectangle
+                        Fill="#CAC4D0" Margin="4,0,4,0" HeightRequest="24" WidthRequest="2" IsVisible="{Binding IsFileOpenVisible}"/>
+                    <Button x:Name="undoButton"
+                        ToolTipProperties.Text="Undo"
+                        Text="&#xe744;"
+                        FontSize="24"
+                        FontFamily="Maui Material Assets"
+                        Clicked="undo_RedoClicked"
+                        Margin="4,0,4,0"
+                        Style="{StaticResource buttonIconStyle}"
+                     />
+                    <Button x:Name="redoButton"
+                        Text="&#xe745;"
+                        FontSize="24"
+                        ToolTipProperties.Text="Redo"
+                        FontFamily="Maui Material Assets"
+                        Clicked="undo_RedoClicked"
+                        Margin="4,0,0,0"
+                        Style="{StaticResource buttonIconStyle}" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" x:Name="centerLayout">
+                <inputLayout:SfTextInputLayout Stroke="{AppThemeBinding Light={StaticResource BorderAlt2}, Dark={StaticResource BorderAlt1},Default=#49454F}" ContainerBackground="Transparent"
+                        OutlineCornerRadius="4" HeightRequest="40" WidthRequest="58"
+                        FocusedStrokeThickness="1" ReserveSpaceForAssistiveLabels="False" Padding="0,-2.9,0,0" InputViewPadding="0" ContainerType="Outlined">
+                    <local:CustomEntry
+                        x:Name="pageNumberEntry"
+                        ToolTipProperties.Text="Go to a specific page number"
+                        IsEnabled="{Binding IsDocumentLoaded}"
+                        MaxLength="4"
+                        FontSize="16"
+                        Keyboard="Numeric"
+                        TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#1C1B1F}"
+                        BackgroundColor="Transparent"
+                        TextChanged="pageNumberEntry_TextChanged"
+                        Focused="pageNumberEntry_Focused"
+                        Unfocused="pageNumberEntry_Unfocused"
+                        Completed="GoToEntry_Completed"
+                        VerticalTextAlignment="Start"
+                        MinimumWidthRequest="44"
+                        HeightRequest="24"
+                        VerticalOptions="Center" 
+                        HorizontalTextAlignment="Center"/>
+                </inputLayout:SfTextInputLayout>
+
+                <Label 
+                        Text="/" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#1C1B1F}"
+                        VerticalTextAlignment="Center" 
+                        HorizontalTextAlignment="Center"
+                        Margin="4,0,0,0"
+                        FontSize="16"/>
+                <Label x:Name="pageCountLabel"  TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#1C1B1F}"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        Margin="4,0,8,0"
+						FontSize="16"/>
+                <Button x:Name="goToPreviousPageButton"
+                        ToolTipProperties.Text="Click to go to previous page"
+                        Text="&#xe70b;" FontSize="24"
+                        Margin="0,0,8,0"
+                        Style="{StaticResource buttonIconStyle}"/>
+                <Button x:Name="goToNextPageButton"
+                        ToolTipProperties.Text="Click to go to next page"
+                        Text="&#xe708;"  FontSize="24"
+                        Margin="0,0,8,0"
+                        Style="{StaticResource buttonIconStyle}"/>
+                <Rectangle
+                    Fill="#CAC4D0" HeightRequest="24" WidthRequest="2"/>
+                <Grid>
+                    <Button 
+                        x:Name="zoomPercentage"
+                        Text="{Binding ZoomLevel}" 
+                        Margin="8,0,8,0" 
+                        FontSize="16"
+                        VerticalOptions="Center"
+                        CommandParameter="Zoom"
+                        Padding="0,0,24,5"
+                        ToolTipProperties.Text="Click to Change Zoom Level"
+                        Style="{StaticResource buttonIconStyleWidth80}"
+                        Command="{Binding ToolbarCommand}"/>
+                    <Label FontFamily="Maui Material Assets" HorizontalOptions="End" Margin="0,0,16,0" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}" VerticalOptions="Center" Text="&#xe701;" FontSize="16" />
+                </Grid>
+
+                <Rectangle Fill="#CAC4D0" Margin="0,0,0,0" HeightRequest="24" WidthRequest="2" IsVisible="{Binding IsAnnotationsToolsVisible}"/>
+
+                <Grid x:Name="annotationGrid" IsVisible="{Binding IsAnnotationsToolsVisible}" Margin="8,0,0,0" HeightRequest="40" WidthRequest="40" BackgroundColor="{Binding AnnotationHighlightColor}" >
+                    <Button
+                        x:Name="annotationButton"
+                        ToolTipProperties.Text="Click to add annotations"
+                        Text="&#xe710;"
+                        WidthRequest="40"
+                        FontFamily="Maui Material Assets"
+                        Command="{Binding ToolbarCommand}"
+                        Clicked="Button_Clicked"
+                        CommandParameter="Annotations"
+                        FontSize="24"
+                        Padding="8"
+                        Style="{StaticResource buttonIconStyle}"/>
+                </Grid>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8" Margin="0,0,8,0" IsVisible="{Binding IsAnnotationsToolsVisible}" HorizontalOptions="End">
+                <Button
+                    x:Name="outlineButton" IsVisible="{Binding IsFileOpenVisible}"
+                    Text="&#xe72c;"
+                    ToolTipProperties.Text="Click to see the bookmarks"
+                    FontSize="24"
+                    FontFamily="Maui Material Assets"
+                    Style="{StaticResource buttonIconStyle}"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Outline"
+                    Clicked="outlineButton_Clicked"/>
+                <Button
+                    x:Name="searchButton"
+                    ToolTipProperties.Text="Click to find text in the document"
+                    Text="&#xe715;"
+                    FontSize="24"
+                    FontFamily="Maui Material Assets"
+                    Style="{StaticResource buttonIconStyle}"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="Search"
+                    Clicked="Search_Clicked"/>
+                <Rectangle Fill="#CAC4D0" HeightRequest="24" WidthRequest="2"/>
+                <Button 
+                    x:Name="pageLayoutButton"
+                    Text="&#xe795;"
+                    FontSize="24"
+                    FontFamily="Maui Material Assets"
+                    Command="{Binding ToolbarCommand}"
+                    CommandParameter="More"
+                    Clicked="pageLayoutButton_Clicked"
+                    ToolTipProperties.Text="Click for page layout settings"
+                    Style="{StaticResource buttonIconStyle}" />
+            </HorizontalStackLayout>
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource Border},Default=#CAC4D0}" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+        </Grid>
+        <Grid Grid.Row="1" HeightRequest="56" IsVisible="{Binding IsSecondaryToolbarVisible}">
+            <local:AnnotationSecondaryToolbar />
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource Border}, Dark={StaticResource Border},Default=#CAC4D0}" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+        </Grid>
+    </Grid>
+</local:ToolbarView>

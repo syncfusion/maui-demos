@@ -1,0 +1,105 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.DataForm.SfDataForm.EventRegistration"
+            xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+            xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+            xmlns:local="clr-namespace:SampleBrowser.Maui.DataForm.SfDataForm"
+            Background="{OnPlatform Default=White, WinUI={DynamicResource SfDataFormNormalBackground}, MacCatalyst=WhiteSmoke}"
+            xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+            xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+            xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      
+            xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Margin>
+        <OnPlatform x:TypeArguments="thickness:Thickness">
+            <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
+            <On Platform="UWP" Value="-4,-4,-6,-6"/>
+        </OnPlatform>
+    </localCore:SampleView.Margin>
+
+    <localCore:SampleView.Resources>
+        <Color x:Key="ButtonForegroundLight">#FFFFFF</Color>
+        <Color x:Key="ButtonForegroundDark">#381E72</Color>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid ColumnDefinitions="0.4*, 0.6*" BackgroundColor="{DynamicResource SfDataFormNormalBackground}">
+            <Grid IsClippedToBounds="True" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"
+                  RowDefinitions="0.3*,100,50,*">
+                <Image Source="{converters:SfImageResource registrationform.png}" Aspect="AspectFill" Grid.RowSpan="4"/>
+                <Label Text="Join our community" LineBreakMode="WordWrap" HorizontalOptions="Start"
+                       FontSize="40" WidthRequest="230" FontAttributes="Bold" TextColor="White" Grid.Row="1" Margin="50,0,0,0"/>
+                <Label Text="Be inspired around the global" HorizontalOptions="Start" FontSize="16" WidthRequest="240" TextColor="White" 
+                       Grid.Row="2" Margin="50,0,0,0"/>
+            </Grid>
+
+            <Grid x:Name="dataFormGrid" MaximumHeightRequest="{OnPlatform WinUI=640, MacCatalyst=640}" 
+                  BackgroundColor="{DynamicResource SfDataFormNormalBackground}"
+                    VerticalOptions="{OnPlatform Default=Fill}" IsClippedToBounds="True"
+                    Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" 
+                    Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}" 
+                    HorizontalOptions="Fill">
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                        <On Platform="MacCatalyst" Value="30,5"/>
+                        <On Platform="WinUI" Value="30,5"/>
+                    </OnPlatform>
+                </Grid.Margin>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{OnPlatform Default=0, WinUI=40, MacCatalyst=70}"/>
+                    <RowDefinition Height="{OnPlatform Default=0.9*, WinUI=*, MacCatalyst=510}"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="{OnPlatform Default=0.1*, WinUI=0.1*, MacCatalyst=60}"/>
+                </Grid.RowDefinitions>
+                    
+                <Grid.BindingContext>
+                    <local:DataFormViewModel/>
+                </Grid.BindingContext>
+
+                <Label Text="Registration Form" FontSize="Subtitle" TextColor="{DynamicResource SfDataFormNormalEditorTextColor}"
+                        IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}"
+                       Margin="20, 15, 0, 0"
+                       VerticalOptions="Center"
+                        FontAttributes="Bold"/>
+
+                <dataForm:SfDataForm x:Name="eventForm" DataObject="{Binding EventRegistrationModel}"
+                                     ColumnCount="2" ValidationMode="PropertyChanged" Grid.Row="1" LayoutType="TextInputLayout">
+                    <dataForm:SfDataForm.DefaultLayoutSettings>
+                        <dataForm:DataFormDefaultLayoutSettings LabelPosition="Top"/>
+                    </dataForm:SfDataForm.DefaultLayoutSettings>
+                </dataForm:SfDataForm>
+
+                <Line Grid.Row="2" Background="#F5F5F5" />
+                <HorizontalStackLayout x:Name="buttonLayout" Grid.Row="3" HorizontalOptions="End">
+
+                    <Button Text="Cancel " x:Name="clearButton" Background="{DynamicResource SfDataFormFocusedEditorStroke}" TextColor="{AppThemeBinding Light={StaticResource ButtonForegroundLight}, Dark={StaticResource ButtonForegroundDark}}"
+                            HeightRequest="40"
+                            VerticalOptions="Center"
+                            CornerRadius="20"
+                            FontSize="16"
+                            WidthRequest="150"
+                            HorizontalOptions="Center" />
+
+                    <Button Text="Submit" x:Name="submitButton" Background="{DynamicResource SfDataFormFocusedEditorStroke}" TextColor="{AppThemeBinding Light={StaticResource ButtonForegroundLight}, Dark={StaticResource ButtonForegroundDark}}"
+                            HeightRequest="40"
+                            VerticalOptions="Center"
+                            CornerRadius="20"
+                            FontSize="16"
+                            Margin="20,0,20,0"
+                            WidthRequest="150"
+                            HorizontalOptions="Center" />
+                </HorizontalStackLayout>
+                <popup:SfPopup Grid.Row="0" Grid.RowSpan="3" IsVisible="false" x:Name="popup" FooterHeight="80" ShowHeader="False" ShowFooter="True" HeightRequest="200">
+                    <popup:SfPopup.PopupStyle>
+                        <popup:PopupStyle CornerRadius="15" MessageFontSize="16" HeaderFontSize="18" HeaderFontAttribute="Bold" />
+                    </popup:SfPopup.PopupStyle>
+                </popup:SfPopup>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.Behaviors>
+        <local:EventRegistrationBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

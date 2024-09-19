@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.ColorToolbar">
+    <ContentView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </ContentView.Resources>
+    <Grid RowDefinitions="*,*" >
+        <Grid x:Name="opacitySliderBar" IsVisible="{Binding IsOpacityToolbarVisible}" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}" Grid.Row="0" HeightRequest="48" >
+            <sliders:SfSlider x:Name="opacitySlider" Minimum="0.1" Maximum="1.0" Value="{Binding SelectedOpacity}" VerticalOptions="End" HorizontalOptions="EndAndExpand" ValueChangeEnd="OpacityValue_Changed">
+                <sliders:SfSlider.TrackStyle>
+                    <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>
+                </sliders:SfSlider.TrackStyle>
+                <sliders:SfSlider.ThumbStyle>
+                    <sliders:SliderThumbStyle Fill="#6750A4" />
+                </sliders:SfSlider.ThumbStyle>
+                <sliders:SfSlider.ThumbOverlayStyle>
+                    <sliders:SliderThumbOverlayStyle Fill="#DFD8F7" Radius="24"/>
+                </sliders:SfSlider.ThumbOverlayStyle>
+                <sliders:SfSlider.Tooltip>
+                    <sliders:SliderTooltip  ShowAlways="True"  NumberFormat="0.0" Fill="#6750A4" Position="Auto" FontSize="12"  />
+                </sliders:SfSlider.Tooltip>
+            </sliders:SfSlider>
+            <BoxView BackgroundColor="Gray" VerticalOptions="End" Opacity="0.5" HeightRequest="0.5" HorizontalOptions="FillAndExpand"/>
+        </Grid>
+        <Grid x:Name="colorGrid" Grid.Row="1" HeightRequest="48" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}" VerticalOptions="End" ColumnDefinitions="1*,1*,1*,1*,1*,1*,1*,1*" >
+            <Button x:Name="RedButton" BackgroundColor="#FF0000" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="0" Clicked="ColorButton_Clicked" />
+            <Button x:Name="OrangeButton" BackgroundColor="#FFA200" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="1" Clicked="ColorButton_Clicked" />
+            <Button x:Name="YellowButton" BackgroundColor="#F3F500" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="2" Clicked="ColorButton_Clicked" />
+            <Button x:Name="GreenButton" BackgroundColor="Green" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="3" Clicked="ColorButton_Clicked" />
+            <Button x:Name="LiteGreenButton" BackgroundColor="#03FF0F" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="4" Clicked="ColorButton_Clicked" />
+            <Button x:Name="LiteBlueButton" BackgroundColor="#00FFEF" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="5" Clicked="ColorButton_Clicked" />
+            <Button x:Name="BlueButton" BackgroundColor="#1108FF" WidthRequest="24" Padding="10" HeightRequest="24" CornerRadius="12" VerticalOptions="Center" Grid.Column="6" Clicked="ColorButton_Clicked" />
+            <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="24" Margin="5,0,0,0" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="6"/>
+            <Border WidthRequest="24" BackgroundColor="#FFFFFF" Padding="0" VerticalOptions="Center" Grid.Column="8" HeightRequest="24">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" WidthRequest="24" HeightRequest="24" />
+                </Border.StrokeShape>
+                <Button x:Name="OpacityButton" Grid.Column="8" Text="&#xe76d;" FontFamily="Maui Material Assets" FontSize="30" WidthRequest="24" Padding="0" HeightRequest="24" VerticalOptions="Center" Command="{Binding ToolbarCommand}" CommandParameter="Opacity"  Clicked="ColorButton_Clicked" Style="{StaticResource buttonIconStyle}" />
+            </Border>
+            <BoxView BackgroundColor="Gray" Opacity="0.5" HeightRequest="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="End" Grid.ColumnSpan="9"/>
+        </Grid>
+    </Grid>
+</ContentView>

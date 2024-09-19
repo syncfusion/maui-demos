@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SmartComponents.SmartComponents.FeedbackFormDesktopView"
+             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SmartComponents.SmartComponents"
+             Background="{OnPlatform Default=White, WinUI=WhiteSmoke, MacCatalyst=WhiteSmoke}"
+             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:toolTip="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Margin>
+        <OnPlatform x:TypeArguments="thickness:Thickness">
+            <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
+            <On Platform="UWP" Value="-4,-4,-6,-6"/>
+        </OnPlatform>
+    </localCore:SampleView.Margin>
+
+    <localCore:SampleView.Resources>
+        <Color x:Key="ButtonForegroundLight">#FFFFFF</Color>
+        <Color x:Key="ButtonForegroundDark">#381E72</Color>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid BackgroundColor="{DynamicResource SfDataFormNormalBackground}">
+            <Image Source="{converters:SfImageResource feedbackform.png}" Aspect="Fill"/>
+
+            <Grid ColumnDefinitions="Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center" ColumnSpacing="20">
+                <Frame HasShadow="False" BackgroundColor="{DynamicResource SfDataFormNormalBackground}"
+                    CornerRadius="10"
+                    MaximumHeightRequest="{OnPlatform WinUI=500, MacCatalyst= 550}"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center" 
+                    WidthRequest="{OnPlatform MacCatalyst=560, WinUI=450, Default=-1}" Margin="20" Padding="10">
+                    <Grid BackgroundColor ="{DynamicResource SfDataFormNormalBackground}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="0.8*"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="75"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.BindingContext>
+                            <local:FeedbackFormModel/>
+                        </Grid.BindingContext>
+
+                        <Label Text="Product feedback" TextColor="{DynamicResource SfDataFormNormalEditorTextColor}" FontSize="Subtitle" 
+                           FontAttributes="Bold" VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"/>
+                        <dataForm:SfDataForm x:Name="feedbackForm"
+                                Grid.RowSpan="1"
+                                Grid.Row="1"
+                                DataObject="{Binding FeedbackForm}"
+                                ValidationMode="PropertyChanged"
+                                LayoutType="TextInputLayout"
+                                HorizontalOptions="Center">
+                            <dataForm:SfDataForm.TextInputLayoutSettings>
+                                <dataForm:TextInputLayoutSettings ShowHelperText="True"
+                                                              FocusedStroke="{DynamicResource SfDataFormFocusedEditorStroke}"/>
+                            </dataForm:SfDataForm.TextInputLayoutSettings>
+                        </dataForm:SfDataForm>
+                        <Line Grid.Row="2" Background="#F5F5F5" />
+                        <HorizontalStackLayout  Grid.Row="4" HorizontalOptions="End">
+                            <Button x:Name="onlineSmartPaste" Text="Smart Paste" IsVisible="False" TextColor="{AppThemeBinding Light={StaticResource ButtonForegroundLight}, Dark={StaticResource ButtonForegroundDark}}"
+                                    Background="{DynamicResource SfDataFormFocusedEditorStroke}" CornerRadius="20"
+                                    FontSize="16"
+                                    Margin="20, 0, 20, 0"
+                                    HeightRequest="40"
+                                    toolTip:ToolTipProperties.Text="Click to smart paste based on copied text through online.">
+                            </Button>
+                            <Button x:Name="submitButton" Text="Submit"
+                                    TextColor="{AppThemeBinding Light={StaticResource ButtonForegroundLight}, Dark={StaticResource ButtonForegroundDark}}"
+                                    Background="{DynamicResource SfDataFormFocusedEditorStroke}"
+                                    CornerRadius="20"
+                                    FontSize="16"
+                                    Margin="20, 0, 20, 0"
+                                    HeightRequest="40"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <popup:SfPopup Grid.Row="0" Grid.RowSpan="3" IsVisible="False" x:Name="popup" FooterHeight="80" ShowHeader="False" ShowFooter="True" HeightRequest="200">
+                    <popup:SfPopup.PopupStyle>
+                        <popup:PopupStyle CornerRadius="15" MessageFontSize="16" />
+                    </popup:SfPopup.PopupStyle>
+                </popup:SfPopup>
+
+                <Frame x:Name="offLineView" Grid.Column="1" HasShadow="False" IsVisible="True" WidthRequest="300"  MaximumHeightRequest="{OnPlatform WinUI=500, MacCatalyst= 550}"  BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}}"  CornerRadius="10"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center" Margin="20">
+                    <Grid RowDefinitions="Auto,*">
+                        <VerticalStackLayout Grid.Row="0" Spacing="0">
+                            <Label Grid.Column="1" Margin="15,0,0,0" Padding="0,0,0,5" Text="Sample content to copy"  HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold"/>
+                            <BoxView HeightRequest="1" Opacity="0.5" Margin="-20,15,-20,0" BackgroundColor="{AppThemeBinding Light=#CAC4D0, Dark=#CAC4D0}"/>
+                        </VerticalStackLayout>
+
+                        <ScrollView Grid.Row="1" Orientation="Vertical" VerticalScrollBarVisibility="Never" x:Name="ScrollView" >
+                            <Grid ColumnDefinitions="auto,*">
+                                <Grid.BindingContext>
+                                    <local:FeedbackFormModel/>
+                                </Grid.BindingContext>
+                                <Grid Grid.Column="1" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}}" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid x:Name="CopiedDataGrid_Desktop1" Grid.Row="0" RowDefinitions="auto,*" ColumnDefinitions="*,auto" RowSpacing="05"
+                                      BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}}" 
+                                      Padding="10" Margin="15">
+                                        <Button x:Name="CopiedButton1" BorderWidth="0" AutomationId="CopiedButton1" Text="&#xe737;" Grid.Row="0" 
+                                            BackgroundColor="Transparent" FontFamily="MauiSampleFontIcon" 
+                                            HorizontalOptions="End" Padding="0" VerticalOptions="Start" FontAttributes="Bold" FontSize="14" 
+                                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}, Default=#99000000}" />
+                                        <Label x:Name="InputData1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding FeedbackForm1}" VerticalOptions="FillAndExpand" LineHeight="1.25" FontFamily="MauiSampleFontIcon" LineBreakMode="WordWrap" 
+                                           TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}, Default=#99000000}" />
+                                        <Grid.Shadow>
+                                            <Shadow Brush="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" Offset="0,0" Radius="1" />
+                                        </Grid.Shadow>
+                                    </Grid>
+
+                                    <Grid x:Name="CopiedDataGrid_Desktop2" Grid.Row="1" RowDefinitions="auto,*" ColumnDefinitions="*,auto" RowSpacing="05"
+                                      BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}}" 
+                                      Padding="10" Margin="15,0">
+                                        <Button Text="&#xe737;" x:Name="CopiedButton2" AutomationId="CopiedButton2" BorderWidth="0" Grid.Row="0" 
+                                            BackgroundColor="Transparent" FontFamily="MauiSampleFontIcon" 
+                                            HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="14" Padding="0" 
+                                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}, Default=#99000000}" />
+                                        <Label x:Name="InputData2" LineHeight="1.25" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding FeedbackForm2}" VerticalOptions="FillAndExpand" 
+                                           FontFamily="MauiSampleFontIcon" LineBreakMode="WordWrap" 
+                                           TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}, Default=#99000000}" />
+                                        <Grid.Shadow>
+                                            <Shadow Brush="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" Offset="0,0" Radius="1" />
+                                        </Grid.Shadow>
+                                    </Grid>
+
+                                    <Grid Grid.Row="2" Margin="15" x:Name="CopiedDataGrid_Desktop3" RowDefinitions="auto,*" RowSpacing="05" ColumnDefinitions="*,auto" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}}" Padding="10">
+                                        <Button x:Name="CopiedButton3" AutomationId="CopiedButton3" BorderWidth="0" Text="&#xe737;" Grid.Row="0" BackgroundColor="Transparent" FontFamily="MauiSampleFontIcon" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" Padding="0" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" />
+                                        <Label x:Name="InputData3" LineHeight="1.25" Grid.Row="1" Text="{Binding FeedbackForm3}" VerticalOptions="FillAndExpand" FontFamily="MauiSampleFontIcon" LineBreakMode="WordWrap" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}, Default=#99000000}" />
+                                        <Grid.Shadow>
+                                            <Shadow Brush="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" Offset="0,0" Radius="1" />
+                                        </Grid.Shadow>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </ScrollView>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.Behaviors>
+        <local:FeedbackFormBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

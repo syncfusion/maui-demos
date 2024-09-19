@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:ev="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               xmlns:local="clr-namespace:SampleBrowser.Maui.SignaturePad.SfSignaturePad"
+               x:Class="SampleBrowser.Maui.SignaturePad.SfSignaturePad.GettingStarted"
+               Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <sb:SampleView.BindingContext>
+        <local:InvoiceViewModel />
+    </sb:SampleView.BindingContext>
+
+    <sb:SampleView.Resources>
+        <Style TargetType="BoxView">
+            <Setter Property="Color"
+                    Value="{AppThemeBinding Light={StaticResource TileHeaderBorderLight}, Dark={StaticResource TileHeaderBorder}}" /> 
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <Grid Padding="5" HorizontalOptions="{OnPlatform Android=Center}">
+            <Grid.Triggers>
+                <DataTrigger TargetType="Grid"
+                             Binding="{Binding IsOpen, Source={x:Reference Popup}}"
+                             Value="True">
+                    <Setter Property="Background"                            
+                            Value="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" />
+                </DataTrigger>
+
+                <DataTrigger TargetType="Grid"
+                             Binding="{Binding IsOpen, Source={x:Reference Popup}}"
+                             Value="False">
+                    <Setter Property="Background"
+                            Value="Transparent" />
+                </DataTrigger>
+            </Grid.Triggers>
+
+            <ScrollView VerticalOptions="Center">
+                <ScrollView.Triggers>
+                    <DataTrigger TargetType="ScrollView"
+                                 Binding="{Binding IsOpen, Source={x:Reference Popup}}"
+                                 Value="True">
+                        <Setter Property="IsEnabled"
+                                Value="False" />
+                    </DataTrigger>
+
+                    <DataTrigger TargetType="ScrollView"
+                                 Binding="{Binding IsOpen, Source={x:Reference Popup}}"
+                                 Value="False">
+                        <Setter Property="IsEnabled" 
+                                Value="True" />
+                    </DataTrigger>
+                </ScrollView.Triggers>
+
+                <Border Stroke="{AppThemeBinding Light={StaticResource TileHeaderBorderLight}, Dark={StaticResource TileHeaderBorder}}"
+                        StrokeThickness="{OnPlatform Default=0, MacCatalyst=1, WinUI=1}"
+                        Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}"
+                        MaximumWidthRequest="{OnPlatform MacCatalyst=500, WinUI=500}" 
+                        HorizontalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="0" />
+                    </Border.StrokeShape>
+
+                    <Grid Padding="20"
+                         
+                          RowDefinitions="Auto,25,Auto,25,200,5,Auto,25,Auto,Auto"
+                          Background="Transparent">
+
+                        <Grid Grid.Row="0"
+                              ColumnDefinitions="2*,*">
+                            <Label Grid.Column="0"
+                                   Margin="0,5,0,0"
+                                   Text="INVOICE"
+                                   FontFamily="Roboto"
+                                   TextColor="{AppThemeBinding Light={StaticResource BackgroundDark}, Dark={StaticResource BackgroundLight}}"
+                                   FontSize="Title"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Start"
+                                   HorizontalOptions="Start" />
+
+                            <VerticalStackLayout Grid.Column="1" Margin="-5,0,-8,0" >
+
+                                <HorizontalStackLayout Spacing="10" >
+                                    <Label Text="&#xe75c;"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           Margin="0,3,0,0"
+                                           FontFamily="MauiSampleFontIcon"></Label>
+                                    <Label Text="abcd@outlook.com" FontSize="13">
+                                    </Label>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="&#xe763;"
+                                           HorizontalOptions="Center"
+                                           Margin="0,7,0,0"
+                                           FontFamily="MauiSampleFontIcon">
+                                    </Label>
+                                    <Label Text="+210 3243 4234" Margin="0,5,0,0"  FontSize="13">
+                                    </Label>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <BoxView Grid.Row="1"
+                                 Grid.ColumnSpan="4" 
+                                 HeightRequest="0.5">
+                        </BoxView>
+
+                        <Grid Grid.Row="2"
+                              RowDefinitions="Auto,Auto,Auto,Auto"
+                              RowSpacing="2.5">
+
+                            <Label Grid.Row="0"
+                                   Text="Client Name : John mors"
+                                   FontSize="13"
+                                   Padding="0,2.5" />
+                            <Label Grid.Row="1"
+                                   Text="Bill To:"
+                                   FontSize="13"
+                                   Padding="0,2.5" />
+                            <Label Grid.Row="2"
+                                    FontSize="13"
+                                   Text="Abraham Swearegin, 9920 Bridge Parkway," />
+                            <Label Grid.Row="3"
+                                   FontSize="13"
+                                   Text="San Mateo, California, United States" />
+                            <Label Grid.Row="0"
+                                   HorizontalTextAlignment="End">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{}Invoice No: {0}">
+                                        <Binding Path="InvoiceNo" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+
+                            <Label Grid.Row="1"
+                                   HorizontalTextAlignment="End">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{}Date: {0}">
+                                        <Binding Path="InvoiceDate" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </Grid>
+
+                        <Grid Grid.Row="4"
+                              ColumnSpacing="0"
+                              RowDefinitions="*,*,*,*,*,*,*,*"
+                              ColumnDefinitions="*,*,*,*">
+
+                            <HorizontalStackLayout Grid.Row="0" HeightRequest="30"  Grid.ColumnSpan="4"  Spacing="{OnPlatform WinUI='50', Android='40',iOS='40'}" BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}"  Padding="30,0">
+                            <Label Text="Product"
+                                   FontSize="13"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"/>
+                            <Label Text="Price"
+                                   FontSize="13"
+                                   VerticalOptions="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="Quantity"
+                                   FontSize="13"
+                                   VerticalOptions="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="Total"
+                                   FontSize="13"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"/>
+                            </HorizontalStackLayout>
+
+                            <BoxView HeightRequest="0"
+                                     Grid.Row="1"
+                                     Grid.ColumnSpan="4" />
+                            <Label Text="Jersey"
+                                   HorizontalOptions="Center"
+                                   FontSize="13"
+                                   Grid.Row="2"
+                                   Grid.Column="0"/>
+                            <Label Text="49.99"
+                                   FontSize="13"
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                                  HorizontalOptions="Center"/>
+                            <Label Text="3"
+                                   FontSize="13"
+                                   Grid.Row="2"
+                                   Grid.Column="2"
+                                   Margin="30,0,0,0"/>
+                            <Label Text="149.97"
+                                  Grid.Row="2"
+                                   Grid.Column="3"
+                                   FontSize="13"
+                                   HorizontalOptions="Center" />
+                           
+                            <BoxView HeightRequest="0.5"
+                                     Grid.Row="3"
+                                     Margin="0,0,0,20"
+                                     Grid.ColumnSpan="4" /> 
+                                <Label Text="AWC Cap"
+                                       FontSize="13"
+                                       Grid.Row="4"
+                                       Grid.Column="0"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="8.99"
+                                       FontSize="13"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="4"
+                                       Grid.Column="1"/>
+                                <Label Text="2"
+                                       FontSize="13"
+                                       Grid.Row="4"
+                                       Margin="30,0,0,0"
+                                       Grid.Column="2"/>
+                                <Label Text="17.98"
+                                        HorizontalOptions="Center"
+                                        Grid.Row="4"
+                                        Grid.Column="3" 
+                                       FontSize="13"/>
+                         
+                            <BoxView HeightRequest="0.5"
+                                     Grid.Row="5"     
+                                     Grid.ColumnSpan="4" />
+                         
+                                <Label Text="ML Fork"
+                                       Grid.Row="6"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="0"
+                                       FontSize="13"/>
+                                <Label Text="175.49"
+                                       FontSize="13"
+                                       Grid.Row="6"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="1"/>
+                                <Label Text="6"
+                                       FontSize="13"
+                                       Grid.Row="6" 
+                                       Margin="30,0,0,0"
+                                       Grid.Column="2"/>
+                            <Label Text="1052.94"
+                                       FontSize="13"
+                                       HorizontalOptions="Center"  
+                                       Grid.Row="6"
+                                       Grid.Column="3"/>
+
+                            <BoxView HeightRequest="0.5"
+                                     Grid.Row="7"
+                                     Grid.ColumnSpan="4" />
+                        </Grid>
+
+                        <Label Grid.Row="6"
+                               Text="{Binding GrandTotal, StringFormat='Grand Total : {0}'}"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="End"
+                               HorizontalOptions="End" />
+
+                        <Grid Grid.Row="8" ColumnSpacing="10"
+                              ColumnDefinitions="175,*"
+                              Background="Transparent"
+                              VerticalOptions="Start">
+
+                            <ev:SfEffectsView TouchDownEffects="Ripple"
+                                              Background="Transparent">
+
+                                <ev:SfEffectsView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSignatureContainerTapped" />
+                                </ev:SfEffectsView.GestureRecognizers>
+
+                                <Border Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                                        StrokeThickness="1"                                       
+                                        HeightRequest="75"                                        
+                                        HorizontalOptions="Fill"
+                                        Background="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}">
+                                    <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="4"></RoundRectangle>
+                                    </Border.StrokeShape>
+                                    <Grid Background="Transparent">
+                                        <Image Source="{Binding ImageSource}"
+                                               Background="Transparent"
+                                               HorizontalOptions="Fill"
+                                               VerticalOptions="Fill" />
+
+                                        <Label Text="Tap to sign"
+                                               FontSize="14"
+                                            
+                                               Opacity="{Binding LabelOpacity}"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center" />
+                                    </Grid>
+                                </Border>
+                            </ev:SfEffectsView>                          
+                        </Grid>
+
+                        <Label Grid.Row="9" Text="Thanks for your bussiness"  HorizontalOptions="Center" Padding="20,20,20,0" FontSize="14"></Label>
+
+                    </Grid>
+                </Border>
+            </ScrollView>
+           
+                <local:Popup x:Name="Popup"
+                         WidthRequest="350"
+                         HeightRequest="300"   
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center" />          
+        </Grid>
+    </sb:SampleView.Content>
+
+    <sb:SampleView.OptionView>
+        <ScrollView>
+        <VerticalStackLayout Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+            <Label Text="Minimum Stroke Thickness"
+                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                   Padding="14,0" />
+            <sliders:SfSlider Minimum="1"
+                              Maximum="10"
+                              Value="{Binding MinimumStrokeThickness}"
+                              Interval="1"
+                              ShowLabels="True"
+                              TrackExtent="10"
+                              StepSize="0.5">
+
+                <sliders:SfSlider.LabelStyle>
+                    <sliders:SliderLabelStyle ActiveFontSize="Caption"
+                                              InactiveFontSize="Caption" 
+                                              ActiveTextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" 
+                                              InactiveTextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                </sliders:SfSlider.LabelStyle>
+            </sliders:SfSlider>
+
+            <BoxView HeightRequest="25" />
+
+            <Label Text="Maximum Stroke Thickness"
+                   Padding="14,0" />
+            <sliders:SfSlider Minimum="1"
+                              Maximum="10"
+                              Value="{Binding MaximumStrokeThickness}"
+                              Interval="1"
+                              ShowLabels="True"
+                              TrackExtent="10"
+                              StepSize="0.5">
+
+                <sliders:SfSlider.LabelStyle>
+                    <sliders:SliderLabelStyle ActiveFontSize="Caption"
+                                              InactiveFontSize="Caption" 
+                                              ActiveTextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" 
+                                              InactiveTextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                </sliders:SfSlider.LabelStyle>
+            </sliders:SfSlider>
+        </VerticalStackLayout>
+        </ScrollView>
+    </sb:SampleView.OptionView>
+</sb:SampleView>

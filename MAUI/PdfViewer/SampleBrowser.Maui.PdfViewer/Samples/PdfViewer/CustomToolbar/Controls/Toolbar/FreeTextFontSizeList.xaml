@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.FreeTextFontSizeList"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView">
+    <Border
+        x:Name="Colors" 
+         VerticalOptions="Start" 
+         HorizontalOptions="Start"
+         WidthRequest="81" 
+         HeightRequest="296"
+         Padding="0,5,0,5"
+         BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
+         StrokeShape="RoundRectangle 6"
+         IsVisible="{OnPlatform Default=true,Android=false,iOS=false}">
+        <Border.Shadow>
+            <Shadow Brush="#000000"
+         Offset="0,0"
+         Radius="4"
+         Opacity="0.30"/>
+        </Border.Shadow>
+        <VerticalStackLayout Spacing="8">
+            <sf:SfListView 
+              x:Name="freeFontListView" ItemTapped="freeFontListView_ItemTapped" ItemSize="40">
+            <sf:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="0" />
+                        </Border.StrokeShape>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Margin="30,0,30,0"
+                                FontSize="16"
+                                HeightRequest="19"
+                                TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"
+                                FontFamily="Maui Material Assets"
+                                VerticalOptions="Center"
+                                Text="{Binding Icon}">
+                            </Label>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </sf:SfListView.ItemTemplate>
+        </sf:SfListView>
+      </VerticalStackLayout>
+    </Border>
+   
+</ContentView>
