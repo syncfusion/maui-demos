@@ -596,6 +596,27 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 	</tr>
+        <tr>  
+	    <td rowspan="1" valign="top">
+	    PROJECT MANAGEMENT<br/>
+		</td>
+		<td>
+			<a href="https://help.syncfusion.com/maui/kanban-board/overview">Kanban</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+
 </table>
 
 Platforms supported by each .NET MAUI file-format library are listed below.
