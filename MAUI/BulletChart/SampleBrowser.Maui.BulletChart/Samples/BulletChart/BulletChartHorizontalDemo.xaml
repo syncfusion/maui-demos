@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             x:Class="SampleBrowser.Maui.BulletChart.BulletChart.BulletChartHorizontalDemo">
+
+    <ContentView.Resources>
+        <Style TargetType="gauge:SfLinearGauge">
+            <Setter Property="Margin"
+                    Value="0,0,0,12" />
+            <Setter Property="MinorTicksPerInterval"
+                    Value="0" />
+            <Setter Property="WidthRequest"
+                    Value="400" />
+        </Style>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <Grid HorizontalOptions="Center">
+            <VerticalStackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+
+                <Label HorizontalOptions="Center"
+                       Text="2005 YTD"
+                       FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                       FontSize="20"
+                       Margin="0,0,0,10"/>
+
+                <gauge:SfLinearGauge LabelCreated="SfLinearGauge_LabelCreated_1"
+                                     Interval="50"
+                                     Margin="2,0,0,10"
+                                     Maximum="300">
+
+                    <gauge:SfLinearGauge.LineStyle>
+                        <gauge:LinearLineStyle Thickness="30" />
+                    </gauge:SfLinearGauge.LineStyle>
+
+                    <gauge:SfLinearGauge.Ranges>
+                        <gauge:LinearRange EndValue="150"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#808080"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="150"
+                                           EndValue="230"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#B3B3B4"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="230"
+                                           EndValue="300"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#E7E7E7"
+                                           Position="Cross" />
+                    </gauge:SfLinearGauge.Ranges>
+
+                    <gauge:SfLinearGauge.BarPointers>
+                        <gauge:BarPointer Value="275"
+                                          PointerSize="6"
+                                          Fill="black" />
+                    </gauge:SfLinearGauge.BarPointers>
+
+                    <gauge:SfLinearGauge.MarkerPointers>
+                        <gauge:LinearShapePointer ShapeType="Rectangle"
+                                                  Value="250"
+                                                  Fill="black"
+                                                  ShapeWidth="3"
+                                                  ShapeHeight="22"
+                                                  Position="Cross" />
+
+                        <gauge:LinearContentPointer OffsetX="-48"
+                                                    OffsetY="30">
+                            <gauge:LinearContentPointer.Content>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Revenue"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="End" />
+                                    <Label Text=" U.S. $"
+                                           FontSize="12"
+                                           TextColor="#808080"
+                                           HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </gauge:LinearContentPointer.Content>
+                        </gauge:LinearContentPointer>
+                    </gauge:SfLinearGauge.MarkerPointers>
+                </gauge:SfLinearGauge>
+
+                <gauge:SfLinearGauge LabelCreated="SfLinearGauge_LabelCreated"
+                                     Maximum="30"
+                                     Interval="5">
+
+                    <gauge:SfLinearGauge.LineStyle>
+                        <gauge:LinearLineStyle Thickness="30" />
+                    </gauge:SfLinearGauge.LineStyle>
+
+                    <gauge:SfLinearGauge.Ranges>
+                        <gauge:LinearRange EndValue="20"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#808080"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="20"
+                                           EndValue="25"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#B3B3B4"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="25"
+                                           EndValue="30"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#E7E7E7"
+                                           Position="Cross" />
+                    </gauge:SfLinearGauge.Ranges>
+
+                    <gauge:SfLinearGauge.BarPointers>
+                        <gauge:BarPointer Value="22"
+                                          PointerSize="6"
+                                          Fill="black" />
+                    </gauge:SfLinearGauge.BarPointers>
+
+                    <gauge:SfLinearGauge.MarkerPointers>
+                        <gauge:LinearShapePointer ShapeType="Rectangle"
+                                                  Value="27"
+                                                  Fill="black"
+                                                  ShapeWidth="3"
+                                                  ShapeHeight="22"
+                                                  Position="Cross" />
+
+                        <gauge:LinearContentPointer OffsetX="-38"
+                                                    OffsetY="27">
+                            <gauge:LinearContentPointer.Content>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Profit"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </gauge:LinearContentPointer.Content>
+                        </gauge:LinearContentPointer>
+                    </gauge:SfLinearGauge.MarkerPointers>
+                </gauge:SfLinearGauge>
+
+                <gauge:SfLinearGauge LabelCreated="SfLinearGauge_LabelCreated_2"
+                                     Margin="2,0,0,10"
+                                     Interval="100"
+                                     Maximum="600">
+
+                    <gauge:SfLinearGauge.LineStyle>
+                        <gauge:LinearLineStyle Thickness="30" />
+                    </gauge:SfLinearGauge.LineStyle>
+
+                    <gauge:SfLinearGauge.Ranges>
+                        <gauge:LinearRange EndValue="350"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#808080"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="350"
+                                           EndValue="500"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#B3B3B4"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="500"
+                                           EndValue="600"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#E7E7E7"
+                                           Position="Cross" />
+                    </gauge:SfLinearGauge.Ranges>
+
+                    <gauge:SfLinearGauge.BarPointers>
+                        <gauge:BarPointer Value="330"
+                                          PointerSize="6"
+                                          Fill="black" />
+                    </gauge:SfLinearGauge.BarPointers>
+
+                    <gauge:SfLinearGauge.MarkerPointers>
+                        <gauge:LinearShapePointer ShapeType="Rectangle"
+                                                  Value="550"
+                                                  Fill="black"
+                                                  ShapeWidth="3"
+                                                  ShapeHeight="22"
+                                                  Position="Cross" />
+
+                        <gauge:LinearContentPointer OffsetX="-68"
+                                                    OffsetY="32">
+                            <gauge:LinearContentPointer.Content>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Avg Order Size"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="End" />
+                                    <Label Text="U.S. $"
+                                           FontSize="12"
+                                           TextColor="#808080"
+                                           HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </gauge:LinearContentPointer.Content>
+                        </gauge:LinearContentPointer>
+                    </gauge:SfLinearGauge.MarkerPointers>
+                </gauge:SfLinearGauge>
+
+                <gauge:SfLinearGauge Margin="6,0,0,10"
+                                     Interval="500"
+                                     Maximum="2500">
+
+                    <gauge:SfLinearGauge.LineStyle>
+                        <gauge:LinearLineStyle Thickness="30" />
+                    </gauge:SfLinearGauge.LineStyle>
+
+                    <gauge:SfLinearGauge.Ranges>
+                        <gauge:LinearRange EndValue="1400"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#808080"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="1400"
+                                           EndValue="2000"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#B3B3B4"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="2000"
+                                           EndValue="2500"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#E7E7E7"
+                                           Position="Cross" />
+                    </gauge:SfLinearGauge.Ranges>
+
+                    <gauge:SfLinearGauge.BarPointers>
+                        <gauge:BarPointer Value="1700"
+                                          PointerSize="6"
+                                          Fill="black" />
+                    </gauge:SfLinearGauge.BarPointers>
+
+                    <gauge:SfLinearGauge.MarkerPointers>
+                        <gauge:LinearShapePointer ShapeType="Rectangle"
+                                                  Value="2100"
+                                                  Fill="black"
+                                                  ShapeWidth="3"
+                                                  ShapeHeight="22"
+                                                  Position="Cross">
+                        </gauge:LinearShapePointer>
+
+                        <gauge:LinearContentPointer OffsetX="-70"
+                                                    OffsetY="30">
+                            <gauge:LinearContentPointer.Content>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="New Customers"
+                                           FontAttributes="Bold"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                           HorizontalTextAlignment="End" />
+                                    <Label Text="Count"
+                                           FontSize="12"
+                                           TextColor="#808080"
+                                           HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </gauge:LinearContentPointer.Content>
+                        </gauge:LinearContentPointer>
+                    </gauge:SfLinearGauge.MarkerPointers>
+                </gauge:SfLinearGauge>
+
+                <gauge:SfLinearGauge Margin="12,0,10,10"
+                                     Interval="1"
+                                     Maximum="5">
+
+                    <gauge:SfLinearGauge.LineStyle>
+                        <gauge:LinearLineStyle Thickness="30" />
+                    </gauge:SfLinearGauge.LineStyle>
+
+                    <gauge:SfLinearGauge.Ranges>
+                        <gauge:LinearRange EndValue="3.5"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#808080"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="3.5"
+                                           EndValue="4.2"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#B3B3B4"
+                                           Position="Cross" />
+
+                        <gauge:LinearRange StartValue="4.2"
+                                           EndValue="5"
+                                           StartWidth="30"
+                                           EndWidth="30"
+                                           Fill="#E7E7E7"
+                                           Position="Cross" />
+                    </gauge:SfLinearGauge.Ranges>
+
+                    <gauge:SfLinearGauge.BarPointers>
+                        <gauge:BarPointer Value="4.7"
+                                          PointerSize="6"
+                                          Fill="black" />
+                    </gauge:SfLinearGauge.BarPointers>
+
+                    <gauge:SfLinearGauge.MarkerPointers>
+                        <gauge:LinearShapePointer ShapeType="Rectangle"
+                                                  Value="4.5"
+                                                  Fill="black"
+                                                  ShapeWidth="3"
+                                                  ShapeHeight="22"
+                                                  Position="Cross" />
+
+                        <gauge:LinearContentPointer OffsetX="-72"
+                                                    OffsetY="30">
+                            <gauge:LinearContentPointer.Content>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Cust Satisfaction"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="End" />
+                                    <Label Text="Top Rating of 5"
+                                           FontSize="12"
+                                           TextColor="#808080"
+                                           HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </gauge:LinearContentPointer.Content>
+                        </gauge:LinearContentPointer>
+                    </gauge:SfLinearGauge.MarkerPointers>
+                </gauge:SfLinearGauge>
+            </VerticalStackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.AIAssistView.SfAIAssistView.ControlTemplateDemo"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:aiAssist="clr-namespace:Syncfusion.Maui.AIAssistView;assembly=Syncfusion.Maui.AIAssistView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.AIAssistView.SfAIAssistView"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      xmlns:carousel="clr-namespace:Syncfusion.Maui.Carousel;assembly=Syncfusion.Maui.Carousel"
+                      xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      x:Name="controlView">
+
+    <localCore:SampleView.BindingContext>
+        <local:ControlTemplateViewModel x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Behaviors>
+        <local:SampleViewBehavior/>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Resources>
+        <Style TargetType="buttons:SfButton">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="{AppThemeBinding Light=#14000000,Dark=#49454F}"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Hovered">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="{AppThemeBinding Light=#14000000,Dark=#49454F}"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
+        <local:NavigationColorConverter x:Key="navigationColorConverter"/>
+        <Style x:Key="iconLabelStyle" TargetType="Label">
+            <Setter Property="Padding" Value="0,2,0,0"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="MauiSampleFontIcon"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="End"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="WidthRequest" Value="30"/>
+            <Setter Property="HeightRequest" Value="20"/>
+        </Style>
+        <Style x:Key="tablabelStyle" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="End"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="HeightRequest" Value="20"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+        </Style>
+        <DataTemplate x:Key="headerTemplate">
+            <VerticalStackLayout Padding="0,23,0,0">
+                <Grid RowDefinitions="30,30,Auto" RowSpacing="10">
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Border BackgroundColor="{AppThemeBinding Dark=#D0BCFF,Light=#6750A4}" Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}" VerticalOptions="Center" HeightRequest="30" WidthRequest="30">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="6"/>
+                            </Border.StrokeShape>
+                            <Label Text="&#xe7e1;" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Dark={StaticResource PrimaryForeground},Light={StaticResource White}}" HorizontalOptions="Center" />
+                        </Border>
+                        <Label Text="AssistView" FontFamily="Roboto-Regular" FontSize="20" VerticalOptions="Center" Padding="10,0,0,0"/>
+                    </HorizontalStackLayout>
+                    <Label Grid.Row="1" Text="Your everyday AI Companion" HorizontalOptions="Center" FontFamily="Roboto-Regular" FontSize="16"/>
+                    <Grid Grid.Row="2"  Margin="{OnPlatform Default='8,0,8,0',Android=10, iOS=10}" IsClippedToBounds="True" >
+                        <VerticalStackLayout>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=HeaderItemTappedCommand}"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                            <carousel:SfCarousel x:Name="headerlayout" SelectedIndex="{Binding CurrentIndex}" RotationAngle="180" SelectedItemOffset="172"  Offset="100" ScaleOffset="1"  Duration="0" ViewMode="Default" ItemWidth="328" ItemHeight="{OnPlatform Default=250, Android=300, iOS=300}" 
+ItemsSource="{Binding Path=HeaderInfoCollection}" EnableInteraction="False" InputTransparent="True" >
+                                <carousel:SfCarousel.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid RowDefinitions="*,Auto,10">
+                                            <Border  Grid.RowSpan="2" WidthRequest="327" HeightRequest="{OnPlatform Default=220, Android=270,iOS=270}" HorizontalOptions="Center" VerticalOptions="Center" Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="15"/>
+                                                </Border.StrokeShape>
+                                                <Image Source="{Binding Image,Converter={StaticResource imageconverter}}" Aspect="AspectFill" HeightRequest="{OnPlatform Default=220, Android=270,iOS=270}" VerticalOptions="Center" WidthRequest="325" HorizontalOptions="Center"/>
+                                            </Border>
+                                            <Border Grid.Row="1" Grid.RowSpan="2" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}" Opacity="0.9" HorizontalOptions="Center" VerticalOptions="End"  WidthRequest="300" >
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="12"/>
+                                                </Border.StrokeShape>
+                                                <Label x:Name="label" Text="{Binding HeaderMessage}" FontFamily="Roboto-Regular" LineBreakMode="WordWrap" FontSize="14" Padding="10" HorizontalOptions="Center" VerticalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+                                            </Border>
+                                        </Grid>
+                                    </DataTemplate>
+                                </carousel:SfCarousel.ItemTemplate>
+                            </carousel:SfCarousel>
+                        </VerticalStackLayout>
+                        <Grid Grid.Row="2" HorizontalOptions="Start" VerticalOptions="Center" >
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=PreviousItemCommand}"/>
+                                <PointerGestureRecognizer PointerEnteredCommand="{Binding Path=LeftNavigationHoveredCommand}"
+                           PointerExitedCommand="{Binding Path=PointerExitCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Border  Background="{AppThemeBinding Dark={StaticResource Black},Light={StaticResource White}}" Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}" >
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20"/>
+                                </Border.StrokeShape>
+                                <Label x:Name="leftNavigation" Text="&#xe700;" FontSize="30" Padding="0,0,2,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiSampleFontIcon" TextColor="{Binding LeftNavigationEnabled,Converter={StaticResource navigationColorConverter}}" HeightRequest="40"  WidthRequest="40" >
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                      Binding="{Binding IsLeftNavigationHovered}"
+                                                      Value="True">
+                                            <Setter Property="FontAttributes" Value="Bold"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsLeftNavigationHovered}"
+                                                     Value="False">
+                                            <Setter Property="FontAttributes" Value="None"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="2" HorizontalOptions="End" VerticalOptions="Center" >
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=NextItemCommand}"/>
+                                <PointerGestureRecognizer PointerEnteredCommand="{Binding Path=RightNavigationHoveredCommand}"
+                                    PointerExitedCommand="{Binding Path=PointerExitCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Border  Background="{AppThemeBinding Dark={StaticResource Black},Light={StaticResource White}}" Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20"/>
+                                </Border.StrokeShape>
+                                <Label x:Name="rightNavigation" Text="&#xe701;" FontSize="30" Padding="2,0,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiSampleFontIcon" TextColor="{Binding RightNavigationEnabled,Converter={StaticResource navigationColorConverter}}" HeightRequest="40"   WidthRequest="40">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsRightNavigationHovered}"
+                                                     Value="True">
+                                            <Setter Property="FontAttributes" Value="Bold"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsRightNavigationHovered}"
+                                                     Value="False">
+                                            <Setter Property="FontAttributes" Value="None"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </VerticalStackLayout>
+        </DataTemplate>
+        <local:FontAttributeConverter x:Key="fontAttributeConverter"/>
+        
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Border x:Name="rootBorder"
+                Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}"
+                StrokeThickness="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}"
+                VerticalOptions="{OnPlatform Default=Fill, WinUI=Center, MacCatalyst=Center}"
+                WidthRequest="{OnPlatform WinUI=380, MacCatalyst=400}"
+                HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="{OnPlatform WinUI=10, MacCatalyst=10}" />
+            </Border.StrokeShape>
+            <Border.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst"
+                        Value="20" />
+                </OnPlatform>
+            </Border.Margin>
+            <Grid RowDefinitions="50,*">
+                <Grid ColumnDefinitions="Auto,Auto,*,30,40" RowDefinitions="*,1" RowSpacing="5" ColumnSpacing="10" HeightRequest="50" Background="{AppThemeBinding Light=#F7F2FB,Dark=#25232A}">
+                    <Grid Grid.Column="0" Padding="10,0,0,0" RowSpacing="1"
+                       Grid.Row="0"
+                       HeightRequest="30"
+                       x:Name="ChatTab" ColumnDefinitions="30,*" RowDefinitions="*,2">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=ChatTappedCommand}" CommandParameter="{Binding .}"/>
+                    </Grid.GestureRecognizers>
+                        <Label  Grid.Column="0" Grid.Row="0"
+                            Text="&#xe759;"
+                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                            Style="{StaticResource iconLabelStyle}"
+                             />
+                        <Label x:Name="chat" 
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Text="Chat"
+                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                            Style="{StaticResource tablabelStyle}"
+                            FontAttributes="{Binding IsActiveChatView, Converter={StaticResource fontAttributeConverter}}"
+                             />
+                        <BoxView Grid.Column="1"
+                              Grid.Row="1"
+                              IsVisible="{Binding IsActiveChatView}"
+                              WidthRequest="20"
+                              HorizontalOptions="Center"
+                              BackgroundColor="{AppThemeBinding Dark=#D0BCFF,Light=#6750A4}" />
+                </Grid>
+
+                <Grid x:Name="ComposeTab"
+                       Grid.Column="1"
+                       Grid.Row="0" RowSpacing="1"
+                       HeightRequest="30"
+                       ColumnDefinitions="30,*"
+                       RowDefinitions="*,2">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=ComposeTappedCommand}" CommandParameter="{Binding .}"/>
+                    </Grid.GestureRecognizers>
+                    <Label  Text="&#xe78d;"
+                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                       Style="{StaticResource iconLabelStyle}" />
+                    <Label x:Name="compose" 
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Text="Compose"
+                           TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                            Style="{StaticResource tablabelStyle}"
+                           FontAttributes="{Binding IsActiveComposeView, Converter={StaticResource fontAttributeConverter}}"
+                           />
+                    <BoxView Grid.Column="1"
+                              Grid.Row="1"
+                              WidthRequest="20"
+                              IsVisible="{Binding IsActiveComposeView}"
+                              BackgroundColor="{AppThemeBinding Dark=#D0BCFF,Light=#6750A4}" />
+                </Grid>
+                    <Grid x:Name="refresh" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" HeightRequest="30">
+                        <buttons:SfButton x:Name="refreshIcon" Text="&#xe72b;"
+                        FontFamily="MauiSampleFontIcon"
+                        HorizontalOptions="Center"
+                        CornerRadius="20"
+                        FontSize="20"
+                        Command="{Binding Path=RefreshCommand}"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        Padding="0,0,0,1"
+                        TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                       />
+                    </Grid>
+
+                    <Grid x:Name="close" Grid.Row="0" Grid.Column="4"  HeightRequest="30" Grid.RowSpan="2" Padding="0,0,10,0">
+                        <buttons:SfButton x:Name="closeIcon" Text="&#xe755;"
+                            FontFamily="MauiSampleFontIcon"
+                            HorizontalOptions="Center"
+                            FontSize="20"
+                            CornerRadius="20"
+                            HeightRequest="30"
+                            WidthRequest="30"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalOptions="Center"
+                            ToolTipProperties.Text="Close Assist Pane"
+                            Padding="0,0,0,1"
+                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                           />
+                    </Grid>
+                    <BoxView Grid.Column="0" Grid.ColumnSpan="5"
+           Grid.Row="1"
+           BackgroundColor="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}" />        
+                </Grid>
+                
+                <local:CustomAssistView x:Name="assistView" Grid.Row="1" ShowHeader="{Binding ShowHeader}" 
+                                        ItemCopyCommand="{Binding CopyCommand}" 
+                                        RequestCommand="{Binding AssistViewRequestCommand}"
+                                        ItemRetryCommand="{Binding RetryCommand}"                                     
+                        HeaderTemplate="{StaticResource headerTemplate}" AssistItems="{Binding AssistMessages}">
+                    <local:CustomAssistView.ControlTemplate>
+                        <ControlTemplate>
+                            <ContentView>
+                                <ContentView.Content>
+                                    <Grid>
+                                        <ContentView IsVisible="{Binding IsActiveChatView}" Content="{TemplateBinding AssistChatView}" BindingContext="{TemplateBinding BindingContext}" />
+                                        <local:ComposeView  IsVisible="{Binding IsActiveComposeView}" BindingContext="{TemplateBinding BindingContext}"/>
+                                        <ActivityIndicator x:Name="Indicator" IsRunning="{Binding ShowIndicator}" BindingContext="{TemplateBinding BindingContext}"
+                                                           VerticalOptions="Center"
+                                                           HorizontalOptions="Center"
+                                                           />
+                                    </Grid>
+                                </ContentView.Content>
+                            </ContentView>
+                        </ControlTemplate>
+                    </local:CustomAssistView.ControlTemplate>
+                </local:CustomAssistView>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

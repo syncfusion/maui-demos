@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Editing"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:DealerInfoViewModel>
+        </local:DealerInfoViewModel>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <local:ItemSourceSelector x:Key="convertor"/>
+        </ResourceDictionary>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="productMinimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android" Value="120"></On>
+            <On Platform="iOS" Value="140"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI" Value="-4"/>
+            <On Platform="MacCatalyst" Value="-4"/>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
+                           x:DataType="local:DealerInfoViewModel"
+                           ItemsSource="{Binding DealerInformation}"
+                           AutoGenerateColumnsMode="None"
+                           SelectionMode="Single"
+                           AllowEditing="True"
+                           ColumnWidthMode="Fill"
+                           HeaderRowHeight="52"
+                           RowHeight="48">
+
+            <sfgrid:SfDataGrid.Columns>
+
+                <sfgrid:DataGridNumericColumn Format="D"
+                                       HeaderText="Product Number"
+                                       MappingName="ProductNo"   
+                                       MinimumWidth="{StaticResource productMinimumWidth}"
+                                       >
+                </sfgrid:DataGridNumericColumn>
+
+                <sfgrid:DataGridTextColumn
+                                       HeaderText="Name"
+                                       MappingName="DealerName"
+                                       MinimumWidth="{StaticResource minimumWidth}"
+                                     >
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridDateColumn HeaderText="Shipped Date"
+                                          MinimumWidth="{StaticResource minimumWidth}"
+                                           MappingName="ShippedDate">
+
+                </sfgrid:DataGridDateColumn>
+
+                <sfgrid:DataGridComboBoxColumn
+                                       HeaderText="Ship Country"
+                                       MappingName="ShipCountry"
+                                       HeaderTextAlignment="Start"
+                                       MinimumWidth="{StaticResource minimumWidth}"
+                                       ItemsSource="{Binding Countries}"
+                                     >
+                </sfgrid:DataGridComboBoxColumn>
+
+                <sfgrid:DataGridComboBoxColumn
+                                       HeaderText="Ship City"
+                                       MappingName="ShipCity"
+                                       HeaderTextAlignment="Start"
+                                       MinimumWidth="{StaticResource minimumWidth}"
+                                       ItemsSourceSelector="{StaticResource convertor}"
+                                     >
+                </sfgrid:DataGridComboBoxColumn>
+
+                <sfgrid:DataGridNumericColumn Format="C"
+                                       HeaderText="Price"
+                                       MappingName="ProductPrice"
+                                       MinimumWidth="{StaticResource minimumWidth}"
+                                       >
+                </sfgrid:DataGridNumericColumn>
+
+            </sfgrid:SfDataGrid.Columns>
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

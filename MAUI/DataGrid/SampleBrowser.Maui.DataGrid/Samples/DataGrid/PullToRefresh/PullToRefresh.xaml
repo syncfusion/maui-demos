@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.PullToRefresh"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:pullToRefresh="clr-namespace:Syncfusion.Maui.PullToRefresh;assembly=Syncfusion.Maui.PullToRefresh">
+
+    <localCore:SampleView.BindingContext>
+        <local:PullToRefreshViewModel x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:PullToRefreshBehavior />
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth"
+                    x:TypeArguments="x:Double">
+            <On Platform="Android,iOS"
+                Value="115"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="optionRowSpacing"
+                    x:TypeArguments="x:Double">
+            <On Platform="iOS, WinUI, MacCatalyst"
+                Value="5"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-5" />
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+
+    <localCore:SampleView.Content>
+        <pullToRefresh:SfPullToRefresh x:Name="pullToRefresh"
+                                       Margin="{StaticResource margin}"
+                                       Grid.Column="0"
+                                       RefreshViewThreshold="7"
+                                       PullingThreshold="120"
+                                       >
+            
+            <pullToRefresh:SfPullToRefresh.PullableContent>
+                <sfgrid:SfDataGrid x:Name="dataGrid"
+                                   Grid.Row="0"
+                                   AutoGenerateColumnsMode="None"
+                                   RowHeight="48"
+                                   ColumnWidthMode="Fill"
+                                   HorizontalScrollBarVisibility="Always"
+                                   VerticalScrollBarVisibility="Always">
+
+                    <sfgrid:SfDataGrid.Columns x:TypeArguments="sfgrid:Columns">
+
+                        <sfgrid:DataGridNumericColumn MinimumWidth="{StaticResource minimumWidth}"
+                                                      Format="D"
+                                                      HeaderText="Order ID"
+                                                      MappingName="OrderID">
+                        </sfgrid:DataGridNumericColumn>
+
+                        <sfgrid:DataGridNumericColumn MinimumWidth="{StaticResource minimumWidth}"
+                                                      Format="D"
+                                                      HeaderText="Customer ID"
+                                                      MappingName="EmployeeID">
+                        </sfgrid:DataGridNumericColumn>
+
+                        <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                                   HeaderText="Name"
+                                                   MappingName="CustomerID">
+                        </sfgrid:DataGridTextColumn>
+
+                        <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                                   HeaderText="City"
+                                                   MappingName="ShipCity">
+                        </sfgrid:DataGridTextColumn>
+
+                        <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                                   HeaderText="Country"
+                                                   MappingName="ShipCountry">
+
+                        </sfgrid:DataGridTextColumn>
+                    </sfgrid:SfDataGrid.Columns>
+                </sfgrid:SfDataGrid>
+            </pullToRefresh:SfPullToRefresh.PullableContent>
+        </pullToRefresh:SfPullToRefresh>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid ColumnSpacing="10"
+                  Padding="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalOptions="Start"
+                       Text="Transition Mode"
+                       VerticalOptions="Center"
+                       FontSize="15">
+                </Label>
+                <editors:SfComboBox  x:Name="comboBox"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     HorizontalOptions="StartAndExpand">
+                    <editors:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Push</x:String>
+                            <x:String>SlideOnTop</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
+
+                    <editors:SfComboBox.SelectedItem>
+                        <x:String>SlideOnTop</x:String>
+                    </editors:SfComboBox.SelectedItem>
+                </editors:SfComboBox>
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+
+</localCore:SampleView>

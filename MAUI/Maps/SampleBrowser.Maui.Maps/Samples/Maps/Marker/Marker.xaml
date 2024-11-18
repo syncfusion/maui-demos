@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Maps.SfMaps.Marker"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:maps="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Maps"
+                      x:DataType="local:MarkerViewModel"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      Background="White">
+
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
+        <ResourceDictionary>
+            <DataTemplate x:Key="markerTemplate" x:DataType="local:CustomMarker">
+                <StackLayout>
+                    <Image Source="{imageExtension:SfImageResource map_pin.png}"
+                           Scale="1"
+                           Aspect="Fill"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           HeightRequest="25"
+                           WidthRequest="25" />
+                    <Label Text="{Binding Name}"
+                           TextColor="{DynamicResource SfMapsDataLabelTextColor}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="Caption"
+                           FontAttributes="Bold"
+                           />
+                    <Label Text="{Binding Time}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource SfMapsDataLabelTextColor}"
+                           FontSize="8" />
+                </StackLayout>
+
+            </DataTemplate>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid Background="{DynamicResource SfMapsNormalBackground}">
+            <Grid.BindingContext>
+                <local:MarkerViewModel />
+            </Grid.BindingContext>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"
+                   HorizontalOptions="Center"
+                   Text="World Clock"
+                   TextColor="{DynamicResource SfMapsDataLabelTextColor}"
+                   FontSize="Subtitle"
+                   Margin="0,0,0,20" />
+            <maps:SfMaps Grid.Row="1">
+                <maps:SfMaps.Layer>
+                    <maps:MapShapeLayer x:Name="shapeLayer" 
+                                        ShapeHoverFill="Transparent"
+                                        ShapeHoverStroke="Transparent"
+                                        ShapeHoverStrokeThickness="0"
+                                        ShapeStrokeThickness="0"
+                                        Markers="{Binding Markers}"
+                                        MarkerTemplate="{StaticResource markerTemplate}">
+                    </maps:MapShapeLayer>
+                </maps:SfMaps.Layer>
+            </maps:SfMaps>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

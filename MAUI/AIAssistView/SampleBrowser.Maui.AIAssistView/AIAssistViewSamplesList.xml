@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Smart AI Solutions">
+		<Control Title="AI AssistView" ControlName="SfAIAssistView" IsPreview="true" StatusTag="New" Image="aiAssistView.png" Description="AIAssistView is a versatile component designed to enhance interaction between users and AI services.">
+			<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" StatusTag="New" CodeViewerPath="AIAssistView/GettingStarted/" />
+			<Sample SearchTags="Contorl Template" SampleName="ControlTemplateDemo" Title="Control Template" StatusTag="New" Description="This sample shows how to customize the control template to create Copilot-like UI." CodeViewerPath="AIAssistView/ControlTemplateDemo/" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

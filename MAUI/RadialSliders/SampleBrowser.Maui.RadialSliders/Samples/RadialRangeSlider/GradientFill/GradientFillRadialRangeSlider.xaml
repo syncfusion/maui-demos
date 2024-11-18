@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.RadialSliders.RadialRangeSlider.GradientFillRadialRangeSlider"
+                      x:DataType="gauge:ShapePointer"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid MinimumWidthRequest="300">
+            <VerticalStackLayout Padding="10,0"
+                                 Spacing="10"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                <gauge:SfRadialGauge x:Name="gradientFillGauge">
+                    <gauge:SfRadialGauge.Axes>
+                        <gauge:RadialAxis ShowTicks="False"
+                                          LabelOffset="0.08"
+                                          OffsetUnit="Factor">
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange StartValue="{Binding Source={x:Reference gradientMarker1}, Path=Value}"
+                                                   EndValue="{Binding Source={x:Reference gradientMarker2}, Path=Value}">
+                                    <gauge:RadialRange.GradientStops>
+                                        <gauge:GaugeGradientStop Value="20"
+                                                                 Color="#7343bd" />
+                                        <gauge:GaugeGradientStop Value="50"
+                                                                 Color="#ca5ee6" />
+                                    </gauge:RadialRange.GradientStops>
+                                </gauge:RadialRange>
+                            </gauge:RadialAxis.Ranges>
+                            <gauge:RadialAxis.Pointers>
+                                <gauge:ShapePointer x:Name="gradientMarker1"
+                                                    ShapeWidth="30"
+                                                    ShapeHeight="30"
+                                                    Stroke="Black"
+                                                    ValueChanging="gradientMarker1_ValueChanging"
+                                                    Fill="White"
+                                                    BorderWidth="5"
+                                                    ShapeType="Circle"
+                                                    Value="0"
+                                                    IsInteractive="True"
+                                                    OverlayRadius="0" />
+                                <gauge:ShapePointer x:Name="gradientMarker2"
+                                                    ShapeWidth="30"
+                                                    ShapeHeight="30"
+                                                    Stroke="Black"
+                                                    ValueChanging="gradientMarker2_ValueChanging"
+                                                    Fill="White"
+                                                    BorderWidth="5"
+                                                    ShapeType="Circle"
+                                                    Value="60"
+                                                    IsInteractive="True"
+                                                    OverlayRadius="0" />
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation PositionFactor="0.1"
+                                                       DirectionValue="-90">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label x:Name="fahrenheitAnnotationLabel"
+                                               FontAttributes="Bold"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                               FontSize="16" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                        <gauge:RadialAxis RadiusFactor="0.5"
+                                          ShowAxisLine="False"
+                                          LabelCreated="RadialAxis_LabelCreated"
+                                          MinorTicksPerInterval="5">
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation PositionFactor="0.1"
+                                                       DirectionValue="90">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label x:Name="celsiusAnnotationLabel"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                               FontSize="12" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge.Axes>
+                </gauge:SfRadialGauge>
+            </VerticalStackLayout>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

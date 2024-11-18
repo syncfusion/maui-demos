@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Calendar">
+    <Control Title="Calendar" 
+             Image="calendar.png" 
+			 StatusTag="Updated"
+             ControlName="SfCalendar"
+             Description="It is a lightweight control used to select a single, multiple, and a range of dates.">
+      <Sample Title="Getting Started" SampleName="GettingStarted" StatusTag="Updated"
+			  WhatsNew ="Navigation support has been provided for the previous and next months when tapping the leading and trailing dates in the .NET MAUI Calendar control.-"
+			  CodeViewerPath="Calendar/GettingStarted/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas"/>
+		<Category Title="Views">
+			<CardLayout>
+				<Sample SampleName="Month" ShowExpandIcon="False" Title="Month" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=257s"/>
+				<Sample SampleName="Year" ShowExpandIcon="False" Title="Year" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=257s"/>
+				<Sample SampleName="Decade" ShowExpandIcon="False" Title="Decade" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=257s"/>
+				<Sample SampleName="Century" ShowExpandIcon="False" Title="Century" CodeViewerPath="Calendar/Views/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=257s"/>
+			</CardLayout>
+		</Category>
+      <Sample Title="Selection" SampleName="DateSelection"
+			  CodeViewerPath="Calendar/DateSelection/" VideoLink="https://www.youtube.com/watch?v=kfQjKiD9Xas&amp;t=352s"/>
+		<Sample Title="Calendar Identifier" SampleName="CalendarIdentifier"
+			  CodeViewerPath="Calendar/CalendarIdentifier/"/>
+		<Sample Title="Appointment Booking" SampleName="AppointmentBooking"
+			  CodeViewerPath="Calendar/AppointmentBooking/"/>
+		<Sample Title ="Flight Booking" SampleName="FlightBooking" CodeViewerPath="Calendar/FlightBooking/"/>
+      <Sample Title="Color Scheme" SampleName="HighlightDates"
+          CodeViewerPath="Calendar/HighlightedDates/" />
+		<Sample Title="Customization" SampleName="AppearanceCustomization" CodeViewerPath="Calendar/AppearanceCustomization/"/>
+	</Control>
+  </ControlCategory>
+</SyncfusionControls> 

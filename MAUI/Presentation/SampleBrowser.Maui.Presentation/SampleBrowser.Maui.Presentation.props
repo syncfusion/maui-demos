@@ -1,0 +1,149 @@
+<Project>
+	<ItemGroup>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Chart\Chart.xaml.cs">
+			<Link>Samples\Presentation\Chart\Chart.xaml.cs</Link>
+			<DependentUpon>Chart.xaml</DependentUpon>
+		</Compile>
+	
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\EncryptAndDecrypt\EncryptAndDecrypt.xaml.cs">
+			<Link>Samples\Presentation\EncryptAndDecrypt\EncryptAndDecrypt.xaml.cs</Link>
+			<DependentUpon>EncryptAndDecrypt.xaml</DependentUpon>
+		</Compile>
+  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\GettingStarted\GettingStarted.xaml.cs">
+			<Link>Samples\Presentation\GettingStarted\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\HeaderAndFooter\HeaderAndFooter.xaml.cs">
+			<Link>Samples\Presentation\HeaderAndFooter\HeaderAndFooter.xaml.cs</Link>
+			<DependentUpon>HeaderAndFooter.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\FindAndReplace\FindAndReplace.xaml.cs">
+			<Link>Samples\Presentation\FindAndReplace\FindAndReplace.xaml.cs</Link>
+			<DependentUpon>FindAndReplace.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\PPTXToImage\PPTXToImage.xaml.cs">
+			<Link>Samples\Presentation\PPTXToImage\PPTXToImage.xaml.cs</Link>
+			<DependentUpon>PPTXToImage.xaml</DependentUpon>
+		</Compile>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\PPTXToPDF\PPTXToPDF.xaml.cs">
+			<Link>Samples\Presentation\PPTXToPDF\PPTXToPDF.xaml.cs</Link>
+			<DependentUpon>PPTXToPDF.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Slide\Slide.xaml.cs">
+			<Link>Samples\Presentation\Slide\Slide.xaml.cs</Link>
+			<DependentUpon>Slide.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Table\Table.xaml.cs">
+			<Link>Samples\Presentation\Table\Table.xaml.cs</Link>
+			<DependentUpon>Table.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Image\Image.xaml.cs">
+			<Link>Samples\Presentation\Image\Image.xaml.cs</Link>
+			<DependentUpon>Image.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+ 
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\PresentationSamplesList.xml" >
+			<Link>PresentationSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Chart\Chart.xaml">
+			<Link>Samples\Presentation\Chart\Chart.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\EncryptAndDecrypt\EncryptAndDecrypt.xaml">
+			<Link>Samples\Presentation\EncryptAndDecrypt\EncryptAndDecrypt.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\GettingStarted\GettingStarted.xaml">
+			<Link>Samples\Presentation\GettingStarted\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\HeaderAndFooter\HeaderAndFooter.xaml">
+			<Link>Samples\Presentation\HeaderAndFooter\HeaderAndFooter.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\FindAndReplace\FindAndReplace.xaml">
+			<Link>Samples\Presentation\FindAndReplace\FindAndReplace.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\PPTXToImage\PPTXToImage.xaml">
+			<Link>Samples\Presentation\PPTXToImage\PPTXToImage.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\PPTXToPDF\PPTXToPDF.xaml">
+			<Link>Samples\Presentation\PPTXToPDF\PPTXToPDF.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Slide\Slide.xaml">
+			<Link>Samples\Presentation\Slide\Slide.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Table\Table.xaml">
+			<Link>Samples\Presentation\Table\Table.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Presentation\Image\Image.xaml">
+			<Link>Samples\Presentation\Image\Image.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>	
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\HeaderFooter.pptx">
+	        <Link>Resources\Presentation\HeaderFooter.pptx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\HelloWorld.pptx">
+	        <Link>Resources\Presentation\HelloWorld.pptx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\Images.pptx">
+	        <Link>Resources\Presentation\Images.pptx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\Products.xml">
+	        <Link>Resources\Presentation\Products.xml</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\Slides.pptx">
+	        <Link>Resources\Presentation\Slides.pptx</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\TableData.xml">
+	        <Link>Resources\Presentation\TableData.xml</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\tablet.jpg">
+	        <Link>Resources\Presentation\tablet.jpg</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\About.png">
+	        <Link>Resources\Presentation\About.png</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\About.svg">
+	        <Link>Resources\Presentation\About.svg</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\CycleLogo.jpg">
+	        <Link>Resources\Presentation\CycleLogo.jpg</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\Template.pptx">
+	        <Link>Resources\Presentation\Template.pptx</Link>
+	  </EmbeddedResource>	  
+	  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Resources\Presentation\InputTemplate.pptx">
+	        <Link>Resources\Presentation\InputTemplate.pptx</Link>
+	  </EmbeddedResource>
+	</ItemGroup>
+</Project>

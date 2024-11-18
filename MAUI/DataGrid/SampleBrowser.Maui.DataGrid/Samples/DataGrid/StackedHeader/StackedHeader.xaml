@@ -1,0 +1,83 @@
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.StackedHeader"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel>
+        </local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridStackedHeaderCell">
+            <Setter Property="TextAlignment" Value="Start"/>
+            <Setter Property="FontFamily" Value="Roboto-Medium"/>
+        </Style>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid Margin="{StaticResource margin}"
+                           x:Name="dataGrid"
+                           HeaderRowHeight="52"
+                           RowHeight="48"
+                           x:DataType="local:OrderInfoViewModel"
+                           ItemsSource="{Binding OrdersInfo}"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn Format="d" MinimumWidth="{StaticResource minimumWidth}" HeaderText="Order ID" MappingName="OrderID" ></sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridNumericColumn MinimumWidth="{StaticResource minimumWidth}" HeaderText="Customer ID" MappingName="EmployeeID" Format="d" ></sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}" HeaderText="Customer Name" MappingName="FirstName"></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}" HeaderText="Ship City" MappingName="ShipCity"></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}" HeaderText="Ship Country" MappingName="ShipCountry"></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridDateColumn MinimumWidth="{StaticResource minimumWidth}" HeaderText="Shipped Date" MappingName="ShippingDate"></sfgrid:DataGridDateColumn>
+            </sfgrid:SfDataGrid.Columns>
+
+            <sfgrid:SfDataGrid.StackedHeaderRows>
+                <sfgrid:DataGridStackedHeaderRow>
+                    <sfgrid:DataGridStackedHeaderRow.Columns>
+                        <sfgrid:DataGridStackedColumn
+                            ColumnMappingNames="OrderID"
+                            MappingName="second Details"
+                            Text="Order Details"
+                            />
+                        <sfgrid:DataGridStackedColumn
+                            ColumnMappingNames="EmployeeID,FirstName"
+                            MappingName="third Details"
+                            Text="Customer Details"
+                            />
+                        <sfgrid:DataGridStackedColumn
+                            ColumnMappingNames="ShipCity,ShipCountry,ShippingDate"
+                            MappingName="fourth Details"
+                            Text="Shipping Details"
+                            />
+                    </sfgrid:DataGridStackedHeaderRow.Columns>
+                </sfgrid:DataGridStackedHeaderRow>
+            </sfgrid:SfDataGrid.StackedHeaderRows>
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
