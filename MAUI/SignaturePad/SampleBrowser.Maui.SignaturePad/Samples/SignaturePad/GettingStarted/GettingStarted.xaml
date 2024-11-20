@@ -117,7 +117,7 @@
                               RowSpacing="2.5">
 
                             <Label Grid.Row="0"
-                                   Text="Client Name : John mors"
+                                   Text="Client Name : John Mors"
                                    FontSize="13"
                                    Padding="0,2.5" />
                             <Label Grid.Row="1"
@@ -300,7 +300,7 @@
                             </ev:SfEffectsView>                          
                         </Grid>
 
-                        <Label Grid.Row="9" Text="Thanks for your bussiness"  HorizontalOptions="Center" Padding="20,20,20,0" FontSize="14"></Label>
+                        <Label Grid.Row="9" Text="Thanks for your business"  HorizontalOptions="Center" Padding="20,20,20,0" FontSize="14"></Label>
 
                     </Grid>
                 </Border>
