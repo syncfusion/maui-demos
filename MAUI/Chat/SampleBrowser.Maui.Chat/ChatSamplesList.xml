@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<SyncfusionControls>
-	<ControlCategory Name="Chat">
-		<Control Title="Chat" ControlName="SfChat" Image="chat.png" Description="Displays a conversation between two or more users in a fully customizable layout.">
-			<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="Chat/GettingStarted/" />
-			<Sample SearchTags="Load More" SampleName="LoadMore" Title="Load More" CodeViewerPath="Chat/LoadMore/" />
-		</Control>
-	</ControlCategory>
-</SyncfusionControls>
