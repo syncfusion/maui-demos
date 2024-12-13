@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\SunburstChartDemo\DefaultSunburstChart.xaml.cs">
+			<Link>Samples\SunburstChart\SunburstChartDemo\DefaultSunburstChart.xaml.cs</Link>
+			<DependentUpon>DefaultSunburstChart.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\SunburstChartDemo\DataLabel.xaml.cs">
+			<Link>Samples\SunburstChart\SunburstChartDemo\DataLabel.xaml.cs</Link>
+			<DependentUpon>DataLabel.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\Interaction\ToolTip.xaml.cs">
+			<Link>Samples\SunburstChart\Interaction\ToolTip.xaml.cs</Link>
+			<DependentUpon>ToolTip.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\SunburstChartDemo\CenterView.xaml.cs">
+			<Link>Samples\SunburstChart\SunburstChartDemo\CenterView.xaml.cs</Link>
+			<DependentUpon>CenterView.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\SunburstChartResource\SunburstChartColorResources.xaml.cs">
+			<Link>Samples\SunburstChart\SunburstChartResource\SunburstChartColorResources.xaml.cs</Link>
+			<DependentUpon>SunburstChartColorResources.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\ViewModel\BaseViewModel.cs">
+			<Link>Samples\SunburstChart\ViewModel\BaseViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\ViewModel\Model.cs">
+			<Link>Samples\SunburstChart\ViewModel\Model.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\ViewModel\ViewModel.cs">
+			<Link>Samples\SunburstChart\ViewModel\ViewModel.cs</Link>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\SunburstChartSamplesList.xml" >
+			<Link>SunburstChartSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\SunburstChartDemo\DefaultSunburstChart.xaml">
+			<Link>\Samples\SunburstChart\SunburstChartDemo\DefaultSunburstChart.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\SunburstChartDemo\DataLabel.xaml">
+			<Link>\Samples\SunburstChart\SunburstChartDemo\DataLabel.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\Interaction\ToolTip.xaml">
+			<Link>\Samples\SunburstChart\Interaction\ToolTip.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\SunburstChartDemo\CenterView.xaml">
+			<Link>\Samples\SunburstChart\SunburstChartDemo\CenterView.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SunburstChart\SunburstChartResource\SunburstChartColorResources.xaml">
+			<Link>Samples\SunburstChart\SunburstChartResource\SunburstChartColorResources.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

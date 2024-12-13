@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localcore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:ev="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+               xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+               xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.Switch"
+               x:Class="SampleBrowser.Maui.Buttons.Switch.GettingStarted"
+               Background="White">
+
+ 
+</localcore:SampleView>
