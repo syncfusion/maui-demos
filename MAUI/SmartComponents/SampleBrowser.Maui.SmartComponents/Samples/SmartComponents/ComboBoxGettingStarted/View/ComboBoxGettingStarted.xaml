@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SmartComponents.SmartComponents.ComboBoxGettingStarted"
+            xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+            xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+            xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+            xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+            xmlns:local="clr-namespace:SampleBrowser.Maui.SmartComponents.SmartComponents"          
+            BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localCore:SampleView.BindingContext>
+        <local:ComboBoxViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <VerticalStackLayout Spacing="30"
+                            WidthRequest="250"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Start">
+
+            <Border StrokeShape="RoundRectangle, 43" x:Name="aiBorder"
+                    Margin="{OnPlatform WinUI='0,60,0,0', Android='0,80,0,0', MacCatalyst='0,60,0,0', iOS='0,80,0,0'}"
+                    StrokeThickness="0"
+                    WidthRequest="86"
+                    HeightRequest="86"
+                    Background="Transparent">
+                <Grid Background="{AppThemeBinding Light='#EEE8F4' , Dark='#302D38'}" >
+                    <Image x:Name="aiImage" Source="{AppThemeBinding Light={imageExtension:SfImageResource ai-01.png}, Dark={imageExtension:SfImageResource ai-02.png}}" 
+                          WidthRequest="40"
+                          HeightRequest="44"/>
+                </Grid>
+            </Border>
+
+            <Label Text="AI ComboBox Control"
+                    FontFamily="Roboto-Medium"  
+                    FontSize="16"
+                    TextColor="{AppThemeBinding Light='#1C1B1F' , Dark='#E6E1E5'}"
+                    HorizontalOptions="Center"/>
+
+            <syncfusion:SfTextInputLayout Hint="Choose Food Item"
+                                          ContainerType="Outlined"
+                                          WidthRequest="248"
+                                          ContainerBackground="Transparent">
+                <editors:SfComboBox x:Name="combobox" 
+                                          DropDownPlacement="Bottom"
+                                          MaxDropDownHeight="200"
+                                          IsEditable="True"
+                                          TextSearchMode="StartsWith"
+                                          IsFilteringEnabled="True"
+                                          DisplayMemberPath="Name"
+                                          TextMemberPath="Name"
+                                          ItemsSource="{Binding Foods}">
+                    <editors:SfComboBox.FilterBehavior>
+                        <local:ComboBoxCustomFilter/>
+                    </editors:SfComboBox.FilterBehavior>
+                    
+                </editors:SfComboBox>
+            </syncfusion:SfTextInputLayout>
+
+        </VerticalStackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

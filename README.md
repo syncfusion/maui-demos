@@ -642,4 +642,4 @@ Platforms supported by each .NET MAUI file-format library are listed below.
 
 * To renew the subscription, click [here](https://www.syncfusion.com/sales/products?utm_source=github&utm_medium=listing) or contact our sales team at <salessupport@syncfusion.com>.
   
-<p>Copyright © 2001-2024 Syncfusion, Inc. Updated on 2024-12-13 at precisely 10:14:24 EST.</p> 
+<p>Copyright © 2001-2025 Syncfusion, Inc. Updated on 2025-01-29 at precisely 20:57:51 EST.</p> 

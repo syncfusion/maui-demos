@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Maps.SfMaps.PolyLine"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:maps="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Maps.SfMaps"
+                      xmlns:local1="clr-namespace:SampleBrowser.Maui.Maps"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      Background="White">
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="CustomTemplate">
+                <StackLayout IsClippedToBounds="false"
+                             HorizontalOptions="StartAndExpand"
+                             VerticalOptions="Center"
+                             HeightRequest="30">
+                    <Image Source="{imageExtension:SfImageResource map_pin.png}"
+                           Scale="1"
+                           Aspect="AspectFit "
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           HeightRequest="30"
+                           WidthRequest="30" />
+                </StackLayout>
+            </DataTemplate>
+
+            <DataTemplate x:Key="DefaultTemplate">
+                <StackLayout IsClippedToBounds="false"
+                             HorizontalOptions="StartAndExpand"
+                             VerticalOptions="Center"
+                             HeightRequest="30">
+                    <Ellipse Fill="white"
+                             Stroke="Black"
+                             StrokeThickness="2"
+                             WidthRequest="15"
+                             HeightRequest="15" />
+                </StackLayout>
+            </DataTemplate>
+
+            <local:MarkerTemplateSelector x:Key="MarkerTemplateSelector"
+                                          CustomTemplate="{StaticResource CustomTemplate}"
+                                          DefaultTemplate="{StaticResource DefaultTemplate}" />
+
+            <DataTemplate x:Key="markerTooltipTemplate" x:DataType="maps:MapTooltipInfo">
+                <StackLayout IsClippedToBounds="false"
+                             HorizontalOptions="StartAndExpand"
+                             VerticalOptions="End">
+                    <StackLayout.BindingContext>
+                        <Binding Path="DataItem"/>
+                    </StackLayout.BindingContext>
+                    <Label x:DataType="local1:CustomMarker" Text="{Binding Name}"
+                           TextColor="{DynamicResource SfMapsTooltipTextColor}"></Label>
+                </StackLayout>
+            </DataTemplate>
+
+            <Style x:Key="buttonStyle"
+                   TargetType="Button">
+                <Setter Property="Background"
+                        Value="White" />
+                <Setter Property="Padding"
+                        Value="12,6,12,6" />
+                <Setter Property="CornerRadius"
+                        Value="8" />
+                <Setter Property="HeightRequest"
+                        Value="32" />
+                <Setter Property="TextColor"
+                        Value="#49454F" />
+                <Setter Property="FontSize"
+                        Value="14" />
+                <Setter Property="Margin"
+                        Value="5,0,5,0" />
+            </Style>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Image Grid.RowSpan="2"
+                   Source="{imageExtension:SfImageResource maps_grid.png}"
+                   Aspect="Fill" />
+
+            <maps:SfMaps Grid.RowSpan="2">
+                <maps:SfMaps.Layer>
+                    <maps:MapTileLayer x:Name="layer"
+                                       UrlTemplate="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                       CanCacheTiles="True"
+                                       ShowMarkerTooltip="True"
+                                       MarkerTooltipTemplate="{StaticResource markerTooltipTemplate}"
+                                       MarkerTemplate="{StaticResource MarkerTemplateSelector}">
+                        <maps:MapTileLayer.Center>
+                            <maps:MapLatLng>
+                                <x:Arguments>
+                                    <x:Double>51.4700</x:Double>
+                                    <x:Double>-0.2843</x:Double>
+                                </x:Arguments>
+                            </maps:MapLatLng>
+                        </maps:MapTileLayer.Center>
+                        <maps:MapTileLayer.ZoomPanBehavior>
+                            <maps:MapZoomPanBehavior x:Name="zoomPanBehavior"
+                                                     ZoomLevel="10"
+                                                     MinZoomLevel="9"
+                                                     MaxZoomLevel="12"
+                                                     EnableDoubleTapZooming="True" />
+                        </maps:MapTileLayer.ZoomPanBehavior>
+                        <maps:MapTileLayer.Sublayers>
+                            <maps:MapPolylineLayer AnimationDuration="3000"
+                                                   AnimationEasing="{x:Static Easing.SinInOut}">
+                                <maps:MapPolylineLayer.Polylines>
+                                    <maps:MapPolyline x:Name="polyLine"
+                                                      Stroke="#0066FF"
+                                                      StrokeThickness="6" />
+                                </maps:MapPolylineLayer.Polylines>
+                            </maps:MapPolylineLayer>
+
+                        </maps:MapTileLayer.Sublayers>
+                        <maps:MapTileLayer.Markers>
+                            <maps:MapMarkerCollection>
+                                <local1:CustomMarker x:Name="startMarker" />
+                                <local1:CustomMarker x:Name="endMarker"
+                                                     VerticalAlignment="Start"
+                                                     HorizontalAlignment="Center" />
+                            </maps:MapMarkerCollection>
+                        </maps:MapTileLayer.Markers>
+                    </maps:MapTileLayer>
+                </maps:SfMaps.Layer>
+            </maps:SfMaps>
+
+            <ScrollView Margin="10"
+                        Orientation="Horizontal"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout>
+                    <Button Text="The British Museum"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="The Windsor Castle"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Twickenham Stadium"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Chessington World of Adventures"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                    <Button Text="Hampton Court Palace"
+                            Style="{StaticResource buttonStyle}"
+                            Clicked="Button_Clicked" />
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <HorizontalStackLayout Grid.Row="1"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="End"
+                                   Background="{DynamicResource SfMapsNormalBackground}">
+                <Label Text="©"
+                       Padding="2"
+                       FontSize="16"
+                       TextColor="{DynamicResource SfMapsDataLabelTextColor}"/>
+                <Label Padding="2"
+                       Text="OpenStreetMap contributors"
+                       TextColor="Blue">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Uri_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.ListView.SfListView.Paging"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:DataPager="clr-namespace:Syncfusion.Maui.DataGrid.DataPager;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
+             x:DataType="local:PagingViewModel">
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Behaviors>
+        <local:SfListViewPagingBehavior/>
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.BindingContext>
+        <local:PagingViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="59"/>
+            </Grid.RowDefinitions>
+
+            <DataPager:SfDataPager x:Name="dataPager"
+                                   Grid.Row="1"
+                                   Margin="7.5,11.5,7.5,11.5"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Center"
+                                   HeightRequest="36"
+                                   ButtonSize="36"
+                                   ButtonSpacing="8"
+                                   ButtonFontSize="14"
+                                   NumericButtonCount="8">
+            </DataPager:SfDataPager>
+            <ListView:SfListView x:Name="verticalListView" 
+                                 Grid.Row="0"
+                                 AutoFitMode="DynamicHeight"
+                                 SelectionMode="Single">
+                <ListView:SfListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:PlaceInfo">
+                        <Grid Margin="16,12,16,12" ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border HorizontalOptions="Start" Padding="0" HeightRequest="44" WidthRequest="44">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3"/>
+                                </Border.StrokeShape>
+                                <Image Grid.Column="0" Source="{Binding Image,Converter={StaticResource imageconverter}}" Aspect="Fill" HeightRequest="44" WidthRequest="44"/>
+                            </Border>
+                            <Grid Grid.Column="1" VerticalOptions="Center" RowSpacing="4">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0"
+                                       Text="{Binding Name}"
+                                       FontSize="14"
+                                       FontFamily="Roboto-Regular"
+                                       CharacterSpacing="0.25"
+                                       TextColor="{AppThemeBinding Light={StaticResource HeaderForegroundLight},Dark={StaticResource HeaderForeground}}"/>
+                                <Label Grid.Row="1" Text="{Binding Description}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextColourAlt1Light},Dark={StaticResource TextColourAlt1}}"
+                                       FontSize="14" FontFamily="Roboto-Regular" LineBreakMode="TailTruncation" CharacterSpacing="0.15"/>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.ItemTemplate>
+            </ListView:SfListView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

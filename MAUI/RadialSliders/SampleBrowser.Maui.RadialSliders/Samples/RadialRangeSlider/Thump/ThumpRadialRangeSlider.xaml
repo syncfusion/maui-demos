@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.RadialSliders.RadialRangeSlider.ThumpRadialRangeSlider"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.RadialSliders.RadialSlider"
+                     x:DataType="local:ThumpRadialSlider"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <ScrollView Orientation="Both">
+        <StackLayout x:Name="rootLayout"
+                         Spacing="10"
+                         Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center">
+
+            <VerticalStackLayout>
+                <gauge:SfRadialGauge x:Name="gauge1"
+                                         HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                    <gauge:SfRadialGauge.Axes>
+                        <gauge:RadialAxis StartAngle="270"
+                                              EndAngle="270"
+                                              ShowTicks="False"
+                                              ShowLabels="False"
+                                              ShowFirstLabel="False">
+
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange x:DataType="gauge:ShapePointer" StartValue="{Binding Source={x:Reference thumpMarkerPointer1}, Path=Value}"
+                                                       EndValue="{Binding Source={x:Reference thumpMarkerPointer2}, Path=Value}"
+                                                       StartWidth="8"
+                                                       EndWidth="8">
+                                    <gauge:RadialRange.GradientStops>
+                                        <gauge:GaugeGradientStop Value="50"
+                                                                     Color="#ca5ee6" />
+                                        <gauge:GaugeGradientStop Value="100"
+                                                                     Color="#7343bd" />
+                                    </gauge:RadialRange.GradientStops>
+                                </gauge:RadialRange>
+                            </gauge:RadialAxis.Ranges>
+
+                            <gauge:RadialAxis.Pointers>
+
+                                <gauge:ShapePointer x:Name="thumpMarkerPointer1"
+                                                        ShapeType="Circle"
+                                                        HasShadow="True"
+                                                        Value="0"
+                                                        OverlayRadius="0"
+                                                        IsInteractive="True"
+                                                        ShapeHeight="20"
+                                                        ShapeWidth="20"
+                                                        ValueChanging="thumpPointer1_ValueChanging"
+                                                        Fill="#7343bd"
+                                                        SemanticProperties.Hint="thumpAnnotationLabel1" />
+                                <gauge:ShapePointer x:Name="thumpMarkerPointer2"
+                                                        ShapeType="Circle"
+                                                        HasShadow="True"
+                                                        Value="75"
+                                                        OverlayRadius="0"
+                                                        IsInteractive="True"
+                                                        ShapeHeight="20"
+                                                        ShapeWidth="20"
+                                                        ValueChanging="thumpPointer2_ValueChanging"
+                                                        Fill="#7343bd"
+                                                        SemanticProperties.Hint="thumpAnnotationLabel1" />
+
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation>
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label x:Name="thumpAnnotationLabel1"
+                                                   Text="0 - 75"
+                                                   WidthRequest="100"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontSize="Small"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge.Axes>
+                </gauge:SfRadialGauge>
+                <Label Text="Circle thumb"
+                           FontSize="Micro"
+                           HorizontalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <gauge:SfRadialGauge x:Name="gauge2"
+                                         HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                    <gauge:SfRadialGauge.Axes>
+                        <gauge:RadialAxis StartAngle="270"
+                                              EndAngle="270"
+                                              ShowTicks="False"
+                                              ShowLabels="False"
+                                              ShowFirstLabel="False">
+
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange x:DataType="gauge:ShapePointer" StartValue="{Binding Source={x:Reference thumpMarkerPointer3}, Path=Value}"
+                                                       EndValue="{Binding Source={x:Reference thumpMarkerPointer4}, Path=Value}"
+                                                       StartWidth="8"
+                                                       EndWidth="8">
+                                    <gauge:RadialRange.GradientStops>
+                                        <gauge:GaugeGradientStop Value="50"
+                                                                     Color="#ca5ee6" />
+                                        <gauge:GaugeGradientStop Value="100"
+                                                                     Color="#7343bd" />
+                                    </gauge:RadialRange.GradientStops>
+                                </gauge:RadialRange>
+                            </gauge:RadialAxis.Ranges>
+
+                            <gauge:RadialAxis.Pointers>
+
+                                <gauge:ShapePointer x:Name="thumpMarkerPointer3"
+                                                        ShapeType="Rectangle"
+                                                        HasShadow="True"
+                                                        Value="0"
+                                                        OverlayRadius="0"
+                                                        IsInteractive="True"
+                                                        ShapeHeight="20"
+                                                        ShapeWidth="20"
+                                                        ValueChanging="thumpPointer1_ValueChanging"
+                                                        Fill="#7343bd"
+                                                        SemanticProperties.Hint="thumpAnnotationLabel2" />
+                                <gauge:ShapePointer x:Name="thumpMarkerPointer4"
+                                                        ShapeType="Rectangle"
+                                                        HasShadow="True"
+                                                        Value="75"
+                                                        OverlayRadius="0"
+                                                        IsInteractive="True"
+                                                        ShapeHeight="20"
+                                                        ShapeWidth="20"
+                                                        ValueChanging="thumpPointer2_ValueChanging"
+                                                        Fill="#7343bd"
+                                                        SemanticProperties.Hint="thumpAnnotationLabel2" />
+
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation>
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label x:Name="thumpAnnotationLabel2"
+                                                   Text="0 - 75"
+                                                   WidthRequest="100"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontSize="Small"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge.Axes>
+                </gauge:SfRadialGauge>
+                <Label Text="Rectangle thumb"
+                           FontSize="Micro"
+                           HorizontalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <gauge:SfRadialGauge x:Name="gauge3"
+                                         HeightRequest="{Binding GaugeHeight}"
+                                         WidthRequest="{Binding GaugeWidth}">
+                    <gauge:SfRadialGauge.Axes>
+                        <gauge:RadialAxis StartAngle="270"
+                                              EndAngle="270"
+                                              ShowTicks="False"
+                                              ShowLabels="False"
+                                              ShowFirstLabel="False">
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange StartValue="{Binding Source={x:Reference thumpMarkerPointer5}, Path=Value}"
+                                                       EndValue="{Binding Source={x:Reference thumpMarkerPointer6}, Path=Value}"
+                                                       x:DataType="gauge:ShapePointer"
+                                                       StartWidth="8"
+                                                       EndWidth="8">
+                                    <gauge:RadialRange.GradientStops>
+                                        <gauge:GaugeGradientStop Value="50"
+                                                                     Color="#ca5ee6" />
+                                        <gauge:GaugeGradientStop Value="100"
+                                                                     Color="#7343bd" />
+                                    </gauge:RadialRange.GradientStops>
+                                </gauge:RadialRange>
+                            </gauge:RadialAxis.Ranges>
+
+                            <gauge:RadialAxis.Pointers>
+
+                                <gauge:ShapePointer x:Name="thumpMarkerPointer5"
+                                                        ShapeType="Circle"
+                                                        Value="0"
+                                                        OverlayRadius="0"
+                                                        IsInteractive="True"
+                                                        ShapeHeight="25"
+                                                        ShapeWidth="25"
+                                                        ValueChanging="thumpPointer1_ValueChanging"
+                                                        Fill="#7343bd"
+                                                        SemanticProperties.Hint="thumpAnnotationLabel3" />
+                                <gauge:ContentPointer x:DataType="gauge:ShapePointer" Value="{Binding Source={x:Reference thumpMarkerPointer5}, Path=Value}">
+                                    <gauge:ContentPointer.Content>
+                                        <Image Source="{imageExtention:SfImageResource ball.png}"
+                                                   HeightRequest="25"
+                                                   WidthRequest="25"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center" />
+                                    </gauge:ContentPointer.Content>
+                                </gauge:ContentPointer>
+
+                                <gauge:ShapePointer x:Name="thumpMarkerPointer6"
+                                                        ShapeType="Circle"
+                                                        Value="75"
+                                                        OverlayRadius="0"
+                                                        IsInteractive="True"
+                                                        ShapeHeight="25"
+                                                        ShapeWidth="25"
+                                                        ValueChanging="thumpPointer2_ValueChanging"
+                                                        Fill="#7343bd"
+                                                        SemanticProperties.Hint="thumpAnnotationLabel3" />
+                                <gauge:ContentPointer x:DataType="gauge:ShapePointer" Value="{Binding Source={x:Reference thumpMarkerPointer6}, Path=Value}">
+                                    <gauge:ContentPointer.Content>
+                                        <Image Source="{imageExtention:SfImageResource ball.png}"
+                                                   HeightRequest="25"
+                                                   WidthRequest="25"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center" />
+                                    </gauge:ContentPointer.Content>
+                                </gauge:ContentPointer>
+
+
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation>
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label x:Name="thumpAnnotationLabel3"
+                                                   Text="0 - 75"
+                                                   WidthRequest="100"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontSize="Small"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge.Axes>
+                </gauge:SfRadialGauge>
+                <Label Text="Image thumb"
+                           FontSize="Micro"
+                           HorizontalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+            </VerticalStackLayout>
+
+        </StackLayout>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

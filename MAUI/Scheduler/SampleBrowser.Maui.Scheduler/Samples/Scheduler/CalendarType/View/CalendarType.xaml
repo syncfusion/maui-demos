@@ -1,0 +1,101 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.CalendarType"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <schedule:SfScheduler x:Name="Scheduler"
+                                 AppointmentsSource="{Binding Events}"
+                                 DisplayDate="{Binding DisplayDate}"
+                                 CalendarType="Hijri"
+                                 AllowAppointmentDrag="False"
+                                 AllowedViews="Day,Week,WorkWeek,Month,TimelineDay,TimelineMonth,TimelineWeek,TimelineWorkWeek,Agenda"
+                                 View="Week">
+
+                     <schedule:SfScheduler.TimelineView>
+                        <schedule:SchedulerTimelineView
+                        StartHour="8"
+                        EndHour="20"/>
+                    </schedule:SfScheduler.TimelineView>
+
+                    <schedule:SfScheduler.AppointmentMapping>
+                        <schedule:SchedulerAppointmentMapping
+                Subject="EventName"
+                StartTime="From"
+                EndTime="To"
+                Background="Background"
+                IsAllDay="IsAllDay"
+                StartTimeZone="StartTimeZone"
+                EndTimeZone="EndTimeZone"
+                RecurrenceExceptionDates="RecurrenceExceptions"
+                RecurrenceRule="RecurrenceRule"
+                RecurrenceId="RecurrenceId"/>
+                    </schedule:SfScheduler.AppointmentMapping>
+                    <schedule:SfScheduler.Behaviors>
+                        <local:SchedulerBehavior/>
+                    </schedule:SfScheduler.Behaviors>
+                    <schedule:SfScheduler.BindingContext>
+                        <local:CalendarTypeViewModel x:Name="calendarTypeViewModel"/>
+                    </schedule:SfScheduler.BindingContext>
+                </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid x:Name="optionView">
+                <Grid.Resources>
+                    <buttons:SfRadioGroupKey x:Key="CalendarTypeButtons"/>
+                </Grid.Resources>
+                
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                
+                <Label Text="Change calendar type"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.RowSpan="1"
+                        Grid.ColumnSpan="2"
+                       TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+
+                <buttons:SfRadioButton Grid.Row="1" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Gregorian" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="2" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Hebrew" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="3" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Hijri" VerticalOptions="Start" IsChecked="True"/>
+                <buttons:SfRadioButton Grid.Row="4" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Japanese" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="5" Grid.Column="0" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Korean" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="1" Grid.Column="1" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Persian" VerticalOptions="Start" />
+                <buttons:SfRadioButton Grid.Row="2" Grid.Column="1" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="Taiwan" VerticalOptions="Start" />
+                <buttons:SfRadioButton Grid.Row="3" Grid.Column="1" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="ThaiBuddhist" VerticalOptions="Start"/>
+                <buttons:SfRadioButton Grid.Row="4" Grid.Column="1" GroupKey="{StaticResource CalendarTypeButtons}" Padding="{OnPlatform iOS=5, MacCatalyst=5}" Text="UmAlQura" VerticalOptions="Start"/>
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:CalendarTypeBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

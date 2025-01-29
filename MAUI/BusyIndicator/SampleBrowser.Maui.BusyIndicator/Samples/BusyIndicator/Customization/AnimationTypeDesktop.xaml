@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.BusyIndicator.SfBusyIndicator.AnimationTypeDesktop"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+    <localCore:SampleView.Content>
+        <Grid RowDefinitions=".5*,.5*" Padding="40" RowSpacing="40">
+            <Grid ColumnDefinitions=".3*,.3*,.3*" Grid.Row="0" Padding="10">
+                <!--CircularMaterial-->
+                <core:SfBusyIndicator AnimationType="CircularMaterial" IsRunning="True"  Grid.Column="0">
+                    <Grid>
+                        <Label Text="Circular Material"  HorizontalOptions="Center" FontSize="Medium"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+
+                <!--SingleCircle-->
+                <core:SfBusyIndicator AnimationType="SingleCircle"  IsRunning="True"  Grid.Column="1">
+                    <Grid>
+                        <Label Text="Single Circle" HorizontalOptions="Center"  FontSize="Medium"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+
+                <!--DoubleCirlce-->
+                <core:SfBusyIndicator AnimationType="DoubleCircle"  IsRunning="True"  Grid.Column="2">
+                    <Grid>
+                        <Label Text="Double Circle" HorizontalOptions="Center"  FontSize="Medium"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+            </Grid>
+
+            <Grid Grid.Row="1" ColumnDefinitions=".3*,.3*,.3*" Padding="10">
+                <!--Cupertino-->
+                <core:SfBusyIndicator AnimationType="Cupertino" IsRunning="True"  Grid.Column="0">
+                    <Grid>
+                        <Label Text="Cupertino" HorizontalOptions="Center"  FontSize="Medium"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+
+                <!--Global-->
+                <core:SfBusyIndicator AnimationType="Globe"  IsRunning="True"  Grid.Column="1">
+                    <Grid>
+                        <Label Text="Global" HorizontalOptions="Center"  FontSize="Medium"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+
+                <!--LinearMaterial-->
+                <core:SfBusyIndicator  AnimationType="LinearMaterial" IsRunning="True" Grid.Column="2">
+                    <Grid>
+                        <Label Text="Linear Material" HorizontalOptions="Center"  FontSize="Medium"/>
+                    </Grid>
+                </core:SfBusyIndicator>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

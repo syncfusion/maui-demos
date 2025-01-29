@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localcore:SampleView
+    x:Class="SampleBrowser.Maui.Rotator.Rotator.StoryPageMobile"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+    xmlns:rotator="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator"
+    xmlns:viewModel="clr-namespace:SampleBrowser.Maui.Rotator.ViewModel"
+     BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localcore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
+    </localcore:SampleView.Resources>
+
+    <localcore:SampleView.BindingContext>
+        <viewModel:StoryViewModel />
+    </localcore:SampleView.BindingContext>
+
+    <localcore:SampleView.Content>
+        <Grid
+            HorizontalOptions="Fill"
+            RowDefinitions="*"
+            VerticalOptions="Fill">
+
+            <progressBar:SfLinearProgressBar
+                x:Name="progressBar"
+                Margin="0,15"
+                AnimationDuration="4000"
+                Background="Transparent"
+                ProgressCornerRadius="5"
+                ProgressFill="White"
+                ProgressHeight="3"
+                SegmentCount="{Binding StoryCollection.Count}"
+                TrackCornerRadius="5"
+                TrackFill="#d1d1d1"
+                TrackHeight="2"
+                ZIndex="1" />
+            <rotator:SfRotator
+                x:Name="sfRotator"
+                Grid.Column="0"
+                BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                DotPlacement="None"
+                EnableAutoPlay="True"
+                EnableLooping="False"
+                ItemsSource="{Binding StoryCollection}"
+                NavigationDelay="4000"
+                SelectedIndexChanged="sfRotator_SelectionChanged">
+                <rotator:SfRotator.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Aspect="Fill" Source="{Binding Image, Converter={StaticResource imageconverter}}" />
+                        </Grid>
+                    </DataTemplate>
+                </rotator:SfRotator.ItemTemplate>
+            </rotator:SfRotator>
+        </Grid>
+    </localcore:SampleView.Content>
+</localcore:SampleView>

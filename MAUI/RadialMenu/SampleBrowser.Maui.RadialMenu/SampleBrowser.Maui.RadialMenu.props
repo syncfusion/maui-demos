@@ -1,0 +1,49 @@
+<Project>
+
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\GettingStarted\View\GettingStarted.xaml.cs">
+			<Link>Samples\RadialMenu\GettingStarted\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\Customization\ViewModel\MainViewModel.cs">
+			<Link>Samples\RadialMenu\Customization\ViewModel\MainViewModel.cs</Link>
+		</Compile>
+	
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\Customization\View\Customization.xaml.cs">
+			<Link>Samples\RadialMenu\Customization\View\Customization.xaml.cs</Link>
+			<DependentUpon>Customization.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\GettingStarted\ViewModel\GettingStartedViewModel.cs">
+			<Link>Samples\RadialMenu\GettingStarted\ViewModel\GettingStartedViewModel.cs</Link>
+		</Compile>
+		
+			<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\Customization\Model\MainModel.cs">
+			<Link>Samples\RadialMenu\Customization\Model\MainModel.cs</Link>
+		</Compile>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\RadialMenuSamplesList.xml">
+			<Link>RadialMenuSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\RadialMenu\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+		
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\Customization\View\Customization.xaml">
+			<Link>Samples\RadialMenu\Customization\View\Customization.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\PDF_RadialMenu.pdf">
+			<Link>Resources\Pdf\PDF_RadialMenu.pdf</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>

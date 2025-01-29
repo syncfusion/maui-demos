@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:DataType="gauge:ShapePointer"
+                      x:Class="SampleBrowser.Maui.RadialSliders.RadialRangeSlider.CustomTextRadialRangeSlider"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid MinimumWidthRequest="300">
+            <VerticalStackLayout Padding="10,0"
+                                 Spacing="10"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                <gauge:SfRadialGauge x:Name="customTextGauge">
+                    <gauge:SfRadialGauge.Axes>
+                        <gauge:RadialAxis x:Name="customTextAxis"
+                                          ShowTicks="False"
+                                          LabelOffset="0.15"
+                                          OffsetUnit="Factor">
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle CornerStyle="BothCurve" />
+                            </gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange StartValue="{Binding Source={x:Reference customTextMarker1}, Path=Value}"
+                                                   EndValue="{Binding Source={x:Reference customTextMarker2}, Path=Value}"
+                                                   Fill="Orange" />
+                            </gauge:RadialAxis.Ranges>
+                            <gauge:RadialAxis.Pointers>
+
+                                <gauge:ShapePointer Value="0"
+                                                    x:Name="customTextMarker1"
+                                                    Stroke="Orange"
+                                                    OverlayRadius="0"
+                                                    ValueChanging="customTextMarker_ValueChanging1"
+                                                    IsInteractive="True"
+                                                    ShapeType="Circle"
+                                                    ShapeHeight="30"
+                                                    ShapeWidth="30"
+                                                    BorderWidth="8"
+                                                    Fill="White" />
+                                <gauge:ShapePointer Value="60"
+                                                    x:Name="customTextMarker2"
+                                                    Stroke="Orange"
+                                                    OverlayRadius="0"
+                                                    ValueChanging="customTextMarker_ValueChanging2"
+                                                    IsInteractive="True"
+                                                    ShapeType="Circle"
+                                                    ShapeHeight="30"
+                                                    ShapeWidth="30"
+                                                    BorderWidth="8"
+                                                    Fill="White" />
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation>
+                                    <gauge:GaugeAnnotation.Content>
+                                        <VerticalStackLayout>
+                                            <Label x:Name="percentageLabel"
+                                                   HorizontalOptions="Center"
+                                                   Text="60%"
+                                                   WidthRequest="100"
+                                                   HorizontalTextAlignment="Center"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" />
+                                            <Label x:Name="customTextAnnotation"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                                   HorizontalOptions="Center"
+                                                   Text="Progress"
+                                                   WidthRequest="100"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Medium" />
+                                        </VerticalStackLayout>
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge.Axes>
+                </gauge:SfRadialGauge>
+            </VerticalStackLayout>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

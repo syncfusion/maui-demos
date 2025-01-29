@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:listView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.FileListView">
+    
+    <ContentView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </ContentView.Resources>
+
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}">
+        <VerticalStackLayout Spacing="50" >
+            <Label HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" Text="Choose a File to 
+                   " Margin="0,50,0,0" FontSize="20" />
+            <listView:SfListView x:Name="listView" ItemTapped="listView_ItemTapped">
+                <listView:SfListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:AnnotationButtonItem">
+                        <ViewCell>
+                            <HorizontalStackLayout Spacing="10" Padding="20,0,20,0">
+                                <Label FontFamily="MauiMaterialAssets" Text="{Binding Icon}" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                <Label Text="{Binding IconName}" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}" VerticalTextAlignment="Center" />
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </listView:SfListView.ItemTemplate>
+            </listView:SfListView>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>
