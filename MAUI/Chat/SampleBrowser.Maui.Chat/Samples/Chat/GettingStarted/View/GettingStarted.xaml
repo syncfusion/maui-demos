@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Chat.SfChat.GettingStarted"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Chat.SfChat"
+                      xmlns:sfchat="clr-namespace:Syncfusion.Maui.Chat;assembly=Syncfusion.Maui.Chat"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      Margin='{OnPlatform WinUI="-10, -10, -10, -12",MacCatalyst="-10, -10, -10, -12"}'>
+
+    <localCore:SampleView.BindingContext>
+        <local:GettingStartedViewModel x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:GettingStartedBehavior/>
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <sfchat:SfChat x:Name="sfChat"
+                           Messages="{Binding Messages}"
+                           CurrentUser="{Binding CurrentUser}"
+                           TypingIndicator="{Binding TypingIndicator}"
+                           ShowTypingIndicator="{Binding ShowTypingIndicator}"
+                           ShowTimeBreak="True" 
+                           StickyTimeBreak="False">
+
+            </sfchat:SfChat>
+
+            <badge:SfBadgeView x:Name="ScrollDown" VerticalOptions="End" HorizontalOptions="End" IsVisible="{Binding IsBadgeViewVisible}" Margin="0,0,16,84" >
+                <badge:SfBadgeView.BadgeSettings>
+                    <badge:BadgeSettings Animation="None" Position="Top" FontSize="10" Offset="-25,20"
+                             FontAttributes="Bold" BadgeAlignment="Start"/>
+                </badge:SfBadgeView.BadgeSettings>
+                <badge:SfBadgeView.Content>
+                    <Grid WidthRequest="60" HeightRequest="60">
+                        <Border HeightRequest="40" WidthRequest="40"  Background="{AppThemeBinding Light=#FFFBFE,Dark=#302D38}" Stroke="Transparent" HorizontalOptions="End" VerticalOptions="End">
+                            <Border.Shadow>
+                                <Shadow Offset="0,1" Radius="2"
+                                        Brush="#4d000000"/>
+                            </Border.Shadow>
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Label Text="&#xe7D1;" TextColor="{AppThemeBinding Light=#49454F,Dark=#CAC4D0}"
+                                   FontSize="20" Margin="0,3,0,0" 
+                                   HorizontalOptions="Center" VerticalOptions="Center" 
+                                   FontFamily="MauiSampleFontIcon"/>
+                        </Border>
+                    </Grid>
+                </badge:SfBadgeView.Content>
+            </badge:SfBadgeView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

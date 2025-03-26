@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Smart AI Solutions">
+		<Control Title="Smart Components" ControlName="SmartComponents" Description="Highlights smart MAUI components to enhance the functionality and user experience." Image="smartaicomponents.png">
+			<Category Title="Chart">
+				<Sample Title="Stock Forecasting" SampleName="ChartGettingStarted" CodeViewerPath="SmartComponents/StockForecasting/"
+						Description="An AI-driven chart that predicts future stock trends based on historical data. If a key is not specified, the chart will generate random data" SearchTags="chart, Prediction, Candle chart, ai-powered"/>
+
+				<Sample Title="Data Preprocessing" SampleName="DataCleaning_Preprocessing" CodeViewerPath="SmartComponents/DataPreprocessing/"
+					Description="AI-powered data cleaning and preprocessing work with the smart chart component."
+					SearchTags="chart, line chart, data-cleaning, data-preprocessing, ai-powered"/>
+			</Category>
+			<Category Title="DataGrid">
+				<Sample Title="Anamoly Detection" SampleName="AnamolyDetection" SearchTags="anamoly, anamoly data,data grid, maui datagrid" CodeViewerPath="SmartComponents/DataGrid/View" />
+				<Sample Title="Predictive Data Entry" SampleName="DataPrediction" SearchTags="Prediction, data Prediction,data grid, maui datagrid" CodeViewerPath="SmartComponents/DataGrid/View" />
+			</Category>
+			<Sample Title="Maps" SampleName="MapsGettingStarted" SearchTags="maps, location indicator" Description="This sample allows users to search for and find locations." CodeViewerPath="SmartComponents/Maps/View"/>
+			<Sample Title="Scheduler" SampleName="GettingStarted" Description="This smart appointment generator lets users check doctor availability and book appointments." SearchTags="scheduler, appointments, schedule appointments, smart appointment generator" CodeViewerPath="SmartComponents/Scheduler/View"/>
+			<Category Title="DataForm">
+				<Sample Title="Smart Form" SampleName="AIDataForm" Description="Creating AI-Powered Smart Data Forms to Enhance Productivity" SearchTags="dataform, smart data form" CodeViewerPath="SmartComponents/SmartDataForm/View"/>
+				<Sample Title="Smart Paste" SampleName="FeedbackForm" Description="AI-Powered smart paste in DataForm control maps clipboard data for efficient form completion." SearchTags="dataform, feedback, form, form filling, smart paste" CodeViewerPath="SmartComponents/SmartPasteDataForm/View"/>
+			</Category>
+			<Sample Title="PDF Viewer" SampleName="SmartFillView" SearchTags="pdf, pdf viewer, smart fill, form, form filling" CodeViewerPath="SmartComponents/SmartFillForm/" Description="This sample illustrates how the Syncfusion .NET MAUI PDF Viewer, with the help of AI, can automatically fill form fields using the content copied by the user." />
+			<Sample Title="Autocomplete" SampleName="AutocompleteGettingStarted" SearchTags="autocomplete, smartsearch, smartfilter" CodeViewerPath="SmartComponents/AutocompleteGettingStarted/"/>
+			<Sample Title="ComboBox" SampleName="ComboBoxGettingStarted" SearchTags="combobox, smartsearch, smartfilter" CodeViewerPath="SmartComponents/ComboBoxGettingStarted/"/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

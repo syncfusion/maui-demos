@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localcore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"           
+             x:Class="SampleBrowser.Maui.Buttons.CheckBox.GettingStartedDesktop"
+             xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:Syncfusion="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:listView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.Samples.CheckBox"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localcore:SampleView.Resources>
+        <ResourceDictionary>
+            <local:GettingStartedViewModel x:Key="ViewModel"/>
+            <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+            <Style TargetType="Syncfusion:SfCheckBox">
+                <Setter Property="CheckedColor" Value="#6200EE"/>
+                <Setter Property="FontFamily" Value="Roboto-Regular"/>
+            </Style>
+            <Style TargetType="Border" x:Key="ColorBorder">
+                <Setter Property="Stroke" Value="Gray"/>
+                <Setter Property="StrokeThickness" Value="0"/>
+                <Setter Property="HeightRequest" Value="15"/>
+                <Setter Property="WidthRequest" Value="15"/>
+                <Setter Property="StrokeShape" Value="RoundRectangle 7.5"/>
+            </Style>
+        </ResourceDictionary>
+    </localcore:SampleView.Resources>
+   
+    <localcore:SampleView.Content>
+
+        <Grid ColumnDefinitions="2.5*,7.5*"  BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                <Border
+                    Grid.Column="0"
+                    Margin="5"
+                    Padding="5"
+                    Stroke="Gray"
+                    StrokeThickness="0.3"
+                    StrokeShape="RoundRectangle 10">
+                <ScrollView>
+                    <StackLayout Spacing="5">
+                        <Label
+                            Margin="10,5"
+                            FontSize="16" 
+                            VerticalTextAlignment="Center" 
+                            FontFamily="Roboto-Medium"
+                            Text="Filters" />
+                        <Label
+                            Margin="10,0"
+                            FontFamily="Roboto-Medium"
+                            FontSize="14"
+                            Padding="0,10,0,0"
+                            Text="BRAND" />
+                        <StackLayout>
+                            <Syncfusion:SfCheckBox BindingContext="{x:StaticResource ViewModel}" HorizontalOptions="Start" Text="CAMPUS" IsChecked="{Binding BrandFilterChecked1}"/>
+                            <Syncfusion:SfCheckBox BindingContext="{x:StaticResource ViewModel}" HorizontalOptions="Start" Text="Skechers" IsChecked="{Binding BrandFilterChecked2}"/>
+                            <Syncfusion:SfCheckBox BindingContext="{x:StaticResource ViewModel}" HorizontalOptions="Start" Text="RED TAPE" IsChecked="{Binding BrandFilterChecked3}"/>
+                            <Syncfusion:SfCheckBox BindingContext="{x:StaticResource ViewModel}" HorizontalOptions="Start" Text="Roadster" IsChecked="{Binding BrandFilterChecked4}"/>
+                        </StackLayout>
+                        <Label
+                            Margin="10,0"
+                            FontFamily="Roboto-Medium"
+                            FontSize="14"
+                            Padding="0,20,0,0"
+                            Text="SIZE" />
+                        <StackLayout>
+                            <Syncfusion:SfCheckBox BindingContext="{x:StaticResource ViewModel}" HorizontalOptions="Start" Text="7" IsChecked="{Binding SizeFilterChecked2}"/>
+                            <Syncfusion:SfCheckBox BindingContext="{x:StaticResource ViewModel}" HorizontalOptions="Start" Text="8" IsChecked="{Binding SizeFilterChecked3}"/>
+                            <Syncfusion:SfCheckBox BindingContext="{x:StaticResource ViewModel}" HorizontalOptions="Start" Text="9" IsChecked="{Binding SizeFilterChecked4}"/>
+                            <Syncfusion:SfCheckBox BindingContext="{x:StaticResource ViewModel}" HorizontalOptions="Start" Text="10" IsChecked="{Binding SizeFilterChecked5}"/>
+                        </StackLayout>
+                        <Label
+                            FontFamily="Roboto-Medium"
+                            Margin="10,0"
+                            Padding="0,20,0,0"
+                            FontSize="14" 
+                            Text="COLORS" />
+                        <StackLayout>
+                            <HorizontalStackLayout >
+                                <Syncfusion:SfCheckBox x:Name="brown" HorizontalOptions="Start" BindingContext="{x:StaticResource ViewModel}" IsChecked="{Binding ColorFilterChecked1}"/>
+                                <Border Style="{x:StaticResource ColorBorder}">
+                                    <BoxView Color="SandyBrown" />
+                                </Border>
+                                <Label Text="Brown" Margin="5" VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout>
+                                <Syncfusion:SfCheckBox x:Name="green" HorizontalOptions="Start" BindingContext="{x:StaticResource ViewModel}" IsChecked="{Binding ColorFilterChecked2}"/>
+                                <Border Style="{x:StaticResource ColorBorder}">
+                                    <BoxView Color="Green" />
+                                </Border>
+                                <Label Text="Green" Margin="5" VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout>
+                                <Syncfusion:SfCheckBox x:Name="red" HorizontalOptions="Start" BindingContext="{x:StaticResource ViewModel}" IsChecked="{Binding ColorFilterChecked3}"/>
+                                <Border Style="{x:StaticResource ColorBorder}">
+                                    <BoxView Color="Red" />
+                                </Border>
+                                <Label Text="Red" Margin="5" VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout>
+                                <Syncfusion:SfCheckBox x:Name="sandal" HorizontalOptions="Start" BindingContext="{x:StaticResource ViewModel}" IsChecked="{Binding ColorFilterChecked4}"/>
+                                <Border Style="{x:StaticResource ColorBorder}">
+                                    <BoxView Color="Tan"/>
+                                </Border>
+                                <Label Text="Sandal" Margin="5" VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout>
+                                <Syncfusion:SfCheckBox x:Name="violet" HorizontalOptions="Start" BindingContext="{x:StaticResource ViewModel}" IsChecked="{Binding ColorFilterChecked5}"/>
+                                <Border Style="{x:StaticResource ColorBorder}">
+                                    <BoxView Color="DarkViolet" />
+                                </Border>
+                                <Label Text="Violet" Margin="5" VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Border>
+
+            <Border Grid.Column="1"
+                    Margin="5"
+                    Padding="5"
+                    Stroke="Gray"
+                    StrokeThickness="0.3"
+                    StrokeShape="RoundRectangle 10">
+
+                <listView:SfListView BindingContext="{x:StaticResource ViewModel}" SelectionMode="None" ItemSpacing="5" ItemSize="260" ItemsSource="{Binding Filtered}" >
+                    <listView:SfListView.ItemsLayout>
+                        <listView:GridLayout SpanCount="3" />
+                    </listView:SfListView.ItemsLayout>
+                    <listView:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Border
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                    Stroke="Gray"
+                                    StrokeThickness="0.3"
+                                    StrokeShape="RoundRectangle 0">
+                                    <Border.Margin>
+                                        <OnPlatform x:TypeArguments="thickness:Thickness">
+                                            <On Platform="MacCatalyst" Value="0"/>
+                                            <On Platform="WinUI" Value="0,0,7,0"/>
+                                        </OnPlatform>
+                                    </Border.Margin>
+                                    <Grid Margin="5" RowDefinitions="7*,3*" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                                        <Image Source="{Binding Image,Converter={StaticResource imageconverter}}"/>
+                                        <Grid
+                                            RowDefinitions="1*,3*"
+                                            Grid.Row="1"
+                                            Margin="0,10"
+                                            Padding="5,0"
+                                            RowSpacing="5"
+                                            VerticalOptions="EndAndExpand">
+                                            <Label
+                                                FontSize="14" 
+                                                VerticalTextAlignment="Center" 
+                                                Text="{Binding Brand}"
+                                                FontFamily="Roboto-Medium"/>
+                                            <Label Grid.Row="1" FontFamily="Roboto-Regular" Text="{Binding Description}" LineBreakMode="WordWrap"/>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </ViewCell>
+                        </DataTemplate>
+                    </listView:SfListView.ItemTemplate>
+                </listView:SfListView>
+            </Border>
+        </Grid>
+        
+    </localcore:SampleView.Content>
+</localcore:SampleView>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Toolbar">
+		<Control Title="Toolbar" Image="toolbar.png" IsPreview="true" ControlName="SfToolbar" Description="Provides toolbar items that perform actions for seamless user interaction.">
+			<Sample SearchTags="toolbar" Name="Getting Started" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="Toolbar\GettingStarted"/>
+			<Sample SearchTags="toolbar" Name="Overflow Mode" SampleName="OverflowMode" Title="Overflow Mode" CodeViewerPath="Toolbar\OverflowMode"/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls> 

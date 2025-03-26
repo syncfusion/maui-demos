@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+      <ItemGroup>
+		  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanDemo\DefaultKanban.xaml.cs">
+			<Link>\Samples\Kanban\KanbanDemo\DefaultKanban.xaml.cs</Link>
+			<DependentUpon>DefaultKanban.xaml</DependentUpon>
+		</Compile>
+
+		  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\KanbanCustomizationSample.xaml.cs">
+			  <Link>\Samples\Kanban\KanbanCustomization\KanbanCustomizationSample.xaml.cs</Link>
+			  <DependentUpon>KanbanCustomizationSample.xaml</DependentUpon>
+		  </Compile>
+
+		  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\Templates\DeliveryTemplate.xaml.cs">
+			  <Link>\Samples\Kanban\KanbanCustomization\Templates\DeliveryTemplate.xaml.cs</Link>
+			  <DependentUpon>DeliveryTemplate.xaml</DependentUpon>
+		  </Compile>
+
+		  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\Templates\MenuTemplate.xaml.cs">
+			  <Link>\Samples\Kanban\KanbanCustomization\Templates\MenuTemplate.xaml.cs</Link>
+			  <DependentUpon>MenuTemplate.xaml</DependentUpon>
+		  </Compile>
+		  
+		  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\Templates\OrderTemplate.xaml.cs">
+			  <Link>\Samples\Kanban\KanbanCustomization\Templates\OrderTemplate.xaml.cs</Link>
+			  <DependentUpon>OrderTemplate.xaml</DependentUpon>
+		  </Compile>
+
+		  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\Templates\ReadyToServeTemplate.xaml.cs">
+			  <Link>\Samples\Kanban\KanbanCustomization\Templates\ReadyToServeTemplate.xaml.cs</Link>
+			  <DependentUpon>ReadyToServeTemplate.xaml</DependentUpon>
+		  </Compile>
+
+		  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanDemo\ViewModel.cs">
+			  <Link>Samples\Kanban\KanbanDemo\ViewModel.cs</Link>
+		  </Compile>
+
+		  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\KanbanCustomViewModel.cs">
+			  <Link>Samples\Kanban\KanbanCustomization\KanbanCustomViewModel.cs</Link>
+		  </Compile>
+	
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\KanbanSamplesList.xml" >
+			<Link>KanbanSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanDemo\DefaultKanban.xaml">
+			<Link>\Samples\Kanban\KanbanDemo\DefaultKanban.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\KanbanCustomizationSample.xaml">
+			<Link>\Samples\Kanban\KanbanCustomization\KanbanCustomizationSample.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\Templates\DeliveryTemplate.xaml">
+			<Link>\Samples\Kanban\KanbanCustomization\Templates\DeliveryTemplate.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\Templates\MenuTemplate.xaml">
+			<Link>\Samples\Kanban\KanbanCustomization\Templates\MenuTemplate.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\Templates\OrderTemplate.xaml">
+			<Link>\Samples\Kanban\KanbanCustomization\Templates\OrderTemplate.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\KanbanCustomization\Templates\ReadyToServeTemplate.xaml">
+			<Link>\Samples\Kanban\KanbanCustomization\Templates\ReadyToServeTemplate.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+</Project>

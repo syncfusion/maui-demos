@@ -1,0 +1,639 @@
+<Project>
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\BounceInAnimation.xaml.cs">
+			<Link>Samples\RadialGauge\Animation\BounceInAnimation.xaml.cs</Link>
+			<DependentUpon>BounceInAnimation.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\BounceOutAnimation.xaml.cs">
+			<Link>Samples\RadialGauge\Animation\BounceOutAnimation.xaml.cs</Link>
+			<DependentUpon>BounceOutAnimation.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\LinearAnimation.xaml.cs">
+			<Link>Samples\RadialGauge\Animation\LinearAnimation.xaml.cs</Link>
+			<DependentUpon>LinearAnimation.xaml</DependentUpon>
+		</Compile>
+	    <Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\SpringInAnimation.xaml.cs">
+			<Link>Samples\RadialGauge\Animation\SpringInAnimation.xaml.cs</Link>
+			<DependentUpon>SpringInAnimation.xaml</DependentUpon>
+		</Compile>
+	    <Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\SpringOutAnimation.xaml.cs">
+			<Link>Samples\RadialGauge\Animation\SpringOutAnimation.xaml.cs</Link>
+			<DependentUpon>SpringOutAnimation.xaml</DependentUpon>
+		</Compile>
+		
+	     <Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Annotation\Compass.xaml.cs">
+			<Link>Samples\RadialGauge\Annotation\Compass.xaml.cs</Link>
+			<DependentUpon>Compass.xaml</DependentUpon>
+		</Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Annotation\ImageAnnotation.xaml.cs">
+			<Link>Samples\RadialGauge\Annotation\ImageAnnotation.xaml.cs</Link>
+			<DependentUpon>ImageAnnotation.xaml</DependentUpon>
+		</Compile>
+	
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\AxisBackground.xaml.cs">
+			<Link>Samples\RadialGauge\Axis\AxisBackground.xaml.cs</Link>
+			<DependentUpon>AxisBackground.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\CustomLabel.xaml.cs">
+			<Link>Samples\RadialGauge\Axis\CustomLabel.xaml.cs</Link>
+			<DependentUpon>CustomLabel.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\CustomScale.xaml.cs">
+			<Link>Samples\RadialGauge\Axis\CustomScale.xaml.cs</Link>
+			<DependentUpon>CustomScale.xaml</DependentUpon>
+		</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\DefaultView.xaml.cs">
+			<Link>Samples\RadialGauge\Axis\DefaultView.xaml.cs</Link>
+			<DependentUpon>DefaultView.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\LabelCustomization.xaml.cs">
+			<Link>Samples\RadialGauge\Axis\LabelCustomization.xaml.cs</Link>
+			<DependentUpon>LabelCustomization.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\MultipleAxis.xaml.cs">
+			<Link>Samples\RadialGauge\Axis\MultipleAxis.xaml.cs</Link>
+			<DependentUpon>MultipleAxis.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\RangeColor.xaml.cs">
+			<Link>Samples\RadialGauge\Axis\RangeColor.xaml.cs</Link>
+			<DependentUpon>RangeColor.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\TickCustomization.xaml.cs">
+			<Link>Samples\RadialGauge\Axis\TickCustomization.xaml.cs</Link>
+			<DependentUpon>TickCustomization.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Interaction\RadialRangeSlider.xaml.cs">
+			<Link>Samples\RadialGauge\Interaction\RadialRangeSlider.xaml.cs</Link>
+			<DependentUpon>RadialRangeSlider.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Interaction\RadialSlider.xaml.cs">
+			<Link>Samples\RadialGauge\Interaction\RadialSlider.xaml.cs</Link>
+			<DependentUpon>RadialSlider.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Pointers\MarkerPointer.xaml.cs">
+			<Link>Samples\RadialGauge\Pointers\MarkerPointer.xaml.cs</Link>
+			<DependentUpon>MarkerPointer.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Pointers\MultipleNeedle.xaml.cs">
+			<Link>Samples\RadialGauge\Pointers\MultipleNeedle.xaml.cs</Link>
+			<DependentUpon>MultipleNeedle.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Pointers\RangePointer.xaml.cs">
+			<Link>Samples\RadialGauge\Pointers\RangePointer.xaml.cs</Link>
+			<DependentUpon>RangePointer.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Range\MultiRanges.xaml.cs">
+			<Link>Samples\RadialGauge\Range\MultiRanges.xaml.cs</Link>
+			<DependentUpon>MultiRanges.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Range\RangeLabel.xaml.cs">
+			<Link>Samples\RadialGauge\Range\RangeLabel.xaml.cs</Link>
+			<DependentUpon>RangeLabel.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Range\RangeThickness.xaml.cs">
+			<Link>Samples\RadialGauge\Range\RangeThickness.xaml.cs</Link>
+			<DependentUpon>RangeThickness.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Showcase\Clock.xaml.cs">
+			<Link>Samples\RadialGauge\Showcase\Clock.xaml.cs</Link>
+			<DependentUpon>Clock.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Showcase\DistanceTracker.xaml.cs">
+			<Link>Samples\RadialGauge\Showcase\DistanceTracker.xaml.cs</Link>
+			<DependentUpon>DistanceTracker.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Showcase\SleepTracker.xaml.cs">
+			<Link>Samples\RadialGauge\Showcase\SleepTracker.xaml.cs</Link>
+			<DependentUpon>SleepTracker.xaml</DependentUpon>
+		</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Showcase\TemperatureMonitor.xaml.cs">
+			<Link>Samples\RadialGauge\Showcase\TemperatureMonitor.xaml.cs</Link>
+			<DependentUpon>TemperatureMonitor.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DigitalGauge\GettingStarted\GettingStarted.xaml.cs">
+			<Link>Samples\DigitalGauge\GettingStarted\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DigitalGauge\GettingStarted\GettingStartedDesktopUI.xaml.cs">
+			<Link>Samples\DigitalGauge\GettingStarted\GettingStartedDesktopUI.xaml.cs</Link>
+			<DependentUpon>GettingStartedDesktopUI.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DigitalGauge\GettingStarted\GettingStartedMobileUI.xaml.cs">
+			<Link>Samples\DigitalGauge\GettingStarted\GettingStartedMobileUI.xaml.cs</Link>
+			<DependentUpon>GettingStartedMobileUI.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DigitalGauge\Behavior\GettingStartedBehavior.cs">
+			<Link>Samples\DigitalGauge\Behavior\GettingStartedBehavior.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\DigitalGauge\ViewModel.cs">
+			<Link>Samples\DigitalGauge\GettingStarted\ViewModel.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+	
+	</ItemGroup>
+
+	
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\GaugesSamplesList.xml" >
+			<Link>GaugesSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\BounceInAnimation.xaml">
+			<Link>Samples\RadialGauge\Animation\BounceInAnimation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\BounceOutAnimation.xaml">
+			<Link>Samples\RadialGauge\Animation\BounceOutAnimation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\LinearAnimation.xaml">
+			<Link>Samples\RadialGauge\Animation\LinearAnimation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\SpringInAnimation.xaml">
+			<Link>Samples\RadialGauge\Animation\SpringInAnimation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+    <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Animation\SpringOutAnimation.xaml">
+			<Link>Samples\RadialGauge\Animation\SpringOutAnimation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Annotation\Compass.xaml">
+			<Link>Samples\RadialGauge\Annotation\Compass.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Annotation\ImageAnnotation.xaml">
+			<Link>Samples\RadialGauge\Annotation\ImageAnnotation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\AxisBackground.xaml">
+			<Link>Samples\RadialGauge\Axis\AxisBackground.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\CustomLabel.xaml">
+			<Link>Samples\RadialGauge\Axis\CustomLabel.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+    <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\CustomScale.xaml">
+			<Link>Samples\RadialGauge\Axis\CustomScale.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\DefaultView.xaml">
+			<Link>Samples\RadialGauge\Axis\DefaultView.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+    <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\LabelCustomization.xaml">
+			<Link>Samples\RadialGauge\Axis\LabelCustomization.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\MultipleAxis.xaml">
+			<Link>Samples\RadialGauge\Axis\MultipleAxis.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+    <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\RangeColor.xaml">
+			<Link>Samples\RadialGauge\Axis\RangeColor.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+    <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Axis\TickCustomization.xaml">
+			<Link>Samples\RadialGauge\Axis\TickCustomization.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Interaction\RadialRangeSlider.xaml">
+			<Link>Samples\RadialGauge\Interaction\RadialRangeSlider.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Interaction\RadialSlider.xaml">
+			<Link>Samples\RadialGauge\Interaction\RadialSlider.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Pointers\MarkerPointer.xaml">
+			<Link>Samples\RadialGauge\Pointers\MarkerPointer.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Pointers\MultipleNeedle.xaml">
+			<Link>Samples\RadialGauge\Pointers\MultipleNeedle.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+    <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Pointers\RangePointer.xaml">
+			<Link>Samples\RadialGauge\Pointers\RangePointer.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+
+	 <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Range\MultiRanges.xaml">
+			<Link>Samples\RadialGauge\Range\MultiRanges.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	 <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Range\RangeLabel.xaml">
+			<Link>Samples\RadialGauge\Range\RangeLabel.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	 <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Range\RangeThickness.xaml">
+			<Link>Samples\RadialGauge\Range\RangeThickness.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	 <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Showcase\Clock.xaml">
+			<Link>Samples\RadialGauge\Showcase\Clock.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+     <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Showcase\DistanceTracker.xaml">
+			<Link>Samples\RadialGauge\Showcase\DistanceTracker.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	 <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Showcase\SleepTracker.xaml">
+			<Link>Samples\RadialGauge\Showcase\SleepTracker.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	 <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialGauge\Showcase\TemperatureMonitor.xaml">
+			<Link>Samples\RadialGauge\Showcase\TemperatureMonitor.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	
+	<ItemGroup>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeLabels.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeLabels.xaml.cs</Link>
+			<DependentUpon>LinearGaugeLabels.xaml</DependentUpon>
+		</Compile>
+	
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeLabelsHorizontal.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeLabelsHorizontal.xaml.cs</Link>
+			<DependentUpon>LinearGaugeLabelsHorizontal.xaml</DependentUpon>
+		</Compile>
+  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeLabelsVertical.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeLabelsVertical.xaml.cs</Link>
+			<DependentUpon>LinearGaugeLabelsVertical.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTicks.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTicks.xaml.cs</Link>
+			<DependentUpon>LinearGaugeTicks.xaml</DependentUpon>
+		</Compile>
+		 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTicksHorizontal.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTicksHorizontal.xaml.cs</Link>
+			<DependentUpon>LinearGaugeTicksHorizontal.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTicksVertical.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTicksVertical.xaml.cs</Link>
+			<DependentUpon>LinearGaugeTicksVertical.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTrack.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTrack.xaml.cs</Link>
+			<DependentUpon>LinearGaugeTrack.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTrackHorizontal.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTrackHorizontal.xaml.cs</Link>
+			<DependentUpon>LinearGaugeTrackHorizontal.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTrackVertical.xaml.cs">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTrackVertical.xaml.cs</Link>
+			<DependentUpon>LinearGaugeTrackVertical.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeBarPointer.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeBarPointer.xaml.cs</Link>
+			<DependentUpon>LinearGaugeBarPointer.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeBarPointerHorizontal.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeBarPointerHorizontal.xaml.cs</Link>
+			<DependentUpon>LinearGaugeBarPointerHorizontal.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeBarPointerVertical.xaml.cs">
+			<Link>Samples\LinearGauge\Pointer\LinearGaugeBarPointerVertical.xaml.cs</Link>
+			<DependentUpon>LinearGaugeBarPointerVertical.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeContentPointer.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeContentPointer.xaml.cs</Link>
+			<DependentUpon>LinearGaugeContentPointer.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeContentPointerHorizontal.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeContentPointerHorizontal.xaml.cs</Link>
+			<DependentUpon>LinearGaugeContentPointerHorizontal.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeContentPointerVertical.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeContentPointerVertical.xaml.cs</Link>
+			<DependentUpon>LinearGaugeContentPointerVertical.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeDragPointer.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeDragPointer.xaml.cs</Link>
+			<DependentUpon>LinearGaugeDragPointer.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeShapePointer.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeShapePointer.xaml.cs</Link>
+			<DependentUpon>LinearGaugeShapePointer.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeShapePointerHorizontal.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeShapePointerHorizontal.xaml.cs</Link>
+			<DependentUpon>LinearGaugeShapePointerHorizontal.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeShapePointerVertical.xaml.cs">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeShapePointerVertical.xaml.cs</Link>
+			<DependentUpon>LinearGaugeShapePointerVertical.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Range\LinearGaugeRange.xaml.cs">
+			<Link>Samples\LinearGauge\Range\LinearGaugeRange.xaml.cs</Link>
+			<DependentUpon>LinearGaugeRange.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Range\LinearGaugeRangeHorizontal.xaml.cs">
+			<Link>Samples\LinearGauge\Range\LinearGaugeRangeHorizontal.xaml.cs</Link>
+			<DependentUpon>LinearGaugeRangeHorizontal.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Range\LinearGaugeRangeVertical.xaml.cs">
+			<Link>Samples\LinearGauge\Range\LinearGaugeRangeVertical.xaml.cs</Link>
+			<DependentUpon>LinearGaugeRangeVertical.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\ActiveHours.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\ActiveHours.xaml.cs</Link>
+			<DependentUpon>ActiveHours.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\BatteryIndicator.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\BatteryIndicator.xaml.cs</Link>
+			<DependentUpon>BatteryIndicator.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\HeightCalculator.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\HeightCalculator.xaml.cs</Link>
+			<DependentUpon>HeightCalculator.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\ProgressBar.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\ProgressBar.xaml.cs</Link>
+			<DependentUpon>ProgressBar.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\ShowcaseHelper.cs" />
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\SleepWatchScore.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\SleepWatchScore.xaml.cs</Link>
+			<DependentUpon>SleepWatchScore.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\TaskTracker.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\TaskTracker.xaml.cs</Link>
+			<DependentUpon>TaskTracker.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\TemperatureMeter.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\TemperatureMeter.xaml.cs</Link>
+			<DependentUpon>TemperatureMeter.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\ThermometerGauge.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\ThermometerGauge.xaml.cs</Link>
+			<DependentUpon>ThermometerGauge.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\VolumeSettings.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\VolumeSettings.xaml.cs</Link>
+			<DependentUpon>VolumeSettings.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\WaterLevelIndicator.xaml.cs">
+			<Link>Samples\LinearGauge\Showcase\WaterLevelIndicator.xaml.cs</Link>
+			<DependentUpon>WaterLevelIndicator.xaml</DependentUpon>
+		</Compile>
+			
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeLabels.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeLabels.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeLabelsHorizontal.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeLabelsHorizontal.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeLabelsVertical.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeLabelsVertical.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTicks.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTicks.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTicksHorizontal.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTicksHorizontal.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTicksVertical.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTicksVertical.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTrack.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTrack.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTrackHorizontal.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTrackHorizontal.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Axis\LinearGaugeTrackVertical.xaml">
+			<Link>Samples\LinearGauge\Axis\LinearGaugeTrackVertical.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeBarPointer.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeBarPointer.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeBarPointerHorizontal.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeBarPointerHorizontal.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeBarPointerVertical.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeBarPointerVertical.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeContentPointer.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeContentPointer.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeContentPointerHorizontal.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeContentPointerHorizontal.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeContentPointerVertical.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeContentPointerVertical.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeDragPointer.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeDragPointer.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeShapePointer.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeShapePointer.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeShapePointerHorizontal.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeShapePointerHorizontal.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Pointers\LinearGaugeShapePointerVertical.xaml">
+			<Link>Samples\LinearGauge\Pointers\LinearGaugeShapePointerVertical.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Range\LinearGaugeRange.xaml">
+			<Link>Samples\LinearGauge\Range\LinearGaugeRange.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Range\LinearGaugeRangeHorizontal.xaml">
+			<Link>Samples\LinearGauge\Range\LinearGaugeRangeHorizontal.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Range\LinearGaugeRangeVertical.xaml">
+			<Link>Samples\LinearGauge\Range\LinearGaugeRangeVertical.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\ActiveHours.xaml">
+			<Link>Samples\LinearGauge\Showcase\ActiveHours.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\BatteryIndicator.xaml">
+			<Link>Samples\LinearGauge\Showcase\BatteryIndicator.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\HeightCalculator.xaml">
+			<Link>Samples\LinearGauge\Showcase\HeightCalculator.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\ProgressBar.xaml">
+			<Link>Samples\LinearGauge\Showcase\ProgressBar.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\SleepWatchScore.xaml">
+			<Link>Samples\LinearGauge\Showcase\SleepWatchScore.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\TaskTracker.xaml">
+			<Link>Samples\LinearGauge\Showcase\TaskTracker.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\TemperatureMeter.xaml">
+			<Link>Samples\LinearGauge\Showcase\TemperatureMeter.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\ThermometerGauge.xaml">
+			<Link>Samples\LinearGauge\Showcase\ThermometerGauge.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\VolumeSettings.xaml">
+			<Link>Samples\LinearGauge\Showcase\VolumeSettings.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearGauge\Showcase\WaterLevelIndicator.xaml">
+			<Link>Samples\LinearGauge\Showcase\WaterLevelIndicator.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DigitalGauge\GettingStarted\GettingStarted.xaml">
+			<Link>Samples\DigitalGauge\GettingStarted\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DigitalGauge\GettingStarted\GettingStartedDesktopUI.xaml">
+			<Link>Samples\DigitalGauge\GettingStarted\GettingStartedDesktopUI.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DigitalGauge\GettingStarted\GettingStartedMobileUI.xaml">
+			<Link>Samples\DigitalGauge\GettingStarted\GettingStartedMobileUI.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

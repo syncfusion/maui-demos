@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Searching"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"                    
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="115"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="optionRowSpacing" x:TypeArguments="x:Double">
+            <On Platform="iOS, WinUI, MacCatalyst" Value="5"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="shippingDateColumn" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="searchBoxHeight" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="40"></On>
+            <On Platform="WinUI,MacCatalyst" Value="42"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-5,0,-5,-5"/>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+       
+        <Color x:Key="frameLightThemeColor">#F7F2FB</Color>
+        <Color x:Key="frameDarkThemeColor">#25232A</Color>
+
+        <Color x:Key="searchBarLightThemeColor">#E7E0EC</Color>
+        <Color x:Key="searchBarDarkThemeColor">#49454F</Color>
+
+        <Color x:Key="trackLightThemeColor">#6750A4</Color>
+        <Color x:Key="trackDarkThemeColor">#D0BCFF</Color>
+        <Color x:Key="thumbLightThemeColor">#FFFFFF</Color>
+        <Color x:Key="thumbDarkThemeColor">#381E72</Color>
+        <Color x:Key="trackOffLightThemeColor">#E7E0EC</Color>
+        <Color x:Key="trackOffDarkThemeColor">#49454F</Color>
+        <Color x:Key="thumbOffLightThemeColor">#79747E</Color>
+        <Color x:Key="thumbOffDarkThemeColor">#938F99</Color>
+        <Style TargetType="editors:SfSwitch" x:Key="sfSwitchStyle">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="On">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <editors:SwitchSettings ThumbBackground="{AppThemeBinding Light={StaticResource thumbLightThemeColor}, Dark={StaticResource thumbDarkThemeColor}}"
+                                                         TrackBackground="{AppThemeBinding Light={StaticResource trackLightThemeColor}, Dark={StaticResource trackDarkThemeColor}}"
+                                                         TrackHeightRequest="20"
+                                                         TrackWidthRequest="42"
+                                                         ThumbHeightRequest="12"
+                                                         ThumbWidthRequest="12" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Off">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <editors:SwitchSettings ThumbBackground="{AppThemeBinding Light={StaticResource thumbOffLightThemeColor}, Dark={StaticResource thumbOffDarkThemeColor}}"
+                                                         TrackBackground="{AppThemeBinding Light={StaticResource trackOffLightThemeColor}, Dark={StaticResource trackOffDarkThemeColor}}"
+                                                         TrackHeightRequest="20"
+                                                         TrackWidthRequest="42"
+                                                         ThumbHeightRequest="12"
+                                                         ThumbWidthRequest="12" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Behaviors>
+        <local:SearchingBehavior></local:SearchingBehavior>
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel></local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView>
+        <localCore:SampleView.Content>
+            <Grid HorizontalOptions="CenterAndExpand" x:Name="grid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Border HeightRequest="55"
+                Margin="{OnPlatform WinUI='-5',MacCatalyst='-5'}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource frameLightThemeColor}, Dark={StaticResource frameDarkThemeColor}}"
+                HorizontalOptions="FillAndExpand"
+                Stroke="#2121210A"
+                Grid.Row="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="0" />
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal" Padding="0,0,10,6" Margin="0,5,0,0" HorizontalOptions="End" WidthRequest="{OnPlatform WinUI='300', Android='390'}" HeightRequest="{OnPlatform Android='65'}">
+                        <Border Padding="{OnPlatform Android='0,6,20,5'}" WidthRequest="{OnPlatform WinUI='283',Android='530', iOS='500',MacCatalyst='300'}" BackgroundColor="{AppThemeBinding Light={StaticResource searchBarLightThemeColor}, Dark={StaticResource searchBarDarkThemeColor}}" HorizontalOptions="End" HeightRequest="{OnPlatform WinUI='42',iOS='60',MacCatalyst='40'}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="{OnPlatform WinUI='20',MacCatalyst='20', Android='0'}" />
+                            </Border.StrokeShape>
+
+                            <Grid  HorizontalOptions="Start" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="&#xE715;"
+                                       FontFamily="MauiMaterialAssets"
+                                       TextColor="{DynamicResource IconColor}"
+                                       FontSize="18"
+                                       Padding="15, 4, 0, 4"
+                                       VerticalOptions="Center"
+                                       Grid.Row="0"
+                                       Grid.Column="0">
+                                </Label>
+                                <syncfusion:SfMaskedEntry x:Name="filterText"
+                               WidthRequest="{OnPlatform WinUI='283',iOS='260',MacCatalyst='170', Android='255'}" HeightRequest="{OnPlatform WinUI='42',Android='40',iOS='60'}" 
+                                ShowBorder="False"  Placeholder="Search"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" 
+                               
+                               IsVisible="true" ClearButtonVisibility="Never"
+                               Grid.Row="0" Grid.Column="2"/>
+
+                                <Label Text="&#xE708;" x:Name="findPrevious"
+           TextColor="{DynamicResource IconColor}"
+           FontSize="18" HeightRequest="18"
+           WidthRequest="18"
+           FontFamily="MauiMaterialAssets"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           Margin="5,0"
+           Opacity="0"
+           IsEnabled="False"
+           Grid.Row="0" Grid.Column="3">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="FindPreviousClicked" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Label Text="&#xE705;" x:Name="findNext"
+           TextColor="{DynamicResource IconColor}"
+           FontSize="18"
+           WidthRequest="18"  HeightRequest="18"
+           FontFamily="MauiMaterialAssets"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           Margin="10,0"
+           Opacity="0"
+           IsEnabled="False"
+           Grid.Row="0" Grid.Column="4">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="FindNextClicked" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Label Text="&#xE70B;" x:Name="clear"
+                                       FontSize="18"
+                                       WidthRequest="18"  HeightRequest="18"
+                                        FontFamily="MauiMaterialAssets"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Margin="0,0,15,0"
+                                        Opacity="0"
+                                        IsEnabled="False" Grid.Row="0" Grid.Column="5">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ClearButtonClicked" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
+                    </StackLayout>
+                </Border>
+
+                <Border Padding="0"
+                Margin="{StaticResource margin}"
+                Grid.Row="1"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent">
+                    <Grid>
+                        <sfgrid:SfDataGrid x:Name="dataGrid"
+                                       AutoGenerateColumnsMode="None"
+                                       RowHeight="48"
+                                       HorizontalScrollBarVisibility="Always"
+                                       VerticalScrollBarVisibility="Always"
+                                       x:DataType="local:OrderInfoViewModel"
+                                       ItemsSource="{Binding OrdersInfo}"
+                                       ColumnWidthMode="Fill">
+                            <sfgrid:SfDataGrid.Columns>
+                                <sfgrid:DataGridNumericColumn Format="D"
+                                                          HeaderText="ID"
+                                                          MappingName="OrderID" />
+                                <sfgrid:DataGridTextColumn HeaderText="Name"
+                                                   MappingName="FirstName" />
+                                <sfgrid:DataGridTextColumn HeaderText="Customer ID"
+                                                   MinimumWidth="{StaticResource minimumWidth}"
+                                                   MappingName="CustomerID" />
+                                <sfgrid:DataGridTextColumn HeaderText="City"
+                                                   MinimumWidth="{StaticResource minimumWidth}"
+                                                   MappingName="ShipCity" />
+                                <sfgrid:DataGridTextColumn HeaderText="Country"
+                                                   MinimumWidth="{StaticResource minimumWidth}"
+                                                   MappingName="ShipCountry" />
+                            </sfgrid:SfDataGrid.Columns>
+                        </sfgrid:SfDataGrid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </localCore:SampleView.Content>
+    </localCore:SampleView>
+
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid ColumnSpacing="10" 
+                  RowSpacing="{StaticResource optionRowSpacing}"
+                  RowDefinitions="Auto, Auto"
+                  ColumnDefinitions="Auto, *">
+
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="allowFiltering"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="False"
+                                  Grid.Column="1"
+                                  Grid.Row="0"
+                                  Style="{StaticResource sfSwitchStyle}">
+                </editors:SfSwitch>
+                <Label
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontSize="15"
+                       HorizontalOptions="Start"
+                       Text="Allow filtering"
+                       VerticalOptions="Center" />
+
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="allowCaseSensitive"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="False"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  Style="{StaticResource sfSwitchStyle}">
+                </editors:SfSwitch>
+                <Label
+   					   Grid.Row="1"
+   					   Grid.Column="0"
+   					   FontSize="15"
+   					   HorizontalOptions="Start"
+   					   Text="Allow case sensitive"
+   					   VerticalOptions="Center" />
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

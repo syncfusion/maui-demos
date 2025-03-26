@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.ListView.SfListView.ItemReordering"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:DataType="local:ListViewItemReorderingViewModel">
+
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+    </localCore:SampleView.Resources>
+    
+    <localCore:SampleView.BindingContext>
+        <local:ListViewItemReorderingViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Margin>
+        <OnPlatform x:TypeArguments="thickness:Thickness">
+            <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
+            <On Platform="WinUI" Value="-4,-4,-6,-6"/>
+        </OnPlatform>
+    </localCore:SampleView.Margin>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Image Source="{converters:SfImageResource feedbackform.png}" Aspect="Fill" IsVisible="{OnPlatform Default=False,WinUI=True,MacCatalyst=True}"/>
+            <Grid ColumnDefinitions="0.3*,0.7*" RowDefinitions="56,*">
+                <Label Text="Music Tracks" TextColor="{OnPlatform Default={AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}},WinUI=White,MacCatalyst=White}" 
+                       FontSize="{OnPlatform Default=16,WinUI=20,MacCatalyst=20}"
+                       Grid.ColumnSpan="{OnPlatform Default=2,WinUI=1,MacCatalyst=1}"
+                       FontAttributes="{OnPlatform Default=None,WinUI=Bold,MacCatalyst=Bold}" FontFamily="Roboto-Medium"
+                       CharacterSpacing="0.25" HorizontalOptions="Start"
+                       VerticalOptions="Start" VerticalTextAlignment="Center" 
+                       Padding="20,20,0,0" HeightRequest="56" Grid.Row="0"/>
+
+                <Border Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                    Grid.Row="{OnPlatform Default=1,WinUI=0,MacCatalyst=0}"
+                    Grid.Column="{OnPlatform Default=0,WinUI=1,MacCatalyst=1}"
+                    Grid.ColumnSpan="{OnPlatform Default=2,WinUI=1,MacCatalyst=1}"
+                    Grid.RowSpan="{OnPlatform Default=1,WinUI=2,MacCatalyst=2}"
+                    VerticalOptions="{OnPlatform Default=Fill, WinUI=Center,MacCatalyst=Center}"
+                    HorizontalOptions="{OnPlatform WinUI=Start, MacCatalyst=Start, Default=Fill}" >
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Border.Padding>
+                        <OnPlatform x:TypeArguments="thickness:Thickness">
+                            <On Platform="MacCatalyst" Value="10"/>
+                            <On Platform="WinUI" Value="10"/>
+                        </OnPlatform>
+                    </Border.Padding>
+                    <Border.Margin>
+                        <OnPlatform x:TypeArguments="thickness:Thickness">
+                            <On Platform="WinUI" Value="0,40,40,40"/>
+                            <On Platform="MacCatalyst"  Value="0,40,40,40"/>
+                        </OnPlatform>
+                    </Border.Margin>
+
+                    <ListView:SfListView x:Name="listView" SelectionMode="None"
+                                 ItemSize="72" ItemsSource="{Binding SongInfo}"
+                                 DragStartMode="OnDragIndicator,OnHold">
+                        <ListView:SfListView.ItemTemplate>
+                            <DataTemplate x:DataType="local:SongInfo">
+                                <Grid VerticalOptions="Center" HeightRequest="72">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="72"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border HorizontalOptions="Center" Grid.Column="0" HeightRequest="40" WidthRequest="40" Padding="0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="2"/>
+                                        </Border.StrokeShape>
+                                        <Image Source="{Binding TrackImage,Converter={StaticResource imageconverter}}" HeightRequest="40" WidthRequest="40"
+                                   VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    </Border>
+
+                                    <Grid Grid.Column="1" RowSpacing="2" VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding SongTitle}" FontSize="16" FontFamily="Roboto-Regular"
+                                       CharacterSpacing="0.15"/>
+                                        <Label Grid.Row="1" Text="{Binding SingerName}" FontSize="14" FontFamily="Roboto-Regular"
+                                       CharacterSpacing="0.25" Opacity="0.8"/>
+                                    </Grid>
+
+                                    <Border WidthRequest="30" HeightRequest="30" Grid.Column="2" StrokeThickness="0" >
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="30"/>
+                                        </Border.StrokeShape>
+                                        <local:SfEffectsViewAdv>
+                                            <ListView:DragIndicatorView ListView="{x:Reference listView}">
+                                                <Label Text="&#xe776;" FontFamily="MauiSampleFontIcon"
+                                               VerticalOptions="Center" VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center" FontSize="20"/>
+                                            </ListView:DragIndicatorView>
+                                        </local:SfEffectsViewAdv>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView:SfListView.ItemTemplate>
+                        <ListView:SfListView.DragItemTemplate>
+                            <DataTemplate x:DataType="local:SongInfo">
+                                <Grid Opacity="0.8" VerticalOptions="Center" HeightRequest="72">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="72"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border HorizontalOptions="Center" Grid.Column="0" HeightRequest="40" WidthRequest="40" Padding="0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="2"/>
+                                        </Border.StrokeShape>
+                                        <Image Source="{Binding TrackImage,Converter={StaticResource imageconverter}}" HeightRequest="40" WidthRequest="40"
+                                   VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    </Border>
+
+                                    <Grid Grid.Column="1" RowSpacing="2" VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding SongTitle}" FontSize="16" FontFamily="Roboto-Regular"
+                                       CharacterSpacing="0.15"/>
+                                        <Label Grid.Row="1" Text="{Binding SingerName}" FontSize="14" FontFamily="Roboto-Regular"
+                                       CharacterSpacing="0.25"/>
+                                    </Grid>
+
+                                    <ListView:DragIndicatorView ListView="{x:Reference listView}" WidthRequest="30" HeightRequest="30" Grid.Column="2" >
+                                        <Label Text="&#xe776;" FontFamily="MauiSampleFontIcon"
+                                               VerticalOptions="Center" VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center" FontSize="20"/>
+                                    </ListView:DragIndicatorView>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView:SfListView.DragItemTemplate>
+                    </ListView:SfListView>
+                </Border>
+            </Grid> 
+        </Grid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>
