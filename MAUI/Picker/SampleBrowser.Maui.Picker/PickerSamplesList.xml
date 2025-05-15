@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Picker">
+	  
+	  <Control Title="Picker" Image="picker.png" ControlName="SfPicker" Description="A versatile UI element designed for making selections from a set of options.">
+		  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="Picker/GettingStarted/"/>
+		  <Sample Title="Flight booking" SampleName="FlightBooking" CodeViewerPath="Picker/FlightBooking/"/>
+	  </Control>
+
+	  <Control Title="Date Picker" StatusTag="Updated" Image="datepicker.png" ControlName="SfDatePicker" Description="A user interface element for selecting specific dates.">
+		  <Sample Title="Getting Started" SampleName="GettingStarted" StatusTag="Updated" WhatsNew="Provided disabled dates support in .NET MAUI Date picker control." CodeViewerPath="DatePicker/GettingStarted/"/>
+		  <Sample Title="To-Do" SampleName="Customization" CodeViewerPath="DatePicker/Customization/"/>
+	  </Control>
+
+	  <Control Title="Time Picker" StatusTag="Updated" Image="timepicker.png" ControlName="SfTimePicker" Description="An interface for choosing specific times of day.">
+		  <Sample Title="Getting Started" SampleName="GettingStarted" StatusTag="Updated" WhatsNew="Provided disabled times support in .NET MAUI Time picker control." CodeViewerPath="TimePicker/GettingStarted/"/>
+		  <Sample Title="Alarm" SampleName="Customization" CodeViewerPath="TimePicker/Customization/" />
+	  </Control>
+
+	  <Control Title="Date Time Picker" StatusTag="Updated" Image="datetimepicker.png" ControlName="SfDateTimePicker" Description="A combined interface to select dates and times.">
+		  <Sample Title="Getting Started" StatusTag="Updated" WhatsNew="Provided disabled datetimes support in .NET MAUI Date Time picker control." SampleName="GettingStarted" CodeViewerPath="DateTimePicker/GettingStarted/"/>
+	  </Control>
+	  
+  </ControlCategory>
+</SyncfusionControls>

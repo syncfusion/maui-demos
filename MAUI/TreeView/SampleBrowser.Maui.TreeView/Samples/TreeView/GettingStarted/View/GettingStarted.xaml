@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.TreeView;assembly=Syncfusion.Maui.TreeView"
+             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.Maui.TreeView"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"           
+             x:Class="SampleBrowser.Maui.TreeView.SfTreeView.GettingStarted"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TreeView">
+
+    <localCore:SampleView.BindingContext>
+        <local:FileManagerViewModel x:Name="fileMangerViewmodel"/>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Behaviors>
+        <local:SfTreeViewGettingStartedBehavior />
+    </localCore:SampleView.Behaviors>
+    
+    <localCore:SampleView.Resources>
+        <converters:SfImageSourceConverter x:Key="imageConverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Border Padding="0" 
+                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                Stroke="{AppThemeBinding Light={StaticResource TextColour1}, Dark={StaticResource Border}}"
+                StrokeThickness="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}"
+                VerticalOptions="{OnPlatform MacCatalyst=Center}"
+                MaximumWidthRequest="{OnPlatform WinUI=380, MacCatalyst=400}"
+                HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="{OnPlatform Default=0,WinUI=10,MacCatalyst=10}" />
+            </Border.StrokeShape>
+            <Border.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="20"/>
+                    <On Platform="WinUI" Value="20"/>
+                </OnPlatform>
+            </Border.Margin>
+            <Grid MaximumWidthRequest="{OnPlatform WinUI=350, MacCatalyst=400}" 
+                  HorizontalOptions="{OnPlatform Default=Fill}">
+                <syncfusion:SfTreeView x:Name="treeView"
+                                Margin="{OnPlatform WinUI='0,0,1,0', MacCatalyst='8,8,1,0'}"  
+                                ItemsSource="{Binding Folders}"
+                                AutoExpandMode="AllNodesExpanded"
+                                FullRowSelect="True"
+                                ItemHeight="{OnPlatform Android=48, MacCatalyst=40, WinUI=40, iOS=48}"
+                                ExpandActionTarget="Node">
+
+                    <syncfusion:SfTreeView.HierarchyPropertyDescriptors>
+                        <treeviewengine:HierarchyPropertyDescriptor TargetType="{x:Type local:Folder}" ChildPropertyName="FilesInfo"/>
+                        <treeviewengine:HierarchyPropertyDescriptor TargetType="{x:Type local:File}" ChildPropertyName="SubFiles"/>
+                    </syncfusion:SfTreeView.HierarchyPropertyDescriptors>
+                    <syncfusion:SfTreeView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid x:Name="grid" RowSpacing="0" BackgroundColor="Transparent">
+                                <Grid RowSpacing="0" Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Image Source="{Binding ImageIcon,Converter={StaticResource imageConverter}}"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"
+                                                HeightRequest="24" 
+                                                WidthRequest="24"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1" RowSpacing="1" Padding="1,0,0,0" VerticalOptions="Center">
+                                        <Label LineBreakMode="NoWrap"
+                                                Margin="5,0,0,0"
+                                                Text="{Binding FolderName}"
+                                                CharacterSpacing="0.25" 
+                                                FontFamily="Roboto-Regular" 
+                                                FontSize="14"
+                                                VerticalTextAlignment="Center" />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:SfTreeView.ItemTemplate>
+                </syncfusion:SfTreeView>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid Padding="0,20,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0"
+                       HorizontalOptions="Start"
+                       Text="Expander position"
+                       VerticalOptions="Center" FontSize="14"/>
+
+                <editors:SfComboBox  x:Name="comboBox"
+                                    Grid.Row="0" Grid.Column="1"
+                                    HorizontalOptions="Start">
+
+                    <editors:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Start</x:String>
+                            <x:String>End</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
+
+                    <editors:SfComboBox.SelectedItem>
+                        <x:String>Start</x:String>
+                    </editors:SfComboBox.SelectedItem>
+                </editors:SfComboBox>
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>
