@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             HorizontalOptions="Center"
+             x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.LinearGaugeLabelsVertical">
+    <ContentView.Resources>
+        <Style TargetType="Label" x:Key="HeaderLabel">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourAlt1Light}, Dark={StaticResource TextColourAlt1}}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="0,30,0,15" />
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        <Style TargetType="gauge:SfLinearGauge">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <ScrollView>
+            <Grid x:Name="grid"
+                  MaximumWidthRequest="{OnPlatform MacCatalyst='600', WinUI='600'}" ColumnSpacing="{OnPlatform MacCatalyst='10'}">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout WidthRequest="135">
+                    <Label Style="{DynamicResource HeaderLabel}" Text="Custom labels" LineBreakMode="NoWrap"/>
+                    <gauge:SfLinearGauge EnableAxisAnimation="True"
+                                 Minimum="5" Maximum="20" Interval="5"
+                                 LabelCreated="SfLinearGauge_LabelCreated"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Label offset" Style="{DynamicResource HeaderLabel}" LineBreakMode="NoWrap"/>
+                    <gauge:SfLinearGauge EnableAxisAnimation="True"
+                                 LabelOffset="20"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Text labels" Style="{DynamicResource HeaderLabel}" LineBreakMode="NoWrap"/>
+                    <local:LinearGaugeTextLabels Minimum="4.5" Maximum="20.5" Interval="5"
+                                                 IsInversed="True" HorizontalOptions="Center"
+                                 ShowTicks="False" LabelOffset="20" Orientation="Vertical"
+                                 MinorTicksPerInterval="0">
+                        <gauge:SfLinearGauge.BarPointers>
+                            <gauge:BarPointer Value="15" Fill="#05c3dd"/>
+                        </gauge:SfLinearGauge.BarPointers>
+                        <gauge:SfLinearGauge.MarkerPointers>
+                            <gauge:LinearShapePointer Value="5" Position="Cross" ShapeType="Circle"
+                                        Fill="#05c3dd" ShapeHeight="23" ShapeWidth="23"/>
+                            <gauge:LinearShapePointer Value="10" Position="Cross" ShapeType="Circle"
+                                        Fill="#05c3dd" ShapeHeight="23" ShapeWidth="23"/>
+                            <gauge:LinearShapePointer Value="15" Position="Cross" ShapeType="Circle"
+                                        Fill="#05c3dd" ShapeHeight="23" ShapeWidth="23"/>
+                            <gauge:LinearShapePointer Value="5" Position="Cross" ShapeType="Circle"
+                                        Fill="{AppThemeBinding Default={StaticResource ContentBackground}}"  ShapeHeight="17" ShapeWidth="17"/>
+                            <gauge:LinearShapePointer Value="10" Position="Cross" ShapeType="Circle"
+                                        Fill="{AppThemeBinding Default={StaticResource ContentBackground}}"  ShapeHeight="17" ShapeWidth="17"/>
+                            <gauge:LinearShapePointer Value="15" Position="Cross" ShapeType="Circle"
+                                        Fill="{AppThemeBinding Default={StaticResource ContentBackground}}" ShapeHeight="17" ShapeWidth="17"/>
+
+                            <gauge:LinearContentPointer Value="5" Position="Cross">
+                                <gauge:LinearContentPointer.Content>
+                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
+                                           Padding="0,10,0,0" HeightRequest="{OnPlatform Default=32, MacCatalyst=42, iOS=47}" Text="&#xe703;" 
+                                    HorizontalOptions="Center" 
+                                   VerticalOptions="Center"/>
+
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+                            <gauge:LinearContentPointer Value="10" Position="Cross">
+                                <gauge:LinearContentPointer.Content>
+                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
+                                    HorizontalOptions="Center" Padding="0,10,0,0"
+                                   VerticalOptions="Center" HeightRequest="{OnPlatform Default=32, MacCatalyst=42, iOS=47}" Text="&#xe703;" />
+
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+                            <gauge:LinearContentPointer Value="15" Position="Cross">
+                                <gauge:LinearContentPointer.Content>
+                                    <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}" TextColor="#05c3dd"
+                                    HorizontalOptions="Center" Padding="0,10,0,0"
+                                   VerticalOptions="Center" HeightRequest="{OnPlatform Default=32, MacCatalyst=42, iOS=47}" Text="&#xe703;" />
+
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+
+                            <gauge:LinearShapePointer Value="20" Position="Cross" ShapeType="Circle"
+                                        Fill="{AppThemeBinding Default={StaticResource ContentBackgroundAlt5}}" ShapeHeight="23" ShapeWidth="23"/>
+                        </gauge:SfLinearGauge.MarkerPointers>
+                    </local:LinearGaugeTextLabels>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Label style" Style="{DynamicResource HeaderLabel}" LineBreakMode="NoWrap"/>
+                    <gauge:SfLinearGauge EnableAxisAnimation="True">
+                        <gauge:SfLinearGauge.LabelStyle>
+                            <gauge:GaugeLabelStyle TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}" FontSize="10"/>
+                        </gauge:SfLinearGauge.LabelStyle>
+                    </gauge:SfLinearGauge>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

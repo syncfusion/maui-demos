@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.AIAssistView.SfAIAssistView.GettingStarted"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:aiAssist="clr-namespace:Syncfusion.Maui.AIAssistView;assembly=Syncfusion.Maui.AIAssistView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.AIAssistView.SfAIAssistView"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      x:Name="sampleView">
+    <localCore:SampleView.BindingContext>
+    <local:GettingStartedViewModel x:Name="viewModel"/>
+     </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Behaviors>
+        <local:SfAssistViewHeaderBehavior/>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+            <DataTemplate x:Key="headerTemplate">
+                <VerticalStackLayout Padding="{Binding HeaderPadding}">
+                    <Grid RowDefinitions="45,30,Auto" RowSpacing="10">
+                        <Border BackgroundColor="{AppThemeBinding Dark=#D0BCFF,Light=#6750A4}"  Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}" HorizontalOptions="Center" >
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Label Text="&#xe7e1;" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="MauiSampleFontIcon" TextColor="{AppThemeBinding Dark={StaticResource PrimaryForeground},Light={StaticResource White}}" HeightRequest="45" WidthRequest="45" HorizontalOptions="Center" />
+                        </Border>
+                        <Label Text="Ask AI Anything!" HorizontalOptions="Center" Grid.Row="1" FontFamily="Roboto-Regular" FontSize="16"/>
+                        <FlexLayout x:Name="headerlayout" BindableLayout.ItemsSource="{Binding HeaderInfoCollection}" Grid.Row="2" Wrap="Wrap" JustifyContent="Center" Direction="Row" >
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowDefinitions="*,Auto,10" Padding="10">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.HeaderItemTappedCommand, Source={x:Reference headerlayout}}" CommandParameter="{x:Reference label}"/>
+                                        </Grid.GestureRecognizers>
+                                        <Border WidthRequest="132" HeightRequest="130" Grid.RowSpan="2" HorizontalOptions="Center" Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="12"/>
+                                            </Border.StrokeShape>
+                                            <Image Source="{Binding Image,Converter={StaticResource imageconverter}}" Aspect="AspectFill"  HeightRequest="130" WidthRequest="130"  HorizontalOptions="Center"/>
+                                        </Border>
+                                        <Border BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}" Opacity="0.9" HorizontalOptions="Center" VerticalOptions="End" WidthRequest="120" Grid.Row="1" Grid.RowSpan="2">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="12"/>
+                                            </Border.StrokeShape>
+                                            <Label Text="{Binding HeaderMessage}" x:Name="label" FontFamily="Roboto-Regular" FontSize="14" Padding="10"  LineBreakMode="WordWrap"  HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Border x:Name="border"
+                Padding="0"
+                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}"
+                StrokeThickness="{OnPlatform Default=0,MacCatalyst=1,WinUI=1}"  
+                MaximumWidthRequest="{OnPlatform WinUI=650, MacCatalyst=670}"
+                HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <Border.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst"
+                        Value="20" />
+                </OnPlatform>
+            </Border.Margin>
+            <Grid>
+            <aiAssist:SfAIAssistView x:Name="sfAIAssistView"
+                                 ShowHeader="true"
+                                 StopRespondingCommand="{Binding StopRespondingCommand}"
+                                 HeaderTemplate="{StaticResource headerTemplate}"
+                                 AssistItems="{Binding Messages}" 
+                                 ItemCopyCommand="{Binding CopyCommand}" 
+                                 RequestCommand="{Binding AssistViewRequestCommand}"
+                                 ItemRetryCommand="{Binding RetryCommand}">
+            </aiAssist:SfAIAssistView>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
