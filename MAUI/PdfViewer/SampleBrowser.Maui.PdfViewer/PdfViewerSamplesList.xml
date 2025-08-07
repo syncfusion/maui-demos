@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Viewer">
+		<Control Title="PDF Viewer" ControlName="SfPdfViewer" Image="pdfviewer.png" Description="View the PDF documents seamlessly and efficiently">
+			<Sample Title="Getting Started" SampleName="GettingStarted" Description="This sample demonstrates how to load and view a PDF document in the PDF viewer." SearchTags="pdf, view pdf, pdf viewer, viewer, pdf reader" CodeViewerPath="PdfViewer/GettingStarted/View/" VideoLink="https://www.youtube.com/watch?v=KdXoeL5wvkA"/>
+			<Sample Title="Custom Toolbar" SampleName="CustomToolbar" Description="This sample demonstrates how to create a custom toolbar and perform functionalities using the APIs." SearchTags="pdf, view pdf, pdf viewer, viewer, pdf reader, toolbar, custom toolbar" CodeViewerPath="PdfViewer/CustomToolbar/View/" />
+			<Sample Title="Annotations" SampleName="Annotations" Description="This sample demonstrates how to add, remove, and modify annotations in a PDF document." CodeViewerPath="PdfViewer/Annotations/View/" />
+			<Sample Title="Form-Filling" SampleName="FormFilling" Description="This sample demonstrates how to fill out a form in the PDF viewer." CodeViewerPath="PdfViewer/FormFilling/" />
+			<Sample Title="Signatures" SampleName="SignatureView" Description="This sample demonstrates how to sign a PDF document in the PDF Viewer." CodeViewerPath="PdfViewer/SignatureSample/" />
+			<Sample Title="Password-Protected" SampleName="PasswordProtected" Description="This sample demonstrates how to load a password-protected PDF document in the PDF viewer." CodeViewerPath="PdfViewer/PasswordProtected/View/" />
+			<Sample Title="Right-to-Left" SampleName="RightToLeft" Description="This sample demonstrates the Right-to-Left flow direction of the PDF viewer." CodeViewerPath="PdfViewer/RightToLeft/View/" />
+			<Sample Title="Read-Only" SampleName="ReadOnly" Description="The example showcases the PDF viewer functioning in a read-only mode. It is designed to prevent editing of annotations and form fields, as well as to disable text selection capabilities." CodeViewerPath="PdfViewer/ReadOnlyViewingMode/View" />
+      <Sample Title="Invisible Signatures" SampleName="InvisibleSignature" Description="This sample demonstrates how to digitally sign a PDF document from code behind using Syncfusion's PDF Viewer and PDF Library." CodeViewerPath="PdfViewer/InvisibleSignature/View" />
+			<Sample Title="Form Field Customization" SampleName="ShowAndHideFormField" Description="The sample demonstrates how two different users can sequentially fill out their designated fields. Fields are color-coded (red for tenant, green for landlord), with tenant information required before landlord fields become visible and save functionality enabled only after both users complete their required information." CodeViewerPath="PdfViewer/ShowAndHideFormField/View"/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

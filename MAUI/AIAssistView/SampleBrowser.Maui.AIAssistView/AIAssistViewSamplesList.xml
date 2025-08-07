@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Smart AI Solutions">
+		<Control Title="AI AssistView" ControlName="SfAIAssistView" Image="aiAssistView.png" StatusTag="Updated" Description="AIAssistView is a versatile component designed to enhance interaction between users and AI services.">
+			<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="AIAssistView/GettingStarted/" />
+			<Sample SearchTags="Contorl Template" SampleName="ControlTemplateDemo" Title="Control Template" WhatsNew="StopResponding UI, ResponseLoaderView and RequestButtton customization in .NET MAUI AI AssistView control." Description="This sample shows how to customize the control template to create Copilot-like UI." CodeViewerPath="AIAssistView/ControlTemplateDemo/" />
+			<Sample SearchTags="Custom Editor" SampleName="CustomEditor" Title="Custom Editor" StatusTag="Updated" CodeViewerPath="AIAssistView/CustomEditor/" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

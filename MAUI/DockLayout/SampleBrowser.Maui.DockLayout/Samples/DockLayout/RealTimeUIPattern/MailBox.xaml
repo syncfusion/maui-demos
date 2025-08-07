@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DockLayout.SfDockLayout.MailBox"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:dx="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                       xmlns:shimmer="clr-namespace:Syncfusion.Maui.Shimmer;assembly=Syncfusion.Maui.Core">
+
+    <localCore:SampleView.Resources>
+        <!-- Light Mode Colors - Updated to match blue theme -->
+        <Color x:Key="AppBaseColor">#EEF2FD</Color>
+        <Color x:Key="AppSecondaryColor">#FFFFFF</Color>
+        <Color x:Key="AppContentBase">#F5F9FF</Color>
+        <Color x:Key="ShimmerHighlightColor">#F0F4FF</Color>
+        <Color x:Key="SkeletonColorLight">#E2E8F5</Color>
+        <Color x:Key="AvatarColorLight">#D0D8EB</Color>
+        <Color x:Key="AppBorderColorLight">#D8E0F3</Color>
+        <Color x:Key="PrimaryGreen">#2E7D32</Color>
+        <Color x:Key="AccentBlue">#3F51B5</Color>
+        <Color x:Key="AccentOrange">#FB8C00</Color>
+        <Color x:Key="AccentTeal">#00897B</Color>
+        <Color x:Key="BackgroundHighlightLight">#E6EDFF</Color>
+        <Color x:Key="ChartAccentColor">#E64A19</Color>
+        <Color x:Key="ChartBackgroundLight">#FBE9E7</Color>
+        <Color x:Key="ChartBorderLight">#FFCCBC</Color>
+        <Color x:Key="TealBackgroundLight">#E0F2F1</Color>
+        <Color x:Key="ActiveItemBg">#E8F5E9</Color>
+        
+        <!-- Dark Mode Colors -->
+        <Color x:Key="AppBaseColorDark">#1E1E1E</Color>
+        <Color x:Key="AppSecondaryColorDark">#2D2D2D</Color>
+        <Color x:Key="AppContentBaseDark">#121212</Color>
+        <Color x:Key="ShimmerBaseColorDark">#2C2C2C</Color>
+        <Color x:Key="ShimmerHighlightColorDark">#3C3C3C</Color>
+        <Color x:Key="SkeletonColorDark">#3D3D3D</Color>
+        <Color x:Key="AvatarColorDark">#4D4D4D</Color>
+        <Color x:Key="AppBorderColorDark">#444444</Color>
+        <Color x:Key="PrimaryGreenDark">#3DA042</Color>
+        <Color x:Key="AccentBlueDark">#4A5BA8</Color>
+        <Color x:Key="AccentOrangeDark">#E59622</Color>
+        <Color x:Key="AccentTealDark">#3D9A91</Color>
+        <Color x:Key="BackgroundHighlightDark">#1A2846</Color>
+        <Color x:Key="ChartAccentColorDark">#E0613C</Color>
+        <Color x:Key="ChartBackgroundDark">#3E2A27</Color> 
+        <Color x:Key="ChartBorderDark">#5E3F35</Color>
+        <Color x:Key="TealBackgroundDark">#1D3533</Color>
+
+        <Style x:Key="SidebarItemStyle" TargetType="Grid">
+            <Setter Property="Padding" Value="15,12" />
+            <Setter Property="HeightRequest" Value="45" />
+        </Style>
+        
+        <Style x:Key="SkeletonBoxStyle" TargetType="BoxView">
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource SkeletonColorLight}, Dark={StaticResource SkeletonColorDark}}" />
+            <Setter Property="Scale" Value="1" />
+        </Style>
+        
+        <Style x:Key="CircleAvatarStyle" TargetType="Ellipse">
+            <Setter Property="WidthRequest" Value="32" />
+            <Setter Property="HeightRequest" Value="32" />
+            <Setter Property="Fill" Value="{AppThemeBinding Light={StaticResource AvatarColorLight}, Dark={StaticResource AvatarColorDark}}" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <dx:SfDockLayout BackgroundColor="{StaticResource AppBaseColor}">
+            <!-- Header with logo and tools -->
+            <Border dx:SfDockLayout.Dock="Top" HeightRequest="60" BackgroundColor="{AppThemeBinding Light={StaticResource AppSecondaryColor}, Dark={StaticResource AppSecondaryColorDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" StrokeThickness="1">
+                <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,0">
+                    <!-- Logo and app name -->
+                    <Border Grid.Column="0" BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryGreen}, Dark={StaticResource PrimaryGreenDark}}" 
+                            WidthRequest="180" HeightRequest="40" Stroke="Transparent" StrokeShape="RoundRectangle 4,4,4,4">
+                        <Label Text="MAILSERVER" 
+                               TextColor="White" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Border>
+                    
+                    <!-- Navigation icons (placeholders) -->
+                    <HorizontalStackLayout Margin="10,10,0,10" VerticalOptions="Center" Grid.Column="1" Spacing="25" HorizontalOptions="Start">
+                        <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="24" HeightRequest="24" Margin="15,0,0,0" />
+                        <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="24" HeightRequest="24" />
+                        <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="24" HeightRequest="24" />
+                        <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="24" HeightRequest="24" />
+                    </HorizontalStackLayout>
+                    
+                    <!-- User profile and actions -->
+                    <HorizontalStackLayout Grid.Column="2" Spacing="15">
+                        <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="24" HeightRequest="24" />
+                        <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="24" HeightRequest="24" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Left sidebar with mail categories -->
+            <Border dx:SfDockLayout.Dock="Left" WidthRequest="180" BackgroundColor="{AppThemeBinding Light={StaticResource AppBaseColor}, Dark={StaticResource AppBaseColorDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" StrokeThickness="1">
+                <Grid RowDefinitions="*" Padding="0,15">
+                    <!-- Mail Folder Categories -->
+                    <VerticalStackLayout Grid.Row="1" Spacing="5">
+                        <Grid Style="{StaticResource SidebarItemStyle}">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="Inbox" VerticalOptions="Center" />
+                                <Ellipse Grid.Column="1" Fill="{AppThemeBinding Light={StaticResource PrimaryGreen}, Dark={StaticResource PrimaryGreenDark}}" WidthRequest="16" HeightRequest="16" />
+                            </Grid>
+                        </Grid>
+                        
+                        <Grid Style="{StaticResource SidebarItemStyle}">
+                            <Label Text="Starred" VerticalOptions="Center" />
+                        </Grid>
+                        
+                        <Grid Style="{StaticResource SidebarItemStyle}">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="Important" VerticalOptions="Center" />
+                                <Ellipse Grid.Column="1" Fill="{AppThemeBinding Light={StaticResource AccentOrange}, Dark={StaticResource AccentOrangeDark}}" WidthRequest="16" HeightRequest="16" />
+                            </Grid>
+                        </Grid>
+                        
+                        <Grid Style="{StaticResource SidebarItemStyle}">
+                            <Label Text="Sent" VerticalOptions="Center" />
+                        </Grid>
+                        
+                        <Grid Style="{StaticResource SidebarItemStyle}">
+                            <Label Text="Draft" VerticalOptions="Center" />
+                        </Grid>
+                        
+                        <Grid Style="{StaticResource SidebarItemStyle}">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="Trash" VerticalOptions="Center" />
+                                <Ellipse Grid.Column="1" Fill="{AppThemeBinding Light={StaticResource AccentBlue}, Dark={StaticResource AccentBlueDark}}" WidthRequest="16" HeightRequest="16" />
+                            </Grid>
+                        </Grid>
+                        
+                        <!--<Grid Style="{StaticResource SidebarItemStyle}">
+                            <Label Text="Deadline project" VerticalOptions="Center" />
+                        </Grid>-->
+                        
+                        <Grid Style="{StaticResource SidebarItemStyle}" BackgroundColor="{AppThemeBinding Light={StaticResource ActiveItemBg}, Dark=#253C27}">
+                            <Label Text="Chat" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource PrimaryGreen}, Dark={StaticResource PrimaryGreenDark}}" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Middle pane - Mail/message list -->
+            <Border dx:SfDockLayout.Dock="Left" WidthRequest="350" BackgroundColor="{AppThemeBinding Light={StaticResource AppSecondaryColor}, Dark={StaticResource AppSecondaryColorDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" StrokeThickness="1">
+                <Grid RowDefinitions="Auto,Auto,*" Padding="10">
+                    <!-- Search box -->
+                    <Border Grid.Row="0" Padding="15,10" Margin="0,5" Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" StrokeThickness="1" StrokeShape="RoundRectangle 6,6,6,6">
+                        <HorizontalStackLayout Spacing="10">
+                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="20" HeightRequest="20" />
+                            <Label Text="Search messages..." TextColor="#AAAAAA" />
+                        </HorizontalStackLayout>
+                    </Border>
+                    
+                    <!-- Filter options -->
+                    <Grid Grid.Row="1" Margin="0,10">
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="Recent" VerticalOptions="Center" />
+                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="12" HeightRequest="12" />
+                        </HorizontalStackLayout>
+                    </Grid>
+                    
+                    <!-- Email list with skeletons -->
+                    <ScrollView Grid.Row="2">
+                        <VerticalStackLayout>
+                            <!-- Message item 1 -->
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" />
+                                    
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="100" HeightRequest="18" />
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="14" HeightRequest="14" />
+                                    </HorizontalStackLayout>
+                                    
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="230" HeightRequest="16" Margin="0,8,0,0" />
+                                </Grid>
+                            </Border>
+                            
+                            <!-- More message items with similar structure -->
+                            <!-- Message item 2 -->
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" />
+                                    
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="100" HeightRequest="18" />
+                                    </HorizontalStackLayout>
+                                    
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="200" HeightRequest="16" Margin="0,8,0,0" />
+                                </Grid>
+                            </Border>
+
+                            <!-- Message item 7 - Attachment style -->
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" Fill="{AppThemeBinding Light=#C5E1A5, Dark=#4C6D21}" />
+
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="110" HeightRequest="18" />
+                                        <Border BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#253C27}" Padding="5,2" 
+                                                StrokeShape="RoundRectangle 4,4,4,4">
+                                            <Label Text="PDF" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource PrimaryGreen}, Dark={StaticResource PrimaryGreenDark}}" />
+                                        </Border>
+                                    </HorizontalStackLayout>
+
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="180" HeightRequest="16" Margin="0,8,0,0" />
+
+                                    <Border Grid.Row="2" Grid.Column="1" Padding="8,5" Margin="0,8,0,0"
+                                            BackgroundColor="{AppThemeBinding Light=#EEF2FD, Dark=#333333}"
+                                            StrokeShape="RoundRectangle 4,4,4,4">
+                                        <HorizontalStackLayout Spacing="8">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="16" HeightRequest="16" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="120" HeightRequest="12" />
+                                        </HorizontalStackLayout>
+                                    </Border>
+                                </Grid>
+                            </Border>
+
+                            <!-- Message item 3 -->
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundHighlightLight}, Dark={StaticResource BackgroundHighlightDark}}"
+                                    StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" />
+                                    
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="120" HeightRequest="18" />
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="14" HeightRequest="14" />
+                                    </HorizontalStackLayout>
+                                    
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="220" HeightRequest="16" Margin="0,8,0,0" />
+                                </Grid>
+                            </Border>
+                            
+                            <!-- Message item 8 - Priority style -->
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light=#FFCCBC, Dark=#5E3F35}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8"
+                                    BackgroundColor="{AppThemeBinding Light=#FBE9E7, Dark=#3E2A27}">
+                                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" Fill="{AppThemeBinding Light=#FFAB91, Dark=#BF360C}" />
+
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="105" HeightRequest="18" />
+                                        <Border BackgroundColor="{AppThemeBinding Light=#FFCCBC, Dark=#5E3F35}" Padding="5,2" 
+                                                StrokeShape="RoundRectangle 4,4,4,4">
+                                            <Label Text="Urgent" FontSize="10" TextColor="{AppThemeBinding Light=#E64A19, Dark=#FF7043}" />
+                                        </Border>
+                                    </HorizontalStackLayout>
+
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="210" HeightRequest="16" Margin="0,8,0,0" />
+                                </Grid>
+                            </Border>
+
+                            <!-- Message items 4-6 -->
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" />
+                                    
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="90" HeightRequest="18" />
+                                    </HorizontalStackLayout>
+                                    
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="210" HeightRequest="16" Margin="0,8,0,0" />
+                                </Grid>
+                            </Border>
+                            
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" />
+                                    
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="95" HeightRequest="18" />
+                                    </HorizontalStackLayout>
+                                    
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="190" HeightRequest="16" Margin="0,8,0,0" />
+                                </Grid>
+                            </Border>
+                            
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundHighlightLight}, Dark={StaticResource BackgroundHighlightDark}}"
+                                    StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" />
+                                    
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="85" HeightRequest="18" />
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="14" HeightRequest="14" />
+                                    </HorizontalStackLayout>
+                                    
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="195" HeightRequest="16" Margin="0,8,0,0" />
+                                </Grid>
+                            </Border>
+                            
+                            <!-- Message item 7 - Attachment style -->
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" Fill="{AppThemeBinding Light=#C5E1A5, Dark=#4C6D21}" />
+                                    
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="110" HeightRequest="18" />
+                                        <Border BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#253C27}" Padding="5,2" 
+                                                StrokeShape="RoundRectangle 4,4,4,4">
+                                            <Label Text="PDF" FontSize="10" TextColor="{AppThemeBinding Light={StaticResource PrimaryGreen}, Dark={StaticResource PrimaryGreenDark}}" />
+                                        </Border>
+                                    </HorizontalStackLayout>
+                                    
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="180" HeightRequest="16" Margin="0,8,0,0" />
+                                    
+                                    <Border Grid.Row="2" Grid.Column="1" Padding="8,5" Margin="0,8,0,0"
+                                            BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                                            StrokeShape="RoundRectangle 4,4,4,4">
+                                        <HorizontalStackLayout Spacing="8">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="16" HeightRequest="16" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="120" HeightRequest="12" />
+                                        </HorizontalStackLayout>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                            
+                            <!-- Message item 9 - Calendar invite style -->
+                            <Border Padding="10" Margin="0,5" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                                    <Ellipse Grid.RowSpan="2" Style="{StaticResource CircleAvatarStyle}" Fill="{AppThemeBinding Light=#BBDEFB, Dark=#0D47A1}" />
+                                    
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                        <BoxView Grid.Row="0" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="115" HeightRequest="18" />
+                                    </HorizontalStackLayout>
+                                    
+                                    <BoxView Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="40" HeightRequest="18" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="200" HeightRequest="16" Margin="0,8,0,0" />
+                                    
+                                    <Border Grid.Row="2" Grid.Column="1" Padding="12" Margin="0,10,0,0"
+                                            BackgroundColor="{AppThemeBinding Light=#E3F2FD, Dark=#1A2846}"
+                                            Stroke="{AppThemeBinding Light=#BBDEFB, Dark=#1565C0}"
+                                            StrokeThickness="1"
+                                            StrokeShape="RoundRectangle 6,6,6,6">
+                                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="24" HeightRequest="24" />
+                                            <VerticalStackLayout Grid.Column="1" Margin="12,0,0,0" Spacing="8">
+                                                <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="140" HeightRequest="16" />
+                                                <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="100" HeightRequest="12" />
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Grid>
+            </Border>
+
+            <!-- Right pane - Message/Chat content -->
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource AppContentBase}, Dark={StaticResource AppContentBaseDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" StrokeThickness="1">
+                <Grid RowDefinitions="Auto,*,Auto" Padding="15">
+                    <!-- Header with user info -->
+                    <Border Grid.Row="0" Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                            StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                        <Grid Padding="5" ColumnDefinitions="Auto,*,Auto">
+                        <Ellipse Style="{StaticResource CircleAvatarStyle}" />
+                        
+                            <!--<BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="150" HeightRequest="18" />-->
+                             <BoxView Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" WidthRequest="220" HeightRequest="14" Margin="10,5,0,0" />
+                        
+                        <HorizontalStackLayout Grid.Column="2" Spacing="12">
+                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="20" HeightRequest="20" />
+                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="20" HeightRequest="20" />
+                        </HorizontalStackLayout>
+                       
+                    </Grid>
+                </Border>
+
+                <!-- Message content -->
+                    <ScrollView Grid.Row="1" Margin="0,10">
+                        <VerticalStackLayout Spacing="15">
+                            <!-- First message bubble -->
+                            <Grid ColumnDefinitions="Auto,*" HorizontalOptions="Start">
+                                <Ellipse Style="{StaticResource CircleAvatarStyle}" WidthRequest="28" HeightRequest="28" VerticalOptions="Start" />
+                                
+                                <VerticalStackLayout Grid.Column="1" Spacing="8" Margin="10,0,0,0">
+                                    <Border Padding="15" 
+                                            BackgroundColor="{AppThemeBinding Light={StaticResource AppSecondaryColor}, Dark={StaticResource AppSecondaryColorDark}}" 
+                                            Stroke="Transparent" StrokeShape="RoundRectangle 10,0,10,10">
+                                        <VerticalStackLayout Spacing="8">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="200" HeightRequest="14" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="220" HeightRequest="14" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="180" HeightRequest="14" />
+                                        </VerticalStackLayout>
+                                    </Border>
+                                    <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="65" HeightRequest="12" HorizontalOptions="Start" />
+                                </VerticalStackLayout>
+                            </Grid>
+                            
+                            <!-- Reply message bubble (right aligned) -->
+                            <Grid ColumnDefinitions="*,Auto" HorizontalOptions="End">
+                                <Border Grid.Column="0" Padding="15" 
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryGreen}, Dark={StaticResource PrimaryGreenDark}}" 
+                                        Stroke="Transparent" MaximumWidthRequest="300" StrokeShape="RoundRectangle 10,10,0,10">
+                                    <VerticalStackLayout Spacing="8">
+                                        <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="220" HeightRequest="14" />
+                                        <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="180" HeightRequest="14" />
+                                        <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="200" HeightRequest="14" />
+                                        <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="160" HeightRequest="14" />
+                                    </VerticalStackLayout>
+                                </Border>
+                                <Ellipse Grid.Column="1" Style="{StaticResource CircleAvatarStyle}" WidthRequest="28" HeightRequest="28" VerticalOptions="Start" Margin="10,0,0,0" />
+                            </Grid>
+                            
+                            <!-- Data table skeleton -->
+                            <Border Margin="50,10,0,10" 
+                                    Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                    StrokeThickness="1" Padding="10" StrokeShape="RoundRectangle 6,6,6,6"
+                                    BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark={StaticResource AppSecondaryColorDark}}">
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*,*,*,*">
+                                    <BoxView Grid.Row="0" Grid.Column="0" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <BoxView Grid.Row="0" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <BoxView Grid.Row="0" Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <BoxView Grid.Row="0" Grid.Column="3" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    
+                                    <BoxView Grid.Row="1" Grid.Column="0" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <Border Grid.Row="1" Grid.Column="2" 
+                                            BackgroundColor="{AppThemeBinding Light={StaticResource TealBackgroundLight}, Dark={StaticResource TealBackgroundDark}}" 
+                                            Stroke="{AppThemeBinding Light={StaticResource AccentTeal}, Dark={StaticResource AccentTealDark}}" 
+                                            StrokeThickness="1" Margin="2" StrokeShape="RoundRectangle 4,4,4,4">
+                                        <BoxView Style="{StaticResource SkeletonBoxStyle}" HeightRequest="16" Margin="2" />
+                                    </Border>
+                                    <BoxView Grid.Row="1" Grid.Column="3" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    
+                                    <BoxView Grid.Row="2" Grid.Column="0" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <BoxView Grid.Row="2" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <Border Grid.Row="2" Grid.Column="2" 
+                                            BackgroundColor="{AppThemeBinding Light={StaticResource TealBackgroundLight}, Dark={StaticResource TealBackgroundDark}}" 
+                                            Stroke="{AppThemeBinding Light={StaticResource AccentTeal}, Dark={StaticResource AccentTealDark}}" 
+                                            StrokeThickness="1" Margin="2" StrokeShape="RoundRectangle 4,4,4,4">
+                                        <BoxView Style="{StaticResource SkeletonBoxStyle}" HeightRequest="16" Margin="2" />
+                                    </Border>
+                                    <BoxView Grid.Row="2" Grid.Column="3" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    
+                                    <BoxView Grid.Row="3" Grid.Column="0" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <BoxView Grid.Row="3" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <BoxView Grid.Row="3" Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                    <BoxView Grid.Row="3" Grid.Column="3" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="28" Margin="2" />
+                                </Grid>
+                            </Border>
+                            
+                            <!-- Another message bubble -->
+                            <Grid ColumnDefinitions="Auto,*" HorizontalOptions="Start">
+                                <Ellipse Style="{StaticResource CircleAvatarStyle}" WidthRequest="28" HeightRequest="28" VerticalOptions="Start" />
+                                
+                                <VerticalStackLayout Grid.Column="1" Spacing="8" Margin="10,0,0,0" >
+                                    <Border Padding="15" 
+                                            BackgroundColor="{AppThemeBinding Light={StaticResource AppBaseColor}, Dark={StaticResource AppBaseColorDark}}" 
+                                            Stroke="Transparent" StrokeShape="RoundRectangle 10,0,10,10">
+                                        <VerticalStackLayout Spacing="8">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="190" HeightRequest="14" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="220" HeightRequest="14" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="170" HeightRequest="14" />
+                                        </VerticalStackLayout>
+                                    </Border>
+                                    <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="65" HeightRequest="12" HorizontalOptions="Start" />
+                                </VerticalStackLayout>
+                            </Grid>
+                            
+                            <!-- Interactive response with buttons -->
+                            <Grid ColumnDefinitions="Auto,*" HorizontalOptions="Start" Margin="0,15,0,0">
+                                <Ellipse Style="{StaticResource CircleAvatarStyle}" Fill="{AppThemeBinding Light=#FFCC80, Dark=#EF6C00}" WidthRequest="28" HeightRequest="28" VerticalOptions="Start" />
+                                
+                                <VerticalStackLayout Grid.Column="1" Spacing="8" Margin="10,0,0,0" >
+                                    <Border Padding="15" 
+                                            BackgroundColor="{AppThemeBinding Light=#FFF3E0, Dark=#3E2C1D}" 
+                                            Stroke="{AppThemeBinding Light=#FFE0B2, Dark=#F57C00}" StrokeThickness="1"
+                                            StrokeShape="RoundRectangle 10,0,10,10">
+                                        <VerticalStackLayout Spacing="15">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="200" HeightRequest="14" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="180" HeightRequest="14" />
+                                            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,10,0,0">
+                                                <Border Grid.Column="0" Padding="10,8" BackgroundColor="{AppThemeBinding Light=#FB8C00, Dark=#EF6C00}" 
+                                                        StrokeShape="RoundRectangle 4,4,4,4">
+                                                    <Label Text="Approve" FontSize="12" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                                                </Border>
+                                                <Border Grid.Column="1" Padding="10,8" BackgroundColor="Transparent" 
+                                                        Stroke="{AppThemeBinding Light=#FB8C00, Dark=#EF6C00}" StrokeThickness="1"
+                                                        StrokeShape="RoundRectangle 4,4,4,4">
+                                                    <Label Text="Reject" FontSize="12" FontAttributes="Bold" 
+                                                           TextColor="{AppThemeBinding Light=#FB8C00, Dark=#EF6C00}" HorizontalOptions="Center" />
+                                                </Border>
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                    </Border>
+                                    <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="65" HeightRequest="12" HorizontalOptions="Start" />
+                                </VerticalStackLayout>
+                            </Grid>
+                            
+                            <!-- Response with timeline visualization -->
+                            <Grid ColumnDefinitions="*,Auto" HorizontalOptions="End" Margin="0,15,0,0">
+                                <Border Grid.Column="0" Padding="15" 
+                                        BackgroundColor="{AppThemeBinding Light=#673AB7, Dark=#5E35B1}" 
+                                        Stroke="Transparent" MaximumWidthRequest="320" StrokeShape="RoundRectangle 10,10,0,10">
+                                    <VerticalStackLayout Spacing="12">
+                                        <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="200" HeightRequest="14" />
+                                        <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="270" HeightRequest="14" />
+                                        
+                                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto" Margin="0,10,0,0" RowSpacing="4" ColumnSpacing="10">
+                                            <!-- Timeline marker line -->
+                                            <BoxView Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" WidthRequest="2" HeightRequest="70" 
+                                                     BackgroundColor="White" Opacity="0.5" HorizontalOptions="Center" />
+                                            
+                                            <!-- Phase 1 -->
+                                            <Ellipse Grid.Row="0" Grid.Column="0" WidthRequest="12" HeightRequest="12" Fill="White" 
+                                                     HorizontalOptions="Center" VerticalOptions="Start" />
+                                            <BoxView Grid.Row="0" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" 
+                                                     WidthRequest="60" HeightRequest="14" HorizontalOptions="Start" VerticalOptions="Start" />
+                                            <BoxView Grid.Row="0" Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" 
+                                                     WidthRequest="40" HeightRequest="14" HorizontalOptions="End" VerticalOptions="Start" />
+                                            
+                                            <!-- Phase 2 -->
+                                            <Ellipse Grid.Row="1" Grid.Column="0" WidthRequest="12" HeightRequest="12" Fill="White" 
+                                                     HorizontalOptions="Center" VerticalOptions="Start" />
+                                            <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" 
+                                                     WidthRequest="80" HeightRequest="14" HorizontalOptions="Start" VerticalOptions="Start" />
+                                            <BoxView Grid.Row="1" Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" 
+                                                     WidthRequest="40" HeightRequest="14" HorizontalOptions="End" VerticalOptions="Start" />
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </Border>
+                                <Ellipse Grid.Column="1" Style="{StaticResource CircleAvatarStyle}" WidthRequest="28" HeightRequest="28" VerticalOptions="Start" Margin="10,0,0,0" />
+                            </Grid>
+                            
+                            <!-- Analytics chart placeholder -->
+                            <Border BackgroundColor="{AppThemeBinding Light={StaticResource ChartBackgroundLight}, Dark={StaticResource ChartBackgroundDark}}" 
+                                    Margin="50,10,50,10" Padding="15" 
+                                    Stroke="{AppThemeBinding Light={StaticResource ChartBorderLight}, Dark={StaticResource ChartBorderDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,*">
+                                    <Label Text="1,400" FontSize="22" FontAttributes="Bold" 
+                                           TextColor="{AppThemeBinding Light={StaticResource ChartAccentColor}, Dark={StaticResource ChartAccentColorDark}}" />
+                                    <Path Grid.Row="1" Stroke="{AppThemeBinding Light={StaticResource ChartAccentColor}, Dark={StaticResource ChartAccentColorDark}}" StrokeThickness="2" HeightRequest="50">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M 0,40 C 30,30 60,50 90,20 C 120,10 150,30 180,25 C 210,20 240,10 270,30" />
+                                        </Path.Data>
+                                    </Path>
+                                </Grid>
+                            </Border>
+                            
+                            <!-- Reply with attachment -->
+                            <Grid ColumnDefinitions="*,Auto" HorizontalOptions="End">
+                                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                                    <Border Padding="15" 
+                                            BackgroundColor="{AppThemeBinding Light=#1976D2, Dark=#1565C0}" 
+                                            Stroke="Transparent" MaximumWidthRequest="300" StrokeShape="RoundRectangle 10,10,0,10">
+                                        <VerticalStackLayout Spacing="8">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="170" HeightRequest="14" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="210" HeightRequest="14" />
+                                        </VerticalStackLayout>
+                                    </Border>
+                                    <Border Padding="10" Margin="5,0,0,0"
+                                            BackgroundColor="{AppThemeBinding Light=#1E88E5, Dark=#1976D2}"
+                                            Stroke="Transparent" StrokeShape="RoundRectangle 4,4,4,4">
+                                        <HorizontalStackLayout Spacing="8">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="16" HeightRequest="16" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" BackgroundColor="White" Opacity="0.3" WidthRequest="90" HeightRequest="12" />
+                                        </HorizontalStackLayout>
+                                    </Border>
+                                    <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="65" HeightRequest="10" HorizontalOptions="End" Margin="0,5,10,0" BackgroundColor="#888888" />
+                                </VerticalStackLayout>
+                                <Ellipse Grid.Column="1" Style="{StaticResource CircleAvatarStyle}" WidthRequest="28" HeightRequest="28" VerticalOptions="Start" Margin="10,0,0,0" />
+                            </Grid>
+                            
+                            <!-- Detailed bar chart -->
+                            <Border Margin="50,10,50,10" Padding="15" 
+                                    BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#253C27}" 
+                                    Stroke="{AppThemeBinding Light=#AED581, Dark=#689F38}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 8,8,8,8">
+                                <Grid RowDefinitions="Auto,Auto,*" RowSpacing="10">
+                                    <Label Text="Monthly Metrics" FontSize="16" FontAttributes="Bold"
+                                           TextColor="{AppThemeBinding Light={StaticResource PrimaryGreen}, Dark={StaticResource PrimaryGreenDark}}" />
+                                    <BoxView Grid.Row="1" Style="{StaticResource SkeletonBoxStyle}" HeightRequest="1" Opacity="0.5" />
+                                    <Grid Grid.Row="2" RowDefinitions="Auto,*" ColumnDefinitions="Auto,*,*,*,*">
+                                        <!-- Y-axis -->
+                                        <StackLayout Grid.Column="0" Grid.RowSpan="2" VerticalOptions="Center" Spacing="20">
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="25" HeightRequest="10" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="25" HeightRequest="10" />
+                                            <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="25" HeightRequest="10" />
+                                        </StackLayout>
+                                        
+                                        <!-- Bar 1 -->
+                                        <BoxView Grid.Row="0" Grid.Column="1" WidthRequest="30" HeightRequest="80" 
+                                                 BackgroundColor="{AppThemeBinding Light=#66BB6A, Dark=#43A047}" 
+                                                 VerticalOptions="End" HorizontalOptions="Center" />
+                                        <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource SkeletonBoxStyle}" 
+                                                 WidthRequest="25" HeightRequest="10" HorizontalOptions="Center" Margin="0,5,0,0" />
+                                        
+                                        <!-- Bar 2 -->
+                                        <BoxView Grid.Row="0" Grid.Column="2" WidthRequest="30" HeightRequest="50" 
+                                                 BackgroundColor="{AppThemeBinding Light=#66BB6A, Dark=#43A047}" 
+                                                 VerticalOptions="End" HorizontalOptions="Center" />
+                                        <BoxView Grid.Row="1" Grid.Column="2" Style="{StaticResource SkeletonBoxStyle}" 
+                                                 WidthRequest="25" HeightRequest="10" HorizontalOptions="Center" Margin="0,5,0,0" />
+                                        
+                                        <!-- Bar 3 -->
+                                        <BoxView Grid.Row="0" Grid.Column="3" WidthRequest="30" HeightRequest="100" 
+                                                 BackgroundColor="{AppThemeBinding Light=#66BB6A, Dark=#43A047}" 
+                                                 VerticalOptions="End" HorizontalOptions="Center" />
+                                        <BoxView Grid.Row="1" Grid.Column="3" Style="{StaticResource SkeletonBoxStyle}" 
+                                                 WidthRequest="25" HeightRequest="10" HorizontalOptions="Center" Margin="0,5,0,0" />
+                                        
+                                        <!-- Bar 4 -->
+                                        <BoxView Grid.Row="0" Grid.Column="4" WidthRequest="30" HeightRequest="70" 
+                                                 BackgroundColor="{AppThemeBinding Light=#66BB6A, Dark=#43A047}" 
+                                                 VerticalOptions="End" HorizontalOptions="Center" />
+                                        <BoxView Grid.Row="1" Grid.Column="4" Style="{StaticResource SkeletonBoxStyle}" 
+                                                 WidthRequest="25" HeightRequest="10" HorizontalOptions="Center" Margin="0,5,0,0" />
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                    
+                    <!-- Message input area -->
+                    <Grid Grid.Row="2" ColumnDefinitions="*,Auto" RowDefinitions="Auto" Margin="0,10,0,0">
+                        <Border Grid.Column="0" Padding="10" HeightRequest="40" 
+                                Stroke="{AppThemeBinding Light={StaticResource AppBorderColorLight}, Dark={StaticResource AppBorderColorDark}}" 
+                                StrokeThickness="1" StrokeShape="RoundRectangle 6,0,0,6">
+                            <HorizontalStackLayout Spacing="10">
+                                <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="20" HeightRequest="20" />
+                                <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="20" HeightRequest="20" />
+                                <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="20" HeightRequest="20" />
+                                <BoxView Style="{StaticResource SkeletonBoxStyle}" WidthRequest="300" HeightRequest="20" />
+                            </HorizontalStackLayout>
+                        </Border>
+                        
+                        <Border Grid.Column="1" 
+                                BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryGreen}, Dark={StaticResource PrimaryGreenDark}}" 
+                                WidthRequest="80" HeightRequest="40" Margin="10,0,0,0" Stroke="Transparent" StrokeShape="RoundRectangle 0,6,6,0">
+                            <Label Text="Send" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+        </dx:SfDockLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

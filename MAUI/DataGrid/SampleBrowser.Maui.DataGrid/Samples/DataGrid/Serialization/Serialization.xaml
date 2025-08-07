@@ -1,0 +1,366 @@
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Serialization"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:SerializationViewModel>
+        </local:SerializationViewModel>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:SerializationPopupBehavior x:Name="serializationPopupBehavior" />
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="margin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-5" />
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridStackedHeaderCell">
+            <Setter Property="TextAlignment"
+                    Value="Start" />
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid Margin="{StaticResource margin}"
+                           x:Name="dataGrid"
+                           HeaderRowHeight="52"
+                           RowHeight="48"
+                           x:DataType="local:SerializationViewModel"
+                           ItemsSource="{Binding OrdersInfo}"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both"
+                           AutoGenerateColumnsMode="None"
+                           SortingMode="Single"
+                           AllowTriStateSorting="True"
+                           GroupingMode="Multiple"
+                           AllowGroupExpandCollapse="True"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn Format="d"
+                                              MinimumWidth="120"
+                                              HeaderText="Order ID"
+                                              MappingName="OrderID"></sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridNumericColumn MinimumWidth="120"
+                                              HeaderText="Customer ID"
+                                              MappingName="EmployeeID"
+                                              Format="d"></sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="120"
+                                           HeaderText="Customer Name"
+                                           MappingName="FirstName"></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="120"
+                                           HeaderText="Ship City"
+                                           MappingName="ShipCity"></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="120"
+                                           HeaderText="Ship Country"
+                                           MappingName="ShipCountry"></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridNumericColumn MinimumWidth="120"
+                                              Format="C"
+                                              HeaderText="Freight"
+                                              MappingName="Freight"></sfgrid:DataGridNumericColumn>
+            </sfgrid:SfDataGrid.Columns>
+
+            <sfgrid:SfDataGrid.GroupColumnDescriptions>
+                <sfgrid:GroupColumnDescription ColumnName="ShipCountry" />
+                <sfgrid:GroupColumnDescription ColumnName="ShipCity" />
+            </sfgrid:SfDataGrid.GroupColumnDescriptions>
+
+            <sfgrid:SfDataGrid.TableSummaryRows>
+                <sfgrid:DataGridTableSummaryRow Title="Total Freight: {SumFreight}"
+                                                Position="Bottom"
+                                                ShowSummaryInRow="True">
+                    <sfgrid:DataGridTableSummaryRow.SummaryColumns>
+                        <sfgrid:DataGridSummaryColumn Name="SumFreight"
+                                                      Format=": {Sum:C0}"
+                                                      MappingName="Freight"
+                                                      SummaryType="Int32Aggregate" />
+                    </sfgrid:DataGridTableSummaryRow.SummaryColumns>
+                </sfgrid:DataGridTableSummaryRow>
+            </sfgrid:SfDataGrid.TableSummaryRows>
+
+            <sfgrid:SfDataGrid.GroupSummaryRows>
+                <sfgrid:DataGridSummaryRow Title="Total Price : {OrderAmount} "
+                                           ShowSummaryInRow="True">
+                    <sfgrid:DataGridSummaryRow.SummaryColumns>
+                        <sfgrid:DataGridSummaryColumn Name="OrderAmount"
+                                                      Format="{}{Sum:C0}"
+                                                      MappingName="OrderID"
+                                                      SummaryType="DoubleAggregate" />
+                    </sfgrid:DataGridSummaryRow.SummaryColumns>
+                </sfgrid:DataGridSummaryRow>
+            </sfgrid:SfDataGrid.GroupSummaryRows>
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ContentView.Resources>
+                <ResourceDictionary>
+                    <Color x:Key="lightThemeLeftColor">#6750A4</Color>
+                    <Color x:Key="darkThemeLeftColor">#D0BCFF</Color>
+                    <Color x:Key="lightThemeTextColor">#FFFFFF</Color>
+                    <Color x:Key="darkThemeTextColor">#381E72</Color>
+
+                    <Style x:Key="ButtonVisualStatesOnly"
+                           TargetType="Button">
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal" />
+                                    <VisualState Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor"
+                                                    Value="#5C4CA4" />
+                                            <Setter Property="Scale"
+                                                    Value="0.96" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor"
+                                                    Value="#B0BEC5" />
+                                            <Setter Property="TextColor"
+                                                    Value="#ECEFF1" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+            </ContentView.Resources>
+            <ScrollView>
+                <VerticalStackLayout Spacing="20">
+
+                    <!-- Serialization Section -->
+                    <ContentView>
+                        <Grid RowSpacing="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Title -->
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Text="Serialize Properties"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   Margin="0,0,0,10" />
+
+                            <!-- Checkboxes -->
+                            <CheckBox x:Name="SerializeGrouping"
+                                      Color="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                      Grid.Row="1"
+                                      Grid.Column="0"
+                                      IsChecked="{Binding SerializeGrouping}" />
+                            <Label Text="Serialize Grouping"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center" />
+
+                            <CheckBox x:Name="SerializeSorting"
+                                      Color="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                      Grid.Row="2"
+                                      Grid.Column="0"
+                                      IsChecked="{Binding SerializeSorting}" />
+                            <Label Text="Serialize Sorting"
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center" />
+
+                            <CheckBox x:Name="SerializeGroupSummaries"
+                                      Color="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                      Grid.Row="3"
+                                      Grid.Column="0"
+                                      IsChecked="{Binding SerializeGroupSummaries}" />
+                            <Label Text="Serialize Group Summaries"
+                                   Grid.Row="3"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center" />
+
+                            <CheckBox x:Name="SerializeTableSummaries"
+                                      Color="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                      Grid.Row="4"
+                                      Grid.Column="0"
+                                      IsChecked="{Binding SerializeTableSummaries}" />
+                            <Label Text="Serialize Table Summaries"
+                                   Grid.Row="4"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center" />
+
+                            <!-- Serialize Button -->
+                            <Button Text="Serialize"
+                                    Style="{StaticResource ButtonVisualStatesOnly}"
+                                    Grid.Row="5"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="6,15,0,0"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                    Clicked="Serialize"
+                                    TextColor="{AppThemeBinding Light={StaticResource lightThemeTextColor}, Dark={StaticResource darkThemeTextColor}}"
+                                    HeightRequest="40"
+                                    WidthRequest="250"
+                                    HorizontalOptions="Start"
+                                    CornerRadius="6">
+                            </Button>
+                        </Grid>
+                    </ContentView>
+
+                    <!-- Deserialization Section -->
+                    <ContentView>
+                        <Grid RowSpacing="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Title -->
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Text="Deserialize Properties"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   Margin="0,10,0,10" />
+
+                            <!-- Checkboxes -->
+                            <CheckBox x:Name="DeserializeGrouping"
+                                      Color="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                      Grid.Row="1"
+                                      Grid.Column="0"
+                                      IsChecked="{Binding DeserializeGrouping}" />
+                            <Label Text="Deserialize Grouping"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center" />
+
+                            <CheckBox x:Name="DeserializeSorting"
+                                      Color="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                      Grid.Row="2"
+                                      Grid.Column="0"
+                                      IsChecked="{Binding DeserializeSorting}" />
+                            <Label Text="Deserialize Sorting"
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center" />
+
+                            <CheckBox x:Name="DeserializeGroupSummaries"
+                                      Color="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                      Grid.Row="3"
+                                      Grid.Column="0"
+                                      IsChecked="{Binding DeserializeGroupSummaries}" />
+                            <Label Text="Deserialize Group Summaries"
+                                   Grid.Row="3"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center" />
+
+                            <CheckBox x:Name="DeserializeTableSummaries"
+                                      Color="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                      Grid.Row="4"
+                                      Grid.Column="0"
+                                      IsChecked="{Binding DeserializeTableSummaries}" />
+                            <Label Text="Deserialize Table Summaries"
+                                   Grid.Row="4"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center" />
+
+                            <!-- Deserialize Button -->
+                            <Button Text="Deserialize"
+                                    Style="{StaticResource ButtonVisualStatesOnly}"
+                                    Grid.Row="5"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="6,8,0,0"
+                                    Clicked="Deserialize"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                    TextColor="{AppThemeBinding Light={StaticResource lightThemeTextColor}, Dark={StaticResource darkThemeTextColor}}"
+                                    HeightRequest="40"
+                                    WidthRequest="250"
+                                    HorizontalOptions="Start"
+                                    CornerRadius="6">
+                            </Button>
+
+                            <!-- Add/Remove group Button -->
+                            <Button Text="Add/Remove Group"
+                                    Style="{StaticResource ButtonVisualStatesOnly}"
+                                    Grid.Row="6"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="6,8,0,0"
+                                    Clicked="AddorRemoveGroup"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                    TextColor="{AppThemeBinding Light={StaticResource lightThemeTextColor}, Dark={StaticResource darkThemeTextColor}}"
+                                    HeightRequest="40"
+                                    WidthRequest="250"
+                                    HorizontalOptions="Start"
+                                    CornerRadius="6">
+                            </Button>
+
+                            <!-- Reset Button -->
+                            <Button Text="Reset"
+                                    Style="{StaticResource ButtonVisualStatesOnly}"
+                                    Grid.Row="7"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="6,8,0,0"
+                                    Clicked="Reset"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource lightThemeLeftColor}, Dark={StaticResource darkThemeLeftColor}}"
+                                    TextColor="{AppThemeBinding Light={StaticResource lightThemeTextColor}, Dark={StaticResource darkThemeTextColor}}"
+                                    HeightRequest="40"
+                                    WidthRequest="250"
+                                    HorizontalOptions="Start"
+                                    CornerRadius="6">
+                            </Button>
+                        </Grid>
+                    </ContentView>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

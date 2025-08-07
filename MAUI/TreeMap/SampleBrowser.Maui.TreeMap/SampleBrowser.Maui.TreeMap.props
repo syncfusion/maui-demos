@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GettingStarted\View\GettingStarted.xaml.cs">
+			<Link>Samples\TreeMap\GettingStarted\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GettingStarted\Behavior\GettingStartedBehavior.cs">
+			<Link>Samples\TreeMap\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GettingStarted\Model\AirportDetails.cs">
+			<Link>Samples\TreeMap\GettingStarted\Model\AirportDetails.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GettingStarted\ViewModel\GettingStartedViewModel.cs">
+			<Link>Samples\TreeMap\GettingStarted\ViewModel\GettingStartedViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GroupLevel\View\GroupLevel.xaml.cs">
+			<Link>Samples\TreeMap\GroupLevel\View\GroupLevel.xaml.cs</Link>
+			<DependentUpon>GroupLevel.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GroupLevel\Model\PopulationDetails.cs">
+			<Link>Samples\TreeMap\GroupLevel\Model\PopulationDetails.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GroupLevel\ViewModel\GroupLevelViewModel.cs">
+			<Link>Samples\TreeMap\GroupLevel\ViewModel\GroupLevelViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GroupLevel\Behavior\GroupLevelBehavior.cs">
+			<Link>Samples\TreeMap\GroupLevel\Behavior\GroupLevelBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\ColorScheme\View\BrushSettings.xaml.cs">
+			<Link>Samples\TreeMap\ColorScheme\View\BrushSettings.xaml.cs</Link>
+			<DependentUpon>BrushSettings.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\ColorScheme\Model\IslandDetails.cs">
+			<Link>Samples\TreeMap\ColorScheme\Model\IslandDetails.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\ColorScheme\ViewModel\IslandViewModel.cs">
+			<Link>Samples\TreeMap\ColorScheme\ViewModel\IslandViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\ColorScheme\Behavior\BrushSettingsBehavior.cs">
+			<Link>Samples\TreeMap\ColorScheme\Behavior\BrushSettingsBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\Customization\View\Customization.xaml.cs">
+			<Link>Samples\TreeMap\Customization\View\Customization.xaml.cs</Link>
+			<DependentUpon>Customization.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\Customization\Model\OlympicMedalDetails.cs">
+			<Link>Samples\TreeMap\Customization\Model\OlympicMedalDetails.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\Customization\ViewModel\CustomizationViewModel.cs">
+			<Link>Samples\TreeMap\Customization\ViewModel\CustomizationViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\DrillDown\View\DrillDown.xaml.cs">
+			<Link>Samples\TreeMap\DrillDown\View\DrillDown.xaml.cs</Link>
+			<DependentUpon>DrillDown.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\DrillDown\Model\DrillDownPopulationDetails.cs">
+			<Link>Samples\TreeMap\DrillDown\Model\DrillDownPopulationDetails.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\DrillDown\ViewModel\DrillDownViewModel.cs">
+			<Link>Samples\TreeMap\DrillDown\ViewModel\DrillDownViewModel.cs</Link>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\TreeMapSamplesList.xml" >
+			<Link>TreeMapSamplesList.xml</Link>
+		</EmbeddedResource>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\TreeMap\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\GroupLevel\View\GroupLevel.xaml">
+			<Link>Samples\TreeMap\GroupLevel\View\GroupLevel.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\ColorScheme\View\BrushSettings.xaml">
+			<Link>Samples\TreeMap\ColorScheme\View\BrushSettings.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\Customization\View\Customization.xaml">
+			<Link>Samples\TreeMap\Customization\View\Customization.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeMap\DrillDown\View\DrillDown.xaml">
+			<Link>Samples\TreeMap\DrillDown\View\DrillDown.xaml</Link>
+		</MauiXaml>
+		
+	</ItemGroup>
+</Project>

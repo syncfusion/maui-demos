@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Project Management">
+    <Control Title="Kanban Board"
+             ControlName="SfKanban"
+             Image="kanban.png"
+             StatusTag="Updated"
+             Description="A visual system, which provides an efficient interface to track and visualize different stages in a workflow.">
+      <Sample SearchTags="kanban"
+              Name="Getting Started"
+              SampleName="GettingStarted"
+              Title="Getting Started"
+              StatusTag="Updated"
+              CodeViewerPath="Kanban\GettingStarted\"/>
+    </Control>
+  </ControlCategory>
+</SyncfusionControls>

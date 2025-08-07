@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DockLayout.SfDockLayout.DefaultDockLayoutSample"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:dx="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:comboBox="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DockLayout.SfDockLayout"
+                       x:DataType="local:DockLayoutViewModel"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+
+    <localCore:SampleView.Content>
+        <dx:SfDockLayout x:Name="docklayout">
+            <Label Text="Left"  WidthRequest="80" dx:SfDockLayout.Dock="Left" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="#E57373" />
+            <Label Text="Right"  WidthRequest="80"  dx:SfDockLayout.Dock="Right" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="#BA68C8" />
+            <Label Text="Top" HeightRequest="80" dx:SfDockLayout.Dock="Top" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="#F06292" />
+            <Label Text="Bottom" HeightRequest="80"  dx:SfDockLayout.Dock="Bottom" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="#9575CD"/>
+            <Grid MinimumHeightRequest="80" BackgroundColor="#64B5F6">
+            <Label Text="None" HorizontalOptions="Fill" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  />
+            </Grid>
+        </dx:SfDockLayout>
+    </localCore:SampleView.Content>
+    
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ContentView.BindingContext>
+                <local:DockLayoutViewModel/>
+            </ContentView.BindingContext>
+            <ScrollView>
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="{OnPlatform Default='Auto,Auto', MacCatalyst='Auto, 130'}" RowSpacing="12" Margin="0,20,0,0">
+                    <Label  Text="Expand last child" VerticalTextAlignment="Center"/>
+                    <CheckBox Grid.Row="0" Grid.Column="1" x:Name="lastChild" IsChecked="True" CheckedChanged="OnLastChildCheckedChanged" />
+                    <Label Grid.Row="1" Grid.Column="0" Text="Horizontal spacing" VerticalTextAlignment="Center" Margin="0,0,20,0" />
+                    <Slider Grid.Row="1" Grid.Column="1" x:Name="horizontalSpacing" Minimum="0" Maximum="100" Value="5" ValueChanged="OnHorizontalSpacingChanged" />
+                    <Label Grid.Row="2" Grid.Column="0" Text="Vertical spacing"  VerticalTextAlignment="Center" Margin="0,0,20,0"/>
+                    <Slider Grid.Row="2" Grid.Column="1" x:Name="verticalSpacing" Minimum="0" Maximum="100" Value="5" ValueChanged="OnVerticalSpacingChanged"/>
+                    <Label Grid.Row="3" Grid.Column="0"  Text="RTL :" VerticalTextAlignment="Center"/>
+                    <comboBox:SfComboBox Grid.Row="3" Grid.Column="1" x:Name="directionComboBox" ItemsSource="{Binding Directions}" ValueChanged="OnDirectionSelectionChanged" SelectedIndex="0" IsClearButtonVisible="False" BackgroundColor="{AppThemeBinding Dark=lightgray}" />
+                </Grid>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>
+ 
+    
+    

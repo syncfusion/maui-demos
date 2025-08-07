@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Inputs.SfColorPicker.ColorPickerGettingStarted"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs">
+   
+    <localCore:SampleView.Content>
+
+        <Grid HorizontalOptions="Center" VerticalOptions="Start" Margin="0,50,0,0" RowSpacing="30" WidthRequest="380">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Choose a color" FontSize="20" HorizontalOptions="Center" />
+            <VerticalStackLayout Grid.Row="1" Spacing="15" VerticalOptions="Start">
+                <StackLayout>
+                    <editors:SfColorPicker x:Name="colorPicker" ShowInputArea="True" IsColorModeSwitcherVisible="True"
+                   ColorMode="Palette" SelectedColor="#0db1e7" PaletteCellShape="Default" PaletteCellCornerRadius="15"
+                   HorizontalOptions="Center"
+                   />
+                </StackLayout>
+            </VerticalStackLayout>
+
+
+            <Border Grid.Row="2" Padding="14,10" Stroke="Gray" StrokeShape="RoundRectangle 10" StrokeThickness="1" HeightRequest="{OnPlatform Android=390,iOS=300}">
+                <ScrollView  HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" >
+                    <Grid RowSpacing="20" WidthRequest="350" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" HorizontalOptions="Center" VerticalOptions="Start" >
+                        <Grid ColumnDefinitions="*,150" Grid.Row="0">
+                            <Label Text="ColorMode" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <editors:SfComboBox Grid.Column="1" x:Name="colorModeCombobox" SelectionChanged="colorModeCombobox_SelectionChanged" IsClearButtonVisible="False" HorizontalOptions="End" ItemsSource="{Binding PrecisionList}" SelectedIndex="0"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="1">
+                            <Label Text="Show Recent Colors" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ShowRecentColorsCheckBox_CheckedChanged"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="2">
+                            <Label Text="Show Input Area" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ShowInputAreaCheckBox_CheckedChanged"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="3" >
+                            <Label Text="Mode Switcher Visibility" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ModePickerCheckBox_CheckedChanged"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="4" >
+                            <Label Text="Show Alpha Slider" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ShowSliderCheckBox_CheckedChanged"/>
+                        </Grid>
+                        
+                        <Grid ColumnDefinitions="*,150" Grid.Row="5" >
+                            <Label Text="Show Rounded Pallette" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ShowRoundedPallette_CheckedChanged"  />
+                        </Grid>
+                        
+                        <Grid ColumnDefinitions="*,150" Grid.Row="6" >
+                            <Label Text="Clear Recent Colors" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <Button Text="Clear" Grid.Column="1" CornerRadius="8"  Clicked="ClearButton_Clicked"/>
+                        </Grid>
+                    </Grid>
+                </ScrollView>
+            </Border>
+        </Grid>
+    </localCore:SampleView.Content>
+    
+</localCore:SampleView>
