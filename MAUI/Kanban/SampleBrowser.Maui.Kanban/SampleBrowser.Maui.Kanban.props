@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\GettingStarted\View\GettingStarted.xaml.cs">
+      <Link>\Samples\Kanban\GettingStarted\View\GettingStarted.xaml.cs</Link>
+      <DependentUpon>GettingStarted.xaml</DependentUpon>
+    </Compile>
+    
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\GettingStarted\ViewModel\GettingStartedViewModel.cs">
+      <Link>Samples\Kanban\GettingStarted\ViewModel\GettingStartedViewModel.cs</Link>
+    </Compile>
+  </ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\Customization\View\Customization.xaml.cs">
+			<Link>\Samples\Kanban\Customization\View\Customization.xaml.cs</Link>
+			<DependentUpon>Customization.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\Customization\ViewModel\CustomizationViewModel.cs">
+			<Link>Samples\Kanban\Customization\ViewModel\CustomizationViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\Customization\Model\MenuItem.cs">
+			<Link>Samples\Kanban\Customization\Model\MenuItem.cs</Link>
+		</Compile>
+    
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\Customization\Helper\CardTemplateSelector.cs">
+			<Link>Samples\Kanban\Customization\Helper\CardTemplateSelector.cs</Link>
+		</Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\Customization\Helper\HeaderTemplateSelector.cs">
+			<Link>Samples\Kanban\Customization\Helper\HeaderTemplateSelector.cs</Link>
+		</Compile>
+	</ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\KanbanSamplesList.xml" >
+      <Link>KanbanSamplesList.xml</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\GettingStarted\View\GettingStarted.xaml">
+      <Link>\Samples\Kanban\GettingStarted\View\GettingStarted.xaml</Link>
+    </MauiXaml>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\Customization\View\Customization.xaml">
+      <Link>\Samples\Kanban\Customization\View\Customization.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+</Project>

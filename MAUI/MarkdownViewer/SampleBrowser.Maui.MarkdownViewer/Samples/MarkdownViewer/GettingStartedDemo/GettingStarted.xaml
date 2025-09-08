@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.MarkdownViewer.SfMarkdownViewer.GettingStarted"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.MarkdownViewer.SfMarkdownViewer"
+                      xmlns:markdown="clr-namespace:Syncfusion.Maui.MarkdownViewer;assembly=Syncfusion.Maui.MarkdownViewer"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.BindingContext>
+        <local:ViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:MarkdownStyleResources/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Additional Resources for Edit Mode -->
+            <Style x:Key="FloatingButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#6366F1" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="FontIcons" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="WidthRequest" Value="56" />
+                <Setter Property="HeightRequest" Value="56" />
+                <Setter Property="CornerRadius" Value="28" />
+                <Setter Property="Shadow">
+                    <Shadow Brush="Black"
+                      Offset="2,2"
+                      Radius="6"
+                      Opacity="0.3" />
+                </Setter>
+            </Style>
+
+            <Style TargetType="Editor">
+             <Setter Property="VisualStateManager.VisualStateGroups">
+                 <VisualStateGroupList>
+                     <VisualStateGroup>
+                         <VisualState x:Name="Normal" >
+                             <VisualState.Setters>
+                                    <Setter Property="Background" Value="{AppThemeBinding Light=#FFFBFE, Dark=#1C1B1F}" />
+                             </VisualState.Setters>
+                         </VisualState>
+                            <VisualState x:Name="Focused">
+                             <VisualState.Setters>
+                                    <Setter Property="Background" Value="{AppThemeBinding Light=#FFFBFE, Dark=#1C1B1F}" />
+                             </VisualState.Setters>
+                         </VisualState>
+                     </VisualStateGroup>
+                 </VisualStateGroupList>
+             </Setter>
+         </Style>
+
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <Grid>
+
+        <markdown:SfMarkdownViewer x:Name="markdownViewer" Source="{Binding WeatherData}" 
+                                HyperlinkClicked="markdownViewer_HyperlinkClicked" IsVisible="{Binding IsViewMode}">
+
+            <markdown:SfMarkdownViewer.Settings>
+                <markdown:MarkdownStyleSettings x:Name="markdownSettings"
+                         CssStyleRules="{AppThemeBinding Light={StaticResource WeatherLightStyle},Dark={StaticResource WeatherDarkStyle}}" />
+            </markdown:SfMarkdownViewer.Settings>
+
+        </markdown:SfMarkdownViewer>
+
+        <tabView:SfTabView TabWidthMode="SizeToContent"   IsVisible="{Binding IsEditMode}"
+		                   IndicatorPlacement="Bottom" IndicatorWidthMode="Stretch"
+                           x:Name="tabView"
+                           TabHeaderPadding="0"
+                           HorizontalOptions="Center">
+
+            <tabView:SfTabView.Items>
+
+                <tabView:SfTabItem Header="Source" FontSize="16" FontFamily="Roboto-Regular">
+                    <tabView:SfTabItem.Content>
+                        <ScrollView x:Name="sourceEditorScrollView">
+                            <Editor x:Name="markdownEditor"  TextColor="{AppThemeBinding Light= #1C1B1F, Dark=#E6E1E5}"
+                                Text="{Binding EditableSource, Mode=TwoWay}"
+                                MinimumHeightRequest="400"
+                                AutoSize="TextChanges"
+                                Placeholder="Enter your markdown content here..."/>
+                        </ScrollView>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem Header="CSS Style" FontSize="16" FontFamily="Roboto-Regular">
+                    <tabView:SfTabItem.Content>
+                        <ScrollView x:Name="cssEditorScrollView">
+                            <Editor x:Name="cssEditor" TextColor="{AppThemeBinding Light= #1C1B1F, Dark=#E6E1E5}"
+                                Text="{Binding Source={x:Reference markdownSettings}, Path=CssStyleRules, Mode=TwoWay}"
+                                MinimumHeightRequest="400"
+                                AutoSize="TextChanges"
+                                Placeholder="Enter your custom CSS styles here..."/>
+                        </ScrollView>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+            </tabView:SfTabView.Items>
+        </tabView:SfTabView>
+
+        <!-- Floating Action Button -->
+        <Button x:Name="floatingActionButton" FontFamily="MauiSampleFontIcon"
+            Style="{StaticResource FloatingButtonStyle}"
+            Text="{Binding FloatingButtonIcon}"
+            Command="{Binding ToggleModeCommand}"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="0,0,20,20"/>
+
+        <!-- Loading Indicator (Optional) -->
+        <ActivityIndicator x:Name="loadingIndicator"
+                       IsVisible="{Binding IsLoading}"
+                       IsRunning="{Binding IsLoading}"
+                       Color="#6366F1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Scale="1.2" />
+
+    </Grid>
+
+</localCore:SampleView>

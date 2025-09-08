@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.TreeView;assembly=Syncfusion.Maui.TreeView"
+             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.Maui.TreeView"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"           
+             x:Class="SampleBrowser.Maui.TreeView.SfTreeView.Sorting"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TreeView">
+
+    <localCore:SampleView.BindingContext>
+        <local:FileManagerViewModel x:Name="fileMangerViewmodel"/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:SfTreeViewGettingStartedBehavior />
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:TreeViewStyles/>
+            </ResourceDictionary.MergedDictionaries>
+            <local:TreeViewBoolToSortImageConverter x:Key="BoolToSortIconConverter"/>
+        </ResourceDictionary>
+        <DataTemplate x:Key="GettingStartedTemplate">
+            <local:GettingStartedDataTemplate/>
+        </DataTemplate>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Border Style="{StaticResource TreeViewBorder}">
+            <Border.StrokeShape>
+                <RoundRectangle Style="{StaticResource roundedRectangle}" />
+            </Border.StrokeShape>
+            <Border.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="20"/>
+                    <On Platform="WinUI" Value="20"/>
+                </OnPlatform>
+            </Border.Margin>
+            <Grid MaximumWidthRequest="{OnPlatform WinUI=350, MacCatalyst=400}" 
+                  RowDefinitions="Auto,*">
+                <Grid Grid.Row="0" RowDefinitions="Auto,Auto" x:Name="sortGrid" ColumnDefinitions="Auto,*">
+                    <Label Grid.Row="0"
+                           Text="File Management"
+                           FontFamily="Roboto-Medium"
+                           CharacterSpacing="0.25"
+                           VerticalTextAlignment="Center"
+                           FontSize="16"
+                           Margin="16,15,0,0" />
+                    <Border WidthRequest="30" Grid.Row="0"
+                        HeightRequest="30" HorizontalOptions="End"
+                        VerticalOptions="Center" Margin="0,15,16,0"
+                        IsVisible="true" 
+                        Grid.Column="1"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="30" />
+                    </Border.StrokeShape>
+                        <local:SfEffectsViewAdv x:Name="iconEffects"
+                                                HeightRequest="30" 
+                                                WidthRequest="30" 
+                                                HighlightBackground="{AppThemeBinding Dark=White, Light=Black}"
+                                                RippleBackground="{AppThemeBinding Dark=White, Light=Black}">
+                            <Label x:Name="sortImageParent"
+                                    Text="{Binding Path=SortingOptions, Converter={StaticResource BoolToSortIconConverter}}"
+                                    FontFamily="MauiSampleFontIcon" 
+                                    VerticalOptions="Center" 
+                                    VerticalTextAlignment="Center"
+                                    HorizontalOptions="Center"
+                                    FontSize="25" />
+                    </local:SfEffectsViewAdv>
+                </Border>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,15,0,0" >
+                    <syncfusion:SfTreeView x:Name="treeView" Grid.Row="1"
+                                Margin="{OnPlatform WinUI='0,0,1,0', MacCatalyst='8,8,1,0'}"  
+                                ItemsSource="{Binding Folders}"
+                                AutoExpandMode="AllNodesExpanded"
+                                FullRowSelect="True"
+                                ItemHeight="{OnPlatform Android=48, MacCatalyst=40, WinUI=40, iOS=48}"
+                                ExpandActionTarget="Node"
+                                ItemTemplate="{StaticResource GettingStartedTemplate}">
+
+                        <syncfusion:SfTreeView.HierarchyPropertyDescriptors>
+                            <treeviewengine:HierarchyPropertyDescriptor TargetType="{x:Type local:Folder}" ChildPropertyName="FilesInfo"/>
+                            <treeviewengine:HierarchyPropertyDescriptor TargetType="{x:Type local:File}" ChildPropertyName="SubFiles"/>
+                        </syncfusion:SfTreeView.HierarchyPropertyDescriptors>
+
+                    </syncfusion:SfTreeView>
+                </Grid>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

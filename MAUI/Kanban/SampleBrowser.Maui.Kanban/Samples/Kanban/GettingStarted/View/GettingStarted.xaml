@@ -1,0 +1,35 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Kanban.SfKanban.GettingStarted"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Kanban.SfKanban"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:kanban="clr-namespace:Syncfusion.Maui.Kanban;assembly=Syncfusion.Maui.Kanban">
+
+    <localCore:SampleView.BindingContext>
+        <local:GettingStartedViewModel/>
+    </localCore:SampleView.BindingContext>
+    
+    <localCore:SampleView.Content>
+        <kanban:SfKanban x:Name="kanban" 
+                         AutoGenerateColumns="False" 
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand" 
+                         ItemsSource="{Binding Cards}">
+            <kanban:KanbanColumn Title="To Do"
+                                 Categories="Open,Postponed" 
+                                 MinimumLimit="5" 
+                                 MaximumLimit="15" />
+            <kanban:KanbanColumn Title="In Progress"
+                                 Categories="In Progress"
+                                 MinimumLimit="3" 
+                                 MaximumLimit="8"/>
+            <kanban:KanbanColumn Title="Code Review"
+                                 Categories="Code Review"
+                                 MinimumLimit="5"
+                                 MaximumLimit="10"/>
+            <kanban:KanbanColumn Title="Done"
+                                 Categories="Closed,Closed No Changes,Won't Fix"
+                                 MinimumLimit="8"/>
+        </kanban:SfKanban>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

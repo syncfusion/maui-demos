@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.TickCustomization"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="tickCustomizationGauge" HorizontalOptions="Center" >
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis ShowAxisLine="False"
+                                                  ShowLastLabel="False"
+                                                  LabelPosition="Outside"
+                                                  RadiusFactor="0.7"
+                                                  MinorTicksPerInterval="4"
+                                                  Interval="10"
+                                                  StartAngle="270"
+                                                  EndAngle="270"
+                                                  CanRotateLabels="True">
+                    <gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.15"
+                                                             StrokeDashArray="2,1"
+                                                             Stroke="#999999"
+                                                             StrokeThickness="1.5" />
+                    </gauge:RadialAxis.MajorTickStyle>
+                    <gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.06"
+                                                             StrokeDashArray="2,1"
+                                                             Stroke="#C4C4C4"
+                                                             StrokeThickness="1.5" />
+                    </gauge:RadialAxis.MinorTickStyle>
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:NeedlePointer EnableAnimation="True"
+                                                             Value="75"
+                                                             NeedleFill="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource TextColourAlt1}}"
+                                                             NeedleLengthUnit="Factor"
+                                                             NeedleLength="0.8"
+                                                             NeedleStartWidth="1"
+                                                             NeedleEndWidth="10"
+                                                             TailWidth="10"
+                                                             TailLength="30"
+                                                             TailLengthUnit="Pixel"
+                                                             TailFill="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource TextColourAlt1}}"
+                                                             KnobFill="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource TextColourAlt1}}"
+                                                             KnobRadius="10"
+                                                             KnobSizeUnit="Pixel">
+                        </gauge:NeedlePointer>
+                    </gauge:RadialAxis.Pointers>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Editors">
+    <Control Title="Image Editor" Image="imageeditor.png"
+			 ControlName="SfImageEditor" 
+			 Description="The image editor is used to crop, flip, rotate and annotate an image.">
+			<Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="ImageEditor/GettingStarted/" VideoLink="https://www.youtube.com/watch?v=Gkkh52xSehM"/>   />
+			<Sample Title="Customization" SampleName="CustomView" CodeViewerPath="ImageEditor/CustomView/"/>
+			<!--<Sample Title="Image Filters" SampleName="ImageFilters" StatusTag="New" CodeViewerPath="ImageEditor/ImageFilters/"/>   />-->
+			
+			<!--<Sample Title="Profile Editor" SampleName="ProfileEditor" CodeViewerPath="ImageEditor/ProfileEditor/"   />-->
+		
+	</Control>
+  </ControlCategory>
+</SyncfusionControls> 

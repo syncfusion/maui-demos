@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.ColumnSizing"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel>
+        </local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Behaviors>
+        <local:ColumnSizingBehavior />
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Resources>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           AutoGenerateColumnsMode="None"
+                           HeaderRowHeight="52"
+                           RowHeight="48"
+                           Margin='{OnPlatform WinUI="-5",MacCatalyst="-5"}'
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           x:DataType="local:OrderInfoViewModel"
+                           ItemsSource="{Binding OrdersInfo}"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn Format="D" MappingName="OrderID"
+                                       HeaderText="Order ID">
+
+                </sfgrid:DataGridNumericColumn>
+
+                <sfgrid:DataGridTextColumn MappingName="CustomerID" HeaderText="Name">
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MappingName="ShipCity" HeaderText="City">
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MappingName="ShipCountry" HeaderText="Country">
+
+                </sfgrid:DataGridTextColumn>
+
+            </sfgrid:SfDataGrid.Columns>
+
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+    
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid ColumnSpacing="10"
+                  Padding="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalOptions="Start"
+                       Text="Column width mode"
+                       VerticalOptions="Center"
+                       LineBreakMode="WordWrap"
+                       FontSize="15">
+                </Label>
+
+                <editors:SfComboBox  x:Name="comboBox"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     HorizontalOptions="StartAndExpand">
+                    <editors:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Fill</x:String>
+                            <x:String>Auto</x:String>
+                            <x:String>FitByCell</x:String>
+                            <x:String>FitByHeader</x:String>
+                            <x:String>LastColumnFill</x:String>
+                            <x:String>None</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
+
+                    <editors:SfComboBox.SelectedItem>
+                        <x:String>Fill</x:String>
+                    </editors:SfComboBox.SelectedItem>
+                </editors:SfComboBox>
+
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>
