@@ -576,6 +576,27 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 	</tr>
+	    <tr>  
+	    <td rowspan="1" valign="top">
+	    VIEWER<br/>
+		</td>
+		<td>
+			<a href="https://help.syncfusion.com/maui/markdownviewer/overview">Markdown Viewer</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+
     <tr>  
 	    <td rowspan="2" valign="top">
 	    MISCELLANEOUS<br/>
