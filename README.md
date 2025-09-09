@@ -596,7 +596,6 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 	</tr>
-
     <tr>  
 	    <td rowspan="2" valign="top">
 	    MISCELLANEOUS<br/>
