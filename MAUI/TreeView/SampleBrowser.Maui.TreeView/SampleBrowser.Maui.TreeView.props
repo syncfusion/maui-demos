@@ -1,0 +1,116 @@
+<Project>
+  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+  
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\TreeViewSamplesList.xml" >
+		<Link>TreeViewSamplesList.xml</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\GettingStarted\View\GettingStarted.xaml.cs">
+		<Link>Samples\TreeView\GettingStarted\View\GettingStarted.xaml.cs</Link>
+		<DependentUpon>GettingStarted.xaml</DependentUpon>
+    </Compile>
+	
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\GettingStarted\Model\FileManager.cs">
+		<Link>Samples\TreeView\GettingStarted\Model\FileManager.cs</Link>
+	</Compile>
+	
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\GettingStarted\ViewModel\FileManagerViewModel.cs">
+		<Link>Samples\TreeView\GettingStarted\ViewModel\FileManagerViewModel.cs</Link>
+	</Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\GettingStarted\Helper\Behavior.cs">
+		  <Link>Samples\TreeView\GettingStarted\Helper\Behavior.cs</Link>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\GettingStarted\Helper\SfEffectsViewAdv.cs">
+		  <Link>Samples\TreeView\GettingStarted\Helper\SfEffectsViewAdv.cs</Link>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\GettingStarted\Helper\Converter.cs">
+		  <Link>Samples\TreeView\GettingStarted\Helper\Converter.cs</Link>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\UnBoundMode\UnBoundMode.xaml.cs">
+		  <Link>Samples\TreeView\UnBoundMode\UnBoundMode.xaml.cs</Link>
+		  <DependentUpon>UnBoundMode.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Checkboxes\View\Checkboxes.xaml.cs">
+		  <Link>Samples\TreeView\Checkboxes\View\Checkboxes.xaml.cs</Link>
+		  <DependentUpon>Checkboxes.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\LoadOnDemand\View\LoadOnDemand.xaml.cs">
+		  <Link>Samples\TreeView\LoadOnDemand\View\LoadOnDemand.xaml.cs</Link>
+		  <DependentUpon>LoadOnDemand.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\LoadOnDemand\Model\LoadOnDemandDemoModel.cs">
+		  <Link>Samples\TreeView\LoadOnDemand\Model\LoadOnDemandDemoModel.cs</Link>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\LoadOnDemand\ViewModel\LoadOnDemandDemoViewModel.cs">
+		  <Link>Samples\TreeView\LoadOnDemand\ViewModel\LoadOnDemandDemoViewModel.cs</Link>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\DragAndDrop\View\DragAndDrop.xaml.cs">
+		  <Link>Samples\TreeView\DragAndDrop\View\DragAndDrop.xaml.cs</Link>
+		  <DependentUpon>DragAndDrop.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Sorting\Sorting.xaml.cs">
+		  <Link>Samples\TreeView\Sorting\Sorting.xaml.cs</Link>
+		  <DependentUpon>Sorting.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Template\GettingStartedDataTemplate.xaml.cs">
+		  <Link>Samples\TreeView\Template\GettingStartedDataTemplate.xaml.cs</Link>
+		  <DependentUpon>GettingStartedDataTemplate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Styles\TreeViewStyles.xaml.cs">
+		  <Link>Samples\TreeView\Styles\TreeViewStyles.xaml.cs</Link>
+		  <DependentUpon>TreeViewStyles.xaml</DependentUpon>
+	  </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\GettingStarted\View\GettingStarted.xaml">
+      <Link>Samples\TreeView\GettingStarted\View\GettingStarted.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\UnBoundMode\UnBoundMode.xaml">
+			<Link>Samples\TreeView\UnBoundMode\UnBoundMode.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Checkboxes\View\Checkboxes.xaml">
+			<Link>Samples\TreeView\Checkboxes\View\Checkboxes.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\LoadOnDemand\View\LoadOnDemand.xaml">
+			<Link>Samples\TreeView\LoadOnDemand\View\LoadOnDemand.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\DragAndDrop\View\DragAndDrop.xaml">
+			<Link>Samples\TreeView\DragAndDrop\View\DragAndDrop.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Sorting\Sorting.xaml">
+			<Link>Samples\TreeView\Sorting\Sorting.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Template\GettingStartedDataTemplate.xaml">
+			<Link>Samples\TreeView\Template\GettingStartedDataTemplate.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeView\Styles\TreeViewStyles.xaml">
+			<Link>Samples\TreeView\Styles\TreeViewStyles.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+</Project>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="SampleBrowser.Maui.MarkdownViewer.SfMarkdownViewer.MarkdownStyleResources">
+
+    <x:String x:Key="WeatherLightStyle">
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #FFFBFE;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    color: #1C1B1F;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #0277bd;
+    line-height: 1.6; 
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #0288d1;
+    line-height: 1.6; 
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #039be5;
+    line-height: 1.6;
+}
+
+h4, h5 {
+    font-weight: 600;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #2196f3;
+    line-height: 1.6;
+}
+
+h6 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 500;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #366A61;
+    line-height: 1.6;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0; 
+    box-shadow: 0 4px 16px rgba(50,50,50,0.10);
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #1C1B1F;
+}
+
+td {
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    text-align: left;
+    font-size: 15px;
+    color: #1C1B1F;
+    font-weight: 500;
+}
+
+th {
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    text-align: left;
+    font-size: 15px;
+    color: #1C1B1F;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+a {
+    color: #0277bd;
+    text-decoration: none;
+}
+        
+a:hover, a:active {
+    color: #543E66;
+    text-decoration: none;
+    text-decoration-line: none;
+    border-bottom: none;
+}
+
+ul li, ol li {
+    font-family: 'Roboto', Arial, sans-serif ;
+    font-size: 16px ;
+    line-height: 24px ;
+    color: #1C1B1F;
+}
+        
+ code {
+     background: #fef2c7;
+     border-left: 4px solid #FFA726;
+     padding: 8px 12px;
+     display: block;
+     margin: 15px 0;
+     border-radius: 4px;
+     font-style: italic;
+     color: #1C1B1F;
+     font-size: 14px;
+     line-height: 1.5;
+}
+        
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5F5;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C1C1C1;
+  border-radius: 6px;
+  border: 2px solid #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A8A8A8;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #787878;
+}
+
+::-webkit-scrollbar-corner {
+  background: #F5F5F5;
+}
+    </x:String>
+
+    <x:String x:Key="WeatherDarkStyle">
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #1C1B1F;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    color: #E6E1E5;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #0277bd;
+    line-height: 1.6; 
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #0288d1;
+    line-height: 1.6; 
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #039be5;
+    line-height: 1.6;
+}
+
+h4, h5 {
+    font-weight: 600;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #2196f3;
+    line-height: 1.6;
+}
+
+h6 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 500;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #89bfb2;
+    line-height: 1.6;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0; 
+    box-shadow: 0 4px 16px rgba(50,50,50,0.10);
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #E6E1E5;
+}
+
+td {
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    text-align: left;
+    font-size: 15px;
+    color: #E6E1E5;
+    font-weight: 500;
+}
+
+th {
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    text-align: left;
+    font-size: 15px;
+    color: #E6E1E5;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #3d3d3d;
+}
+
+a {
+    color: #0277bd;
+    text-decoration: none;
+}
+        
+ a:hover, a:active {
+    color: #C490ED;
+    text-decoration: none;
+    text-decoration-line: none;
+    border-bottom: none;
+}
+
+ul li, ol li {
+    font-family: 'Roboto', Arial, sans-serif ;
+    font-size: 16px ;
+    line-height: 24px ;
+    color: #E6E1E5;
+}
+        
+code {
+     background: #7a260d;
+     border-left: 4px solid #FFA726;
+     padding: 8px 12px;
+     display: block;
+     margin: 15px 0;
+     border-radius: 4px;
+     font-style: italic;
+     color: #E6E1E5;
+     font-size: 14px;
+     line-height: 1.5;
+}
+        
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2D2D2D;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5A5A5A;
+  border-radius: 6px;
+  border: 2px solid #2D2D2D;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6E6E6E;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #8A8A8A;
+}
+
+::-webkit-scrollbar-corner {
+  background: #2D2D2D;
+}
+    </x:String>
+
+</ResourceDictionary>

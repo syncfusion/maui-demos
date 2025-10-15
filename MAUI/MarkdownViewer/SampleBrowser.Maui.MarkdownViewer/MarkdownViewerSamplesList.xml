@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Preview">
+	  <Control Title="Markdown Viewer" IsPreview="True" StatusTag="New" Image="markdownviewer.png"  ControlName="SfMarkdownViewer" Description="Effortlessly convert Markdown text into visually rich, user-friendly views.">
+		  <Sample Title = "Getting Started" SampleName = "GettingStarted" SearchTags = "MarkdownViewer" CodeViewerPath="MarkdownViewer/GettingStartedDemo/" />
+	  </Control>
+  </ControlCategory>
+</SyncfusionControls>
+

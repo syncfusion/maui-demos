@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Kanban.SfKanban.Sorting"
+                      xmlns:kanban="clr-namespace:Syncfusion.Maui.Kanban;assembly=Syncfusion.Maui.Kanban"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:progressbar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Kanban.SfKanban">
+
+    <localCore:SampleView.BindingContext>
+        <local:SortingViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="PriorityLabelStyle" TargetType="Label">
+                <!-- default color -->
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#444444, Dark=#DDDDDD}" />
+                <Style.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Priority}" Value="Low">
+                        <Setter Property="TextColor" Value="{DynamicResource ContentForegroundAlt1}" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Priority}" Value="Medium">
+                        <Setter Property="TextColor" Value="{DynamicResource SuccessForeground}" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Priority}" Value="High">
+                        <Setter Property="TextColor" Value="{DynamicResource WarningForeground}" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Priority}" Value="Critical">
+                        <Setter Property="TextColor" Value="{AppThemeBinding Light=#C50F1F, Dark=#FF4B5B}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Color x:Key="LightToDoHeaderStrokeColor">#6750A4</Color>
+            <Color x:Key="DarkToDoHeaderStrokeColor">#D0BCFF</Color>
+            <Color x:Key="LightInprogressHeaderStrokeColor">#914C00</Color>
+            <Color x:Key="DarkInprogressHeaderStrokeColor">#FFB77F</Color>
+            <Color x:Key="LightReviewHeaderStrokeColor">#B3261E</Color>
+            <Color x:Key="DarkReviewHeaderStrokeColor">#F2B8B5</Color>
+            <Color x:Key="LightDoneHeaderStrokeColor">#026B6E</Color>
+            <Color x:Key="DarkDoneHeaderStrokeColor">#10F3FA</Color>
+            <Color x:Key="LightHeaderTextColor">#49454F</Color>
+            <Color x:Key="DarkHeaderTextColor">#CAC4D0</Color>
+            <Color x:Key="LightToDoHeaderTextColor">#6750A4</Color>
+            <Color x:Key="DarkToDoHeaderTextColor">#D0BCFF</Color>
+            <Color x:Key="LightInprogressHeaderTextColor">#914C00</Color>
+            <Color x:Key="DarkInprogressHeaderTextColor">#FFB77F</Color>
+            <Color x:Key="LightReviewHeaderTextColor">#B3261E</Color>
+            <Color x:Key="DarkReviewHeaderTextColor">#F2B8B5</Color>
+            <Color x:Key="LightCardTextColor">#1C1B1F</Color>
+            <Color x:Key="DarkCardTextColor">#E6E1E5</Color>
+            <Color x:Key="LightBorderColor">#FFFBFE</Color>
+        </ResourceDictionary>
+
+        <!-- NoCardTemplate -->
+         <DataTemplate x:Key="NoCardTemplate">
+            <Label Text="No Cards to Display"
+                   FontSize="14"
+                   TextColor="{DynamicResource ContentForegroundAlt1}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+        </DataTemplate>
+
+        <!-- PlaceholderStyles -->
+        <kanban:KanbanPlaceholderStyle  x:Key="ToDoPlaceholderStyle"
+                                        Background="Transparent"
+                                        SelectionIndicatorBackground="Transparent"
+                                        SelectionIndicatorStroke="{AppThemeBinding Light={StaticResource LightToDoHeaderStrokeColor}, Dark={StaticResource DarkToDoHeaderStrokeColor}}">
+        </kanban:KanbanPlaceholderStyle>
+        <kanban:KanbanPlaceholderStyle  x:Key="InProgressPlaceholderStyle"
+                                        Background="Transparent"
+                                        SelectionIndicatorBackground="Transparent"
+                                        SelectionIndicatorStroke="{AppThemeBinding Light={StaticResource LightInprogressHeaderStrokeColor}, Dark={StaticResource DarkInprogressHeaderStrokeColor}}">
+        </kanban:KanbanPlaceholderStyle>
+        <kanban:KanbanPlaceholderStyle  x:Key="ReviewPlaceholderStyle"
+                                        SelectionIndicatorBackground="Transparent"
+                                        Background="Transparent"
+                                        SelectionIndicatorStroke="{DynamicResource ErrorBorder}">
+        </kanban:KanbanPlaceholderStyle>
+        <kanban:KanbanPlaceholderStyle  x:Key="DonePlaceholderStyle"
+                                        SelectionIndicatorBackground="Transparent"
+                                        Background="Transparent"
+                                        SelectionIndicatorStroke="{DynamicResource SuccessBorder}">
+        </kanban:KanbanPlaceholderStyle>
+
+        <!-- Header templates -->
+        <DataTemplate x:Key="ToDoHeaderTemplate">
+            <Border StrokeThickness="1" Stroke="{AppThemeBinding Light={StaticResource LightToDoHeaderStrokeColor}, Dark={StaticResource DarkToDoHeaderStrokeColor}}" Margin="12,0,12,0" BackgroundColor="Transparent" StrokeShape="RoundRectangle 8">
+                <Grid Padding="8" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8" VerticalOptions="Center">
+                    <Path Data="M9.66665 12C9.29998 12 8.98609 11.8694 8.72498 11.6083C8.46387 11.3472 8.33331 11.0333 8.33331 10.6667V8C8.33331 7.63333 8.46387 7.31944 8.72498 7.05833C8.98609 6.79722 9.29998 6.66667 9.66665 6.66667H12.3333C12.7 6.66667 13.0139 6.79722 13.275 7.05833C13.5361 7.31944 13.6666 7.63333 13.6666 8V10.6667C13.6666 11.0333 13.5361 11.3472 13.275 11.6083C13.0139 11.8694 12.7 12 12.3333 12H9.66665ZM9.66665 10.6667H12.3333V8H9.66665V10.6667ZM0.333313 10V8.66667H6.33331V10H0.333313ZM9.66665 5.33333C9.29998 5.33333 8.98609 5.20278 8.72498 4.94167C8.46387 4.68056 8.33331 4.36667 8.33331 4V1.33333C8.33331 0.966667 8.46387 0.652778 8.72498 0.391667C8.98609 0.130556 9.29998 0 9.66665 0H12.3333C12.7 0 13.0139 0.130556 13.275 0.391667C13.5361 0.652778 13.6666 0.966667 13.6666 1.33333V4C13.6666 4.36667 13.5361 4.68056 13.275 4.94167C13.0139 5.20278 12.7 5.33333 12.3333 5.33333H9.66665ZM9.66665 4H12.3333V1.33333H9.66665V4ZM0.333313 3.33333V2H6.33331V3.33333H0.333313Z"
+                          WidthRequest="14" HeightRequest="12" Fill="{AppThemeBinding Light={StaticResource LightToDoHeaderStrokeColor}, Dark={StaticResource DarkToDoHeaderStrokeColor}}" VerticalOptions="Center"/>
+                    <HorizontalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                        <Label Text="{Binding Title}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource LightToDoHeaderTextColor}, Dark={StaticResource DarkToDoHeaderTextColor}}" FontFamily="Roboto"/>
+                        <Label Text="-" Opacity="0.6" TextColor="{AppThemeBinding Light={StaticResource LightToDoHeaderTextColor}, Dark={StaticResource DarkToDoHeaderTextColor}}"/>
+                        <Label Text="{Binding ItemsCount, StringFormat='{}{0} Items'}" TextColor="{AppThemeBinding Light={StaticResource LightHeaderTextColor}, Dark={StaticResource DarkHeaderTextColor}}"/>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="InProgressHeaderTemplate">
+            <Border StrokeThickness="1" Stroke="{AppThemeBinding Light={StaticResource LightInprogressHeaderStrokeColor}, Dark={StaticResource DarkInprogressHeaderStrokeColor}}" 
+                    BackgroundColor="Transparent" StrokeShape="RoundRectangle 8" Margin="12,0,12,0">
+                <Grid Padding="8" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8" VerticalOptions="Center">
+                    <Path Data="M6.99998 13.6668C6.08887 13.6668 5.22776 13.4918 4.41665 13.1418C3.60554 12.7918 2.8972 12.3141 2.29165 11.7085C1.68609 11.1029 1.20831 10.3946 0.858313 9.5835C0.508313 8.77238 0.333313 7.91127 0.333313 7.00016C0.333313 6.07794 0.508313 5.21405 0.858313 4.4085C1.20831 3.60294 1.68609 2.89738 2.29165 2.29183C2.8972 1.68627 3.60554 1.2085 4.41665 0.858496C5.22776 0.508496 6.08887 0.333496 6.99998 0.333496C7.18887 0.333496 7.3472 0.397385 7.47498 0.525163C7.60276 0.652941 7.66665 0.811274 7.66665 1.00016C7.66665 1.18905 7.60276 1.34738 7.47498 1.47516C7.3472 1.60294 7.18887 1.66683 6.99998 1.66683C5.5222 1.66683 4.26387 2.18627 3.22498 3.22516C2.18609 4.26405 1.66665 5.52238 1.66665 7.00016C1.66665 8.47794 2.18609 9.73627 3.22498 10.7752C4.26387 11.8141 5.5222 12.3335 6.99998 12.3335C8.47776 12.3335 9.73609 11.8141 10.775 10.7752C11.8139 9.73627 12.3333 8.47794 12.3333 7.00016C12.3333 6.81127 12.3972 6.65294 12.525 6.52516C12.6528 6.39738 12.8111 6.3335 13 6.3335C13.1889 6.3335 13.3472 6.39738 13.475 6.52516C13.6028 6.65294 13.6666 6.81127 13.6666 7.00016C13.6666 7.91127 13.4916 8.77238 13.1416 9.5835C12.7916 10.3946 12.3139 11.1029 11.7083 11.7085C11.1028 12.3141 10.3972 12.7918 9.59165 13.1418C8.78609 13.4918 7.9222 13.6668 6.99998 13.6668Z"
+                          WidthRequest="14" HeightRequest="14" Fill="{DynamicResource WarningForeground}"  VerticalOptions="Center"/>
+                    <HorizontalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                        <Label Text="{Binding Title}" FontFamily="Roboto" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource LightInprogressHeaderTextColor}, Dark={StaticResource DarkInprogressHeaderTextColor}}"/>
+                        <Label Text="-" Opacity="0.6" TextColor="{AppThemeBinding Light={StaticResource LightInprogressHeaderTextColor}, Dark={StaticResource DarkInprogressHeaderTextColor}}"/>
+                        <Label Text="{Binding ItemsCount, StringFormat='{}{0} Items'}" TextColor="{AppThemeBinding Light={StaticResource LightHeaderTextColor}, Dark={StaticResource DarkHeaderTextColor}}"/>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ReviewHeaderTemplate">
+            <Border StrokeThickness="1" Stroke="{DynamicResource ErrorBorder}" BackgroundColor="Transparent" StrokeShape="RoundRectangle 8" Margin="12,0,12,0">
+                <Grid Padding="8" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8" VerticalOptions="Center">
+                    <Path Data="M3.66671 8.00016C3.94448 8.00016 4.1806 7.90294 4.37504 7.7085C4.56948 7.51405 4.66671 7.27794 4.66671 7.00016C4.66671 6.72238 4.56948 6.48627 4.37504 6.29183C4.1806 6.09738 3.94448 6.00016 3.66671 6.00016C3.38893 6.00016 3.15282 6.09738 2.95837 6.29183C2.76393 6.48627 2.66671 6.72238 2.66671 7.00016C2.66671 7.27794 2.76393 7.51405 2.95837 7.7085C3.15282 7.90294 3.38893 8.00016 3.66671 8.00016ZM7.00004 8.00016C7.27782 8.00016 7.51393 7.90294 7.70837 7.7085C7.90282 7.51405 8.00004 7.27794 8.00004 7.00016C8.00004 6.72238 7.90282 6.48627 7.70837 6.29183C7.51393 6.09738 7.27782 6.00016 7.00004 6.00016C6.72226 6.00016 6.48615 6.09738 6.29171 6.29183C6.09726 6.48627 6.00004 6.72238 6.00004 7.00016C6.00004 7.27794 6.09726 7.51405 6.29171 7.7085C6.48615 7.90294 6.72226 8.00016 7.00004 8.00016ZM10.3334 8.00016C10.6112 8.00016 10.8473 7.90294 11.0417 7.7085C11.2362 7.51405 11.3334 7.27794 11.3334 7.00016C11.3334 6.72238 11.2362 6.48627 11.0417 6.29183C10.8473 6.09738 10.6112 6.00016 10.3334 6.00016C10.0556 6.00016 9.81948 6.09738 9.62504 6.29183C9.4306 6.48627 9.33337 6.72238 9.33337 7.00016C9.33337 7.27794 9.4306 7.51405 9.62504 7.7085C9.81948 7.90294 10.0556 8.00016 10.3334 8.00016ZM7.00004 13.6668C6.07782 13.6668 5.21115 13.4918 4.40004 13.1418C3.58893 12.7918 2.88337 12.3168 2.28337 11.7168C1.68337 11.1168 1.20837 10.4113 0.858374 9.60016C0.508374 8.78905 0.333374 7.92238 0.333374 7.00016C0.333374 6.07794 0.508374 5.21127 0.858374 4.40016C1.20837 3.58905 1.68337 2.8835 2.28337 2.2835C2.88337 1.6835 3.58893 1.2085 4.40004 0.858496C5.21115 0.508496 6.07782 0.333496 7.00004 0.333496C7.92226 0.333496 8.78893 0.508496 9.60004 0.858496C10.4112 1.2085 11.1167 1.6835 11.7167 2.2835C12.3167 2.8835 12.7917 3.58905 13.1417 4.40016C13.4917 5.21127 13.6667 6.07794 13.6667 7.00016C13.6667 7.92238 13.4917 8.78905 13.1417 9.60016C12.7917 10.4113 12.3167 11.1168 11.7167 11.7168C11.1167 12.3168 10.4112 12.7918 9.60004 13.1418C8.78893 13.4918 7.92226 13.6668 7.00004 13.6668ZM7.00004 12.3335C8.48893 12.3335 9.75004 11.8168 10.7834 10.7835C11.8167 9.75016 12.3334 8.48905 12.3334 7.00016C12.3334 5.51127 11.8167 4.25016 10.7834 3.21683C9.75004 2.1835 8.48893 1.66683 7.00004 1.66683C5.51115 1.66683 4.25004 2.1835 3.21671 3.21683C2.18337 4.25016 1.66671 5.51127 1.66671 7.00016C1.66671 8.48905 2.18337 9.75016 3.21671 10.7835C4.25004 11.8168 5.51115 12.3335 7.00004 12.3335Z" WidthRequest="14" HeightRequest="14" Fill="{DynamicResource ErrorBorder}" VerticalOptions="Center"/>
+                    <HorizontalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                        <Label Text="{Binding Title}" FontFamily="Roboto" FontSize="14" TextColor="{DynamicResource ErrorBorder}"/>
+                        <Label Text="-" Opacity="0.6" TextColor="{AppThemeBinding Light={StaticResource LightReviewHeaderTextColor}, Dark={StaticResource DarkReviewHeaderTextColor}}"/>
+                        <Label Text="{Binding ItemsCount, StringFormat='{}{0} Items'}" TextColor="{AppThemeBinding Light={StaticResource LightHeaderTextColor}, Dark={StaticResource DarkHeaderTextColor}}"/>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DoneHeaderTemplate">
+            <Border StrokeThickness="1" Stroke="{DynamicResource SuccessBorder}" BackgroundColor="Transparent" StrokeShape="RoundRectangle 8" Margin="12,0,12,0">
+                <Grid Padding="8" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8" VerticalOptions="Center">
+                    <Path Data="M4.46662 9.00007L0.699951 5.2334L1.64995 4.30007L4.48328 7.1334L5.41662 8.06673L4.46662 9.00007ZM8.23328 9.00007L4.46662 5.2334L5.39995 4.2834L8.23328 7.11673L14.3666 0.983398L15.3 1.9334L8.23328 9.00007ZM8.23328 5.2334L7.28328 4.30007L10.5833 1.00007L11.5333 1.9334L8.23328 5.2334Z"
+                          WidthRequest="16" HeightRequest="9" Fill="{DynamicResource SuccessForeground}" VerticalOptions="Center"/>
+                    <HorizontalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                        <Label Text="{Binding Title}" FontFamily="Roboto" FontSize="14" TextColor="{DynamicResource SuccessBorder}"/>
+                        <Label Text="-" Opacity="0.6" TextColor="{AppThemeBinding Light={StaticResource LightDoneHeaderStrokeColor}, Dark={StaticResource DarkDoneHeaderStrokeColor}}"/>
+                        <Label Text="{Binding ItemsCount, StringFormat='{}{0} Items'}" TextColor="{AppThemeBinding Light={StaticResource LightHeaderTextColor}, Dark={StaticResource DarkHeaderTextColor}}"/>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <!-- Card templates -->
+        <DataTemplate x:Key="ToDoCardTemplate">
+            <Border StrokeShape="RoundRectangle 12" Opacity="5" Padding="12,12,12,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.00" Color="{AppThemeBinding Light=#0D6750A4, Dark=#0DD0BCFF}"/>
+                        <GradientStop Offset="0.20" Color="{AppThemeBinding Light=#1A6750A4, Dark=#1AD0BCFF}"/>
+                        <GradientStop Offset="1.00" Color="{AppThemeBinding Light=#006750A4, Dark=#00D0BCFF}"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="8">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                        <Border Background="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource LightCardTextColor}}"
+                                StrokeThickness="0" HeightRequest="22" 
+                                StrokeShape="RoundRectangle 20"
+                                Padding="8,4">
+                            <HorizontalStackLayout Spacing="4" 
+                                                   Margin="{OnPlatform Android = '0,-2,0,0'}"  
+                                                   VerticalOptions="Center">
+                                <Label Text="•" FontSize="15"
+                                       Style="{StaticResource PriorityLabelStyle}"
+                                       Margin="{OnPlatform Android = '0,-2,0,0'}"
+                                       VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Priority}" FontSize="12"
+                                       Style="{StaticResource PriorityLabelStyle}"
+                                       VerticalTextAlignment="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                        <Label Grid.Column="1"
+                               HorizontalOptions="End"
+                               Text="{Binding Index, StringFormat='Rank #{0}'}"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light={StaticResource LightDoneHeaderStrokeColor}, Dark={StaticResource DarkDoneHeaderStrokeColor}}"
+                               VerticalTextAlignment="Center"/>
+                    </Grid>
+
+                    <Label Grid.Row="1"
+                           Text="{Binding Title}"
+                           FontAttributes="Bold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource LightCardTextColor}, Dark={StaticResource DarkCardTextColor}}"/>
+                    <Label Grid.Row="2"
+                           Text="{Binding Description}"
+                           FontSize="12"
+                           LineBreakMode="WordWrap"
+                           TextColor="{AppThemeBinding Light={StaticResource LightCardTextColor}, Dark={StaticResource DarkCardTextColor}}"/>
+
+                    <HorizontalStackLayout Grid.Row="3"
+                                           Spacing="10"
+                                           BindableLayout.ItemsSource="{Binding Tags}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeShape="RoundRectangle 12"
+                                        StrokeThickness="0"
+                                        Padding="12,6"
+                                        Background="{AppThemeBinding Light=#F6EDFF, Dark=#381E72}">
+                                    <Label Text="{Binding .}"
+                                           FontSize="12"
+                                           TextColor="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}" />
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="InProgressCardTemplate">
+            <Border StrokeShape="RoundRectangle 12" Padding="12,12,12,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.00" Color="{AppThemeBinding Light=#0D914C00, Dark=#0DFFB77F}"/>
+                        <GradientStop Offset="0.20" Color="{AppThemeBinding Light=#1A914C00, Dark=#1AFFB77F}"/>
+                        <GradientStop Offset="1.00" Color="{AppThemeBinding Light=#00914C00, Dark=#00FFB77F}"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="8">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                        <Border Background="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource LightCardTextColor}}"
+                                StrokeThickness="0" 
+                                HeightRequest="22" 
+                                StrokeShape="RoundRectangle 20"
+                                Padding="8,4">
+                            <HorizontalStackLayout Spacing="4" 
+                                                   Margin="{OnPlatform Android = '0,-2,0,0'}" 
+                                                   VerticalOptions="Center">
+                                <Label Text="•" 
+                                       FontSize="15"
+                                       Margin="{OnPlatform Android = '0,-2,0,0'}" 
+                                       Style="{StaticResource PriorityLabelStyle}"
+                                       VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Priority}" FontSize="12"
+                                       Style="{StaticResource PriorityLabelStyle}"
+                                       VerticalTextAlignment="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                        <Label Grid.Column="1"
+                               HorizontalOptions="End"
+                               Text="{Binding Index, StringFormat='Rank #{0}'}"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light={StaticResource LightDoneHeaderStrokeColor}, Dark={StaticResource DarkDoneHeaderStrokeColor}}"
+                               VerticalTextAlignment="Center"/>
+                    </Grid>
+                    <Label Grid.Row="1"
+                           Text="{Binding Title}"
+                           FontAttributes="Bold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource LightCardTextColor}, Dark={StaticResource DarkCardTextColor}}"/>
+                    <Label Grid.Row="2"
+                           Text="{Binding Description}"
+                           FontSize="12"
+                           LineBreakMode="WordWrap"
+                           TextColor="{AppThemeBinding Light={StaticResource LightCardTextColor}, Dark={StaticResource DarkCardTextColor}}"/>
+                    <HorizontalStackLayout Grid.Row="3"
+                                           Spacing="10"
+                                           BindableLayout.ItemsSource="{Binding Tags}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeShape="RoundRectangle 12"
+                                        StrokeThickness="0"
+                                        Padding="12,6"
+                                        Background="{AppThemeBinding Light=#F6EDFF, Dark=#381E72}">
+                                    <Label Text="{Binding .}"
+                                           FontSize="12"
+                                           TextColor="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}" />
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                    <progressbar:SfLinearProgressBar Grid.Row="4" Minimum="0" Maximum="100" Margin="-12,0,-12,0" TrackFill="Transparent"
+                                                     ProgressFill="{AppThemeBinding Light={StaticResource LightInprogressHeaderStrokeColor}, Dark={StaticResource DarkInprogressHeaderStrokeColor}}"
+                                                     Progress="{Binding Progress}" HeightRequest="3"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ReviewCardTemplate">
+            <Border StrokeShape="RoundRectangle 12" Padding="12,12,12,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.00" Color="{AppThemeBinding Light=#0DB3261E, Dark=#0DF2B8B5}"/>
+                        <GradientStop Offset="0.20" Color="{AppThemeBinding Light=#1AB3261E, Dark=#1AF2B8B5}"/>
+                        <GradientStop Offset="1.00" Color="{AppThemeBinding Light=#00B3261E, Dark=#00F2B8B5}"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="8">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                        <Border Background="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource LightCardTextColor}}"
+                                StrokeThickness="0" 
+                                HeightRequest="22" 
+                                StrokeShape="RoundRectangle 20"
+                                Padding="8,4">
+                            <HorizontalStackLayout Spacing="4" 
+                                                   Margin="{OnPlatform Android = '0,-2,0,0'}" 
+                                                   VerticalOptions="Center">
+                                <Label Text="•" FontSize="15"
+                                       Style="{StaticResource PriorityLabelStyle}"
+                                       Margin="{OnPlatform Android = '0,-2,0,0'}"
+                                       VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Priority}" FontSize="12"
+                                       Style="{StaticResource PriorityLabelStyle}"
+                                       VerticalTextAlignment="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                        <Label Grid.Column="1"
+                               HorizontalOptions="End"
+                               Text="{Binding Index, StringFormat='Rank #{0}'}"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light={StaticResource LightDoneHeaderStrokeColor}, Dark={StaticResource DarkDoneHeaderStrokeColor}}"
+                               VerticalTextAlignment="Center"/>
+                    </Grid>
+                    <Label Grid.Row="1"
+                           Text="{Binding Title}"
+                           FontAttributes="Bold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource LightCardTextColor}, Dark={StaticResource DarkCardTextColor}}"/>
+                    <Label Grid.Row="2"
+                           Text="{Binding Description}"
+                           FontSize="12"
+                           LineBreakMode="WordWrap"
+                           TextColor="{AppThemeBinding Light={StaticResource LightCardTextColor}, Dark={StaticResource DarkCardTextColor}}"/>
+                    <HorizontalStackLayout Grid.Row="3"
+                                           Spacing="10"
+                                           BindableLayout.ItemsSource="{Binding Tags}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeShape="RoundRectangle 12"
+                                        StrokeThickness="0"
+                                        Padding="12,6"
+                                        Background="{AppThemeBinding Light=#F6EDFF, Dark=#381E72}">
+                                    <Label Text="{Binding .}"
+                                           FontSize="12"
+                                           TextColor="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}" />
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                    <progressbar:SfLinearProgressBar Grid.Row="4" Minimum="0" Maximum="100" TrackFill="Transparent" Margin="-12,0,-12,0"
+                                                     ProgressFill="{AppThemeBinding Light={StaticResource ErrorBorder}, Dark={StaticResource ErrorBorder}}"
+                                                     Progress="{Binding Progress}" HeightRequest="3"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DoneCardTemplate">
+            <Border StrokeShape="RoundRectangle 12" Padding="12,12,12,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.00" Color="{AppThemeBinding Light=#00026B6E, Dark=#0D10F3FA}"/>
+                        <GradientStop Offset="0.20" Color="{AppThemeBinding Light=#1A026B6E, Dark=#1A10F3FA}"/>
+                        <GradientStop Offset="1.00" Color="{AppThemeBinding Light=#00026B6E, Dark=#0010F3FA}"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="8">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                        <Border Background="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource LightCardTextColor}}"
+                                StrokeThickness="0" 
+                                HeightRequest="22" 
+                                StrokeShape="RoundRectangle 20"
+                                Padding="8,4">
+                            <HorizontalStackLayout Spacing="4" 
+                                                   Margin="{OnPlatform Android = '0,-2,0,0'}" 
+                                                   VerticalOptions="Center">
+                                <Label Text="•" FontSize="15"
+                                       Style="{StaticResource PriorityLabelStyle}"
+                                       Margin="{OnPlatform Android = '0,-2,0,0'}"
+                                       VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Priority}" FontSize="12"
+                                       Style="{StaticResource PriorityLabelStyle}"
+                                       VerticalTextAlignment="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                        <Label Grid.Column="1"
+                               HorizontalOptions="End"
+                               Text="{Binding Index, StringFormat='Rank #{0}'}"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light={StaticResource LightDoneHeaderStrokeColor}, Dark={StaticResource DarkDoneHeaderStrokeColor}}"
+                               VerticalTextAlignment="Center"/>
+                    </Grid>
+                    <Label Grid.Row="1"
+                           Text="{Binding Title}"
+                           FontAttributes="Bold"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource LightCardTextColor}, Dark={StaticResource DarkCardTextColor}}"/>
+                    <Label Grid.Row="2"
+                           Text="{Binding Description}"
+                           FontSize="12"
+                           LineBreakMode="WordWrap"
+                           TextColor="{AppThemeBinding Light={StaticResource LightCardTextColor}, Dark={StaticResource DarkCardTextColor}}"/>
+                    <HorizontalStackLayout Grid.Row="3" Spacing="10" BindableLayout.ItemsSource="{Binding Tags}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeShape="RoundRectangle 12"
+                                        StrokeThickness="0"
+                                        Padding="12,6"
+                                        Background="{AppThemeBinding Light=#F6EDFF, Dark=#381E72}">
+                                    <Label Text="{Binding .}"
+                                           FontSize="12"
+                                           TextColor="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}" />
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                    <progressbar:SfLinearProgressBar Grid.Row="4" ProgressFill="{DynamicResource SuccessBorder}" TrackFill="Transparent" Minimum="0"
+                                                     Maximum="100" Margin="-12,0,-12,0" Progress="{Binding Progress}" HeightRequest="3"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <local:KanbanCardTemplateSelector x:Key="CardTemplateSelector" 
+                                          ToDoTemplate="{StaticResource ToDoCardTemplate}"
+                                          InProgressTemplate="{StaticResource InProgressCardTemplate}"
+                                          ReviewTemplate="{StaticResource ReviewCardTemplate}"
+                                          DoneTemplate="{StaticResource DoneCardTemplate}"/>
+
+        <local:KanbanHeaderTemplateSelector x:Key="HeaderTemplateSelector"
+                                            ToDoTemplate="{StaticResource ToDoHeaderTemplate}"
+                                            InProgressTemplate="{StaticResource InProgressHeaderTemplate}"
+                                            ReviewTemplate="{StaticResource ReviewHeaderTemplate}"
+                                            DoneTemplate="{StaticResource DoneHeaderTemplate}"/>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <kanban:SfKanban x:Name="kanban" 
+                         SortingMappingPath="Index"
+                         SortingOrder="Ascending"
+                         AutoGenerateColumns="false"
+                         ItemsSource="{Binding Cards}"
+                         ColumnMappingPath="Category"
+                         CardTemplate="{StaticResource CardTemplateSelector}"
+                         HeaderTemplate="{StaticResource HeaderTemplateSelector}">
+            <kanban:KanbanColumn Title="Open" 
+                                 Categories="Open" 
+                                 Background="Transparent"
+                                 PlaceholderStyle="{StaticResource ToDoPlaceholderStyle}"
+                                 NoCardTemplate="{StaticResource NoCardTemplate}"/>
+            <kanban:KanbanColumn Title="In Progress" 
+                                 Categories="In Progress" 
+                                 Background="Transparent"
+                                 PlaceholderStyle="{StaticResource InProgressPlaceholderStyle}"
+                                 NoCardTemplate="{StaticResource NoCardTemplate}"/>
+            <kanban:KanbanColumn Title="Code Review" 
+                                 Categories="Code Review"
+                                 Background="Transparent"
+                                 PlaceholderStyle="{StaticResource ReviewPlaceholderStyle}"
+                                 NoCardTemplate="{StaticResource NoCardTemplate}"/>
+            <kanban:KanbanColumn Title="Done" 
+                                 AllowDrag="False"
+                                 Categories="Done" 
+                                 Background="Transparent"
+                                 PlaceholderStyle="{StaticResource DonePlaceholderStyle}"
+                                 NoCardTemplate="{StaticResource NoCardTemplate}"/>
+        </kanban:SfKanban>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView>
+                <VerticalStackLayout Spacing="5">
+                    <inputLayout:SfTextInputLayout x:Name="sortBySelection" 
+                                                   Hint="SortBy" 
+                                                   ContainerType="Filled"
+                                                   ContainerBackground="Transparent">
+                        <editors:SfComboBox x:Name="sortByComboBox" 
+                                            SelectedIndex="0"
+                                            IsClearButtonVisible="False">
+                            <editors:SfComboBox.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Index</x:String>
+                                    <x:String>Custom</x:String>
+                                    <x:String>ItemSource Order</x:String>
+                                </x:Array>
+                            </editors:SfComboBox.ItemsSource>
+                        </editors:SfComboBox>
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout x:Name="directionSelection"
+                                                   Hint="Direction"
+                                                   ContainerType="Filled"
+                                                   ContainerBackground="Transparent">
+                        <editors:SfComboBox x:Name="sortOrderComboBox"
+                                            SelectedIndex="0"
+                                            IsClearButtonVisible="False">
+                            <editors:SfComboBox.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Ascending</x:String>
+                                    <x:String>Descending</x:String>
+                                </x:Array>
+                            </editors:SfComboBox.ItemsSource>
+                        </editors:SfComboBox>
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout x:Name="mappingPathSelection" 
+                                                   Hint="SortingMappingPath"
+                                                   ContainerType="Filled"
+                                                   ContainerBackground="Transparent">
+                        <editors:SfComboBox x:Name="mappingPathComboBox"
+                                            SelectedIndex="1"
+                                            IsClearButtonVisible="False">
+                            <editors:SfComboBox.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Title</x:String>
+                                    <x:String>Index</x:String>
+                                    <x:String>Priority</x:String>
+                                </x:Array>
+                            </editors:SfComboBox.ItemsSource>
+                        </editors:SfComboBox>
+                    </inputLayout:SfTextInputLayout>
+                </VerticalStackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:SortingBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

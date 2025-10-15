@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.Sorting"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel>
+        </local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="115"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="optionRowSpacing" x:TypeArguments="x:Double">
+            <On Platform="iOS, WinUI, MacCatalyst" Value="5"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Color x:Key="trackLightThemeColor">#6750A4</Color>
+        <Color x:Key="trackDarkThemeColor">#D0BCFF</Color>
+        <Color x:Key="thumbLightThemeColor">#FFFFFF</Color>
+        <Color x:Key="thumbDarkThemeColor">#381E72</Color>
+        <Color x:Key="trackOffLightThemeColor">#E7E0EC</Color>
+        <Color x:Key="trackOffDarkThemeColor">#49454F</Color>
+        <Color x:Key="thumbOffLightThemeColor">#79747E</Color>
+        <Color x:Key="thumbOffDarkThemeColor">#938F99</Color>
+        <Style TargetType="editors:SfSwitch" x:Key="sfSwitchStyle">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="On">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <editors:SwitchSettings ThumbBackground="{AppThemeBinding Light={StaticResource thumbLightThemeColor}, Dark={StaticResource thumbDarkThemeColor}}"
+                                                                TrackBackground="{AppThemeBinding Light={StaticResource trackLightThemeColor}, Dark={StaticResource trackDarkThemeColor}}"
+                                                                TrackHeightRequest="20"
+                                                                TrackWidthRequest="42"
+                                                                ThumbHeightRequest="12"
+                                                                ThumbWidthRequest="12" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Off">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <editors:SwitchSettings ThumbBackground="{AppThemeBinding Light={StaticResource thumbOffLightThemeColor}, Dark={StaticResource thumbOffDarkThemeColor}}"
+                                                                TrackBackground="{AppThemeBinding Light={StaticResource trackOffLightThemeColor}, Dark={StaticResource trackOffDarkThemeColor}}"
+                                                                TrackHeightRequest="20"
+                                                                TrackWidthRequest="42"
+                                                                ThumbHeightRequest="12"
+                                                                ThumbWidthRequest="12" />
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>    
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Behaviors>
+        <local:SortingBehavior></local:SortingBehavior>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid" 
+                           Margin="{StaticResource margin}"
+                           HeaderRowHeight="52"
+                           RowHeight="48" 
+                           SortingMode="Single"
+                           x:DataType="local:OrderInfoViewModel"
+                           ItemsSource="{Binding OrdersInfo}"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always">
+
+            <sfgrid:SfDataGrid.SortColumnDescriptions>
+                <sfgrid:SortColumnDescription ColumnName="OrderID" SortDirection="Descending" />
+            </sfgrid:SfDataGrid.SortColumnDescriptions>
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn Format="D"
+                                       MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="Order ID"
+                                       MappingName="OrderID"
+                                       >
+                </sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="Customer ID"
+                                       MappingName="CustomerID"
+                                      >
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="Name"
+                                       MappingName="FirstName"
+                                       >
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="City"
+                                       MappingName="ShipCity"
+                                       >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       HeaderText="Country"
+                                       MappingName="ShipCountry"
+                                       >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridNumericColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       Format="C"
+                                       HeaderText="Freight"
+                                       MappingName="Freight"
+                                       >
+                </sfgrid:DataGridNumericColumn>
+
+            </sfgrid:SfDataGrid.Columns>
+
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid ColumnSpacing="10" RowSpacing="{StaticResource optionRowSpacing}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="sorting"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="True"
+                                  Grid.Column="1"
+                                  Grid.Row="0"
+                                  Style="{StaticResource sfSwitchStyle}">
+                </editors:SfSwitch>
+                <Label
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   Text="Allow sorting"
+                   VerticalOptions="Center" />
+
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="multiSorting"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="False"
+                                  Grid.Column="1"
+                                  Grid.Row="2"
+                                  Style="{StaticResource sfSwitchStyle}">
+                    
+                </editors:SfSwitch>
+                <Label
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   Text="Allow multiple column sorting"
+                   VerticalOptions="Center" />
+
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="triSorting"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="False"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  Style="{StaticResource sfSwitchStyle}">
+                    
+                </editors:SfSwitch>
+                <Label
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   Text="Allow tri-state sorting"
+                   VerticalOptions="Center" />
+
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  x:Name="columnSorting"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="True"
+                                  Grid.Column="1"
+                                  Grid.Row="3"
+                                  Style="{StaticResource sfSwitchStyle}">
+                    
+                </editors:SfSwitch>
+                <Label
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   Text="Allow sorting for city column"
+                   VerticalOptions="Center" />
+
+                <editors:SfSwitch Margin="5,0,0,0"
+                                  Grid.Column="1"
+                                  Grid.Row="4"
+                                  x:Name="showSortNumbers"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  IsOn="False"
+                                  Style="{StaticResource sfSwitchStyle}" />
+                <Label
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   FontSize="15"
+                   HorizontalOptions="Start"
+                   LineBreakMode="WordWrap"
+                   Text="Display sort sequence numbers"
+                   VerticalOptions="Center" />
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

@@ -1,0 +1,94 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.CartesianChart.SfCartesianChart.HistogramChart"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:chart="http://schemas.syncfusion.com/maui"
+             x:DataType="local:HistogramSeriesViewModel">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid HorizontalOptions="Fill" x:Name="layout">
+            <Grid.Resources>
+                <Label x:Key="title" x:Name="titleName" Text="Examination Result"
+                   FontSize="16" HorizontalOptions="Fill" VerticalOptions="Center" HorizontalTextAlignment="Center"
+                  LineBreakMode="WordWrap" Padding="0,0,0,15"/>
+            </Grid.Resources>
+            
+            <chart:SfCartesianChart x:Name="Chart" VerticalOptions="Fill">
+                
+                <chart:SfCartesianChart.BindingContext>
+                    <local:HistogramSeriesViewModel x:Name="viewModel"/>
+                </chart:SfCartesianChart.BindingContext>
+                
+                <chart:SfCartesianChart.Resources>
+                    <local:TooltipValueConverter x:Key="ValueConverter"/>
+                    <local:TooltipLabelConverter x:Key="labelConverter"/>
+                    <DataTemplate x:Key="tooltipTemplate">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Score" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14"/>
+                            <BoxView HeightRequest="1.5" HorizontalOptions="Fill" Color="{AppThemeBinding Default={StaticResource ContentBackground}}" Margin="0,1.5,0,3"/>
+                            <HorizontalStackLayout x:DataType="chart:TooltipInfo">
+                                <Ellipse WidthRequest="13.5" HeightRequest="13.5" Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}" StrokeThickness="2" Background="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Item,Converter={StaticResource labelConverter},ConverterParameter = 20}" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" Margin="4,0,0,0" FontSize="13"/>
+                                <Label Text="{Binding Item,Converter={StaticResource ValueConverter}}" TextColor="{AppThemeBinding Default={StaticResource ContentBackground}}" FontSize="13"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </chart:SfCartesianChart.Resources>
+                
+                <chart:SfCartesianChart.XAxes>
+                    <chart:NumericalAxis x:Name="xAxis">
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.XAxes>
+                
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis x:Name="yAxis">
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.YAxes>
+                
+                <chart:HistogramSeries
+                                   ItemsSource="{Binding HistogramData}"
+                                   XBindingPath="Value"
+                                   YBindingPath="Size"
+                                   x:Name="series"
+                                   HistogramInterval="20"
+                                   Stroke="{AppThemeBinding Default={StaticResource ContentBackground}}"
+                                   StrokeWidth="1.5"
+                                   Fill="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}"
+                                   ShowDataLabels="True"
+                                   EnableTooltip="True"
+                                   TooltipTemplate="{StaticResource tooltipTemplate}">
+                   
+                    
+                    <chart:HistogramSeries.CurveStyle>
+                        <chart:ChartLineStyle StrokeDashArray="12, 3, 3, 3" StrokeWidth="2" Stroke="{AppThemeBinding Default={StaticResource OverlayBrush}}"></chart:ChartLineStyle>
+                    </chart:HistogramSeries.CurveStyle>
+                    
+                    <!--<chart:HistogramSeries.DataLabelSettings>
+                        <chart:CartesianDataLabelSettings UseSeriesPalette="False">
+                            <chart:CartesianDataLabelSettings.LabelStyle>
+                                <chart:ChartDataLabelStyle TextColor="#00000"></chart:ChartDataLabelStyle>
+                            </chart:CartesianDataLabelSettings.LabelStyle>
+                        </chart:CartesianDataLabelSettings>
+                    </chart:HistogramSeries.DataLabelSettings>-->
+                    
+                </chart:HistogramSeries>
+                
+            </chart:SfCartesianChart>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <Grid>
+            <HorizontalStackLayout>
+                <Label Text="Show distribution line" FontSize="{OnPlatform Android='17', WinUI='17'}" Padding="{OnPlatform Android='5', WinUI='5'}"></Label>
+                <CheckBox x:Name="checkBox" CheckedChanged="checkBox_CheckedChanged" VerticalOptions="Start" Margin="30,0,0,0"></CheckBox>
+            </HorizontalStackLayout>
+        </Grid>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

@@ -1,0 +1,1025 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DockLayout.SfDockLayout.ManagementTool"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:dx="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:shimmer="clr-namespace:Syncfusion.Maui.Shimmer;assembly=Syncfusion.Maui.Core"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localCore:SampleView.Resources>
+        <!-- Light Mode Colors -->
+        <Color x:Key="PrimaryAccent">#6264A7</Color>
+        <Color x:Key="SecondaryAccent">#4AC3BE</Color>
+        <Color x:Key="TertiaryAccent">#FF8A3D</Color>
+        <Color x:Key="QuaternaryAccent">#8359DF</Color>
+        <Color x:Key="HeaderBackgroundLight">#F3F2F1</Color>
+        <Color x:Key="NavigationBackgroundLight">#F9F8F7</Color>
+        <Color x:Key="ContentBackgroundLight">#FFFFFF</Color>
+        <Color x:Key="BorderColorLight">#E1DFDD</Color>
+        <Color x:Key="ActiveItemBgLight">#EEF4FF</Color>
+        <Color x:Key="PlaceholderLight">#E6E6E6</Color>
+        <Color x:Key="AvatarPlaceholderLight">#D2D0CE</Color>
+
+        <!-- Dark Mode Colors -->
+        <Color x:Key="PrimaryAccentDark">#6E71C4</Color>
+        <Color x:Key="SecondaryAccentDark">#4ED4CF</Color>
+        <Color x:Key="TertiaryAccentDark">#FF9E5E</Color>
+        <Color x:Key="QuaternaryAccentDark">#A285F8</Color>
+        <Color x:Key="HeaderBackgroundDark">#292827</Color>
+        <Color x:Key="NavigationBackgroundDark">#201F1E</Color>
+        <Color x:Key="ContentBackgroundDark">#2D2C2B</Color>
+        <Color x:Key="BorderColorDark">#484644</Color>
+        <Color x:Key="ActiveItemBgDark">#344472</Color>
+        <Color x:Key="PlaceholderDark">#4D4B49</Color>
+        <Color x:Key="AvatarPlaceholderDark">#5D5B58</Color>
+
+        <!-- Common Styles -->
+        <Style x:Key="AvatarStyle" TargetType="Ellipse">
+            <Setter Property="WidthRequest" Value="28" />
+            <Setter Property="HeightRequest" Value="28" />
+            <Setter Property="Fill" Value="{AppThemeBinding Light={StaticResource AvatarPlaceholderLight}, Dark={StaticResource AvatarPlaceholderDark}}" />
+            <Setter Property="Stroke" Value="Transparent" />
+        </Style>
+
+        <Style x:Key="PlaceholderStyle" TargetType="BoxView">
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PlaceholderLight}, Dark={StaticResource PlaceholderDark}}" />
+        </Style>
+
+        <Style x:Key="ModuleCardStyle" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource ContentBackgroundLight}, Dark={StaticResource ContentBackgroundDark}}" />
+            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 8,8,8,8" />
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="{AppThemeBinding Light=#20000000, Dark=#40000000}" Offset="0,2" Radius="4" Opacity="0.5" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="NavItemStyle" TargetType="Grid">
+            <Setter Property="Padding" Value="15,12" />
+            <Setter Property="HeightRequest" Value="42" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <dx:SfDockLayout>
+            <!-- Top Toolbar/Header -->
+            <Border dx:SfDockLayout.Dock="Top" 
+                    HeightRequest="{OnPlatform WinUI=60, MacCatalyst=72}" 
+                    BackgroundColor="{AppThemeBinding Light={StaticResource HeaderBackgroundLight}, Dark={StaticResource HeaderBackgroundDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}"
+                    StrokeThickness="1">
+                <Grid ColumnDefinitions="Auto,*,Auto" Padding="16,0">
+                    <!-- App Logo / Brand -->
+                    <Border Grid.Column="0"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" 
+                            WidthRequest="180" HeightRequest="{OnPlatform WinUI=40, MacCatalyst=48}"
+                            Stroke="Transparent" 
+                            StrokeShape="RoundRectangle 4,4,4,4">
+                        <Label Text="Task Management" Margin="2"
+                               TextColor="White" 
+                               FontAttributes="Bold"
+                               FontSize="{OnPlatform WinUI=14, MacCatalyst=16}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Border>
+
+                    <!-- Center navigation -->
+                    <HorizontalStackLayout Grid.Column="1" 
+                                           HorizontalOptions="Center" 
+                                           VerticalOptions="Center" 
+                                           Spacing="24">
+                        <!-- Navigation items -->
+                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="70" HeightRequest="{OnPlatform WinUI=24, MacCatalyst=30}" />
+                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="70" HeightRequest="{OnPlatform WinUI=24, MacCatalyst=30}" />
+                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="70" HeightRequest="{OnPlatform WinUI=24, MacCatalyst=30}" />
+                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="70" HeightRequest="{OnPlatform WinUI=24, MacCatalyst=30}" />
+                    </HorizontalStackLayout>
+
+                    <!-- Right action items -->
+                    <HorizontalStackLayout Grid.Column="2" 
+                                           VerticalOptions="Center" 
+                                           Spacing="15">
+                        <!-- Collaborators/Avatars -->
+                        <HorizontalStackLayout Spacing="-10">
+                            <Ellipse Style="{StaticResource AvatarStyle}" />
+                            <Ellipse Style="{StaticResource AvatarStyle}" />
+                            <Ellipse Style="{StaticResource AvatarStyle}" />
+                            <Border BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}"
+                                    WidthRequest="28" HeightRequest="28" 
+                                    StrokeShape="RoundRectangle 14,14,14,14">
+                                <Label Text="+2" TextColor="White" 
+                                       HorizontalOptions="Center" 
+                                       VerticalOptions="Center" 
+                                       FontSize="12" />
+                            </Border>
+                        </HorizontalStackLayout>
+
+                        <!-- Action buttons -->
+                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="{OnPlatform WinUI=36, MacCatalyst=42}" HeightRequest="{OnPlatform WinUI=36, MacCatalyst=42}" CornerRadius="{OnPlatform WinUI=18, MacCatalyst=21}" />
+                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="{OnPlatform WinUI=36, MacCatalyst=42}" HeightRequest="{OnPlatform WinUI=36, MacCatalyst=42}" CornerRadius="{OnPlatform WinUI=18, MacCatalyst=21}" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Left Navigation Panel -->
+            <Border dx:SfDockLayout.Dock="Left" 
+                    WidthRequest="{OnPlatform Default=220, MacCatalyst=320}" 
+                    BackgroundColor="{AppThemeBinding Light={StaticResource NavigationBackgroundLight}, Dark={StaticResource NavigationBackgroundDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}" 
+                    StrokeThickness="1">
+                <Grid RowDefinitions="Auto,*,Auto" Padding="0,15">
+                    <!-- Search -->
+                    <Border Grid.Row="0" 
+                            Padding="{OnPlatform WinUI='10,8', MacCatalyst='12,10'}" 
+                            Margin="15,0,15,15" 
+                            Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}" 
+                            StrokeThickness="1" 
+                            StrokeShape="RoundRectangle 6,6,6,6">
+                        <HorizontalStackLayout Spacing="10">
+                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="20" HeightRequest="20" />
+                            <Label Text="Search" TextColor="#AAAAAA" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Border>
+
+                    <!-- Navigation Sections -->
+                    <ScrollView Grid.Row="1">
+                        <VerticalStackLayout Spacing="16" Margin="10,0">
+                            <!-- Section Heading -->
+                            <Label Text="Sections" FontSize="{OnPlatform WinUI=12, MacCatalyst=14}" FontAttributes="Bold" Margin="5,0,0,5" Opacity="0.7" />
+
+                            <!-- Section items -->
+                            <Grid Style="{StaticResource NavItemStyle}" 
+                                  BackgroundColor="{AppThemeBinding Light={StaticResource ActiveItemBgLight}, Dark={StaticResource ActiveItemBgDark}}">
+                                <HorizontalStackLayout Spacing="12">
+                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" 
+                                             WidthRequest="16" HeightRequest="16" />
+                                    <Label Text="Home" VerticalOptions="Center" FontAttributes="Bold"
+                                           TextColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" />
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <Grid Style="{StaticResource NavItemStyle}">
+                                <HorizontalStackLayout Spacing="12">
+                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="16" HeightRequest="16" />
+                                    <Label Text="Workspaces" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <Grid Style="{StaticResource NavItemStyle}">
+                                <HorizontalStackLayout Spacing="12">
+                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="16" HeightRequest="16" />
+                                    <Label Text="Recent" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <Grid Style="{StaticResource NavItemStyle}">
+                                <HorizontalStackLayout Spacing="12">
+                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="16" HeightRequest="16" />
+                                    <Label Text="Saved" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <Label Text="SUB PAGES" FontSize="{OnPlatform WinUI=12, MacCatalyst=14}" FontAttributes="Bold" Margin="5,15,0,5" Opacity="0.7" />
+
+                            <Grid Style="{StaticResource NavItemStyle}">
+                                <HorizontalStackLayout Spacing="12">
+                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                             BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryAccent}, Dark={StaticResource SecondaryAccentDark}}" 
+                                             WidthRequest="16" HeightRequest="16" />
+                                    <Label Text="Project Alpha" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <Grid Style="{StaticResource NavItemStyle}">
+                                <HorizontalStackLayout Spacing="12">
+                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                             BackgroundColor="{AppThemeBinding Light={StaticResource TertiaryAccent}, Dark={StaticResource TertiaryAccentDark}}" 
+                                             WidthRequest="16" HeightRequest="16" />
+                                    <Label Text="Marketing Plan" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <Grid Style="{StaticResource NavItemStyle}">
+                                <HorizontalStackLayout Spacing="12">
+                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                             BackgroundColor="{AppThemeBinding Light={StaticResource QuaternaryAccent}, Dark={StaticResource QuaternaryAccentDark}}" 
+                                             WidthRequest="16" HeightRequest="16" />
+                                    <Label Text="Product Roadmap" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ScrollView>
+
+                    <!-- Bottom actions -->
+                    <VerticalStackLayout Grid.Row="2" Margin="15,10,15,0">
+                        <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="{OnPlatform WinUI=40, MacCatalyst=48}" Margin="0,0,0,10" />
+                        <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="1" Margin="0,10" />
+                        <Grid HeightRequest="{OnPlatform WinUI=50, MacCatalyst=60}">
+                            <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
+                                <Ellipse Style="{StaticResource AvatarStyle}" />
+                                <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="90" HeightRequest="18" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Right sidebar - Tasks/Tags -->
+            <Border dx:SfDockLayout.Dock="Right" 
+                    WidthRequest="{OnPlatform Default=280, MacCatalyst=480}" 
+                    BackgroundColor="{AppThemeBinding Light={StaticResource NavigationBackgroundLight}, Dark={StaticResource NavigationBackgroundDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}" 
+                    StrokeThickness="1">
+                <Grid RowDefinitions="Auto,*" Padding="15">
+                    <!-- Section Header -->
+                    <VerticalStackLayout Grid.Row="0" Spacing="15" Margin="0,0,0,15">
+                        <Label Text="Workspace Tasks" FontSize="{OnPlatform WinUI=14, MacCatalyst=16}" FontAttributes="Bold" />
+
+                        <!-- Filter Options -->
+                        <HorizontalStackLayout Spacing="10">
+                            <Border Padding="{OnPlatform WinUI='8,4', MacCatalyst='10,6'}" BackgroundColor="{AppThemeBinding Light={StaticResource ActiveItemBgLight}, Dark={StaticResource ActiveItemBgDark}}" 
+                                    StrokeShape="RoundRectangle 12,12,12,12">
+                                <HorizontalStackLayout Spacing="5">
+                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="12" HeightRequest="12" />
+                                    <Label Text="All" FontSize="{OnPlatform WinUI=12, MacCatalyst=14}" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </Border>
+
+                            <Border Padding="{OnPlatform WinUI='8,4', MacCatalyst='10,6'}" Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 12,12,12,12">
+                                <Label Text="In Progress" FontSize="{OnPlatform WinUI=12, MacCatalyst=14}" VerticalOptions="Center" />
+                            </Border>
+
+                            <Border Padding="{OnPlatform WinUI='8,4', MacCatalyst='10,6'}" Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}" 
+                                    StrokeThickness="1" StrokeShape="RoundRectangle 12,12,12,12">
+                                <Label Text="Done" FontSize="{OnPlatform WinUI=12, MacCatalyst=14}" VerticalOptions="Center" />
+                            </Border>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                    <!-- Task List -->
+                    <ScrollView Grid.Row="1">
+                        <VerticalStackLayout Spacing="12">
+                            <!-- Task Items -->
+                            <VerticalStackLayout Spacing="12">
+                                <Border Style="{StaticResource ModuleCardStyle}" Padding="12">
+                                    <VerticalStackLayout Spacing="8">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="140" HeightRequest="18" />
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="200" HeightRequest="12" />
+                                        <HorizontalStackLayout Spacing="10" Margin="0,5,0,0">
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                     BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" 
+                                                     WidthRequest="60" HeightRequest="20" />
+                                            <Ellipse Style="{StaticResource AvatarStyle}" WidthRequest="20" HeightRequest="20" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                                <Border Style="{StaticResource ModuleCardStyle}" Padding="12">
+                                    <VerticalStackLayout Spacing="8">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="160" HeightRequest="18" />
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="200" HeightRequest="12" />
+                                        <HorizontalStackLayout Spacing="10" Margin="0,5,0,0">
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                     BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryAccent}, Dark={StaticResource SecondaryAccentDark}}" 
+                                                     WidthRequest="60" HeightRequest="20" />
+                                            <Ellipse Style="{StaticResource AvatarStyle}" WidthRequest="20" HeightRequest="20" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                                <!-- Priority Task -->
+                                <Border Style="{StaticResource ModuleCardStyle}" Padding="12" 
+                                        BackgroundColor="{AppThemeBinding Light=#FFF3E0, Dark=#3E2C1D}" 
+                                        Stroke="{AppThemeBinding Light=#FFE0B2, Dark=#F57C00}">
+                                    <VerticalStackLayout Spacing="8">
+                                        <HorizontalStackLayout Spacing="8">
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="120" HeightRequest="18" />
+                                            <Border BackgroundColor="{AppThemeBinding Light=#FFCCBC, Dark=#5E3F35}" Padding="5,2" 
+                                                    StrokeShape="RoundRectangle 4,4,4,4">
+                                                <Label Text="Urgent" FontSize="10" TextColor="{AppThemeBinding Light=#E64A19, Dark=#FF7043}" />
+                                            </Border>
+                                        </HorizontalStackLayout>
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="200" HeightRequest="12" />
+                                        <HorizontalStackLayout Spacing="10" Margin="0,5,0,0">
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                     BackgroundColor="{AppThemeBinding Light={StaticResource TertiaryAccent}, Dark={StaticResource TertiaryAccentDark}}" 
+                                                     WidthRequest="60" HeightRequest="20" />
+                                            <Ellipse Style="{StaticResource AvatarStyle}" WidthRequest="20" HeightRequest="20" Fill="{AppThemeBinding Light=#FFAB91, Dark=#BF360C}" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                                <Border Style="{StaticResource ModuleCardStyle}" Padding="12">
+                                    <VerticalStackLayout Spacing="8">
+                                        <HorizontalStackLayout Spacing="8">
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="180" HeightRequest="18" />
+                                            <Border BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#253C27}" Padding="5,2" 
+                                                    StrokeShape="RoundRectangle 4,4,4,4">
+                                            </Border>
+                                        </HorizontalStackLayout>
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="200" HeightRequest="12" />
+                                        <HorizontalStackLayout Spacing="10" Margin="0,5,0,0">
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                     BackgroundColor="{AppThemeBinding Light={StaticResource QuaternaryAccent}, Dark={StaticResource QuaternaryAccentDark}}" 
+                                                     WidthRequest="60" HeightRequest="20" />
+                                            <Ellipse Style="{StaticResource AvatarStyle}" WidthRequest="20" HeightRequest="20" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                                <!-- Task with attachment -->
+                                <Border Style="{StaticResource ModuleCardStyle}" Padding="12">
+                                    <VerticalStackLayout Spacing="8">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="150" HeightRequest="18" />
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="190" HeightRequest="12" />
+                                        <Border Padding="8,5" Margin="0,5,0,0"
+                                                BackgroundColor="{AppThemeBinding Light=#F5F9FF, Dark=#1A2846}"
+                                                StrokeShape="RoundRectangle 4,4,4,4">
+                                            <HorizontalStackLayout Spacing="8">
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="16" HeightRequest="16" />
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="120" HeightRequest="12" />
+                                            </HorizontalStackLayout>
+                                        </Border>
+                                        <HorizontalStackLayout Spacing="10" Margin="0,5,0,0">
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                     BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryAccent}, Dark={StaticResource SecondaryAccentDark}}" 
+                                                     WidthRequest="60" HeightRequest="20" />
+                                            <Ellipse Style="{StaticResource AvatarStyle}" WidthRequest="20" HeightRequest="20" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Border>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Grid>
+            </Border>
+
+            <!-- Main content area -->
+            <ScrollView>
+                <Grid RowDefinitions="Auto,*" Padding="{OnPlatform WinUI=20, MacCatalyst=24}">
+                    <!-- Content Header with breadcrumb -->
+                    <VerticalStackLayout Grid.Row="0" Spacing="10">
+                        <HorizontalStackLayout Spacing="5">
+                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="40" HeightRequest="12" />
+                            <Label Text="/" TextColor="#AAAAAA" />
+                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="40" HeightRequest="12" />
+                            <Label Text="/" TextColor="#AAAAAA" />
+                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="60" HeightRequest="12" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="15">
+                            <Label Text="Project Dashboard" FontSize="{OnPlatform WinUI=24, MacCatalyst=28}" FontAttributes="Bold" />
+                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="18" HeightRequest="18" CornerRadius="9" VerticalOptions="Center" />
+                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="18" HeightRequest="18" CornerRadius="9" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="1" Margin="0,5" />
+                    </VerticalStackLayout>
+
+                    <!-- Modules grid -->
+                    <ScrollView Grid.Row="1">
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" Margin="0,10" ColumnSpacing="{OnPlatform WinUI=15, MacCatalyst=18}" RowSpacing="{OnPlatform WinUI=15, MacCatalyst=18}">
+                            <!-- Module 1 - Chart/Stats -->
+                            <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource ModuleCardStyle}">
+                                <Grid RowDefinitions="Auto,*" Padding="15">
+                                    <HorizontalStackLayout Spacing="10" Grid.Row="0">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                 BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" 
+                                                 WidthRequest="20" HeightRequest="20" CornerRadius="4" />
+                                        <Label Text="Project Stats" FontAttributes="Bold" VerticalOptions="Center" />
+                                        <BoxView Grid.Row="0" Style="{StaticResource PlaceholderStyle}" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="End" />
+                                    </HorizontalStackLayout>
+
+                                    <Grid Grid.Row="1" RowDefinitions="Auto,*" Margin="0,15,0,0">
+                                        <HorizontalStackLayout Spacing="20">
+                                            <VerticalStackLayout>
+                                                <Label Text="67%" FontSize="{OnPlatform WinUI=20, MacCatalyst=24}" FontAttributes="Bold" 
+                                                       TextColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" />
+                                                <Label Text="Progress" FontSize="{OnPlatform WinUI=12, MacCatalyst=14}" Opacity="0.7" />
+                                            </VerticalStackLayout>
+
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="1" HeightRequest="40" />
+
+                                            <VerticalStackLayout>
+                                                <Label Text="12" FontSize="{OnPlatform WinUI=20, MacCatalyst=24}" FontAttributes="Bold" 
+                                                       TextColor="{AppThemeBinding Light={StaticResource TertiaryAccent}, Dark={StaticResource TertiaryAccentDark}}" />
+                                                <Label Text="Tasks" FontSize="{OnPlatform WinUI=12, MacCatalyst=14}" Opacity="0.7" />
+                                            </VerticalStackLayout>
+                                        </HorizontalStackLayout>
+
+                                        <!-- Simplified chart placeholder - just columns -->
+                                        <Grid HeightRequest="150" Grid.Row="1" Margin="0,20,0,0">
+                                            <!-- Simple bar chart -->
+                                            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center" VerticalOptions="End">
+                                                <!-- Monday -->
+                                                <Grid WidthRequest="32" HeightRequest="120" VerticalOptions="End">
+                                                    <Rectangle Fill="{AppThemeBinding Light=#EEF4FF, Dark=#344472}" WidthRequest="32" HeightRequest="90" VerticalOptions="End" />
+                                                    <Rectangle Fill="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" WidthRequest="32" HeightRequest="60" VerticalOptions="End" />
+                                                </Grid>
+                                                
+                                                <!-- Tuesday -->
+                                                <Grid WidthRequest="32" HeightRequest="120" VerticalOptions="End">
+                                                    <Rectangle Fill="{AppThemeBinding Light=#EEF4FF, Dark=#344472}" WidthRequest="32" HeightRequest="100" VerticalOptions="End" />
+                                                    <Rectangle Fill="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" WidthRequest="32" HeightRequest="80" VerticalOptions="End" />
+                                                </Grid>
+                                                
+                                                <!-- Wednesday -->
+                                                <Grid WidthRequest="32" HeightRequest="120" VerticalOptions="End">
+                                                    <Rectangle Fill="{AppThemeBinding Light=#EEF4FF, Dark=#344472}" WidthRequest="32" HeightRequest="60" VerticalOptions="End" />
+                                                    <Rectangle Fill="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" WidthRequest="32" HeightRequest="40" VerticalOptions="End" />
+                                                </Grid>
+                                                
+                                                <!-- Thursday -->
+                                                <Grid WidthRequest="32" HeightRequest="120" VerticalOptions="End">
+                                                    <Rectangle Fill="{AppThemeBinding Light=#EEF4FF, Dark=#344472}" WidthRequest="32" HeightRequest="120" VerticalOptions="End" />
+                                                    <Rectangle Fill="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" WidthRequest="32" HeightRequest="85" VerticalOptions="End" />
+                                                </Grid>
+                                                
+                                                <!-- Friday -->
+                                                <Grid WidthRequest="32" HeightRequest="120" VerticalOptions="End">
+                                                    <Rectangle Fill="{AppThemeBinding Light=#EEF4FF, Dark=#344472}" WidthRequest="32" HeightRequest="80" VerticalOptions="End" />
+                                                    <Rectangle Fill="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" WidthRequest="32" HeightRequest="55" VerticalOptions="End" />
+                                                </Grid>
+                                                
+                                                <!-- Saturday -->
+                                                <Grid WidthRequest="32" HeightRequest="120" VerticalOptions="End">
+                                                    <Rectangle Fill="{AppThemeBinding Light=#EEF4FF, Dark=#344472}" WidthRequest="32" HeightRequest="45" VerticalOptions="End" />
+                                                    <Rectangle Fill="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" WidthRequest="32" HeightRequest="30" VerticalOptions="End" />
+                                                </Grid>
+                                            </HorizontalStackLayout>
+                                            
+                                            <!-- Simple legend -->
+                                            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center" VerticalOptions="Start">
+                                                <HorizontalStackLayout Spacing="5">
+                                                    <BoxView Color="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" WidthRequest="14" HeightRequest="14" />
+                                                    <Label Text="Completed" FontSize="12" VerticalOptions="Center" />
+                                                </HorizontalStackLayout>
+                                                <HorizontalStackLayout Spacing="5">
+                                                    <BoxView Color="{AppThemeBinding Light=#EEF4FF, Dark=#344472}" WidthRequest="14" HeightRequest="14" />
+                                                    <Label Text="Total" FontSize="12" VerticalOptions="Center" />
+                                                </HorizontalStackLayout>
+                                            </HorizontalStackLayout>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                            <!-- Module 2 - Table -->
+                            <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource ModuleCardStyle}">
+                                <Grid RowDefinitions="Auto,*" Padding="15">
+                                    <HorizontalStackLayout Spacing="10" Grid.Row="0">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                 BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryAccent}, Dark={StaticResource SecondaryAccentDark}}" 
+                                                 WidthRequest="20" HeightRequest="20" CornerRadius="4" />
+                                        <Label Text="Team Assignments" FontAttributes="Bold" VerticalOptions="Center" />
+                                        <!--<BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="15" HeightRequest="15" CornerRadius="9" HorizontalOptions="End" />-->
+                                    </HorizontalStackLayout>
+
+                                    <!-- Table content -->
+                                    <Grid Grid.Row="1" Margin="0,15,0,0" RowDefinitions="Auto,*" RowSpacing="10">
+                                        <!-- Table header -->
+                                        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                                            <Border Grid.Column="0" BackgroundColor="{AppThemeBinding Light=#F5F9FF, Dark=#1A2846}" Padding="8,5">
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                            </Border>
+                                            <Border Grid.Column="1" BackgroundColor="{AppThemeBinding Light=#F5F9FF, Dark=#1A2846}" Padding="8,5">
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                            </Border>
+                                            <Border Grid.Column="2" BackgroundColor="{AppThemeBinding Light=#F5F9FF, Dark=#1A2846}" Padding="8,5">
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                            </Border>
+                                        </Grid>
+
+                                        <!-- Table rows -->
+                                        <VerticalStackLayout Grid.Row="1" Spacing="8">
+                                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                                                <BoxView Grid.Column="0" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                                <BoxView Grid.Column="1" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                                <Border Grid.Column="2" 
+                                                        BackgroundColor="{AppThemeBinding Light=#E0F2F1, Dark=#1D3533}" 
+                                                        Stroke="{AppThemeBinding Light=#4AC3BE, Dark=#4ED4CF}" 
+                                                        StrokeThickness="1" Margin="2" StrokeShape="RoundRectangle 4,4,4,4">
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="16" Margin="2" />
+                                                </Border>
+                                            </Grid>
+
+                                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                                                <BoxView Grid.Column="0" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                                <BoxView Grid.Column="1" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                                <Border Grid.Column="2" 
+                                                        BackgroundColor="{AppThemeBinding Light=#FFF3E0, Dark=#3E2C1D}" 
+                                                        Stroke="{AppThemeBinding Light=#FF8A3D, Dark=#FF9E5E}" 
+                                                        StrokeThickness="1" Margin="2" StrokeShape="RoundRectangle 4,4,4,4">
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="16" Margin="2" />
+                                                </Border>
+                                            </Grid>
+
+                                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                                                <BoxView Grid.Column="0" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                                <BoxView Grid.Column="1" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                                <Border Grid.Column="2" 
+                                                        BackgroundColor="{AppThemeBinding Light=#EEF4FF, Dark=#344472}" 
+                                                        Stroke="{AppThemeBinding Light=#6264A7, Dark=#6E71C4}" 
+                                                        StrokeThickness="1" Margin="2" StrokeShape="RoundRectangle 4,4,4,4">
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" HeightRequest="16" Margin="2" />
+                                                </Border>
+                                            </Grid>
+
+                                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                                                <BoxView Grid.Column="0" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                                <BoxView Grid.Column="1" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                                <BoxView Grid.Column="2" Style="{StaticResource PlaceholderStyle}" HeightRequest="25" />
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                            
+                            <!-- New Module 3 - Activity Log -->
+                            <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource ModuleCardStyle}">
+                                <Grid RowDefinitions="Auto,*" Padding="15">
+                                    <HorizontalStackLayout Spacing="10" Grid.Row="0">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                 BackgroundColor="{AppThemeBinding Light={StaticResource TertiaryAccent}, Dark={StaticResource TertiaryAccentDark}}" 
+                                                 WidthRequest="20" HeightRequest="20" CornerRadius="4" />
+                                        <Label Text="Activity Timeline" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                    <!-- Activity Timeline content -->
+                                    <VerticalStackLayout Grid.Row="1" Margin="0,15,0,0" Spacing="15">
+                                        <!-- Timeline Items -->
+                                        <Grid RowDefinitions="*" ColumnDefinitions="Auto,*">
+                                            <!-- Timeline line -->
+                                            <BoxView Grid.Column="0" Grid.RowSpan="5" WidthRequest="2" HeightRequest="160" 
+                                                     BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#454545}"
+                                                     HorizontalOptions="Center" VerticalOptions="Fill" />
+                                            
+                                            <VerticalStackLayout Grid.Column="1" Spacing="18">
+                                                <!-- Timeline Item 1 -->
+                                                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                                                    <Ellipse Grid.Column="0" Grid.RowSpan="2" Fill="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" 
+                                                             WidthRequest="12" HeightRequest="12" Margin="-7,5,10,0" />
+                                                    
+                                                    <BoxView Grid.Column="1" Grid.Row="0" Style="{StaticResource PlaceholderStyle}" WidthRequest="160" HeightRequest="{OnPlatform WinUI=18, MacCatalyst=20}" Margin="0,0,0,5" />
+                                                    <HorizontalStackLayout Grid.Column="1" Grid.Row="1" Spacing="5">
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                                BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" 
+                                                                WidthRequest="60" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="60" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                                    </HorizontalStackLayout>
+                                                </Grid>
+
+                                                <!-- Timeline Item 2 -->
+                                                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                                                    <Ellipse Grid.Column="0" Grid.RowSpan="2" Fill="{AppThemeBinding Light={StaticResource SecondaryAccent}, Dark={StaticResource SecondaryAccentDark}}" 
+                                                             WidthRequest="12" HeightRequest="12" Margin="-7,5,10,0" />
+                                                    
+                                                    <BoxView Grid.Column="1" Grid.Row="0" Style="{StaticResource PlaceholderStyle}" WidthRequest="150" HeightRequest="{OnPlatform WinUI=18, MacCatalyst=20}" Margin="0,0,0,5" />
+                                                    <HorizontalStackLayout Grid.Column="1" Grid.Row="1" Spacing="5">
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                                BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryAccent}, Dark={StaticResource SecondaryAccentDark}}" 
+                                                                WidthRequest="80" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="60" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                                    </HorizontalStackLayout>
+                                                </Grid>
+                                                
+                                                <!-- Timeline Item 3 -->
+                                                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                                                    <Ellipse Grid.Column="0" Grid.RowSpan="2" Fill="{AppThemeBinding Light={StaticResource TertiaryAccent}, Dark={StaticResource TertiaryAccentDark}}" 
+                                                             WidthRequest="12" HeightRequest="12" Margin="-7,5,10,0" />
+                                                    
+                                                    <BoxView Grid.Column="1" Grid.Row="0" Style="{StaticResource PlaceholderStyle}" WidthRequest="170" HeightRequest="{OnPlatform WinUI=18, MacCatalyst=20}" Margin="0,0,0,5" />
+                                                    <HorizontalStackLayout Grid.Column="1" Grid.Row="1" Spacing="5">
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                                BackgroundColor="{AppThemeBinding Light={StaticResource TertiaryAccent}, Dark={StaticResource TertiaryAccentDark}}" 
+                                                                WidthRequest="90" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="60" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                                    </HorizontalStackLayout>
+                                                </Grid>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                            
+                            <!-- New Module 4 - Resources & Links -->
+                            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource ModuleCardStyle}">
+                                <Grid RowDefinitions="Auto,*" Padding="15">
+                                    <HorizontalStackLayout Spacing="10" Grid.Row="0">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                 BackgroundColor="{AppThemeBinding Light={StaticResource QuaternaryAccent}, Dark={StaticResource QuaternaryAccentDark}}" 
+                                                 WidthRequest="20" HeightRequest="20" CornerRadius="4" />
+                                        <Label Text="Resources and Links" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                    <!-- Resources content -->
+                                    <VerticalStackLayout Grid.Row="1" Margin="0,15,0,0" Spacing="12">
+                                        <!-- Resource Categories -->
+                                        <HorizontalStackLayout Spacing="{OnPlatform WinUI=8, MacCatalyst=10}">
+                                            <Border BackgroundColor="{AppThemeBinding Light=#F5F9FF, Dark=#1A2846}" 
+                                                    StrokeShape="RoundRectangle 5,5,5,5" 
+                                                    Padding="{OnPlatform WinUI='8,5', MacCatalyst='10,6'}">
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                         BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryAccent}, Dark={StaticResource PrimaryAccentDark}}" 
+                                                         WidthRequest="70" HeightRequest="{OnPlatform WinUI=14, MacCatalyst=16}" />
+                                            </Border>
+                                            
+                                            <Border StrokeShape="RoundRectangle 5,5,5,5" 
+                                                    Padding="{OnPlatform WinUI='8,5', MacCatalyst='10,6'}">
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="50" HeightRequest="{OnPlatform WinUI=14, MacCatalyst=16}" />
+                                            </Border>
+                                            
+                                            <Border StrokeShape="RoundRectangle 5,5,5,5" 
+                                                    Padding="{OnPlatform WinUI='8,5', MacCatalyst='10,6'}">
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="50" HeightRequest="{OnPlatform WinUI=14, MacCatalyst=16}" />
+                                            </Border>
+                                        </HorizontalStackLayout>
+                                        
+                                        <!-- Resource list -->
+                                        <VerticalStackLayout Spacing="{OnPlatform WinUI=10, MacCatalyst=12}" Margin="0,5,0,0">
+                                            <!-- Resource Item 1 -->
+                                            <Border BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#333333}" 
+                                                    Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}"
+                                                    StrokeThickness="1" 
+                                                    StrokeShape="RoundRectangle 6,6,6,6" 
+                                                    Padding="{OnPlatform WinUI=10, MacCatalyst=12}">
+                                                <HorizontalStackLayout>
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                             BackgroundColor="{AppThemeBinding Light=#E3F2FD, Dark=#0D47A1}" 
+                                                             WidthRequest="32" HeightRequest="32" CornerRadius="4"
+                                                             Margin="0,0,10,0" />
+                                                    <VerticalStackLayout>
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="180" HeightRequest="{OnPlatform WinUI=18, MacCatalyst=20}" Margin="0,0,0,5" />
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="140" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" Opacity="0.7" />
+                                                    </VerticalStackLayout>
+                                                </HorizontalStackLayout>
+                                            </Border>
+                                            
+                                            <!-- Resource Item 2 -->
+                                            <Border BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#333333}" 
+                                                    Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}"
+                                                    StrokeThickness="1" 
+                                                    StrokeShape="RoundRectangle 6,6,6,6" 
+                                                    Padding="{OnPlatform WinUI=10, MacCatalyst=12}">
+                                                <HorizontalStackLayout>
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                             BackgroundColor="{AppThemeBinding Light=#FBE9E7, Dark=#BF360C}" 
+                                                             WidthRequest="32" HeightRequest="32" CornerRadius="4"
+                                                             Margin="0,0,10,0" />
+                                                    <VerticalStackLayout>
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="190" HeightRequest="{OnPlatform WinUI=18, MacCatalyst=20}" Margin="0,0,0,5" />
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="130" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" Opacity="0.7" />
+                                                    </VerticalStackLayout>
+                                                </HorizontalStackLayout>
+                                            </Border>
+                                            
+                                            <!-- Resource Item 3 -->
+                                            <Border BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#333333}" 
+                                                    Stroke="{AppThemeBinding Light={StaticResource BorderColorLight}, Dark={StaticResource BorderColorDark}}"
+                                                    StrokeThickness="1" 
+                                                    StrokeShape="RoundRectangle 6,6,6,6" 
+                                                    Padding="{OnPlatform WinUI=10, MacCatalyst=12}">
+                                                <HorizontalStackLayout>
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                             BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#1B5E20}" 
+                                                             WidthRequest="32" HeightRequest="32" CornerRadius="4"
+                                                             Margin="0,0,10,0" />
+                                                    <VerticalStackLayout>
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="170" HeightRequest="{OnPlatform WinUI=18, MacCatalyst=20}" Margin="0,0,0,5" />
+                                                        <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="120" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" Opacity="0.7" />
+                                                    </VerticalStackLayout>
+                                                </HorizontalStackLayout>
+                                            </Border>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+
+                            <!-- New Module 5 - Team Performance -->
+                            <Border IsVisible="{OnPlatform Default=false, MacCatalyst=true}" Grid.Row="2" Grid.Column="0" Style="{StaticResource ModuleCardStyle}">
+                                <Grid RowDefinitions="Auto,*" Padding="15">
+                                    <HorizontalStackLayout Spacing="10" Grid.Row="0">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                             BackgroundColor="{AppThemeBinding Light=#8C6FF0, Dark=#A285F8}" 
+                                             WidthRequest="20" HeightRequest="20" CornerRadius="4" />
+                                        <Label Text="Team Performance" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                    <Grid Grid.Row="1" Margin="0,15,0,0">
+                                        <!-- Circular progress indicators -->
+                                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+
+                                            <!-- Progress 1 -->
+                                            <VerticalStackLayout Spacing="8" WidthRequest="90">
+                                                <Grid WidthRequest="80" HeightRequest="85" HorizontalOptions="Center">
+                                                    <Ellipse Fill="{AppThemeBinding Light=#F5F5F5, Dark=#333333}" WidthRequest="80" HeightRequest="80" />
+                                                    <Path Stroke="{AppThemeBinding Light=#8C6FF0, Dark=#A285F8}" StrokeThickness="8"
+                                                         Aspect="Uniform" HorizontalOptions="Center" VerticalOptions="Center"
+                                                         Data="M 50,0 A 50,50 0 1 1 0,50 L 50,50 Z" />
+                                                      <Ellipse Fill="{AppThemeBinding Light=#FFFFFF, Dark=#222222}" WidthRequest="64" HeightRequest="64"
+                                                            HorizontalOptions="Center" VerticalOptions="Center" />
+                                                      <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="40" HeightRequest="20"
+                                                            HorizontalOptions="Center" VerticalOptions="Center" />
+                                                  </Grid>
+                                                     <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="80" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}"
+                                                        HorizontalOptions="Center" />
+                                            </VerticalStackLayout>
+
+                                            <!-- Progress 2 -->
+                                            <VerticalStackLayout Spacing="8" WidthRequest="90">
+                                                <Grid WidthRequest="80" HeightRequest="85" HorizontalOptions="Center">
+                                                    <Ellipse Fill="{AppThemeBinding Light=#F5F5F5, Dark=#333333}" WidthRequest="80" HeightRequest="80" />
+                                                    <Path Stroke="{AppThemeBinding Light=#4AC3BE, Dark=#4ED4CF}" StrokeThickness="8"
+                              Aspect="Uniform" HorizontalOptions="Center" VerticalOptions="Center"
+                              Data="M 50,0 A 50,50 0 1 1 0,50 L 50,50 Z" />
+                                                    <Ellipse Fill="{AppThemeBinding Light=#FFFFFF, Dark=#222222}" WidthRequest="64" HeightRequest="64"
+                                 HorizontalOptions="Center" VerticalOptions="Center" />
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="40" HeightRequest="20"
+                                 HorizontalOptions="Center" VerticalOptions="Center" />
+                                                </Grid>
+                                                <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="80" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}"
+                             HorizontalOptions="Center" />
+                                            </VerticalStackLayout>
+
+                                            <!-- Progress 3 -->
+                                            <VerticalStackLayout Spacing="8" WidthRequest="90">
+                                                <Grid WidthRequest="80" HeightRequest="85" HorizontalOptions="Center">
+                                                    <Ellipse Fill="{AppThemeBinding Light=#F5F5F5, Dark=#333333}" WidthRequest="80" HeightRequest="80" />
+                                                    <Path Stroke="{AppThemeBinding Light=#FF8A3D, Dark=#FF9E5E}" StrokeThickness="8"
+                                                 Aspect="Uniform" HorizontalOptions="Center" VerticalOptions="Center"
+                                                 Data="M 50,0 A 50,50 0 1 1 0,50 L 50,50 Z" />
+                                                                                                    <Ellipse Fill="{AppThemeBinding Light=#FFFFFF, Dark=#222222}" WidthRequest="64" HeightRequest="64"
+                                                    HorizontalOptions="Center" VerticalOptions="Center" />
+                                                                                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="40" HeightRequest="20"
+                                                    HorizontalOptions="Center" VerticalOptions="Center" />
+                                                                                                </Grid>
+                                                                                                <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="80" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}"
+                                                HorizontalOptions="Center" />
+                                            </VerticalStackLayout>
+
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                            <!-- New Module 6 - Project Schedule -->
+                            <Border IsVisible="{OnPlatform Default=false, MacCatalyst=true}" Grid.Row="2" Grid.Column="1" Style="{StaticResource ModuleCardStyle}">
+                                <Grid RowDefinitions="Auto,*" Padding="15">
+                                    <HorizontalStackLayout Spacing="10" Grid.Row="0">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                 BackgroundColor="{AppThemeBinding Light=#4CAF50, Dark=#81C784}" 
+                                                 WidthRequest="20" HeightRequest="20" CornerRadius="4" />
+                                        <Label Text="Project Schedule" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                    <!-- Schedule content -->
+                                    <VerticalStackLayout Grid.Row="1" Margin="0,15,0,0" Spacing="12">
+                                        <!-- Timeline header -->
+                                        <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="5">
+                                            <BoxView Grid.Column="0" Style="{StaticResource PlaceholderStyle}" WidthRequest="50" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                            <BoxView Grid.Column="1" Style="{StaticResource PlaceholderStyle}" WidthRequest="50" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                            <BoxView Grid.Column="2" Style="{StaticResource PlaceholderStyle}" WidthRequest="50" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                            <BoxView Grid.Column="3" Style="{StaticResource PlaceholderStyle}" WidthRequest="50" HeightRequest="{OnPlatform WinUI=12, MacCatalyst=14}" />
+                                        </Grid>
+                                        
+                                        <!-- Schedule items -->
+                                        <Grid HeightRequest="160" RowSpacing="10">
+                                            <!-- Vertical time indicators -->
+                                            <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*" VerticalOptions="Fill">
+                                                <BoxView Grid.Column="0" Style="{StaticResource PlaceholderStyle}" WidthRequest="1" HeightRequest="160" HorizontalOptions="Center" />
+                                                <BoxView Grid.Column="1" Style="{StaticResource PlaceholderStyle}" WidthRequest="1" HeightRequest="160" HorizontalOptions="Center" />
+                                                <BoxView Grid.Column="2" Style="{StaticResource PlaceholderStyle}" WidthRequest="1" HeightRequest="160" HorizontalOptions="Center" />
+                                                <BoxView Grid.Column="3" Style="{StaticResource PlaceholderStyle}" WidthRequest="1" HeightRequest="160" HorizontalOptions="Center" />
+                                            </Grid>
+                                            
+                                            <!-- Timeline items -->
+                                            <VerticalStackLayout Spacing="8">
+                                                <!-- Task 1 -->
+                                                <Border Margin="0,10,0,0" Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#444444}" 
+                                                        StrokeThickness="1" StrokeShape="RoundRectangle 4,4,4,4" 
+                                                        BackgroundColor="{AppThemeBinding Light=#F3F8FF, Dark=#283447}"
+                                                        Padding="8,6">
+                                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                                        <BoxView Grid.Row="0" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                                 WidthRequest="120" HeightRequest="16" />
+                                                        <BoxView Grid.Row="1" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                                 WidthRequest="80" HeightRequest="12" Opacity="0.7" />
+                                                    </Grid>
+                                                </Border>
+                                                
+                                                <!-- Task 2 -->
+                                                <Border Margin="75,0,0,0" Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#444444}" 
+                                                        StrokeThickness="1" StrokeShape="RoundRectangle 4,4,4,4" 
+                                                        BackgroundColor="{AppThemeBinding Light=#FFF8E1, Dark=#3E3822}"
+                                                        Padding="8,6">
+                                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                                        <BoxView Grid.Row="0" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                                 WidthRequest="140" HeightRequest="16" />
+                                                        <BoxView Grid.Row="1" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                                 WidthRequest="90" HeightRequest="12" Opacity="0.7" />
+                                                    </Grid>
+                                                </Border>
+                                                
+                                                <!-- Task 3 -->
+                                                <Border Margin="40,0,0,0" Stroke="{AppThemeBinding Light=#E0E0E0, Dark=#444444}" 
+                                                        StrokeThickness="1" StrokeShape="RoundRectangle 4,4,4,4" 
+                                                        BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#233026}"
+                                                        Padding="8,6">
+                                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                                        <BoxView Grid.Row="0" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                                 WidthRequest="110" HeightRequest="16" />
+                                                        <BoxView Grid.Row="1" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                                 WidthRequest="70" HeightRequest="12" Opacity="0.7" />
+                                                    </Grid>
+                                                </Border>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                            
+                            <!-- New Module 7 - Project Risks -->
+                            <Border IsVisible="{OnPlatform Default=false, MacCatalyst=true}" Grid.Row="3" Grid.Column="0" Style="{StaticResource ModuleCardStyle}">
+                                <Grid RowDefinitions="Auto,*" Padding="15">
+                                    <HorizontalStackLayout Spacing="10" Grid.Row="0">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                BackgroundColor="{AppThemeBinding Light=#F44336, Dark=#EF5350}" 
+                                                WidthRequest="20" HeightRequest="20" CornerRadius="4" />
+                                        <Label Text="Project Risks" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                    <!-- Risks content -->
+                                    <VerticalStackLayout Grid.Row="1" Margin="0,15,0,0">
+                                        <!-- Risk items -->
+                                        <VerticalStackLayout Spacing="{OnPlatform WinUI=12, MacCatalyst=14}">
+                                            <!-- Risk 1 -->
+                                            <Border Padding="10,8" 
+                                                    Stroke="{AppThemeBinding Light=#FFCDD2, Dark=#B71C1C}" 
+                                                    StrokeThickness="1" 
+                                                    StrokeShape="RoundRectangle 5,5,5,5" 
+                                                    BackgroundColor="{AppThemeBinding Light=#FFEBEE, Dark=#3E2723}">
+                                                <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                                                    <BoxView Grid.RowSpan="2" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                             BackgroundColor="{AppThemeBinding Light=#F44336, Dark=#EF5350}"
+                                                             WidthRequest="16" HeightRequest="16" CornerRadius="8" 
+                                                             Margin="0,3,10,0" />
+                                                    
+                                                    <BoxView Grid.Row="0" Grid.Column="1" Style="{StaticResource PlaceholderStyle}" 
+                                                           WidthRequest="180" HeightRequest="18" />
+                                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource PlaceholderStyle}" 
+                                                           WidthRequest="150" HeightRequest="12" Opacity="0.7" />
+                                                    
+                                                    <BoxView Grid.RowSpan="2" Grid.Column="2" Style="{StaticResource PlaceholderStyle}" 
+                                                             WidthRequest="40" HeightRequest="24" Margin="10,0,0,0" />
+                                                </Grid>
+                                            </Border>
+                                            
+                                            <!-- Risk 2 -->
+                                            <Border Padding="10,8" 
+                                                    Stroke="{AppThemeBinding Light=#FFE0B2, Dark=#E65100}" 
+                                                    StrokeThickness="1" 
+                                                    StrokeShape="RoundRectangle 5,5,5,5" 
+                                                    BackgroundColor="{AppThemeBinding Light=#FFF3E0, Dark=#3E2723}">
+                                                <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                                                    <BoxView Grid.RowSpan="2" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                             BackgroundColor="{AppThemeBinding Light=#FF9800, Dark=#FFA726}"
+                                                             WidthRequest="16" HeightRequest="16" CornerRadius="8" 
+                                                             Margin="0,3,10,0" />
+                                                    
+                                                    <BoxView Grid.Row="0" Grid.Column="1" Style="{StaticResource PlaceholderStyle}" 
+                                                           WidthRequest="160" HeightRequest="18" />
+                                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource PlaceholderStyle}" 
+                                                           WidthRequest="130" HeightRequest="12" Opacity="0.7" />
+                                                    
+                                                    <BoxView Grid.RowSpan="2" Grid.Column="2" Style="{StaticResource PlaceholderStyle}" 
+                                                             WidthRequest="40" HeightRequest="24" Margin="10,0,0,0" />
+                                                </Grid>
+                                            </Border>
+                                            
+                                            <!-- Risk 3 -->
+                                            <Border Padding="10,8" 
+                                                    Stroke="{AppThemeBinding Light=#C8E6C9, Dark=#2E7D32}" 
+                                                    StrokeThickness="1" 
+                                                    StrokeShape="RoundRectangle 5,5,5,5" 
+                                                    BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#1B5E20}">
+                                                <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                                                    <BoxView Grid.RowSpan="2" Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                             BackgroundColor="{AppThemeBinding Light=#4CAF50, Dark=#66BB6A}"
+                                                             WidthRequest="16" HeightRequest="16" CornerRadius="8" 
+                                                             Margin="0,3,10,0" />
+                                                    
+                                                    <BoxView Grid.Row="0" Grid.Column="1" Style="{StaticResource PlaceholderStyle}" 
+                                                           WidthRequest="170" HeightRequest="18" />
+                                                    <BoxView Grid.Row="1" Grid.Column="1" Style="{StaticResource PlaceholderStyle}" 
+                                                           WidthRequest="140" HeightRequest="12" Opacity="0.7" />
+                                                    
+                                                    <BoxView Grid.RowSpan="2" Grid.Column="2" Style="{StaticResource PlaceholderStyle}" 
+                                                             WidthRequest="40" HeightRequest="24" Margin="10,0,0,0" />
+                                                </Grid>
+                                            </Border>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                            
+                            <!-- New Module 8 - Budget Overview -->
+                            <Border IsVisible="{OnPlatform Default=false, MacCatalyst=true}" Grid.Row="3" Grid.Column="1" Style="{StaticResource ModuleCardStyle}">
+                                <Grid RowDefinitions="Auto,*" Padding="15">
+                                    <HorizontalStackLayout Spacing="10" Grid.Row="0">
+                                        <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                BackgroundColor="{AppThemeBinding Light=#00BCD4, Dark=#4DD0E1}" 
+                                                WidthRequest="20" HeightRequest="20" CornerRadius="4" />
+                                        <Label Text="Budget Overview" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                    <Grid Grid.Row="1" Margin="0,15,0,0" RowDefinitions="Auto,*">
+                                        <!-- Budget overview stats -->
+                                        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="15">
+                                            <!-- Total Budget -->
+                                            <Border Grid.Column="0" 
+                                                    Padding="10,8"
+                                                    BackgroundColor="{AppThemeBinding Light=#E0F7FA, Dark=#006064}"
+                                                    StrokeShape="RoundRectangle 5,5,5,5">
+                                                <VerticalStackLayout>
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="70" HeightRequest="12" />
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                             WidthRequest="80" HeightRequest="24" 
+                                                             Margin="0,8,0,0" />
+                                                </VerticalStackLayout>
+                                            </Border>
+                                            
+                                            <!-- Spent -->
+                                            <Border Grid.Column="1" 
+                                                    Padding="10,8"
+                                                    BackgroundColor="{AppThemeBinding Light=#E1F5FE, Dark=#01579B}"
+                                                    StrokeShape="RoundRectangle 5,5,5,5">
+                                                <VerticalStackLayout>
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="60" HeightRequest="12" />
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                             WidthRequest="80" HeightRequest="24" 
+                                                             Margin="0,8,0,0" />
+                                                </VerticalStackLayout>
+                                            </Border>
+                                            
+                                            <!-- Remaining -->
+                                            <Border Grid.Column="2" 
+                                                    Padding="10,8"
+                                                    BackgroundColor="{AppThemeBinding Light=#F1F8E9, Dark=#33691E}"
+                                                    StrokeShape="RoundRectangle 5,5,5,5">
+                                                <VerticalStackLayout>
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="80" HeightRequest="12" />
+                                                    <BoxView Style="{StaticResource PlaceholderStyle}" 
+                                                             WidthRequest="80" HeightRequest="24" 
+                                                             Margin="0,8,0,0" />
+                                                </VerticalStackLayout>
+                                            </Border>
+                                        </Grid>
+                                        
+                                        <!-- Budget progress bar -->
+                                        <VerticalStackLayout Grid.Row="1" Margin="0,20,0,0" Spacing="12">
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="100" HeightRequest="14" />
+                                            
+                                            <Grid HeightRequest="20">
+                                                <Border BackgroundColor="{AppThemeBinding Light=#EEEEEE, Dark=#424242}" 
+                                                        StrokeShape="RoundRectangle 10,10,10,10" 
+                                                        HeightRequest="20" />
+                                                <Border BackgroundColor="{AppThemeBinding Light=#00BCD4, Dark=#4DD0E1}" 
+                                                        StrokeShape="RoundRectangle 10,10,10,10" 
+                                                        WidthRequest="220" 
+                                                        HeightRequest="20" 
+                                                        HorizontalOptions="Start" />
+                                            </Grid>
+                                            
+                                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="5">
+                                                <BoxView Grid.Column="0" Style="{StaticResource PlaceholderStyle}" 
+                                                         WidthRequest="80" HeightRequest="12" 
+                                                         HorizontalOptions="Start" />
+                                                <BoxView Grid.Column="1" Style="{StaticResource PlaceholderStyle}" 
+                                                         WidthRequest="80" HeightRequest="12" 
+                                                         HorizontalOptions="Center" />
+                                                <BoxView Grid.Column="2" Style="{StaticResource PlaceholderStyle}" 
+                                                         WidthRequest="80" HeightRequest="12" 
+                                                         HorizontalOptions="End" />
+                                            </Grid>
+                                            
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="130" HeightRequest="14" Margin="0,10,0,0" />
+                                            <BoxView Style="{StaticResource PlaceholderStyle}" WidthRequest="180" HeightRequest="12" Opacity="0.7" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </ScrollView>
+                </Grid>
+            </ScrollView>
+        </dx:SfDockLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>
+                                                 
