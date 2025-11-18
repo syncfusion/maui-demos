@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.DetailsViewExporting"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:DetailsViewViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <Color x:Key="lightThemeColor">#6750A4</Color>
+        <Color x:Key="darkThemeColor">#D0BCFF</Color>
+        <Color x:Key="borderLightThemeColor">#79747E</Color>
+        <Color x:Key="borderDarkThemeColor">#938F99</Color>
+
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="nameMinimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="70"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="orderIdMinimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="100"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="customerIdMinimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="110"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="minimumHeight" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="30"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
+        </OnPlatform>
+        <OnPlatform x:Key="frameMargin" x:TypeArguments="Thickness">
+            <On Platform="Android,MacCatalyst,WinUI" Value="5,0,10,0"/>
+            <On Platform="iOS" Value="5,10,10,0"/>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+             Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+             Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+             Value="14" />
+        </Style>
+
+        <OnPlatform x:Key="visible" x:TypeArguments="x:Boolean">
+            <On Platform="WinUI,MacCatalyst" Value="True"></On>
+        </OnPlatform>
+
+        <OnPlatform x:Key="shipCity"
+                    x:TypeArguments="x:String">
+            <On Platform="Android,iOS"
+                Value="City" />
+            <On Platform="WinUI,MacCatalyst"
+                Value="Ship City" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="shipCountry"
+                    x:TypeArguments="x:String">
+            <On Platform="Android,iOS"
+                Value="Country" />
+            <On Platform="WinUI,MacCatalyst"
+                Value="Ship Country" />
+        </OnPlatform>
+
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="56" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <HorizontalStackLayout HeightRequest="56" Margin="10,0,0,10">
+                <Border HeightRequest="40"
+                        WidthRequest="140"
+                        Padding="0"
+                        Margin="{StaticResource frameMargin}"
+                        Background="Transparent"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Stroke="{AppThemeBinding Light={StaticResource borderLightThemeColor}, Dark={StaticResource borderDarkThemeColor}}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                              Tapped="Button_Clicked" />
+                    </Border.GestureRecognizers>
+
+                    <Grid x:Name="myGrid"
+                          ColumnDefinitions="35,90"
+                          RowDefinitions="40">
+                        <Label Grid.Column="0"
+                               FontSize="18"
+                               Padding="0,0,0,0"
+                               Text="&#xe799;"
+                               TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}"
+                               FontFamily="{OnPlatform Default ='MauiMaterialAssets', WinUI ='MauiMaterialAssets.ttf#MauiMaterialAssets'}"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center" />
+                        <Label Grid.Column="1"
+                               Text="Export PDF"
+                               TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}"
+                               HeightRequest="20"
+                               WidthRequest="70"
+                               Padding="0,0,0,1"
+                               HorizontalTextAlignment="Start"
+                               VerticalTextAlignment="Center" />
+                    </Grid>
+                </Border>
+
+                <Border HeightRequest="40"
+                        WidthRequest="145"
+                        Padding="0"
+                        Margin="{StaticResource frameMargin}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Stroke="{AppThemeBinding Light={StaticResource borderLightThemeColor}, Dark={StaticResource borderDarkThemeColor}}" 
+                        Background="Transparent">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                  Tapped="Button_Clicked_1" />
+                    </Border.GestureRecognizers>
+
+                    <Grid x:Name="myGrid2"
+                          ColumnDefinitions="35,95"
+                          RowDefinitions="40">
+                        <Label  Grid.Column="0"
+                                    FontSize="18"
+                                    Text="&#xe79a;"
+                                    Padding="0,0,0,0"
+                                    TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}"
+                                    FontFamily="{OnPlatform Default ='MauiMaterialAssets', WinUI ='MauiMaterialAssets.ttf#MauiMaterialAssets'}"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center" />
+                        <Label  Grid.Column="1"
+                                    Text="Export Excel"
+                                    HeightRequest="20"
+                                    WidthRequest="90"
+                                    TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}"
+                                    Padding="5,0,0,1"
+                                    HorizontalTextAlignment="Start"
+                                    VerticalTextAlignment="Center" />
+                    </Grid>
+                </Border>
+            </HorizontalStackLayout>
+
+            <sfgrid:SfDataGrid Margin='{OnPlatform WinUI="-5",MacCatalyst="-5"}'
+       x:Name="dataGrid" Grid.Row="1"
+       HeaderRowHeight="52"
+       AutoGenerateColumnsMode="None"
+       RowHeight="48"
+       ColumnWidthMode="Fill"
+       AutoGenerateRelations="False"
+       x:DataType="local:DetailsViewViewModel"
+       ItemsSource="{Binding OrderList}"
+       DetailsViewPadding="20,5,5,5"
+       HorizontalScrollBarVisibility="Always"
+       VerticalScrollBarVisibility="Always"
+       DataGridLoaded="dataGrid_DataGridLoaded">
+                <sfgrid:SfDataGrid.Columns>
+                    <sfgrid:DataGridNumericColumn Format="D" MappingName="OrderID" HeaderText="Order ID"/>
+                    <sfgrid:DataGridTextColumn MappingName="CustomerID" HeaderText="Customer"/>
+                    <sfgrid:DataGridDateColumn MappingName="ShippingDate" HeaderText="Shipped Date" Visible="{StaticResource visible}"/>
+                    <sfgrid:DataGridNumericColumn Format="D" MappingName="SupplierID" HeaderText="Supplier ID" Visible="{StaticResource visible}"/>
+                    <sfgrid:DataGridTextColumn MappingName="ShipCity"
+                                               HeaderText="{StaticResource shipCity}"/>
+                    <sfgrid:DataGridTextColumn MappingName="ShipCountry"
+                                               HeaderText="{StaticResource shipCountry}"/>
+                    <sfgrid:DataGridNumericColumn Format="C" MappingName="Freight" HeaderText="Freight" Visible="{StaticResource visible}"/>
+                </sfgrid:SfDataGrid.Columns>
+                <sfgrid:SfDataGrid.DetailsViewDefinition>
+                    <sfgrid:DataGridViewDefinition RelationalColumn="OrdersList">
+                        <sfgrid:DataGridViewDefinition.DataGrid>
+                            <sfgrid:SfDataGrid  x:Name="FirstLevelNestedGrid"
+                        AutoGenerateColumnsMode="None"                                         
+                        DefaultColumnWidth="{OnPlatform WinUI=120, MacCatalyst=120}">
+                                <sfgrid:SfDataGrid.Columns>
+                                    <sfgrid:DataGridNumericColumn Format="D" MappingName="OrderID" HeaderText="Order ID"/>
+                                    <sfgrid:DataGridNumericColumn Format="D" MappingName="ProductID" HeaderText="Product ID"/>
+                                    <sfgrid:DataGridNumericColumn Format="C" MappingName="UnitPrice" HeaderText="Unit Price"/>
+                                    <sfgrid:DataGridNumericColumn Format="N0" MappingName="Quantity" HeaderText="Quantity" Visible="{StaticResource visible}"/>
+                                    <sfgrid:DataGridNumericColumn Format="C" MappingName="Discount" HeaderText="Discount" Visible="{StaticResource visible}"/>
+                                    <sfgrid:DataGridDateColumn MappingName="OrderDate" HeaderText="Order Date" Visible="{StaticResource visible}"/>
+                                </sfgrid:SfDataGrid.Columns>
+                            </sfgrid:SfDataGrid>
+                        </sfgrid:DataGridViewDefinition.DataGrid>
+                    </sfgrid:DataGridViewDefinition>
+                </sfgrid:SfDataGrid.DetailsViewDefinition>
+            </sfgrid:SfDataGrid>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

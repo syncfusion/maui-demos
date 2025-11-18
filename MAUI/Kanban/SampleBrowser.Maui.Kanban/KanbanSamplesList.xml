@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Project Management">
+    <Control Title="Kanban Board"
+             ControlName="SfKanban"
+             Image="kanban.png"
+             StatusTag="Updated"
+             Description="A visual system, which provides an efficient interface to track and visualize different stages in a workflow.">
+      <Sample SearchTags="kanban"
+              Name="Getting Started"
+              SampleName="GettingStarted"
+              Title="Getting Started"
+              CodeViewerPath="Kanban\GettingStarted\"/>
+	  <Sample SearchTags="kanban"
+            Description="This demo showcases custom model binding, data templates, and styled placeholders for efficient and visually clear task management."
+			      Name="Customization"
+			      SampleName="Customization"
+			      Title="Customization"
+			      CodeViewerPath="Kanban\Customization\"/>
+		<Sample SearchTags="kanban"
+            Name="Sorting"
+            Description="This sample showcases how to sort Kanban cards based on different criteria for task organization and prioritization."
+            SampleName="Sorting"
+				    StatusTag="New"
+            Title="Sorting"
+            CodeViewerPath="Kanban\Sorting\"/>
+    </Control>
+  </ControlCategory>
+</SyncfusionControls>

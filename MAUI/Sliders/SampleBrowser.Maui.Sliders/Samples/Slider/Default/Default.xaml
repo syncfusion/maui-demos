@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:maui="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.SfSlider.SliderDefaultSample">
+
+    <sb:SampleView.Resources>
+        <maui:Thickness x:Key="CommonThickness">24,18,0,0</maui:Thickness>
+
+        <maui:Thickness x:Key="WinUIThickness">24,25,0,0</maui:Thickness>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto,25,Auto,Auto"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+
+                <Label Grid.Row="0"
+                       Text="Enabled"
+                       Margin="{OnPlatform Default={StaticResource CommonThickness}, WinUI={StaticResource WinUIThickness}}" />
+                <sliders:SfSlider Grid.Row="0"
+                                  Minimum="0"
+                                  Maximum="100"
+                                  Value="50">
+
+                    <sliders:SfSlider.Tooltip>
+                        <sliders:SliderTooltip NumberFormat="#0"  Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}" 
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
+                    </sliders:SfSlider.Tooltip>
+                </sliders:SfSlider>
+
+                <Label Grid.Row="2"
+                       Text="Disabled"
+                       Margin="24,0,0,0" /> 
+                <sliders:SfSlider Grid.Row="3"
+                                  Minimum="0"
+                                  Maximum="100"
+                                  Value="50"
+                                  IsEnabled="False">
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle  ActiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledActiveTrackFillBrush}}"
+                                 InactiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledInactiveTrackFillBrush}}" />
+                    </sliders:SfSlider.TrackStyle>
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="{AppThemeBinding Default={StaticResource SfSliderDisabledThumbFillBrush}}"/>
+                    </sliders:SfSlider.ThumbStyle>
+                </sliders:SfSlider>
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

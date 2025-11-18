@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Preview">
+		
+		<Control Title="Rich Text Editor"
+				 ControlName="RichTextEditor"
+				 StatusTag="New"
+				 IsPreview="True"
+				 Image="richtexteditor.png"
+				 Description="Enables users to create, format, and edit rich text content with advanced editing tools.">
+
+			<Sample Title="Getting Started"
+					SampleName="GettingStarted"
+					StatusTag="New"
+					SearchTags="richtext,editor,formatting,texteditor,toolbar,content" />
+
+			<Sample Title="Notes"
+					SampleName="NotesSample"
+					StatusTag="New"
+					SearchTags="richtext,forum,thread,editor,comment,formatting,ticket"/>
+
+		</Control>
+
+	</ControlCategory>
+</SyncfusionControls>

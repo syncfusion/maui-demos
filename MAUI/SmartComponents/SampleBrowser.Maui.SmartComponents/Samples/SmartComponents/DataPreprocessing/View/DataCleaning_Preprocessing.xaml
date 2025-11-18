@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.SmartComponents.SmartComponents"
+                      x:Class="SampleBrowser.Maui.SmartComponents.SmartComponents.DataCleaning_Preprocessing"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:DataType="local:DataPreprocessingViewModel">
+   
+    <localCore:SampleView.BindingContext>
+        <local:DataPreprocessingViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <chart:SfCartesianChart Grid.Row="0" x:Name="Chart" Margin="5" PaletteBrushes="{Binding PaletteBrushes}">
+
+            <chart:SfCartesianChart.Title>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="E-Commerce Website Traffic Data" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="AI-powered data cleaning and preprocessing every hour, tracking hourly website visitors" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" FontSize="14"/>
+                </StackLayout>
+            </chart:SfCartesianChart.Title>
+
+            <chart:SfCartesianChart.XAxes>
+                <chart:DateTimeAxis ShowMajorGridLines="False" EdgeLabelsDrawingMode="Shift">
+                    <chart:DateTimeAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle LabelFormat="hh tt"/>
+                    </chart:DateTimeAxis.LabelStyle>
+                </chart:DateTimeAxis>
+            </chart:SfCartesianChart.XAxes>
+
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis ShowMajorGridLines="False" Minimum="140" Interval="30" Maximum="320">
+                </chart:NumericalAxis>
+            </chart:SfCartesianChart.YAxes>
+
+            <chart:LineSeries x:Name="CleanedDataSeries" ItemsSource="{Binding CleanedData}" XBindingPath="DateTime" 
+                                  YBindingPath="Visitors" StrokeWidth="2"/>
+
+            <chart:LineSeries x:Name="RawDataSeries" ItemsSource="{Binding RawData}" XBindingPath="DateTime" 
+                                  YBindingPath="Visitors" StrokeWidth="2"/>
+
+        </chart:SfCartesianChart>
+
+        <core:SfBusyIndicator Grid.Row="0" IsVisible="{Binding IsBusy}" x:Name="busyIndicator"
+                              IsRunning="{Binding IsBusy}" AnimationType="DoubleCircle"/>
+
+        <Label Grid.Row="1" Text="AI-powered data cleaning and preprocessing work with the smart chart component."
+               LineBreakMode="WordWrap" Margin="4" HorizontalTextAlignment="Start" IsVisible="{OnPlatform Android=true,iOS=true,Default=false}"/>
+
+    </Grid>
+
+</localCore:SampleView>

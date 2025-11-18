@@ -1,0 +1,264 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.AppearanceCustomization"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Resources>
+          <imageExtension:SfImageSourceConverter x:Key="imageConverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <Grid.Resources>
+                <DataTemplate x:Key="dayAppointmentTemplate" x:DataType="schedule:SchedulerAppointment">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.1*"/>
+                            <RowDefinition Height="0.8*"/>
+                            <RowDefinition Height="0.1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.BindingContext>
+                            <Binding Path="DataItem"/>
+                        </Grid.BindingContext>
+                        <Grid Grid.Row="0" x:DataType="schedule:SchedulerAppointment" Background="{Binding Background}" IsClippedToBounds="True">
+                            <Grid x:DataType="schedule:SchedulerAppointment">
+                                <Grid.BindingContext>
+                                    <Binding Path="DataItem"/>
+                                </Grid.BindingContext>
+                                <Label x:DataType="local:Meeting" Text="{Binding EventName}" HorizontalOptions="{OnPlatform Default=Start, MacCatalyst=Center, WinUI=Center}"
+                                    VerticalOptions="Center" TextColor="White" LineBreakMode="WordWrap" MaxLines="1" FontSize="Caption" FontAttributes="Bold" Margin="5,5,5,0"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" x:DataType="schedule:SchedulerAppointment" Background="{Binding Background}" Opacity="0.8" IsClippedToBounds="True" >
+                            <Grid x:DataType="schedule:SchedulerAppointment">
+                                <Grid.BindingContext>
+                                    <Binding Path="DataItem"/>
+                                </Grid.BindingContext>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.3*"/>
+                                    <RowDefinition Height="0.7*"/>
+                                </Grid.RowDefinitions>
+                                <Image x:DataType="local:Meeting" Aspect="AspectFit" VerticalOptions="Center" Margin="0, 10, 0, 10" HorizontalOptions="Center" HeightRequest="{OnPlatform Android= 30, iOS=30, MacCatalyst=50, WinUI=50}" WidthRequest="{OnPlatform Android= 30, iOS=30, MacCatalyst=50,  WinUI=50}" Source="{Binding Location,Converter={StaticResource imageConverter}}"/>
+                                <Label x:DataType="local:Meeting" Text="{Binding Notes}" VerticalOptions="Start" Grid.Row="1" TextColor="White" LineBreakMode="WordWrap" Margin="3,3,3,0" FontSize="{OnPlatform Android= 10, iOS=10, MacCatalyst=12, WinUI=12}" />
+                            </Grid>
+                        </Grid>
+                        <BoxView Grid.Row="2" Background="{Binding Background}"/>
+                    </Grid>
+                </DataTemplate>
+
+                <DataTemplate x:Key="monthAppointmentTemplate" x:DataType="schedule:SchedulerAppointment">
+                    <Grid Margin="2,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*"/>
+                            <ColumnDefinition Width="0.9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.BindingContext>
+                            <Binding Path="DataItem"/>
+                        </Grid.BindingContext>
+                        <Border StrokeThickness="1" Stroke="{Binding Background}" Background="{Binding Background}" Padding="0" Margin="0" Opacity="0.8">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5, 0, 5, 0" />
+                            </Border.StrokeShape>
+                        </Border>
+                        <Border Grid.Column="1" Background="{Binding Background}" Padding="0" Margin="-1, 0, 0, 0" StrokeThickness="1" Stroke="{Binding Background}">
+                            <Border.StrokeShape>
+                                <RoundRectangle>
+                                    <RoundRectangle.CornerRadius>
+                                        <OnPlatform x:TypeArguments="thickness:CornerRadius" Default="0, 5, 0, 5">
+                                            <On Platform="UWP" Value="0"/>
+                                        </OnPlatform>
+                                    </RoundRectangle.CornerRadius>
+                                </RoundRectangle>
+                            </Border.StrokeShape>
+                            <Grid x:DataType="schedule:SchedulerAppointment">
+                                <Grid.BindingContext>
+                                    <Binding Path="DataItem"/>
+                                </Grid.BindingContext>
+                                <Label Padding="3, 0, 0, 0" HorizontalTextAlignment="Start" x:DataType="local:Meeting" Text="{Binding EventName}" FontSize="10" FontAttributes="Bold" MaxLines="1" TextColor="White" LineBreakMode="WordWrap" HorizontalOptions="Start" VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+
+                <DataTemplate x:Key="timelineAppointmentTemplate" x:DataType="schedule:SchedulerAppointment">
+                    <Grid Margin="2,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*"/>
+                            <ColumnDefinition Width="0.9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.BindingContext>
+                            <Binding Path="DataItem"/>
+                        </Grid.BindingContext>
+                        <Grid Background="{Binding Background}" Padding="0" Margin="0" Opacity="0.8">
+                        </Grid>
+                        <Grid Grid.Column="1" Background="{Binding Background}" Padding="0" Margin="-1, 0, 0, 0">
+                            <Grid>
+                                <Grid.BindingContext>
+                                    <Binding Path="DataItem"/>
+                                </Grid.BindingContext>
+                                <Label HorizontalTextAlignment="Center" Text="{Binding EventName}" x:DataType="local:Meeting" FontSize="10" FontAttributes="Bold"  TextColor="White" LineBreakMode="WordWrap" HorizontalOptions="Center"  VerticalOptions="Center" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+
+                <DataTemplate x:Key="agendaAppointmentTemplate" x:DataType="schedule:SchedulerAppointment">
+                    <Grid Margin="2,1" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.03*" />
+                            <ColumnDefinition Width="0.97*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.BindingContext>
+                            <Binding Path="DataItem"/>
+                        </Grid.BindingContext>
+                        <Border StrokeThickness="1"
+                                 Stroke="{Binding Background}"
+                                Background="{Binding Background}"
+                                Padding="0"
+                                Margin="0"
+                                Opacity="0.8">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5, 0, 5, 0" />
+                            </Border.StrokeShape>
+                        </Border>
+                        <Border Grid.Column="1"
+                                Background="{Binding Background}"
+                                Padding="0"
+                                Margin="-1, 0, 0, 0"
+                                StrokeThickness="1"
+                                Stroke="{Binding Background}">
+                            <Border.StrokeShape>
+                                <RoundRectangle>
+                                    <RoundRectangle.CornerRadius>
+                                        <OnPlatform x:TypeArguments="thickness:CornerRadius"
+                                                    Default="0, 5, 0, 5">
+                                            <On Platform="UWP"
+                                                Value="0" />
+                                        </OnPlatform>
+                                    </RoundRectangle.CornerRadius>
+                                </RoundRectangle>
+                            </Border.StrokeShape>
+                            <StackLayout Padding="5,10,10,0"
+                                         Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout.BindingContext>
+                                        <Binding Path="DataItem"/>
+                                    </StackLayout.BindingContext>
+                                    <Label x:DataType="local:Meeting" Text="{Binding EventName}"
+                                           FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}"
+                                           FontAttributes="Bold"
+                                           TextColor="White" />
+                                     <Label x:DataType="local:Meeting" Text="{Binding Location}"
+                                           FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}"
+                                           FontAttributes="Bold"
+                                           TextColor="White" />
+                                </StackLayout>
+                                
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout.BindingContext>
+                                        <Binding Path="DataItem"/>
+                                    </StackLayout.BindingContext>
+                                    <Label x:DataType="local:Meeting" Text="{Binding From, StringFormat='{}{0:hh:mm tt}'}"
+                                           FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}"
+                                           TextColor="White" />
+                                    <Label Text=" - "
+                                           TextColor="White"
+                                           FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center" />
+                                    <Label x:DataType="local:Meeting" Text="{Binding To, StringFormat='{}{0:hh:mm tt}'}"
+                                           FontSize="{OnIdiom Desktop = 12, Phone = 10, Default = 12}"
+                                           TextColor="White" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+                <local:MonthToImageConverter x:Key="MonthToImageConverter" />
+                <DataTemplate x:Key="AgendaHeaderTemplate" x:DataType="system:DateTime">
+                    <Grid>
+                        <Image Aspect="Fill"
+                               Source="{Binding Converter={StaticResource MonthToImageConverter}}" />
+                        <Label x:Name="label"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Start"
+                               TextColor="Black"
+                               FontSize="16"
+                               Padding="55, 20, 0, 0"
+                               Text="{Binding StringFormat='{0:MMMM yyyy}'}" />
+                    </Grid>
+                </DataTemplate>
+            </Grid.Resources>
+            <schedule:SfScheduler x:Name="Scheduler" ShowBusyIndicator="True" AllowAppointmentDrag="False" x:DataType="local:SchedulerDataBindingViewModel"
+                                DisplayDate="{Binding DisplayDate}"
+                                MinimumDateTime="{Binding MinDateTime}"
+                                MaximumDateTime="{Binding MaxDateTime}"
+                                AllowedViews="Week,WorkWeek,Month,TimelineDay,TimelineWeek,TimelineWorkWeek,TimelineMonth,Agenda"
+                                View="Week"
+                                SelectedAppointmentBackground="Transparent">
+                    <schedule:SfScheduler.CellSelectionView>
+                    <schedule:SchedulerCellSelectionView Background="{DynamicResource SfSchedulerNormalWeekNumberBackground}" Stroke="Transparent"/>
+                    </schedule:SfScheduler.CellSelectionView>
+                    <schedule:SfScheduler.AppointmentMapping>
+                        <schedule:SchedulerAppointmentMapping
+                        Subject="EventName"
+                        StartTime="From"
+                        EndTime="To"
+                        Background="Background"
+                        IsAllDay="IsAllDay"
+                        StartTimeZone="StartTimeZone"
+                        EndTimeZone="EndTimeZone"
+                        RecurrenceExceptionDates="RecurrenceExceptions"
+                        RecurrenceRule="RecurrenceRule"
+                        RecurrenceId="RecurrenceId"/>
+                    </schedule:SfScheduler.AppointmentMapping>
+                    <schedule:SfScheduler.MonthView>
+                        <schedule:SchedulerMonthView AppointmentTemplate="{StaticResource monthAppointmentTemplate}"
+                                AppointmentDisplayMode="Text" >
+                            <schedule:SchedulerMonthView.CellStyle>
+                                <schedule:SchedulerMonthCellStyle>
+                                    <schedule:SchedulerMonthCellStyle.TextStyle>
+                                    <schedule:SchedulerTextStyle TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}" FontSize="{OnPlatform Default=14, WinUI=12}"/>
+                                    </schedule:SchedulerMonthCellStyle.TextStyle>
+                                    <schedule:SchedulerMonthCellStyle.LeadingMonthTextStyle>
+                                    <schedule:SchedulerTextStyle TextColor="LightGray" FontSize="{OnPlatform Default=14, WinUI=12}"/>
+                                    </schedule:SchedulerMonthCellStyle.LeadingMonthTextStyle>
+                                    <schedule:SchedulerMonthCellStyle.TrailingMonthTextStyle>
+                                    <schedule:SchedulerTextStyle TextColor="LightGray" FontSize="{OnPlatform Default=14, WinUI=12}"/>
+                                    </schedule:SchedulerMonthCellStyle.TrailingMonthTextStyle>
+                                </schedule:SchedulerMonthCellStyle>
+
+                            </schedule:SchedulerMonthView.CellStyle>
+                        </schedule:SchedulerMonthView>
+                    </schedule:SfScheduler.MonthView>
+                    <schedule:SfScheduler.TimelineView>
+                        <schedule:SchedulerTimelineView StartHour="9" EndHour="18"
+                                AppointmentTemplate="{StaticResource timelineAppointmentTemplate}"/>
+                    </schedule:SfScheduler.TimelineView>
+                    <schedule:SfScheduler.DaysView>
+                        <schedule:SchedulerDaysView
+                                 AppointmentTemplate="{StaticResource dayAppointmentTemplate}"/>
+                    </schedule:SfScheduler.DaysView>
+                <schedule:SfScheduler.AgendaView>
+                    <schedule:SchedulerAgendaView MonthHeaderTemplate="{StaticResource AgendaHeaderTemplate}"
+                                                  AppointmentTemplate="{StaticResource agendaAppointmentTemplate}" />
+                </schedule:SfScheduler.AgendaView>
+                    <schedule:SfScheduler.Behaviors>
+                        <local:AppearanceCustomizationBehavior/>
+                    </schedule:SfScheduler.Behaviors>
+                    <schedule:SfScheduler.BindingContext>
+                        <local:SchedulerDataBindingViewModel/>
+                    </schedule:SfScheduler.BindingContext>
+                </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

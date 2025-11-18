@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.RadialSliders.RadialRangeSlider.LabelsAndTicksRadialRangeSlider"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui"
+                      x:DataType="gauge:ShapePointer"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid MinimumWidthRequest="300">
+            <VerticalStackLayout Padding="10,0"
+                                 Spacing="10"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                <gauge:SfRadialGauge x:Name="clockGauge">
+                    <gauge:SfRadialGauge.Axes>
+                        <gauge:RadialAxis StartAngle="270"
+                                          EndAngle="270"
+                                          Minimum="0"
+                                          Maximum="12"
+                                          Interval="3"
+                                          LabelOffset="0.05"
+                                          MinorTicksPerInterval="30"
+                                          TickOffset="0.15"
+                                          OffsetUnit="Factor"
+                                          ShowFirstLabel="False">
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle Fill="#BFD6F5"
+                                                       Thickness="8" />
+                            </gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialAxis.MinorTickStyle>
+                                <gauge:RadialTickStyle Length="0.05"
+                                                       LengthUnit="Factor" />
+                            </gauge:RadialAxis.MinorTickStyle>
+                            <gauge:RadialAxis.MajorTickStyle>
+                                <gauge:RadialTickStyle Length="0.1"
+                                                       LengthUnit="Factor" />
+                            </gauge:RadialAxis.MajorTickStyle>
+
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange StartValue="{Binding Source={x:Reference clockMarkerPointer1}, Path=Value}"
+                                                   EndValue="{Binding Source={x:Reference clockMarkerPointer2}, Path=Value}"
+                                                   Fill="#FF6A6EF6"
+                                                   StartWidth="8"
+                                                   EndWidth="8" />
+                            </gauge:RadialAxis.Ranges>
+
+                            <gauge:RadialAxis.Pointers>
+
+                                <gauge:ShapePointer x:Name="clockMarkerPointer1"
+                                                    ShapeType="Circle"
+                                                    HasShadow="True"
+                                                    Value="0"
+                                                    IsInteractive="True"
+                                                    ShapeHeight="30"
+                                                    ShapeWidth="30"
+                                                    StepFrequency="1"
+                                                    ValueChangeStarted="clockMarkerPointer1_ValueChangeStarted"
+                                                    ValueChanging="clockMarkerPointer1_ValueChanging"
+                                                    ValueChangeCompleted="clockMarkerPointer1_ValueChangeCompleted"
+                                                    Fill="#FF6A6EF6" />
+                                <gauge:ShapePointer x:Name="clockMarkerPointer2"
+                                                    ShapeType="Circle"
+                                                    HasShadow="True"
+                                                    Value="9"
+                                                    IsInteractive="True"
+                                                    ShapeHeight="30"
+                                                    ShapeWidth="30"
+                                                    StepFrequency="1"
+                                                    ValueChangeStarted="clockMarkerPointer2_ValueChangeStarted"
+                                                    ValueChanging="clockMarkerPointer2_ValueChanging"
+                                                    ValueChangeCompleted="clockMarkerPointer1_ValueChangeCompleted"
+                                                    Fill="#FF6A6EF6" />
+
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation  x:Name="StartValueAnnotation"
+                                                        DirectionUnit="Angle"
+                                                        DirectionValue="180"
+                                                        PositionFactor="0.25">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="12 AM"
+                                               x:Name="clockAnnotationLabel1"
+                                               WidthRequest="100"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="Small"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation>
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text=" - "
+                                               x:Name="clockAnnotationLabel2"
+                                               FontSize="Small"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation  x:Name="EndValueAnnotation"
+                                                        DirectionUnit="Angle"
+                                                        DirectionValue="0"
+                                                        PositionFactor="0.25">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="9 AM"
+                                               x:Name="clockAnnotationLabel3"
+                                               FontSize="Small"
+                                               WidthRequest="100"
+                                               HorizontalTextAlignment="Center"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge.Axes>
+                </gauge:SfRadialGauge>
+
+            </VerticalStackLayout>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

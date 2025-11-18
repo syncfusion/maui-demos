@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.AddNewRow"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs">
+    
+    <localCore:SampleView.Behaviors>
+        <local:AddNewRowBehavior />
+    </localCore:SampleView.Behaviors>
+    
+    <localCore:SampleView.BindingContext>
+        <local:DealerInfoViewModel/>
+    </localCore:SampleView.BindingContext>
+    
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <local:ItemSourceSelector x:Key="convertor"/>
+        </ResourceDictionary>
+        <OnPlatform x:Key="columnVisibility" x:TypeArguments="x:Boolean">
+            <On Platform="Android,iOS" Value="False"></On>
+            <On Platform="WinUI,MacCatalyst" Value="True"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI" Value="-4"/>
+            <On Platform="MacCatalyst" Value="-4"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="minimumWidth"
+                    x:TypeArguments="x:Double">
+            <On Platform="Android,iOS"
+                Value="120"></On>
+        </OnPlatform>
+
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+             Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+             Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+             Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
+                           x:DataType="local:DealerInfoViewModel"
+                           ItemsSource="{Binding DealerInformation}"
+                           AutoGenerateColumnsMode="None"
+                           SelectionMode="Single"
+                           AllowEditing="True"
+                           NewItemPlaceholderPosition="AtBeginning"
+                           EditTapAction="OnTap"
+                           ColumnWidthMode="Fill"
+                           HeaderRowHeight="52"
+                           RowHeight="48"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn Format="D"
+                                              MappingName="ProductNo"
+                                              HeaderText="Product ID">
+                </sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridTextColumn HeaderText="Name"
+                                           MappingName="DealerName">
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridComboBoxColumn HeaderText="Ship Country"
+                                               MappingName="ShipCountry"
+                                               Visible="{StaticResource columnVisibility}"
+                                               ItemsSource="{Binding Countries}">
+                </sfgrid:DataGridComboBoxColumn>
+                <sfgrid:DataGridComboBoxColumn HeaderText="Ship City"
+                                               MappingName="ShipCity"
+                                               Visible="{StaticResource columnVisibility}"
+                                               ItemsSourceSelector="{StaticResource convertor}">
+                </sfgrid:DataGridComboBoxColumn>
+                <sfgrid:DataGridDateColumn HeaderText="Shipped Date"
+                                           MappingName="ShippedDate"
+                                           MinimumWidth="{StaticResource minimumWidth}"
+                                           MinimumDate="01/01/2000">
+                </sfgrid:DataGridDateColumn>
+                <sfgrid:DataGridNumericColumn Format="C"
+                                              HeaderText="Price"
+                                              MappingName="ProductPrice">
+                </sfgrid:DataGridNumericColumn>
+            </sfgrid:SfDataGrid.Columns>
+
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid ColumnSpacing="10"
+              Padding="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalOptions="Start"
+                   Text="Add New Row Position"
+                   VerticalOptions="Center"
+                   LineBreakMode="WordWrap"
+                   FontSize="15">
+                </Label>
+
+                <editors:SfComboBox  x:Name="comboBox"
+                                 Grid.Row="0"
+                                 Grid.Column="1"
+                                 HorizontalOptions="StartAndExpand">
+                    <editors:SfComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>None</x:String>
+                            <x:String>Top</x:String>
+                            <x:String>FixedTop</x:String>
+                            <x:String>Bottom</x:String>
+                        </x:Array>
+                    </editors:SfComboBox.ItemsSource>
+
+                    <editors:SfComboBox.SelectedItem>
+                        <x:String>Top</x:String>
+                    </editors:SfComboBox.SelectedItem>
+                </editors:SfComboBox>
+
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>
