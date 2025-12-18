@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfListView.ListViewPage"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+            xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfListView"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             >
+
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.BindingContext>
+        <local:ListViewViewModel/>
+    </localCore:SampleView.BindingContext>
+    <Grid>
+        <core:SfGlassEffectView  x:Name="glassview" EffectType="Regular">
+            <ListView:SfListView x:Name="listView" ItemsSource="{Binding RecipeInfo}"
+                  ScrollBarVisibility="Always"
+                  SelectionMode="None" 
+                  DragStartMode="OnHold"
+                  EnableLiquidGlassEffect="True"
+                  ItemSize="94"
+                  Padding="8,4,8,4">
+
+                <ListView:SfListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ListViewRecipeInfo">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="94"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" HeightRequest="72" WidthRequest="72" Padding="0" Stroke="Transparent">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="4"/>
+                                </Border.StrokeShape>
+                                <Image Grid.Column="0" Grid.Row="0" Source="{Binding RecipeImage,Converter={StaticResource imageconverter}}" HorizontalOptions="Center" VerticalOptions="Fill" HeightRequest="72" WidthRequest="72" Aspect="Fill"/>
+                            </Border>
+                            <Grid Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="60"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0"  Text="{Binding RecipeName}" LineBreakMode="WordWrap" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, WinUI=14,MacCatalyst=16}" CharacterSpacing="0.1"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding RecipeTime}" FontSize="{OnPlatform Default=10,WinUI=12,MacCatalyst=12}" FontFamily="Roboto-Regular" HorizontalOptions="End" CharacterSpacing="0.15" Margin="0,0,11,0" Opacity="0.8"/>
+                                <Label Grid.Row="1" Grid.Column="0" LineBreakMode="WordWrap" LineHeight="{OnPlatform iOS={OnIdiom Tablet=1.2, Default=1.025}, Default=1.2}" Text="{Binding RecipeDescription}" FontFamily="Roboto-Regular" FontSize="14" CharacterSpacing="0.1" Margin="0,4,0,0" Opacity="0.8" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.ItemTemplate>
+            </ListView:SfListView>
+        </core:SfGlassEffectView>
+    </Grid>
+
+</localCore:SampleView>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.ColumnChooser"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+                <On Platform="Android,iOS" Value="115"></On>
+            </OnPlatform>
+            <Color x:Key="lightThemeColor">#6750A4</Color>
+            <Color x:Key="darkThemeColor">#D0BCFF</Color>
+            <Color x:Key="borderLightThemeColor">#79747E</Color>
+            <Color x:Key="borderDarkThemeColor">#938F99</Color>
+            <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+                <On Platform="WinUI,MacCatalyst" Value="-5"/>
+            </OnPlatform>
+            <OnPlatform x:Key="frameMargin" x:TypeArguments="Thickness">
+                <On Platform="Android,MacCatalyst,WinUI" Value="5,0,10,0"/>
+                <On Platform="iOS" Value="5,10,10,0"/>
+            </OnPlatform>
+            <Style TargetType="sfgrid:DataGridHeaderCell">
+                <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+                <Setter Property="FontSize"
+                    Value="14" />
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                            <On Platform="Android"
+                            Value="16,17" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <HorizontalStackLayout HeightRequest="56"
+                               Margin="10,0,0,10">
+            <Border HeightRequest="40"
+                   WidthRequest="167"
+                   Padding="0"
+                   Margin="{StaticResource frameMargin}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Stroke="{AppThemeBinding Light={StaticResource borderLightThemeColor}, Dark={StaticResource borderDarkThemeColor}}"
+                   Background="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="Button_Clicked" />
+                </Border.GestureRecognizers>
+                <Grid x:Name="columnChooserGrid"
+                      RowDefinitions="40">
+                    <Label
+                           Text="Show / Hide Columns"
+                           TextColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}"
+                           HeightRequest="20"
+                           Padding="17,0,0,1"
+                           HorizontalTextAlignment="Start"
+                           VerticalTextAlignment="Center" />
+                </Grid>
+            </Border>
+        </HorizontalStackLayout>
+
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Grid.Row="1"
+                           AutoGenerateColumnsMode="None"
+                           HeaderRowHeight="52"
+                           ShowColumnChooser="False"
+                           ItemsSource="{Binding OrdersInfo}"
+                           RowHeight="48"
+                           ColumnChooserHeaderText="Select Visible Columns"
+                           Margin='{OnPlatform WinUI="-10",MacCatalyst="-5"}'
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn Format="D"
+                            MinimumWidth="{StaticResource minimumWidth}"
+                            HeaderText="Order ID"
+                            MappingName="OrderID"
+                            >
+                </sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                            HeaderText="Customer ID"
+                            MappingName="CustomerID"
+                           >
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                            HeaderText="Name"
+                            MappingName="FirstName"
+                            >
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                            HeaderText="City"
+                            MappingName="ShipCity"
+                            >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                            HeaderText="Country"
+                            MappingName="ShipCountry"
+                            >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridNumericColumn MinimumWidth="{StaticResource minimumWidth}"
+                            Format="C"
+                            HeaderText="Freight"
+                            MappingName="Freight"
+                            >
+                </sfgrid:DataGridNumericColumn>
+            </sfgrid:SfDataGrid.Columns>
+        </sfgrid:SfDataGrid>
+    </Grid>
+
+</localCore:SampleView>

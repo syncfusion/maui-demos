@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.DialogEditing"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:sfpopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.Behaviors>
+        <local:DialogEditingBehavior x:Name="dialogEditingBehavior" />
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="sfgrid:DataGridHeaderCell">
+                <Setter Property="FontFamily"
+                        Value="Roboto-Medium" />
+                <Setter Property="FontSize"
+                        Value="14" />
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS,WinUI,MacCatalyst"
+                                Value="16,14" />
+                            <On Platform="Android"
+                                Value="16,17" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           AutoGenerateColumnsMode="None"
+                           HeaderRowHeight="52"
+                           MaxSwipeOffset="140"
+                           RowHeight="48"
+                           Margin='{OnPlatform WinUI="-5",MacCatalyst="-5"}'
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridTextColumn MappingName="ID"
+                                           HeaderText="Order ID"
+                                           HeaderTextAlignment="End"
+                                           CellTextAlignment="End" />
+                <sfgrid:DataGridTextColumn MappingName="CustomerID"
+                                           HeaderText="Name" />
+                <sfgrid:DataGridTextColumn MappingName="ShipCity"
+                                           HeaderText="City" />
+                <sfgrid:DataGridTextColumn MappingName="ShipCountry"
+                                           HeaderText="Country" />
+            </sfgrid:SfDataGrid.Columns>
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

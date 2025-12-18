@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Toolbar.SfToolbar.OverflowMode"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Toolbar.SfToolbar"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:toolbar="clr-namespace:Syncfusion.Maui.Toolbar;assembly=Syncfusion.Maui.Toolbar">
+    <localCore:SampleView.Content>
+        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Orientation="Vertical">
+            <Grid RowSpacing="40" RowDefinitions="*,*,*,*, * " Padding="20">
+                <VerticalStackLayout VerticalOptions="Center" Grid.Row="0">
+                    <Label Text="Scrollable Toolbar" Margin="0,0,0,8"/>
+                    <toolbar:SfToolbar x:Name="ScrollableToolbar"
+                                   Orientation="Horizontal"
+                                   HeightRequest="56"
+                                   ItemSpacing="15"
+                                   HorizontalOptions="Start">
+                        <toolbar:SfToolbar.Items>
+                            <toolbar:SfToolbarItem Name="Cut"
+                                               ToolTipText="Cut">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7EC;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Copy"
+                                               ToolTipText="Copy">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE737;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Paste"
+                                               ToolTipText="Paste">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7ED;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Bold"
+                                               ToolTipText="Bold">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE770;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Underline"
+                                               ToolTipText="Underline">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE762;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Italic"
+                                               ToolTipText="Italic">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE771;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="AlignLeft"
+                                               ToolTipText="Align-Left">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE751;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignRight"
+                                               ToolTipText="Align-Right">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE753;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignCenter"
+                                               ToolTipText="Align-Center">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE752;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignJustify"
+                                               ToolTipText="Align-Justify">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE74F;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Bullets"
+                                               ToolTipText="Bullets">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE74E;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Numbering"
+                                               ToolTipText="Numbering">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7EE;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Undo"
+                                               ToolTipText="Undo">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE744;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Redo"
+                                               ToolTipText="Redo">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE745;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                        </toolbar:SfToolbar.Items>
+                    </toolbar:SfToolbar>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout VerticalOptions="Center" Grid.Row="1">
+                    <Label Text="Overlay Toolbar (Tap on Alignment)" Margin="0,0,0,8"/>
+                    <Grid x:Name="layout">
+                        <toolbar:SfToolbar x:Name="DefaultToolbar"
+                                       Orientation="Horizontal"
+                                       HeightRequest="56"
+                                       ItemSpacing="15"
+                                       Tapped="HorizontalToolbar_Tapped">
+                            <toolbar:SfToolbar.Items>
+                                <toolbar:SfToolbarItem Name="Cut"
+                                                   Text="Cut"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Cut"
+                                                   Size="60,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE7EC;"
+                                                     FontFamily="MauiSampleFontIcon" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+                                <toolbar:SfToolbarItem Name="Copy"
+                                                   Text="Copy"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Copy"
+                                                   Size="70,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE737;"
+                                                     FontFamily="MauiSampleFontIcon" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+                                <toolbar:SfToolbarItem Name="Paste"
+                                                   Text="Paste"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Paste"
+                                                   Size="65,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE7ED;"
+                                                     FontFamily="MauiSampleFontIcon" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+
+                                <toolbar:SeparatorToolbarItem />
+
+                                <toolbar:SfToolbarItem Name="Bold"
+                                                   Text="Bold"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Bold"
+                                                   Size="60,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE770;"
+                                                     FontFamily="MauiMaterialAssets" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+                                <toolbar:SfToolbarItem Name="Underline"
+                                                   Text="Underline"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Underline"
+                                                   Size="90,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE762;"
+                                                     FontFamily="MauiMaterialAssets" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+                                <toolbar:SfToolbarItem Name="Italic"
+                                                   Text="Italic"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Italic"
+                                                   Size="60,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE771;"
+                                                     FontFamily="MauiMaterialAssets" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+
+                                <toolbar:SeparatorToolbarItem />
+
+                                <toolbar:SfToolbarItem Name="Bullets"
+                                                   Text="Bullets"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Bullets"
+                                                   Size="70,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE74E;"
+                                                     FontFamily="MauiSampleFontIcon" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+                                <toolbar:SfToolbarItem Name="Numbering"
+                                                   Text="Numbering"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Numbering"
+                                                   Size="100,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE7EE;"
+                                                     FontFamily="MauiSampleFontIcon" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+
+                                <toolbar:SeparatorToolbarItem />
+
+                                <toolbar:SfToolbarItem Name="Alignment"
+                                                   Text="Alignment"
+                                                   ToolTipText="Tap to view the overlay toolbar"
+                                                   Size="70,40">
+                                    <toolbar:SfToolbarItem.OverlayToolbar>
+                                        <toolbar:SfOverlayToolbar x:Name="overlaytoolbar"
+                                                              Orientation="Horizontal"
+                                                              ItemSpacing="25"
+                                                              HeightRequest="56"
+                                                              OverflowMode="Scroll">
+                                            <toolbar:SfOverlayToolbar.Items>
+                                                <toolbar:SfToolbarItem Name="AlignLeft"
+                                                                   Text="Left"
+                                                                   TextPosition="Right"
+                                                                   ToolTipText="Align-Left"
+                                                                   Size="60,40">
+                                                    <toolbar:SfToolbarItem.Icon>
+                                                        <FontImageSource Glyph="&#xE751;"
+                                                                     FontFamily="MauiMaterialAssets" />
+                                                    </toolbar:SfToolbarItem.Icon>
+                                                </toolbar:SfToolbarItem>
+                                                <toolbar:SfToolbarItem Name="AlignRight"
+                                                                   Text="Right"
+                                                                   TextPosition="Right"
+                                                                   ToolTipText="Align-Right"
+                                                                   Size="70,40">
+                                                    <toolbar:SfToolbarItem.Icon>
+                                                        <FontImageSource Glyph="&#xE753;"
+                                                                     FontFamily="MauiMaterialAssets" />
+                                                    </toolbar:SfToolbarItem.Icon>
+                                                </toolbar:SfToolbarItem>
+                                                <toolbar:SfToolbarItem Name="AlignCenter"
+                                                                   Text="Center"
+                                                                   TextPosition="Right"
+                                                                   ToolTipText="Align-Center"
+                                                                   Size="70,40">
+                                                    <toolbar:SfToolbarItem.Icon>
+                                                        <FontImageSource Glyph="&#xE752;"
+                                                                     FontFamily="MauiMaterialAssets" />
+                                                    </toolbar:SfToolbarItem.Icon>
+                                                </toolbar:SfToolbarItem>
+                                                <toolbar:SfToolbarItem Name="AlignJustify"
+                                                                   Text="Justify"
+                                                                   TextPosition="Right"
+                                                                   ToolTipText="Align-Justify"
+                                                                   Size="70,40">
+                                                    <toolbar:SfToolbarItem.Icon>
+                                                        <FontImageSource Glyph="&#xE74F;"
+                                                                     FontFamily="MauiMaterialAssets" />
+                                                    </toolbar:SfToolbarItem.Icon>
+                                                </toolbar:SfToolbarItem>
+                                            </toolbar:SfOverlayToolbar.Items>
+                                        </toolbar:SfOverlayToolbar>
+
+                                    </toolbar:SfToolbarItem.OverlayToolbar>
+                                </toolbar:SfToolbarItem>
+
+                                <toolbar:SeparatorToolbarItem />
+
+                                <toolbar:SfToolbarItem Name="Undo"
+                                                   Text="Undo"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Undo"
+                                                   Size="65,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE744;"
+                                                     FontFamily="MauiMaterialAssets" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+
+                                <toolbar:SfToolbarItem Name="Redo"
+                                                   Text="Redo"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Redo"
+                                                   Size="65,40">
+                                    <toolbar:SfToolbarItem.Icon>
+                                        <FontImageSource Glyph="&#xE745;"
+                                                     FontFamily="MauiMaterialAssets" />
+                                    </toolbar:SfToolbarItem.Icon>
+                                </toolbar:SfToolbarItem>
+                            </toolbar:SfToolbar.Items>
+                        </toolbar:SfToolbar>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout VerticalOptions="Center" Grid.Row="2">
+                    <Label Text="Navigation Button Toolbar" Margin="0,0,0,8"/>
+                    <toolbar:SfToolbar x:Name="NavigationButtonsToolbar"
+                                   Orientation="Horizontal"
+                                   HeightRequest="56"
+                                   ItemSpacing="15"
+                                   OverflowMode="NavigationButtons">
+                        <toolbar:SfToolbar.Items>
+                            <toolbar:SfToolbarItem Name="Cut"
+                                               Text="Cut"
+                                               TextPosition="Right"
+                                               ToolTipText="Cut"
+                                               Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7EC;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Copy"
+                                               Text="Copy"
+                                               TextPosition="Right"
+                                               ToolTipText="Copy"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE737;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Paste"
+                                               Text="Paste"
+                                               TextPosition="Right"
+                                               ToolTipText="Paste"
+                                               Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7ED;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Bold"
+                                               Text="Bold"
+                                               TextPosition="Right"
+                                               ToolTipText="Bold"
+                                               Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE770;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Underline"
+                                               Text="Underline"
+                                               TextPosition="Right"
+                                               ToolTipText="Underline"
+                                               Size="90,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE762;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Italic"
+                                               Text="Italic"
+                                               TextPosition="Right"
+                                               ToolTipText="Italic"
+                                               Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE771;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Bullets"
+                                               Text="Bullets"
+                                               TextPosition="Right"
+                                               ToolTipText="Bullets"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE74E;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Numbering"
+                                               Text="Numbering"
+                                               TextPosition="Right"
+                                               ToolTipText="Numbering"
+                                               Size="100,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7EE;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Undo"
+                                               Text="Undo"
+                                               TextPosition="Right"
+                                               ToolTipText="Undo"
+                                               Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE744;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Redo"
+                                               Text="Redo"
+                                               TextPosition="Right"
+                                               ToolTipText="Redo"
+                                               Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE745;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="AlignLeft"
+                                               Text="Left"
+                                               TextPosition="Right"
+                                               ToolTipText="Align-Left"
+                                               Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE751;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignRight"
+                                               Text="Right"
+                                               TextPosition="Right"
+                                               ToolTipText="Align-Right"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE753;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignCenter"
+                                               Text="Center"
+                                               TextPosition="Right"
+                                               ToolTipText="Align-Center"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE752;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignJustify"
+                                               Text="Justify"
+                                               TextPosition="Right"
+                                               ToolTipText="Align-Justify"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE74F;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                        </toolbar:SfToolbar.Items>
+                    </toolbar:SfToolbar>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout VerticalOptions="Center" Grid.Row="3">
+                    <Label Text="More Button Toolbar" Margin="0,0,0,8"/>
+                    <toolbar:SfToolbar x:Name="MoreButtonToolbar"
+                                   Orientation="Horizontal"
+                                   HeightRequest="56"
+                                   ItemSpacing="15"
+                                   OverflowMode="MoreButton"
+                                   MoreItemsRelativePosition="Top">
+                        <toolbar:SfToolbar.Items>
+                            <toolbar:SfToolbarItem Name="Cut"
+                                               Text="Cut"
+                                               TextPosition="Right"
+                                               ToolTipText="Cut"
+                                               Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7EC;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Copy"
+                                               Text="Copy"
+                                               TextPosition="Right"
+                                               ToolTipText="Copy"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE737;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Paste"
+                                               Text="Paste"
+                                               TextPosition="Right"
+                                               ToolTipText="Paste"
+                                               Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7ED;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Bold"
+                                               Text="Bold"
+                                               TextPosition="Right"
+                                               ToolTipText="Bold"
+                                               Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE770;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Underline"
+                                               Text="Underline"
+                                               TextPosition="Right"
+                                               ToolTipText="Underline"
+                                               Size="90,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE762;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Italic"
+                                               Text="Italic"
+                                               TextPosition="Right"
+                                               ToolTipText="Italic"
+                                               Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE771;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Bullets"
+                                               Text="Bullets"
+                                               TextPosition="Right"
+                                               ToolTipText="Bullets"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE74E;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Numbering"
+                                               Text="Numbering"
+                                               TextPosition="Right"
+                                               ToolTipText="Numbering"
+                                               Size="100,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7EE;"
+                                                 FontFamily="MauiSampleFontIcon" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="Undo"
+                                               Text="Undo"
+                                               TextPosition="Right"
+                                               ToolTipText="Undo"
+                                               Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE744;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Redo"
+                                               Text="Redo"
+                                               TextPosition="Right"
+                                               ToolTipText="Redo"
+                                               Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE745;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+
+                            <toolbar:SeparatorToolbarItem />
+
+                            <toolbar:SfToolbarItem Name="AlignLeft"
+                                               Text="Left"
+                                               TextPosition="Right"
+                                               ToolTipText="Align-Left"
+                                               Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE751;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignRight"
+                                               Text="Right"
+                                               TextPosition="Right"
+                                               ToolTipText="Align-Right"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE753;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignCenter"
+                                               Text="Center"
+                                               TextPosition="Right"
+                                               ToolTipText="Align-Center"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE752;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignJustify"
+                                               Text="Justify"
+                                               TextPosition="Right"
+                                               ToolTipText="Align-Justify"
+                                               Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE74F;"
+                                                 FontFamily="MauiMaterialAssets" />
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                        </toolbar:SfToolbar.Items>
+                    </toolbar:SfToolbar>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout VerticalOptions="Center"
+                                     Grid.Row="4">
+                    <Label Text="Multi Row Toolbar"
+                            Margin="0,0,0,8"/>
+                    <toolbar:SfToolbar Padding="5"
+                                       Orientation="Horizontal"
+                                       ItemSpacing="15"
+                                       HeightRequest="168"
+                                       OverflowMode="MultiRow">
+                        <toolbar:SfToolbar.Items>
+                            <toolbar:SfToolbarItem Name="Undo"
+                                                   Text="Undo"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Undo"
+                                                   Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE744;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Redo"
+                                                   Text="Redo"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Redo"
+                                                   Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE745;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SeparatorToolbarItem/>
+                            <toolbar:SfToolbarItem Name="Open Folder"
+                                                   Text="Open Folder"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Open Folder"
+                                                   Size="100,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE72D;"
+                                                     FontFamily="MauiSampleFontIcon"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Create New File"
+                                                   Text="Create New File"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Create New File"
+                                                   Size="120,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE77D;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Save"
+                                                   Text="Save"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Save"
+                                                   Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE75F;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Save As"
+                                                   Text="Save As"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Save As"
+                                                   Size="80,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE77E;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Print"
+                                                   Text="Print"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Print"
+                                                   Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE77F;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SeparatorToolbarItem/>
+                            <toolbar:SfToolbarItem Name="Zoom in"
+                                                   Text="Zoom in"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Zoom in"
+                                                   Size="80,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE713;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Zoom out"
+                                                   Text="Zoom out"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Zoom out"
+                                                   Size="80,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE714;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Cut"
+                                                   Text="Cut"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Cut"
+                                                   Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7EC;"
+                                                     FontFamily="MauiSampleFontIcon"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Copy"
+                                                   Text="Copy"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Copy"
+                                                   Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE737;"
+                                                     FontFamily="MauiSampleFontIcon"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Paste"
+                                                   Text="Paste"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Paste"
+                                                   Size="65,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7ED;"
+                                                     FontFamily="MauiSampleFontIcon"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SeparatorToolbarItem/>
+                            <toolbar:SfToolbarItem Name="Bold"
+                                                   Text="Bold"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Bold"
+                                                   Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE770;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Underline"
+                                                   Text="Underline"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Underline"
+                                                   Size="90,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE762;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Italic"
+                                                   Text="Italic"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Italic"
+                                                   Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE771;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Subscript"
+                                                   Text="Subscript"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Subscript"
+                                                   Size="80,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7A8;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Superscript"
+                                                   Text="Superscript"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Superscript"
+                                                   Size="80,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7A9;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SeparatorToolbarItem/>
+                            <toolbar:SfToolbarItem Name="Bullets"
+                                                   Text="Bullets"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Bullets"
+                                                   Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE74E;"
+                                                     FontFamily="MauiSampleFontIcon"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="Numbering"
+                                                   Text="Numbering"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Numbering"
+                                                   Size="100,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7EE;"
+                                                     FontFamily="MauiSampleFontIcon"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignLeft"
+                                                   Text="Left"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Align-Left"
+                                                   Size="60,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE751;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignRight"
+                                                   Text="Right"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Align-Right"
+                                                   Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE753;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignCenter"
+                                                   Text="Center"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Align-Center"
+                                                   Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE752;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="AlignJustify"
+                                                   Text="Justify"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Align-Justify"
+                                                   Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE74F;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SeparatorToolbarItem/>
+                            <toolbar:SfToolbarItem Name="InsertLeft"
+                                                   Text="Insert Left"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Insert-Left"
+                                                   Size="90,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7C0;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="InsertRight"
+                                                   Text="Insert Right"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Insert-Right"
+                                                   Size="90,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7C1;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="InsertUp"
+                                                   Text="Insert Up"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Insert-Up"
+                                                   Size="90,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7C2;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SfToolbarItem Name="InsertDown"
+                                                   Text="Insert Down"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Insert-Down"
+                                                   Size="90,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE7C3;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                            <toolbar:SeparatorToolbarItem/>
+                            <toolbar:SfToolbarItem Name="Help"
+                                                   Text="Help"
+                                                   TextPosition="Right"
+                                                   ToolTipText="Help"
+                                                   Size="70,40">
+                                <toolbar:SfToolbarItem.Icon>
+                                    <FontImageSource Glyph="&#xE778;"
+                                                     FontFamily="MauiMaterialAssets"/>
+                                </toolbar:SfToolbarItem.Icon>
+                            </toolbar:SfToolbarItem>
+                        </toolbar:SfToolbar.Items>
+                    </toolbar:SfToolbar>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

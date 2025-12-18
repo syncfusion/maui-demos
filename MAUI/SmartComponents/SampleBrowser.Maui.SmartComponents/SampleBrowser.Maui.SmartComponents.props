@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartTextEditor\View\GettingStarted.xaml.cs">
+			<Link>Samples\SmartTextEditor\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartTextEditor\ViewModel\SmartTextEditorViewModel.cs">
+			<Link>Samples\SmartTextEditor\ViewModel\SmartTextEditorViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartTextEditor\Behavior\GettingStartedBehavior.cs">
+			<Link>Samples\SmartTextEditor\Behavior\GettingStartedBehavior.cs</Link>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartScheduler\View\GettingStarted.xaml.cs">
+			<Link>Samples\SmartScheduler\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartScheduler\ViewModel\SmartSchedulerViewModel.cs">
+			<Link>Samples\SmartScheduler\ViewModel\SmartSchedulerViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartScheduler\Behavior\GettingStartedBehavior.cs">
+			<Link>Samples\SmartScheduler\Behavior\GettingStartedBehavior.cs</Link>
+		</Compile>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartDataGrid\View\GettingStarted.xaml.cs">
+			<Link>Samples\SmartDataGrid\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartDataGrid\Model\OrderInfo.cs">
+			<Link>Samples\SmartDataGrid\ViewModel\OrderInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartDataGrid\ViewModel\OrderInfoRepository.cs">
+			<Link>Samples\SmartDataGrid\ViewModel\OrderInfoRepository.cs</Link>
+		</Compile>		
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\SmartComponentsSamplesList.xml" >
+			<Link>SmartComponentsSamplesList.xml</Link>
+		</EmbeddedResource>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SmartTextEditor\View\GettingStarted.xaml">
+			<Link>Samples\SmartTextEditor\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SmartScheduler\View\GettingStarted.xaml">
+			<Link>Samples\SmartScheduler\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SmartDataGrid\View\GettingStarted.xaml">
+			<Link>Samples\SmartDataGrid\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+</Project>

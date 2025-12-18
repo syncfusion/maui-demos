@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfColorPicker.ColorPickerPage"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base">
+    <localCore:SampleView.Resources>
+        <Color x:Key="SfColorPickerPopupBackground">Transparent</Color>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid HorizontalOptions="Center" VerticalOptions="{OnPlatform Default=Start, MacCatalyst=Center}" Margin="0,50,0,0" RowSpacing="30" WidthRequest="380">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="Choose a color" FontSize="25" HorizontalOptions="Center" />
+                <VerticalStackLayout Grid.Row="1" Spacing="15" VerticalOptions="Start">
+                    <StackLayout>
+                        <editors:SfColorPicker x:Name="colorPicker" EnableLiquidGlassEffect="True" ShowInputArea="True" IsColorModeSwitcherVisible="True"
+                       ColorMode="Palette" SelectedColor="#0db1e7" PaletteCellShape="Default" PaletteCellCornerRadius="15"
+                       HorizontalOptions="Center" SliderThumbFill="White" SliderThumbStroke="Transparent"
+                       />
+                    </StackLayout>
+                </VerticalStackLayout>
+
+                <core:SfGlassEffectView CornerRadius="20" Grid.Row="2" Padding="14,10">   
+                <ScrollView  HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" >
+                    <Grid RowSpacing="20" WidthRequest="350" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" HorizontalOptions="Center" VerticalOptions="Start" >
+                        <Grid ColumnDefinitions="*,150" Grid.Row="0">
+                            <Label Text="Color Mode" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <core:SfGlassEffectView Grid.Column="1" CornerRadius="25" EnableShadowEffect="True">
+                                <editors:SfComboBox Stroke="Transparent" Background="Transparent" DropDownBackground="Transparent" EnableLiquidGlassEffect="True" x:Name="colorModeCombobox" SelectionChanged="colorModeCombobox_SelectionChanged" IsClearButtonVisible="False" HorizontalOptions="End" ItemsSource="{Binding PrecisionList}" SelectedIndex="0"/>
+                            </core:SfGlassEffectView>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="1">
+                            <Label Text="Show Recent Colors" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ShowRecentColorsCheckBox_CheckedChanged"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="2">
+                            <Label Text="Show Input Area" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ShowInputAreaCheckBox_CheckedChanged"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="3" >
+                            <Label Text="Mode Switcher Visibility" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ModePickerCheckBox_CheckedChanged"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="4" >
+                            <Label Text="Show Alpha Slider" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ShowSliderCheckBox_CheckedChanged"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="5" >
+                            <Label Text="Show Rounded Pallette" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="True" HorizontalOptions="Start" Grid.Column="1" CheckedChanged="ShowRoundedPallette_CheckedChanged"  />
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,150" Grid.Row="6" >
+                            <Label Text="Clear Recent Colors" TextColor="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"  VerticalTextAlignment="Center"/>
+                            <core:SfGlassEffectView Grid.Column="1" CornerRadius="25" EnableShadowEffect="True">
+                                <Button Text="Clear" TextColor="{AppThemeBinding Light=Black, Dark=White}" Background="Transparent"  Clicked="ClearButton_Clicked"/>
+                            </core:SfGlassEffectView>
+                        </Grid>
+                    </Grid>
+                </ScrollView>
+                </core:SfGlassEffectView>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

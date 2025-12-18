@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView
+    x:Class="SampleBrowser.Maui.RadialMenu.SfRadialMenu.GettingStarted"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+    xmlns:local="clr-namespace:SampleBrowser.Maui.RadialMenu.SfRadialMenu"
+    xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    xmlns:radialMenu="clr-namespace:Syncfusion.Maui.RadialMenu;assembly=Syncfusion.Maui.RadialMenu"
+    xmlns:imageEditor="clr-namespace:Syncfusion.Maui.ImageEditor;assembly=Syncfusion.Maui.ImageEditor"
+    x:DataType="local:GettingStartedViewModel"
+    x:Name="gettingStarted" >
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="VSMkey" TargetType="radialMenu:SfRadialMenu">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Hovered">
+                                <VisualState.Setters>
+                                    <Setter Property="CenterButtonBackgroundColor" Value="#F6EDFF" />
+                                    <Setter Property="CenterButtonTextColor" Value="Black" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="CenterButtonBackgroundColor" Value="#6750A4" />
+                                    <Setter Property="CenterButtonTextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="CenterButtonTextColor" Value="Black" />
+                                    <Setter Property="CenterButtonBackgroundColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:GettingStartedViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <Border
+            Padding="0"
+            Stroke="#D2D2D2"
+            StrokeShape="Rectangle"
+            StrokeThickness="1">
+            <Grid>
+                <imageEditor:SfImageEditor x:Name="imageEditor" SelectionStroke="#AE97FF"
+                Source="{imageExtension:SfImageResource Source={OnPlatform Default=imageeditordesktop.png, Android=imageeditormobile.png, iOS=imageeditormobile.png}}"
+                ShowToolbar="False">
+                </imageEditor:SfImageEditor>
+                
+                <radialMenu:SfRadialMenu
+                    x:Name="radialMenu"
+                    CenterButtonBackFontFamily="MauiMaterialAssets"
+                    CenterButtonBackFontSize="28"
+                    CenterButtonBackText="&#xe72d;"
+                    CenterButtonFontFamily="MauiMaterialAssets"
+                    CenterButtonFontSize="28"
+                    CenterButtonText="&#xe710;"
+                    EnableCenterButtonAnimation="False"
+                    EnableRotation="True"
+                    IsDragEnabled="True"
+                    Point="{OnPlatform WinUI='200, 140',
+                                       Android='180,300',
+                                       iOS='180,300',
+                                       MacCatalyst='200,140'}"
+                    RimRadius="{OnPlatform Default='250', Android='220', iOS='220'}">
+                    <radialMenu:SfRadialMenu.Items>
+                        <radialMenu:SfRadialMenuItem Text="&#xe72f;" FontFamily="MauiMaterialAssets" FontSize="28">
+                            <radialMenu:SfRadialMenuItem.Items>
+                                <radialMenu:SfRadialMenuItem Text="&#xe730;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_FreeCrop"/>
+                                <radialMenu:SfRadialMenuItem Text="&#xe73f;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_CircleCrop"/>
+                                <radialMenu:SfRadialMenuItem Text="&#xe76f;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_EllipseCrop"/>
+                                <radialMenu:SfRadialMenuItem Text="&#xe731;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_SquareCrop"/>
+                            </radialMenu:SfRadialMenuItem.Items>
+                        </radialMenu:SfRadialMenuItem>
+                        
+                        <radialMenu:SfRadialMenuItem Text="&#xe73b;" FontFamily="MauiMaterialAssets" FontSize="28">
+                            <radialMenu:SfRadialMenuItem.Items>
+                                <radialMenu:SfRadialMenuItem Text="&#xe73e;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_RectangleShape"/>
+                                <radialMenu:SfRadialMenuItem Text="&#xe73f;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_CircleShape"/>
+                                <radialMenu:SfRadialMenuItem Text="&#xe73d;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_LineShape"/>
+                                <radialMenu:SfRadialMenuItem Text="&#xe73c;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_ArrowShape"/>
+                                <radialMenu:SfRadialMenuItem Text="&#xe768;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnRadialMenuItem_DoubleArrowShape"/>
+                            </radialMenu:SfRadialMenuItem.Items>
+                        </radialMenu:SfRadialMenuItem>
+
+                        <radialMenu:SfRadialMenuItem Text="&#xe72e;" FontFamily="MauiMaterialAssets" FontSize="28">
+                            <radialMenu:SfRadialMenuItem.Items>
+                                <radialMenu:SfRadialMenuItem Text="+Add" FontSize="15" ItemTapped="OnAddTextClicked"/>
+                                <radialMenu:SfRadialMenuItem Text="&#xe755;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe754;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe73a;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe770;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe751;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                            </radialMenu:SfRadialMenuItem.Items>
+                        </radialMenu:SfRadialMenuItem>
+                        
+                        <radialMenu:SfRadialMenuItem Text="&#xe737;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnPenTapped">
+                            <radialMenu:SfRadialMenuItem.Items>
+                                <radialMenu:SfRadialMenuItem Text="&#xe74e;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnPenStrokeThikenessTapped" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe73a;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnPenStrokeColorTapped" />
+                            </radialMenu:SfRadialMenuItem.Items>
+                        </radialMenu:SfRadialMenuItem>
+
+                        <radialMenu:SfRadialMenuItem Text="&#xe748;" FontFamily="MauiMaterialAssets" FontSize="28">
+                            <radialMenu:SfRadialMenuItem.Items>
+                                <radialMenu:SfRadialMenuItem Text="&#xe74a;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe74b;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe773;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe74c;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe76d;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                                <radialMenu:SfRadialMenuItem Text="&#xe749;" FontFamily="MauiMaterialAssets" FontSize="28" />
+                            </radialMenu:SfRadialMenuItem.Items>
+                        </radialMenu:SfRadialMenuItem>
+
+                        <radialMenu:SfRadialMenuItem Text="&#xe75b;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnSaveEditsTapped"/>
+                        <radialMenu:SfRadialMenuItem Text="&#xe726;" FontFamily="MauiMaterialAssets" FontSize="28" ItemTapped="OnResetsTapped"/>
+
+                    </radialMenu:SfRadialMenu.Items>
+                </radialMenu:SfRadialMenu>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+
+
+    <localCore:SampleView.OptionView>
+        <ScrollView IsClippedToBounds="true">
+            <VerticalStackLayout Spacing="10">
+                <Grid ColumnDefinitions="40,Auto" ColumnSpacing="15">
+                    <CheckBox 
+                        x:Name="draggingCheckBox"
+                        IsChecked="True"
+                        Color="{AppThemeBinding Light={StaticResource PrimaryBorderLight},
+                                                Dark={StaticResource PrimaryBorder}}" 
+                        CheckedChanged="draggingCheckBox_CheckedChanged"/>
+                    <Label Grid.Column="1" Text="Enable Dragging" VerticalTextAlignment="Center" />
+                </Grid>
+                <Grid ColumnDefinitions="40,Auto" ColumnSpacing="15">
+                    <CheckBox 
+                        x:Name="rotationCheckBox"
+                        IsChecked="True" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryBorderLight},
+                                                Dark={StaticResource PrimaryBorder}}" 
+                        CheckedChanged="rotationCheckBox_CheckedChanged"/>
+                    <Label Grid.Column="1" Text="Enable Rotation" VerticalTextAlignment="Center" />
+                </Grid>
+                <Label Margin="5,0,0,-15" Text="RimRadius" />
+                <Slider
+                    x:Name="rimRadiusSlider"
+                    Grid.Column="1"
+                    Margin="5"
+                    Maximum="500"
+                    MaximumTrackColor="{AppThemeBinding Light=#E0E0E0,
+                                                        Dark=#404040}"
+                    Minimum="150"
+                    MinimumTrackColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight},
+                                                        Dark={StaticResource PrimaryBorder}}"
+                    ThumbColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight},
+                                                 Dark={StaticResource PrimaryBorder}}"
+                    VerticalOptions="Center"
+                    Value="{OnPlatform Default='250', Android='220', iOS='220'}" ValueChanged="rimRadiusSlider_ValueChanged"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </localCore:SampleView.OptionView>
+
+</localCore:SampleView>

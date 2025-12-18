@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.DataPager.PaginatedDataGrid"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:sfpager="clr-namespace:Syncfusion.Maui.DataGrid.DataPager;assembly=Syncfusion.Maui.DataGrid"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:DealerInfoViewModel>
+        </local:DealerInfoViewModel>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:PagingBehavior />
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth"
+                    x:TypeArguments="x:Double">
+            <On Platform="Android,iOS"
+                Value="115"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="optionRowSpacing"
+                    x:TypeArguments="x:Double">
+            <On Platform="iOS, WinUI, MacCatalyst"
+                Value="5"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-5" />
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Color x:Key="lightThemeColor">#CAC4D0</Color>
+        <Color x:Key="darkThemeColor">#49454F</Color>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="7" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+
+            <sfpager:SfDataPager x:Name="dataPager"
+                                 Grid.Row="3"
+                                 Margin="7.5,17.5,7.5,8.5"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Center"
+                                 HeightRequest="36"
+                                 ButtonSize="36"
+                                 ButtonSpacing="8"
+                                 ButtonFontSize="14"
+								 PageSize="20"
+                                 PageCount="8"
+                                 NumericButtonCount="{OnPlatform iOS='6',MacCatalyst='8',Android='6',WinUI='8'}"
+                                 x:DataType="local:DealerInfoViewModel"
+                                 Source="{Binding DealerInformation}">
+
+            </sfpager:SfDataPager>
+
+            <Border Grid.Row="2"
+                    HeightRequest="0.5"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}" />
+
+            <sfgrid:SfDataGrid x:Name="dataGrid"
+                               Margin="{StaticResource margin}"
+                               Grid.Row="0"
+                               AutoGenerateColumnsMode="None"
+                               HeaderRowHeight="52"
+                               RowHeight="48"
+                               ColumnWidthMode="Fill"
+                               HorizontalScrollBarVisibility="Always"
+                               VerticalScrollBarVisibility="Always"
+                               x:DataType="sfpager:SfDataPager"
+                               ItemsSource="{Binding Source={x:Reference dataPager}, Path=PagedSource }">
+
+                <sfgrid:SfDataGrid.Columns>
+
+                    <sfgrid:DataGridImageColumn HeaderText="Dealer"
+                                                MinimumWidth="{StaticResource minimumWidth}"
+                                                MappingName="DealerImage"
+                                                CellPadding="8">
+                    </sfgrid:DataGridImageColumn>
+
+                    <sfgrid:DataGridNumericColumn Format="D"
+                                                  MinimumWidth="{StaticResource minimumWidth}"
+                                                  HeaderText="ID"
+                                                  MappingName="ProductID">
+                    </sfgrid:DataGridNumericColumn>
+
+                    <sfgrid:DataGridTextColumn HeaderText="Name"
+                                               MinimumWidth="{StaticResource minimumWidth}"
+                                               MappingName="DealerName">
+                    </sfgrid:DataGridTextColumn>
+                    <sfgrid:DataGridCheckBoxColumn HeaderText="Is Online"
+                                                   AllowEditing="True"
+                                                   MinimumWidth="{StaticResource minimumWidth}"
+                                                   MappingName="IsOnline">
+                    </sfgrid:DataGridCheckBoxColumn>
+                    <sfgrid:DataGridDateColumn HeaderText="Shipped Date"
+                                               MinimumWidth="{StaticResource minimumWidth}"
+                                               MappingName="ShippedDate">
+
+                    </sfgrid:DataGridDateColumn>
+                    <sfgrid:DataGridTextColumn HeaderText="Country"
+                                               MappingName="ShipCountry">
+                    </sfgrid:DataGridTextColumn>
+                </sfgrid:SfDataGrid.Columns>
+
+            </sfgrid:SfDataGrid>
+        </Grid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

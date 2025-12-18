@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+
+	<ControlCategory Name="Data Visualization">
+		<Control Title="Charts"
+				 ControlName="SfCartesianChart"
+				 Image="cupertinocartesianchart.png"
+				 Description="The charts provide a perfect way to visualize data with a high level of user interactivity.">
+			<Sample SampleName="LanguageManagement"
+					Title="Getting Started"
+					CodeViewerPath="Charts/" />
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Layouts">
+		<Control Title="ListView"
+				 ControlName="SfListView"
+				 Image="cupertinolistview.png"
+				 Description="Displays items in various layouts and groups.">
+			<Sample SampleName="ListViewPage"
+					Title="Getting Started"
+					CodeViewerPath="ListView/"/>
+		</Control>
+
+		<Control Title="Popup"
+				 ControlName="SfPopup"
+				 Image="cupertinopopup.png"
+				 Description="Enables custom alert messages or loading specific views in a popup.">
+			<Sample SampleName="PopupPage"
+					Title="Getting Started"
+					CodeViewerPath="Popup/"/>
+		</Control>
+
+		<Control Title="Expander"
+				 ControlName="SfExpander"
+				 Image="cupertinoexpander.png"
+				 Description="Expander is a layout control for toggling UI views in header and content sections with a tap.">
+			<Sample SampleName="ExpanderPage"
+					Title="Getting Started"
+					CodeViewerPath="Expander/"/>
+		</Control>
+
+		<Control Title="Accordion"
+				 ControlName="SfAccordion"
+				 Image="cupertinoaccordion.png"
+				 Description="Vertical collapsible panel with stacked headers for simultaneous expansion or collapse of items.">
+			<Sample SampleName="AccordionPage"
+					Title="Getting Started"
+					CodeViewerPath="Accordion/"/>
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Grids">
+		<Control Title="DataGrid"
+				 ControlName="SfDataGrid"
+				 Image="cupertinodatagrid.png"
+				 Description="A full-featured grid control is available, complete with advanced features such as sorting, filtering, and selection.">
+			<Sample SampleName="DataGridPage"
+					Title="Getting Started"
+					CodeViewerPath="DataGrid/"/>
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Chat">
+		<Control Title="Chat"
+				ControlName="SfChat"
+				Description="Facilitates real-time conversational messaging between users."
+				Image="cupertinochat.png">
+			<Sample Title="Getting Started"
+					SampleName="ChatGettingStarted"
+					CodeViewerPath="Chat/"
+					SearchTags="Chat, chat, ch, Ch"/>
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Navigation">
+
+		<Control Title="TreeView"
+				ControlName="SfTreeView"
+				Description="Displays hierarchical data in an expandable, collapsible tree structure."
+				Image="cupertinotreeview.png">
+			<Sample Title="Getting Started"
+					SampleName="GettingStarted"
+					CodeViewerPath="TreeView/"
+					SearchTags="TreeView, treeview, tree, Tree, View, view, tr, Tr"/>
+		</Control>
+
+		<Control Title="Tab View"
+				 ControlName="SfTabView"
+				 Image="cupertinotabview.png"
+				 Description="A simple tab navigation interface that allows users to explore and switch tabs." >
+			<Sample Title="Getting Started"
+					SampleName="TabViewPage"
+					Description="This sample shows a simple use case of the Tab View."
+					SearchTags="tabs, tab view, tabbed view, navigation"
+					CodeViewerPath="TabView/"/>
+		</Control>
+
+		<Control ControlName="SfNavigationDrawer"
+				 Title="Navigation Drawer"
+				 Image="cupertinonavigationdrawer.png"
+				 Description="The NavigationDrawer is a UI panel that displays app navigation options on the side of the screen.">
+			<Sample SampleName="NavigationDrawerPage"
+					Title="Getting Started"
+					SearchTags="navigationdrawer,drawer,navigation,nav,menubar"
+					CodeViewerPath="NavigationDrawer/" />
+		</Control>
+
+		<Control Title="Radial Menu"
+				 Image="cupertinoradialmenu.png"
+				 ControlName="SfRadialMenu"
+				 Description="The radial menu control is a circular layout for quick navigation to options.">
+			<Sample SearchTags="RadialMenuPage"
+					SampleName="RadialMenuPage"
+					Title="Getting Started"
+					CodeViewerPath="RadialMenu/" />
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Calendar">
+		<Control Title="Calendar"
+				 ControlName="SfCalendar"
+				 Image="cupertinocalendar.png"
+				 Description="It is a lightweight control used to select a single, multiple, and a range of dates.">
+			<Sample SampleName="CalendarPage"
+					Title="Getting Started"
+					CodeViewerPath="Calendar/"/>
+		</Control>
+		<Control Title="Scheduler"
+				 Image="cupertinoscheduler.png"
+				 ControlName="SfScheduler"
+				 Description="Allows you to easily visualize and schedule appointments.">
+			<Sample Title="Getting Started"
+					SampleName="GettingStarted"
+					CodeViewerPath="Scheduler/GettingStarted/"/>
+		</Control>
+	</ControlCategory>
+	
+	<ControlCategory Name="Buttons">
+		<Control ControlName="SfButton"
+				 Title="Button"
+				 Image="cupertinobutton.png"
+				 Description="A button is a UI element for user interaction, representing a one-click or tap action." >
+			<Sample SampleName="ButtonPage"
+					Title="Getting Started"
+					CodeViewerPath="Button/"/>
+		</Control>
+		
+		<Control Title="Segmented Control"
+             ControlName="SfSegmentedControl"
+             Image="cupertinosegmented.png"
+             Description="Offer choices from a linear set of segments, each as an independent button."
+             SearchTags="SfSegmentedControl,segmented buttons,segment,seg">
+			<Sample Title="Getting Started"
+				SampleName="GettingStarted"
+				CodeViewerPath="SegmentedControl/GettingStarted/"/>
+		</Control>
+
+		<Control Title="Chips"
+				ControlName="SfChip"
+				Image="cupertinochip.png"
+				Description="The chips control offers an interactive and customizable layout." >
+			<Sample Title="Getting Started"
+					SampleName="ChipPage"
+					CodeViewerPath="Chip/"/>
+		</Control>
+
+		<Control ControlName="SfSwitch"
+				 Title="Switch"
+				 Image="cupertinoswitch.png"
+				 Description="The switch allows toggling items with an optional indeterminate state." >
+			<Sample SampleName="SwitchPage"
+					Title="Getting Started"
+					SearchTags="switch, threestate, button"
+					CodeViewerPath="Switch/"/>
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Picker">
+		<Control Title="Picker"
+				 ControlName="SfPicker"
+				 Image="cupertinopicker.png"
+				 Description="A versatile UI element designed for making selections from a set of options.">
+			<Sample SampleName="PickerPage"
+					Title="Getting Started"
+					CodeViewerPath="Picker/"/>
+		</Control>
+
+		<Control Title="Date Picker"
+				 ControlName="SfDatePicker"
+				 Image="cupertinodatepicker.png"
+				 Description="A user interface element for selecting specific dates.">
+			<Sample SampleName="DatePickerPage"
+					Title="Getting Started"
+					CodeViewerPath="DatePicker/"/>
+		</Control>
+
+		<Control Title="Time Picker"
+				 ControlName="SfTimePicker"
+				 Image="cupertinotimepicker.png"
+				 Description="An interface for choosing specific times of day.">
+			<Sample SampleName="TimePickerPage"
+					Title="Getting Started"
+					CodeViewerPath="TimePicker/"/>
+		</Control>
+
+		<Control Title="Date Time Picker"
+				 ControlName="SfDateTimePicker"
+				 Image="cupertinodatetimepicker.png"
+				 Description="A combined interface to select dates and times.">
+			<Sample SampleName="DateTimePickerPage"
+					Title="Getting Started"
+					CodeViewerPath="DateTimePicker/"/>
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Editors">
+		<Control Title="Image Editor"
+			 ControlName="SfImageEditor"
+			 Image="cupertinoimageeditor.png"
+			 Description="The image editor is used to crop, flip, rotate and annotate an image.">
+			<Sample SampleName="ImageEditorPage"
+					Title="Getting Started"
+					CodeViewerPath="ImageEditor/"/>
+		</Control>
+		
+		<Control Title="Autocomplete"
+				 ControlName="SfAutoComplete"
+				 Image="cupertinoautocomplete.png"
+				 Description="Provides useful suggestions to users based on the already typed content.">
+					<Sample Title="Getting Started"
+							SampleName="AutoCompletePage"
+							CodeViewerPath="AutoComplete/" />
+		</Control>
+
+		<Control Title="ComboBox"
+				ControlName="SfComboBox"
+				Image="cupertinocombobox.png"
+				Description="Allows users to select items via typing or choosing from a list.">
+			<Sample Title="Getting Started"
+					SampleName="ComboBoxPage"
+					CodeViewerPath="ComboBox/"/>
+		</Control>
+
+		<Control Title="Masked Entry"
+				 ControlName="SfMaskedEntry"
+				 Image="cupertinomaskedentry.png"
+				 Description="Allows users to restrict input using a mask pattern.">
+			<Sample Title="Getting Started"
+					SampleName="MaskedEntryPage"
+					CodeViewerPath="MaskedEntry/" />
+		</Control>
+
+		<Control Title="Numeric Entry"
+				ControlName="SfNumericEntry"
+				Image="cupertinonumericentry.png"
+				Description="Allows users to restrict input to numeric values using specified format.">
+			<Sample Title="Getting Started"
+					SampleName="NumericEntryPage"
+					CodeViewerPath="NumericEntry/" />
+		</Control>
+
+		<Control Title="Color Picker"
+				 ControlName="SfColorPicker"
+				 Image="cupertinocolorpicker.png"
+				 Description="Allows users to select a color using a visual interface such as a color spectrum or palette.">
+			<Sample Title="Getting Started"
+					SampleName="ColorPickerPage"
+					SearchTags="colorpicker,color,picker"
+					CodeViewerPath="ColorPicker/"/>
+		</Control>
+
+		<Control Title="Rich Text Editor"
+				 ControlName="SfRichTextEditor"
+				 Image="cupertinorichtexteditor.png"
+				 Description="Users can create, format, and edit rich text content with advanced editing tools.">
+			<Sample Title="Getting Started"
+					SampleName="GettingStarted"
+					CodeViewerPath="RichTextEditor/"/>
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Notification">
+		<Control Title="Linear Progress Bar"
+				 ControlName="SfLinearProgressBar"
+				 Image="cupertinolinearprogressbar.png"
+				 Description="Indicates the progress of a task along a line.">
+			<Sample SampleName="LinearProgressBarPage"
+					Title="Getting Started"
+					CodeViewerPath="LinearProgressBar/"/>
+		</Control>
+		<Control Title="Step Progress Bar"
+				ControlName="SfStepProgressBar"
+				Image="cupertinostepprogressbar.png"
+				Description="A multi step progress bar tracks the status of a process.">
+			<Sample SampleName="StepProgressBarPage"
+					Title="Order Tracking"
+					CodeViewerPath="StepProgressBar/" />
+		</Control>
+		
+	</ControlCategory>
+
+<ControlCategory Name="Smart AI Solutions">
+		<Control Title="AIAssistView"
+				ControlName="SfAIAssistView"
+				Description="Provides AI-driven contextual assistance with suggestions and actions."
+				Image="cupertinoaiassistive.png">
+			<Sample Title="Getting Started"
+					SampleName="AssistViewGettingStarted"
+					CodeViewerPath="AIAssistView/"
+					SearchTags="AIAssistView, AssistView, View, AI, aiassistview, assistview, view, ai"/>
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Sliders">
+		<Control ControlName="SfSlider"
+				 Title="Slider"
+				 Image="cupertinoslider.png"
+				 Description="The horizontal slider enables you to select a numeric value.">
+			<Sample SampleName="SliderPage"
+					Title="Getting Started"
+					CodeViewerPath="Slider/" />
+		</Control>
+
+		<Control ControlName="SfRangeSlider"
+				 Title="Range Slider"
+				 Image="cupertinorangeslider.png"
+				 Description="The horizontal range slider enables you to select a numeric range.">
+			<Sample SampleName="RangeSliderPage"
+					Title="Getting Started"
+					CodeViewerPath="RangeSlider/" />
+		</Control>
+
+	</ControlCategory>
+	
+	<ControlCategory Name="Signature Pad">
+		<Control ControlName="SfSignaturePad"
+				 Title="Signature Pad"
+				 Image="cupertinosignaturepad.png"
+				 Description="Captures the signature and save it as an image to sync across devices and documents.">
+			<Sample SampleName="SignaturePadPage"
+					Title="Getting started"
+					CodeViewerPath="SignaturePad/" />
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Project Management">
+		<Control Title="Kanban Board"
+				 ControlName="SfKanban"
+				 Image="cupertinokanban.png"
+				 Description="A visual system, which provides an efficient interface to track and visualize different stages in a workflow.">
+			<Sample SearchTags="kanban"
+					SampleName="KanbanPage"
+					Title="Getting Started"
+					CodeViewerPath="Kanban/"/>
+		</Control>
+	</ControlCategory>
+
+	<ControlCategory Name="Toolbar">
+		<Control Title="Toolbar"
+				 ControlName="SfToolbar"
+				 Image="cupertinotoolbar.png"
+				 Description="Provides toolbar items that perform actions for seamless user interaction.">
+			<Sample SampleName="ToolbarPage"
+					Title="Getting Started"
+					CodeViewerPath="Toolbar/"/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

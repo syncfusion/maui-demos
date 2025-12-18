@@ -1,0 +1,34 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass"
+             xmlns:base ="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Themes;assembly=Syncfusion.Maui.Core"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="SampleBrowser.Maui.LiquidGlass.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <base:SampleBrowserCupertinoStyles />
+                <core:SyncfusionThemeResourceDictionary />
+                <ResourceDictionary>
+                    <sys:Double x:Key="SfRichTextEditorToolbarCornerRadius">25</sys:Double>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <x:String x:Key="SfListViewTheme">CommonTheme</x:String>
+                    <Color x:Key="SfListViewHoverListViewItemBackground">#14747480</Color>
+                    <Color x:Key="SfListViewFocusedListViewItemBackground">#1f767680</Color>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <x:String x:Key="SfPopupTheme">CommonTheme</x:String>
+                    <Color x:Key="SfPopupNormalDeclineButtonBackground">Transparent</Color>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <x:String x:Key="SfTreeViewTheme">CommonTheme</x:String>
+                    <Color x:Key="SfTreeViewHoverTreeViewItemBackground">#14747480</Color>
+                    <Color x:Key="SfTreeViewFocusedTreeViewItemBackground">#1f767680</Color>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SmartComponents.SmartTextEditor.GettingStarted"
+             xmlns:ste="clr-namespace:Syncfusion.Maui.SmartComponents;assembly=Syncfusion.Maui.SmartComponents"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SmartComponents.SmartTextEditor"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.BindingContext>
+        <local:SmartTextEditorViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <Grid x:Name="grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="{OnPlatform WinUI=0.45*, MacCatalyst=0.45*, Default=0}"/>
+                <ColumnDefinition Width="{OnPlatform WinUI=0.55*, MacCatalyst=0.55*, Default=1*}"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" IsClippedToBounds="True" IsVisible="{OnPlatform WinUI=True, MacCatalyst=True, Default=False}" RowDefinitions="40, 60, *" 
+                Margin="0,40" HeightRequest="{OnPlatform MacCatalyst=430}"
+                VerticalOptions="{OnPlatform Default=Fill, WinUI=Center}">
+                <Image Source="{imageExtention:SfImageResource gettingstarted.png}" Aspect="AspectFit" Margin="50, 0, 0, 0"
+            VerticalOptions="{OnPlatform WinUI=Center}"
+            Grid.Row="2"/>
+            </Grid>
+
+            <Grid Grid.Column="1" Padding="{OnPlatform Default=20, Android=0, iOS=0}"
+                    BackgroundColor="{AppThemeBinding Light=#F5F5FA, Dark=#1E1E1E}">
+                <Border
+                    Stroke="{AppThemeBinding Light=#e4e6f3, Dark=#3c3f4f}"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#2b2b2b}"
+                    StrokeThickness="1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="{OnPlatform Default=Center, Android=Center, iOS=Center}"
+                    Padding="{OnPlatform Default=24, Android=28, iOS=28}"
+                    Margin="{OnPlatform Default=0,
+                                        Android='18,32,18,32',
+                                        iOS='22,36,22,36'}"
+                    MinimumWidthRequest="320"
+                    MaximumWidthRequest="720">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="{OnPlatform Default=18, Android=20, iOS=22}" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#1C244B"
+                            Radius="{OnPlatform Default=18, Android=24, iOS=24}"
+                            Offset="0,14"
+                            Opacity="{OnPlatform Default=0.15, Android=0.28, iOS=0.26}" />
+                    </Border.Shadow>
+
+                    <VerticalStackLayout Spacing="{OnPlatform Default=18, Android=20, iOS=20}">
+
+                        <StackLayout Spacing="{OnPlatform Default=10, Android=13, iOS=13}">
+                            <Label Text="Role"
+                                FontSize="{OnPlatform Default=13, Android=14, iOS=14}"
+                                FontAttributes="Bold"
+                                TextColor="{AppThemeBinding Light=#1A2844, Dark=#f5f6fa}" />
+                            <editors:SfComboBox x:Name="comboBox" ItemsSource="{Binding Roles}"
+                                DisplayMemberPath="Text" HeightRequest="{OnPlatform Android=40, WinUI=45}"
+                                MinimumWidthRequest="{OnPlatform Android=320, WinUI=330}"
+                                TextMemberPath="Text"
+                                SelectedItem="{Binding SelectedRole}"
+                                IsClearButtonVisible="False"
+                                Background="{AppThemeBinding Default={StaticResource SfSmartTextEditorNormalBackground}}"
+                                HorizontalOptions="Start">
+                                <editors:SfComboBox.CustomView>
+                                    <OnPlatform x:TypeArguments="View">
+                                        <On Platform="Android">
+                                            <Label Text="{Binding SelectedRole.Text}"
+                                               Padding="5,0,0,0"
+                                               WidthRequest="290"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               LineBreakMode="TailTruncation"/>
+                                        </On>
+                                        <On Platform="WinUI">
+                                            <Label Text="{Binding SelectedRole.Text}"
+                                               Padding="5,0,0,0"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               LineBreakMode="TailTruncation"/>
+                                        </On>
+                                    </OnPlatform>
+                                </editors:SfComboBox.CustomView>
+                            </editors:SfComboBox>
+                        </StackLayout>
+
+                        <StackLayout Spacing="{OnPlatform Default=10, Android=13, iOS=13}">
+                            <Label Text="Response"
+                                FontSize="{OnPlatform Default=13, Android=14, iOS=14}"
+                                FontAttributes="Bold"
+                                TextColor="{AppThemeBinding Light=#1A2844, Dark=#f5f6fa}" />
+                            <ste:SfSmartTextEditor x:Name="smartTextEditor"
+                                    HeightRequest="{OnPlatform Default=220, Android=360, iOS=380}"
+                                    UserRole="{Binding CurrentPreset.UserRole}"
+                                    UserPhrases="{Binding CurrentPreset.UserPhrases}"
+                                    Placeholder="{Binding CurrentPreset.PlaceHolder}"/>
+                        </StackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView Padding="0, 0, 5, 0">
+                <StackLayout Orientation="Vertical">
+                    <Grid  x:Name="suggestionModeGrid" IsVisible="{OnPlatform Default=True, Android=False, iOS=False}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Suggestion Mode" Margin="0,15,0,0" LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfComboBox x:Name="modeComboBox" FontSize="12" Grid.Column="1"
+                                Margin="5,15,0,0" VerticalOptions="Center"
+                                HorizontalOptions="End" IsClearButtonVisible="False" />
+                    </Grid>
+                    <Grid  x:Name="maxLengthGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Max Length" Margin="0,15,0,0" LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfNumericEntry x:Name="maxLengthEntry" FontSize="12" Grid.Column="1" Placeholder="e.g., 10"
+                            Margin="5,15,0,0" VerticalOptions="Center"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+
+    <localCore:SampleView.Behaviors>
+        <local:GettingStartedBehavior />
+    </localCore:SampleView.Behaviors>
+
+</localCore:SampleView>

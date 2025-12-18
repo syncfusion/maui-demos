@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SmartComponents.SmartDataGrid.GettingStarted"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.SmartComponents;assembly=Syncfusion.Maui.SmartComponents"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"      
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"          
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SmartComponents">
+
+
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoRepository x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="sfgrid:DataGridHeaderCell">
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="FontFamily"
+                        Value="OpenSans-Regular" />
+            </Style>
+            <Style TargetType="sfgrid:DataGridCell">
+                <Setter Property="FontFamily"
+                        Value="OpenSans-Regular" />
+            </Style>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+
+        <syncfusion:SfSmartDataGrid x:Name="dataGrid" 
+                                   Margin="{OnPlatform WinUI='-10', MacCatalyst='-10', Default='0'}"
+                                   Grid.Row="1"
+                                   AutoGenerateColumnsMode="None"
+                                   ColumnWidthMode="Auto"
+                                   HeaderGridLinesVisibility="Both"
+                                   GridLinesVisibility="Both"
+                                   AllowEditing="True"
+                                   NavigationMode="Cell"
+                                   ItemsSource="{Binding OrderInfoCollection}">
+
+            <syncfusion:SfSmartDataGrid.AssistViewSettings>
+                <syncfusion:DataGridAssistViewSettings SuggestedPrompts="{Binding Suggestions}"/>
+            </syncfusion:SfSmartDataGrid.AssistViewSettings>
+        
+            <syncfusion:SfSmartDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn MappingName="OrderID" HeaderText="Order ID" Format="0" Width="100"/>
+                <sfgrid:DataGridTextColumn MappingName="CustomerName" HeaderText="Customer Name" Width="150"/>
+
+                <sfgrid:DataGridTextColumn MappingName="ProductName" HeaderText="Product Name" Width="145"/>
+
+                <sfgrid:DataGridDateColumn  MappingName="OrderDate" Width="140" HeaderText="Order Date"  Format="dd/MM/yyyy">
+                </sfgrid:DataGridDateColumn>
+
+                <sfgrid:DataGridNumericColumn  MappingName="Quantity" Width="120" Format="N0">
+                </sfgrid:DataGridNumericColumn>
+
+                <sfgrid:DataGridNumericColumn MappingName="Freight" Width="120" Format="C">
+                </sfgrid:DataGridNumericColumn>
+
+                <sfgrid:DataGridTextColumn MappingName="ShipCity" HeaderText="Ship City" Width="150"/>
+
+                <sfgrid:DataGridTextColumn MappingName="ShipCountry" HeaderText="Ship Country" Width="150"/>
+
+                <sfgrid:DataGridTextColumn MappingName="PaymentStatus" HeaderText="Payment Status" Width="130"/>
+            </syncfusion:SfSmartDataGrid.Columns>
+        </syncfusion:SfSmartDataGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

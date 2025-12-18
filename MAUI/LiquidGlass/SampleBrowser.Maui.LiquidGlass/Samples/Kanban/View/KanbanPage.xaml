@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfKanban.KanbanPage"
+             xmlns:kanban="clr-namespace:Syncfusion.Maui.Kanban;assembly=Syncfusion.Maui.Kanban"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <Grid>
+        <core:SfGlassEffectView EffectType="Clear"
+                                CornerRadius="7">
+            <kanban:SfKanban x:Name="kanban"
+                         Background="Transparent"
+                         AutoGenerateColumns="False"
+                         ItemsSource="{Binding Cards}"
+                         EnableLiquidGlassEffect="True">
+                <kanban:SfKanban.Columns>
+                    <kanban:KanbanColumn Title="To Do"
+                                        Categories="Open"/>
+                    <kanban:KanbanColumn Title="In Progress"
+                                        Categories="In Progress"/>
+                    <kanban:KanbanColumn Title="Code Review"
+                                        Categories="Code Review"/>
+                    <kanban:KanbanColumn Title="Done"
+                                        Categories="Done"/>
+                </kanban:SfKanban.Columns>
+                <kanban:SfKanban.BindingContext>
+                    <local:KanbanViewModel/>
+                </kanban:SfKanban.BindingContext>
+            </kanban:SfKanban>
+        </core:SfGlassEffectView>
+    </Grid>
+</localCore:SampleView>

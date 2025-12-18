@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Data Visualization">
+	  <Control Title="Cartesian Charts" ControlName="SfCartesianChart" StatusTag="Updated" Image="cartesianchart.png" Description="Plot over 20+ chart types with extensive features like data label, trackball and zooming.">
+      <Category Title="Chart Types">
+        <SubCategory Title="Column">
+          <CardLayout>
+            <Sample Title="Default column chart" SampleName="ColumnChart" VideoLink="https://www.youtube.com/watch?v=o616GkzdPJk"
+                    Description="This sample demonstrates the default column chart. The data point information is shown using data label support." SearchTags="Column, bar" CodeViewerPath="CartesianChart/Column/"/>
+            <Sample Title="Column with rounded corners" SampleName="Column_RoundedEdges" SearchTags="Column, roundedegde" CodeViewerPath="CartesianChart/Column/"/>
+            <Sample Title="Column width and spacing" SampleName="Column_WidthCustomization" SearchTags="Column, customization" CodeViewerPath="CartesianChart/Column/"/>
+            <Sample Title="Column with track" SampleName="Column_Customization" Description="This sample renders the column chart with a track." SearchTags="Column, customization" CodeViewerPath="CartesianChart/Column/"/>
+            <Sample Title="Neumorphic UI" SampleName="NeumorphismColumnChart" Platforms="Windows,MacCatalyst" SearchTags="string, name, neumorphism, column, area"  CodeViewerPath="CartesianChart/NeumorphismUI/"/>
+            <Sample Title="Dynamic update animation" SampleName="Column_DynamicUpdate" SearchTags="Column, dynamic" CodeViewerPath="CartesianChart/Column/"/>
+          </CardLayout>
+        </SubCategory>
+        
+        <SubCategory Title="Bar">
+          <CardLayout>
+            <Sample Title="Default bar chart" SampleName="BarChart" Description="This sample demonstrates the default bar chart by transposing the column chart. The data point information is shown using data label support." SearchTags="bar" CodeViewerPath="CartesianChart/Bar/"/>
+            <Sample Title="Bar with rounded corners" SampleName="BarChart_RoundedEdge" SearchTags="bar, roundedegde" CodeViewerPath="CartesianChart/Bar/"/>
+            <Sample Title="Bar width and spacing" SampleName="Bar_WidthCustomization" SearchTags="Column, customization" CodeViewerPath="CartesianChart/Bar/"/>
+            <Sample Title="Dynamic update animation" SampleName="Bar_DynamicUpdate" SearchTags="bar" CodeViewerPath="CartesianChart/Bar/"/>
+          </CardLayout>
+        </SubCategory>
+        
+        <SubCategory Title="Line">
+          <CardLayout>
+            <Sample Title="Default line chart" SampleName="LineChart" Description="This sample demonstrates the default line chart. The marker, tooltip, and legend are enabled in the model. Tap the data point to view information about that data point in a tooltip." SearchTags="line" CodeViewerPath="CartesianChart/LineChart/"/>
+            <Sample Title="Line with dashes" SampleName="DashedLineChart" Description="This sample showcases a rendered line chart with dashes." SearchTags="line, dashedlinr" CodeViewerPath="CartesianChart/LineChart/"/>
+            <Sample Title="Dynamic update animation" SampleName="Line_DynamicUpdate" SearchTags="line, dynamic" CodeViewerPath="CartesianChart/LineChart/"/>
+          </CardLayout>
+        </SubCategory>
+
+        <SubCategory Title="Area">
+          <CardLayout>
+            <Sample Title="Default area chart" SampleName="AreaChart" SearchTags="area" CodeViewerPath="CartesianChart/AreaChart/"/>
+            <Sample Title="Dynamic update animation" SampleName="AreaChart_DynamicUpdate" SearchTags="area, dynamic" CodeViewerPath="CartesianChart/AreaChart/"/>
+          </CardLayout>
+        </SubCategory>
+
+		  <SubCategory Title="Bubble">
+			  <CardLayout>
+				  <Sample Title="Default bubble chart" SampleName="DefaultBubbleChart" SearchTags="bubble"
+					  CodeViewerPath="CartesianChart/BubbleChart/"/>
+
+				  <Sample Title="Bubble filled with gradient" SampleName="MultipleColorBubbleSeries"
+					  SearchTags="bubble, multiple series"
+					  CodeViewerPath="CartesianChart/BubbleChart/"/>
+
+				  <Sample Title=" Dynamic update animation" SampleName="BubbleChartAnimation"
+					  SearchTags="bubble, animation"
+					  CodeViewerPath="CartesianChart/BubbleChart/"/>
+			  </CardLayout>
+		  </SubCategory>
+
+		  <SubCategory Title="Scatter">
+			  <CardLayout>
+				  <Sample Title="Default scatter chart" SampleName="ScatterChart" SearchTags="scatter" CodeViewerPath="CartesianChart/Scatter/"/>
+				  <Sample Title="Dynamic update animation" SampleName="Scatter_DynamicUpdate" SearchTags="scatter, dynamic" CodeViewerPath="CartesianChart/Scatter/"/>
+			  </CardLayout>
+		  </SubCategory>
+
+		  <SubCategory Title="Spline">
+			  <CardLayout>
+				  <Sample Title="Default spline chart" SampleName="SplineChart" Description="This sample demonstrates the default spline chart. The marker, tooltip, and legend are enabled in the model. Tap the data point to view information about that data point in a tooltip." SearchTags="spline" CodeViewerPath="CartesianChart/SplineChart/"/>
+				  <Sample Title="Spline with dashes" SampleName="DashedSplineChart" Description="This sample showcases a rendered spline chart with dashes." SearchTags="spline, dashed" CodeViewerPath="CartesianChart/SplineChart/"/>
+				  <Sample Title="Dynamic update animation" SampleName="Spline_DynamicUpdate" SearchTags="spline, dynamic" CodeViewerPath="CartesianChart/SplineChart/"/>
+			  </CardLayout>
+		  </SubCategory>
+
+		  <SubCategory Title="Step Line">
+			  <CardLayout>
+				  <Sample Title="Default Step Line Chart" SampleName="StepLineChart" SearchTags="Stepline" CodeViewerPath="CartesianChart/StepLineChart/"/>
+				  <Sample Title="Dashed Step Line chart" SampleName="DashedStepLineChart" SearchTags="Stepline,Dashed stepline" CodeViewerPath="CartesianChart/StepLineChart/"/>
+				  <Sample Title="Vertical Step Line chart" SampleName="VerticalStepLineChart" SearchTags="Stepline,Vertical Stepline" CodeViewerPath="CartesianChart/StepLineChart/"/>
+				  <Sample Title="Dynamic update animation" SampleName="StepLine_DynamicUpdate" SearchTags="Stepline,Vertical Stepline,StepLine_DynamicUpdate" CodeViewerPath="CartesianChart/StepLineChart/"/>
+			  </CardLayout>
+		  </SubCategory>
+
+		  <Sample Title="Stacked Line" SampleName="StackedLineChart" SearchTags="stackedline, line" CodeViewerPath="CartesianChart/StackedLine/"/>
+		 
+		  <Sample Title="100% Stacked Line" SampleName="StackedLine100Chart" SearchTags="stackedline100, line" CodeViewerPath="CartesianChart/StackedLine100/"/>
+		
+		  <SubCategory Title="Range Column">
+			  <CardLayout>
+				  <Sample Title="Default Range Column" SampleName="DefaultRangeColumn" SearchTags="range column" CodeViewerPath="CartesianChart/RangeColumn/"/>
+				  <Sample Title="Dynamic update animation" SampleName="RangeColumnAnimation" SearchTags="rangeColumn, animation" CodeViewerPath="CartesianChart/RangeColumn/"/>
+			  </CardLayout>
+		  </SubCategory>
+
+		  <SubCategory Title="Range Bar">
+			  <CardLayout>
+				  <Sample Title="Default Range Bar" SampleName="DefaultRangeBar" SearchTags="range bar" CodeViewerPath="CartesianChart/RangeBar/"/>
+				  <Sample Title="Dynamic update animation" SampleName="RangeBarAnimation" SearchTags="rangebar, animation" CodeViewerPath="CartesianChart/RangeBar/"/>
+			  </CardLayout>
+		  </SubCategory>
+
+		  <SubCategory Title="Stacked Column">
+			  <CardLayout>
+				  <Sample Title="Default Stacked Column" SampleName="StackedColumnChart" SearchTags="stackedcolumn" CodeViewerPath="CartesianChart/StackedColumn/"/>
+				  <Sample Title="Cluster Stacked Column" SampleName="GroupingStackedColumn" SearchTags="stackedcolumn, grouping" CodeViewerPath="CartesianChart/StackedColumn/"/>
+			  </CardLayout>
+		  </SubCategory>
+
+		  <SubCategory Title="100% Stacked Column">
+			  <CardLayout>
+				  <Sample Title="Default 100% Stacked Column" SampleName="StackedColumn100Chart" SearchTags="stackedcolumn100" CodeViewerPath="CartesianChart/StackedColumn100/"/>
+				  <Sample Title="Grouped 100% Stacked Column" SampleName="GroupingStackedColumn100" SearchTags="stackedcolumn, grouping" CodeViewerPath="CartesianChart/StackedColumn100/"/>
+			  </CardLayout>
+		  </SubCategory>
+
+		  <Sample Title="Stacked Bar" SampleName="StackedBar" SearchTags="stackedcolumn,barChart" CodeViewerPath="CartesianChart/StackedColumn/"/>
+
+		  <Sample Title="100% Stacked Bar" SampleName="StackedBar100Chart" SearchTags="stackedbar,barChart100" CodeViewerPath="CartesianChart/StackedColumn100/"/>
+
+		  <Sample Title="Spline area" SampleName="SplineAreaChart" SearchTags="spline, area" CodeViewerPath="CartesianChart/SplineAreaChart/"/>
+
+		  <Sample Title="Range Area" SampleName="RangeAreaChart" SearchTags="range, area, range area" CodeViewerPath="CartesianChart/RangeAreaChart/"/>
+	
+		  <Sample Title="Spline Range Area" SampleName="SplineRangeAreaChart" SearchTags="range, area, range area,spline range area" CodeViewerPath="CartesianChart/SplineRangeAreaChart/"/>
+		  
+		  <SubCategory Title="Step Area">
+	  <CardLayout>
+		  <Sample Title="Default Step Area Chart" SampleName="StepAreaChart" SearchTags="stepArea" CodeViewerPath="CartesianChart/StepAreaChart/"/>
+		  <Sample Title="Dynamic update animation" SampleName="StepAreaChart_DynamicUpdate" SearchTags="stepArea, dynamic" CodeViewerPath="CartesianChart/StepAreaChart/"/>
+	 </CardLayout>
+	 </SubCategory>
+
+        <Sample Title="Stacked Area" SampleName="StackedAreaChart" SearchTags="stackedarea" CodeViewerPath="CartesianChart/StackedArea/"/>
+
+        <Sample Title="100% Stacked Area" SampleName="StackedArea100Chart" SearchTags="stackedarea100" CodeViewerPath="CartesianChart/StackedArea100/"/>
+
+        <Sample Title="Box Plot" SampleName="BoxAndWhisker" SearchTags="boxandwhisker, box, plot, boxplot,whisker" CodeViewerPath="CartesianChart/BoxAndWhisker/"/>
+		  
+		<Sample Title="Histogram" SampleName="HistogramChart" SearchTags="histogram" CodeViewerPath="CartesianChart/HistogramChart/"/>
+    
+        <SubCategory Title="Waterfall">
+          <CardLayout>
+            <Sample Title="Default waterfall chart" SampleName="WaterFallChart" SearchTags="waterfall" CodeViewerPath="CartesianChart/Waterfall/"/>
+            <Sample Title="Vertical waterfall chart" SampleName="WaterFallChartIsTransposed" SearchTags="waterfall" CodeViewerPath="CartesianChart/Waterfall/"/>
+          </CardLayout>
+        </SubCategory>
+
+        <SubCategory Title="Error Bar">
+          <CardLayout>
+            <Sample Title="Default error bar chart" SampleName="ErrorBarDefault" SearchTags="errorBarDefault, errorBarSeriesDefault" CodeViewerPath="CartesianChart/ErrorBar/"/>
+            <Sample Title="Customized error bar chart" SampleName="ErrorBarChart" SearchTags="errorBar, errorBarSeries" CodeViewerPath="CartesianChart/ErrorBar/"/>
+          </CardLayout>
+        </SubCategory>
+		  
+	    <SubCategory Title="Financial Chart ">
+			  <CardLayout>
+				  <Sample Title="Candle chart" SampleName="CandleChart" SearchTags="candle, stick" CodeViewerPath="CartesianChart/FinancialChart/"/>
+				  <Sample Title="OHLC chart" SampleName="OHLC" SearchTags="high,low,open,close" CodeViewerPath="CartesianChart/FinancialChart/"/>
+			  </CardLayout>
+		  </SubCategory>
+      </Category>
+      
+		  <Category Title="Real-time Charts">
+				  <CardLayout>
+					  <Sample Title="Real-time line chart" SampleName="RealTimeChart" Description="The sample demonstrates the live chart. A new data point is added at the end, and a point is removed at the start of a certain time." SearchTags="real time" CodeViewerPath="CartesianChart/FastLineChart/"/>
+					  <Sample Title="Vertical live chart" SampleName="VerticalLiveChart" Description="The sample demonstrates the live chart. A new data point is continuously added at the end of a certain time interval." SearchTags="vertical, live" CodeViewerPath="CartesianChart/FastLineChart/"/>
+				  </CardLayout>
+		  </Category>
+		  <Category Title="Axis">
+			  <Sample Title="Category" SampleName="CategoryAxisChart" VideoLink="https://www.youtube.com/watch?v=D_8MHoglBVI" SearchTags="string, name, category, axis" CodeViewerPath="CartesianChart/Axis/"/>
+			  <Sample Title="Numerical" SampleName="NumericalAxisChart" VideoLink="https://www.youtube.com/watch?v=BJAEtUZSK_c" SearchTags="numeric, axis" CodeViewerPath="CartesianChart/Axis/"/>
+			  <Sample Title="Logarithm" SampleName="LogarithmicAxisChart" VideoLink="https://www.youtube.com/watch?v=HWPRuTYThDc"  SearchTags="logarithmic, axis" CodeViewerPath="CartesianChart/Axis/"/>
+			  <Sample Title="Date Time" SampleName="DateTimeAxisChart" VideoLink="https://www.youtube.com/watch?v=Z_ZIJ1zlVg0" SearchTags="date, axis" CodeViewerPath="CartesianChart/Axis/"/>
+			  <Sample Title="Date Time Category" SampleName="DateTimeCategoryAxisChart" SearchTags="date, axis, category" CodeViewerPath="CartesianChart/Axis/"/>
+			  <Sample Title="Axis crossing" SampleName="AxisCrossing" SearchTags="axis, crossing" CodeViewerPath="CartesianChart/Axis/"/>
+		  </Category>
+
+		
+			  <Sample Title="Annotation"  SampleName="ShapeAnnotationSample" StatusTag="Updated" Description="This sample showcases the shape annotation support, which includes line, horizontal line, vertical line, rectangle, and ellipse." SearchTags="annotation, chart annotation" CodeViewerPath="CartesianChart/Annotation/"/>
+
+		  <Category Title="Plot band">				  
+			  <Sample Title="Horizontal" SampleName="HorizontalPlotBand" Platforms="Android,iOS" SearchTags="horizontal plot, band, plotband" CodeViewerPath="CartesianChart/PlotBand/"/>
+			  <Sample Title="Horizontal" SampleName="HorizontalPlotBandWindows" Platforms="Windows,MacCatalyst" SearchTags="horizontal plot, band, plot band" CodeViewerPath="CartesianChart/PlotBand/"/>
+			  <Sample Title="Vertical" SampleName="VerticalPlotBand" Platforms="Android,iOS" SearchTags="vertical plot, band, plotband" CodeViewerPath="CartesianChart/PlotBand/"/>
+			  <Sample Title="Vertical" SampleName="VerticalPlotBandWindows" Platforms="Windows,MacCatalyst" SearchTags="vertical plot, band, plotband" CodeViewerPath="CartesianChart/PlotBand/"/>
+			  <Sample Title="Band recurrence" SampleName="PlotBandRecurrence" SearchTags="multiple plot, band, plotband, recurrence" CodeViewerPath="CartesianChart/PlotBand/"/>
+		  </Category>
+		  
+			  <Sample Title="Legend customization" SampleName="CartesianLegend" StatusTag="Updated" SearchTags="legend" CodeViewerPath="CartesianChart/Legend/" />
+		  
+
+		  <Category Title="Data label">
+			  <Sample Title="Data label template" SampleName="DataLabelTemplate" SearchTags="data label customization, data label template, custom data label" CodeViewerPath="CartesianChart/DataLabel/"/>
+		  </Category>
+
+		  <Category Title="Interactions">
+			  <SubCategory Title="Selection">
+				  <CardLayout>
+					  <Sample Title="Data point selection" SampleName="Selection" 
+                    Description="This sample depicts the data point selection feature in the chart. On mobile, tap the data points, and on desktop, click the data points to select or deselect them."
+                    SearchTags="select, highlight" CodeViewerPath="CartesianChart/Selection/"/>
+			          <Sample Title="Series selection" SampleName="SeriesSelection" 
+                        Description="This sample depicts the series selection feature in the chart. On mobile, tap the data points, and on desktop, click the data points to select or deselect them."
+                        SearchTags="select, highlight" CodeViewerPath="CartesianChart/Selection/"/>
+			      </CardLayout>
+			  </SubCategory>
+			  <Sample Title="Tooltip" SampleName="CartesianTooltip" Description="This sample showcases the tooltip feature. On mobile, tap the data points, and on desktop, mouse over to the data points to raise the tooltip." SearchTags="tooltip" CodeViewerPath="CartesianChart/Tooltip/"/>
+			  <Sample Title="Trackball" SampleName="CartesianTrackball" Description="This sample showcases the trackball feature. On mobile phones, long press on the chart to show the trackball, and drag the chart to change the position of the trackball. You can move the cursor over the chart area to display the trackball on the desktop." 
+                SearchTags="trackball, crosshair" CodeViewerPath="CartesianChart/Trackball/"/>
+			  <Sample Title="Zooming and Panning" SampleName="ChartZooming" Description="This sample showcases the zooming and panning features." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Zoom/"/>
+			  <Sample Title="Selection Zooming" SampleName="SelectionZooming" Description="This sample demonstrates zooming selection: For desktop, hold the left mouse button, double-click, and drag; for mobile, hold your finger, double-click, and drag to create a selection rectangle." SearchTags="select, highlight" CodeViewerPath="CartesianChart/Zoom/"/>
+			  <!--<Sample Title="Add a point on click" SampleName="TapToAdd" Description="This example shows the pixel-to-data point conversion feature. Tap/click on the chart area to add a data point dynamically on that location." SearchTags="zooming, panning" CodeViewerPath="CartesianChart/Interactions/"/>-->
+			  <Sample Title="Auto scrolling" SampleName="AutoScrolling" Description="This sample demonstrates the auto-scrolling feature by showing a fixed number of data points that are always visible on the chart. Pan left to view the previous values." SearchTags="AutoScrolling, autoscrollingdelta, pan, fixed data" CodeViewerPath="CartesianChart/Interactions/"/>
+      </Category>
+	  </Control>
+  </ControlCategory>
+</SyncfusionControls>
+

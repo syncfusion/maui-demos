@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.DataPager.PaginatedListView"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:sfpager="clr-namespace:Syncfusion.Maui.DataGrid.DataPager;assembly=Syncfusion.Maui.DataGrid"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Resources>
+		<imageExtension:SfImageSourceConverter x:Key="imageconverter" />
+	</localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:ProductReviewInfoViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:PaginatedListViewBehavior />
+    </localCore:SampleView.Behaviors>
+    
+    <localCore:SampleView.Content>
+        <Grid RowDefinitions="*,45">
+            <sfpager:SfDataPager x:Name="dataPager"
+                                 Grid.Row="1"
+                                 Margin="7.5,17.5,7.5,8.5"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Center"
+                                 HeightRequest="36"
+                                 ButtonSize="36"
+                                 ButtonSpacing="8"
+                                 ButtonFontSize="14"
+								 NumericButtonCount="8">
+            </sfpager:SfDataPager>
+            <syncfusion:SfListView x:Name="verticalListView"
+                                   Grid.Row="0"
+                                   AutoFitMode="DynamicHeight"
+                                   SelectionMode="Single">
+                <syncfusion:SfListView.ItemTemplate>
+					<DataTemplate>
+                        <Grid Margin="16,12,16,12"
+                              ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border HorizontalOptions="Start"
+                                    Padding="0"
+                                    HeightRequest="44"
+                                    WidthRequest="44"
+                                    Stroke="Transparent">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3" />
+                                </Border.StrokeShape>
+                                <Image Grid.Column="0"
+									   Source="{Binding AuthorImage,Converter={StaticResource imageconverter}}"
+                                       Aspect="Fill"
+                                       HeightRequest="40"
+                                       WidthRequest="40" />
+                            </Border>
+                            <Grid Grid.Column="1"
+                                  VerticalOptions="Center"
+                                  RowSpacing="4">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0"
+									   Text="{Binding AuthorName}"
+									   FontSize="14"
+                                       FontFamily="Roboto-Regular"
+                                       CharacterSpacing="0.25" />
+                                <Label Grid.Row="1"
+									   Text="{Binding Comments}"
+									   FontSize="14"
+                                       FontFamily="Roboto-Regular"
+                                       LineBreakMode="TailTruncation"
+                                       CharacterSpacing="0.15" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </Grid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

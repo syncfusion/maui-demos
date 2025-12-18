@@ -1,0 +1,132 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.CartesianChart.SfCartesianChart.ShapeAnnotationSample"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:annotation="clr-namespace:SampleBrowser.Maui.CartesianChart.Samples.CartesianChart.Annotation"
+             xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs">
+
+        <localCore:SampleView.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <local:CartesianChartColorResources/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </localCore:SampleView.Resources>
+
+    <localCore:SampleView.OptionView>
+        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*" Padding="10" RowSpacing="20" ColumnSpacing="50">
+
+            <Label Text="Drag and drop" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
+            <buttons:SfRadioButton x:Name="DragDropCheckBox"
+                  Grid.Row="0" Grid.Column="1"
+                  IsChecked="False" VerticalOptions="Center"
+                  StateChanged="OnDragDropCheckChanged"/>
+
+            <Label Text="Color picker" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+            <buttons:SfRadioButton x:Name="ChangeColorRadio"
+                     Grid.Row="1" Grid.Column="1"
+                     IsChecked="True" VerticalOptions="Center"
+                     StateChanged="OnChangeColorRadioChanged"/>
+        </Grid>
+    </localCore:SampleView.OptionView>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <chart:SfCartesianChart VerticalOptions="Fill" Margin="0,0,5,0" x:Name="Chart" AnnotationTapped="Chart_AnnotationTapped">
+                
+                <chart:SfCartesianChart.XAxes>
+                    <chart:NumericalAxis Minimum="0" Maximum="4">
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.XAxes>
+
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis Minimum="20" Maximum="70" Interval="10"></chart:NumericalAxis>
+                </chart:SfCartesianChart.YAxes>
+                
+                <chart:SfCartesianChart.Annotations>
+                    
+                    <annotation:DraggableVerticalLineAnnotation x:Name="verticalLine" X1="2" LineCap="Arrow" Text="Vertical Line">
+                    </annotation:DraggableVerticalLineAnnotation>
+                    
+                    <annotation:DraggableHorizontalLineAnnotation x:Name="horizontalLine" Y1="45" LineCap="Arrow" Text="Horizontal Line">
+                    </annotation:DraggableHorizontalLineAnnotation>
+                    
+                    <annotation:DraggableLineAnnotation x:Name="lineAnnotation" X1="2.5" X2="3.5" Y1="52" Y2="63" LineCap="Arrow" Text="Line">
+                    </annotation:DraggableLineAnnotation>
+                    
+                    <annotation:DraggableRectangleAnnotation x:Name="rectangleAnnotation" X1="0.5" X2="1.5" Y1="25" Y2="35" Text="Rectangle">
+                    </annotation:DraggableRectangleAnnotation>
+                    
+                    <annotation:DraggableEllipseAnnotation x:Name="ellipseAnnotation" X1="2.5" X2="3.5" Y1="25" Y2="35" Text="Ellipse" HorizontalAlignment="End" VerticalAlignment="End">
+                    </annotation:DraggableEllipseAnnotation>
+                    
+                    <annotation:DraggableTextAnnotation x:Name="textAnnotation" X1="1" Y1="57.5" Text="Text Annotation">
+                    </annotation:DraggableTextAnnotation>
+                    
+                </chart:SfCartesianChart.Annotations>
+            </chart:SfCartesianChart>
+
+            <Grid x:Name="ColorPickerOverlay" IsVisible="False" BackgroundColor="#80000000" 
+                  HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Border BackgroundColor="White" 
+                        WidthRequest="400" 
+                        HeightRequest="450"
+                        StrokeThickness="1"
+                        Stroke="Gray"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5"/>
+                    </Border.StrokeShape>
+
+                    <Grid Padding="10" RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.9*"/>
+                                    <ColumnDefinition Width="0.1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Select Color" FontSize="18" TextColor="Black" Grid.Column="0"/>
+                            <Label Text="&#xE70B;"
+                                   FontFamily="MauiMaterialAssets" TextColor="Black"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                        Tapped="OnCloseTapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                      
+                        <inputs:SfColorPicker x:Name="ColorPicker" 
+                                             Grid.Row="1"
+                                             IsInline="True"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="Center"  PopupBackground="lightgray"/>
+
+                        <HorizontalStackLayout Grid.Row="2" Spacing="10" HorizontalOptions="Center">
+                            <Button Text="Cancel" 
+                                    Clicked="OnColorPickerClosed"
+                                    BackgroundColor="Gray"
+                                    TextColor="White"
+                                    WidthRequest="100"/>
+                            <Button Text="Apply" 
+                                    Clicked="OnApplyColorClicked"
+                                    BackgroundColor="#007ACC"
+                                    TextColor="White"
+                                    WidthRequest="100"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

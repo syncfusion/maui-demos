@@ -1,0 +1,29 @@
+#region Copyright Syncfusion® Inc. 2001-2025.
+// Copyright Syncfusion® Inc. 2001-2025. All rights reserved.
+// Use of this code is subject to the terms of our license.
+// A copy of the current license can be obtained at any time by e-mailing
+// licensing@syncfusion.com. Any infringement will be prosecuted under
+// applicable laws. 
+#endregion
+namespace SampleBrowser.Maui.LiquidGlass.SfImageEditor
+{
+    using SampleBrowser.Maui.Base;
+
+    /// <summary>
+    /// Represents a page that displays and manages an Image Editor within the application.
+    /// </summary>
+    public partial class ImageEditorPage : SampleView
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageEditorPage"/> class.
+        /// </summary>
+        public ImageEditorPage()
+        {
+            InitializeComponent();
+#if IOS || MACCATALYST
+            this.imageEditor.ToolbarSettings.Background = new SolidColorBrush(Colors.Transparent);
+            this.imageEditor.ToolbarSettings.Stroke = new SolidColorBrush(Colors.Transparent);
+#endif
+        }
+    }
+}

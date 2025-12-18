@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.AIAssistView.SfAIAssistView.MarkdownStyleResources">
+
+    <x:String x:Key="DefaultLightStyle">
+body {
+      background: #FFFBFE;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      color: #1C1B1F;
+}
+        
+::-webkit-scrollbar {        
+     display: none;		             
+}
+ 
+    /* TODO : Added workaround for [Ul li], need to remove after team fixed it. */
+ul li {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.15px;
+    color: #1C1B1F;
+}
+ul li::marker {
+    background: #1C1B1F;
+}
+        
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0px;
+    color: #1C1B1F;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    color: #1C1B1F;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: #1C1B1F;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    color: #1C1B1F;
+}
+
+h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    color: #1C1B1F;
+    margin: 18px 0 12px 0;
+}
+
+h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #1C1B1F;
+    margin: 16px 0 10px 0;
+}
+
+a, a:hover, a:active {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    color: #005EEB;
+    text-decoration: none;
+}
+        
+a:hover, a:active {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    color: #543E66;
+    text-decoration: none;
+    text-decoration-line: none;
+    border-bottom: none;
+}
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #CAC4D0;
+    font-weight: 500;
+}
+
+td {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #CAC4D0;
+    letter-spacing: 0.25px;
+    color:#1C1B1F;
+    font-weight: 500;
+}
+        
+td {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #CAC4D0;
+    letter-spacing: 0.25px;
+    color:#1C1B1F;
+    font-weight: 400;
+}
+
+img {
+   width: 50%;
+   height: 40%;
+   float: left;
+   margin-bottom: 30px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #1C1B1F;
+    clear: both;
+}
+        
+code {
+  background-color: #F5F5F5;
+  color: #333333;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+    </x:String>
+
+    <x:String x:Key="DefaultDarkStyle">
+body {
+     background: #1C1B1F;
+     font-family: 'Roboto', sans-serif;
+     font-size: 14px;
+     color: #E6E1E5;
+}
+        
+::-webkit-scrollbar {        
+     display: none;		             
+}
+        
+ul li {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.15px;
+    color:  #E6E1E5;
+}
+ul li::marker {
+    background: #E6E1E5;
+}
+        
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0px;
+    color: #E6E1E5;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    color: #E6E1E5;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: #E6E1E5;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    color: #E6E1E5;
+}
+
+h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    color: #E6E1E5;
+    margin: 18px 0 12px 0;
+}
+
+h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #E6E1E5;
+    margin: 16px 0 10px 0;
+}
+
+a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    color: #2196F3;
+    text-decoration: none;
+}
+        
+ a:hover, a:active {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    color: #C490ED;
+    text-decoration: none;
+    text-decoration-line: none;
+    border-bottom: none;
+}
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #49454F;
+}
+
+th {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #49454F;
+    letter-spacing: 0.25px;
+    color: #E6E1E5;
+    font-weight: 500;
+}
+        
+td {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #49454F;
+    letter-spacing: 0.25px;
+    color: #E6E1E5;
+    font-weight: 400;
+}
+
+img {
+   width: 50%;
+   height: 40%;
+   float: left;
+   margin-bottom: 30px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #E6E1E5;
+    clear: both;
+}
+
+code {
+  background-color: #3A3A3A; 
+  color: #D0D0D0;     
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+    </x:String>
+
+</ResourceDictionary>

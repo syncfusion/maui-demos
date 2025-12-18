@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.LiquidGlass.SfCartesianChart.ChartsMobile"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:converter="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core"
+                      xmlns:sunburst="clr-namespace:Syncfusion.Maui.SunburstChart;assembly=Syncfusion.Maui.SunburstChart"
+                      xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfCartesianChart">
+
+    <localCore:SampleView.BindingContext>
+        <local:ChartViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:ChartStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <Grid>
+
+        <!-- Tint overlay -->
+        <BoxView Color="{AppThemeBinding Light=Transparent, Dark=#99000000}"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Fill"/>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="15" Spacing="10">
+                <!-- 1. Title panel -->
+                <core:SfGlassEffectView HeightRequest="90" CornerRadius="20" EffectType="Clear" Background="{AppThemeBinding Light={StaticResource GreyTint}, Dark={StaticResource DarkTint}}" Padding="10">
+                    <Grid VerticalOptions="Center" Padding="10,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="13"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.RowSpan="2" Margin="0,0.7,5,0" Orientation="Vertical" BackgroundColor="#0088FF" />
+                        <VerticalStackLayout Grid.Column="1" Margin="5,0,0,0" HorizontalOptions="Start">
+                            <Label Text="Language Mastery Analytics Hub" FontSize="15" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                            <Label Text="Transforming Language Learning into a Personalized Success Path"
+                                   LineBreakMode="WordWrap" FontSize="14" Margin="0,8,0,0" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </core:SfGlassEffectView>
+
+                <!-- 2. First two metric cards -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                    <!-- Total Students -->
+                    <core:SfGlassEffectView Grid.Column="0" HeightRequest="85" CornerRadius="20" EffectType="Clear" Background="{AppThemeBinding Light={StaticResource GreyTint}, Dark={StaticResource DarkTint}}" Padding="15">
+                        <Grid RowDefinitions="6*,4*" HorizontalOptions="Center">
+                            <HorizontalStackLayout Spacing="2" Grid.Row="0" HorizontalOptions="Center">
+
+                                <!-- Icon -->
+                                <Path   Data="{Binding IconPathData1}"
+                                        Fill="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                        VerticalOptions="Center"/>
+                                <!-- Value -->
+                                <Label
+                                        Text="{Binding TotalStudents}"
+                                        FontSize="20"
+                                        FontAttributes="Bold"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Start"
+                                        Margin="5,0,0,0"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Caption -->
+                            <Label Grid.Row="1"
+                                   Padding="0,3,0,0"
+                                   Text="Total Students"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   LineBreakMode="WordWrap"/>
+                        </Grid>
+                    </core:SfGlassEffectView>
+
+                    <!-- Languages Offered -->
+                    <core:SfGlassEffectView Grid.Column="1" CornerRadius="20" EffectType="Clear" Background="{AppThemeBinding Light={StaticResource GreyTint}, Dark={StaticResource DarkTint}}" Padding="15">
+                        <Grid RowDefinitions="6*,4*" HorizontalOptions="Center">
+                            <HorizontalStackLayout Spacing="2" Grid.Row="0" HorizontalOptions="Center">
+                                <Path Data="{Binding IconPathData2}"
+                                      Fill="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                      VerticalOptions="Center"/>
+                                <Label Text="{Binding LanguagesOffered}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Margin="5,0,0,0"/>
+                            </HorizontalStackLayout>
+
+                            <Label Grid.Row="1"
+                                   Text="Languages Offered"
+                                   Padding="0,3,0,0"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   LineBreakMode="WordWrap"/>
+                        </Grid>
+                    </core:SfGlassEffectView>
+                </Grid>
+
+                <!-- 3. Next two metric cards -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+
+                    <!-- Average Score -->
+                    <core:SfGlassEffectView Grid.Column="0" CornerRadius="20" HeightRequest="85" EffectType="Clear" Background="{AppThemeBinding Light={StaticResource GreyTint}, Dark={StaticResource DarkTint}}" Padding="15">
+                        <Grid RowDefinitions="6*,4*" HorizontalOptions="Center">
+                            <HorizontalStackLayout Spacing="2" Grid.Row="0" HorizontalOptions="Center">
+                                <Path Data="{Binding IconPathData3}"
+                                      Fill="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                      VerticalOptions="Center"/>
+                                <Label Text="{Binding AverageScore}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Margin="5,0,0,0"/>
+                            </HorizontalStackLayout>
+                            <Label Grid.Row="1" 
+                                   Text="Average Score"
+                                   FontSize="14"
+                                   Margin="0,0,0,5"
+                                   HorizontalOptions="Center"
+                                   LineBreakMode="WordWrap"/>
+                        </Grid>
+                    </core:SfGlassEffectView>
+
+                    <!-- Completion Rate -->
+                    <core:SfGlassEffectView Grid.Column="1" CornerRadius="20" EffectType="Clear" Background="{AppThemeBinding Light={StaticResource GreyTint}, Dark={StaticResource DarkTint}}" Padding="15">
+                        <Grid RowDefinitions="6*,4*" HorizontalOptions="Center">
+                            <HorizontalStackLayout Spacing="2" Grid.Row="0" HorizontalOptions="Center">
+                                <Path Data="{Binding IconPathData4}"
+                                      Fill="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                      VerticalOptions="Center"/>
+                                <Label Text="{Binding CompletionRate}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"  
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Margin="5,0,0,0"/>
+                            </HorizontalStackLayout>
+                            <Label Grid.Row="1"
+                                   Text="Completion Rate (%)"
+                                   FontSize="14"
+                                   Padding="0,3,0,0"
+                                   HorizontalOptions="Center"
+                                   LineBreakMode="WordWrap"/>
+                        </Grid>
+                    </core:SfGlassEffectView>
+                </Grid>
+
+                <!-- 4. Cartesian chart -->
+                <core:SfGlassEffectView CornerRadius="20" EffectType="Clear" HeightRequest="320" Background="{AppThemeBinding Light={StaticResource GreyTint}, Dark={StaticResource DarkTint}}" Padding="25,20,25,0">
+                    <Grid RowDefinitions="8*, 2*">
+                        <VerticalStackLayout Grid.Row="1">
+                            <Border HorizontalOptions="Start" StrokeShape="RoundRectangle 10" Margin="0,5,5,5" Background="{AppThemeBinding Light={StaticResource LegendLight}, Dark={StaticResource LegendDark}}" Padding="5">
+                                <HorizontalStackLayout Spacing="15" Margin="7" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <HorizontalStackLayout Spacing="6">
+                                        <BoxView Color="{StaticResource series11Light}" CornerRadius="10" WidthRequest="15" HeightRequest="3"
+                                                    VerticalOptions="Center" HorizontalOptions="Center" />
+                                        <Label Text="English" FontSize="12" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="6">
+                                        <BoxView Color="{StaticResource series22Light}" CornerRadius="10" WidthRequest="15" HeightRequest="3"
+                                                    VerticalOptions="Center" HorizontalOptions="Center" />
+                                        <Label Text="Spanish" FontSize="12" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="6">
+                                        <BoxView Color="{StaticResource series33Light}" CornerRadius="10" WidthRequest="15" HeightRequest="3"
+                                                    VerticalOptions="Center" HorizontalOptions="Center" />
+                                        <Label Text="French" FontSize="12" />
+                                    </HorizontalStackLayout>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <chart:SfCartesianChart x:Name="cartesianChart" Grid.Row="0" EnableLiquidGlassEffect="True">
+                            <chart:SfCartesianChart.Title>
+                                <Label Text="Language Scores Over Time" FontSize="15" />
+                            </chart:SfCartesianChart.Title>
+
+                            <chart:SfCartesianChart.XAxes>
+                                <local:CustomDateTimeAxis LabelRotation="45" ShowMajorGridLines="False" PlotOffsetStart="7" PlotOffsetEnd="7" EdgeLabelsDrawingMode="Center">
+                                    <local:CustomDateTimeAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" />
+                                    </local:CustomDateTimeAxis.LabelStyle>
+                                </local:CustomDateTimeAxis>
+                            </chart:SfCartesianChart.XAxes>
+
+                            <chart:SfCartesianChart.YAxes>
+                                <chart:NumericalAxis IsVisible="False" Interval="10" Minimum="45">
+                                    <chart:NumericalAxis.MajorGridLineStyle>
+                                        <chart:ChartLineStyle StrokeDashArray="2,3"/>
+                                    </chart:NumericalAxis.MajorGridLineStyle>
+                                    <chart:NumericalAxis.AxisLineStyle>
+                                        <chart:ChartLineStyle StrokeWidth="0" Stroke="Transparent"/>
+                                    </chart:NumericalAxis.AxisLineStyle>
+                                    <chart:NumericalAxis.MajorTickStyle>
+                                        <chart:ChartAxisTickStyle StrokeWidth="0" Stroke="Transparent"/>
+                                    </chart:NumericalAxis.MajorTickStyle>
+                                </chart:NumericalAxis>
+                            </chart:SfCartesianChart.YAxes>
+
+                            <!-- Trackball -->
+                            <chart:SfCartesianChart.TrackballBehavior>
+                                <chart:ChartTrackballBehavior ShowLabel="True">
+                                    <chart:ChartTrackballBehavior.MarkerSettings>
+                                        <chart:ChartMarkerSettings Height="4" Width="4" Fill="{StaticResource LightGrey}"/>
+                                    </chart:ChartTrackballBehavior.MarkerSettings>
+                                </chart:ChartTrackballBehavior>
+                            </chart:SfCartesianChart.TrackballBehavior>
+
+                            <!-- Series -->
+                            <chart:SfCartesianChart.Series>
+                                <chart:LineSeries ItemsSource="{Binding EnglishScores}" XBindingPath="Date" YBindingPath="Score"
+                                            Fill="{StaticResource series1Light}"
+                                                Label="English" ShowMarkers="True" TrackballLabelTemplate="{StaticResource trackballLabelTemplate}">
+                                    <chart:LineSeries.MarkerSettings>
+                                        <chart:ChartMarkerSettings Height="7" Width="7" Fill="{StaticResource LightGrey}" Stroke="{StaticResource series1Light}" StrokeWidth="1"/>
+                                    </chart:LineSeries.MarkerSettings>
+                                </chart:LineSeries>
+
+                                <chart:LineSeries ItemsSource="{Binding SpanishScores}" XBindingPath="Date" YBindingPath="Score"
+                                            Fill="{StaticResource series2Light}"
+                                                Label="Spanish" ShowMarkers="True" TrackballLabelTemplate="{StaticResource trackballLabelTemplate}">
+                                    <chart:LineSeries.MarkerSettings>
+                                        <chart:ChartMarkerSettings Height="7" Width="7" Fill="{StaticResource LightGrey}" Stroke="{StaticResource series2Light}" StrokeWidth="1"/>
+                                    </chart:LineSeries.MarkerSettings>
+                                </chart:LineSeries>
+
+                                <chart:LineSeries ItemsSource="{Binding FrenchScores}" XBindingPath="Date" YBindingPath="Score"
+                                            Fill="{StaticResource series3Light}"
+                                                Label="French" ShowMarkers="True" TrackballLabelTemplate="{StaticResource trackballLabelTemplate}">
+                                    <chart:LineSeries.MarkerSettings>
+                                        <chart:ChartMarkerSettings Height="7" Width="7" Fill="{StaticResource LightGrey}" Stroke="{StaticResource series3Light}" StrokeWidth="1"/>
+                                    </chart:LineSeries.MarkerSettings>
+                                </chart:LineSeries>
+                            </chart:SfCartesianChart.Series>
+                        </chart:SfCartesianChart>
+                    </Grid>
+                </core:SfGlassEffectView>
+
+                <!-- 5. Sunburst chart with custom legend -->
+                <core:SfGlassEffectView CornerRadius="20" EffectType="Clear" HeightRequest="410" Background="{AppThemeBinding Light={StaticResource GreyTint}, Dark={StaticResource DarkTint}}" Padding="20">
+                    <VerticalStackLayout Spacing="7" Padding="5,0">
+                        <sunburst:SfSunburstChart x:Name="sunburstChart" ItemsSource="{Binding CurriculumBreakdown}"
+                                            PaletteBrushes="{Binding SunburstPalette}"
+                                            ValueMemberPath="StudentCount"
+                                            EnableTooltip="True"
+                                            EnableLiquidGlassEffect="True"
+                                            TooltipTemplate="{StaticResource sunburstTooltip}">
+                            <sunburst:SfSunburstChart.Title>
+                                <Label Text="Curriculum Breakdown" FontSize="15"/>
+                            </sunburst:SfSunburstChart.Title>
+                            <sunburst:SfSunburstChart.Levels>
+                                <sunburst:SunburstHierarchicalLevel GroupMemberPath="Language"/>
+                                <sunburst:SunburstHierarchicalLevel GroupMemberPath="Topic"/>
+                            </sunburst:SfSunburstChart.Levels>
+                        </sunburst:SfSunburstChart>
+
+                        <!-- Custom legend -->
+                        <Border Background="{AppThemeBinding Light={StaticResource LegendLight}, Dark={StaticResource LegendDark}}" StrokeShape="RoundRectangle 10" Padding="5" HorizontalOptions="Center">
+                            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Margin="7">
+                                <HorizontalStackLayout Spacing="6">
+                                    <Ellipse WidthRequest="14" HeightRequest="14" Fill="{StaticResource SunburstBrush2}" />
+                                    <Label Text="French"  FontSize="12"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="6">
+                                    <Ellipse WidthRequest="14" HeightRequest="14" Fill="{StaticResource SunburstBrush3}" />
+                                    <Label Text="Spanish"  FontSize="12"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="6">
+                                    <Ellipse WidthRequest="14" HeightRequest="14" Fill="{StaticResource SunburstBrush1}" />
+                                    <Label Text="English"  FontSize="12"/>
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+                </core:SfGlassEffectView>
+
+                <core:SfGlassEffectView CornerRadius="20" EffectType="Clear" HeightRequest="350"
+                                        Background="{AppThemeBinding Light={StaticResource GreyTint}, Dark={StaticResource DarkTint}}"
+                                        Padding="20,20,20,15">
+
+                    <!-- Switch to rows instead of columns -->
+                    <Grid RowDefinitions="*, Auto">
+
+                        <!-- Funnel Chart in Row 0 -->
+                        <chart:SfFunnelChart x:Name="funnelChart" Grid.Row="0"
+                                                ItemsSource="{Binding StudentProgress}"
+                                                TooltipTemplate="{StaticResource tooltipTemplate}"
+                                                XBindingPath="Stage"
+                                                YBindingPath="Count"
+                                                PaletteBrushes="{Binding FunnelPalette}"
+                                                ShowDataLabels="True"
+                                                EnableLiquidGlassEffect="True"
+                                                EnableTooltip="True"
+                                                LabelTemplate="{StaticResource dataLabelTemplate}">
+                            <chart:SfFunnelChart.Title>
+                                <Label Text="Student Progress" Margin="5,0,0,7" FontSize="15"/>
+                            </chart:SfFunnelChart.Title>
+                            <chart:SfFunnelChart.DataLabelSettings>
+                                <chart:FunnelDataLabelSettings>
+                                    <chart:FunnelDataLabelSettings.LabelStyle>
+                                        <chart:ChartDataLabelStyle TextColor="White" />
+                                    </chart:FunnelDataLabelSettings.LabelStyle>
+                                </chart:FunnelDataLabelSettings>
+                            </chart:SfFunnelChart.DataLabelSettings>
+                        </chart:SfFunnelChart>
+
+                        <!-- Legend in Row 1 -->
+                        <Border Grid.Row="1"
+                                    Background="{AppThemeBinding Light={StaticResource LegendLight}, Dark={StaticResource LegendDark}}"
+                                    StrokeShape="RoundRectangle 10"
+                                    Padding="10"
+                                    Margin="10,5,0,0"
+                                    HorizontalOptions="Center">
+
+                            <!-- Horizontal arrangement -->
+                            <HorizontalStackLayout Spacing="10">
+
+                                <HorizontalStackLayout Spacing="5">
+                                    <Ellipse WidthRequest="15" HeightRequest="15" Fill="{StaticResource FunnelBrush4}" />
+                                    <Label Text="Certified" FontSize="12" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="5">
+                                    <Ellipse WidthRequest="15" HeightRequest="15" Fill="{StaticResource FunnelBrush3}" />
+                                    <Label Text="Completed" FontSize="12" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="5">
+                                    <Ellipse WidthRequest="15" HeightRequest="15" Fill="{StaticResource FunnelBrush2}" />
+                                    <Label Text="Started" FontSize="12" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="5">
+                                    <Ellipse WidthRequest="15" HeightRequest="15" Fill="{StaticResource FunnelBrush1}" />
+                                    <Label Text="Enrolled" FontSize="12" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </Grid>
+                </core:SfGlassEffectView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</localCore:SampleView>

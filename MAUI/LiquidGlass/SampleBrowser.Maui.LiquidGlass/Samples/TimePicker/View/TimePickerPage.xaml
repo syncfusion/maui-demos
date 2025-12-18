@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfTimePicker.TimePickerPage"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfTimePicker">
+    <localCore:SampleView.Content>
+        <Grid>
+            <core:SfGlassEffectView WidthRequest="350" HeightRequest="350" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="24">
+                <picker:SfTimePicker x:Name="TimePicker" EnableLiquidGlassEffect="true">
+                    <picker:SfTimePicker.ColumnHeaderView>
+                        <picker:TimePickerColumnHeaderView Height="40"/>
+                    </picker:SfTimePicker.ColumnHeaderView>
+                    <picker:SfTimePicker.HeaderView>
+                        <picker:PickerHeaderView Height="52"
+                        Text="Select a Time">
+                        </picker:PickerHeaderView>
+                    </picker:SfTimePicker.HeaderView>
+                    <picker:SfTimePicker.FooterView>
+                        <picker:PickerFooterView Height="56">
+                        </picker:PickerFooterView>
+                    </picker:SfTimePicker.FooterView>
+                </picker:SfTimePicker>
+            </core:SfGlassEffectView>
+        </Grid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView Padding="0, 0, 5, 0">
+                <StackLayout Orientation="Vertical">
+
+                    <Grid x:Name="showHeaderGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Show Header"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="showHeaderSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="True" HorizontalOptions="End" />
+                    </Grid>
+
+                    <Grid x:Name="showColumnHeaderGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Show Column Header"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="showColumnHeaderSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="True" HorizontalOptions="End" />
+                    </Grid>
+
+                    <Grid x:Name="showFooterGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Show Footer"  LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="showFooterSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="True" HorizontalOptions="End" />
+                    </Grid>
+
+                    <Grid x:Name="enableLoopingGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Enable Looping" LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <buttons:SfSwitch x:Name="enableLoopingSwitch" Grid.Column="1" Margin="5,0,0,0" VerticalOptions="Center" IsOn="False" HorizontalOptions="End"/>
+                    </Grid>
+
+                    <Grid  x:Name="formatGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Time Format" Margin="0,15,0,0" LineBreakMode="WordWrap" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfComboBox x:Name="formatComboBox" FontSize="12" Grid.Column="1"
+                            Margin="5,15,0,0" VerticalOptions="Center"
+                            HorizontalOptions="End" IsClearButtonVisible="False" />
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+
+    <localCore:SampleView.Behaviors>
+        <local:TimePickerPageBehavior />
+    </localCore:SampleView.Behaviors>
+
+</localCore:SampleView>

@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\View\KanbanPage.xaml.cs">
+      <Link>\Samples\Kanban\View\KanbanPage.xaml.cs</Link>
+      <DependentUpon>KanbanPage.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\LinearProgressBar\LinearProgressBarPage.xaml.cs">
+      <Link>\Samples\LinearProgressBar\LinearProgressBarPage.xaml.cs</Link>
+      <DependentUpon>LinearProgressBar.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\StepProgressBar\View\StepProgressBarPage.xaml.cs">
+      <Link>\Samples\StepProgressBar\View\StepProgressBarPage.xaml.cs</Link>
+      <DependentUpon>StepProgressBar.xaml</DependentUpon>
+    </Compile>
+	  
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\StepProgressBar\View\OrderTrackingDestopUI.xaml.cs">
+      <Link>\Samples\StepProgressBar\View\OrderTrackingDestopUI.xaml.cs</Link>
+      <DependentUpon>OrderTrackingDestopUI.xaml</DependentUpon>
+    </Compile>
+	  
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\StepProgressBar\View\OrderTrackingMobileUI.xaml.cs">
+      <Link>\Samples\StepProgressBar\View\OrderTrackingMobileUI.xaml.cs</Link>
+      <DependentUpon>OrderTrackingMobileUI.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\View\KanbanPage.xaml.cs">
+      <Link>\Samples\Kanban\View\KanbanPage.xaml.cs</Link>
+      <DependentUpon>KanbanPage.xaml</DependentUpon>
+    </Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Kanban\ViewModel\KanbanViewModel.cs">
+		<Link>Samples\Kanban\ViewModel\KanbanViewModel.cs</Link>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Charts\View\ChartsDesktop.xaml.cs">
+		<Link>\Samples\Charts\View\ChartsDesktop.xaml.cs</Link>
+		<DependentUpon>ChartsDesktop.xaml</DependentUpon>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Charts\View\ChartsMobile.xaml.cs">
+		<Link>\Samples\Charts\View\ChartsMobile.xaml.cs</Link>
+		<DependentUpon>ChartsMobile.xaml</DependentUpon>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Charts\View\LanguageManagement.xaml.cs">
+		<Link>\Samples\Charts\View\LanguageManagement.xaml.cs</Link>
+		<DependentUpon>LanguageManagement.xaml</DependentUpon>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Charts\View\ChartStyles.xaml.cs">
+		<Link>\Samples\Charts\View\ChartStyles.xaml.cs</Link>
+		<DependentUpon>ChartStyles.xaml</DependentUpon>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Charts\Model\ChartModel.cs">
+		<Link>Samples\Charts\Model\ChartModel.cs</Link>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Charts\ViewModel\ChartViewModel.cs">
+		<Link>Samples\Charts\ViewModel\ChartViewModel.cs</Link>
+	</Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\StepProgressBar\ViewModel\StepProgressBarViewModel.cs">
+      <Link>Samples\StepProgressBar\ViewModel\StepProgressBarViewModel.cs</Link>
+    </Compile>
+	  
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Calendar\View\CalendarPage.xaml.cs">
+		  <Link>\Samples\Calendar\View\CalendarPage.xaml.cs</Link>
+		  <DependentUpon>CalendarPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DatePicker\View\DatePickerPage.xaml.cs">
+		  <Link>\Samples\DatePicker\View\DatePickerPage.xaml.cs</Link>
+		  <DependentUpon>DatePickerPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DateTimePicker\View\DateTimePickerPage.xaml.cs">
+		  <Link>\Samples\DateTimePicker\View\DateTimePickerPage.xaml.cs</Link>
+		  <DependentUpon>DateTimePickerPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\View\TimePickerPage.xaml.cs">
+		  <Link>\Samples\TimePicker\View\TimePickerPage.xaml.cs</Link>
+		  <DependentUpon>TimePickerPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Picker\View\PickerPage.xaml.cs">
+		  <Link>\Samples\Picker\View\PickerPage.xaml.cs</Link>
+		  <DependentUpon>PickerPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Toolbar\View\ToolbarPage.xaml.cs">
+		  <Link>\Samples\Toolbar\View\ToolbarPage.xaml.cs</Link>
+		  <DependentUpon>ToolbarPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\View\DataGridPage.xaml.cs">
+		  <Link>\Samples\DataGrid\View\DataGridPage.xaml.cs</Link>
+		  <DependentUpon>DataGridPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\ViewModel\DataGridViewModel.cs">
+		  <Link>Samples\DataGrid\ViewModel\DataGridViewModel.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\Model\DataGridModel.cs">
+		  <Link>Samples\DataGrid\Model\DataGridModel.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\View\ImageEditorPage.xaml.cs">
+		  <Link>\Samples\ImageEditor\View\ImageEditorPage.xaml.cs</Link>
+		  <DependentUpon>ImageEditorPage.xaml</DependentUpon>
+	  </Compile>
+	  
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Calendar\Behavior\CalendarPageBehavior.cs">
+		  <Link>\Samples\Calendar\Behavior\CalendarPageBehavior.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DatePicker\Behavior\DatePickerPageBehavior.cs">
+		  <Link>\Samples\DatePicker\Behavior\DatePickerPageBehavior.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DateTimePicker\Behavior\DateTimePickerPageBehavior.cs">
+		  <Link>\Samples\DateTimePicker\Behavior\DateTimePickerPageBehavior.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Picker\Behavior\PickerPageBehavior.cs">
+		  <Link>\Samples\Picker\Behavior\PickerPageBehavior.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\Behavior\TimePickerPageBehavior.cs">
+		  <Link>\Samples\TimePicker\Behavior\TimePickerPageBehavior.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\Behavior\ImageEditorBehavior.cs">
+		  <Link>\Samples\ImageEditor\Behavior\ImageEditorBehavior.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\View\GettingStarted.xaml.cs">
+		<Link>Samples\Scheduler\View\GettingStarted.xaml.cs</Link>
+		<DependentUpon>GettingStarted.xaml</DependentUpon>
+	</Compile>
+	
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ViewModel\SchedulerGettingStartedViewModel.cs">
+		<Link>Samples\Scheduler\ViewModel\SchedulerGettingStartedViewModel.cs</Link>
+	</Compile>
+	
+	<Compile Include="$(msbuildthisfiledirectory)\Samples\SegmentedControl\View\GettingStarted.xaml.cs">
+		<Link>Samples\SegmentedControl\View\GettingStarted.xaml.cs</Link>
+		<dependentupon>GettingStarted.xaml</dependentupon>
+	</Compile>
+
+	<Compile Include="$(msbuildthisfiledirectory)\Samples\SegmentedControl\View\GettingStartedDesktopUI.xaml.cs">
+		<Link>Samples\SegmentedControl\View\GettingStartedDesktopUI.xaml.cs</Link>
+		<dependentupon>GettingStartedDesktopUI.xaml</dependentupon>
+	</Compile>
+
+	<Compile Include="$(msbuildthisfiledirectory)\Samples\SegmentedControl\View\GettingStartedMobileUI.xaml.cs">
+		<Link>Samples\SegmentedControl\View\GettingStartedMobileUI.xaml.cs</Link>
+		<dependentupon>GettingStartedMobileUI.xaml</dependentupon>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)Samples\SegmentedControl\ViewModel\GettingStartedViewModel.cs">
+		<Link>Samples\SegmentedControl\ViewModel\GettingStartedViewModel.cs</Link>
+	</Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\RichTextEditor\Views\GettingStarted.xaml.cs">
+		  <Link>Samples\RichTextEditor\Views\GettingStarted.xaml.cs</Link>
+		  <DependentUpon>GettingStarted.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\RichTextEditor\Views\MailBoxEditor.xaml.cs">
+		  <Link>Samples\RichTextEditor\Views\MailBoxEditor.xaml.cs</Link>
+		  <DependentUpon>MailBoxEditor.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\RichTextEditor\Views\MailBoxEditorMobile.xaml.cs">
+		  <Link>Samples\RichTextEditor\Views\MailBoxEditorMobile.xaml.cs</Link>
+		  <DependentUpon>MailBoxEditorMobile.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)Samples\RichTextEditor\ViewModel\MailViewModel.cs">
+		  <Link>Samples\RichTextEditor\ViewModel\MailViewModel.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)Samples\RichTextEditor\Model\MailModel.cs">
+		  <Link>Samples\RichTextEditor\Model\MailModel.cs</Link>
+	  </Compile>
+	  
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\ColorPicker\View\ColorPickerPage.xaml.cs">
+		  <Link>Samples\ColorPicker\View\ColorPickerPage.xaml.cs</Link>
+		  <DependentUpon>ColorPickerPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\NavigationDrawer\View\NavigationDrawerPage.xaml.cs">
+		  <Link>Samples\NavigationDrawer\View\NavigationDrawerPage.xaml.cs</Link>
+		  <DependentUpon>NavigationDrawerPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(msbuildthisfiledirectory)\Samples\NavigationDrawer\View\NavigationDrawerPageDesktop.xaml.cs">
+		  <Link>Samples\NavigationDrawer\View\NavigationDrawerPageDesktop.xaml.cs</Link>
+		  <dependentupon>NavigationDrawerPageDesktop.xaml</dependentupon>
+	  </Compile>
+
+	  <Compile Include="$(msbuildthisfiledirectory)\Samples\NavigationDrawer\View\NavigationDrawerPageMobile.xaml.cs">
+		  <Link>Samples\NavigationDrawer\View\NavigationDrawerPageMobile.xaml.cs</Link>
+		  <dependentupon>NavigationDrawerPageMobile.xaml</dependentupon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\NavigationDrawer\Helper\Converter.cs">
+		  <Link>Samples\NavigationDrawer\Helper\Converter.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\NavigationDrawer\Helper\CustomGroupComparer.cs">
+		  <Link>Samples\NavigationDrawer\Helper\CustomGroupComparer.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\NavigationDrawer\Helper\NavigationDrawerBehavior.cs">
+		  <Link>Samples\NavigationDrawer\Helper\NavigationDrawerBehavior.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(msbuildthisfiledirectory)\Samples\NavigationDrawer\Model\MailInfo.cs">
+		  <Link>Samples\NavigationDrawer\Model\MailInfo.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(msbuildthisfiledirectory)\Samples\NavigationDrawer\Model\MailInfoRepository.cs">
+		  <Link>Samples\NavigationDrawer\Model\MailInfoRepository.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(msbuildthisfiledirectory)\Samples\NavigationDrawer\ViewModel\MailInfoViewModel.cs">
+		  <Link>Samples\NavigationDrawer\ViewModel\MailInfoViewModel.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\View\RadialMenuPage.xaml.cs">
+		  <Link>Samples\RadialMenu\View\RadialMenuPage.xaml.cs</Link>
+		  <DependentUpon>RadialMenuPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\ViewModel\RadialMenuPageViewModel.cs">
+		  <Link>Samples\RadialMenu\ViewModel\RadialMenuPageViewModel.cs</Link>
+	  </Compile>
+	  
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TabView\View\TabViewPage.xaml.cs">
+		  <Link>Samples\TabView\View\TabViewPage.xaml.cs</Link>
+		  <DependentUpon>TabViewPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Switch\View\SwitchPage.xaml.cs">
+		  <Link>Samples\Switch\View\SwitchPage.xaml.cs</Link>
+		  <DependentUpon>SwitchPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Switch\Model\AppModel.cs">
+		  <Link>Samples\Switch\Model\AppModel.cs</Link>
+	  </Compile>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\LiquidGlassSamplesList.xml" >
+      <Link>LiquidGlassSamplesList.xml</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Kanban\View\KanbanPage.xaml">
+      <Link>\Samples\Kanban\View\KanbanPage.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\LinearProgressBar\LinearProgressBarPage.xaml">
+      <Link>\Samples\LinearProgressBar\LinearProgressBarPage.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\StepProgressBar\View\StepProgressBarPage.xaml">
+      <Link>\Samples\StepProgressBar\View\StepProgressBarPage.xaml</Link>
+    </MauiXaml>
+	  
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\StepProgressBar\View\OrderTrackingDestopUI.xaml">
+      <Link>\Samples\StepProgressBar\View\OrderTrackingDestopUI.xaml</Link>
+    </MauiXaml>
+	  
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\StepProgressBar\View\OrderTrackingMobileUI.xaml">
+      <Link>\Samples\StepProgressBar\View\OrderTrackingMobileUI.xaml</Link>
+    </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Calendar\View\CalendarPage.xaml">
+		  <Link>\Samples\Calendar\View\CalendarPage.xaml</Link>
+	  </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DatePicker\View\DatePickerPage.xaml">
+		  <Link>\Samples\DatePicker\View\DatePickerPage.xaml</Link>
+	  </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DateTimePicker\View\DateTimePickerPage.xaml">
+		  <Link>\Samples\DateTimePicker\View\DateTimePickerPage.xaml</Link>
+	  </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Picker\View\PickerPage.xaml">
+		  <Link>\Samples\Picker\View\PickerPage.xaml</Link>
+	  </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\View\TimePickerPage.xaml">
+		  <Link>\Samples\TimePicker\View\TimePickerPage.xaml</Link>
+	  </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Toolbar\View\ToolbarPage.xaml">
+		  <Link>\Samples\Toolbar\View\ToolbarPage.xaml</Link>
+	  </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataGrid\View\DataGridPage.xaml">
+		  <Link>\Samples\DataGrid\View\DataGridPage.xaml</Link>
+	  </MauiXaml>
+	  
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\View\ImageEditorPage.xaml">
+		  <Link>\Samples\ImageEditor\View\ImageEditorPage.xaml</Link>
+	  </MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\View\GettingStarted.xaml">
+		<Link>Samples\Scheduler\View\GettingStarted.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SegmentedControl\View\GettingStarted.xaml">
+		<Link>Samples\SegmentedControl\GettingStarted\View\GettingStarted.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SegmentedControl\View\GettingStartedDesktopUI.xaml">
+		<Link>Samples\SegmentedControl\View\GettingStartedDesktopUI.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SegmentedControl\View\GettingStartedMobileUI.xaml">
+		<Link>Samples\SegmentedControl\View\GettingStartedMobileUI.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Charts\View\ChartsDesktop.xaml">
+		<Link>\Samples\Charts\View\ChartsDesktop.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Charts\View\ChartsMobile.xaml">
+		<Link>\Samples\Charts\View\ChartsMobile.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Charts\View\LanguageManagement.xaml">
+		<Link>\Samples\Charts\View\LanguageManagement.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Charts\View\ChartStyles.xaml">
+		<Link>\Samples\Charts\View\ChartStyles.xaml</Link>
+	</MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RichTextEditor\Views\GettingStarted.xaml">
+		  <Link>\Samples\RichTextEditor\Views\GettingStarted.xaml</Link>
+	  </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RichTextEditor\Views\MailBoxEditor.xaml">
+		  <Link>\Samples\RichTextEditor\Views\MailBoxEditor.xaml</Link>
+	  </MauiXaml>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RichTextEditor\Views\MailBoxEditorMobile.xaml">
+		  <Link>\Samples\RichTextEditor\Views\MailBoxEditorMobile.xaml</Link>
+	  </MauiXaml>
+	  
+  </ItemGroup>
+  
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Accordion\Model\EmployeeInfo.cs">
+      <Link>\Samples\Accordion\Model\EmployeeInfo.cs</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Accordion\View\AccordionPage.xaml">
+      <Link>\Samples\Accordion\View\AccordionPage.xaml</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Accordion\View\AccordionPage.xaml.cs">
+      <Link>\Samples\Accordion\View\AccordionPage.xaml.cs</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Accordion\ViewModel\EmployeeDetails.cs">
+      <Link>\Samples\Accordion\ViewModel\EmployeeDetails.cs</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Expander\Helper\Behavior.cs">
+      <Link>\Samples\Expander\Helper\Behavior.cs</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Expander\Helper\ExpanderScrollView.cs">
+      <Link>\Samples\Expander\Helper\ExpanderScrollView.cs</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Expander\Model\InvoiceItem.cs">
+      <Link>\Samples\Expander\Model\InvoiceItem.cs</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Expander\View\ExpanderPage.Xaml">
+      <Link>\Samples\Expander\View\ExpanderPage.Xaml</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Expander\View\ExpanderPage.Xaml.cs">
+      <Link>\Samples\Expander\View\ExpanderPage.Xaml.cs</Link>
+    </MauiXaml>
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Expander\ViewModel\InvoiceViewModel.cs">
+      <Link>\Samples\Expander\ViewModel\InvoiceViewModel.cs</Link>
+    </MauiXaml>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ViewModel\ListViewViewModel.cs">
+		  <Link>Samples\ListView\ViewModel\ListViewViewModel.cs</Link>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Model\ListViewModel.cs">
+		  <Link>Samples\ListView\Model\ListViewModel.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\View\ListViewPage.xaml.cs">
+		  <Link>\Samples\ListView\View\ListViewPage.xaml.cs</Link>
+		  <DependentUpon>ListViewPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Popup\View\PopupPage.xaml.cs">
+		  <Link>\Samples\Popup\View\PopupPage.xaml.cs</Link>
+		  <DependentUpon>PopupPage.xaml</DependentUpon>
+	  </Compile>
+
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Popup\View\PopupPage.xaml">
+		  <Link>\Samples\Popup\View\PopupPage.xaml</Link>
+	  </MauiXaml>
+	  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\View\ListViewPage.xaml">
+		  <Link>\Samples\ListView\View\ListViewPage.xaml</Link>
+	  </MauiXaml>
+  </ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\RadialMenu\View\RadialMenuPage.xaml">
+			<Link>Samples\RadialMenu\View\RadialMenuPage.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\NavigationDrawer\View\NavigationDrawerPage.Xaml">
+			<Link>\Samples\NavigationDrawer\View\NavigationDrawerPage.Xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\NavigationDrawer\View\NavigationDrawerPageDesktop.Xaml">
+			<Link>\Samples\NavigationDrawer\View\NavigationDrawerPageDesktop.Xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\NavigationDrawer\View\NavigationDrawerPageMobile.Xaml">
+			<Link>\Samples\NavigationDrawer\View\NavigationDrawerPageMobile.Xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ColorPicker\View\ColorPickerPage.xaml">
+			<Link>Samples\ColorPicker\View\ColorPickerPage.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TabView\View\TabViewPage.xaml">
+			<Link>Samples\TabView\View\TabViewPage.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Switch\View\SwitchPage.xaml">
+			<Link>Samples\Switch\View\SwitchPage.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

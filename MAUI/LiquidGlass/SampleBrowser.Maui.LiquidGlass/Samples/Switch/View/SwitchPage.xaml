@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localcore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"               
+               x:Class="SampleBrowser.Maui.LiquidGlass.SfSwitch.SwitchPage"               
+               xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+               xmlns:ev="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+               xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+               xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfSwitch"
+               xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+               xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localcore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+    </localcore:SampleView.Resources>
+
+    <localcore:SampleView.Content>
+        <Grid x:Name="mainGrid">
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <Border BackgroundColor="Transparent"
+                    Stroke="Transparent" StrokeThickness="0"
+                    VerticalOptions="Center"
+                    WidthRequest="{OnPlatform Android=356,
+                                              iOS=356,
+                                              MacCatalyst=386,
+                                              WinUI=386}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="28" />
+                    </Border.StrokeShape>
+                    <core:SfGlassEffectView CornerRadius="25" EnableShadowEffect="True">
+                        <Grid Margin="0,15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="336" />
+                            </Grid.RowDefinitions>
+
+                            <VerticalStackLayout x:DataType="local:SwitchPage" BindableLayout.ItemsSource="{Binding ListCollection}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid HeightRequest="56">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="62" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="{OnPlatform Android=60, iOS=90, MacCatalyst=100, WinUI=70}" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image
+                                            Grid.Column="0"
+                                            HeightRequest="30"
+                                            HorizontalOptions="Center"
+                                            x:DataType="local:AppModel"
+                                            Source="{Binding ImageName, Converter={StaticResource imageconverter}}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="30" />
+
+                                            <Grid Grid.Column="1">
+                                                <Label
+                                                Margin="5,0,5,0"
+                                                FontSize="16"
+                                                HorizontalOptions="Start"
+                                                x:DataType="local:AppModel"
+                                                Text="{Binding Name}" />
+                                            </Grid>
+                                            <Grid Grid.Column="2" Margin="0,0,20,0">
+                                                <buttons:SfSwitch EnableLiquidGlassEffect="True"
+                                                                  Style="{StaticResource sfSwitchCupertinoThemeStyle}"
+                                                AllowIndeterminateState="False"
+                                                HorizontalOptions="End"
+                                                x:DataType="local:AppModel"
+                                                IsOn="{Binding CanNotify, Mode=TwoWay}" />
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </core:SfGlassEffectView>
+                </Border>
+            </ScrollView>
+        </Grid>
+    </localcore:SampleView.Content>
+
+</localcore:SampleView>

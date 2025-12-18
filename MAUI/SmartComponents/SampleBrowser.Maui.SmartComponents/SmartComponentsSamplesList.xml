@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Smart Components">
+
+		<Control Title="Smart DataGrid" StatusTag="New"
+				 ControlName="SmartDataGrid" Image="smartdatagrid.png"
+				 Description="AI powered DataGrid for dynamic data visualization, intelligent filtering, and real-time insights." >
+			<Sample Title="Smart DataGrid" StatusTag="New" SampleName="GettingStarted" CodeViewerPath="SmartDataGrid/View" />
+		</Control>
+
+		<Control Title="Smart Scheduler" StatusTag="New"
+              ControlName="SmartScheduler" Image="smartscheduler.png"
+              Description="This AI powered scheduler books appointments, detects conflicts, and summarizes events.">
+			<Sample Title="Smart Scheduler" StatusTag="New" SampleName="GettingStarted" CodeViewerPath="SmartScheduler/View" />
+		</Control>
+
+		<Control Title="Smart Text Editor" StatusTag="New"
+            ControlName="SmartTextEditor" Image="smarttexteditor.png"
+              Description="The smart text editor predicts and suggests text to improve typing efficiency and user experience">
+			<Sample Title="Smart Text Editor" StatusTag="New" SampleName="GettingStarted" CodeViewerPath="SmartTextEditor/View" />
+		</Control>
+
+	</ControlCategory>
+
+</SyncfusionControls>

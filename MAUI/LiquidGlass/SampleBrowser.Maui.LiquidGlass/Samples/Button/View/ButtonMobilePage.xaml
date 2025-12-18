@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localcore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfButton.ButtonMobilePage"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfButton"
+             xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localcore:SampleView.Content>
+        <Grid>
+            <Grid Padding="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <core:SfGlassEffectView Grid.Row="0" Grid.Column="0"
+                                    HeightRequest="50" WidthRequest="152"
+                                    CornerRadius="25"
+                                    EnableShadowEffect="True">
+                        <button:SfButton Text="Primary Button" FontSize="16" TextColor="White" Background="Blue"/>
+                </core:SfGlassEffectView>
+
+                <core:SfGlassEffectView Grid.Row="1" Grid.Column="0"
+                                    CornerRadius="25"
+                                    HeightRequest="50"
+                                    WidthRequest ="152"
+                                    EnableShadowEffect="True">
+                    <button:SfButton Text="Flat Button" TextColor="{AppThemeBinding Light=Black, Dark=White}" Background="Transparent" />
+                </core:SfGlassEffectView>
+
+                <core:SfGlassEffectView Grid.Row="2" Grid.Column="0"
+                                    CornerRadius="25"
+                                    HeightRequest="50"
+                                    WidthRequest="152"
+                                    EnableShadowEffect="True">
+                    <button:SfButton Background="Transparent">
+                        <button:SfButton.Content Background="Transparent">
+                            <DataTemplate>
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Padding="0,0,5,0">
+                                        <Label Text="&#xe78a;"
+                                   HorizontalTextAlignment="Center" 
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalOptions="Start" 
+                                   FontSize="16" 
+                                   FontFamily="MauiSampleFontIcon"
+                                   TextColor="{AppThemeBinding Light=Black, Dark=White}">
+                                        </Label>
+                                    </Grid>
+                                    <Grid Padding="0,15,15,15" Grid.Column="1" >
+                                        <Label HorizontalOptions="Center" 
+                                   HorizontalTextAlignment="Center" 
+                                   FontSize="16"
+                                   TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                                   Background="Transparent"
+                                   HeightRequest="20" 
+                                   VerticalTextAlignment="Center" 
+                                   VerticalOptions="Center" 
+                                   LineBreakMode="NoWrap" 
+                                   Text="Icon Button">
+                                        </Label>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </button:SfButton.Content>
+                    </button:SfButton>
+                </core:SfGlassEffectView>
+
+                <core:SfGlassEffectView Grid.Row="3" Grid.Column="0"
+                                    CornerRadius="25"
+                                    WidthRequest="50"
+                                    HeightRequest="50"
+                                    EnableShadowEffect="True">
+                    <button:SfButton Background="Transparent">
+                        <button:SfButton.Content>
+                            <DataTemplate>
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Grid Padding="5,0,5,0"  Grid.Column="1" >
+                                        <Label Text="&#xe78a;"
+                                       FontFamily="MauiSampleFontIcon"
+                                       HorizontalTextAlignment="Center" 
+                                       VerticalOptions="Center"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalOptions="Start" 
+                                       FontSize="16" 
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}">
+                                        </Label>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </button:SfButton.Content>
+                    </button:SfButton>
+                </core:SfGlassEffectView>
+
+                <core:SfGlassEffectView Grid.Row="0" Grid.Column="1"
+                                    HeightRequest="40"
+                                    WidthRequest="152"
+                                    EnableShadowEffect="false">
+                    <button:SfButton Text="Normal Button" TextColor="{AppThemeBinding Light=Black, Dark=White}" Background="Transparent" HeightRequest="40" WidthRequest="152" CornerRadius="0"/>
+                </core:SfGlassEffectView>
+
+                <core:SfGlassEffectView Grid.Row="1" Grid.Column="1"
+                                    HeightRequest="40"
+                                    WidthRequest="152"
+                                    EnableShadowEffect="false">
+                    <button:SfButton Text="Outline Button" TextColor="{AppThemeBinding Light=Black, Dark=White}" HeightRequest="40" WidthRequest="152" CornerRadius="0" Background="Transparent" Stroke="{AppThemeBinding Light=Black, Dark=White}" StrokeThickness="2"/>
+                </core:SfGlassEffectView>
+
+                <core:SfGlassEffectView Grid.Row="2" Grid.Column="1"
+                                    CornerRadius="25"
+                                    HeightRequest="50"
+                                    WidthRequest="152"
+                                    EnableShadowEffect="True">
+                    <button:SfButton Background="Transparent">
+                        <button:SfButton.Content>
+                            <DataTemplate>
+
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Padding="15,15,0,15">
+                                        <Label  HorizontalOptions="Start" 
+                                        HorizontalTextAlignment="Start" 
+                                        FontSize="16" 
+                                        HeightRequest="20" 
+                                        TextColor="{AppThemeBinding Light=Black, Dark=White}"            
+                                        VerticalTextAlignment="Center" 
+                                        VerticalOptions="Center" 
+                                        LineBreakMode="NoWrap" 
+                                        Text="Icon Button">
+                                        </Label>
+                                    </Grid>
+                                    <Grid Padding="5,0,5,0"  Grid.Column="1" >
+                                        <Label Text="&#xe78a;"
+                                       FontFamily="MauiSampleFontIcon"
+                                            HorizontalTextAlignment="Center" 
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            HorizontalOptions="Start" 
+                                            FontSize="16" 
+                                           TextColor="{AppThemeBinding Light=Black, Dark=White}">
+                                        </Label>
+                                    </Grid>
+
+                                </Grid>
+
+                            </DataTemplate>
+                        </button:SfButton.Content>
+                    </button:SfButton>
+                </core:SfGlassEffectView>
+
+                <core:SfGlassEffectView Grid.Row="3" Grid.Column="1"
+                                    CornerRadius="25"
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    EnableShadowEffect="True">
+                    <button:SfButton StrokeThickness="0" Background="Transparent">
+                        <button:SfButton.Content>
+                            <DataTemplate>
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Grid Padding="5,0,5,0"  Grid.Column="1" >
+                                        <Label Text="&#xe78a;"
+                                       FontFamily="MauiSampleFontIcon"
+                                       HorizontalTextAlignment="Center" 
+                                       VerticalOptions="Center"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalOptions="Start" 
+                                       FontSize="16" 
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}">
+                                        </Label>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </button:SfButton.Content>
+                    </button:SfButton>
+                </core:SfGlassEffectView>
+            </Grid>
+        </Grid>
+    </localcore:SampleView.Content>
+</localcore:SampleView>

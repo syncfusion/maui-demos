@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="SampleBrowser.Maui.LiquidGlass.SfRichTextEditor.MailBoxEditorMobile"
+                xmlns:rte="clr-namespace:Syncfusion.Maui.RichTextEditor;assembly=Syncfusion.Maui.RichTextEditor"
+                xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+                xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs">
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="buttons:SfButton">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="{AppThemeBinding Light=Black,Dark=White}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="{AppThemeBinding Light=Black,Dark=White}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="PointerOver" />
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <SolidColorBrush x:Key="DarkTint" Color="#73000000" />
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- Overlay tint -->
+        <BoxView Color="{AppThemeBinding Light=#4DFFFFFF, Dark=#66000000}"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Fill"
+                 Grid.RowSpan="2" />
+
+        <!-- Buttons row -->
+        <HorizontalStackLayout Margin="5,8,0,0" Padding="10,5,0,5" Spacing="10">
+            <!-- Send button -->
+            <buttons:SfButton x:Name="sendButton"
+                                Command="{Binding SendButtonCommand}"
+                                IsEnabled="{Binding SendButtonVisibility}"
+                                Style="{StaticResource buttonStyle}"
+                                Background="{AppThemeBinding Light=#CFF0FF, Dark=#175181}">
+                <buttons:SfButton.Content>
+                    <DataTemplate>
+                        <Grid Padding="10" ColumnSpacing="5" ColumnDefinitions="Auto,Auto">
+                            <Label Text="&#xE784;"
+                                    BindingContext="{x:Reference sendButton}"
+                                    TextColor="{Binding TextColor}"
+                                    VerticalTextAlignment="Center"
+                                    FontFamily="MauiMaterialAssets"/>
+                            <Label Text="Send"
+                                    BindingContext="{x:Reference sendButton}"
+                                    Grid.Column="1"
+                                    TextColor="{Binding TextColor}"/>
+                        </Grid>
+                    </DataTemplate>
+                </buttons:SfButton.Content>
+            </buttons:SfButton>
+
+            <!-- Discard button -->
+            <buttons:SfButton Command="{Binding DiscardButtonCommand}"
+                                Background="{AppThemeBinding Light=#80FFFFFF, Dark=#575757}">
+                <buttons:SfButton.Content>
+                    <DataTemplate>
+                        <Grid Padding="10" ColumnSpacing="5" ColumnDefinitions="Auto,Auto">
+                            <Label Text="&#xE70f;"
+                                    VerticalTextAlignment="Start"
+                                    FontFamily="MauiMaterialAssets"/>
+                            <Label Text="Discard" Grid.Column="1" />
+                        </Grid>
+                    </DataTemplate>
+                </buttons:SfButton.Content>
+            </buttons:SfButton>
+        </HorizontalStackLayout>
+
+        <!-- Glass effect container -->
+        <core:SfGlassEffectView CornerRadius="20"
+                                Grid.Row="1"
+                                EffectType="Clear"
+                                Margin="13,8,13,13"
+                                Background="{AppThemeBinding Light=Transparent, Dark={StaticResource DarkTint}}"
+                                Padding="10">
+
+            <Grid>
+
+                <!-- Content row -->
+                <Grid RowDefinitions="Auto,5,*" RowSpacing="0">
+
+                    <Grid Padding="5"
+                            RowSpacing="10"
+                            RowDefinitions="40,40,40">
+
+                        <!-- From -->
+                        <Grid ColumnDefinitions="55, *" ColumnSpacing="10" Grid.Row="0">
+                            <Label Text="From: " VerticalTextAlignment="Center" />
+                            <core:SfTextInputLayout ContainerType="None"
+                                                    InputViewPadding="0,0,0,0"
+                                                    ReserveSpaceForAssistiveLabels="False"
+                                                    ShowHint="False"
+                                                    Grid.Column="1"
+                                                    FocusedStrokeThickness="0"
+                                                    UnfocusedStrokeThickness="0">
+                                <inputs:SfAutocomplete VerticalTextAlignment="Center"
+                                    EnableLiquidGlassEffect="True"
+                                    DropDownBackground="Transparent"
+                                    SelectedDropDownItemBackground="Transparent"
+                                                        Padding="0,0,0,0"
+                                                        IsClearButtonVisible="False"
+                                                        ItemsSource="{Binding MailAddresses}"
+                                                        SelectionMode="Multiple"
+                                                        SelectedItems="{Binding SelectedFromAddresses}"
+                                                        TokensWrapMode="None"
+                                                        DisplayMemberPath="MailId"
+                                                        MultiSelectionDisplayMode="Token"
+                                                        FontSize="14"
+                                                        ShowBorder="False"
+                                                        BackgroundColor="Transparent">
+                                    <inputs:SfAutocomplete.TokenItemStyle>
+                                        <Style TargetType="core:SfChipGroup">
+                                            <Setter Property="ShowIcon" Value="True"/>
+                                            <Setter Property="ChipTextSize" Value="16"/>
+                                            <Setter Property="ChipBackground" Value="#80FFFFFF" />
+                                            <Setter Property="DisplayMemberPath" Value="MailId"/>
+                                            <Setter Property="ChipTextColor" Value="Black" />
+                                            <Setter Property="ImageMemberPath" Value="ProfileImage"/>
+                                            <Setter Property="ChipCornerRadius" Value="12"/>
+                                        </Style>
+                                    </inputs:SfAutocomplete.TokenItemStyle>
+                                </inputs:SfAutocomplete>
+                            </core:SfTextInputLayout>
+                        </Grid>
+
+                        <!-- To -->
+                        <Grid ColumnDefinitions="55, *" ColumnSpacing="10" Grid.Row="1">
+                            <Label Text="To: " VerticalTextAlignment="Center"/>
+                            <core:SfTextInputLayout ContainerType="None"
+                                                    InputViewPadding="0,0,0,0"
+                                                    ReserveSpaceForAssistiveLabels="False"
+                                                    ShowHint="False"
+                                                    Grid.Column="1"
+                                                    FocusedStrokeThickness="0"
+                                                    UnfocusedStrokeThickness="0">
+                                <inputs:SfAutocomplete VerticalTextAlignment="Center"
+                                                        Padding="0,0,0,0"
+                                                        IsClearButtonVisible="False"
+                                                        ItemsSource="{Binding MailAddresses}"
+                                                        SelectionMode="Multiple"
+                                                        SelectedItems="{Binding SelectedToAddresses}"
+                                                        TokensWrapMode="None"
+                                                        DisplayMemberPath="MailId"
+                                                        MultiSelectionDisplayMode="Token"
+                                                        FontSize="14"
+                                                        ShowBorder="False"
+                                                        EnableLiquidGlassEffect="True"
+                                                        BackgroundColor="Transparent"
+                                                        DropDownBackground="Transparent"
+                                                        SelectedDropDownItemBackground="Transparent">
+                                                        
+                                    <inputs:SfAutocomplete.TokenItemStyle>
+                                        <Style TargetType="core:SfChipGroup">
+                                            <Setter Property="ShowIcon" Value="True"/>
+                                            <Setter Property="ChipTextSize" Value="16"/>
+                                            <Setter Property="DisplayMemberPath" Value="MailId"/>
+                                            <Setter Property="ChipTextColor" Value="Black" />
+                                            <Setter Property="CloseButtonColor" Value="Black" />
+                                            <Setter Property="ChipBackground" Value="#80FFFFFF" />
+                                            <Setter Property="ImageMemberPath" Value="ProfileImage"/>
+                                            <Setter Property="ChipCornerRadius" Value="12"/>
+                                        </Style>
+                                    </inputs:SfAutocomplete.TokenItemStyle>
+                                </inputs:SfAutocomplete>
+                            </core:SfTextInputLayout>
+                        </Grid>
+
+                        <!-- Subject -->
+                        <Grid ColumnSpacing="10" ColumnDefinitions="55, *" Grid.Row="2">
+                            <Label Text="Subject: " VerticalTextAlignment="Center"/>
+                            <core:SfTextInputLayout ContainerType="None"
+                                                    Grid.Column="1"
+                                                    InputViewPadding="0"
+                                                    ReserveSpaceForAssistiveLabels="False"
+                                                    ShowHint="False"
+                                                    FocusedStrokeThickness="0"
+                                                    UnfocusedStrokeThickness="0">
+                                <inputs:SfMaskedEntry Value="Follow-up on MAUI App Development"
+                                                      TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"
+                                                      ShowBorder="False" />
+                            </core:SfTextInputLayout>
+                        </Grid>
+                    </Grid>
+
+                    <BoxView Grid.Row="1"
+                                HeightRequest="1"
+                                BackgroundColor="#CAC4D0"
+                                HorizontalOptions="Fill"
+                                Margin="0,0,0,10" />
+
+                    <rte:SfRichTextEditor HtmlText="{Binding MailContent}"
+                                          Placeholder=""
+                                          BorderThickness="0"
+                                          ToolbarPosition="Top"
+                                          Grid.Row="2"
+                                          Margin="-6,-10,-4,0"
+                                          EnableLiquidGlassEffect="True"
+                                          EditorBackgroundColor="Transparent">
+
+                        <rte:SfRichTextEditor.ToolbarSettings>
+                            <rte:RichTextEditorToolbarSettings BackgroundColor="Transparent" />
+                        </rte:SfRichTextEditor.ToolbarSettings>
+                    </rte:SfRichTextEditor>
+                </Grid>
+
+                <popup:SfPopup x:Name="sfPopup" ZIndex="-1"/>
+            </Grid>
+        </core:SfGlassEffectView>
+    </Grid>
+</localCore:SampleView>

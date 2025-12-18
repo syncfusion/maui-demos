@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:maui="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.LiquidGlass.SfSlider.SliderPage">
+
+    <sb:SampleView.Resources>
+        <maui:Thickness x:Key="CommonThickness">24,18,0,0</maui:Thickness>
+
+        <maui:Thickness x:Key="WinUIThickness">24,25,0,0</maui:Thickness>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <Grid>
+            <ScrollView>
+                <Grid RowDefinitions="Auto,25,Auto,Auto"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+
+                    <Label Grid.Row="0"
+                       Text="Enabled"
+                       Margin="24,0,0,0" />
+                    <Grid>
+                        <sliders:SfSlider Grid.Row="0"
+                        Margin="0,24"
+                                  Minimum="0"
+                                  Maximum="100"
+                                  EnableLiquidGlassEffect="True"
+                                  BackgroundColor="Transparent"
+                                  Value="50">
+
+                            <sliders:SfSlider.ThumbStyle>
+                                <sliders:SliderThumbStyle Fill="White" Radius="18" />
+                            </sliders:SfSlider.ThumbStyle>
+                            <sliders:SfSlider.TrackStyle>
+                                <sliders:SliderTrackStyle ActiveSize="5" InactiveSize="5" ActiveFill="Blue" InactiveFill="LightGray" />
+                            </sliders:SfSlider.TrackStyle>
+                        </sliders:SfSlider>
+                    </Grid>
+
+                    <Label Grid.Row="2"
+                       Text="Disabled"
+                       Margin="24,0,0,0" />
+                    <Grid Grid.Row="3">
+                        <sliders:SfSlider 
+                                  Minimum="0"
+                                  Maximum="100"
+                                  EnableLiquidGlassEffect="True"
+                                  BackgroundColor="Transparent"
+                                  Value="50"
+                                  IsEnabled="False">
+
+                             <sliders:SfSlider.TrackStyle>
+                                <sliders:SliderTrackStyle ActiveSize="5" InactiveSize="5"  ActiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledActiveTrackFillBrush}}"
+                                 InactiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledInactiveTrackFillBrush}}" />
+                            </sliders:SfSlider.TrackStyle>
+                            <sliders:SfSlider.ThumbStyle>
+                                <sliders:SliderThumbStyle Radius="18" Fill="{AppThemeBinding Default={StaticResource SfSliderDisabledThumbFillBrush}}"/>
+                            </sliders:SfSlider.ThumbStyle>
+                        </sliders:SfSlider>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </sb:SampleView.Content>
+</sb:SampleView>

@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.SmartDemos.SmartDemos.GettingStarted"
+                      xmlns:aiassistview="clr-namespace:Syncfusion.Maui.AIAssistView;assembly=Syncfusion.Maui.AIAssistView"
+                      xmlns:listView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+                      xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.SmartDemos.SmartDemos">
+
+    <localCore:SampleView.BindingContext>
+        <local:SchedulerViewModel x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageConverter" />
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid
+              ColumnDefinitions="{OnPlatform WinUI='7*,3*', MacCatalyst='7*,3*'}" 
+              BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}, Default=#CAC4D0}">
+                <scheduler:SfScheduler x:Name="scheduler"
+                                   View="TimelineDay"
+                                   ShowTodayButton="False"
+                                   Grid.Column="0" 
+                                   Grid.ColumnSpan="2"
+                                   Margin="0,2">
+                    <scheduler:SfScheduler.TimelineView>
+                        <scheduler:SchedulerTimelineView StartHour="9"
+                                                     TimeInterval="0:30:0"
+                                                     TimeIntervalWidth="90"
+                                                     TimeFormat="hh:mm"
+                                                     EndHour="18" />
+                    </scheduler:SfScheduler.TimelineView>
+
+                    <scheduler:SfScheduler.ResourceView>
+                        <scheduler:SchedulerResourceView Resources="{Binding Resources}">
+                            <scheduler:SchedulerResourceView.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="5"
+                                             Orientation="Vertical"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="Fill">
+                                        <Grid>
+                                            <Border StrokeThickness="2"
+                                                Background="{Binding Background}"
+                                                HorizontalOptions="Center"
+                                                HeightRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}"
+                                                WidthRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="150" />
+                                                </Border.StrokeShape>
+                                            </Border>
+                                            <Image WidthRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
+                                               HeightRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               Source="{Binding DataItem.ImageName,Converter={StaticResource imageConverter}}"
+                                               Aspect="Fill" />
+                                        </Grid>
+                                        <Label Text="{Binding Name}"
+                                           FontSize="{OnPlatform WinUI= 12, MacCatalyst=12, Android=10, iOS=10}"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center" />
+                                    </StackLayout>
+                                </DataTemplate>
+                            </scheduler:SchedulerResourceView.HeaderTemplate>
+                            <scheduler:SchedulerResourceView.Mapping>
+                                <scheduler:SchedulerResourceMapping Name="Name"
+                                                                Id="Id"
+                                                                Background="Background"
+                                                                Foreground="Foreground" />
+                            </scheduler:SchedulerResourceView.Mapping>
+                        </scheduler:SchedulerResourceView>
+                    </scheduler:SfScheduler.ResourceView>
+                </scheduler:SfScheduler>
+
+                <Border x:Name="headerView" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}}" Grid.Column="1" IsVisible="False" Margin="0,50" VerticalOptions="Start" StrokeThickness="0.4" Stroke="Gray">
+                    <Grid RowDefinitions="auto,auto" >
+                        <Grid ColumnDefinitions="*,Auto" HeightRequest="50">
+                            <Label Text="AI Assistant" 
+                           Grid.Column="0" 
+                           FontSize="16"
+                           FontFamily="Roboto-Medium" 
+                           Padding="16,0,0,0"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"  
+                           TextColor="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}" />
+                            <Button x:Name="close" Grid.Column="1" BorderWidth="0" 
+                            CornerRadius="20" 
+                            HeightRequest="{OnPlatform WinUI= 30, MacCatalyst=40, Android=30, iOS=40}"
+                            WidthRequest="{OnPlatform WinUI= 30, MacCatalyst=40, Android=30, iOS=40}"
+                            FontSize="15"
+                            Text="&#xe70b;" 
+                            HorizontalOptions="End" 
+                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"
+                            FontFamily="MauiMaterialAssets" 
+                            BackgroundColor="{AppThemeBinding Light=#f7f2fb, Dark=#49454F, Default=#CAC4D0}" 
+                            ToolTipProperties.Text="Close" Padding="0"
+                            Margin="0,0,14,0">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroupList>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                                                    <Setter Property="Opacity" Value="1"/>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="#14000000"/>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="PointerOver">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="#14000000"/>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateGroupList>
+                                </VisualStateManager.VisualStateGroups>
+                            </Button>
+                            <Button x:Name="refreshButton"
+                            Grid.Column="1"
+                            BorderWidth="0"
+                            CornerRadius="20"
+                            HeightRequest="{OnPlatform WinUI= 30, MacCatalyst=40, Android=30, iOS=40}"
+                            WidthRequest="{OnPlatform WinUI= 30, MacCatalyst=40, Android=30, iOS=40}"
+                            FontSize="15"
+                            Text="&#xe72b;"
+                            HorizontalOptions="End"
+                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"
+                            FontFamily="MauiSampleFontIcon"
+                            BackgroundColor="{AppThemeBinding Light=#f7f2fb, Dark=#49454F, Default=#CAC4D0}"
+                            ToolTipProperties.Text="Refresh"
+                            Padding="0"
+                            Margin="0,0,50,0">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroupList>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor"
+                                        Value="Transparent" />
+                                                    <Setter Property="Opacity"
+                                        Value="1" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor"
+                                        Value="#14000000" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="PointerOver">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor"
+                                        Value="#14000000" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateGroupList>
+                                </VisualStateManager.VisualStateGroups>
+                            </Button>
+                        </Grid>
+                        <BoxView Grid.Row="1" HeightRequest="1" BackgroundColor="{AppThemeBinding Light=#CAC4D0, Dark=#CAC4D0}"/>
+                    </Grid>
+                </Border>
+
+                <aiassistview:SfAIAssistView 
+                    Grid.Column="{OnPlatform Android='0',iOS='0', Default='1'}"
+                    Margin="0,100,0,0"
+                    IsVisible="{Binding ShowAssistView, Mode=TwoWay}"
+                    HorizontalOptions="{OnPlatform Android=Fill, iOS=Fill, Default=End}"
+                    MaximumWidthRequest="{OnPlatform WinUI=700}"
+                    x:Name="aiAssistView"
+                    ShowHeader="{Binding ShowHeader}"
+                    AssistItems="{Binding Messages}">
+                    <aiassistview:SfAIAssistView.Behaviors>
+                        <local:AssistViewBehavior SchedulerViewModel="{x:Reference viewModel}" Scheduler="{x:Reference scheduler}" />
+                    </aiassistview:SfAIAssistView.Behaviors>
+                    <aiassistview:SfAIAssistView.HeaderTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout 
+                                Spacing="12">
+                                <Label Text="How can I assist with your healthcare needs?" Padding="0,20,0,0"  LineBreakMode="WordWrap"
+                                   FontSize="Subtitle"
+                                   HorizontalOptions="Center" />
+                                <HorizontalStackLayout x:Name="listView"
+                                                     HeightRequest="{OnPlatform WinUI=140, Android=160, MacCatalyst=180, iOS=150}"
+                                                     WidthRequest="{OnPlatform MacCatalyst= 430,Android=335, iOS=310}"
+                                                     HorizontalOptions="Center"
+                                                     BindableLayout.ItemsSource="{Binding Path=AppointmentCollection, Source={x:Reference viewModel}}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Padding="4">
+                                            <Border
+                                                    WidthRequest="{OnPlatform WinUI=120,Android=150,MacCatalyst= 200 , iOS=140}"
+                                                    HeightRequest="{OnPlatform WinUI=120,Android=130, MacCatalyst= 150, iOS=120}"
+                                                    Stroke="Gray"
+                                                    Padding="4">
+                                                <Border.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                                </Border.GestureRecognizers>
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Normal">
+                                                                <VisualState.Setters>
+                                                                    <Setter Property="Background" Value="Transparent" />
+                                                                </VisualState.Setters>
+                                                            </VisualState>
+                                                            <VisualState x:Name="PointerOver">
+                                                                <VisualState.Setters>
+                                                                    <Setter Property="Background" Value="#14000000" />
+                                                                </VisualState.Setters>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" />
+                                                    </Border.StrokeShape>
+                                                    <Grid RowDefinitions="40,*">
+                                                        <Image Grid.Row="0"
+                                                               HeightRequest="30" 
+                                                               WidthRequest="30"
+                                                               Margin="5"
+                                                               Source="{Binding ImageName,Converter={StaticResource imageConverter}}"
+                                                               HorizontalOptions="Start"/>
+                                                        <Label Grid.Row="0"
+                                                               HorizontalOptions="End"
+                                                               FontFamily="MauiMaterialAssets"
+                                                               Text="&#xe73c;"
+                                                               FontSize="16"
+                                                               HeightRequest="52"
+                                                               WidthRequest="52"
+                                                               Padding="{OnPlatform WinUI=18, Android=15, MacCatalyst=15, iOS=15}" />
+                                                        <Label Grid.Row="1" Text="{Binding Name}"
+                                                               LineBreakMode="WordWrap"
+                                                               VerticalTextAlignment="Center"
+                                                               HorizontalTextAlignment="Center" />
+                                                    </Grid>
+                                                </Border>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </HorizontalStackLayout>
+                                <VerticalStackLayout.Behaviors>
+                                    <local:ListViewBehavior ListAssistViewModel="{x:Reference viewModel}" CloseButton="{x:Reference close}" RefreshButton="{x:Reference refreshButton}" HeaderView="{x:Reference headerView}"/>
+                                </VerticalStackLayout.Behaviors>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </aiassistview:SfAIAssistView.HeaderTemplate>
+                    <aiassistview:SfAIAssistView.Shadow>
+                        <Shadow Brush="Black" Offset="0,0" Radius="1" Opacity="0.5" />
+                    </aiassistview:SfAIAssistView.Shadow>
+                </aiassistview:SfAIAssistView>
+                <ActivityIndicator IsRunning="{Binding ShowIndicator}"
+                                   x:Name="Indicator"
+                                   Color="{AppThemeBinding Light=#1E201E, Dark=#FEFAF6}"
+                                   Grid.Column="{OnPlatform Android='0',iOS='0', Default='1'}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                <buttons:SfButton
+                    Grid.Column="{OnPlatform Android='0',iOS='0', Default='1'}"
+                    x:Name="aibutton"
+                    Text="&#xe7e1;"  
+                    CornerRadius="5" 
+                    BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}, Default=#CAC4D0}"
+                    FontSize="{OnPlatform WinUI=20, Android=15, MacCatalyst=20, iOS=20}" WidthRequest="30" HeightRequest="30"
+                    FontFamily="MauiSampleFontIcon" 
+                    ToolTipProperties.Text="Click to open AI assistant"  
+                    Margin="8,13" 
+                    FontAttributes="Bold" 
+                    VerticalOptions="Start"
+                    HorizontalOptions="End"/>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.Behaviors>
+        <local:SchedulerBehavior x:Name="behavior" />
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

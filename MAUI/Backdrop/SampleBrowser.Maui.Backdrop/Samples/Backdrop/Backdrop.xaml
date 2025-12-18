@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<backdrop:SfBackdropPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         x:Class="SampleBrowser.Maui.Backdrop.SfBackdropPage.Backdrop"
+                         xmlns:backdrop="clr-namespace:Syncfusion.Maui.Backdrop;assembly=Syncfusion.Maui.Backdrop"
+                         xmlns:local="clr-namespace:SampleBrowser.Maui.Backdrop"
+                         xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                         xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+                         xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                         x:Name="backdropPage"
+                         BackLayerRevealOption="Auto"
+                         NavigationPage.HasBackButton = "{OnPlatform Default=True, WinUI=False}"
+                         >
+
+    <backdrop:SfBackdropPage.Resources>
+        <ResourceDictionary>
+            <local:TitleConverter x:Key="TitleConverter"/>
+        </ResourceDictionary>
+        <Color x:Key="primaryColor">#007DE6</Color>
+        <Color x:Key="primaryTextColor">#FFFFFF</Color>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Default={StaticResource PrimaryForeground}}"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="SelectedButtonStyle" TargetType="buttons:SfButton">
+            <Setter Property="WidthRequest" Value="96"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Default={StaticResource PrimaryForeground}}" />
+                                <Setter Property="Stroke" Value="{AppThemeBinding Default={StaticResource Border}}"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Checked">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="{AppThemeBinding Default={StaticResource PrimaryBackgroundFocused}}" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Default={StaticResource PrimaryForeground}}" />
+                                <Setter Property="Stroke" Value="{AppThemeBinding Default={StaticResource Border}}"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Hovered">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="{AppThemeBinding Default={StaticResource PrimaryBackgroundHovered}}" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Default={StaticResource PrimaryForeground}}" />
+                                <Setter Property="Stroke" Value="{AppThemeBinding Default={StaticResource Border}}"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </backdrop:SfBackdropPage.Resources>
+
+    <NavigationPage.TitleView>
+        <HorizontalStackLayout>
+            <Label Text="&#xe74a;" 
+               IsVisible="{OnPlatform Default=False, WinUI=True}"
+               FontFamily="{OnPlatform iOS=Sync FontIcons, MacCatalyst=Sync FontIcons, Android=Sync FontIcons.ttf#, WinUI=Sync FontIcons.ttf#Sync FontIcons}"
+               VerticalOptions="Center"
+               FontSize="Title"
+               Margin="{OnPlatform WinUI='10,0,0,15'}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackButtonLabel_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label x:DataType="backdrop:SfBackdropPage"  Text="{Binding Source={x:Reference backdropPage},Path=IsBackLayerRevealed,Converter={StaticResource TitleConverter}}"
+           FontSize="Title"
+           VerticalTextAlignment="Center"
+           Margin="{OnPlatform  WinUI='10,0,0,15'}"/>
+        </HorizontalStackLayout>
+    </NavigationPage.TitleView>
+
+    <backdrop:SfBackdropPage.BackLayer>
+        <backdrop:BackdropBackLayer >
+            <StackLayout Padding="20,16,20,16" Spacing="5">
+                <Label Text="Edge shape" TextColor="{AppThemeBinding Default={StaticResource PrimaryForeground}}"/>
+                <Grid ColumnSpacing="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <buttons:SfButton x:Name="curveButton" Text="Curve" Clicked="curveButton_Clicked" IsCheckable="True" IsChecked="True" Style="{StaticResource SelectedButtonStyle}"/>
+                    <buttons:SfButton x:Name="flatButton" Text="Flat" Clicked="flatButton_Clicked" IsCheckable="True" Grid.Column="1" Style="{StaticResource SelectedButtonStyle}"/>
+                </Grid>
+                <Label Text="Apply corner radius" TextColor="{AppThemeBinding Default={StaticResource PrimaryForeground}}"/>
+                <Grid ColumnSpacing="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <buttons:SfButton x:Name="bothButton" Text="Both" IsCheckable="True" IsChecked="True" Clicked="bothButton_Clicked" Style="{StaticResource SelectedButtonStyle}"/>
+                    <buttons:SfButton x:Name="leftButton" Text="Left" IsCheckable="True" Clicked="leftButton_Clicked" Grid.Column="1" Style="{StaticResource SelectedButtonStyle}"/>
+                    <buttons:SfButton x:Name="rightButton" Text="Right" IsCheckable="True" Clicked="rightButton_Clicked" Grid.Column="2" Style="{StaticResource SelectedButtonStyle}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:DataType="sliders:SfSlider" Text="{Binding Source={x:Reference cornerRadiusSlider},Path=Value,StringFormat='Corner radius : {0:0}'}" TextColor="{AppThemeBinding Default={StaticResource PrimaryForeground}}"/>
+                    <Label HorizontalTextAlignment="Start" Grid.Column="1" Text="" TextColor="{AppThemeBinding Default={StaticResource PrimaryForeground}}"/>
+                </Grid>
+                <sliders:SfSlider x:Name="cornerRadiusSlider"
+                                  x:DataType="backdrop:BackdropFrontLayer"
+                    Minimum="0" 
+                    Maximum="{OnPlatform WinUI=20, MacCatalyst=20, Default=40}"
+                    WidthRequest="{OnPlatform WinUI=300, MacCatalyst=300}"
+                    HorizontalOptions="{OnPlatform WinUI=Start, MacCatalyst=Start}"
+                    Value="{Binding Source={x:Reference frontLayer},Path=LeftCornerRadius,Mode=OneTime}"
+                    ValueChanged="cornerRadiusSlider_ValueChanged"
+                    HeightRequest="40">
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}"
+                        InactiveFill="{AppThemeBinding Light={StaticResource FilledInputBackgroundLight}, Dark={StaticResource FilledInputBackground}}" />
+                    </sliders:SfSlider.TrackStyle>
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}" />
+                    </sliders:SfSlider.ThumbStyle>
+                    <sliders:SfSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Radius="0"/>
+                    </sliders:SfSlider.ThumbOverlayStyle>
+                </sliders:SfSlider>
+                <Label Text="Change back layer reveal option" TextColor="{AppThemeBinding Default={StaticResource PrimaryForeground}}"/>
+                <Grid ColumnSpacing="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <buttons:SfButton x:Name="autoButton" Text="Auto" IsCheckable="True" IsChecked="True" Clicked="autoButton_Clicked" Style="{StaticResource SelectedButtonStyle}"/>
+                    <buttons:SfButton x:Name="fillButton" Text="Fill" Grid.Column="1" IsCheckable="True" Clicked="fillButton_Clicked" Style="{StaticResource SelectedButtonStyle}"/>
+                </Grid>
+            </StackLayout>
+        </backdrop:BackdropBackLayer>
+    </backdrop:SfBackdropPage.BackLayer>
+
+    <backdrop:SfBackdropPage.FrontLayer>
+        <backdrop:BackdropFrontLayer x:Name="frontLayer" x:DataType="Label" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                     RevealedHeight="{Binding Source={x:Reference frontLayerheader},Path=Height}">
+            <StackLayout VerticalOptions="Fill">
+                <Label Padding="10,0,10,10" x:Name="frontLayerheader" Text="Subheader" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" VerticalTextAlignment="Center" HeightRequest="48" VerticalOptions="Center"/>
+                <Grid Padding="10,0,10,10" ColumnSpacing="10" RowSpacing="10" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{imageExtension:SfImageResource brownie.png}" Aspect="AspectFill" Grid.Row="0"/>
+                    <Image Source="{imageExtension:SfImageResource cupcake.png}" Aspect="AspectFill" Grid.Row="1"/>
+                    <Image Source="{imageExtension:SfImageResource cake.png}" Aspect="AspectFill" Grid.Row="2"/>
+                    <Image Source="{imageExtension:SfImageResource icecake.png}" Aspect="AspectFill" Grid.Row="0" Grid.Column="1"/>
+                    <Image Source="{imageExtension:SfImageResource cookie.png}" Aspect="AspectFill" Grid.Row="1" Grid.Column="1"/>
+                    <Image Source="{imageExtension:SfImageResource biscuits.png}" Aspect="AspectFill" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+        </backdrop:BackdropFrontLayer>
+    </backdrop:SfBackdropPage.FrontLayer>
+
+</backdrop:SfBackdropPage>

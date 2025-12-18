@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:CustomBorder xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:local="clr-namespace:SampleBrowser.Maui.RichTextEditor.RichTextEditor"
+                    x:Class="SampleBrowser.Maui.RichTextEditor.RichTextEditor.Item"
+                    TapCommand="{Binding ItemSelectedCommand}"
+                    Padding="10"
+                    Stroke="#DCDEE2"
+                    StrokeThickness="1">
+
+    <local:CustomBorder.StrokeShape>
+        <RoundRectangle CornerRadius="8" />
+    </local:CustomBorder.StrokeShape>
+
+    <Grid RowDefinitions="Auto,Auto,Auto"
+          ColumnDefinitions="*,Auto"
+          RowSpacing="5"
+          ColumnSpacing="5">
+
+        <!-- Header with Title -->
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Text="{Binding Title}"
+               FontSize="14"
+               FontAttributes="Bold"
+               FontFamily="RobotoMedium"
+               CharacterSpacing="0.1"
+             TextColor="{AppThemeBinding Light=Black,  Dark=White}"
+               LineBreakMode="TailTruncation"
+               MaxLines="1" />
+
+        <!-- Content Preview -->
+        <Label Grid.Row="1"
+               Grid.ColumnSpan="2"
+               Text="{Binding DisplayText}"
+               FontSize="12"
+               CharacterSpacing="0.4"
+               FontFamily="RobotoRegular"
+               LineHeight="1.2"
+               MaxLines="5"
+               LineBreakMode="TailTruncation"
+              TextColor="{AppThemeBinding Light=Black,  Dark=White}"
+               Margin="0,0,0,8" />
+
+
+        <AbsoluteLayout Grid.Row="2"
+                        Grid.ColumnSpan="2">
+            <VerticalStackLayout Spacing="10">
+                <!-- Demo Tag -->
+                <!--<Border StrokeShape="RoundRectangle 4"
+                        HeightRequest="24"
+                        WidthRequest="63"
+                        Background="#FFF8B9"
+                        StrokeThickness="0">
+                    <Label Text="Demo"
+                           FontSize="11"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           CharacterSpacing="0.4" />
+                </Border>-->
+
+                <!-- Date Label -->
+                <Label Text="{Binding ModifiedAt, StringFormat='{0:MMM dd, yyyy}'}"
+                       FontSize="12"
+                       CharacterSpacing="0.4"
+                       FontFamily="RobotoRegular"
+                       VerticalTextAlignment="Center"
+                       TextColor="{AppThemeBinding Light=Black,  Dark=White}" />
+            </VerticalStackLayout>
+        </AbsoluteLayout>
+    </Grid>
+</local:CustomBorder>
