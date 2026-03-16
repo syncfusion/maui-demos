@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.ImageEditor.SfImageEditor"
+                      x:Class="SampleBrowser.Maui.ImageEditor.SfImageEditor.ProfileEditor"
+                      xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:imageEditor="clr-namespace:Syncfusion.Maui.ImageEditor;assembly=Syncfusion.Maui.ImageEditor"
+                      xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+                      WidthRequest="{OnPlatform WinUI=400}"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Content>
+        <Grid x:Name="grid"
+              HorizontalOptions="Center"
+              WidthRequest="{OnPlatform WinUI=200, Android=160, iOS=160, MacCatalyst=200}"
+              HeightRequest="{OnPlatform WinUI=200, Android=160, iOS=160, MacCatalyst=200}">
+            <core:SfAvatarView x:Name="avatar"
+                               ContentType="Custom"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               WidthRequest="{OnPlatform WinUI=200, Android=160, iOS=160, MacCatalyst=200}"
+                               HeightRequest="{OnPlatform WinUI=200, Android=160, iOS=160, MacCatalyst=200}"
+                               CornerRadius="{OnPlatform WinUI=100, Android=80, iOS=80, MacCatalyst=100}"
+                               Stroke="{AppThemeBinding Light=#CAC4D0, Dark=#49454F}"
+                               StrokeThickness="4"
+                               ImageSource="{converters:SfImageResource profileimage.png}">
+            </core:SfAvatarView>
+
+            <core:SfChip x:Name="editButton"
+                         WidthRequest="{OnPlatform WinUI=50, Android=40, iOS=40, MacCatalyst=50}"
+                         HeightRequest="{OnPlatform WinUI=50, Android=40, iOS=40, MacCatalyst=50}"
+                         CornerRadius="{OnPlatform WinUI=25, Android=20, iOS=20, MacCatalyst=25}"
+                         Padding="0"
+                         HorizontalOptions="End"
+                         VerticalOptions="End"
+                         Margin="{OnPlatform WinUI='0,0,8,8', Android='0,0,6,6', iOS='0,0,6,6', MacCatalyst='0,0,8,8'}"
+                         ZIndex="1"
+                         ShowIcon="true"
+                         ImageSize="25"
+                         ImageAlignment="{OnPlatform WinUI=End, MacCatalyst=End, Android=Start, iOS=Start}"
+                         Clicked="OnEditBadgeClicked">
+                <core:SfChip.ImageSource>
+                    <FontImageSource Glyph="&#xe710;"
+                                     FontFamily="MauiMaterialAssets"
+                                     Color="{AppThemeBinding Light=White, Dark=Black}"
+                                     Size="35" />
+                </core:SfChip.ImageSource>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Background"
+                                            Value="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Hovered">
+                                <VisualState.Setters>
+                                    <Setter Property="Background"
+                                            Value="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Background"
+                                            Value="{AppThemeBinding Light=#4F378B, Dark=#B69DF8}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </core:SfChip>
+
+            <popup:SfPopup x:Name="popup"
+                           AutoSizeMode="Height"
+                           HeaderHeight="67"
+                           AutoSizeTarget="All"
+                           WidthRequest="380"
+                           ShowFooter="True"
+                           ShowCloseButton="True"
+                           Closed="OnCloseClicked"
+                           HeaderTitle="Profile Picture"
+                           Opening="OnPopupOpening"
+                           Closing="OnPopupClosing">
+
+                <popup:SfPopup.FooterTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout>
+                            <core:SfChipGroup x:Name="chipGroup" ChipTextColor="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}"
+                                              Margin="{OnPlatform WinUI='18', MacCatalyst='18', Android='15', iOS='15'}"
+                                              HorizontalOptions="Center"
+                                              VerticalOptions="Center"
+                                              HeightRequest="40"
+                                              ChipClicked="OnChipClicked"
+                                              Loaded="OnChipGroupLoaded">
+                                <core:SfChipGroup.Items>
+                                    <core:SfChip Text="Change"
+                                                 WidthRequest="{OnPlatform WinUI=90, MacCatalyst=90, Android=90, iOS=90}"
+                                                 CornerRadius="20"
+                                                 Stroke="Transparent"
+                                                 ImageAlignment="Start"
+                                                 ShowIcon="True">
+                                        <core:SfChip.ImageSource>
+                                            <FontImageSource Glyph="&#xE710;"
+                                                             FontFamily="MauiMaterialAssets"
+                                                             Color="{AppThemeBinding Light=Black, Dark=White}"
+                                                             Size="18" />
+                                        </core:SfChip.ImageSource>
+                                    </core:SfChip>
+                                    <core:SfChip Text="Remove"
+                                                 WidthRequest="{OnPlatform WinUI=90, MacCatalyst=95, Android=95, iOS=95}"
+                                                 CornerRadius="20"
+                                                 Stroke="Transparent"
+                                                 ImageAlignment="Start"
+                                                 ShowIcon="True">
+                                        <core:SfChip.ImageSource>
+                                            <FontImageSource Glyph="&#xE70F;"
+                                                             FontFamily="MauiMaterialAssets"
+                                                             Color="{AppThemeBinding Light=Black, Dark=White}"
+                                                             Size="18" />
+                                        </core:SfChip.ImageSource>
+                                    </core:SfChip>
+                                    <core:SfChip Text="Reset"
+                                                 WidthRequest="{OnPlatform WinUI=80, MacCatalyst=80, Android=80, iOS=80}"
+                                                 CornerRadius="20"
+                                                 Stroke="Transparent"
+                                                 ImageAlignment="Start"
+                                                 ShowIcon="True">
+                                        <core:SfChip.ImageSource>
+                                            <FontImageSource Glyph="&#xE746;"
+                                                             FontFamily="MauiMaterialAssets"
+                                                             Color="{AppThemeBinding Light=Black, Dark=White}"
+                                                             Size="18" />
+                                        </core:SfChip.ImageSource>
+                                    </core:SfChip>
+                                    <core:SfChip Text="Save"
+                                                 WidthRequest="{OnPlatform WinUI=80, MacCatalyst=75, Android=75, iOS=75}"
+                                                 CornerRadius="20"
+                                                 Stroke="Transparent"
+                                                 ImageAlignment="Start"
+                                                 ShowIcon="True">
+                                        <core:SfChip.ImageSource>
+                                            <FontImageSource Glyph="&#xE75f;"
+                                                             FontFamily="MauiMaterialAssets"
+                                                             Color="{AppThemeBinding Light=Black, Dark=White}"
+                                                             Size="18" />
+                                        </core:SfChip.ImageSource>
+                                    </core:SfChip>
+                                </core:SfChipGroup.Items>
+                            </core:SfChipGroup>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </popup:SfPopup.FooterTemplate>
+
+                <popup:SfPopup.ContentTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalOptions="Center"
+                              VerticalOptions="Center">
+                            <imageEditor:SfImageEditor x:Name="imageEditor" 
+                                                       ShowToolbar="False"
+                                                       Background="{AppThemeBinding Light={StaticResource FlyoutBackgroundLight}, Dark={StaticResource FlyoutBackground}}"
+                                                       Source="{converters:SfImageResource profileimage.png}"
+                                                       MinimumWidthRequest="{OnPlatform WinUI=350, MacCatalyst=350}"
+                                                       HeightRequest="250"
+                                                       SelectionStroke="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}"
+                                                       ImageLoaded="OnImageEditorLoaded"
+                                                       ImageSaving="OnImageEditorSaving"
+                                                       SavePickerOpening="OnImageEditorSavePickerOpening">
+                            </imageEditor:SfImageEditor>
+                        </Grid>
+                    </DataTemplate>
+                </popup:SfPopup.ContentTemplate>
+            </popup:SfPopup>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

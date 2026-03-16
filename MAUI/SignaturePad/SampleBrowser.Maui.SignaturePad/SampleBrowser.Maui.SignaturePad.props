@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\SignaturePadSamplesList.xml" >
+			<Link>SignaturePadSamplesList.xml</Link>
+		</EmbeddedResource>
+		
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SignaturePad\GettingStarted\GettingStarted.xaml">
+			<Link>Samples\GettingStarted\GettingStarted\GettingStarted.xaml</Link>
+		</MauiXaml>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SignaturePad\GettingStarted\GettingStarted.xaml.cs">
+			<Link>Samples\SignaturePad\GettingStarted\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SignaturePad\GettingStarted\Popup.xaml">
+			<Link>Samples\GettingStarted\GettingStarted\Popup.xaml</Link>
+		</MauiXaml>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SignaturePad\GettingStarted\Popup.xaml.cs">
+			<Link>Samples\SignaturePad\GettingStarted\Popup.xaml.cs</Link>
+			<DependentUpon>Popup.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SignaturePad\GettingStarted\ViewModel.cs">
+			<Link>Samples\SignaturePad\GettingStarted\ViewModel.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SignaturePad\GettingStarted\ColorView.cs">
+			<Link>Samples\SignaturePad\GettingStarted\ColorView.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SignaturePad\GettingStarted\CrossIcon.cs">
+			<Link>Samples\SignaturePad\GettingStarted\CrossIcon.cs</Link>
+		</Compile>
+	</ItemGroup>
+</Project>

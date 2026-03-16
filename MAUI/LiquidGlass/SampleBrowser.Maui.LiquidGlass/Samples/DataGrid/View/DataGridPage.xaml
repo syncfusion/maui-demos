@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfDataGrid.DataGridPage"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:sfpager="clr-namespace:Syncfusion.Maui.DataGrid.DataPager;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+    
+<localCore:SampleView.BindingContext>
+    <local:DataGridViewModel />
+</localCore:SampleView.BindingContext>
+
+<localCore:SampleView.Resources>
+
+        <OnPlatform x:Key="visible" x:TypeArguments="x:Boolean">
+            <On Platform="WinUI,MacCatalyst" Value="True"></On>
+        </OnPlatform>
+
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="115"></On>
+        </OnPlatform>
+
+        <OnPlatform x:Key="optionRowSpacing" x:TypeArguments="x:Double">
+            <On Platform="iOS, WinUI, MacCatalyst" Value="5"></On>
+        </OnPlatform>
+        
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-10"/>
+        </OnPlatform>
+
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="16" />
+        </Style>
+
+        <Color x:Key="lightThemeColor">#CAC4D0</Color>
+        <Color x:Key="darkThemeColor">#49454F</Color>
+
+        <Color x:Key="numericButtonSelectionLightBackgroundColor">#EDEDED</Color>
+        <Color x:Key="numericButtonSelectionLightTextColor">#0088FF</Color>
+
+        <Color x:Key="numericButtonSelectionDarkBackgroundColor">#121212</Color>
+        <Color x:Key="numericButtonSelectionDarkTextColor">#FFFFFF</Color>
+
+</localCore:SampleView.Resources>
+
+<Grid Padding="0">
+    <core:SfGlassEffectView EffectType="Regular" Padding="0">
+        <Grid RowSpacing="0" Padding="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="56" />
+            </Grid.RowDefinitions>
+
+            <sfgrid:SfDataGrid x:Name="dataGrid"
+                               Grid.Row="0"
+                               AutoGenerateColumnsMode="None"
+                               HeaderRowHeight="56"
+                               RowHeight="56"
+                               ColumnWidthMode="Fill"
+                               AllowDraggingRow="True"
+                               AllowDraggingColumn="True"
+                               HorizontalScrollBarVisibility="Always"
+                               VerticalScrollBarVisibility="Always"
+                               x:DataType="sfpager:SfDataPager"
+                               ItemsSource="{Binding Source={x:Reference dataPager}, Path=PagedSource }"
+                               EnableLiquidGlassEffect="True">
+
+            <sfgrid:SfDataGrid.DefaultStyle>
+                <sfgrid:DataGridStyle   RowDragViewBackgroundColor="Transparent" 
+                                        ColumnDragViewBackgroundColor="Transparent" />
+            </sfgrid:SfDataGrid.DefaultStyle>
+
+                <sfgrid:SfDataGrid.Columns x:TypeArguments="sfgrid:Columns">
+
+                    <sfgrid:DataGridNumericColumn 
+                                                  Format="D"
+                                                  HeaderText="Order ID"
+                                                  MappingName="OrderID">
+                    </sfgrid:DataGridNumericColumn>
+
+                    <sfgrid:DataGridNumericColumn MinimumWidth="115"
+                                                  Format="D"
+                                                  HeaderTextAlignment="Center"
+                                                  CellTextAlignment="Center"
+                                                  HeaderText="Customer ID"
+                                                  MappingName="EmployeeID">
+                    </sfgrid:DataGridNumericColumn>
+
+                    <sfgrid:DataGridTextColumn 
+                                               HeaderText="Name"
+                                               MappingName="CustomerID">
+                    </sfgrid:DataGridTextColumn>
+
+                    <sfgrid:DataGridTextColumn MinimumWidth="120"
+                                               HeaderText="City"
+                                               MappingName="ShipCity">
+                    </sfgrid:DataGridTextColumn>
+
+                    <sfgrid:DataGridTextColumn HeaderText="Country" MappingName="ShipCountry" Visible="{StaticResource visible}" />
+
+                    <sfgrid:DataGridDateColumn MappingName="ShippingDate" MinimumWidth="180" Visible="{StaticResource visible}" HeaderText="Shipped Date" CellTextAlignment="Center" HeaderTextAlignment="Center"/>
+
+                </sfgrid:SfDataGrid.Columns>
+
+            </sfgrid:SfDataGrid>
+
+            <Grid Grid.Row="2" Padding="8,6,8,6" >
+
+                <sfpager:SfDataPager x:Name="dataPager"
+                                     PageSize="20" 
+                                     NumericButtonCount="{OnPlatform iOS='6',MacCatalyst='14',Android='6',WinUI='14'}"
+                                     x:DataType="local:DataGridViewModel"
+                                     Source="{Binding OrdersInfo}"                              
+                                     VerticalOptions="Center" 
+                                     MaximumWidthRequest="800"                                     
+                                     EnableLiquidGlassEffect="True">
+
+                                     
+
+                                     <sfpager:SfDataPager.DefaultStyle>
+                                        <sfpager:DataPagerStyle NumericButtonSelectionBackgroundColor="{AppThemeBinding Light={StaticResource numericButtonSelectionLightBackgroundColor},Dark={StaticResource numericButtonSelectionDarkBackgroundColor}}" 
+                                                                NumericButtonSelectionTextColor="{AppThemeBinding Light={StaticResource numericButtonSelectionLightTextColor},Dark={StaticResource numericButtonSelectionDarkTextColor}}" />
+                    </sfpager:SfDataPager.DefaultStyle>
+                </sfpager:SfDataPager>
+            </Grid>
+        </Grid>
+
+    </core:SfGlassEffectView>
+</Grid>
+
+
+
+</localCore:SampleView>

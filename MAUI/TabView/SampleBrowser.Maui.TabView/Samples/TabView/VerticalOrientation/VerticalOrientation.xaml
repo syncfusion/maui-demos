@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.TabView.SfTabView.VerticalOrientation"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TabView.SfTabView"
+             xmlns:tabView="http://schemas.syncfusion.com/maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:Expander="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localCore:SampleView.BindingContext>
+        <local:MainViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <Grid>
+        <tabView:SfTabView x:Name="TabView" 
+                           TabBarSize="60" 
+                           TabWidthMode="SizeToContent" 
+                           TabBarBackground="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}"
+                           TabHeaderPadding="0" 
+                           TabBarPlacement="Left">
+
+            <tabView:SfTabItem Header="&#xe75e;" 
+                               FontSize="25" 
+                               FontFamily="MauiSampleFontIcon">
+                <tabView:SfTabItem.Content>
+                    <Grid RowDefinitions="Auto, *" Padding="12">
+                        <Grid ColumnDefinitions="Auto" Padding="0,0,0,12">
+                            <Label Text="Activity" FontSize="20" FontAttributes="Bold" VerticalOptions="Center"/>
+                        </Grid>
+                        <CollectionView Grid.Row="1" ItemsSource="{Binding ActivityItems}"
+                                    SelectionMode="None"
+                                    Margin="0,10">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical"
+                                                   ItemSpacing="10"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="40,*,Auto" 
+                                          RowDefinitions="Auto" >
+                                        <core:SfAvatarView InitialsType="SingleCharacter"
+                                                           AvatarName="{Binding Name}" 
+                                                           Background="{Binding AvatarColor}" 
+                                                           WidthRequest="40" 
+                                                           HeightRequest="40" 
+                                                           CornerRadius="20" />
+
+                                        <VerticalStackLayout Grid.Column="1" 
+                                                             Spacing="2" 
+                                                             Padding="8,0">
+                                            <HorizontalStackLayout Spacing="4">
+                                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="{OnPlatform Android=12,iOS=12}"/>
+                                                <Label Text="{Binding Action}" FontSize="{OnPlatform Android=12,iOS=12}"/>
+                                            </HorizontalStackLayout>
+                                            <Label Text="{Binding Content}" FontSize="12" LineBreakMode="TailTruncation" TextColor="#666"/>
+                                            <HorizontalStackLayout>
+                                                <Label Text="{Binding Context1}" FontSize="12" TextColor="#666"/>
+                                                <Label Text="{Binding Context2}" FontSize="12" TextColor="#666"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+
+                                        <Label Grid.Column="2" Text="{Binding Time}" FontSize="12" TextColor="#888"  VerticalOptions="Start"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+
+            <tabView:SfTabItem Header="&#xe761;" 
+                               FontSize="25" 
+                               FontFamily="MauiSampleFontIcon">
+                <tabView:SfTabItem.Content>
+                    <Grid RowDefinitions="Auto, Auto, *">
+                        <Label Text="All contacts" FontSize="20" FontAttributes="Bold" Margin="12"/>
+                        <Grid Grid.Row="1" ColumnDefinitions="{OnIdiom Phone='*,*', Desktop='*,*,*'}" Padding="12,0" x:Name="ContactHeader">
+                            <Label Text="Name" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="Contact info" VerticalOptions="Center" />
+                             <Label Grid.Column="2" Text="Catagories" VerticalOptions="Center" IsVisible="{Binding Path=BindingContext.IsDesktop, Source={x:Reference TabView}}"/>
+                        </Grid>
+                        <CollectionView Grid.Row="2" ItemsSource="{Binding ContactItems}"
+                                    SelectionMode="None" 
+                                    Margin="12,12,12,0" >
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" 
+                                               ItemSpacing="15"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate >
+                                <DataTemplate x:DataType="local:ContactItem">
+                                    <Grid ColumnDefinitions="{OnIdiom Phone='*,*', Desktop='*,*,*'}" x:Name="ContactItemGrid">
+                                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="8">
+                                            <core:SfAvatarView AvatarShape="Circle" AvatarSize="Small" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                                ContentType="AvatarCharacter" AvatarCharacter="{Binding AvatarCharacter}" 
+                                                WidthRequest="30"
+                                                HeightRequest="30">
+                                            </core:SfAvatarView>
+                                            <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center"/>
+                                        </Grid>
+                                        <Label Grid.Column="1" Text="{Binding Email}" FontSize="13" VerticalOptions="Center" TextColor="#666" />
+                                        <Border Grid.Column="2" Stroke="#de3d3d" StrokeThickness="1" Padding="10,2" IsVisible="{Binding Path=BindingContext.IsDesktop, Source={x:Reference TabView}}" BackgroundColor="#fde9e9" StrokeShape="RoundRectangle 4" WidthRequest="140" VerticalOptions="Center" HorizontalOptions="Start">
+                                            <Label Text="{Binding Category}" TextColor="#de3d3d" FontSize="13" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+
+            <tabView:SfTabItem Header="&#xe75a;" 
+                               FontSize="25" 
+                               FontFamily="MauiSampleFontIcon">
+                <tabView:SfTabItem.Content>
+                    <Grid RowDefinitions="Auto, *" Padding="12" RowSpacing="12">
+                        <Grid ColumnDefinitions="Auto">
+                            <Label Text="Chat" FontSize="20" FontAttributes="Bold" VerticalOptions="Center"/>
+                        </Grid>
+                         <Expander:SfExpander IsExpanded="True" HeaderIconPosition="Start"  Grid.Row="1" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Padding="0">
+                            <Expander:SfExpander.Header>
+                                <Grid Margin="0,15">
+                                     <Label  Text="Chats" FontSize="16" VerticalOptions="Center" Margin="8,0"/>
+                                </Grid>
+                                </Expander:SfExpander.Header>
+                            <Expander:SfExpander.Content>
+                                <CollectionView ItemsSource="{Binding ChatItems}" 
+                                            SelectionMode="None" 
+                                            Margin="0,12">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border StrokeShape="RoundRectangle 4" StrokeThickness="0">
+                                                <Grid ColumnDefinitions="Auto, *" Padding="8" >
+                                                    <core:SfAvatarView
+                                                        InitialsType="DoubleCharacter"
+                                                        AvatarName="{Binding Name}"
+                                                        Background="{Binding AvatarColor}"
+                                                        WidthRequest="40"
+                                                        HeightRequest="40" />
+                                                    <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center" Margin="8,0"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </Expander:SfExpander.Content>
+                        </Expander:SfExpander>
+                    </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+
+            <tabView:SfTabItem Header="&#xe763;" 
+                               FontSize="25" 
+                               FontFamily="MauiSampleFontIcon">
+                <tabView:SfTabItem.Content>
+                    <Grid RowDefinitions="Auto, *" Padding="12">
+                        <!-- Header -->
+                        <Grid ColumnDefinitions="Auto, Auto, Auto">
+                            <Label Text="&#xe763;" FontFamily="MauiSampleFontIcon" FontSize="20" VerticalOptions="Center" TextColor="#4B53BC"/>
+                            <Label Grid.Column="1" Text="Calls" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" Margin="12,0"/>
+                            <Label Grid.Column="2" Text="Personal" FontSize="16" VerticalOptions="Center" TextColor="#4B53BC" />
+                        </Grid>
+                        <Expander:SfExpander IsExpanded="True" HeaderIconPosition="Start"  Grid.Row="1" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Padding="0">
+                            <Expander:SfExpander.Header>
+                                <Grid ColumnDefinitions="*, Auto" Margin="0,15">
+                                    <Label Text="History" FontSize="18" FontAttributes="Bold" VerticalOptions="Center"/>
+                                    <Border Grid.Column="1" Background="#4B53BC" Padding="12,4" StrokeShape="RoundRectangle 15">
+                                        <HorizontalStackLayout Spacing="4">
+                                            <Label Text="All" TextColor="White" VerticalOptions="Center"/>
+                                            <Label Text="&#xe703;" FontFamily="MauiSampleFontIcon" TextColor="White" VerticalOptions="Center"/>
+                                        </HorizontalStackLayout>
+                                    </Border>
+                                </Grid>
+                                </Expander:SfExpander.Header>
+                            <Expander:SfExpander.Content>
+                                <CollectionView ItemsSource="{Binding CallItems}" SelectionMode="None">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate x:DataType="local:CallItem">
+                                            <Grid ColumnDefinitions="Auto, *, Auto" Padding="0,8">
+                                                <!-- Avatar -->
+                                                <core:SfAvatarView Grid.Column="0" AvatarSize="Small"
+                                                                AvatarShape="Circle" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                                        ContentType="AvatarCharacter" AvatarCharacter="{Binding AvatarImage}" 
+                                                        WidthRequest="30"
+                                                        HeightRequest="30">
+                                                </core:SfAvatarView>
+
+                                                <!-- Name and Status -->
+                                                <VerticalStackLayout Grid.Column="1" Margin="12,0">
+                                                    <Label Text="{Binding Name}" FontSize="15" />
+                                                    <HorizontalStackLayout Spacing="4">
+                                                        <Label Text="&#xe763;" FontFamily="MauiSampleFontIcon" FontSize="12" VerticalOptions="Center" TextColor="#888"/>
+                                                        <Label Text="{Binding Status}" FontSize="13" TextColor="#888"/>
+                                                    </HorizontalStackLayout>
+                                                </VerticalStackLayout>
+
+                                                <!-- Time and Duration -->
+                                                <VerticalStackLayout Grid.Column="2" HorizontalOptions="End">
+                                                    <Label Text="{Binding Time}" FontSize="13" HorizontalOptions="End"/>
+                                                    <Label Text="{Binding Duration}" FontSize="13" TextColor="#888" HorizontalOptions="End"/>
+                                                </VerticalStackLayout>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>                             
+                            </Expander:SfExpander.Content>
+                        </Expander:SfExpander>
+                    </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+        </tabView:SfTabView>
+    </Grid>
+
+
+    <localCore:SampleView.OptionView>
+        <Grid Padding="0,0,0,10">
+            <VerticalStackLayout Spacing="20" 
+                                 Margin="10,15,10,10">
+                <Grid ColumnDefinitions="*,1.1*">
+                    <Label Text="TabBarPlacement" 
+                           VerticalOptions="Center"/>
+                    <inputs:SfComboBox Grid.Column="1" 
+                                       HeightRequest="35" 
+                                       WidthRequest="100" 
+                                       SelectionChanged="placemntcomboBox_SelectionChanged" 
+                                       x:Name="placemntcomboBox" 
+                                       IsClearButtonVisible="False" 
+                                       SelectedItem="Left">
+                        <inputs:SfComboBox.ItemsSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+                                <x:String>Left</x:String>
+                                <x:String>Right</x:String>
+                            </ListCollection:List>
+                        </inputs:SfComboBox.ItemsSource>
+                    </inputs:SfComboBox>
+                </Grid>
+                <Grid ColumnDefinitions="*,1.1*">
+                    <Label Text="IndicatorPlacement" 
+                           VerticalOptions="Center"/>
+                    <inputs:SfComboBox Grid.Column="1" 
+                                       HeightRequest="35" 
+                                       WidthRequest="100" 
+                                       SelectionChanged="indicatorplacemntcomboBox_SelectionChanged"  
+                                       x:Name="indicatorplacemntcomboBox" 
+                                       IsClearButtonVisible="False" 
+                                       SelectedItem="Left">
+                        <inputs:SfComboBox.ItemsSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+                                <x:String>Left</x:String>
+                                <x:String>Right</x:String>
+                                <x:String>Fill</x:String>
+                            </ListCollection:List>
+                        </inputs:SfComboBox.ItemsSource>
+                    </inputs:SfComboBox>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

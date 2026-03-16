@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.AutoCellMerge"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:EmployeeInfoViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="visible" x:TypeArguments="x:Boolean">
+            <On Platform="WinUI,MacCatalyst" Value="True" />
+        </OnPlatform>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120" />
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily" Value="Roboto-Medium" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           ItemsSource="{Binding Employees}"
+                           SelectionUnit="Cell"
+                           NavigationMode="Cell"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both"
+                           ItemsSourceChanged="DataGrid_ItemsSourceChanged"
+                           QueryCoveredRange="Grid_QueryCoveredRange"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridNumericColumn MappingName="EmployeeID"
+                                              Format="D"
+                                              HeaderText="Employee ID" 
+                                              MinimumWidth="{StaticResource minimumWidth}"/>
+
+                <sfgrid:DataGridTextColumn MappingName="Name"
+                                           HeaderText="Name" />
+
+                <sfgrid:DataGridTextColumn MappingName="Title"
+                                           HeaderText="Title" />
+
+                <sfgrid:DataGridNumericColumn MappingName="Rating"
+                                              Format="N0"
+                                              HeaderText="Rating" 
+                                              Visible="{StaticResource visible}" />
+
+                <sfgrid:DataGridDateColumn MappingName="BirthDate"
+                                           HeaderText="Birth Date"
+                                           Format="dd/MM/yyyy"
+                                           Visible="{StaticResource visible}" />
+
+                <sfgrid:DataGridTextColumn MappingName="Gender"
+                                           HeaderText="Gender" />
+
+                <sfgrid:DataGridNumericColumn MappingName="Salary"
+                                              Format="C0"
+                                              HeaderText="Salary" 
+                                              Visible="{StaticResource visible}" />
+            </sfgrid:SfDataGrid.Columns>
+
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

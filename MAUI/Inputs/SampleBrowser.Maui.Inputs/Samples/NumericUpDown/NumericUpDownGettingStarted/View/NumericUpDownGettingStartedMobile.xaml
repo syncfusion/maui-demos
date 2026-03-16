@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Inputs.NumericUpDown.NumericUpDownGettingStartedMobile"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Inputs.Samples.NumericUpDown.NumericUpDownGettingStarted.ViewModel"
+             xmlns:model="clr-namespace:SampleBrowser.Maui.Inputs.Samples.NumericUpDown.NumericUpDownGettingStarted.Model"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             x:DataType="local:GettingStartedViewModel"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+	<localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+        <Style TargetType="Label">			
+			<Setter Property="FontFamily" Value="Roboto-Regular"/>
+		</Style>
+        <local:GettingStartedViewModel x:Key="numericEntryViewModel"/>
+	</localCore:SampleView.Resources>
+
+    <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+        <VerticalStackLayout x:Name="listView" BindingContext="{StaticResource numericEntryViewModel}" BindableLayout.ItemsSource="{Binding ProductInfo}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="model:ProductInfo">
+                    <Grid ColumnDefinitions="Auto,*" Margin="0,7,0,0" RowDefinitions="Auto,4" ColumnSpacing="10" RowSpacing="5">
+                        <Image Source="{Binding ProductImage,Converter={StaticResource imageconverter}}" Grid.Column="0" WidthRequest="150" HeightRequest="140"/>
+                        <VerticalStackLayout  Grid.Column="1"  Spacing="5" VerticalOptions="Center" Margin="10,0" HeightRequest="{OnPlatform Android='140', iOS='130'}">
+                            <Label Text="{Binding ProductName}" FontSize="16" FontAttributes="Bold"/>
+                            <Label Text="{Binding Price , StringFormat='$ {0:F2} per Unit'}" FontSize="10"/>
+                            <core:SfTextInputLayout Hint="Total Quantity" ReserveSpaceForAssistiveLabels="False" HeightRequest="50">
+                                <syncfusion:SfNumericEntry WidthRequest="100" UpDownPlacementMode="{Binding x:DataType='local:GettingStartedViewModel', Path=ButtonPlacement, Source={RelativeSource AncestorType={x:Type local:GettingStartedViewModel}}, Mode=TwoWay}" 
+                                                             UpDownOrder="{Binding x:DataType='local:GettingStartedViewModel', Path=ButtonOrder, Source={RelativeSource AncestorType={x:Type local:GettingStartedViewModel}}, Mode=TwoWay}"
+                                    UpDownButtonAlignment="{Binding x:DataType='local:GettingStartedViewModel', Path=ButtonAlignment, Source={RelativeSource AncestorType={x:Type local:GettingStartedViewModel}}, Mode=TwoWay}" IsEditable="False" Value="{Binding Count}" AllowNull="False" ShowClearButton="False" HorizontalOptions="Start" CustomFormat="#0"/>
+                            </core:SfTextInputLayout>
+                            <Grid Margin="{OnPlatform iOS='0,4'}">
+                                <Label Text="{Binding TotalPrice , StringFormat='$ {0:F2}'}" FontSize="16" HorizontalOptions="Start" FontAttributes="Bold" VerticalOptions="Center" />
+                                <Button Text="ADD TO CART" FontSize="14" CornerRadius="20" HorizontalOptions="End" />
+                            </Grid>
+                        </VerticalStackLayout>
+                        <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}" HeightRequest="1" VerticalOptions="End" Grid.Row="1" Grid.ColumnSpan="3"/>
+                    </Grid>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+    <localCore:SampleView.OptionView>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <Grid>
+            <VerticalStackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                <VerticalStackLayout Margin="10"  Spacing="5">
+                    <Label Text="Updown Button Placement mode" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center"/>
+                    <syncfusion:SfComboBox FontFamily="Roboto-Regular" WidthRequest="350" IsClearButtonVisible="False" BindingContext="{StaticResource numericEntryViewModel}"
+                                           ItemsSource="{Binding ButtonPlacementList}"
+                                           SelectedIndex="{Binding ButtonPlacementListSelectedIndex, Mode=TwoWay}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Margin="10"  Spacing="5">
+                    <Label Text="Updown button Alignment" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center"/>
+                    <syncfusion:SfComboBox FontFamily="Roboto-Regular" WidthRequest="350" IsClearButtonVisible="False" BindingContext="{StaticResource numericEntryViewModel}"
+                                           ItemsSource="{Binding ButtonAlignmentList}"
+                                           SelectedIndex="{Binding ButtonAlignmentListSelectedIndex, Mode=TwoWay}" />
+                </VerticalStackLayout>
+                    <VerticalStackLayout Margin="10"  Spacing="5">
+                        <Label Text="Updown button Order" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center"/>
+                        <syncfusion:SfComboBox FontFamily="Roboto-Regular" WidthRequest="350" IsClearButtonVisible="False" BindingContext="{StaticResource numericEntryViewModel}"
+                           ItemsSource="{Binding ButtonOrderList}"
+                           SelectedIndex="{Binding ButtonOrderListSelectedIndex, Mode=TwoWay}" />
+                    </VerticalStackLayout>
+            </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

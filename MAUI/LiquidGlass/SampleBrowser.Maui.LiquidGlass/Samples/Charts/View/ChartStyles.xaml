@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfCartesianChart.ChartStyles"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:converter="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core"
+             xmlns:sunburst="clr-namespace:Syncfusion.Maui.SunburstChart;assembly=Syncfusion.Maui.SunburstChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:charts="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfCartesianChart"    
+             xmlns:chart="http://schemas.syncfusion.com/maui">
+
+            <SolidColorBrush x:Key="series1Light">#FF383C</SolidColorBrush>
+            <SolidColorBrush x:Key="series2Light">#34C759</SolidColorBrush>
+            <SolidColorBrush x:Key="series3Light">#CB30E0</SolidColorBrush>
+
+            <Color x:Key="series11Light">#FF383C</Color>
+            <Color x:Key="series22Light">#34C759</Color>
+            <Color x:Key="series33Light">#CB30E0</Color>
+
+            <Color x:Key="SolidBlack">#000000</Color>
+            <Color x:Key="LightGrey">#FFECECEC</Color>
+
+            <SolidColorBrush x:Key="SunburstBrush1" Color="#FF8D28"/>
+            <SolidColorBrush x:Key="SunburstBrush2" Color="#0088FF"/>
+            <SolidColorBrush x:Key="SunburstBrush3" Color="#8e4afc"/>
+
+            <SolidColorBrush x:Key="FunnelBrush1" Color="#FF8D28"/>
+            <SolidColorBrush x:Key="FunnelBrush2" Color="#CB30E0"/>
+            <SolidColorBrush x:Key="FunnelBrush3" Color="#34C759"/>
+            <SolidColorBrush x:Key="FunnelBrush4" Color="#0088FF"/>
+
+            <SolidColorBrush x:Key="DarkTint" Color="#73000000" />
+            <SolidColorBrush x:Key="GreyTint" Color="#80FFFFFF" />
+
+            <SolidColorBrush x:Key="LegendLight" Color="#19000000" />
+            <SolidColorBrush x:Key="LegendDark" Color="#719E9E9E" />
+
+            <local:SunburstItemIndexConverter x:Key="IndexConverter" />
+            <local:CountToPercentageConverter x:Key="countToPercentageConverter" />
+
+            <DataTemplate x:Key="trackballLabelTemplate">
+                <HorizontalStackLayout Padding="4">
+                    <Label Text="{Binding Series.Label, StringFormat=' {0}'}" FontSize="13" FontFamily="Helvetica" HorizontalOptions="Center" />
+                    <Label Text="{Binding DataItem.Score,StringFormat=' : {0:0.0}%'}" FontSize="12" FontFamily="Helvetica" HorizontalOptions="Center" Margin="0,2,0,0"/>
+                </HorizontalStackLayout>
+            </DataTemplate>
+
+            <converter:BrushToColorConverter x:Key="brushToColor" />
+
+            <DataTemplate x:Key="sunburstTooltip" x:DataType="sunburst:SunburstSegment">
+                <StackLayout Orientation="Vertical" Spacing="2">
+                    <Label Text="{Binding Item, Converter={StaticResource IndexConverter}, ConverterParameter=0}" FontFamily="Helvetica" FontSize="13" Padding="5,0,0,0" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" />
+                    <Label Text="{Binding Item, Converter={StaticResource IndexConverter}, ConverterParameter=1, StringFormat='Count : {0}'}" FontFamily="Helvetica" FontSize="12" Padding="5,0,0,0" Margin="0,2,0,0" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" />
+                </StackLayout>
+            </DataTemplate>
+
+            <DataTemplate x:Key="tooltipTemplate">
+                <Label Text="{Binding Item.Count}" FontFamily="Helvetica" FontSize="13" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" />
+            </DataTemplate>
+
+            <DataTemplate x:Key="dataLabelTemplate">
+                <Label Text="{Binding Item.Count,Converter={StaticResource countToPercentageConverter},ConverterParameter=180}"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </DataTemplate>
+</ResourceDictionary>
