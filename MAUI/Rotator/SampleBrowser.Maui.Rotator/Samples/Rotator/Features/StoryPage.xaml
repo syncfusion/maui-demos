@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<localcore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleBrowser.Maui.Rotator.Rotator.StoryPage"
-             xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
-             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
-  
- </localcore:SampleView>
