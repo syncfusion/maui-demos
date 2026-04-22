@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.SmartDemos.SmartDemos.AnamolyDetection"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.SmartDemos.SmartDemos"
+                      xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+    <localCore:SampleView.BindingContext>
+        <local:MachineDataRepository x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:AnamolyDetectionBehaviour />
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Resources>
+        <local:AnamolyDetetcionConverter x:Key="converter" />
+        <Style TargetType="syncfusion:DataGridCell">
+            <Setter Property="Background"
+                    Value="{Binding Source={RelativeSource Mode=Self}, Converter={StaticResource Key=converter}}" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="syncfusion:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+    
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="56" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Anamoly Detection"
+                       VerticalTextAlignment="Center"
+                       Padding="16,0,16,0"
+                       FontSize="15"
+                       Grid.Column="0"
+                       FontAttributes="Bold" />
+
+                <button:SfButton x:Name="button"
+                                 Text="&#xe7e1;"
+                                 FontFamily="MauiSampleFontIcon"
+                                 Grid.Column="2"
+                                 Margin="16,0,16,0"
+                                 FontAutoScalingEnabled="True"
+                                 FontSize="24"
+                                 WidthRequest="40"
+                                 HeightRequest="40"
+                                 FontAttributes="Bold"
+                                 CornerRadius="5" />
+
+            </Grid>
+            <syncfusion:SfDataGrid x:Name="dataGrid"
+                                   Grid.Row="1"
+                                   HeaderRowHeight="52"
+                                   HorizontalScrollBarVisibility="Always"
+                                   VerticalScrollBarVisibility="Always"
+                                   ColumnWidthMode="Fill"
+                                   AutoGenerateColumnsMode="None"
+                                   ItemsSource="{Binding MachineDataCollection}">
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn HeaderText="Machine ID"
+                                                   MinimumWidth="120"
+                                                   MappingName="MachineID" />
+                    <syncfusion:DataGridTextColumn HeaderText="Temperature"
+                                                   MinimumWidth="120"
+                                                   MappingName="Temperature" />
+                    <syncfusion:DataGridTextColumn HeaderText="Pressure"
+                                                   MinimumWidth="120"
+                                                   MappingName="Pressure" />
+                    <syncfusion:DataGridTextColumn HeaderText="Voltage"
+                                                   MinimumWidth="120"
+                                                   MappingName="Voltage" />
+                    <syncfusion:DataGridTextColumn HeaderText="Motor Speed"
+                                                   MinimumWidth="120"
+                                                   MappingName="MotorSpeed" />
+                    <syncfusion:DataGridTextColumn HeaderText="Production Rate"
+                                                   MinimumWidth="140"
+                                                   MappingName="ProductionRate" />
+
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+            <ActivityIndicator IsRunning="False"
+                               x:Name="Indicator"
+                               Grid.Row="1"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Color="Black" />
+
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

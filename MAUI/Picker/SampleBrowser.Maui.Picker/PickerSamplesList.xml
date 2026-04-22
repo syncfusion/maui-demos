@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Picker">
+	  
+	  <Control Title="Picker" StatusTag="Updated" Image="picker.png" ControlName="SfPicker" Description="A versatile UI element designed for making selections from a set of options.">
+		  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="Picker/GettingStarted/"/>
+		  <Sample Title="Flight booking" StatusTag="Updated" SampleName="FlightBooking" WhatsNew="CloseButtonIcon support has been provided." CodeViewerPath="Picker/FlightBooking/"/>
+	  </Control>
+
+	  <Control Title="Date Picker" StatusTag="Updated" Image="datepicker.png" ControlName="SfDatePicker" Description="A user interface element for selecting specific dates.">
+		  <Sample Title="Getting Started" StatusTag="Updated" WhatsNew="Date format support has been provided." SampleName="GettingStarted" CodeViewerPath="DatePicker/GettingStarted/"/>
+		  <Sample Title="To-Do" StatusTag="Updated" SampleName="Customization" WhatsNew="CloseButtonIcon support has been provided." CodeViewerPath="DatePicker/Customization/"/>
+	  </Control>
+
+	  <Control Title="Time Picker" StatusTag="Updated" Image="timepicker.png" ControlName="SfTimePicker" Description="An interface for choosing specific times of day.">
+		  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="TimePicker/GettingStarted/"/>
+		  <Sample Title="Alarm" StatusTag="Updated" SampleName="Customization" WhatsNew="CloseButtonIcon support has been provided." CodeViewerPath="TimePicker/Customization/" />
+	  </Control>
+
+	  <Control Title="Date Time Picker" StatusTag="Updated" Image="datetimepicker.png" ControlName="SfDateTimePicker" Description="A combined interface to select dates and times.">
+		  <Sample Title="Getting Started" StatusTag="Updated" WhatsNew="Date format and Active View support has been provided." SampleName="GettingStarted" CodeViewerPath="DateTimePicker/GettingStarted/"/>
+	  </Control>
+	  
+  </ControlCategory>
+</SyncfusionControls>

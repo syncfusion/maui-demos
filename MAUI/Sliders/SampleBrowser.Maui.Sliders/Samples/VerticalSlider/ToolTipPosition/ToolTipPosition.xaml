@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalSlider.VerticalSliderTooltipPositionSample">
+
+    <sb:SampleView.Resources>
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="300,Auto,30,Auto"
+                  ColumnDefinitions="*,*"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+
+                <sliders:SfSlider Grid.Row="0"
+                                  Grid.Column="0"
+                                  Minimum="10"
+                                  Maximum="40"
+                                  Value="25"
+                                  Interval="10">
+
+                    <sliders:SfSlider.Tooltip>
+                        <sliders:SliderTooltip Position="Right" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}"
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"
+                                               x:DataType="CheckBox"/>
+                    </sliders:SfSlider.Tooltip>
+                </sliders:SfSlider>
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Tooltip on the right"
+                       Margin="-30,0,0,0" />
+
+                <sliders:SfDateTimeSlider x:Name="hourSlider"
+                                          Grid.Row="0"
+                                          Grid.Column="1"
+                                          Minimum="2000-01-01T09:00:00"
+                                          Maximum="2000-01-01T21:00:00"
+                                          Value="2000-01-01T15:00:00"
+                                          IntervalType="Hours"
+                                          MinorTicksPerInterval="3"
+                                          Interval="4"
+                                          DateFormat="h tt">
+
+                    <sliders:SfDateTimeSlider.Tooltip>
+                        <sliders:SliderTooltip DateFormat="hh:mm tt"  Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}"
+                                               Position="Left"
+                                               ShowAlways="{Binding Source={x:Reference tooltipCheckBox}, Path=IsChecked}"
+                                               TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"
+                                               x:DataType="CheckBox"/>
+                    </sliders:SfDateTimeSlider.Tooltip>
+                </sliders:SfDateTimeSlider>
+
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Tooltip on the left"
+                       Margin="0,0,-50,0" />
+
+                <Grid Grid.Row="3"
+                      Grid.ColumnSpan="2"
+                      ColumnDefinitions="Auto,Auto"
+                      HorizontalOptions="Center">
+                    <Label Text="Show tooltip always"
+                           Padding="5"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center" />
+                    <CheckBox x:Name="tooltipCheckBox"
+                              Grid.Column="1" />
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

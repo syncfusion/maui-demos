@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.BadgeView.SfBadgeView.Icon">
+
+    <localCore:SampleView.Resources>
+        <Style x:Key="DemoLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+    </localCore:SampleView.Resources>
+    
+    <localCore:SampleView.Content>
+        <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             MaximumWidthRequest="300">
+            <Grid Margin="0,16,0,0"
+                  RowDefinitions="120,120,120"
+                  ColumnSpacing="20"
+                  ColumnDefinitions="Auto,Auto,Auto">
+
+                <VerticalStackLayout Spacing="2" 
+                                     WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'>
+                    <badge:SfBadgeView WidthRequest="60"
+                                       HeightRequest="60"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Icon="Add" Type="Success" 
+                                                 Offset="0,0"
+                                                 Position="BottomRight" />
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Add"  
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1" Spacing="2"
+                                     WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'>
+                    <badge:SfBadgeView WidthRequest="60"
+                                       HeightRequest="60"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Icon="Available" Type="Success" 
+                                                 Offset="0,0"
+                                                 Position="BottomRight" />
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Available"  
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="2" Spacing="2"
+                                     WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'>
+                    <badge:SfBadgeView WidthRequest="60"
+                                       HeightRequest="60"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Icon="Away" Type="Warning" 
+                                                 Offset="0,0"
+                                                 Position="BottomRight" />
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Away"  
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="2"
+                                     WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'>
+                    <badge:SfBadgeView WidthRequest="60"
+                                       HeightRequest="60"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Icon="Busy" Type="Error"
+                                                 Offset="0,0"
+                                                 Position="BottomRight" />
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Busy"  
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="2"
+                                     WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'>
+                    <badge:SfBadgeView WidthRequest="60"
+                                       HeightRequest="60"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Icon="Delete" Type="Error" 
+                                                 Offset="0,0"
+                                                 Position="BottomRight" />
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Delete"  
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Grid.Column="2" Spacing="2"
+                                     WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'>
+                    <badge:SfBadgeView WidthRequest="60"
+                                       HeightRequest="60"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Icon="Dot" Type="Error" 
+                                                 Offset="-4,-4"
+                                                 Position="BottomRight" />
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Dot"  
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="2" Spacing="2"
+                                     WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'>
+                    <badge:SfBadgeView WidthRequest="60"
+                                       HeightRequest="60"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Icon="Prohibit1" Type="Warning" 
+                                                 Offset="0,0"
+                                                 Position="BottomRight" />
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Prohibit1"  
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="2" Grid.Column="1" Spacing="2"
+                                     WidthRequest='{OnPlatform MacCatalyst="90", iOS="90", Default="80"}'>
+                    <badge:SfBadgeView WidthRequest="60"
+                                       HeightRequest="60"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Image Source="{imageExtension:SfImageResource people_circle1.png}" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               VerticalOptions="Start" />
+                        <badge:SfBadgeView.BadgeSettings>
+                            <badge:BadgeSettings Icon="Prohibit2" Type="Warning" 
+                                                 Offset="0,0"
+                                                 Position="BottomRight" />
+                        </badge:SfBadgeView.BadgeSettings>
+                    </badge:SfBadgeView>
+
+                    <Label Text="Prohibit2"  
+                           TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

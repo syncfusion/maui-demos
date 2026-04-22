@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SmartComponents.SmartScheduler.GettingStarted"
+             xmlns:smartScheduler="clr-namespace:Syncfusion.Maui.SmartComponents;assembly=Syncfusion.Maui.SmartComponents"
+             xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"         
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SmartComponents.SmartScheduler">
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageConverter"/>
+    </localCore:SampleView.Resources>
+    
+    <localCore:SampleView.BindingContext>
+        <local:SmartSchedulerViewModel x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Content>
+        <Grid
+            BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}}">
+            <smartScheduler:SfSmartScheduler AppointmentsSource="{Binding Events}"
+                        x:Name="smartScheduler"
+                        View="TimelineWeek"
+                        Margin="0,2">
+                <smartScheduler:SfSmartScheduler.AssistViewSettings>
+                    <smartScheduler:SchedulerAssistViewSettings SuggestedPrompts="{Binding SuggestedPrompts}" ShowAssistViewBanner="True">
+                        <smartScheduler:SchedulerAssistViewSettings.AssistViewBannerTemplate>
+                            <DataTemplate>
+                                <Grid Padding="0,10,0,20">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <!-- Sub text -->
+                                    <Label
+                                          Grid.Row="2"
+                                          Margin="0,28,0,8"
+                                          Text="How can I help you with this schedule?"
+                                          HorizontalOptions="Center"
+                                          FontSize="14"
+                                          FontAttributes="Bold"
+                                          HorizontalTextAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </smartScheduler:SchedulerAssistViewSettings.AssistViewBannerTemplate>
+                    </smartScheduler:SchedulerAssistViewSettings>
+                </smartScheduler:SfSmartScheduler.AssistViewSettings>
+
+                <scheduler:SfScheduler.ResourceView>
+                    <scheduler:SchedulerResourceView Resources="{Binding Resources}">
+                        <scheduler:SchedulerResourceView.HeaderTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="5"
+                                             x:DataType="local:SchedulerResourceExt"
+                                             Orientation="Vertical"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="Fill">
+                                    <Grid>
+                                        <Border StrokeThickness="2"
+                                                Background="{Binding Background}"
+                                                HorizontalOptions="Center"
+                                                HeightRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}"
+                                                WidthRequest="{OnPlatform WinUI= 70, MacCatalyst=70, Android=65, iOS=65}">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="150" />
+                                            </Border.StrokeShape>
+                                        </Border>
+                                        <Image WidthRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
+                                               HeightRequest="{OnPlatform WinUI= 55, MacCatalyst=55, Android=50, iOS=50}"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               Source="{Binding ImageName,Converter={StaticResource imageConverter}}"
+                                               Aspect="Fill" />
+                                    </Grid>
+                                    <Label Text="{Binding Name}"
+                                           FontSize="{OnPlatform WinUI= 12, MacCatalyst=12, Android=10, iOS=10}"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </scheduler:SchedulerResourceView.HeaderTemplate>
+                    </scheduler:SchedulerResourceView>
+                </scheduler:SfScheduler.ResourceView>
+            </smartScheduler:SfSmartScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.Behaviors>
+        <local:GettingStartedBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

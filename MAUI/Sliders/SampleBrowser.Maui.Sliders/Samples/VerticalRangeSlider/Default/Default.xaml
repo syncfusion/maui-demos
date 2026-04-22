@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalRangeSlider.VerticalRangeSliderDefaultSample">
+
+    <sb:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Minimum"
+                    Value="0" />
+            <Setter Property="Maximum"
+                    Value="100" />
+            <Setter Property="RangeStart"
+                    Value="25" />
+            <Setter Property="RangeEnd"
+                    Value="75" />
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="300,Auto"
+                  ColumnDefinitions="*,*"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+
+                <sliders:SfRangeSlider Grid.Row="0"
+                                       Grid.Column="0"
+                                       NumberFormat="#0">
+                    <sliders:SfRangeSlider.Tooltip>
+                        <sliders:SliderTooltip NumberFormat="#0" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}" 
+                                               Position="Right" TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
+                    </sliders:SfRangeSlider.Tooltip>
+                </sliders:SfRangeSlider>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Enabled"
+                       Margin="-40,0,0,0" />
+
+                <sliders:SfRangeSlider Grid.Row="0"
+                                       Grid.Column="1"
+                                       IsEnabled="False">
+                    <sliders:SfRangeSlider.TrackStyle>
+                        <sliders:SliderTrackStyle  ActiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledActiveTrackFillBrush}}"
+                                                   InactiveFill="{AppThemeBinding Default={StaticResource SfSliderDisabledInactiveTrackFillBrush}}" />
+                    </sliders:SfRangeSlider.TrackStyle>
+                    <sliders:SfRangeSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="{AppThemeBinding Default={StaticResource SfSliderDisabledThumbFillBrush}}"/>
+                    </sliders:SfRangeSlider.ThumbStyle>
+                 
+                </sliders:SfRangeSlider>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Disabled" />
+
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

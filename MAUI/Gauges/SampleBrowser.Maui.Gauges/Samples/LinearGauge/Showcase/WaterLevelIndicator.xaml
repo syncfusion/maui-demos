@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfLinearGauge.WaterLevelIndicator"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Gauges.SfLinearGauge"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+                      x:DataType="gauge:LinearShapePointer"
+                      Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+        </Style>
+        <local:GraphicsDrawable x:Key="GraphicsDrawable" />
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid HorizontalOptions="Center"
+              VerticalOptions="Center">
+            <gauge:SfLinearGauge x:Name="waterLevelGauge"
+                                 Orientation="Vertical"
+                                 HorizontalOptions="Center"
+                                 Maximum="500"
+                                 Interval="100">
+                <gauge:SfLinearGauge.LineStyle>
+                    <gauge:LinearLineStyle Thickness="2" />
+                </gauge:SfLinearGauge.LineStyle>
+                <gauge:SfLinearGauge.BarPointers>
+                    <gauge:BarPointer Position="Outside"
+                                      Value="500"
+                                      PointerSize="250"
+                                      Offset="18"
+                                      Fill="Transparent">
+                        <gauge:BarPointer.Child>
+                            <GraphicsView x:Name="graphicsView"
+                                          Drawable="{StaticResource GraphicsDrawable}" />
+                        </gauge:BarPointer.Child>
+                    </gauge:BarPointer>
+                </gauge:SfLinearGauge.BarPointers>
+                <gauge:SfLinearGauge.MarkerPointers>
+                    <gauge:LinearShapePointer x:Name="waterLevelShapePointer"
+                                              ShapeType="Circle"
+                                              Position="Cross"
+                                              Value="150"
+                                              IsInteractive="True"
+                                              ValueChanged="waterLevelShapePointer_ValueChanged"
+                                              HasShadow="True"
+                                              Fill="#00a2ed"
+                                              ShapeHeight="32"
+                                              ShapeWidth="32" />
+                    <gauge:LinearContentPointer Value="{Binding Source={x:Reference waterLevelShapePointer},Path=Value}"
+                                                OffsetX="-125"
+                                                Alignment="Start">
+                        <gauge:LinearContentPointer.Content>
+                            <Label Text="150 ml"
+                                   x:Name="waterLevelLabel"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                   FontAttributes="Bold" />
+                        </gauge:LinearContentPointer.Content>
+                    </gauge:LinearContentPointer>
+                    <gauge:LinearContentPointer Value="{Binding Source={x:Reference waterLevelShapePointer},Path=Value}"
+                                                Position="Cross"
+                                                OffsetY="-5">
+                        <gauge:LinearContentPointer.Content>
+                            <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                   TextColor="White"
+                                   FontSize="18"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   Text="&#xe704;" />
+
+                        </gauge:LinearContentPointer.Content>
+                    </gauge:LinearContentPointer>
+                    <gauge:LinearContentPointer Value="{Binding Source={x:Reference waterLevelShapePointer},Path=Value}"
+                                                Position="Cross"
+                                                OffsetY="5">
+                        <gauge:LinearContentPointer.Content>
+                            <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                   TextColor="White"
+                                   FontSize="18"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   Text="&#xe705;" />
+
+                        </gauge:LinearContentPointer.Content>
+                    </gauge:LinearContentPointer>
+                </gauge:SfLinearGauge.MarkerPointers>
+
+            </gauge:SfLinearGauge>
+        </Grid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

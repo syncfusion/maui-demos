@@ -1,0 +1,45 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfScheduler.GettingStarted"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfScheduler"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <core:SfGlassEffectView CornerRadius="10">
+            <Grid>
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                        <On Platform="UWP" Value="-4,0,-6,0"/>
+                    </OnPlatform>
+                </Grid.Margin>
+                <schedule:SfScheduler x:Name="Scheduler" x:DataType="local:SchedulerGettingStartedViewModel"
+                                 AppointmentsSource="{Binding Events}"
+                                 MinimumDateTime="{Binding MinDateTime}"
+                                 MaximumDateTime="{Binding MaxDateTime}"
+                                 DisplayDate="{Binding DisplayDate}"
+                                 ShowDatePickerButton="True"
+                                 AllowViewNavigation="True"
+                                 AllowAppointmentDrag="False"
+                                 AllowedViews="Day,Week,WorkWeek,Month,Agenda"
+                                 View="Week" >
+                    <schedule:SfScheduler.HeaderView>
+                        <schedule:SchedulerHeaderView EnableLiquidGlassEffect="True" />
+                    </schedule:SfScheduler.HeaderView>
+                    <schedule:SfScheduler.MonthView>
+                        <schedule:SchedulerMonthView 
+                                 AppointmentDisplayMode="Text" />
+                    </schedule:SfScheduler.MonthView>
+                    <schedule:SfScheduler.DaysView>
+                        <schedule:SchedulerDaysView 
+                                 MinimumAppointmentDuration="0:30:0" />
+                    </schedule:SfScheduler.DaysView>
+                    <schedule:SfScheduler.BindingContext>
+                        <local:SchedulerGettingStartedViewModel/>
+                    </schedule:SfScheduler.BindingContext>
+                </schedule:SfScheduler>
+            </Grid>
+        </core:SfGlassEffectView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

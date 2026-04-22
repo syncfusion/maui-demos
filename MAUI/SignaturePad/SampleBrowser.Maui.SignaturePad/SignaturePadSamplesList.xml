@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Signature Pad">
+		<Control ControlName="SfSignaturePad"
+				 Title="Signature Pad"
+				 Image="signature_pad.png"
+				 Description="Captures the signature and save it as an image to sync across devices and documents.">
+			<Sample SampleName="GettingStarted"
+					Title="Getting started"
+					SearchTags="signaturepad,doodle,drawing"
+					Description="This sample showcases the default use case of signature pad."
+					CodeViewerPath="SignaturePad/GettingStarted/"
+					VideoLink="https://www.youtube.com/watch?v=gV2stNPCgYo"/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

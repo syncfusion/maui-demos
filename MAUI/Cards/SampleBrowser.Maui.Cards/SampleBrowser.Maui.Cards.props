@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\GettingStarted\View\CardView.xaml.cs">
+			<Link>Samples\Cards\GettingStarted\View\CardView.xaml.cs</Link>
+			<DependentUpon>CardView.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\View\CardManager.xaml.cs">
+			<Link>Samples\Cards\CardManager\View\CardManager.xaml.cs</Link>
+			<DependentUpon>CardManager.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\GettingStarted\Behavior\GettingStartedBehavior.cs">
+			<Link>Samples\Cards\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\Behavior\CardManagerBehavior.cs">
+			<Link>Samples\Cards\CardManager\Behavior\CardManagerBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\GettingStarted\ViewModel\ViewModel.cs">
+			<Link>Samples\Cards\GettingStarted\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\ViewModel\CardManagerViewModel.cs">
+			<Link>Samples\Cards\CardManager\ViewModel\CardManagerViewModel.cs</Link>
+		</Compile>
+
+	</ItemGroup>
+
+	<ItemGroup>
+
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\CardsSamplesList.xml" >
+			<Link>CardsSamplesList.xml</Link>
+		</EmbeddedResource>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Cards\GettingStarted\View\CardView.xaml">
+			<Link>Samples\Cards\GettingStarted\View\CardView.xaml</Link>
+		</MauiXaml>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Cards\CardManager\View\CardManager.xaml">
+			<Link>Samples\Cards\CardManager\View\CardManager.xaml</Link>
+		</MauiXaml>
+
+	</ItemGroup>
+</Project>

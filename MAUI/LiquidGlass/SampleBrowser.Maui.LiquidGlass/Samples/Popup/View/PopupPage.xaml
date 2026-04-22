@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfPopup.PopupPage"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             >
+<localCore:SampleView.Resources>
+        <Style TargetType="Label" x:Key="PopupHeaderLabelStyle">
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="CharacterSpacing" Value="0.15"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="PopupContentLabelStyle">
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="CharacterSpacing" Value="0.24"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+        </Style>
+
+</localCore:SampleView.Resources>
+    <Grid x:Name="mainLayout">
+        <core:SfGlassEffectView CornerRadius="25" HorizontalOptions="Center" VerticalOptions="Center"
+                                    WidthRequest="200"
+                                    HeightRequest="50"
+                                    EnableShadowEffect="True">
+            <button:SfButton Text="Show Popup" TextColor="{AppThemeBinding Light=Black, Dark=White}" Background="Transparent" HeightRequest="50" WidthRequest="200" CornerRadius="25" VerticalOptions="Center" HorizontalOptions="Center"
+            Clicked="ClickToShowPopup"/>
+        </core:SfGlassEffectView>
+        <popup:SfPopup x:Name="alertWithTitle" InputTransparent="True" EnableLiquidGlassEffect="True" ShowHeader="True" ShowFooter="True" AppearanceMode="TwoButton"
+                WidthRequest="312" HeightRequest="232" HeaderHeight="104" FooterHeight="88"
+                >
+            <popup:SfPopup.HeaderTemplate>
+                <DataTemplate>
+                    <Label Text="Do you want to block this contact?" Style="{StaticResource PopupHeaderLabelStyle}"
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                </DataTemplate>
+            </popup:SfPopup.HeaderTemplate>
+
+            <popup:SfPopup.ContentTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="Auto" Padding="24,0" >
+                        <Label Text="You will no longer receive calls or messages from this contact." LineBreakMode="WordWrap"
+                        Style="{StaticResource PopupContentLabelStyle}" HorizontalTextAlignment="Center" LineHeight="1.2"/>
+                    </Grid>
+                </DataTemplate>
+            </popup:SfPopup.ContentTemplate>
+
+        </popup:SfPopup>
+    </Grid>
+</localCore:SampleView>
