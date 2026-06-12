@@ -80,7 +80,7 @@ Platforms supported by each .NET MAUI control are listed below.
 	</td>
 	</tr>
 	<tr>
-		<td rowspan="10" valign="top">
+		<td rowspan="12" valign="top">
 			DATA VISUALIZATION<br/>
 		</td>
 		<td>
@@ -237,6 +237,23 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
+			<a href="https://help.syncfusion.com/maui/digitalgauge/overview">Digital Gauge</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<a href="https://help.syncfusion.com/maui/maps/overview">Maps</a><br/>
 		</td>
 		<td>
@@ -253,7 +270,24 @@ Platforms supported by each .NET MAUI control are listed below.
 		</td>
 	</tr>
 	<tr>
-	    <td rowspan="1" valign="top">
+		<td>
+			<a href="https://help.syncfusion.com/maui/treemap/overview">TreeMap</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+	    <td rowspan="5" valign="top">
 			NAVIGATION<br/>
 		</td>
 		<td>
@@ -272,8 +306,76 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/treeview/overview">Tree View</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/rotator/overview">Rotator</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+		<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/radial-menu/overview">Radial Menu</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+		<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/navigationdrawer/overview">Navigation Drawer</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
     <tr>
-	    <td rowspan="3" valign="top">
+	    <td rowspan="10" valign="top">
 			LAYOUT<br/>
 		</td>	
 		<td>
@@ -312,6 +414,125 @@ Platforms supported by each .NET MAUI control are listed below.
 		<tr>
 		<td>
 			<a href="https://help.syncfusion.com/maui/docklayout/overview">DockLayout</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+		<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/backdrop/overview">Backdrop</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/popup/overview">Popup</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/textinputlayout/overview">Text Input Layout</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/expander/overview">Expander</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/accordion/overview">Accordion</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/carousel-view/overview">Carousel</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/cards/overview">Cards</a><br/>
 		</td>
 		<td>
 		Yes<br/>
@@ -432,7 +653,7 @@ Platforms supported by each .NET MAUI control are listed below.
 		</td>
 	</tr>
 	<tr>
-	    <td rowspan="3" valign="top">
+	    <td rowspan="14" valign="top">
 		EDITORS<br/>
 		</td>
 		<td>
@@ -485,9 +706,196 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 	</tr>
+		<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/dataform/overview">Dataform</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/datepicker/overview">Date Picker</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/datetimepicker/overview">Date Time Picker</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/masked-entry/overview">Masked Entry</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/numericentry/overview">Numeric Entry</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/picker/overview">Picker</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/rating/overview">Rating</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/imageeditor/overview">Image Editor</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/timepicker/overview">Time Picker</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/colorpicker/overview">Color Picker</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/rich-text-editor/overview">Rich Text Editor</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
     <tr>
-	    <td rowspan="1" valign="top">
-		CALENDAR<br/>
+	    <td rowspan="2" valign="top">
+		CALENDARS<br/>
 		</td>
 		<td>
 			<a href="https://help.syncfusion.com/maui/scheduler/overview">Scheduler</a><br/>
@@ -504,9 +912,26 @@ Platforms supported by each .NET MAUI control are listed below.
 		<td>
 		Yes<br/>
 		</td>
-	</tr>	
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/calendar/overview">Calendar</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
     <tr>
-	    <td rowspan="4" valign="top">
+	    <td rowspan="6" valign="top">
 		NOTIFICATION<br/>
 		</td>
 		<td>
@@ -561,6 +986,23 @@ Platforms supported by each .NET MAUI control are listed below.
 	</tr>
 	<tr>
 		<td>
+			<a href="https://help.syncfusion.com/maui/stepprogressbar/overview">Step Progress Bar</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<a href="https://help.syncfusion.com/maui/linearprogressbar/overview">Linear Progress Bar</a><br/>
 		</td>
 		<td>
@@ -576,7 +1018,24 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 	</tr>
-	    <tr>  
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/pull-to-refresh/overview">Pull to Refresh</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>  
 	    <td rowspan="1" valign="top">
 	    VIEWER<br/>
 		</td>
@@ -597,7 +1056,7 @@ Platforms supported by each .NET MAUI control are listed below.
 		</td>
 	</tr>
     <tr>  
-	    <td rowspan="2" valign="top">
+	    <td rowspan="3" valign="top">
 	    MISCELLANEOUS<br/>
 		</td>
 		<td>
@@ -633,12 +1092,191 @@ Platforms supported by each .NET MAUI control are listed below.
 		Yes<br/>
 		</td>
 	</tr>
-        <tr>  
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/shimmer/overview">Shimmer</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+    <tr>  
 	    <td rowspan="1" valign="top">
 	    PROJECT MANAGEMENT<br/>
 		</td>
 		<td>
 			<a href="https://help.syncfusion.com/maui/kanban-board/overview">Kanban</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>  
+	    <td rowspan="1" valign="top">
+	    TOOLBAR<br/>
+		</td>
+		<td>
+			<a href="https://help.syncfusion.com/maui/toolbar/overview">Toolbar</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	    <tr>  
+	    <td rowspan="6" valign="top">
+	    BUTTONS<br/>
+		</td>
+		<td>
+			<a href="https://help.syncfusion.com/maui/button/overview">Button</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/checkbox/overview">Check Box</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/chips/overview">Chips</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/radio-button/overview">Radio Button</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/segmented-control/overview">Segmented Control</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/switch/overview">Switch</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>  
+	    <td rowspan="2" valign="top">
+	    CONVERSATIONAL UI<br/>
+		</td>
+		<td>
+			<a href="https://help.syncfusion.com/maui/chat/overview">Chat</a><br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+		<td>
+		Yes<br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://help.syncfusion.com/maui/aiassistview/overview">AI AssistView</a><br/>
 		</td>
 		<td>
 		Yes<br/>
