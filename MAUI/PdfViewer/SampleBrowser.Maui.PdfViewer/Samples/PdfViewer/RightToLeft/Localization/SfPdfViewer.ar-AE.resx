@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Outline" xml:space="preserve">
+    <value>فهرس</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>يلغي</value>
+  </data>
+  <data name="CanOpenWebPage" xml:space="preserve">
+    <value>هل ترغب في فتح</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>فتح</value>
+  </data>
+  <data name="OpenWebPage" xml:space="preserve">
+    <value>فتح صفحة ويب</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>غلق</value>
+  </data>
+  <data name="DocumentLoadFailed" xml:space="preserve">
+    <value>PDF فشل تحميل مستند الـ</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="NoOutline" xml:space="preserve">
+    <value>لا يوجد مخطط</value>
+  </data>
+  <data name="RequestPassword" xml:space="preserve">
+    <value>هذا الملف محمي. يرجى إدخال كلمة المرور لفتحه</value>
+  </data>
+  <data name="PasswordErrorHint" xml:space="preserve">
+    <value>تحقق من كلمة المرور</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>أدخل كلمة المرور</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>نسخ</value>
+  </data>
+  <data name="Highlight" xml:space="preserve">
+    <value>تسليط الضوء</value>
+  </data>
+  <data name="Squiggly" xml:space="preserve">
+    <value>متعرج</value>
+  </data>
+  <data name="Strikeout" xml:space="preserve">
+    <value>شطب</value>
+  </data>
+  <data name="Underline" xml:space="preserve">
+    <value>تسطير</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="StickyNoteEditorPlaceholder" xml:space="preserve">
+    <value>اكتب ملاحظتك...</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="FreeTextEditorPlaceHolder" xml:space="preserve">
+    <value>نص...</value>
+  </data>
+  <data name="NoBookmarks" xml:space="preserve">
+    <value>لا توجد علامات مرجعية</value>
+  </data>
+  <data name="ContinuousPage" xml:space="preserve">
+    <value>صفحة مستمرة</value>
+  </data>
+  <data name="PageByPage" xml:space="preserve">
+    <value>صفحة تلو الأخرى</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>إعادة تسمية</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>وضع</value>
+  </data>
+  <data name="Arrow" xml:space="preserve">
+    <value>سهم</value>
+  </data>
+  <data name="Bookmarks" xml:space="preserve">
+    <value>العلامات المرجعية</value>
+  </data>
+  <data name="Circle" xml:space="preserve">
+    <value>دائرة</value>
+  </data>
+  <data name="Cloud" xml:space="preserve">
+    <value>سحابة</value>
+  </data>
+  <data name="CreateStamps" xml:space="preserve">
+    <value>إنشاء الطوابع</value>
+  </data>
+  <data name="CustomStamps" xml:space="preserve">
+    <value>الطوابع المخصصة</value>
+  </data>
+  <data name="DragAndDropImage" xml:space="preserve">
+    <value>اسحب وأفلت صورة هنا</value>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>إدخال</value>
+  </data>
+  <data name="FitToPage" xml:space="preserve">
+    <value>صفحة مناسبة</value>
+  </data>
+  <data name="FitToWidth" xml:space="preserve">
+    <value>عرض مناسب</value>
+  </data>
+  <data name="GoToPage" xml:space="preserve">
+    <value>انتقل إلى الصفحة</value>
+  </data>
+  <data name="Insert" xml:space="preserve">
+    <value>أدخل</value>
+  </data>
+  <data name="Line" xml:space="preserve">
+    <value>خط</value>
+  </data>
+  <data name="MatchCase" xml:space="preserve">
+    <value>مطابقة حالة الحرف</value>
+  </data>
+  <data name="NoMatchesWereFoundToastMessage" xml:space="preserve">
+    <value>لم يتم العثور على نتائج</value>
+  </data>
+  <data name="Polygon" xml:space="preserve">
+    <value>مضلع</value>
+  </data>
+  <data name="Polyline" xml:space="preserve">
+    <value>خط متعدد</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>ابحث في المستند</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>مربع</value>
+  </data>
+  <data name="StandardStamps" xml:space="preserve">
+    <value>الطوابع القياسية</value>
+  </data>
+  <data name="Stroke" xml:space="preserve">
+    <value>خط</value>
+  </data>
+  <data name="UploadImage" xml:space="preserve">
+    <value>تحميل صورة</value>
+  </data>
+  <data name="AddSignature" xml:space="preserve">
+    <value>إضافة توقيع</value>
+  </data>
+  <data name="AddFreeTextToastMessage" xml:space="preserve">
+    <value>اضغط لإضافة نص حر</value>
+  </data>
+  <data name="AddStickyNoteToastMessage" xml:space="preserve">
+    <value>اضغط لإضافة ملاحظة لاصقة</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>نظف</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>اللون</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>يخلق</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>ارسم توقيعك</value>
+  </data>
+  <data name="SaveSignature" xml:space="preserve">
+    <value>حفظ التوقيع</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>توقيع</value>
+  </data>
+  <data name="TypeSignaturePlaceHolder" xml:space="preserve">
+    <value>اكتب توقيعك</value>
+  </data>
+  <data name="CreateSignature" xml:space="preserve">
+    <value>إنشاء توقيع</value>
+  </data>
+  <data name="FitToHeight" xml:space="preserve">
+    <value>الارتفاع المناسب</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>اكتب</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>رفع</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>الحدود</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>تعليق</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>ملء</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>مساعدة</value>
+  </data>
+  <data name="InvalidPageNumber" xml:space="preserve">
+    <value>رقم صفحة غير صالح</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>مفتاح</value>
+  </data>
+  <data name="NewParagraph" xml:space="preserve">
+    <value>فقرة جديدة</value>
+  </data>
+  <data name="NoColor" xml:space="preserve">
+    <value>لا يوجد لون</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>ملاحظة</value>
+  </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>التعتيم</value>
+  </data>
+  <data name="PageNumberHint" xml:space="preserve">
+    <value>أدخل رقم الصفحة هنا</value>
+  </data>
+  <data name="Paragraph" xml:space="preserve">
+    <value>فقرة</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>نص</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>سماكة</value>
+  </data>
+  <data name="Annotations" xml:space="preserve">
+    <value>التعليقات</value>
+  </data>
+  <data name="ColorPicker" xml:space="preserve">
+    <value>اختيار اللون</value>
+  </data>
+  <data name="FreeText" xml:space="preserve">
+    <value>نص حر</value>
+  </data>
+  <data name="Ink" xml:space="preserve">
+    <value>حبر</value>
+  </data>
+  <data name="InkEraser" xml:space="preserve">
+    <value>ممحاة حبر</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>الصفحة التالية</value>
+  </data>
+  <data name="NoMoreMatchesWereFoundToastMessage" xml:space="preserve">
+    <value>لم يتم العثور على المزيد من النتائج</value>
+  </data>
+  <data name="PageCount" xml:space="preserve">
+    <value>عدد الصفحات</value>
+  </data>
+  <data name="PageLayoutMode" xml:space="preserve">
+    <value>وضع تخطيط الصفحة</value>
+  </data>
+  <data name="PageNumberEntry" xml:space="preserve">
+    <value>حقل رقم الصفحة</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>الصفحة السابقة</value>
+  </data>
+  <data name="Redo" xml:space="preserve">
+    <value>إعادة</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>يبحث</value>
+  </data>
+  <data name="Shapes" xml:space="preserve">
+    <value>الأشكال</value>
+  </data>
+  <data name="Stamps" xml:space="preserve">
+    <value>الطوابع</value>
+  </data>
+  <data name="StickyNote" xml:space="preserve">
+    <value>ملاحظة لاصقة</value>
+  </data>
+  <data name="StickyNoteIcons" xml:space="preserve">
+    <value>أيقونات الملاحظات اللاصقة</value>
+  </data>
+  <data name="TextMarkups" xml:space="preserve">
+    <value>تمييز النصوص</value>
+  </data>
+  <data name="Undo" xml:space="preserve">
+    <value>تراجع</value>
+  </data>
+  <data name="ZoomMode" xml:space="preserve">
+    <value>وضع التكبير</value>
+  </data>
+  <data name="AddHighlightToastMessage" xml:space="preserve">
+    <value>اسحب فوق النص لتحديده</value>
+  </data>
+  <data name="AddSignatureToastMessage" xml:space="preserve">
+    <value>اضغط لإضافة التوقيع</value>
+  </data>
+  <data name="AddSquigglyToastMessage" xml:space="preserve">
+    <value>اسحب فوق النص لإضافة خط تحت متعرج</value>
+  </data>
+  <data name="AddStampToastMessage" xml:space="preserve">
+    <value>اضغط لإضافة الختم</value>
+  </data>
+  <data name="AddStickyNoteToastMessage1" xml:space="preserve">
+    <value>انقر لإضافة ملاحظة لاصقة</value>
+  </data>
+  <data name="AddStrikeoutToastMessage" xml:space="preserve">
+    <value>اسحب فوق النص لشطبه</value>
+  </data>
+  <data name="AddUnderlineToastMessage" xml:space="preserve">
+    <value>اسحب فوق النص لتسطيره</value>
+  </data>
+  <data name="DrawArrowToastMessage" xml:space="preserve">
+    <value>اسحب لرسم سهم</value>
+  </data>
+  <data name="DrawCircleToastMessage" xml:space="preserve">
+    <value>اسحب لرسم دائرة</value>
+  </data>
+  <data name="DrawCloudToastMessage" xml:space="preserve">
+    <value>اضغط لبدء رسم سحابة</value>
+  </data>
+  <data name="DrawInkToastMessage" xml:space="preserve">
+    <value>اسحب لرسم حبر</value>
+  </data>
+  <data name="DrawLineToastMessage" xml:space="preserve">
+    <value>اسحب لرسم خط</value>
+  </data>
+  <data name="DrawPolygonToastMessage" xml:space="preserve">
+    <value>اضغط لبدء رسم مضلع</value>
+  </data>
+  <data name="DrawPolylineToastMessage" xml:space="preserve">
+    <value>اضغط لبدء رسم خط متعدد</value>
+  </data>
+  <data name="DrawSquareToastMessage" xml:space="preserve">
+    <value>اسحب لرسم مربع</value>
+  </data>
+  <data name="EraseInkToastMessage" xml:space="preserve">
+    <value>اسحب فوق الحبر لمسحه</value>
+  </data>
+  <data name="MoreItems" xml:space="preserve">
+    <value>المزيد من العناصر</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>العودة</value>
+  </data>
+  <data name="FontSize" xml:space="preserve">
+    <value>حجم الخط</value>
+  </data>
+  <data name="TextColor" xml:space="preserve">
+    <value>لون النص</value>
+  </data>
+  <data name="TextFillColor" xml:space="preserve">
+    <value>لون تعبئة النص</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="AddBookmark" xml:space="preserve">
+    <value>إضافة إشارة مرجعية</value>
+  </data>
+</root>

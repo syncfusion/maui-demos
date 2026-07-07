@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.AIAssistView.SfAIAssistView.GettingStarted"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:aiAssist="clr-namespace:Syncfusion.Maui.AIAssistView;assembly=Syncfusion.Maui.AIAssistView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.AIAssistView.SfAIAssistView"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      x:Name="sampleView">
+    <localCore:SampleView.BindingContext>
+    <local:GettingStartedViewModel x:Name="viewModel"/>
+     </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+            <DataTemplate x:Key="headerTemplate">
+                <Border BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource SampleBrowserBackground}}"
+                    WidthRequest="{OnPlatform WinUI=240, MacCatalyst=240}" Margin="0,0,2,2"
+                    HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}">
+                    <Border.Shadow>
+                        <Shadow Offset="0.5,1.5" 
+                                Radius="1.5" 
+                                Brush="#4d000000">
+                        </Shadow>
+                    </Border.Shadow>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8"/>
+                    </Border.StrokeShape>
+                    <Grid RowDefinitions="52, *">
+                        <Grid ColumnDefinitions="24, *" ColumnSpacing="12" VerticalOptions="Center" Padding="16">
+                                <Image HeightRequest="24"
+                                        WidthRequest="24"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center">
+                                        <Image.Source>
+                                            <FontImageSource Glyph="&#xe7e1;"
+                                                            Color="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                                                            Size="22"
+                                                            FontFamily="MauiSampleFontIcon"/>
+                                        </Image.Source>
+                                </Image>
+                            <Label x:Name="label" Grid.Column="1"
+                                    Text="{Binding SuggestionDescription}"
+                                    FontFamily="Roboto-Regular"
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    VerticalOptions="Center"
+                                    CharacterSpacing="0.25"
+                                    TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"/>
+                    </Grid>
+                    <Label Text="{Binding Text}"
+                                FontFamily="Roboto-Regular"
+                                FontSize="14" Grid.Row="1"
+                                Padding="16,0,16,16"  
+                                LineBreakMode="WordWrap"
+                                MaxLines="3"
+                                CharacterSpacing="0.25"
+                                LineHeight="1.2"
+                                TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"/>    
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Border x:Name="border"
+                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}"
+                StrokeThickness="{OnPlatform Default=0,MacCatalyst=1,WinUI=1}"  
+                MaximumWidthRequest="{OnPlatform WinUI=1300, MacCatalyst=1300}"
+                HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}"
+                Margin="{OnPlatform WinUI=50, MacCatalyst=50, Default=0}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+         
+            <Grid Padding="0,16,0,0">
+                <aiAssist:SfAIAssistView x:Name="sfAIAssistView"
+                                 EnableConversationHistory="False"
+                                 ShowToolbar="False"
+                                 ShowActionButtons="False"
+                                 ShowScrollToBottomButton="True"
+                                 StopRespondingCommand="{Binding StopRespondingCommand}"
+                                 Suggestions="{Binding HeaderInfoCollection}"
+                                 SuggestionTemplate="{StaticResource headerTemplate}"
+                                 SuggestionItemSelectedCommand="{Binding HeaderItemTappedCommand}"
+                                 AssistItems="{Binding Messages}" 
+                                 ItemCopyCommand="{Binding CopyCommand}" 
+                                 RequestCommand="{Binding AssistViewRequestCommand}"
+                                 ItemRetryCommand="{Binding RetryCommand}"
+                                 DisclaimerText="AI-generated content may be inaccurate or incomplete."
+                                 AllowEditorExpansion="True">
+                </aiAssist:SfAIAssistView>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfChat.ChatGettingStarted"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass"
+             xmlns:sfchat="clr-namespace:Syncfusion.Maui.Chat;assembly=Syncfusion.Maui.Chat"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"  
+             xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:syncTheme="clr-namespace:Syncfusion.Maui.Themes;assembly=Syncfusion.Maui.Core"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.BindingContext>
+        <local:GettingStartedViewModel x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <core:SfGlassEffectView CornerRadius="50" EffectType="Regular" Margin="{OnPlatform MacCatalyst=50, WinUI=20, Default=20}" 
+                VerticalOptions = "{OnPlatform MacCatalyst=Center}"
+                 HorizontalOptions = "{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}"
+                 HeightRequest ="{OnPlatform MacCatalyst=700}">
+
+            <sfchat:SfChat x:Name="sfChat"  
+                       Messages="{Binding Messages}"  
+                       CurrentUser="{Binding CurrentUser}"  
+                       TypingIndicator="{Binding TypingIndicator}"  
+                       ShowTypingIndicator="{Binding ShowTypingIndicator}"  
+                       ShowTimeBreak="True"   
+                       StickyTimeBreak="False"  
+                       ShowDeliveryState="True"  
+                       ShowScrollToBottomButton="True"
+                       SendMessageCommand="{Binding SendMessageCommand}"
+                       EnableLiquidGlassEffect="True"
+                       Background="Transparent">
+                <sfchat:SfChat.ScrollToBottomButtonTemplate>
+                    <DataTemplate>
+                        <badge:SfBadgeView x:Name="ScrollDown" 
+                                       Margin="2"
+                                       VerticalOptions="End" 
+                                       HorizontalOptions="End"
+                                       IsVisible="{Binding IsBadgeViewVisible}"
+                                       BadgeText="{Binding MessageCount}">
+                            <badge:SfBadgeView.BadgeSettings>
+                                <badge:BadgeSettings Animation="None" Position="Left" FontSize="10" Offset="28, 5"  
+                                                 FontAttributes="Bold" BadgeAlignment="Start"/>
+                            </badge:SfBadgeView.BadgeSettings>
+                            <badge:SfBadgeView.Content>
+                                <Grid WidthRequest="60" HeightRequest="60">
+                                    <Border HeightRequest="40" 
+                                        WidthRequest="40" 
+                                        Background="{AppThemeBinding Light=#FFFBFE,Dark=#302D38}" 
+                                        Stroke="Transparent" 
+                                        HorizontalOptions="End"
+                                        VerticalOptions="End">
+                                        <Border.Shadow>
+                                            <Shadow Offset="0,1" Radius="2"  
+                                                Brush="#4d000000"/>
+                                        </Border.Shadow>
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="20"/>
+                                        </Border.StrokeShape>
+                                        <Label Text="&#xe7D1;" TextColor="{AppThemeBinding Light=#49454F,Dark=#CAC4D0}"  
+                                           FontSize="20" Margin="0,3,0,0"   
+                                           HorizontalOptions="Center" VerticalOptions="Center"   
+                                           FontFamily="MauiSampleFontIcon"/>
+                                    </Border>
+                                </Grid>
+                            </badge:SfBadgeView.Content>
+                        </badge:SfBadgeView>
+                    </DataTemplate>
+                </sfchat:SfChat.ScrollToBottomButtonTemplate>
+
+            </sfchat:SfChat>
+        </core:SfGlassEffectView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

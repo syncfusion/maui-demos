@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:SearchView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:DataType="local:SearchView"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.SearchViewDesktop"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"
+             xmlns:checkBox="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core">
+
+    <local:SearchView.Resources>
+        <Style x:Key="buttonIconStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="MauiMaterialAssets"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#99000000}"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#14000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </local:SearchView.Resources>
+    <Border 
+        BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource TileHeaderBackground},Default=#F7F2FB}"
+        Stroke="Transparent"
+        StrokeShape="RoundRectangle 16" 
+        StrokeThickness="1"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Border.Shadow>
+            <Shadow Brush="#000000"
+			     Offset="0,0"
+			     Radius="16"
+			     Opacity="0.30"/>
+        </Border.Shadow>
+        <Grid Padding="24" HorizontalOptions="Center"
+        VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" HeightRequest="40">
+                <Label 
+                Text="Find" 
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                FontSize="24"/>
+                <Button 
+                    Text="&#xe70b;" HorizontalOptions="End"
+                    FontSize="24"
+					WidthRequest="40"
+                    HeightRequest="40"
+                    ToolTipProperties.Text="Click to close the search"
+                    Style="{StaticResource buttonIconStyle}"
+                    Command="{Binding CloseCommand}"
+                    Padding="2"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,16,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <inputLayout:SfTextInputLayout 
+                    WidthRequest="297" HeightRequest="40"
+                    Grid.Row="0" Grid.Column="0"
+                    ShowHint="False"
+                    ContainerBackground="transparent"
+                    ContainerType="Outlined"
+                    ReserveSpaceForAssistiveLabels="False"
+                    InputViewPadding="8,0,0,0"
+                    FocusedStrokeThickness="2"
+					UnfocusedStrokeThickness="1">
+
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource BorderAlt2}, Dark={StaticResource BorderAlt1},Default=#49454f}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState Name="Focused">
+                                    <VisualState.Setters>
+                                        <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackground},Default=#6750A4}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                    <local:CustomEntry
+                    x:Name="TextInput" 
+                    TextColor="#49454F"
+                    TextChanged="TextInput_TextChanged"/>
+                    <inputLayout:SfTextInputLayout.TrailingView>
+                        <HorizontalStackLayout  Margin="0,-2,-6,0"
+                            WidthRequest="74">
+                            <Button Margin="0,0,4,0"
+                                    x:Name="ClearButton"
+                                Text="&#xe70b;" 
+                                Style="{StaticResource buttonIconStyle}"
+                                Command="{Binding ClearTextCommand}"
+                                VerticalOptions="Center"
+                                WidthRequest="32"
+                                HeightRequest="32"
+                                Padding="2"
+                                FontSize="18"/>
+                            <Rectangle 
+                                Fill="#CAC4D0" HeightRequest="24" WidthRequest="2"/>
+                            <Grid VerticalOptions="Center" Margin="4,0,0,0">
+                                <Button 
+                                    x:Name="SearchButton"
+                                    Text="&#xe715;"
+                                    Style="{StaticResource buttonIconStyle}"
+                                    Command="{Binding SearchCommand}"
+                                    ToolTipProperties.Text="Click to search the text"
+                                    VerticalOptions="Center"
+                                    FontSize="18"
+                                    WidthRequest="32"
+                                    HeightRequest="32"
+                                    Padding="2"/>
+                                <ActivityIndicator 
+                                    BackgroundColor="#FFFBFE" 
+                                    Color="#6750A4"
+                                    IsVisible="False"
+                                    x:Name="BusyIndicator"
+                                    HeightRequest="16"
+                                    WidthRequest="16"/>
+                            </Grid>
+                        </HorizontalStackLayout>
+                    </inputLayout:SfTextInputLayout.TrailingView>
+                </inputLayout:SfTextInputLayout>
+                <HorizontalStackLayout 
+                    Grid.Row="0" Margin="4,0,0,0"
+                    HeightRequest="40"
+                    Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                    <Button 
+                        Text="&#xe707;"
+                        HeightRequest="40"
+						WidthRequest="40"
+                        FontSize="24"
+                        ToolTipProperties.Text="Click to go to previous result"
+                        Style="{StaticResource buttonIconStyle}"
+                        Command="{Binding GoToPreviousMatchCommand}"/>
+                    <Button 
+                        Text="&#xe706;"
+                        HeightRequest="40"
+						WidthRequest="40"
+                        FontSize="24"
+                        ToolTipProperties.Text="Click to go to next result"
+                        Style="{StaticResource buttonIconStyle}"
+                        Command="{Binding GoToNextMatchCommand}"/>
+                </HorizontalStackLayout>
+                <Label 
+                    Text="0 / 0" FontSize="12"
+                    x:Name="StatusLabel"
+                    Grid.Row="1" Grid.Column="0"
+                    TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"
+                    IsVisible="False"
+                    HorizontalOptions="End" VerticalOptions="Center" Margin="0,4,0,4"/>
+            </Grid>
+            <HorizontalStackLayout Margin="0,4,0,0" Grid.Row="2">
+                <checkBox:SfCheckBox 
+                   x:Name="MatchCaseCheckBox" 
+                   Margin="{OnPlatform WinUI='-9,-5,-2,-5', MacCatalyst='-12,0,-1,0'}"
+                   IsChecked="{Binding IsMatchCase}"
+                   CornerRadius="2.0"
+                   CheckedColor="{AppThemeBinding Light={StaticResource PrimaryBackground}, Dark={StaticResource PrimaryBackground},Default=#6750A4}"
+                   UncheckedColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"/>
+                <Label Text="Match Case" VerticalOptions="Center" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </Border>
+</local:SearchView>

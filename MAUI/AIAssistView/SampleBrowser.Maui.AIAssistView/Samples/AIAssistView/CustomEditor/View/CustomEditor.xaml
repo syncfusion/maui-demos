@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.AIAssistView.SfAIAssistView.CustomEditor"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:aiAssist="clr-namespace:Syncfusion.Maui.AIAssistView;assembly=Syncfusion.Maui.AIAssistView"
+                      xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.AIAssistView.SfAIAssistView"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      x:Name="sampleView">
+
+    <localCore:SampleView.BindingContext>
+        <local:GettingStartedViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Behaviors>
+        <local:EnterKeyToSendBehavior/>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="editorViewTemplate">
+                <Grid RowDefinitions="60" Margin="16,8,16,24" >
+                    <Border StrokeThickness="1" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" HeightRequest="60"  
+                                Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="28" />
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="42,*,42" Padding="12,8" >
+                            <aiAssist:RequestEditorView x:Name="editor" Grid.Column="1"
+                                                     Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                                     Placeholder="Ask AI Anything"
+                                                     PlaceholderColor="{AppThemeBinding Dark={StaticResource PlaceholderTextColour},Light={StaticResource PlaceholderTextColourLight}}"
+                                                     AutoSize="TextChanges"
+                                                     MaximumHeightRequest="56"
+                                                     Margin="0,3,0,0"
+                                                     VerticalOptions="Center"
+                                                     TextColor="{AppThemeBinding Dark={StaticResource TextColourAlt1},Light={StaticResource TextColourAlt1Light}}"
+                                                     Text="{Binding Source={x:Reference sfAIAssistView}, Path=BindingContext.InputText}">
+                                <aiAssist:RequestEditorView.Behaviors>
+                                    <local:EditorTextChangedBehavior/>
+                                </aiAssist:RequestEditorView.Behaviors>
+                            </aiAssist:RequestEditorView>
+                            <Border x:Name="attachmentButton" Stroke="Transparent"
+                                        Grid.Column="0"
+                                        HeightRequest="42" WidthRequest="42">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="21"/>
+                                    </Border.StrokeShape>
+                                    <local:SfEffectsViewAdv HighlightBackground="{AppThemeBinding Light=#000000,Dark=#FFFFFF}"
+                                                            RippleBackground="{AppThemeBinding Light=#000000,Dark=#FFFFFF}">
+                                        <local:SfEffectsViewAdv.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding AttachmentButtonCommand}" CommandParameter="{x:Reference attachmentButton}"/>
+                                        </local:SfEffectsViewAdv.GestureRecognizers>
+                                        <Grid>
+                                            <Label Text="&#xe771;" FontFamily="MauiSampleFontIcon" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{AppThemeBinding Dark=#CAC4D0,Light=#49454F}" />
+                                        </Grid>
+                                    </local:SfEffectsViewAdv >
+                                </Border>
+                                
+                                <Border x:Name="sendButton" 
+                                        Stroke="Transparent"
+                                        Grid.Column="2"
+                                        IsEnabled="{Binding EnableSendIcon}"
+                                        HeightRequest="42" 
+                                        WidthRequest="42"
+                                        Scale="1"
+                                        Rotation="0">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="21"/>
+                                    </Border.StrokeShape>
+                                    <local:SfEffectsViewAdv HighlightBackground="{AppThemeBinding Light=#000000,Dark=#FFFFFF}"
+                                                            RippleBackground="{AppThemeBinding Light=#000000,Dark=#FFFFFF}">
+                                        <local:SfEffectsViewAdv.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SendButtonCommand}"/>
+                                        </local:SfEffectsViewAdv.GestureRecognizers>
+                                        <Grid WidthRequest="42" HeightRequest="42">
+                                            <Label x:Name="sendIcon" Text="&#xE76F;" FontFamily="MauiSampleFontIcon" FontSize="20"
+                                                   HorizontalTextAlignment="Center" 
+                                                   VerticalTextAlignment="Center" Padding="5,0,0,0"
+                                                   HeightRequest="42" WidthRequest="42" >
+                                                <Label.Triggers>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding EnableSendIcon}" Value="False">
+                                                        <Setter Property="TextColor" Value="{AppThemeBinding Light=#611c1b1f, Dark=#61e6e1e5}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding EnableSendIcon}" Value="True">
+                                                        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource IconColourPressedLight}, Dark={StaticResource IconColourPressed}}"/>
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+                                        </Grid>
+                                    </local:SfEffectsViewAdv >
+                                </Border>
+                            </Grid>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Border x:Name="border"
+            Padding="0"
+            Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+            Stroke="{AppThemeBinding Light={StaticResource BorderLight},Dark={StaticResource Border}}"
+            StrokeThickness="{OnPlatform Default=0,MacCatalyst=1,WinUI=1}"  
+            WidthRequest="{OnPlatform WinUI=650, MacCatalyst=670}"
+            HorizontalOptions="{OnPlatform WinUI=Center, MacCatalyst=Center, Default=Fill}"
+            Margin="{OnPlatform WinUI=50, MacCatalyst=50, Default=0}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <Grid>
+                <popup:SfPopup
+                       AutoSizeMode="Both"
+                       RelativeView="{Binding AttachmentBorder}"
+                       RelativePosition="AlignTop"
+                       ShowHeader="False"
+                       IsOpen="{Binding IsAttachmentPopupOpen}">
+                    <popup:SfPopup.PopupStyle>
+                        <popup:PopupStyle CornerRadius="10"
+                                          HasShadow="True"
+                                          OverlayColor="Transparent" />
+                    </popup:SfPopup.PopupStyle>
+                    <popup:SfPopup.ContentTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="30,Auto"
+                                  ColumnSpacing="5"
+                                  Padding="10"
+                                  HeightRequest="45"
+                                  WidthRequest="220"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Background="{AppThemeBinding Light={StaticResource TileBackgroundLight}, Dark={StaticResource TileBackground}}">
+                                <Label Text="&#xe787;"
+                                       FontFamily="MauiSampleFontIcon"
+                                       FontSize="20"
+                                       Grid.Column="0"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       TextColor="{AppThemeBinding Dark={StaticResource TextColourAlt1},Light={StaticResource TextColourAlt1Light}}" />
+                                <Label Text="Upload from device"
+                                        Grid.Column="1"
+                                        FontSize="16"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center"
+                                        TextColor="{AppThemeBinding Dark={StaticResource TextColour},Light={StaticResource TextColourLight}}"
+                                        CharacterSpacing="0.15"
+                                        FontFamily="Roboto-Regular" />
+                            </Grid>
+                        </DataTemplate>
+                    </popup:SfPopup.ContentTemplate>
+                </popup:SfPopup>
+            
+                <aiAssist:SfAIAssistView x:Name="sfAIAssistView"
+                                            EnableConversationHistory="False"
+                                            EnableTemporaryChat="False"
+                                            ShowToolbar="True"
+                                            InputText="{Binding InputText}"
+                                            Suggestions="{Binding Suggestions}"
+                                            SuggestionItemSelectedCommand="{Binding ChipCommand}"
+                                            StopRespondingCommand="{Binding StopRespondingCommand}"
+                                            EditorViewTemplate="{StaticResource editorViewTemplate}"
+                                            AssistItems="{Binding Messages}"
+                                            ItemCopyCommand="{Binding CopyCommand}"
+                                            ItemRetryCommand="{Binding RetryCommand}"/>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

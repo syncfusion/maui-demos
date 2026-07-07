@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.SleepTracker"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+        <Grid HorizontalOptions="Center"
+              VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <gauge:SfRadialGauge x:Name="sleepTracker" MinimumHeightRequest="350" MinimumWidthRequest="350">
+                <gauge:SfRadialGauge.Axes>
+                    <gauge:RadialAxis x:Name="radialAxis"
+                                      StartAngle="270"
+                                      EndAngle="270"
+                                      Minimum="0"
+                                      Maximum="24"
+                                      Interval="6"
+                                      MinorTicksPerInterval="5"
+                                      ShowFirstLabel="False">
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Fill="{AppThemeBinding Default={StaticResource ContentBackgroundAlt5}}">
+                                <gauge:RadialLineStyle.ThicknessUnit>
+                                    <OnPlatform x:TypeArguments="gauge:SizeUnit">
+                                        <On Platform="Android, UWP"
+                                            Value="Factor" />
+                                        <On Platform="iOS, MacCatalyst">
+                                            <OnIdiom x:TypeArguments="gauge:SizeUnit"
+                                                     Phone="Factor"
+                                                     Tablet="Pixel"
+                                                     Desktop="Pixel" />
+                                        </On>
+                                    </OnPlatform>
+                                </gauge:RadialLineStyle.ThicknessUnit>
+                                <gauge:RadialLineStyle.Thickness>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android, UWP"
+                                            Value="0.03" />
+                                        <On Platform="iOS, MacCatalyst">
+                                            <OnIdiom x:TypeArguments="x:Double"
+                                                     Phone="0.03"
+                                                     Tablet="7"
+                                                     Desktop="7" />
+                                        </On>
+                                    </OnPlatform>
+                                </gauge:RadialLineStyle.Thickness>
+                            </gauge:RadialLineStyle>
+                        </gauge:RadialAxis.AxisLineStyle>
+
+                        <gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialTickStyle StrokeThickness="2" />
+                        </gauge:RadialAxis.MajorTickStyle>
+
+                        <gauge:RadialAxis.Ranges>
+                            <gauge:RadialRange x:Name="range"
+                                               StartValue="20" Fill="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
+                                               EndValue="6">
+                                <gauge:RadialRange.WidthUnit>
+                                    <OnPlatform x:TypeArguments="gauge:SizeUnit">
+                                        <On Platform="Android, UWP"
+                                            Value="Factor" />
+                                        <On Platform="iOS, MacCatalyst">
+                                            <OnIdiom x:TypeArguments="gauge:SizeUnit"
+                                                     Phone="Factor"
+                                                     Tablet="Pixel"
+                                                     Desktop="Pixel" />
+                                        </On>
+                                    </OnPlatform>
+                                </gauge:RadialRange.WidthUnit>
+                                <gauge:RadialRange.StartWidth>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android, UWP"
+                                            Value="0.03" />
+                                        <On Platform="iOS, MacCatalyst">
+                                            <OnIdiom x:TypeArguments="x:Double"
+                                                     Phone="0.03"
+                                                     Tablet="7"
+                                                     Desktop="7" />
+                                        </On>
+                                    </OnPlatform>
+                                </gauge:RadialRange.StartWidth>
+                                <gauge:RadialRange.EndWidth>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android, UWP"
+                                            Value="0.03" />
+                                        <On Platform="iOS, MacCatalyst">
+                                            <OnIdiom x:TypeArguments="x:Double"
+                                                     Phone="0.03"
+                                                     Tablet="7"
+                                                     Desktop="7" />
+                                        </On>
+                                    </OnPlatform>
+                                </gauge:RadialRange.EndWidth>
+                            </gauge:RadialRange>
+                        </gauge:RadialAxis.Ranges>
+
+                        <gauge:RadialAxis.Annotations>
+                            <gauge:GaugeAnnotation x:Name="StartValueAnnotation"
+                                                   DirectionUnit="Angle"
+                                                   DirectionValue="180"
+                                                   PositionFactor="0.4">
+                                <gauge:GaugeAnnotation.Content>
+                                    <VerticalStackLayout>
+                                        <Label Text="4 Apr"
+                                               FontSize="16"
+                                               TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
+                                               HorizontalTextAlignment="Center" />
+                                        <Label x:Name="SleepTime"
+                                               Text="20:00"
+                                               FontSize="24"
+                                               TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}" />
+                                    </VerticalStackLayout>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+
+                            <gauge:GaugeAnnotation x:Name="IntermediateAnnotation">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="-"
+                                           TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="24"
+                                           FontAttributes="Bold" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+
+                            <gauge:GaugeAnnotation x:Name="EndValueAnnotation"
+                                                   DirectionUnit="Angle"
+                                                   DirectionValue="0"
+                                                   PositionFactor="0.4">
+                                <gauge:GaugeAnnotation.Content>
+                                    <VerticalStackLayout>
+                                        <Label x:Name="EndValueAnnotationDate"
+                                               Text="5 Apr"
+                                               FontSize="16"
+                                               TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
+                                               HorizontalTextAlignment="Center" />
+                                        <Label x:Name="WakeUpTime"
+                                               Text="06:00"
+                                               FontSize="24"
+                                               TextColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}" />
+                                    </VerticalStackLayout>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                        </gauge:RadialAxis.Annotations>
+
+                        <gauge:RadialAxis.Pointers>
+                            <gauge:ContentPointer x:Name="startPointer"
+                                                  Value="20"
+                                                  IsInteractive="True"
+                                                  ValueChangeStarted="StartPointer_ValueChangeStarted"
+                                                  ValueChanging="StartPointer_ValueChanging"
+                                                  ValueChangeCompleted="ValueChangeCompleted">
+                                <gauge:ContentPointer.Content>
+                                    <Grid HeightRequest="30"
+                                          WidthRequest="30">
+                                        <Ellipse  Fill="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
+                                                  Stroke="LightGray"
+                                                  StrokeThickness="1" />
+                                        <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                               Text="&#xe701;"
+                                               TextColor="{AppThemeBinding Default={StaticResource PrimaryForeground}}"
+                                               FontSize="14"
+                                               HorizontalOptions="Center"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center"
+                                               VerticalTextAlignment="Center" />
+
+                                    </Grid>
+                                </gauge:ContentPointer.Content>
+                            </gauge:ContentPointer>
+                            <gauge:ContentPointer x:Name="endPointer"
+                                                  IsInteractive="True"
+                                                  Value="6"
+                                                  ValueChangeStarted="EndPointer_ValueChangeStarted"
+                                                  ValueChanging="EndPointer_ValueChanging"
+                                                  ValueChangeCompleted="ValueChangeCompleted">
+                                <gauge:ContentPointer.Content>
+                                    <Grid HeightRequest="30"
+                                          WidthRequest="30">
+                                        <Ellipse  Fill="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
+                                                  Stroke="LightGray"
+                                                  StrokeThickness="1" />
+                                        <Label FontFamily="{OnPlatform iOS=Gauges SB Icons, MacCatalyst=Gauges SB Icons, Android=Gauges SB Icons.ttf#, WinUI=Gauges SB Icons.ttf#Gauges SB Icons}"
+                                               Text="&#xe700;"
+                                               TextColor="{AppThemeBinding Default={StaticResource PrimaryForeground}}"
+                                               FontSize="14"
+                                               HorizontalOptions="Center"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center"
+                                               VerticalTextAlignment="Center" />
+
+                                    </Grid>
+                                </gauge:ContentPointer.Content>
+                            </gauge:ContentPointer>
+                        </gauge:RadialAxis.Pointers>
+
+                    </gauge:RadialAxis>
+                </gauge:SfRadialGauge.Axes>
+            </gauge:SfRadialGauge>
+
+            <Label Grid.Row="1"
+                   x:Name="sleepedTime"               
+                   Text="10 hrs 00 min"
+                   FontSize="20"
+                   Margin="0,10,0,0"
+                   HorizontalTextAlignment="Center" />
+            <Label Grid.Row="3"              
+                   Text="Sleep time"
+                   Margin="0,0,0,10"
+                   HorizontalTextAlignment="Center" />
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

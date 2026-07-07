@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Data Visualization">
+		<Control Title="Barcode Generator" ControlName="SfBarcodeGenerator" Image="barcode.png" Description="Generate and display data in machine-readable 1D and 2D barcodes.">
+			<Category Title="Showcase">
+				<Sample Title="Boarding Pass" SampleName="BoardingPass" SearchTags="BoardingPass" CodeViewerPath="Barcode/BoardingPass/"/>
+				<Sample Title="Wi-Fi" SampleName="Wifi" SearchTags="Wifi" CodeViewerPath="Barcode/Wifi/"/>
+			</Category>
+      <Sample Title="One Dimensional" SampleName="OneDimensional" SearchTags="OneDimensional" CodeViewerPath="Barcode/OneDimensional/" VideoLink="https://www.youtube.com/watch?v=WwdtIotODpE&amp;t=239s"/>
+      <Sample Title="QR Code" SampleName="QRCode" SearchTags="QRCode" CodeViewerPath="Barcode/QRCode/" VideoLink="https://www.youtube.com/watch?v=WwdtIotODpE&amp;t=400s"/>
+      <Sample Title="Data Matrix" SampleName="DataMatrix" SearchTags="DataMatrix" CodeViewerPath="Barcode/DataMatrix/" VideoLink="https://www.youtube.com/watch?v=WwdtIotODpE&amp;t=419s"/>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

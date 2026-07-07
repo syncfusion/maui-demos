@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.MarkerPointer"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:DataType="gauge:ShapePointer"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="markerPointerGauge" HorizontalOptions="Center">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis StartAngle="180"
+                                                  EndAngle="360"
+                                                  Interval="10" 
+                                                  ShowLabels="False"
+                                                  ShowTicks="False"
+                                                  ShowAxisLine="False">
+                    <gauge:RadialAxis.Ranges>
+                        <gauge:RadialRange StartValue="0"
+                                                          EndValue="100"
+                                                          WidthUnit="Factor"
+                                                          StartWidth="0.3"
+                                                          EndWidth="0.3">
+                            <gauge:RadialRange.GradientStops>
+                                <gauge:GaugeGradientStop Value="25"
+                                                                         Color="#FFAB64F5">
+                                </gauge:GaugeGradientStop>
+                                <gauge:GaugeGradientStop Value="75"
+                                                                         Color="#FF62DBF6">
+                                </gauge:GaugeGradientStop>
+                            </gauge:RadialRange.GradientStops>
+                        </gauge:RadialRange>
+                    </gauge:RadialAxis.Ranges>
+
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:ShapePointer Value="70"
+                                                             x:Name="markerPointer"
+                                                             IsInteractive="True"
+                                                             OverlayRadius="0"
+                                                             HasShadow="True"
+                                                             Fill="#FFF67280"
+                                                             ShapeHeight="25"
+                                                             ShapeWidth="25"
+                                                             Offset="-10"
+                                                             >
+                        </gauge:ShapePointer>
+                    </gauge:RadialAxis.Pointers>
+
+                    <gauge:RadialAxis.Annotations>
+                        <gauge:GaugeAnnotation PositionFactor="0.85"
+                                                               DirectionValue="175">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="Min"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+
+                        <gauge:GaugeAnnotation PositionFactor="0.1"
+                                                               DirectionValue="270">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="{Binding Source={x:Reference markerPointer}, 
+                                               Path=Value,StringFormat='{0:N0}%'}" FontSize="20"
+                                                       FontAttributes="Bold"
+                                                       WidthRequest="80"
+                                                        HorizontalTextAlignment="Center"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+
+                        <gauge:GaugeAnnotation PositionFactor="0.85"
+                                                               DirectionValue="5">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="Max"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+                    </gauge:RadialAxis.Annotations>
+
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

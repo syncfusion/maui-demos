@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:DataType="local:AnnotationButtonItem"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.TextmarkupView"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer">
+
+    <Border 
+        x:Name="Colors" 
+        VerticalOptions="Start" 
+        HorizontalOptions="Start"
+        WidthRequest="176" 
+        HeightRequest="178"
+        Padding="0,8,0,8"
+        BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#EEE8F4}"
+        StrokeShape="RoundRectangle 4"
+        IsVisible="{OnPlatform Default=true,Android=false,iOS=false}">
+        <Border.Shadow>
+            <Shadow Brush="#000000"
+                Offset="0,0"
+                Radius="4"
+                Opacity="0.30"/>
+        </Border.Shadow>
+        <sf:SfListView 
+        x:Name="listView" ItemTapped="SfListView_ItemTapped" ItemSize="40">
+            <sf:SfListView.ItemTemplate>
+                <DataTemplate x:DataType="local:AnnotationButtonItem">
+                    <Border>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="0" />
+                    </Border.StrokeShape>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                        <HorizontalStackLayout>
+                            <Label
+                             Padding="16,0,8,0"
+                            FontSize="18"
+                                HeightRequest="18"
+                                TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"
+                            FontFamily="MauiMaterialAssets"
+                            VerticalOptions="Center"
+                            Text="{Binding Icon}">
+                            </Label>
+                            <Label
+                                Padding="8,0,0,0"
+                                FontSize="16"
+                                FontFamily="Roboto"
+                                TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour},Default=#49454F}"
+                                VerticalOptions="Center"
+                                Text="{Binding IconName}">
+                            </Label>
+                        </HorizontalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </sf:SfListView.ItemTemplate>
+        </sf:SfListView>
+    </Border>
+</ContentView>

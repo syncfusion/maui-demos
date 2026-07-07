@@ -1,0 +1,41 @@
+<Project>
+	<ItemGroup>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\AvatarView\AvatarViewGettingStarted\AvatarViewGettingStarted.xaml.cs">
+			<Link>Samples\AvatarView\AvatarViewGettingStarted\AvatarViewGettingStarted.xaml.cs</Link>
+			<DependentUpon>AvatarViewGettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\AvatarView\GroupView\GroupView.xaml.cs">
+			<Link>Samples\AvatarView\GroupView\GroupView.xaml.cs</Link>
+			<DependentUpon>GroupView.xaml</DependentUpon>
+		</Compile>
+  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\AvatarView\VisualStyleSample\VisualStyleSample.xaml.cs">
+			<Link>Samples\AvatarView\VisualStyleSample\VisualStyleSample.xaml.cs</Link>
+			<DependentUpon> VisualStyleSample.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+ 
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\AvatarViewSamplesList.xml" >
+			<Link>AvatarViewSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+  
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\AvatarView\AvatarViewGettingStarted\AvatarViewGettingStarted.xaml">
+			<Link>Samples\AvatarView\AvatarViewGettingStarted\AvatarViewGettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\AvatarView\GroupView\GroupView.xaml">
+			<Link>Samples\AvatarView\GroupView\GroupView.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\AvatarView\VisualStyleSample\VisualStyleSample.xaml">
+			<Link>Samples\AvatarView\VisualStyleSample\VisualStyleSample.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

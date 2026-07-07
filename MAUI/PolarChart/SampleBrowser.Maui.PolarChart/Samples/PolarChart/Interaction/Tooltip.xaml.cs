@@ -1,0 +1,17 @@
+using SampleBrowser.Maui.Base;
+
+namespace SampleBrowser.Maui.PolarChart.SfPolarChart;
+
+public partial class Tooltip : SampleView
+{
+    public Tooltip()
+    {
+        InitializeComponent();
+    }
+
+    public override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        Chart.Handler?.DisconnectHandler();
+    }
+}

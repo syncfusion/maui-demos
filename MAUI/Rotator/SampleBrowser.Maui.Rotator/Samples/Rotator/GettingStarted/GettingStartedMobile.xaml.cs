@@ -1,0 +1,73 @@
+using Microsoft.Maui.Controls.Platform;
+using SampleBrowser.Maui.Base;
+using ImageConverters = SampleBrowser.Maui.Base.Converters.SfImageSourceConverter;
+using Syncfusion.Maui.Rotator;
+using System.Collections.ObjectModel;
+
+namespace SampleBrowser.Maui.Rotator.Rotator;
+
+public partial class GettingStartedMobile : SampleView
+{
+    public GettingStartedMobile()
+    {
+        InitializeComponent();
+    }
+
+    private void stripPosition_SelectedIndexChanged(object? sender, EventArgs e)
+    {
+        if (stripPosition != null)
+        {
+            if (stripPosition.SelectedIndex == 0)
+            {
+                sfRotator.NavigationStripPosition = Syncfusion.Maui.Core.Rotator.NavigationStripPosition.Bottom;
+            }
+            else if (stripPosition.SelectedIndex == 1)
+            {
+                sfRotator.NavigationStripPosition = Syncfusion.Maui.Core.Rotator.NavigationStripPosition.Top;
+            }
+            else if (stripPosition.SelectedIndex == 2)
+            {
+                sfRotator.NavigationStripPosition = Syncfusion.Maui.Core.Rotator.NavigationStripPosition.Left;
+            }
+            else
+            {
+                sfRotator.NavigationStripPosition = Syncfusion.Maui.Core.Rotator.NavigationStripPosition.Right;
+            }
+
+        }
+    }
+
+    private void stripMode_SelectedIndexChanged(object? sender, EventArgs e)
+    {
+        if (stripMode != null)
+        {
+            if (stripMode.SelectedIndex == 0)
+            {
+                sfRotator.NavigationStripMode = Syncfusion.Maui.Core.Rotator.NavigationStripMode.Thumbnail;
+            }
+            else
+            {
+                sfRotator.NavigationStripMode = Syncfusion.Maui.Core.Rotator.NavigationStripMode.Dots;
+            }
+        }
+    }
+
+    private void dotPlacement_SelectedIndexChanged(object? sender, EventArgs e)
+    {
+        if (dotsPlacement != null)
+        {
+            if (dotsPlacement.SelectedIndex == 0)
+            {
+                sfRotator.DotPlacement = Syncfusion.Maui.Core.Rotator.DotsPlacement.None;
+            }
+            else if (dotsPlacement.SelectedIndex == 1)
+            {
+                sfRotator.DotPlacement = Syncfusion.Maui.Core.Rotator.DotsPlacement.Default;
+            }
+            else
+            {
+                sfRotator.DotPlacement = Syncfusion.Maui.Core.Rotator.DotsPlacement.OutSide;
+            }
+        }
+    }
+}

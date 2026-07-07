@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalRangeSlider.VerticalRangeSliderIntervalSelectionSample">
+
+    <sb:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="EnableIntervalSelection"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeRangeSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="EnableIntervalSelection"
+                    Value="True" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                   Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="300,Auto"
+                  ColumnDefinitions="*,*"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+                <sliders:SfRangeSlider Grid.Row="0"
+                                       Grid.Column="0"
+                                       Minimum="0"
+                                       Maximum="100"
+                                       RangeStart="25"
+                                       StepSize="25"
+                                       RangeEnd="75"
+                                       Interval="25" />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Numeric" />
+
+                <sliders:SfDateTimeRangeSlider Grid.Row="0"
+                                               Grid.Column="1"
+                                               Minimum="2010-01-01"
+                                               Maximum="2018-01-01"
+                                               RangeStart="2012-01-01"
+                                               RangeEnd="2016-01-01"
+                                               StepDuration="2"
+                                               IntervalType="Years"
+                                               Interval="2" />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Date" />
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>
