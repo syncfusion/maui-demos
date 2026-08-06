@@ -1,0 +1,163 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.CartesianChart.SfCartesianChart.AxisMultiLevelLabels"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:chart="http://schemas.syncfusion.com/maui"
+             x:DataType="local:AxisMultiLevelLabelsViewModel">
+    
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    
+    <localCore:SampleView.Content>
+        <chart:SfCartesianChart Margin="0,20,0,0" x:Name="axisChart" PaletteBrushes="{AppThemeBinding Light={StaticResource PaletteBrushesLight}, Dark={StaticResource PaletteBrushesDark}}"   >
+
+            <chart:SfCartesianChart.Title>
+                <Label Text="Quarterly Sales Revenue Analysis" FontSize="16" Margin="0,0,0,5" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            </chart:SfCartesianChart.Title>
+            
+            <chart:SfCartesianChart.BindingContext>
+                <local:AxisMultiLevelLabelsViewModel/>
+            </chart:SfCartesianChart.BindingContext>
+            <!-- X AXIS -->
+            <chart:SfCartesianChart.XAxes>
+                <chart:CategoryAxis LabelPlacement="BetweenTicks" ShowMajorGridLines="False">
+                  
+                    <chart:CategoryAxis.MultiLevelLabels>
+                        <chart:ChartMultiLevelLabel Start="-0.5" End="2.5" Text="Q1" Level="1"/>
+                        <chart:ChartMultiLevelLabel Start="2.5" End="5.5" Text="Q2" Level="1"/>
+                        <chart:ChartMultiLevelLabel Start="5.5" End="8.5" Text="Q3" Level="1"/>
+                        <chart:ChartMultiLevelLabel Start="8.5" End="11.5" Text="Q4" Level="1"/>
+                        <chart:ChartMultiLevelLabel Start="-0.5" End="11.5" Text="Year 2025" Level="2"/>
+
+                    </chart:CategoryAxis.MultiLevelLabels>
+
+                    <chart:CategoryAxis.MultiLevelLabelStyle>
+                        <chart:MultiLevelLabelStyle  x:Name="XAxisLabelStyle"
+                                            Stroke="DarkGray"
+                                            StrokeThickness="2" 
+                                            BorderType="Rectangle">
+                            <chart:MultiLevelLabelStyle.LabelStyle>
+                                <chart:ChartAxisLabelStyle FontSize="14"/>
+                            </chart:MultiLevelLabelStyle.LabelStyle>
+                        </chart:MultiLevelLabelStyle>
+                    </chart:CategoryAxis.MultiLevelLabelStyle>
+
+                </chart:CategoryAxis>
+            </chart:SfCartesianChart.XAxes>
+
+            <!-- Y AXIS -->
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis Minimum="0" Maximum="210" EdgeLabelsDrawingMode="Shift" Interval="20">
+                    <chart:NumericalAxis.Title>
+                        <chart:ChartAxisTitle Text="Revenue in Millions"/>
+                    </chart:NumericalAxis.Title>
+                </chart:NumericalAxis>
+            </chart:SfCartesianChart.YAxes>
+
+            <chart:ColumnSeries ItemsSource="{Binding DataCollection}" XBindingPath="Name" YBindingPath="Value">
+            </chart:ColumnSeries>
+
+        </chart:SfCartesianChart>
+
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ScrollView>
+            <VerticalStackLayout Padding="5" Spacing="2">
+
+                <!-- BORDER WIDTH -->
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Border Customization" FontAttributes="Bold" Margin="0,6,0,2" />
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" RowSpacing="0">
+                        <Label Text="Border Width" VerticalTextAlignment="Center" />
+
+                        <Grid Grid.Column="1"
+                              ColumnDefinitions="Auto,Auto,Auto"
+                              ColumnSpacing="4"
+                              HorizontalOptions="End"
+                              HeightRequest="36">
+                            <Button x:Name="DecrementBorderWidthBtn"
+                                    Text="−"
+                                    WidthRequest="32" HeightRequest="32" Padding="0" Margin="0"
+                                    FontSize="16" CornerRadius="6"
+                                    Clicked="OnDecrementBorderWidthClicked" />
+                            <Label x:Name="BorderWidthLabel"
+                                   Grid.Column="1"
+                                   WidthRequest="36" HeightRequest="32"
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                   Text="2" />
+                            <Button x:Name="IncrementBorderWidthBtn"
+                                    Grid.Column="2" Text="+"
+                                    WidthRequest="32" HeightRequest="32" Padding="0" Margin="0"
+                                    FontSize="16" CornerRadius="6"
+                                    Clicked="OnIncrementBorderWidthClicked" />
+                        </Grid>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- BORDER TYPE -->
+                <Grid ColumnDefinitions="Auto,*"
+                      ColumnSpacing="3"
+                      Padding="0,4"
+                      HorizontalOptions="Fill">
+                    <Label Grid.Column="0"
+                           VerticalOptions="Center"
+                           Text="Border Type"
+                           Margin="0" />
+                    <Picker x:Name="BorderTypePicker"
+                            Grid.Column="1"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="Center"
+                            TextColor="{OnPlatform Android={x:Null}, Default={AppThemeBinding Default={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}}"
+                            BackgroundColor="{OnPlatform Android={x:Null}, Default={AppThemeBinding Default={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}}"
+                            WidthRequest="180"
+                            FontSize="13"
+                            SelectedIndexChanged="OnBorderTypeChanged"
+                            Margin="0">
+                        <Picker.Items>
+                            <x:String>Rectangle</x:String>
+                            <x:String>WithoutTopAndBottom</x:String>
+                            <x:String>SquareBrace</x:String>
+                            <x:String>CurlyBrace</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid>
+
+                <!-- BORDER COLOR -->
+                <Grid ColumnDefinitions="Auto,*"
+                      ColumnSpacing="3"
+                      Padding="0,4"
+                      HorizontalOptions="Fill">
+                    <Label Grid.Column="0"
+                           VerticalOptions="Center"
+                           Text="Border Color"
+                           Margin="0" />
+                    <Picker x:Name="BorderColorPicker"
+                            Grid.Column="1"
+                            HorizontalOptions="End" 
+                            HorizontalTextAlignment="Center"
+                            WidthRequest="180"
+                            TextColor="{OnPlatform Android={x:Null}, Default={AppThemeBinding Default={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}}"
+                            BackgroundColor="{OnPlatform Android={x:Null}, Default={AppThemeBinding Default={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}}"
+                            FontSize="13" 
+                            SelectedIndexChanged="OnBorderColorChanged"
+                            Margin="0">
+                        <Picker.Items>
+                            <x:String>Gray</x:String>
+                            <x:String>Blue</x:String>
+                            <x:String>Green</x:String>
+                            <x:String>Black</x:String>
+                            <x:String>Purple</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid> 
+            </VerticalStackLayout>
+        </ScrollView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

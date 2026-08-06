@@ -1,0 +1,41 @@
+﻿using SampleBrowser.Maui.Base;
+using System.ComponentModel;
+
+namespace SampleBrowser.Maui.LiquidGlass.SfRadialMenu
+{
+    internal class RadialMenuPageViewModel : INotifyPropertyChanged
+    {
+        private Stream? _documentStream;
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        /// <summary>
+        /// Gets or sets the PDF document as a stream. 
+        /// </summary>
+        public Stream? DocumentStream
+        {
+            get => _documentStream;
+            set
+            {
+                _documentStream = value;
+                OnPropertyChanged("DocumentStream");
+            }
+        }
+
+        /// <summary>
+        /// Constructor of the view model class
+        /// </summary>
+        public RadialMenuPageViewModel()
+        {
+            string fileName = "PDF_RadialMenu.pdf";
+            string basePath = "SampleBrowser.Maui.Resources.Pdf.";
+            if (BaseConfig.IsIndividualSB)
+                basePath = "SampleBrowser.Maui.LiquidGlass.Samples.Pdf.";
+            DocumentStream = this.GetType().Assembly.GetManifestResourceStream(basePath + fileName);
+        }
+
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+    }
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:DataType="local:DisableDoubleTapZoomViewModel"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer"                      
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core.Converters;assembly=Syncfusion.Maui.Core"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.PdfViewer;assembly=Syncfusion.Maui.PdfViewer"        
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.DisableDoubleTapZoom">
+
+    <localCore:SampleView.Resources>
+        <Style x:Key="CompleteSignStyle" TargetType="Button">
+            <Setter Property="BorderWidth" Value="0" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="10,5,10,5"/>
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="TextColor" Value="#99000000"/>
+            <Style.Triggers>
+                <Trigger Property = "IsEnabled" Value = "True" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#512BD4" />
+                    <Setter Property="TextColor" Value="White"/>
+                    <Setter Property="Opacity" Value="0.9"/>
+                </Trigger>
+                <Trigger Property = "IsEnabled" Value = "False" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="LightGray" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <core:InvertedBoolConverter x:Key="invertedBoolConverter"/>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Border Stroke="#D2D2D2" StrokeThickness="{OnPlatform Default=1, Android=0, iOS=0}" 
+       StrokeShape="Rectangle" Padding="0">
+            <Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" HeightRequest="48" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}" >
+                        <HorizontalStackLayout x:Name="Toolbar" Margin="20,0,0,0" Spacing="8">
+                            <Label Text="Double Tap" FontSize="14" VerticalOptions="Center" TextColor="Black"/>
+                            <Switch  x:Name="DoubleTapToggle" IsToggled="False"  Margin="0"
+                                     Toggled="DoubleTapToggle_Toggled"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+                    <syncfusion:SfPdfViewer 
+                            x:Name="PdfViewer" 
+                            ShowToolbars="False"
+                            Grid.Row="1"
+                            AllowDoubleTapZoom="False"
+                            DocumentSource="{Binding DocumentStream}"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

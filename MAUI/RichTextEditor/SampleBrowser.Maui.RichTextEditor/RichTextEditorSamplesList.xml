@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Preview">
+		
+		<Control Title="Rich Text Editor"
+				 ControlName="RichTextEditor"
+				 IsPreview="True"
+				 Image="richtexteditor.png"
+				 Description="Enables users to create, format, and edit rich text content with advanced editing tools.">
+
+			<Sample Title="Getting Started"
+					SampleName="GettingStarted"
+					StatusTag="Updated"
+					VideoLink="https://youtu.be/1r8OrZxG_HI?si=p20P3ENM_of2EC5r"
+					WhatsNew="Enables structured code block support in RichTextEditor for better readability"
+					SearchTags="richtext,editor,formatting,texteditor,toolbar,content" />
+
+			<Sample Title="Notes"
+					SampleName="NotesSample"
+					VideoLink="https://youtu.be/1r8OrZxG_HI?si=p20P3ENM_of2EC5r"
+					SearchTags="richtext,forum,thread,editor,comment,formatting,ticket"/>
+
+		</Control>
+
+	</ControlCategory>
+</SyncfusionControls>

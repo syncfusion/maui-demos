@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Data Visualization">
+  
+    <Control Title="Radial Gauge" ControlName="SfRadialGauge" Image="radialgauge.png" Description="Visualize single or multiple measures on a circular scale with pointers and ranges.">
+      <Category Title="Showcase">
+        <CardLayout>
+          <Sample SampleName="SleepTracker" Title="Sleep tracker" CodeViewerPath="RadialGauge/Showcase/"/>
+          <Sample SampleName="Clock" Title="Clock" Description="This sample showcases how to create analog clock using the radial gauge with different needles and inner dials." CodeViewerPath="RadialGauge/Showcase/"/>
+          <Sample SampleName="TemperatureMonitor" Title="Temperature monitor" Description="This sample showcases how to design a temperature monitor using the radial gauge control with various color ranges, a needle pointer, and annotations to indicate the current temperature." CodeViewerPath="RadialGauge/Showcase/"/>
+          <Sample SampleName="DistanceTracker" Title="Distance tracker" Description="This sample showcases how to design a distance tracker using the radial gauge control." CodeViewerPath="RadialGauge/Showcase/"/>
+        </CardLayout>
+      </Category>
+
+      <Category Title="Axis">
+        <CardLayout>
+          <Sample SampleName="AxisBackground" Title="Axis background" CodeViewerPath="RadialGauge/Axis/"/>
+          <Sample SampleName="DefaultView" Title="Default view" CodeViewerPath="RadialGauge/Axis/"/>
+          <Sample SampleName="MultipleAxis" Title="Multiple axis" CodeViewerPath="RadialGauge/Axis/"/>
+          <Sample SampleName="LabelCustomization" Title="Label customization" CodeViewerPath="RadialGauge/Axis/"/>
+          <Sample SampleName="TickCustomization" Title="Tick customization" CodeViewerPath="RadialGauge/Axis/"/>
+          <Sample SampleName="CustomScale" Title="Custom scale" Description="This sample shows a custom scale of non-linear intervals." CodeViewerPath="RadialGauge/Axis/" VideoLink="https://www.youtube.com/watch?v=gagnYotFp48&amp;t=265s"/>
+          <Sample SampleName="CustomLabel" Title="Custom labels" CodeViewerPath="RadialGauge/Axis/"/>
+          <Sample SampleName="RangeColor" Title="Range color for axis" CodeViewerPath="RadialGauge/Axis/"/>
+        </CardLayout>
+      </Category>
+
+      <Category Title="Pointers">
+        <CardLayout>
+          <Sample SampleName="RangePointer" Title="Range pointer" CodeViewerPath="RadialGauge/Pointers/"/>
+          <Sample SampleName="MultipleNeedle" Title="Multiple needle" CodeViewerPath="RadialGauge/Pointers/"/>
+          <Sample SampleName="MarkerPointer" Title="Marker pointer" CodeViewerPath="RadialGauge/Pointers/"/>
+        </CardLayout>
+      </Category>
+      
+      <Category Title="Range">
+        <CardLayout>
+          <Sample SampleName="MultiRanges" Title="Multiple ranges" CodeViewerPath="RadialGauge/Range/" VideoLink="https://www.youtube.com/watch?v=gagnYotFp48&amp;t=440s"/>
+          <Sample SampleName="RangeThickness" Title="Range thickness" CodeViewerPath="RadialGauge/Range/"/>
+          <Sample SampleName="RangeLabel" Title="Range label" CodeViewerPath="RadialGauge/Range/"/>
+        </CardLayout>
+      </Category>
+
+      <Category Title="Annotation">
+        <CardLayout>
+          <Sample SampleName="Compass" Title="Direction compass" CodeViewerPath="RadialGauge/Annotation/"/>
+          <Sample SampleName="ImageAnnotation" Title="Image annotation" CodeViewerPath="RadialGauge/Annotation/"/>
+        </CardLayout>
+      </Category>
+
+      <Category Title="Interaction">
+        <CardLayout>
+          <Sample SampleName="RadialSlider" Title="Radial slider" CodeViewerPath="RadialGauge/Interaction/"/>
+          <Sample SampleName="RadialRangeSlider" Title="Radial range slider" CodeViewerPath="RadialGauge/Interaction/"/>
+        </CardLayout>
+      </Category>
+
+      <Category Title="Animation">
+        <CardLayout>
+          <Sample SampleName="LinearAnimation" Title="Linear" CodeViewerPath="RadialGauge/Animation/" VideoLink="https://www.youtube.com/watch?v=gagnYotFp48&amp;t=562s"/>
+          <Sample SampleName="SpringInAnimation" Title="SpringIn" CodeViewerPath="RadialGauge/Animation/" VideoLink="https://www.youtube.com/watch?v=gagnYotFp48&amp;t=562s"/>
+          <Sample SampleName="SpringOutAnimation" Title="SpringOut" CodeViewerPath="RadialGauge/Animation/" VideoLink="https://www.youtube.com/watch?v=gagnYotFp48&amp;t=562s"/>
+          <Sample SampleName="BounceInAnimation" Title="BounceIn" CodeViewerPath="RadialGauge/Animation/" VideoLink="https://www.youtube.com/watch?v=gagnYotFp48&amp;t=562s"/>
+          <Sample SampleName="BounceOutAnimation" Title="BounceOut" CodeViewerPath="RadialGauge/Animation/" VideoLink="https://www.youtube.com/watch?v=gagnYotFp48&amp;t=562s"/>
+        </CardLayout>
+      </Category>
+
+    </Control>
+  
+    <Control Title="Linear Gauge" ControlName="SfLinearGauge" Image="lineargauge.png" Description="Visualize single or multiple measures on a linear scale with pointers and ranges.">
+      <Category Title="Showcase">
+        <CardLayout>
+          <Sample Title="Thermometer" SampleName="ThermometerGauge" Description="This sample showcases how to design a thermometer using the linear gauge." SearchTags="Thermometer" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Height calculator" SampleName="HeightCalculator" Description="This sample showcases how to design a height calculator using the linear gauge." SearchTags="Height calculator" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Water level indicator" SampleName="WaterLevelIndicator" Description="This sample showcases how to design a water level indicator using the linear gauge." SearchTags="Water level indicator" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Volume settings" SampleName="VolumeSettings" Description="This sample showcases how to design a volume controller using the linear gauge." SearchTags="Volume settings" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Progress bar" SampleName="ProgressBar" Description="This sample showcases how to design a progress bar using the linear gauge." SearchTags="Progress bar" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Task tracker" SampleName="TaskTracker" Description="This sample showcases how to design a task tracker using the linear gauge." SearchTags="Task tracker" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Sleep watch score" SampleName="SleepWatchScore" Description="This sample showcases how to design a sleep watch using the linear gauge." SearchTags="Sleep watch score" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Temperature meter" SampleName="TemperatureMeter" Description="This sample showcases how to design a temperature meter using the linear gauge." SearchTags="Temperature meter" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Active hours" SampleName="ActiveHours" Description="This sample showcases how to design active hours in a health monitor or fitness app using the linear gauge." SearchTags="Active hours" CodeViewerPath="LinearGauge/Showcase/"/>
+          <Sample Title="Battery indicator" SampleName="BatteryIndicator" Description="This sample showcases how to design a battery indicator using the linear gauge." SearchTags="Battery indicator" CodeViewerPath="LinearGauge/Showcase/"/>
+        </CardLayout>
+      </Category>
+
+      <Category Title="Axis">
+        <Sample Title="Track" SampleName="LinearGaugeTrack" SearchTags="linear, scale, axis" CodeViewerPath="LinearGauge/Axis/"/>
+        <Sample Title="Ticks" SampleName="LinearGaugeTicks" SearchTags="scale, ticks, minor ticks" CodeViewerPath="LinearGauge/Axis/"/>
+        <Sample Title="Labels" SampleName="LinearGaugeLabels" SearchTags="scale, linear, labels" CodeViewerPath="LinearGauge/Axis/" VideoLink="https://youtu.be/wclf360zOPc?t=655"/>
+      </Category>
+      
+      <Sample Title="Range" SampleName="LinearGaugeRange" SearchTags="gauge, linear" CodeViewerPath="LinearGauge/Range/" VideoLink="https://www.youtube.com/watch?v=wclf360zOPc&amp;t=537s"/>
+
+      <Category Title="Pointers">
+        <Sample Title="Shape pointer" SampleName="LinearGaugeShapePointer" SearchTags="pointer, shape, marker" CodeViewerPath="LinearGauge/Pointers/" VideoLink="https://www.youtube.com/watch?v=wclf360zOPc&amp;t=393s"/>
+        <Sample Title="Content pointer" SampleName="LinearGaugeContentPointer" SearchTags="pointer, content, custom" CodeViewerPath="LinearGauge/Pointers/"/>
+        <Sample Title="Bar pointer" SampleName="LinearGaugeBarPointer" SearchTags="bar, pointer, linear" CodeViewerPath="LinearGauge/Pointers/"/>
+        <Sample Title="Drag behavior" SampleName="LinearGaugeDragPointer" SearchTags="bar, pointer, linear, drag, interaction" CodeViewerPath="LinearGauge/Pointers/"/>
+      </Category>
+      
+    </Control>
+	  
+	  <Control Title="Digital Gauge" ControlName="SfDigitalGauge" Image="digitalgauge.png" Description="The digital gauge control displays alphanumeric characters in digital (LED) mode.">
+		  <Category Title="Getting Started">
+			  <CardLayout>
+				  <Sample Title="GettingStarted" SampleName="GettingStarted" CodeViewerPath="DigitalGauge/GettingStarted/"/>
+			  </CardLayout>
+		  </Category>
+	  </Control>
+  </ControlCategory>
+</SyncfusionControls>

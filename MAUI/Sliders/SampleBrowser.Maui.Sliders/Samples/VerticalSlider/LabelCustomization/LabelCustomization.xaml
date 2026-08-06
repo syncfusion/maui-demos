@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               xmlns:local="clr-namespace:SampleBrowser.Maui.Sliders.VerticalSlider"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalSlider.VerticalSliderLabelCustomizationSample"
+               x:DataType="local:VerticalSliderLabelCustomizationSampleViewModel">
+
+    <sb:SampleView.BindingContext>
+        <local:VerticalSliderLabelCustomizationSampleViewModel />
+    </sb:SampleView.BindingContext>
+
+    <sb:SampleView.Resources>
+        <ResourceDictionary>
+            <local:BoolToEdgeLabelsPlacementConverter x:Key="BoolToEdgeLabelsPlacementConverter" />
+        </ResourceDictionary>
+
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="Interval"
+                    Value="1" />
+            <Setter Property="StepSize"
+                    Value="1" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+            <Setter Property="EdgeLabelsPlacement"
+                    Value="{Binding IsChecked, Source={x:Reference CbxEdgeLabelsPlacement}, Converter={x:StaticResource BoolToEdgeLabelsPlacementConverter}, Mode=TwoWay}" x:DataType="CheckBox" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                 Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="300,Auto,30,Auto"
+                  ColumnDefinitions="*,*"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+
+                <sliders:SfSlider Grid.Row="0"
+                                  Grid.Column="0"
+                                  Minimum="1"
+                                  Maximum="4"
+                                  Value="{Binding Value}"
+                                  LabelCreated="OnRatingSliderLabelCreated">
+
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="{Binding ActiveFill}"
+                                                  InactiveFill="LightGray" />
+                    </sliders:SfSlider.TrackStyle>
+
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="{Binding ActiveFill}" />
+                    </sliders:SfSlider.ThumbStyle>
+
+                    <sliders:SfSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="{Binding OverlayFill}" />
+                    </sliders:SfSlider.ThumbOverlayStyle>
+                    
+                </sliders:SfSlider>
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Rating"
+                       Margin="-20,0,0,0" />
+
+                <sliders:SfSlider Grid.Row="0"
+                                  Grid.Column="1"
+                                  Minimum="1"
+                                  Maximum="4"
+                                  Value="3"
+                                  LabelCreated="OnItemSizeLabelCreated" />
+
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Tile size" />
+
+                <Grid Grid.Row="3"
+                      Grid.ColumnSpan="2"
+                      ColumnDefinitions="Auto,Auto"
+                      HorizontalOptions="Center">
+                    <Label Text="Shift edge labels inside"
+                           Padding="5"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center" />
+
+                    <CheckBox Grid.Column="1"
+                              x:Name="CbxEdgeLabelsPlacement" />
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

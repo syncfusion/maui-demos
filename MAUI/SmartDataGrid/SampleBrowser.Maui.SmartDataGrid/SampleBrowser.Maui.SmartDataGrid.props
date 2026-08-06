@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartDataGrid\View\GettingStarted.xaml.cs">
+			<Link>Samples\SmartDataGrid\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartDataGrid\Model\OrderInfo.cs">
+			<Link>Samples\SmartDataGrid\ViewModel\OrderInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartDataGrid\ViewModel\OrderInfoRepository.cs">
+			<Link>Samples\SmartDataGrid\ViewModel\OrderInfoRepository.cs</Link>
+		</Compile>		
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\SmartDataGridSamplesList.xml" >
+			<Link>SmartDataGridSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SmartDataGrid\View\GettingStarted.xaml">
+			<Link>Samples\SmartDataGrid\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+</Project>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	
+	<ControlCategory Name="Layouts" >
+		<Control Title="Backdrop" ControlName="SfBackdropPage" Image="backdrop.png" Description="This control displays contextual and actionable content behind all app surfaces.">
+			<Sample SampleName="InitialPage" Title="Features" CodeViewerPath="Backdrop/" VideoLink="https://www.youtube.com/watch?v=99VGii8CFmw"/>
+		</Control>
+	</ControlCategory>
+
+</SyncfusionControls>

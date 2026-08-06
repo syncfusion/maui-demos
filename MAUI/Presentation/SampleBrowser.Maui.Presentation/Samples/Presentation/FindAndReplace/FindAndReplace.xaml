@@ -1,0 +1,30 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Presentation.Presentation.FindAndReplace"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+    <localCore:SampleView.Content>
+        <StackLayout Margin="10">
+            <Label x:Name="description" LineBreakMode="WordWrap" Text="This example demonstrates how to find and replace a specific text or text pattern in the PowerPoint presentation."
+                  VerticalOptions="Center" Margin="0,0,10,0">
+            </Label>
+            <Label x:Name="label1" Text=" "></Label>
+            <Label x:Name="label2" Text="Text to Find : {product}"></Label>
+            <Label x:Name="label3" Text=" "></Label>
+            <Label x:Name="label4" Text="Text to Replace : Service"></Label>
+            <Label x:Name="label5" Text=" "></Label>
+            <Label x:Name="viewButtonDescription" LineBreakMode="WordWrap" Text="Click the “View Template” button to view the input PowerPoint presentation file."
+                  VerticalOptions="Center" Margin="0,0,10,0">
+            </Label>
+            <Label x:Name="label6" Text=" "></Label>
+            <Label x:Name="generateButtonDescription" LineBreakMode="WordWrap" Text="Click the “Replace” button to view the output PowerPoint presentation. Please note that a PowerPoint-compatible viewer is required to open and view the PowerPoint presentation file."
+                  VerticalOptions="Center" Margin="0,0,10,0">
+            </Label>
+            <Label x:Name="label7" Text=" "></Label>
+            <StackLayout x:Name="stkLayout" Orientation="Horizontal" Spacing="10">
+                <Button x:Name="btnViewTemplate" Clicked ="OnButtonClickedView" Text ="View Template" HorizontalOptions="Start"></Button>
+                <Button x:Name="btnGenerateDocument" Clicked ="OnButtonClickedReplace" Text ="Replace" HorizontalOptions="Start"></Button>
+            </StackLayout>
+        </StackLayout>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

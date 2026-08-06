@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBrowser.Maui.DockLayout", "SampleBrowser.Maui.DockLayout\SampleBrowser.Maui.DockLayout.csproj", "{AFF2DA2E-72DD-4AD7-80FB-7E30484A500F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFF2DA2E-72DD-4AD7-80FB-7E30484A500F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF2DA2E-72DD-4AD7-80FB-7E30484A500F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF2DA2E-72DD-4AD7-80FB-7E30484A500F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AFF2DA2E-72DD-4AD7-80FB-7E30484A500F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF2DA2E-72DD-4AD7-80FB-7E30484A500F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {413A3856-4F12-4F5B-B312-01E8A95D43A3}
+	EndGlobalSection
+EndGlobal

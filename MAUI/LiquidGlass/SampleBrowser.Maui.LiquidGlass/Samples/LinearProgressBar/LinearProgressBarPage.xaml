@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.LiquidGlass.SfLinearProgressBar.LinearProgressBarPage"
+                      xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+    <localCore:SampleView.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Spacing"
+                    Value="10" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <Grid>
+
+        <ScrollView>
+            <Grid HorizontalOptions="{OnPlatform MacCatalyst=Center, WinUI=Center}"
+                VerticalOptions="{OnPlatform MacCatalyst=Center, WinUI=Center}">
+
+                <StackLayout Spacing="30"
+                            Margin="10">
+
+                    <!-- Determinate -->
+                    <StackLayout>
+                        <Label Text="Determinate"/>
+                        <core:SfGlassEffectView HeightRequest="18"
+                                                CornerRadius="9"
+                                                EffectType="Clear">
+                            <progressBar:SfLinearProgressBar x:Name="DeterminateProgressBar"
+                                                            AnimationEasing="{x:Static Easing.CubicOut}"
+                                                            TrackHeight="8"
+                                                            ProgressHeight="8"
+                                                            ProgressCornerRadius="8"
+                                                            TrackCornerRadius="8"
+                                                            Progress="75"
+                                                            Margin="5"
+                                                            BackgroundColor="Transparent"/>
+                        </core:SfGlassEffectView>
+                    </StackLayout>
+
+                    <!-- Indeterminate -->
+                    <StackLayout>
+                        <Label Text="Indeterminate"/>
+                        <core:SfGlassEffectView HeightRequest="18"
+                                                CornerRadius="9"
+                                                EffectType="Clear">
+                            <progressBar:SfLinearProgressBar x:Name="IndeterminateProgressBar"
+                                                            IsIndeterminate="True"
+                                                            TrackHeight="8"
+                                                            ProgressHeight="8"
+                                                            ProgressCornerRadius="8"
+                                                            TrackCornerRadius="8"
+                                                            Margin="5"
+                                                            BackgroundColor="Transparent"/>
+                        </core:SfGlassEffectView>
+                    </StackLayout>
+
+                    <!-- Corner radius -->
+                    <StackLayout>
+                        <Label Text="Corner radius"/>
+                        <core:SfGlassEffectView HeightRequest="18"
+                                                CornerRadius="9"
+                                                EffectType="Clear">
+                            <progressBar:SfLinearProgressBar x:Name="CornerRadiusProgressBar"
+                                                            TrackHeight="8"
+                                                            ProgressHeight="8"
+                                                            ProgressCornerRadius="8"
+                                                            TrackCornerRadius="8"
+                                                            Progress="100"
+                                                            ProgressChanged="OnCornerRadiusProgressBarProgressChanged"
+                                                            AnimationDuration="2000"
+                                                            AnimationEasing="{x:Static Easing.CubicOut}"
+                                                            Margin="5"
+                                                            BackgroundColor="Transparent"/>
+                        </core:SfGlassEffectView>
+                    </StackLayout>
+
+                    <!-- Linear segment -->
+                    <StackLayout>
+                        <Label Text="Segment"/>
+                        <core:SfGlassEffectView HeightRequest="18"
+                                                CornerRadius="9"
+                                                EffectType="Clear">
+                            <progressBar:SfLinearProgressBar  x:Name="SegmentedProgressBar"
+                                                            SegmentCount="4"
+                                                            Progress="75"
+                                                            AnimationEasing="{x:Static Easing.CubicOut}"
+                                                            TrackHeight="8"
+                                                            ProgressHeight="8"
+                                                            ProgressCornerRadius="8"
+                                                            TrackCornerRadius="8"
+                                                            Margin="5"
+                                                            BackgroundColor="Transparent"/>
+                        </core:SfGlassEffectView>
+                    </StackLayout>
+
+                    <!-- Segemented corner radius -->
+                    <StackLayout>
+                        <Label Text="Segment with corner radius"/>
+                        <core:SfGlassEffectView HeightRequest="18"
+                                                CornerRadius="9"
+                                                EffectType="Clear">
+                            <progressBar:SfLinearProgressBar  x:Name="SegmentedCornerRadiusProgressBar"
+                                                            Progress="100"
+                                                            SegmentCount="4"
+                                                            AnimationDuration="2000"
+                                                            TrackHeight="8"
+                                                            ProgressHeight="8"
+                                                            ProgressCornerRadius="8"
+                                                            TrackCornerRadius="8"
+                                                            ProgressChanged="OnSegmentedCornerRadiusProgressBarProgressChanged"
+                                                            SegmentGapWidth="7"
+                                                            Margin="5"
+                                                            BackgroundColor="Transparent"/>
+                        </core:SfGlassEffectView>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</localCore:SampleView>

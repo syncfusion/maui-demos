@@ -1,0 +1,46 @@
+﻿namespace SampleBrowser.Maui.SmartDemos.SmartDemos
+{
+    using Microsoft.Extensions.AI;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// Represents Class to interact with Azure AI.
+    /// </summary>
+    public class AzureAIServices : AzureBaseService
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AzureAIServices"/> class.
+        /// </summary>
+        public AzureAIServices()
+        {
+            
+        }
+
+        /// <summary>
+        /// Retrieves an answer from the deployment name model using the provided user prompt.
+        /// </summary>
+        /// <param name="userPrompt">The user prompt.</param>
+        /// <returns>The AI response.</returns>
+        public async Task<string> GetResultsFromAI(string userPrompt)
+        {
+            if (IsCredentialValid && Client != null)
+            {
+                ChatHistory = string.Empty;
+                // Add the system message and user message to the options
+                ChatHistory = ChatHistory + "You are a predictive analytics assistant.";
+                ChatHistory = ChatHistory + userPrompt;
+                try
+                {
+                    var response = await Client.CompleteAsync(ChatHistory);
+                    return response.ToString();
+                }
+                catch
+                {
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+    }
+}

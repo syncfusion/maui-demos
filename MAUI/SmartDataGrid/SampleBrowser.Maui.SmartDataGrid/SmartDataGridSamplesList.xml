@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Smart Components">
+
+		<Control Title="Smart DataGrid"
+				 ControlName="SfSmartDataGrid" Image="smartdatagrid.png"
+				 Description="AI powered DataGrid for dynamic data visualization, intelligent filtering, and real-time insights." >
+			<Sample Title="Smart DataGrid" SampleName="GettingStarted" CodeViewerPath="SmartDataGrid/View" />
+		</Control>
+		
+	</ControlCategory>
+
+</SyncfusionControls>

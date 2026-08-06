@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.ListView.SfListView.HorizontalOrientation"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.ListView.SfListView"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource">
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter"/>
+        <local:BoolToIntConverter x:Key="boolToIntConverter" />
+        <Style TargetType="ListView:ListViewItem">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Background"
+                                Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="Background"
+                                Value= "Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:ListViewOrientationViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Tourist Destinations Near" FontSize="16" FontFamily="Roboto-Medium" CharacterSpacing="0.25" Margin="16,10,0,0"/>
+            <ListView:SfListView x:Name="listView" Grid.Row="1"                                   
+                          ItemsSource="{Binding Places}"                                
+                          ScrollBarVisibility="Always"
+                          SelectionMode="Single"
+                          SelectionBackground="Transparent"
+                          Orientation="Horizontal" 
+                          ItemSize="92"
+                          HeightRequest="145"
+                          Margin="16,10,0,0"
+                          ItemSpacing="0,0,12,10"
+                          SelectedItem="{Binding SelectedItem}"
+                          x:DataType="local:ListViewOrientationViewModel">
+                <ListView:SfListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:PlaceInfo">
+                        <Grid RowSpacing="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="107" />
+                                <RowDefinition Height="22" />
+                            </Grid.RowDefinitions>
+                            <Border x:Name="border"
+                                    Stroke="{AppThemeBinding Dark=#D0BCFF,Light=#6750A4}"
+                                    StrokeThickness="{Binding IsSelected,Converter={StaticResource boolToIntConverter}}"
+                                    Padding="0"
+                                    Margin="0"
+                                    HorizontalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="6" />
+                                </Border.StrokeShape>
+
+                                <Image Source="{Binding Image,Converter={StaticResource imageconverter}}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="100"
+                                       WidthRequest="84" />
+                            </Border>
+                            <Label Grid.Row="1"
+                                   Text="{Binding Name}"
+                                   LineBreakMode="TailTruncation"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   VerticalTextAlignment="Start"
+                                   FontFamily="Roboto-Regular"
+                                   VerticalOptions="Start"
+                                   Opacity="0.8"
+                                   FontSize="12">
+                            </Label>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.ItemTemplate>
+            </ListView:SfListView>
+            <Label Grid.Row="2" Text="Other Places in this City" FontSize="16" Margin="16,18,0,8" FontFamily="Roboto-Medium" VerticalOptions="Center"/>
+            <ListView:SfListView x:Name="verticalListView" Grid.Row="3"
+                          ItemsSource="{Binding TouristPlaces}"
+                          ItemSize="68"
+                          SelectionMode="Single"
+                          x:DataType="local:ListViewOrientationViewModel">
+                <ListView:SfListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:PlaceInfo">
+                        <Grid Margin="16,12,16,12" ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border HorizontalOptions="Start" Padding="0" HeightRequest="44" WidthRequest="44" Stroke="Transparent">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="3" />
+                                </Border.StrokeShape>
+                                <Image Grid.Column="0" Source="{Binding Image,Converter={StaticResource imageconverter}}" Aspect="Fill" HeightRequest="44" WidthRequest="44"/>
+                            </Border>
+                            <Grid Grid.Column="1" VerticalOptions="Center" RowSpacing="4">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="{Binding Name}" FontSize="14" Opacity="0.8" FontFamily="Roboto-Regular" CharacterSpacing="0.25"/>
+                                <Label Grid.Row="1" Text="{Binding Description}" FontSize="14" FontFamily="Roboto-Regular" LineBreakMode="TailTruncation" CharacterSpacing="0.15"/>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView:SfListView.ItemTemplate>
+            </ListView:SfListView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

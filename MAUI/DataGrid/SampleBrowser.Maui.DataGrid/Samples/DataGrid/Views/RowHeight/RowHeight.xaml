@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.RowHeight"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+    
+    <localCore:SampleView.BindingContext>
+        <local:EmployeeViewModel></local:EmployeeViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Behaviors>
+        <local:RowHeightBehavior></local:RowHeightBehavior>
+    </localCore:SampleView.Behaviors>
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
+                           AutoGenerateColumnsMode="None"
+                           x:DataType="local:EmployeeViewModel"
+                           ItemsSource="{Binding EmployeeInformation}"
+                           HeaderRowHeight="52"
+                           ColumnWidthMode="Fill"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridTextColumn HeaderText="Name" MappingName="Name" ></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn HeaderText="Employee ID" MinimumWidth="{StaticResource minimumWidth}"  MappingName="EmployeeID"  ></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn HeaderText="Telephone" MinimumWidth="150"   MappingName="Telephone"></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn HeaderText="About" MinimumWidth="250"  MappingName="About">
+                </sfgrid:DataGridTextColumn>
+            </sfgrid:SfDataGrid.Columns>
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

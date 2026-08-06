@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\GettingStarted\View\GettingStarted.xaml.cs">
+        <Link>Samples\ImageEditor\GettingStarted\View\GettingStarted.xaml.cs</Link>
+        <DependentUpon>GettingStarted.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\View\CustomView.xaml.cs">
+        <Link>Samples\ImageEditor\CustomView\View\CustomView.xaml.cs</Link>
+		<DependentUpon>CustomView.xaml</DependentUpon>
+    </Compile> 
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\GettingStarted\Behavior\GettingStartedBehavior.cs">
+    <Link>Samples\ImageEditor\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Behavior\CustomViewBehavior.cs">
+    <Link>Samples\ImageEditor\CustomView\Behavior\CustomViewBehavior.cs</Link>
+  </Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\ProfileEditor\ProfileEditor.xaml.cs">
+		<Link>Samples\ImageEditor\ProfileEditor\ProfileEditor.xaml.cs</Link>
+		<DependentUpon>ProfileEditor.xaml</DependentUpon>
+	</Compile>
+	
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\ImageFilters\View\ImageFilters.xaml.cs">
+		<Link>Samples\ImageEditor\ImageFilters\View\ImageFilters.xaml.cs</Link>
+		<DependentUpon>ImageFilters.xaml</DependentUpon>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\ImageFilters\Behavior\ImageFilterBehavior.cs">
+		<Link>Samples\ImageEditor\ImageFilters\Behavior\ImageFilterBehavior.cs</Link>
+	</Compile>
+	
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\ImageFilters\ViewModel\ImageFilterViewModel.cs">
+		<Link>Samples\ImageEditor\ImageFilters\ViewModel\ImageFilterViewModel.cs</Link>
+	</Compile>
+	
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\ImageFilters\Model\ImageFilterModel.cs">
+		<Link>Samples\ImageEditor\ImageFilters\Model\ImageFilterModel.cs</Link>
+	</Compile>
+</ItemGroup>
+  
+  <ItemGroup>
+    <MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker1a.svg" BaseSize="500,500">
+      <Link>Resources\ImageEditor\imageeditorsticker1a.svg</Link>
+    </MauiImage>
+    <MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker2a.svg" BaseSize="500,500">
+      <Link>Resources\ImageEditor\imageeditorsticker2a.svg</Link>
+    </MauiImage>
+    <MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker3a.svg" BaseSize="500,500">
+      <Link>Resources\ImageEditor\imageeditorsticker3a.svg</Link>
+    </MauiImage>
+    <MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker4a.svg" BaseSize="500,500">
+      <Link>Resources\ImageEditor\imageeditorsticker4a.svg</Link>
+    </MauiImage>
+    <MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker5a.svg" BaseSize="500,500">
+      <Link>Resources\ImageEditor\imageeditorsticker5a.svg</Link>
+    </MauiImage>
+    <MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker6a.svg" BaseSize="500,500">
+      <Link>Resources\ImageEditor\imageeditorsticker6a.svg</Link>
+    </MauiImage>
+	<MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker7a.svg" BaseSize="500,500">
+		<Link>Resources\ImageEditor\imageeditorsticker7a.svg</Link>
+	</MauiImage>
+	<MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker8a.svg" BaseSize="500,500">
+		<Link>Resources\ImageEditor\imageeditorsticker8a.svg</Link>
+	</MauiImage>
+	<MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker9a.svg" BaseSize="500,500">
+		<Link>Resources\ImageEditor\imageeditorsticker9a.svg</Link>
+	</MauiImage>
+	<MauiImage Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\Images\imageeditorsticker10a.svg" BaseSize="500,500">
+		<Link>Resources\ImageEditor\imageeditorsticker10a.svg</Link>
+	</MauiImage>
+  </ItemGroup>
+  
+<ItemGroup>
+  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\ImageEditorSamplesList.xml" >
+		<Link>ImageEditorSamplesList.xml</Link>
+  </EmbeddedResource>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\GettingStarted\View\GettingStarted.xaml">
+	  <Link>Samples\ImageEditor\GettingStarted\View\GettingStarted.xaml</Link>
+  </MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\CustomView\View\CustomView.xaml">
+		<Link>Samples\ImageEditor\CustomView\View\CustomView.xaml</Link>
+	</MauiXaml>
+	
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\ProfileEditor\ProfileEditor.xaml">
+		<Link>Samples\ImageEditor\ProfileEditor\ProfileEditor.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ImageEditor\ImageFilters\View\ImageFilters.xaml">
+		<Link>Samples\ImageEditor\ImageFilters\View\ImageFilters.xaml</Link>
+	</MauiXaml>
+	
+</ItemGroup> 
+</Project>
