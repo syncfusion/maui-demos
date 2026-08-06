@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<SyncfusionControls>
-	<ControlCategory Name="Layouts">
-		<Control Title="Popup" ControlName="SfPopup" Image="popup.png" Description="Enables custom alert messages or loading specific views in a popup.">
-			<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="Popup/GettingStarted/" />
-		</Control>
-	</ControlCategory>
-</SyncfusionControls>
