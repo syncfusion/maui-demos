@@ -22,7 +22,7 @@ namespace SampleBrowser.Maui.SmartDemos.SmartDemos
             return Task.CompletedTask;
         }
 
-        public async Task<ObservableCollection<CompaniesModel>> GetAnswerFromGPT(string userPrompt, CompanyInfoRepo viewModel, int index)
+        public async Task<ObservableCollection<CompaniesModel>> GetResultsFromAI(string userPrompt, CompanyInfoRepo viewModel, int index)
         {
             try
             {

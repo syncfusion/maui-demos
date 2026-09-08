@@ -199,7 +199,7 @@ public partial class StockAndroid : SampleView
             var items = data.Take(40).ToList();
             var prompt = service.GeneratePrompt(items);
             isProcessing = true;
-            var value = await service.GetAnswerFromGPT(prompt, viewModel, selected_Index);
+            var value = await service.GetResultsFromAI(prompt, viewModel, selected_Index);
             viewModel.StopUpdate = false;
             viewModel.ForeCastData.Clear();
             await viewModel.AddRangeWithDelayAsync(value, 300);

@@ -247,7 +247,7 @@
                   $"\n3. Final output must be Json format" +
                   $"\n4. No need any explanation or comments in the output" +
                   $"\n Please provide the valid JSON object without any additional formatting characters like backticks or newlines";
-            string finalResponse = await this.azureAIService.GetAnswerFromGPT(prompt);
+            string finalResponse = await this.azureAIService.GetResultsFromAI(prompt);
             if (finalResponse == "")
             {
                 if (this.index == -1)

@@ -88,7 +88,7 @@ namespace SampleBrowser.Maui.SmartDemos.SmartDemos
 
         internal async Task LoadCleanedDataAsync()
         {
-            CleanedData = await service.GetCleanedData(RawData);
+            CleanedData = await service.GetResultsFromAI(RawData);
             IsBusy = false;
         }
     }
