@@ -18,7 +18,7 @@ namespace SampleBrowser.Maui.SmartDemos.SmartDemos
         /// <param name="prompt"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<string> GetCompletion(string prompt, CancellationToken cancellationToken)
+        public async Task<string> GetResultsFromAI(string prompt, CancellationToken cancellationToken)
         {
             ChatHistory = string.Empty;
             if (ChatHistory != null && Client != null)

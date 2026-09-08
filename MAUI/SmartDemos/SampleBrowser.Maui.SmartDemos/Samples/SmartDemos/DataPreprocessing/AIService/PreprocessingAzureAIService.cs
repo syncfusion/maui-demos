@@ -11,7 +11,7 @@ namespace SampleBrowser.Maui.SmartDemos.SmartDemos
 
         }
 
-        public async Task<ObservableCollection<DataPreprocessingModel>> GetCleanedData(ObservableCollection<DataPreprocessingModel> rawData)
+        public async Task<ObservableCollection<DataPreprocessingModel>> GetResultsFromAI(ObservableCollection<DataPreprocessingModel> rawData)
         {
             ObservableCollection<DataPreprocessingModel> collection = new ObservableCollection<DataPreprocessingModel>();
 

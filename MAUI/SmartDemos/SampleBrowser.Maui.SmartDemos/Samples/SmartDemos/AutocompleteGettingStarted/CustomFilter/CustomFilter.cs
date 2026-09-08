@@ -103,7 +103,7 @@ namespace SampleBrowser.Maui.SmartDemos.SmartDemos
                             $"If no items found, return \"Empty\" " +
                             $"Dont use 'Here are the filtered items:' in the output. Check this demo output template, you should return output like this: {outputTemplate} ";
             
-                var completion = await _azureAIService.GetCompletion(prompt, cancellationToken);
+                var completion = await _azureAIService.GetResultsFromAI(prompt, cancellationToken);
 
                 var filteredCountryNames = completion.Split('\n').Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToList();
 
