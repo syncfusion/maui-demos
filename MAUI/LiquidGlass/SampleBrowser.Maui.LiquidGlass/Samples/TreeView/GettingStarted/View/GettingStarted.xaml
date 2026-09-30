@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfTreeView.GettingStarted"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.TreeView;assembly=Syncfusion.Maui.TreeView"
+             xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.Maui.TreeView"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui" 
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+
+    <!--<Label Text="savfaesf" Background="Black"/>-->
+    <localCore:SampleView.BindingContext>
+        <local:FileManagerViewModel x:Name="fileMangerViewmodel"/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:TreeViewStyles/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <DataTemplate x:Key="GettingStartedTemplate">
+            <local:GettingStartedDataTemplate/>
+        </DataTemplate>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid>
+            
+            <core:SfGlassEffectView CornerRadius="24" EffectType="Regular" Margin ="{OnPlatform MacCatalyst=50, Default=20}"
+                 MaximumWidthRequest="{OnPlatform WinUI=380, MacCatalyst=500}">
+
+                <Grid MaximumWidthRequest="{OnPlatform WinUI=350, MacCatalyst=400}">
+
+                    <syncfusion:SfTreeView x:Name="treeView"
+                                Margin="{OnPlatform WinUI='0,0,1,0', MacCatalyst='8,8,8,0'}"  
+                                ItemsSource="{Binding Folders}"
+                                AutoExpandMode="AllNodesExpanded"
+                                FullRowSelect="True"
+                                ItemHeight="{OnPlatform Android=48, MacCatalyst=40, WinUI=40, iOS=48}"
+                                ExpandActionTarget="Node"
+                                ItemTemplate="{StaticResource GettingStartedTemplate}"
+                                AllowDragging="True"
+                                VerticalScrollBarVisibility="Never"
+                                SelectionMode="Single"
+                                EnableLiquidGlassEffect="True"
+                                Background="Transparent">
+
+                        <syncfusion:SfTreeView.HierarchyPropertyDescriptors>
+                            <treeviewengine:HierarchyPropertyDescriptor TargetType="{x:Type local:Folder}" ChildPropertyName="FilesInfo"/>
+                            <treeviewengine:HierarchyPropertyDescriptor TargetType="{x:Type local:File}" ChildPropertyName="SubFiles"/>
+                        </syncfusion:SfTreeView.HierarchyPropertyDescriptors>
+
+                    </syncfusion:SfTreeView>
+
+                </Grid>
+            </core:SfGlassEffectView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

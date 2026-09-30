@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Grids">
+		<Control Title="Tree Grid" ControlName="SfTreeGrid" Image="TreeGrid.png" StatusTag="New" IsPreview="true" Description="Displays hierarchical data using a powerful data visualization control that combines the features of a tree view and a data grid." >
+			<Category Title="Getting Started">
+				<Sample SampleName="SelfRelationalCollection" Title="Self Relational Collection" SearchTags="relational collection" CodeViewerPath="TreeGrid/Views/GettingStarted/"/>
+				<Sample SampleName="NestedCollection" Title="Nested Collection" SearchTags="nested collection" CodeViewerPath="TreeGrid/Views/GettingStarted/"/>
+			</Category>
+			<Category Title="Columns">
+				<Sample SampleName="ColumnTypes" Title="Column Types" SearchTage="columns, column types, types of columns, template column, switch column,image column" CodeViewerPath="TreeGrid/Views/Columns"/>
+				<Sample SampleName="ColumnSizing" Title="Column Sizing" SearchTage="column sizing" CodeViewerPath="TreeGrid/Views/Columns"/>
+			</Category>
+			<Sample SampleName="Sorting" Title="Sorting" SearchTags="sorting" CodeViewerPath="TreeGrid/Views/DataPresentation/"/>
+			<Sample SampleName="Filtering" Title="Filtering" SearchTags="filtering, filter" CodeViewerPath="TreeGrid/Views/Filtering"/>
+			<Sample SampleName="Selection" Title="Selection" SearchTags="selection, row selection" CodeViewerPath="TreeGrid/Views/Selection"/>
+			<Category Title="Appearance">
+				<Sample SampleName="Styling" Title="Styling" SearchTags="styling" CodeViewerPath="TreeGrid/Views/Appearance/Styling/"/>
+				<Sample SampleName="ConditionalStyling" Title="Conditional Styling" SearchTags="conditional styling" CodeViewerPath="TreeGrid/Views/Appearance/ConditionalStyling/"/>
+				<Sample SampleName="FreezePanes" Title="Freeze Panes" SearchTage="freeze panes" CodeViewerPath="TreeGrid/Views/FreezePanes/"/>
+			</Category>
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

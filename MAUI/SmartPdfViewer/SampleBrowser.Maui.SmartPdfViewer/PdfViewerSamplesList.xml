@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<SyncfusionControls>
+  <ControlCategory Name="Viewer">
+
+    <Control
+        Title="Smart PDF Viewer"
+        ControlName="SfSmartPdfViewer"
+        Image="pdfviewer.png"
+        Description="View PDF documents seamlessly and efficiently with AI-powered features.">
+
+      <Sample
+          Title="Document Summaries"
+          SampleName="Summarizer"
+          Description="This sample demonstrates how to generate document summaries and insights using AI Assist."
+          SearchTags="smart pdf viewer, ai assist, document summary, pdf summarization"
+          CodeViewerPath="SmartPdfViewer/DocumentSummaries/View/"
+          VideoLink="https://www.youtube.com/watch?v=KdXoeL5wvkA" />
+	  <Sample
+          Title="Smart Redaction"
+          SampleName="SmartRedaction"
+          Description="This sample demonstrates how to identify and redact sensitive information in PDF documents using AI-powered Smart Redaction."
+          SearchTags="smart pdf viewer, smart redaction, pdf redaction, ai redaction"
+          CodeViewerPath="SmartPdfViewer/SmartRedaction/View/"
+          VideoLink="https://www.youtube.com/watch?v=KdXoeL5wvkA" />
+      <Sample
+          Title="Form Filling"
+          SampleName="SmartFillView"
+          Description="This sample demonstrates how to automatically fill PDF form fields using AI-powered Form filling."
+          SearchTags="smart pdf viewer, smart fill, pdf forms, ai form filling"
+          CodeViewerPath="SmartPdfViewer/SmartFill/View/"
+          VideoLink="https://www.youtube.com/watch?v=KdXoeL5wvkA" />
+
+    </Control>
+
+  </ControlCategory>
+</SyncfusionControls>

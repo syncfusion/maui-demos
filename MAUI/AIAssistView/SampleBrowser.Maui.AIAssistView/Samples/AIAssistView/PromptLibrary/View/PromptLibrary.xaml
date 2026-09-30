@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             x:Class="SampleBrowser.Maui.AIAssistView.SfAIAssistView.PromptLibrary"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.AIAssistView.SfAIAssistView"
+             xmlns:markdown="clr-namespace:Syncfusion.Maui.MarkdownViewer;assembly=Syncfusion.Maui.MarkdownViewer"
+             xmlns:aiAssist="clr-namespace:Syncfusion.Maui.AIAssistView;assembly=Syncfusion.Maui.AIAssistView">
+    
+    <localCore:SampleView.BindingContext>
+        <local:GettingStartedViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+  
+    <!--#region SfAIAssistView-->
+    <aiAssist:SfAIAssistView x:Name="sfAIAssistView"
+                            StopRespondingCommand="{Binding StopRespondingCommand}"
+                            AssistItems="{Binding Messages}" 
+                            ItemCopyCommand="{Binding CopyCommand}" 
+                            RequestCommand="{Binding PromptRequestCommand}"
+                            ItemRetryCommand="{Binding PromptRetryCommand}"
+                            Suggestions="{Binding PromptSuggestions}"
+                            SelectedAgent="{Binding CurrentAgent}"
+                            AssistProfile="{Binding AsssistProfile}">
+
+        <aiAssist:SfAIAssistView.PromptLibrary>
+            <aiAssist:SfPromptLibrary ItemsSource="{Binding PromptLibrary.PromptLibraryInfo}" PromptSelectedCommand="{Binding PromptSelectedCommand}"/>
+        </aiAssist:SfAIAssistView.PromptLibrary>
+
+    </aiAssist:SfAIAssistView>
+
+</localCore:SampleView>

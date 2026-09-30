@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalRangeSlider.VerticalRangeSliderDividerLabelTickSample">
+
+    <sb:SampleView.Resources>
+        <Style TargetType="sliders:SfRangeSlider">
+            <Setter Property="Minimum"
+                    Value="0" />
+            <Setter Property="Maximum"
+                    Value="100" />
+            <Setter Property="RangeStart"
+                    Value="25" />
+            <Setter Property="RangeEnd"
+                    Value="75" />
+            <Setter Property="Interval"
+                    Value="25" />
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="300,Auto,30,Auto"
+                  ColumnDefinitions="*,*,*"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+
+                <sliders:SfRangeSlider Grid.Row="0"
+                                       Grid.Column="0"
+                                       ShowDividers="True"
+                                       IsInversed="{Binding Source={x:Reference inversedCheckBox}, Path=IsChecked}" 
+                                       x:DataType="CheckBox"/>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Dividers" />
+
+                <sliders:SfRangeSlider Grid.Row="0"
+                                       Grid.Column="1"
+                                       ShowLabels="True"
+                                       IsInversed="{Binding Source={x:Reference inversedCheckBox}, Path=IsChecked}"
+                                       x:DataType="CheckBox"/>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Labels" />
+
+                <sliders:SfRangeSlider Grid.Row="0"
+                                       Grid.Column="2"
+                                       Minimum="-50"
+                                       Maximum="50"
+                                       RangeStart="-25"
+                                       RangeEnd="25"
+                                       ShowTicks="True"
+                                       ShowLabels="True"
+                                       IsInversed="{Binding Source={x:Reference inversedCheckBox}, Path=IsChecked}"
+                                       x:DataType="CheckBox"/>
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       Text="Ticks" />
+
+                <Grid Grid.Row="3"
+                      Grid.ColumnSpan="3"
+                      ColumnDefinitions="Auto,Auto"
+                      HorizontalOptions="Center">
+                    <Label Grid.Column="0"
+                           Text="Inversed"
+                           Padding="5"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center" />
+                    <CheckBox x:Name="inversedCheckBox"
+                              Grid.Column="1" />
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

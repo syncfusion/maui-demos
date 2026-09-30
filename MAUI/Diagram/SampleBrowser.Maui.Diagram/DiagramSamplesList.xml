@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Diagram">
+    <Control Title=" Diagram"
+             Image="diagram.png"
+             ControlName="SfDiagram"
+             Description="The diagram control is used to create and visualize diagrams."
+             StatusTag="New" IsPreview="True">
+      <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="Diagram/GettingStarted/"  />
+      <Sample Title="Node" SampleName="Nodes" CodeViewerPath="Diagram/Nodes/"  />
+      <Sample Title="Connector" SampleName="Connectors" CodeViewerPath="Diagram/Connectors/"  />
+      <Sample Title="Annotation" SampleName="Annotations" CodeViewerPath="Diagram/Annotations/"  />
+      
+    </Control>
+  </ControlCategory>
+</SyncfusionControls>

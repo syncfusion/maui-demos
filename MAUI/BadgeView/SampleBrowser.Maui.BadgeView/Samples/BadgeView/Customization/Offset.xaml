@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"                      
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.BadgeView.SfBadgeView.Offset">
+
+    <localCore:SampleView.Resources>
+        <Style x:Key="DemoButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}"/>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout WidthRequest="250" 
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center"
+                             Spacing="40"
+                             Padding="0">
+                <badge:SfBadgeView BadgeText="5" x:Name="badgeView"
+                               HorizontalOptions="Center">
+                    <Button Margin="10" Text="With Offset"
+                            BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                            CornerRadius="8"
+                            WidthRequest="156"
+                            HeightRequest="70"                            
+                            Style="{StaticResource DemoButtonStyle}"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Offset="-10,10"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+                <VerticalStackLayout Spacing="0" Padding="{OnPlatform WinUI=5}">
+                <Label HorizontalTextAlignment="Start" Text="Horizontal Offset" Margin="{OnPlatform Default='0,20,0,0', Android='15,20,0,0' , iOS='15,20,0,0'}" />
+                    <Slider Minimum="-30" Maximum="0" Value="-20" ValueChanged="Slider_ValueChanged" MaximumTrackColor="{AppThemeBinding Light= #E0E0E0, Dark= #404040}" MinimumTrackColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"  ThumbColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="0" Padding="{OnPlatform WinUI=5}">
+                    <Label HorizontalTextAlignment="Start" Text="Vertical Offset" Margin="{OnPlatform Default='0,0,0,0', Android='15,0,0,0' , iOS='15,0,0,0'}"  />
+                    <Slider Minimum="0" Maximum="45" Value="30" ValueChanged="Slider_ValueChanged1" MaximumTrackColor="{AppThemeBinding Light= #E0E0E0, Dark= #404040}" MinimumTrackColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"  ThumbColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

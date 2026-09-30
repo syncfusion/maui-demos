@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.SmartDemos.SmartDemos.MapsGettingStarted"
+             xmlns:busyIndicator="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:maps="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.SmartDemos.SmartDemos"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <imageExtension:SfImageSourceConverter x:Key="imageConverter"/>
+            <DataTemplate x:Key="MarkerTemplate">
+                <StackLayout IsClippedToBounds="false"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Start"
+                            HeightRequest="30">
+                    <Image Source="{imageExtension:SfImageResource map_pin.png}"
+                           Scale="1"
+                           Aspect="AspectFit"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"
+                           HeightRequest="30"
+                           WidthRequest="30" />
+                </StackLayout>
+            </DataTemplate>
+
+            <DataTemplate x:Key="DetailTemplate">
+                <Border Margin="0" Padding="0" BackgroundColor="{AppThemeBinding Default={StaticResource ContentBackground}}" WidthRequest="250">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <StackLayout BackgroundColor="Transparent" Orientation="Vertical">
+                        <Image Source="{Binding DataItem.Image}" HeightRequest="120" Margin="0" WidthRequest="250" Aspect="AspectFill"/>
+                        <Label Grid.Row="1" Text="{Binding DataItem.Name}" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" FontAttributes="Bold" FontSize="12" LineBreakMode="WordWrap" Padding="10,5,0,0"/>
+                        <Label Grid.Row="2" Text="{Binding DataItem.Details}" TextColor="{AppThemeBinding Default={StaticResource ContentForegroundAlt1}}" LineBreakMode="WordWrap" FontSize="10" Padding="10,0,0,0"/>
+                        <Label Grid.Row="3" Padding="10,0,0,5">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="&#xe76e; " TextColor="{AppThemeBinding Default={StaticResource ContentForegroundAlt1}}" FontSize="8" FontFamily="MauiSampleFontIcon"/>
+                                    <Span Text="{Binding DataItem.Address}" FontSize="10" TextColor="{AppThemeBinding Default={StaticResource ContentForegroundAlt1}}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Border>
+            </DataTemplate>
+
+            <DataTemplate x:Key="NormalTemplate">
+                <Border Margin="0" Padding="0" BackgroundColor="{AppThemeBinding Default={StaticResource ContentBackground}}" WidthRequest="250">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <StackLayout BackgroundColor="Transparent" Orientation="Vertical">
+                        <Image Source="{Binding DataItem.Image}" HeightRequest="120" Margin="0" WidthRequest="250" Aspect="AspectFill"/>
+                        <Label Grid.Row="1" Text="{Binding DataItem.Name}" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" FontAttributes="Bold" FontSize="12" LineBreakMode="WordWrap" Padding="10,5,0,0"/>
+                        <Label Grid.Row="2" Text="{Binding DataItem.Details}" TextColor="{AppThemeBinding Default={StaticResource ContentForegroundAlt1}}" LineBreakMode="WordWrap" FontSize="10" Padding="10,0,0,5"/>
+                    </StackLayout>
+                </Border>
+            </DataTemplate>
+
+            <DataTemplate x:Key="OfflineTemplate">
+                <Border Margin="0" Padding="0" BackgroundColor="{AppThemeBinding Default={StaticResource ContentBackground}}" WidthRequest="250">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <StackLayout BackgroundColor="Transparent" Orientation="Vertical">
+                        <Image Source="{Binding DataItem.ImageName,Converter={StaticResource imageConverter}}" HeightRequest="120" Margin="0" WidthRequest="250" Aspect="AspectFill"/>
+                        <Label Grid.Row="1" Text="{Binding DataItem.Name}" TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}" FontAttributes="Bold" FontSize="12" LineBreakMode="WordWrap" Padding="10,5,0,0"/>
+                        <Label Grid.Row="2" Text="{Binding DataItem.Details}" TextColor="{AppThemeBinding Default={StaticResource ContentForegroundAlt1}}" LineBreakMode="WordWrap" FontSize="10" Padding="10,0,0,0"/>
+                        <Label Grid.Row="3" Padding="10,0,0,5">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="&#xe76e; " TextColor="{AppThemeBinding Default={StaticResource ContentForegroundAlt1}}" FontSize="8" FontFamily="MauiSampleFontIcon"/>
+                                    <Span Text="{Binding DataItem.Address}" FontSize="10" TextColor="{AppThemeBinding Default={StaticResource ContentForegroundAlt1}}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Border>
+            </DataTemplate>
+
+            <local:MarkerTemplateSelector x:Key="MarkerTemplateSelector"
+                              DetailTemplate="{StaticResource DetailTemplate}"
+                              NormalTemplate="{StaticResource NormalTemplate}" OfflineTemplate="{StaticResource OfflineTemplate}"/>
+
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <maps:SfMaps x:Name="maps">
+                <maps:SfMaps.Layer>
+                    <maps:MapTileLayer x:Name="layer"
+                       UrlTemplate="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                       CanCacheTiles="True"
+                       ShowMarkerTooltip="True"
+                       MarkerTooltipTemplate="{StaticResource MarkerTemplateSelector}"
+                       MarkerTemplate="{StaticResource MarkerTemplate}">
+                        <maps:MapTileLayer.Center>
+                            <maps:MapLatLng x:Name="mapLatLng"
+                                            Latitude="37.0902"
+                                            Longitude="-95.7129">
+                            </maps:MapLatLng>
+                        </maps:MapTileLayer.Center>
+                        <maps:MapTileLayer.ZoomPanBehavior>
+                            <maps:MapZoomPanBehavior x:Name="zoomPanBehavior"
+                                     ZoomLevel="4"
+                                     MinZoomLevel="4"
+                                     MaxZoomLevel="18"
+                                     EnableDoubleTapZooming="True" />
+                        </maps:MapTileLayer.ZoomPanBehavior>
+                        <maps:MapTileLayer.MarkerTooltipSettings>
+                            <maps:MapTooltipSettings Background="Transparent"/>
+                        </maps:MapTileLayer.MarkerTooltipSettings>
+                    </maps:MapTileLayer>
+                </maps:SfMaps.Layer>
+            </maps:SfMaps>
+            <HorizontalStackLayout VerticalOptions="Start" IsClippedToBounds="False" HorizontalOptions="Start" WidthRequest="{OnPlatform Default=350, Android=300}" Margin="10" IsVisible="True" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                <editors:SfAutocomplete x:Name="autoComplete"
+                                      IsClearButtonVisible="False"
+                                      HorizontalOptions="Start"
+                                      WidthRequest="{OnPlatform Default=350, Android=300}"
+                                      HeightRequest="50"
+                                      DropDownItemHeight="50" 
+                                      Text="Hospitals in New York">
+                    <editors:SfAutocomplete.NoResultsFoundTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="{AppThemeBinding Default={StaticResource ContentBackground}}">
+                                <Label Text="Offline search only provides results for “hospitals in New York” and “hotels in Denver.” To get more results, connect to the internet and OpenAI."
+                                       FontSize="10"
+                                       TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                       LineBreakMode="WordWrap"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Margin="5"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </editors:SfAutocomplete.NoResultsFoundTemplate>
+                </editors:SfAutocomplete>
+                <Button x:Name="button" Text="&#xe728;"
+                                        Margin="-55,0,0,0"
+                                        BackgroundColor="Transparent"
+                                        BorderColor="Transparent"
+                                        FontSize="20"
+                                        TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                        FontFamily="MauiSampleFontIcon"
+                                        HeightRequest="50"
+                                        WidthRequest="50"/>
+            </HorizontalStackLayout>
+            <busyIndicator:SfBusyIndicator IsVisible="False"
+                                  x:Name="busyIndicator"
+                                  IsRunning="False"
+                                  AnimationType="Cupertino"/>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.Behaviors>
+        <local:MapsGettingStartedBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

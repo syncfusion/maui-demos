@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.LiquidGlass.SfStepProgressBar.OrderTrackingDestopUI"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfStepProgressBar"
+                      xmlns:imageExtention="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+                      xmlns:rating="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons">
+
+    <localCore:SampleView.Resources>
+        <Style x:Key="labelStyle"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Default={StaticResource ContentForeground}}" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="FontFamily"
+                    Value="Roboto" />
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+
+        </Style>
+        <Style x:Key="labelStyle1"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Default={StaticResource ContentForegroundAlt1}}" />
+            <Setter Property="FontFamily"
+                    Value="Roboto" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:StepProgressBarViewModel x:Name="viewModel" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <core:SfGlassEffectView EffectType="Regular">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28" />
+                <RowDefinition Height="160" />
+                <RowDefinition Height="48" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <Label Text="Product Details"
+                   Style="{StaticResource labelStyle}" />
+            <Border Grid.Row="1"
+                    HeightRequest="160"
+                    BackgroundColor="Transparent"
+                    Stroke="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                    Margin="0"
+                    Padding="0"
+                    VerticalOptions="Center">
+                <Grid ColumnDefinitions="155,*">
+                    <Image Source="{imageExtention:SfImageResource redshoe-04.png}"
+                           HeightRequest="{OnPlatform MacCatalyst=130, WinUI=130}"
+                           WidthRequest="{OnPlatform MacCatalyst=135, WinUI=135}"
+                           HorizontalOptions="Center"
+                           Grid.Column="0"
+                           VerticalOptions="Center" />
+                    <VerticalStackLayout Margin="0,10,0,0"
+                                         Grid.Column="1"
+                                         Spacing="10">
+                        <Label Text="Footy Day Athletic Shoes"
+                               LineBreakMode="WordWrap"
+                               HorizontalTextAlignment="Start"
+                               Style="{StaticResource labelStyle}" />
+                        <Label Text="Seller: FASHION FOOTY WEARS PVT. LTD."
+                               Style="{StaticResource labelStyle1}"
+                               HorizontalTextAlignment="Start" />
+                        <HorizontalStackLayout Spacing="10">
+                            <rating:SfRating Value="4"
+                                             ItemSize="25"
+                                             WidthRequest="145"
+                                             HeightRequest="25"
+                                             IsReadOnly="True">
+                            </rating:SfRating>
+                            <Label Text="+12000 rating"
+                                   Style="{StaticResource labelStyle1}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="$423"
+                                   FontSize="{OnPlatform WinUI=20, MacCatalyst=25}"
+                                   Style="{StaticResource labelStyle}" />
+                            <Label Padding="{OnPlatform MacCatalyst=5}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="$4234"
+                                              TextDecorations="Strikethrough"
+                                              FontSize="{OnPlatform WinUI=16, MacCatalyst=25}"
+                                              TextColor="{AppThemeBinding Default={StaticResource BorderAlt1}}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Text="70%"
+                                   VerticalOptions="Center"
+                                   FontSize="16"
+                                   TextColor="{AppThemeBinding Default={StaticResource SuccessForeground}}" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+            <Label Grid.Row="2"
+                   Text="Track Order Status"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Style="{StaticResource labelStyle}"
+                   Margin="0,20,0,0" />
+            <progressBar:SfStepProgressBar Grid.Row="3"
+                                           x:DataType="local:StepProgressBarViewModel"
+                                           ItemsSource="{Binding ShipmentInfoCollection}"
+                                           Orientation="Horizontal"
+                                           x:Name="stepProgress"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           BackgroundColor="Violet"
+                                           LabelSpacing="12"
+                                           ProgressAnimationDuration="2000"
+                                           ActiveStepIndex="2"
+                                           ActiveStepProgressValue="50"
+                                           ShowToolTip="True">
+                <progressBar:SfStepProgressBar.CompletedStepSettings>
+                    <progressBar:StepSettings ProgressColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}">
+                        <progressBar:StepSettings.TextStyle>
+                            <progressBar:StepTextStyle TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                                       FontAttributes="Bold" />
+                        </progressBar:StepSettings.TextStyle>
+                    </progressBar:StepSettings>
+                </progressBar:SfStepProgressBar.CompletedStepSettings>
+                <progressBar:SfStepProgressBar.InProgressStepSettings>
+                    <progressBar:StepSettings ProgressColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}">
+                        <progressBar:StepSettings.TextStyle>
+                            <progressBar:StepTextStyle TextColor="{AppThemeBinding Default={StaticResource ContentForeground}}"
+                                                       FontAttributes="Bold" />
+                        </progressBar:StepSettings.TextStyle>
+                    </progressBar:StepSettings>
+                </progressBar:SfStepProgressBar.InProgressStepSettings>
+                <progressBar:SfStepProgressBar.NotStartedStepSettings>
+                    <progressBar:StepSettings ProgressColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}" />
+                </progressBar:SfStepProgressBar.NotStartedStepSettings>
+                <progressBar:SfStepProgressBar.StepTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <core:SfGlassEffectView WidthRequest="32"
+                                                    HeightRequest="32"
+                                                    CornerRadius="16">
+                                <Border BackgroundColor="{AppThemeBinding Default={StaticResource PrimaryBackground}}"
+                                        Margin="0.5">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="15" />
+                                    </Border.StrokeShape>
+                                    <Label Text="&#xe70c;"
+                                           FontFamily="MauiMaterialAssets"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           TextColor="White"
+                                           FontSize="20" />
+                                </Border>
+                            </core:SfGlassEffectView>
+                        </Grid>
+                    </DataTemplate>
+                </progressBar:SfStepProgressBar.StepTemplate>
+
+                <progressBar:SfStepProgressBar.PrimaryTextTemplate>
+                    <DataTemplate>
+                        <Grid x:DataType="progressBar:StepProgressBarItem"
+                              WidthRequest="{OnPlatform WinUI=180, MacCatalyst=250}"
+                              HeightRequest="50">
+                            <VerticalStackLayout VerticalOptions="Start">
+                                <Label Text="{Binding PrimaryText}"
+                                       FontAttributes="Bold"
+                                       BackgroundColor="Transparent"
+                                       FontFamily="Roboto"
+                                       FontSize="14"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="TailTruncation"/>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout VerticalOptions="Start">
+                                <Label LineBreakMode="WordWrap"
+                                       BackgroundColor="Transparent"
+                                       HorizontalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <Binding Path="PrimaryFormattedText"/>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </progressBar:SfStepProgressBar.PrimaryTextTemplate>
+
+                <progressBar:SfStepProgressBar.SecondaryTextTemplate>
+                    <DataTemplate>
+                        <Grid x:DataType="progressBar:StepProgressBarItem"
+                              WidthRequest="{OnPlatform WinUI=180, MacCatalyst=250}"
+                              HeightRequest="50">
+                            <VerticalStackLayout VerticalOptions="End">
+                                <Label Text="{Binding SecondaryText}"
+                                       FontAttributes="Bold"
+                                       FontFamily="Roboto"
+                                       BackgroundColor="Transparent"
+                                       FontSize="14"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="TailTruncation"/>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout VerticalOptions="End">
+                                <Label LineBreakMode="WordWrap"
+                                       BackgroundColor="Transparent"
+                                       HorizontalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <Binding Path="SecondaryFormattedText"/>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </progressBar:SfStepProgressBar.SecondaryTextTemplate>
+            </progressBar:SfStepProgressBar>
+        </Grid>
+        </core:SfGlassEffectView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

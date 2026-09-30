@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.DistanceTracker"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="distanceTrackerGauge" HorizontalOptions="Center">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis Minimum="0"
+                                                  Maximum="240"
+                                                  ShowTicks="False"
+                                                  ShowLabels="False"
+                                                  EnableLoadingAnimation="True"
+                                                  AnimationDuration="2000">
+                    <gauge:RadialAxis.Annotations>
+                        <gauge:GaugeAnnotation 
+                                                               >
+                            <gauge:GaugeAnnotation.Content>
+                                <VerticalStackLayout>
+                                    <Label Text="142"
+                                                       FontSize="30" HorizontalTextAlignment="Center"
+                                                       FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}">
+                                    </Label>
+                                    <Label Text="km/h" HorizontalTextAlignment="Center"
+                                                       FontSize="14"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                                </VerticalStackLayout>
+
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+
+                        <gauge:GaugeAnnotation DirectionValue="124"
+                                                               PositionFactor="1"
+                                                               HorizontalAlignment="Start">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="0"
+                                                       FontSize="14"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+
+                        <gauge:GaugeAnnotation DirectionValue="58"
+                                                               PositionFactor="1">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="240"
+                                                       FontSize="14"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+                    </gauge:RadialAxis.Annotations>
+
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:RangePointer Value="142"
+                                                            PointerWidth="30"
+                                                            PointerOffset="-12"
+                                                            CornerStyle="BothCurve">
+                            <gauge:RangePointer.GradientStops>
+                                <gauge:GaugeGradientStop Value="36"
+                                                                         Color="#FFFF7676" />
+                                <gauge:GaugeGradientStop Value="107"
+                                                                         Color="#FFF54EA2" />
+                            </gauge:RangePointer.GradientStops>
+                        </gauge:RangePointer>
+                        <gauge:ShapePointer Value="138"
+                                                             ShapeType="Circle"
+                                                             Fill="White" />
+                    </gauge:RadialAxis.Pointers>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.CellMerge"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:CellMergeViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageConverter" />
+
+        <OnPlatform x:Key="visible" x:TypeArguments="x:Boolean">
+            <On Platform="WinUI,MacCatalyst" Value="True" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120" />
+        </OnPlatform>
+
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily" Value="Roboto-Medium" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           ItemsSource="{Binding OrderList}"
+                           ItemsSourceChanged="DataGrid_ItemsSourceChanged"
+                           QueryCoveredRange="Grid_QueryCoveredRange"
+                           SelectionUnit="Cell"
+                           NavigationMode="Cell"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both"
+                           AllowGroupExpandCollapse="True"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridTemplateColumn MappingName="CustomerID"
+                                              HeaderText="Customer ID"
+                                              MinimumWidth="{StaticResource minimumWidth}">
+                    <sfgrid:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="Center"
+                                  VerticalOptions="Center">
+                                <Image Margin="14"
+                                       HeightRequest="80"
+                                       WidthRequest="80"
+                                       Source="{Binding Image, Converter={StaticResource imageConverter}}" />
+                            </Grid>
+                        </DataTemplate>
+                    </sfgrid:DataGridTemplateColumn.CellTemplate>
+                </sfgrid:DataGridTemplateColumn>
+
+                <sfgrid:DataGridNumericColumn MappingName="OrderID"
+                                            HeaderText="Order ID"
+                                            Format="D"
+                                            MinimumWidth="{StaticResource minimumWidth}"
+                                            Visible="{StaticResource visible}" />
+
+                <sfgrid:DataGridNumericColumn MappingName="UnitPrice"
+                                            HeaderText="Unit Price"
+                                            Format="C0"
+                                            Visible="{StaticResource visible}" />
+
+                <sfgrid:DataGridTextColumn MappingName="ProductName"
+                                         HeaderText="Product Name"
+                                         MinimumWidth="{StaticResource minimumWidth}" />
+
+                <sfgrid:DataGridNumericColumn MappingName="Quantity"
+                                            HeaderText="Quantity"
+                                            Format="N0"
+                                            MinimumWidth="{StaticResource minimumWidth}" />
+            </sfgrid:SfDataGrid.Columns>
+
+            <sfgrid:SfDataGrid.GroupColumnDescriptions>
+                <sfgrid:GroupColumnDescription ColumnName="CustomerID" />
+            </sfgrid:SfDataGrid.GroupColumnDescriptions>
+
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

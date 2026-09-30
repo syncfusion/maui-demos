@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      xmlns:diagram="clr-namespace:Syncfusion.Maui.Diagram;assembly=Syncfusion.Maui.Diagram"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.Diagram.SfDiagram.GettingStarted">
+
+   <Grid RowDefinitions="*">
+        <!-- ── Diagram Control ── -->
+        <diagram:SfDiagram x:Name="Diagram" Nodes="{Binding Nodes}" Connectors="{Binding Connectors}"
+                           BackgroundColor="#FAFAFA"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill"
+                           Created="OnCreated" />
+    </Grid>
+</localCore:SampleView>

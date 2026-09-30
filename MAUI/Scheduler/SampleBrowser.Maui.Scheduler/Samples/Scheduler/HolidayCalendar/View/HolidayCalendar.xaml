@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.HolidayCalendar"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             x:DataType="local:SchedulerViewModel"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+
+    <localCore:SampleView.BindingContext>
+        <local:SchedulerViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <scheduler:SfScheduler View="Month" x:Name="Scheduler"
+                               AppointmentEditorMode="Add,Edit"
+                               AllowAppointmentResize="True"
+                               AppointmentsSource="{Binding Appointments}"
+                               MinimumDateTime="{Binding MinDateTime}"
+                               MaximumDateTime="{Binding MaxDateTime}"
+                               DisplayDate="{Binding DisplayDate}">
+
+        </scheduler:SfScheduler>
+    </localCore:SampleView.Content>
+    
+    <localCore:SampleView.OptionView>
+        <VerticalStackLayout
+               Spacing="15">
+            <HorizontalStackLayout>
+                <buttons:SfSwitch IsOn="{Binding ShowHolidayEvents}"/>
+                <Label Text="Holiday Event"
+                       VerticalOptions="Center" Margin="10,0,0,0"
+                       TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <buttons:SfSwitch x:Name="holidaySwitch" IsOn="{Binding ScheduleEventsOnHoliday}"/>
+                <Label Text="Scheduling Event On Holiday" 
+                       VerticalOptions="Center" Margin="10,0,0,0"
+                       TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:HolidayCalendarBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

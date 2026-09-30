@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      x:Class="SampleBrowser.Maui.BadgeView.SfBadgeView.Border">
+
+    <localCore:SampleView.Resources>
+        <Style x:Key="DemoButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <ScrollView HorizontalOptions="Center" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout WidthRequest="250" 
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center"
+                             Spacing="20"
+                             Padding="10">
+                <badge:SfBadgeView BadgeText="5"
+                               HorizontalOptions="Center"
+                               WidthRequest="200"
+                               HeightRequest="100">
+                    <Button BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                            CornerRadius="8"
+                            Margin="10" Text="Corner Radius"
+                            Style="{StaticResource DemoButtonStyle}"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings CornerRadius="12"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <badge:SfBadgeView BadgeText="5"
+                               HorizontalOptions="Center"
+                               WidthRequest="200"
+                               HeightRequest="100">
+                    <Button BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                            CornerRadius="8"
+                            Margin="10" Text="Stroke Thickness"
+                            Style="{StaticResource DemoButtonStyle}"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Stroke="DeepPink" 
+                                         Type="None"
+                                         Background="White"
+                                         TextColor="DeepPink"
+                                         StrokeThickness="3"
+                                         Offset="-1,1"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+
+                <badge:SfBadgeView BadgeText="5"
+                               HorizontalOptions="Center"
+                               WidthRequest="200"
+                               HeightRequest="100">
+                    <Button BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource Border}}"
+                            CornerRadius="8"
+                            Text="Stroke"
+                            Style="{StaticResource DemoButtonStyle}"
+                            TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                    <badge:SfBadgeView.BadgeSettings>
+                        <badge:BadgeSettings Stroke="Red" 
+                                         Type="None"
+                                         Background="White"
+                                         TextColor="Red"
+                                         StrokeThickness="2"
+                                         Offset="-1,1"/>
+                    </badge:SfBadgeView.BadgeSettings>
+                </badge:SfBadgeView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

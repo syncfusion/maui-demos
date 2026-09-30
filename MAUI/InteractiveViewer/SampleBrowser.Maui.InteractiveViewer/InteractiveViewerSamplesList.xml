@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Viewer">
+    <Control ControlName="SfInteractiveViewer"
+             Title="Interactive Viewer"
+             Image="interactiveviewer.png"
+             Description="Explore content seamlessly with zoom, pan, and rotation interactions."
+             StatusTag="New"
+             IsPreview="true">
+      <Sample SampleName="GettingStarted"
+              Title="Getting Started"
+              SearchTags="interactiveviewer,viewer,interactive"
+              StatusTag="New"/>
+      <Sample SampleName="CircuitDiagramViewer"
+              Title="Interactive Circuit Diagram"
+              SearchTags="interactiveviewer,viewer,interactive,circuit"
+              StatusTag="New"/>
+      <Sample SampleName="FloorPlanViewer"
+              Title="Interactive Floor Plan"
+              SearchTags="interactiveviewer,viewer,interactive,floorplan"
+              StatusTag="New"/>
+    </Control>
+  </ControlCategory>
+</SyncfusionControls>

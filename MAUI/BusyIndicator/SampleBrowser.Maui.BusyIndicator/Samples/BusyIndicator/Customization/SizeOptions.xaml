@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.BusyIndicator.SfBusyIndicator.SizeOptions"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.BusyIndicator.SfBusyIndicator"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+    <localCore:SampleView.Content>
+
+        <Grid HeightRequest="300" WidthRequest="300" RowDefinitions="*,50,20">
+            <core:SfBusyIndicator x:Name="busyIndicator" IsRunning="True" />
+            <Slider Minimum="0.1" Margin="1.0" Value="0.5" ValueChanged="Slider_ValueChanged" Grid.Row="1" MaximumTrackColor="{AppThemeBinding Light= #E0E0E0, Dark= #404040}" MinimumTrackColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"  ThumbColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"/>
+            <Label Text="Size" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" />
+        </Grid>
+    </localCore:SampleView.Content>
+ 
+</localCore:SampleView>

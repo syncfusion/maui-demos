@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      xmlns:treemap="clr-namespace:Syncfusion.Maui.TreeMap;assembly=Syncfusion.Maui.TreeMap"
+                      xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.TreeMap.SfTreeMap"
+                      x:DataType="local:CustomizationViewModel"
+                      x:Class="SampleBrowser.Maui.TreeMap.SfTreeMap.Customization">
+
+    <localCore:SampleView.Margin>
+        <OnPlatform x:TypeArguments="thickness:Thickness">
+            <On Platform="MacCatalyst" Value="-4,-4,-6,-6"/>
+            <On Platform="WinUI" Value="-10"/>
+        </OnPlatform>
+    </localCore:SampleView.Margin>
+
+    <localCore:SampleView.BindingContext>
+        <local:CustomizationViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <Grid RowDefinitions="auto, 0.95*">
+            <VerticalStackLayout >
+                <Label Text="US Gold Medal Wins in 2016 Summer Olympics"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="{OnPlatform Default=14, Android=12 }"
+                       Padding="3"
+                       FontAttributes="Bold"/>
+            </VerticalStackLayout>
+            <treemap:SfTreeMap x:Name="treeMap"
+                               DataSource="{Binding OlympicMedalDetails}"
+                               Grid.Row="1"
+                               Margin="8"
+                               PrimaryValuePath="GoldMedals"
+                               ShowToolTip="False">
+                <treemap:SfTreeMap.LeafItemTemplate>
+                    <DataTemplate x:DataType="local:OlympicMedalDetails" >
+                        <Grid Background="#8963BA">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <VerticalStackLayout
+                                x:DataType="treemap:TreeMapItemInfo"
+                                Margin="6">
+                                <VerticalStackLayout.BindingContext>
+                                    <Binding Path="Item" />
+                                </VerticalStackLayout.BindingContext>
+                                <Label x:DataType="local:OlympicMedalDetails" LineBreakMode="WordWrap">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Sport}" TextColor="White"/>
+                                            <Span Text="-" FontAttributes="None" TextColor="White"/>
+                                            <Span Text="{Binding GoldMedals}" TextColor="White"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                            <Grid Grid.Row="1" x:DataType="treemap:TreeMapItemInfo">
+                                <Grid.BindingContext>
+                                    <Binding Path="Item" />
+                                </Grid.BindingContext>
+                                <Label x:DataType="local:OlympicMedalDetails" HorizontalOptions="Center"
+                                   WidthRequest="{OnPlatform Android=40, WinUI=50, MacCatalyst=50, iOS=40}"
+                                   HeightRequest="{OnPlatform Android=40, WinUI=50, MacCatalyst=50, iOS=40}"
+                                   VerticalOptions="Center"
+                                   FontFamily="TreeMapIcon"
+                                   Text="{Binding IconName}"
+                                   TextColor="White"
+                                   FontSize="{OnPlatform Android=40, WinUI=50, MacCatalyst=50, iOS=40}">
+                                <Label.Margin>
+                                    <OnPlatform x:TypeArguments="thickness:Thickness">
+                                        <On Platform="MacCatalyst" Value="12,20,12,12"/>
+                                        <On Platform="WinUI" Value="12,20,12,12"/>
+                                        <On Platform="Android" Value="12,8,12,12"/>
+                                        <On Platform="iOS" Value="12,8,12,12"/>
+                                    </OnPlatform>
+                                </Label.Margin>
+                            </Label>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </treemap:SfTreeMap.LeafItemTemplate>
+                <treemap:SfTreeMap.ToolTipTemplate>
+                    <DataTemplate x:DataType="local:OlympicMedalDetails">
+                        <HorizontalStackLayout x:DataType="treemap:TreeMapItemInfo" Margin="6">
+                            <HorizontalStackLayout.BindingContext>
+                                <Binding Path="Item" />
+                            </HorizontalStackLayout.BindingContext>
+                            <Label x:DataType="local:OlympicMedalDetails" Text="{Binding IconName}"
+                                   FontFamily="TreeMapIcon"
+                                   TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                            <Label x:DataType="local:OlympicMedalDetails" Text="{Binding Sport}"
+                                   TextColor="{AppThemeBinding Light=White, Dark=Black}"
+                                   Margin="6,0,0,0"/>
+                            <Label x:DataType="local:OlympicMedalDetails" Text=":"
+                                   TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                            <Label x:DataType="local:OlympicMedalDetails" Text="{Binding GoldMedals}"
+                                   TextColor="{AppThemeBinding Light=White, Dark=Black}"
+                                   Margin="6,0,0,0"/>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </treemap:SfTreeMap.ToolTipTemplate>
+            </treemap:SfTreeMap>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
+    <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+    <!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+    <!-- Enable XAML source generation for faster build times and improved performance.
+		     This generates C# code from XAML at compile time instead of runtime inflation. -->
+    <MauiXamlInflator>SourceGen</MauiXamlInflator>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SampleBrowser.Maui.Diagram</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- CS1591 is suppressed here ONLY for MAUI source-generator output (the __Type... types the XAML
+		     source generator emits into obj\ for Resources/Styles/*.xaml — regenerated every build, so
+		     they cannot be documented by hand, and CS1591 does not honor [GeneratedCode]). Every
+		     hand-written member in this project IS documented; generate-docs mode stays on so IDE0005
+		     and the CA*-family rules keep enforcing on build (GenerateDocumentationFile=false instead
+		     is not an option: EnforceCodeStyleInBuild + IDE0005 hard-require it — dotnet/roslyn#41640). -->
+    <!-- CS1591 is suppressed here ONLY for MAUI source-generator output: removing it fails the build on the
+		     four __Type... types the XAML source generator emits into obj\ for Resources/Styles/*.xaml —
+		     files that are regenerated every build (hand edits are lost) and whose compiler-mangled names
+		     cannot be documented anyway; CS1591 also ignores [GeneratedCode]. Every hand-written member in
+		     this project IS documented and remains governed by CS1591 discipline in the IDE, where the
+		     generated files are excluded. Generate-docs mode must stay on for build-time IDE0005/CA* rules
+	     (GenerateDocumentationFile=false is not an option — dotnet/roslyn#41640). 
+	     CA1711 is suppressed for AppDelegate (iOS/macOS standard framework entry point; CA1711 targets
+	     user-defined delegates that should use Handler/callback naming instead). -->
+    <NoWarn>$(NoWarn);NU1803;CS1591;CA1711</NoWarn>
+    <!-- Display name -->
+    <ApplicationTitle>SampleBrowser.Maui.Diagram</ApplicationTitle>
+    <!-- App Identifier -->
+    <ApplicationId>com.companyname.samplebrowser.maui.diagram</ApplicationId>
+    <ApplicationIdGuid>583fd846-5b72-4168-a1bc-332a084de1a3</ApplicationIdGuid>
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+    <Configurations>Debug;Release;Release-Xml</Configurations>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE;RELEASE;</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Xml|AnyCPU' ">
+    <DefineConstants>TRACE;RELEASE;</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+  <!-- Release configuration for Mac Catalyst -->
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Release|net10.0-maccatalyst'">
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageReference Include="SampleBrowser.Maui.Base" Version="35.1.37" />
+    <PackageReference Include="Syncfusion.Maui.Buttons" Version="35.1.37" />
+    <PackageReference Include="Syncfusion.Maui.Core" Version="35.1.37" />
+    <PackageReference Include="Syncfusion.Maui.Inputs" Version="35.1.37" />
+    <PackageReference Include="Syncfusion.Maui.Sliders" Version="35.1.37" />
+    <PackageReference Include="Syncfusion.Maui.TabView" Version="35.1.37" />
+    <PackageReference Include="Syncfusion.Maui.Popup" Version="35.1.37" />
+    <PackageReference Include="Syncfusion.Maui.ListView" Version="35.1.37" />
+    <PackageReference Include="Syncfusion.Maui.Diagram" Version="35.1.37" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <!-- Images -->
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ControlList.xml" />
+    <None Remove="DiagramSamplesList.xml" />
+    <None Remove="Resources\Fonts\MauiMaterialAssets.ttf" />
+    <None Remove="SyncfusionLicense.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ControlList.xml" />
+    <EmbeddedResource Include="DiagramSamplesList.xml" />
+    <EmbeddedResource Include="SyncfusionLicense.txt" />
+  </ItemGroup>
+</Project>

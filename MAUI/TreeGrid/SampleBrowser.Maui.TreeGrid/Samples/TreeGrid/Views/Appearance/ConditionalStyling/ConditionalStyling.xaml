@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.TreeGrid.SfTreeGrid.ConditionalStyling"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TreeGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.TreeGrid;assembly=Syncfusion.Maui.TreeGrid">
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-12,-12,-12,-12" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+
+        <OnPlatform x:Key="visible" x:TypeArguments="x:Boolean">
+            <On Platform="WinUI,MacCatalyst" Value="True"></On>
+        </OnPlatform>
+
+        <local:SalaryBackgroundConverter x:Key="SalaryBackgroundConverter" />
+        <local:HikeBackgroundConverter x:Key="HikeBackgroundConverter" />
+
+        <Style TargetType="sfgrid:TreeGridHeaderCell">
+            <Setter Property="FontFamily" Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst" Value="16,14" />
+                        <On Platform="Android" Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="sfgrid:TreeGridCell">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:EmployeeViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfTreeGrid x:Name="treeGrid"
+                           GridLinesVisibility="Horizontal"
+                           HeaderGridLinesVisibility="Horizontal"
+                           Margin="{StaticResource margin}"
+                           x:DataType="local:EmployeeViewModel"
+                           ItemsSource="{Binding PersonDetails}"
+                           ChildPropertyName="Children"
+                           AutoGenerateColumnsMode="None"
+                           AutoExpandMode="RootNodesExpanded"
+                           ExpanderColumn="FirstName"
+                           HeaderRowHeight="56"
+                           RowHeight="48"
+                           ColumnWidthMode="Fill">
+            <sfgrid:SfTreeGrid.Columns>
+                <sfgrid:TreeGridTextColumn MappingName="FirstName"
+                                           HeaderText="First Name"
+                                           MinimumWidth="120"
+                                           CellPadding="0,14,16,14"/>
+
+                <sfgrid:TreeGridTextColumn MappingName="LastName"
+                                           HeaderText="Last Name" 
+                                           MinimumWidth="{StaticResource minimumWidth}"   
+                                           Visible="{StaticResource visible}"  />
+
+                <sfgrid:TreeGridTextColumn MappingName="City"
+                                           HeaderText="City" 
+                                           MinimumWidth="{StaticResource minimumWidth}" />
+
+                <sfgrid:TreeGridNumericColumn MappingName="Salary"
+                                              Format="$#,##0"
+                                              HeaderText="Salary" MinimumWidth="{StaticResource minimumWidth}" >
+                    <sfgrid:TreeGridNumericColumn.CellStyle>
+                        <Style TargetType="sfgrid:TreeGridCell">
+                            <Setter Property="Background"
+                                    Value="{Binding Salary, Converter={StaticResource SalaryBackgroundConverter}}" />
+                        </Style>
+                    </sfgrid:TreeGridNumericColumn.CellStyle>
+                </sfgrid:TreeGridNumericColumn>
+                <sfgrid:TreeGridNumericColumn MappingName="Hike" Format="0'%'"
+                                              HeaderText="Hike" 
+                                              MinimumWidth="{StaticResource minimumWidth}">
+                    <sfgrid:TreeGridNumericColumn.CellStyle>
+                        <Style TargetType="sfgrid:TreeGridCell">
+                            <Setter Property="Background"
+                                    Value="{Binding Hike, Converter={StaticResource HikeBackgroundConverter}}" />
+                        </Style>
+                    </sfgrid:TreeGridNumericColumn.CellStyle>
+                </sfgrid:TreeGridNumericColumn>
+            </sfgrid:SfTreeGrid.Columns>
+        </sfgrid:SfTreeGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sp="clr-namespace:Syncfusion.Maui.SignaturePad;assembly=Syncfusion.Maui.SignaturePad"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfSignaturePad"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfSignaturePad.Popup"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+            xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             Background="Transparent"
+             Padding="24">
+
+    <ContentView.Resources>
+        <Style TargetType="local:ColorSegment">
+            <Setter Property="WidthRequest"
+                    Value="25" />
+
+            <Setter Property="HeightRequest"
+                    Value="25" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource TileTextColourLight}, Dark={StaticResource TileTextColour}}" />
+        </Style>
+    </ContentView.Resources>
+    <core:SfGlassEffectView EffectType="Regular" EnableShadowEffect="True" CornerRadius="25"> 
+         <Grid Padding="20" RowSpacing="10" RowDefinitions="Auto,16,*,16,Auto,16,Auto,Auto,Auto">
+        <Label Text="Draw your signature"
+               FontSize="24"/>
+
+        <local:CrossIcon Padding="5"
+                         Clicked="OnCloseButtonClicked"
+                         HeightRequest="20"
+                         WidthRequest="20"
+                         TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                         HorizontalOptions="End"
+                         VerticalOptions="Center" />
+
+        <Border Grid.Row="2"
+                Stroke="Transparent"
+                StrokeThickness="0"                
+                StrokeShape="RoundRectangle">
+            <core:SfGlassEffectView EnableShadowEffect="True">
+                <sp:SfSignaturePad x:Name="SignaturePad"                      
+                               MinimumStrokeThickness="{Binding MinimumStrokeThickness}"
+                               MaximumStrokeThickness="{Binding MaximumStrokeThickness}"
+                               StrokeColor="{Binding SelectedColor}" x:DataType="local:InvoiceViewModel"
+                               BackgroundColor="Transparent"
+                               WidthRequest="350"
+                               HeightRequest="250"
+                               Background="Transparent"
+                               DrawStarted="OnDrawStarted"/>
+            </core:SfGlassEffectView>
+        </Border>
+
+        <Label Grid.Row="4"
+               Text="Draw your signature"
+               FontSize="14"
+               VerticalTextAlignment="Center" />
+
+        <local:ColorView Grid.Row="4"
+                         x:Name="ColorView"
+                         Spacing="10"
+                         SelectedColor ="{Binding SelectedColor}"
+                         x:DataType="local:InvoiceViewModel"
+                         HeightRequest="25"
+                         WidthRequest="150"
+                         HorizontalOptions="End">
+            <local:ColorSegment Color="Black"
+                                IsVisible="{AppThemeBinding Dark=False, Light=True }" IsSelected="{AppThemeBinding Dark=False, Light=True }"
+                                WidthRequest="24"
+                                HeightRequest="24"/>
+
+                <local:ColorSegment Color="White"  IsVisible="{AppThemeBinding Dark=True, Light=False }"  WidthRequest="24" HeightRequest="24" />
+
+            <local:ColorSegment Color="#116DF9" WidthRequest="24" HeightRequest="24" />
+
+            <local:ColorSegment Color="#2196F3" WidthRequest="24" HeightRequest="24"  />
+
+            <local:ColorSegment Color="#F4890B" WidthRequest="24" HeightRequest="24" />
+        </local:ColorView>   
+
+        <Grid Grid.Row="6" ColumnDefinitions="*,*" HeightRequest="30" ColumnSpacing="10">
+            <Label Text="Minimum Stroke Thickness" Grid.Row="0" Grid.Column="0"
+                   TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"/>
+                    <sliders:SfSlider Minimum="0" Grid.Row="0" Grid.Column="1"
+                              Maximum="10"
+                              Value="{Binding MinimumStrokeThickness}"
+                              Interval="1" 
+                              EnableLiquidGlassEffect="True"
+                              StepSize="0.5">
+                              <sliders:SfSlider.ThumbStyle>
+                                <sliders:SliderThumbStyle Fill="White" Radius="15"/>
+                              </sliders:SfSlider.ThumbStyle>
+                              <sliders:SfSlider.TrackStyle>
+                                <sliders:SliderTrackStyle ActiveSize="5" InactiveSize="5" InactiveFill="LightGray" ActiveFill="Blue"/>
+                              </sliders:SfSlider.TrackStyle>
+                       
+                    </sliders:SfSlider>
+        </Grid>
+
+        <Grid Grid.Row="7" ColumnDefinitions="*,*" HeightRequest="30" ColumnSpacing="10">
+              <Label Text="Maximum Stroke Thickness" Grid.Row="0" Grid.Column="0"/>
+                    <sliders:SfSlider Minimum="1"
+                              Maximum="10" Grid.Row="0" Grid.Column="1"
+                              Value="{Binding MaximumStrokeThickness}"
+                              Interval="1"
+                              EnableLiquidGlassEffect="True"
+                              StepSize="0.5">
+                              <sliders:SfSlider.ThumbStyle>
+                                <sliders:SliderThumbStyle Fill="White" Radius="15" />
+                            </sliders:SfSlider.ThumbStyle>
+                            <sliders:SfSlider.TrackStyle>
+                                <sliders:SliderTrackStyle ActiveSize="5" InactiveSize="5" ActiveFill="Blue" InactiveFill="LightGray" />
+                            </sliders:SfSlider.TrackStyle>         
+                    </sliders:SfSlider>
+               
+        </Grid>
+        
+        <Grid Grid.Row="8"
+              ColumnDefinitions="*,*"
+              ColumnSpacing="16">
+              <core:SfGlassEffectView  Grid.Column="0" EffectType="Regular"
+                    HeightRequest="40" EnableShadowEffect="True" CornerRadius="20">
+                <buttons:SfButton
+                    Text="Clear"
+                    Padding="0"
+                    FontSize="14"
+                    Background="Transparent"
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}"
+                    Clicked="OnClearButtonClicked" />
+              </core:SfGlassEffectView>
+            
+            <core:SfGlassEffectView Grid.Column="1" EffectType="Clear"
+                    HeightRequest="40" EnableShadowEffect="True" CornerRadius="20">
+                <buttons:SfButton 
+                    FontSize="14"
+                    Text="Save"
+                    Clicked="OnSaveButtonClicked"
+                    Background="Blue"
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryForegroundLight}, Dark={StaticResource PrimaryForeground}}"/>
+            </core:SfGlassEffectView>
+            
+        </Grid>
+    </Grid>
+    </core:SfGlassEffectView>
+</ContentView>

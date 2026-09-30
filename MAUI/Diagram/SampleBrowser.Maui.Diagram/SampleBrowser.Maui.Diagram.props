@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Diagram\GettingStarted\GettingStarted.xaml.cs">
+        <Link>Samples\Diagram\GettingStarted\GettingStarted.xaml.cs</Link>
+        <DependentUpon>GettingStarted.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Diagram\Nodes\Nodes.xaml.cs">
+        <Link>Samples\Diagram\Nodes\Nodes.xaml.cs</Link>
+		<DependentUpon>Nodes.xaml</DependentUpon>
+    </Compile> 
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Diagram\Connectors\Connectors.xaml.cs">
+    <Link>Samples\Diagram\Connectors\Connectors.xaml.cs</Link>
+	<DependentUpon>Connectors.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Diagram\Annotations\Annotations.xaml.cs">
+    <Link>Samples\Diagram\Annotations\Annotations.xaml.cs</Link>
+	<DependentUpon>Annotations.xaml</DependentUpon>
+  </Compile>
+
+</ItemGroup>
+  
+<ItemGroup>
+  <EmbeddedResource Include="$(MSBuildThisFileDirectory)\DiagramSamplesList.xml" >
+		<Link>DiagramSamplesList.xml</Link>
+  </EmbeddedResource>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Diagram\GettingStarted\GettingStarted.xaml">
+	  <Link>Samples\Diagram\GettingStarted\GettingStarted.xaml</Link>
+  </MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Diagram\Nodes\Nodes.xaml">
+		<Link>Samples\Diagram\Nodes\Nodes.xaml</Link>
+	</MauiXaml>
+	
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Diagram\Connectors\Connectors.xaml">
+		<Link>Samples\Diagram\Connectors\Connectors.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Diagram\Annotations\Annotations.xaml">
+		<Link>Samples\Diagram\Annotations\Annotations.xaml</Link>
+	</MauiXaml>
+	
+</ItemGroup> 
+</Project>

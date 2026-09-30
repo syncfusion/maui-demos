@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.TreeGrid.SfTreeGrid.Selection"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.TreeGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.TreeGrid;assembly=Syncfusion.Maui.TreeGrid">
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-10,-12,-10,-12" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="visible"
+                    x:TypeArguments="x:Boolean">
+            <On Platform="WinUI,MacCatalyst"
+                Value="True"></On>
+        </OnPlatform>
+
+        <Style TargetType="sfgrid:TreeGridHeaderCell">
+            <Setter Property="FontFamily" Value="Roboto-Medium" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst" Value="16,14" />
+                        <On Platform="Android" Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="sfgrid:TreeGridCell">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:ProjectViewModel x:Name="vm" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Behaviors>
+        <local:SelectionBehavior />
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfTreeGrid x:Name="treeGrid"
+                           Margin="{StaticResource margin}"
+                           ItemsSource="{Binding Projects}"
+                           ChildPropertyName="Tasks"
+                           AutoGenerateColumnsMode="None"  
+                           HeaderRowHeight="56"
+                           RowHeight="48"
+                           SelectionMode="Multiple"
+                           SelectedRows="{Binding TreeGridSelectedItems}"
+                           ColumnWidthMode="Fill"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both">
+            
+            <sfgrid:SfTreeGrid.Columns>
+                <sfgrid:TreeGridTextColumn MappingName="Id"
+                               MinimumWidth="150"
+                               HeaderText="Project ID"
+                               CellPadding="0,14,16,14" />
+                <sfgrid:TreeGridTextColumn MappingName="Name"
+                               HeaderText="Name"
+                               MinimumWidth="200" />
+                <sfgrid:TreeGridTextColumn MappingName="Owner"
+                               HeaderText="Engineer"
+                               MinimumWidth="150"/>
+                <sfgrid:TreeGridTextColumn MappingName="Status" MaximumWidth="150" />
+                <sfgrid:TreeGridNumericColumn MappingName="Progress"
+                                              MaximumWidth="150"
+                                              HeaderTextAlignment="Start"
+                                              CellTextAlignment="Start"
+                                              Visible="{StaticResource visible}"
+                                              Format="0'%'" />
+            </sfgrid:SfTreeGrid.Columns>
+            
+        </sfgrid:SfTreeGrid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <Grid ColumnSpacing="10"
+              Padding="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalOptions="Start"
+                   Text="Selection mode"
+                   VerticalOptions="Center"
+                   LineBreakMode="WordWrap"
+                   FontSize="15">
+                </Label>
+
+                <editors:SfComboBox  x:Name="comboBox"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     HorizontalOptions="Start">
+                </editors:SfComboBox>
+
+            </Grid>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+
+</localCore:SampleView>

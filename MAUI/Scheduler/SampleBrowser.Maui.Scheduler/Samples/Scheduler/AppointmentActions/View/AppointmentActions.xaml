@@ -1,0 +1,92 @@
+﻿<localCore:SampleView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+    xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+    x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.AppointmentActions">
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Resources>
+                <DataTemplate x:Key="AppointmentTemplate" x:DataType="scheduler:SchedulerAppointment">
+                    <Grid Background="{Binding Background}"
+                              Padding="6"
+                              RowDefinitions="Auto,Auto"
+                              ColumnDefinitions="*,18,18">
+                        <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Text="{Binding Subject}"
+                                TextColor="White"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                LineBreakMode="TailTruncation"
+                                MaxLines="1"/>
+                        <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Text="&#xE710;"
+                                FontFamily="MaterialAssets"
+                                TextColor="White"
+                                BackgroundColor="Transparent"
+                                FontSize="14">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="EditTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Text="&#xE70F;"
+                                TextColor="White"
+                                BackgroundColor="Transparent"
+                                FontFamily="MaterialAssets"
+                                FontSize="14">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="DeleteTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <HorizontalStackLayout
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="3"
+                                Spacing="0">
+                            <Label
+                                    Text="Time: "
+                                    TextColor="White"
+                                    FontSize="12"
+                                    FontAttributes="Bold" />
+                            <Label 
+                                    Text="{Binding StartTime,StringFormat='{0:HH:mm}'}"
+                                    TextColor="White"
+                                    FontSize="12" />
+                            <Label
+                                    Text=" - "
+                                    TextColor="White"
+                                    FontSize="12" />
+                            <Label
+                                    Text="{Binding EndTime,StringFormat='{0:HH:mm}'}"
+                                    TextColor="White"
+                                    FontSize="12" />
+                        </HorizontalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </Grid.Resources>
+
+            <scheduler:SfScheduler
+                x:Name="Scheduler" AppointmentsSource="{Binding Appointments}" x:DataType="local:AppointmentActionsViewModel"
+                View="WorkWeek"
+                AllowAppointmentDrag="False"
+                AppointmentEditorMode="Add,Edit">
+                <scheduler:SfScheduler.DaysView>
+                    <scheduler:SchedulerDaysView NumberOfVisibleDays="{OnPlatform Android= 3, iOS=3, Default=-1}"
+                        AppointmentTemplate="{StaticResource AppointmentTemplate}" />
+                </scheduler:SfScheduler.DaysView>
+                <scheduler:SfScheduler.BindingContext>
+                    <local:AppointmentActionsViewModel/>
+                </scheduler:SfScheduler.BindingContext>
+            </scheduler:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

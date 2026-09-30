@@ -1,0 +1,66 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.AllowOverlap"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:switch="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <schedule:SfScheduler x:Name="Scheduler" x:DataType="local:AllowOverlapViewModel"
+                                 AppointmentsSource="{Binding Events}"
+                                 MinimumDateTime="{Binding MinDateTime}"
+                                 MaximumDateTime="{Binding MaxDateTime}"
+                                 DisplayDate="{Binding DisplayDate}"
+                                 ShowDatePickerButton="True"
+                                  AllowOverlap="False"
+                                 AllowViewNavigation="True"
+                                 AllowedViews="Day,Week,WorkWeek,Month,TimelineDay,TimelineMonth,TimelineWeek,TimelineWorkWeek,Agenda"
+                                 AppointmentEditorMode="Add,Edit"
+                                 AllowAppointmentResize="True" 
+                                 View="Week">
+                <schedule:SfScheduler.BindingContext>
+                    <local:AllowOverlapViewModel/>
+                </schedule:SfScheduler.BindingContext>
+            </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView>
+                <StackLayout Orientation="Vertical">
+                    <Grid x:Name="allowOverlapGrid" HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Allow overlap"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               LineBreakMode="WordWrap"
+                               FontSize="16"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+                        <switch:SfSwitch x:Name="allowOverlapSwitch"
+                                         Grid.Row="0"
+                                         Grid.Column="1"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="End"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:AllowOverlapBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

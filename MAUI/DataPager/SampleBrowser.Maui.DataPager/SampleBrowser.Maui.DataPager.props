@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	 <ItemGroup>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Views\PaginatedListView\PaginatedListView.xaml.cs">
+			 <Link>Samples\DataPager\Views\PaginatedListView\PaginatedListView.xaml.cs</Link>
+			 <DependentUpon>PaginatedListView.xaml</DependentUpon>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Views\PaginatedCollectionView\PaginatedCollectionView.xaml.cs">
+			 <Link>Samples\DataPager\Views\PaginatedCollectionView\PaginatedCollectionView.xaml.cs</Link>
+			 <DependentUpon>PaginatedCollectionView.xaml</DependentUpon>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Views\PaginatedDataGrid\PaginatedDataGrid.xaml.cs">
+			 <Link>Samples\DataPager\Views\PaginatedDataGrid\PaginatedDataGrid.xaml.cs</Link>
+			 <DependentUpon>PaginatedDataGrid.xaml</DependentUpon>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Views\PaginatedTreeGrid\PaginatedTreeGrid.xaml.cs">
+			 <Link>Samples\DataPager\Views\PaginatedTreeGrid\PaginatedTreeGrid.xaml.cs</Link>
+			 <DependentUpon>PaginatedTreeGrid.xaml</DependentUpon>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Models\DealerInfo.cs">
+			 <Link>Samples\DataPager\Models\DealerInfo.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Models\PlaceInfo.cs">
+			 <Link>Samples\DataPager\Models\PlaceInfo.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Models\EmployeeInfo.cs">
+			 <Link>Samples\DataPager\Models\EmployeeInfo.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Models\PlaceInfoRepository.cs">
+			 <Link>Samples\DataPager\Models\PlaceInfoRepository.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Models\ProductReviewInfo.cs">
+			 <Link>Samples\DataPager\Models\ProductReviewInfo.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\ViewModels\ProductReviewInfoRepository.cs">
+			 <Link>Samples\DataPager\ViewModels\ProductReviewInfoRepository.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\ViewModels\DealerInfoViewModel.cs">
+			 <Link>Samples\DataPager\ViewModels\DealerInfoViewModel.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\ViewModels\PlaceInfoViewModel.cs">
+			 <Link>Samples\DataPager\ViewModels\PlaceInfoViewModel.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\ViewModels\ProductReviewInfoViewModel.cs">
+			 <Link>Samples\DataPager\ViewModels\ProductReviewInfoViewModel.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\ViewModels\EmployeeInfoViewModel.cs">
+			 <Link>Samples\DataPager\ViewModels\EmployeeInfoViewModel.cs</Link>
+		 </Compile>
+		 <Compile Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Helpers\Behaviors\PagingBehavior.cs">
+			 <Link>Samples\DataPager\Helpers\Behaviors\PagingBehavior.cs</Link>
+		 </Compile>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\DataPagerSamplesList.xml" >
+			<Link>DataPagerSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Views\PaginatedListView\PaginatedListView.xaml">
+			<Link>Samples\DataPager\Views\PaginatedListView\PaginatedListView.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Views\PaginatedCollectionView\PaginatedCollectionView.xaml">
+			<Link>Samples\DataPager\Views\PaginatedCollectionView\PaginatedCollectionView.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Views\PaginatedDataGrid\PaginatedDataGrid.xaml">
+			<Link>Samples\DataPager\Views\PaginatedDataGrid\PaginatedDataGrid.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DataPager\Views\PaginatedTreeGrid\PaginatedTreeGrid.xaml">
+			<Link>Samples\DataPager\Views\PaginatedTreeGrid\PaginatedTreeGrid.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+</Project>

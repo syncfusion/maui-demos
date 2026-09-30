@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Layouts">
+		<Control Title="Pager" ControlName="SfDataPager" Image="paging.png" StatusTag="New" IsPreview="true" Description="A versatile pagination control that enables efficient navigation and management of large datasets by integrating seamlessly with data-bound controls like SfDataGrid, SfListView, and CollectionView.">
+			<Sample Title="DataGrid" SampleName="PaginatedDataGrid" CodeViewerPath="DataPager/Views/PaginatedDataGrid/" />
+			<Sample  Title="ListView" SampleName="PaginatedListView"
+					CodeViewerPath="DataPager/Views/PaginatedListView/" />
+			<Sample  Title="CollectionView" SampleName="PaginatedCollectionView"
+					CodeViewerPath="DataPager/Views/PaginatedCollectionView/" />
+			<Sample  Title="TreeGrid" SampleName="PaginatedTreeGrid"
+					CodeViewerPath="DataPager/Views/PaginatedTreeGrid/" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

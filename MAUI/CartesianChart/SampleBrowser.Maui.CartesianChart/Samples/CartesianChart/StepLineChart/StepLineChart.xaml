@@ -1,0 +1,88 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.CartesianChart.SfCartesianChart.StepLineChart"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.CartesianChart.SfCartesianChart"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:chart="http://schemas.syncfusion.com/maui"
+             x:DataType="local:StepLineChartViewModel">
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:CartesianChartColorResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.BindingContext>
+                <local:StepLineChartViewModel/>
+            </Grid.BindingContext>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <chart:SfCartesianChart Grid.Row="0" x:Name="Chart" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <chart:SfCartesianChart.Title>
+                    <Label Text="Electricity Production from Various Sources (% of total)" MaxLines="2" LineBreakMode="WordWrap" Margin="0" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16" />
+                </chart:SfCartesianChart.Title>
+
+                <chart:SfCartesianChart.Legend>
+                    <chart:ChartLegend ToggleSeriesVisibility="True"/>
+                </chart:SfCartesianChart.Legend>
+
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis x:Name="XAxis" ShowMajorGridLines="False" PlotOffsetEnd="10" PlotOffsetStart="10"/>
+                </chart:SfCartesianChart.XAxes>
+
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis x:Name="YAxis" Minimum="65" Maximum="85" Interval="5">
+                        <chart:NumericalAxis.AxisLineStyle>
+                            <chart:ChartLineStyle StrokeWidth="0"/>
+                        </chart:NumericalAxis.AxisLineStyle>
+                        <chart:NumericalAxis.LabelStyle>
+                            <chart:ChartAxisLabelStyle LabelFormat="0'%"/>
+                        </chart:NumericalAxis.LabelStyle>
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.YAxes>
+
+                <chart:SfCartesianChart.Series>
+                    <chart:StepLineSeries Label="United Kingdom" x:Name="stepLineSeries1" StrokeWidth="2"
+                                           ItemsSource="{Binding ElectricityProductionData}" 
+                                           XBindingPath="Name" 
+                                           YBindingPath="Value" 
+                                           EnableAnimation="True" 
+                                           EnableTooltip="True" 
+                                           LegendIcon="SeriesType"
+                                           Fill="{AppThemeBinding Light={StaticResource series1Light}, Dark={StaticResource series1Dark}}"/>
+
+                    <chart:StepLineSeries  Label="United States" x:Name="stepLineSeries2" StrokeWidth="2"
+                                           ItemsSource="{Binding ElectricityProductionData}" 
+                                           XBindingPath="Name" 
+                                           YBindingPath="Size" 
+                                           EnableAnimation="True" 
+                                           EnableTooltip="True" 
+                                           LegendIcon="SeriesType"
+                                           Fill="{AppThemeBinding Light={StaticResource series2Light}, Dark={StaticResource series2Dark}}"/>
+
+                </chart:SfCartesianChart.Series>
+            </chart:SfCartesianChart>
+            <HorizontalStackLayout Grid.Row="1" x:Name="hyperLinkLayout" Margin="5,5,0,0">
+                <Label Text="Source: " FontSize="12" VerticalOptions="Center"/>
+                <Label TextColor="#3E8EED" FontSize="12" FontAttributes="Italic" Text=" databank.worldbank.org" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://databank.worldbank.org/reports.aspx?source=2&amp;series=EG.ELC.FOSL.ZS&amp;country=GBR,USA"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+        </Grid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <Grid>
+            <HorizontalStackLayout>
+                <Label Text="Apply gradient" FontSize="{OnPlatform Android='17', WinUI='17'}" Padding="{OnPlatform Android='5', WinUI='5'}"/>
+                <CheckBox x:Name="gradientCheckBox" IsChecked="False" CheckedChanged="gradientCheckBox_CheckedChanged" VerticalOptions="Start" Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

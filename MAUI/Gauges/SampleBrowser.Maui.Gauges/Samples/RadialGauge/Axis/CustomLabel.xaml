@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.CustomLabel"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+            <gauge:SfRadialGauge x:Name="customlabelsGauge">
+                <gauge:SfRadialGauge.Axes>
+                    <gauge:RadialAxis StartAngle="270"
+                                  EndAngle="270"
+                                  ShowFirstLabel="False"
+                                  Minimum="0"
+                                  Maximum="80"
+                                  Interval="10"
+                                  CanRotateLabels="True"
+                                  MinorTicksPerInterval="0"
+                                  LabelCreated="RadialAxis_LabelCreated1">
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="0.1"
+                                               ThicknessUnit="Factor" />
+                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.Pointers>
+                            <gauge:NeedlePointer x:Name="compassPointer1"
+                                             Value="70"
+                                             NeedleLengthUnit="Factor"
+                                             NeedleLength="0.55"
+                                             NeedleEndWidth="25"
+                                             KnobRadius="16"
+                                             KnobSizeUnit="Pixel"
+                                             KnobFill="White">
+                                <gauge:NeedlePointer.NeedleFill>
+                                    <LinearGradientBrush StartPoint="0,0.5"
+                                                     EndPoint="1,0.5">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="#FFFF6B78"
+                                                      Offset="0" />
+                                            <GradientStop Color="#FFFF6B78"
+                                                      Offset="0.5" />
+                                            <GradientStop Color="#FFE20A22"
+                                                      Offset="0.5" />
+                                            <GradientStop Color="#FFE20A22"
+                                                      Offset="1" />
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </gauge:NeedlePointer.NeedleFill>
+                            </gauge:NeedlePointer>
+                            <gauge:NeedlePointer x:Name="compassPointer2"
+                                             Value="30"
+                                             NeedleLengthUnit="Factor"
+                                             NeedleLength="0.55"
+                                             NeedleEndWidth="25"
+                                             KnobRadius="16"
+                                             KnobSizeUnit="Pixel"
+                                             KnobFill="White">
+                                <gauge:NeedlePointer.NeedleFill>
+                                    <LinearGradientBrush StartPoint="0,0.5"
+                                                     EndPoint="1,0.5">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="#FFE3DFDF"
+                                                      Offset="0" />
+                                            <GradientStop Color="#FFE3DFDF"
+                                                      Offset="0.5" />
+                                            <GradientStop Color="#FF7A7A7A"
+                                                      Offset="0.5" />
+                                            <GradientStop Color="#FF7A7A7A"
+                                                      Offset="1" />
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </gauge:NeedlePointer.NeedleFill>
+                            </gauge:NeedlePointer>
+                        </gauge:RadialAxis.Pointers>
+                    </gauge:RadialAxis>
+                </gauge:SfRadialGauge.Axes>
+            </gauge:SfRadialGauge>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

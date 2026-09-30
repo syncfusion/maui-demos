@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.BusyIndicator.SfBusyIndicator.TitleOptions"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.BusyIndicator.SfBusyIndicator"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+    <localCore:SampleView.Content>
+
+        <Grid HeightRequest="400" WidthRequest="320" RowDefinitions="*,220" >
+            <core:SfBusyIndicator x:Name="busyIndicator" IsRunning="True"  Title="Searching..." IndicatorColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackground}}"/>
+            <Grid Grid.Row="1" RowDefinitions="50,50,50,50" Padding="15,10,15,15" BackgroundColor="Transparent" >
+                <Grid ColumnDefinitions="Auto,*" >
+                    <Label Text="Font Size" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                    <Slider Grid.Column="1" Minimum="0.8" Maximum="2.0" Value="1.2" ValueChanged="Slider_ValueChanged" VerticalOptions="Center" Margin="5" MaximumTrackColor="{AppThemeBinding Light= #E0E0E0, Dark= #404040}" MinimumTrackColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"  ThumbColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}" />
+                </Grid>
+                <buttons:SfRadioGroup x:Name="fontAttribute" Orientation="Horizontal" CheckedChanged="RadioButton_CheckedChanged" Spacing="15" Grid.Row="1">
+                    <buttons:SfRadioButton Text="None" IsChecked="True"/>
+                    <buttons:SfRadioButton Text="Bold"/>
+                    <buttons:SfRadioButton  Text="Italic"/>
+                </buttons:SfRadioGroup>
+                <Grid ColumnDefinitions="Auto,*" Grid.Row="2" >
+                    <Label  Text="Title Placement" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                    <buttons:SfRadioGroup x:Name="titlePosition" Orientation="Horizontal" CheckedChanged="RadioButton_CheckedChanged_1" Spacing="15" Grid.Column="1">
+                        <buttons:SfRadioButton Text="Top"/>
+                        <buttons:SfRadioButton Text="Bottom" IsChecked="True"/>
+                    </buttons:SfRadioGroup>
+                </Grid>
+                <Grid Grid.Row="3" ColumnDefinitions="Auto,*" >
+                    <Label Text="Title Spacing" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                    <Slider Grid.Column="1" Minimum="0.8" Maximum="2.0" Value="1.2" ValueChanged="Slider_ValueChanged_1" VerticalOptions="Center" Margin="5" MaximumTrackColor="{AppThemeBinding Light= #E0E0E0, Dark= #404040}" MinimumTrackColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"  ThumbColor="{AppThemeBinding Light={StaticResource PrimaryBorderLight}, Dark={StaticResource PrimaryBorder}}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+ 
+</localCore:SampleView>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.MultiRowView"
+                     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                     xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                     xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:EmployeeViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI" Value="-4"/>
+            <On Platform="MacCatalyst" Value="-4"/>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
+                           AutoGenerateColumnsMode="None"
+                           x:DataType="local:EmployeeViewModel"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both"
+                           ItemsSource="{Binding  MultiRowEmployeeInformation}"
+                           AllowEditing="True"
+                           ColumnWidthMode="Fill"
+                           SelectionMode="Single"
+                           NavigationMode="Row"
+                           SelectionUnit="Row"
+                           HeaderRowHeight="52"
+                           RowHeight="48">
+
+
+            <sfgrid:SfDataGrid.MultiRowViewDefinition>
+                <sfgrid:DataGridMultiRowViewDefinition  RowsCount="3"
+                                                        ColumnsCount="{OnPlatform WinUI=4,MacCatalyst=4,Android=3,iOS=3}" />
+            </sfgrid:SfDataGrid.MultiRowViewDefinition>
+
+            <sfgrid:SfDataGrid.Columns>
+
+                <!-- Profile -->
+                <sfgrid:DataGridImageColumn MappingName="EmployeeImage"
+                                            HeaderText="Profile"
+                                            Row="0"
+                                            Column="0"
+                                            RowSpan="3"
+                                            CellPadding="8"/>
+
+                <!-- Row 0 -->
+                <sfgrid:DataGridTextColumn  MappingName="EmployeeID"
+                                            HeaderText="Employee ID"
+                                            Row="0"
+                                            Column="1" />
+
+                <sfgrid:DataGridTextColumn  MappingName="Name"
+                                            HeaderText="Name" ColumnSpan="{OnPlatform WinUI=2,MacCatalyst=2}" 
+                                            Row="0"
+                                            Column="2" />
+
+                <!-- Row 1 -->
+                <sfgrid:DataGridTextColumn  MappingName="Designation"
+                                            HeaderText="Designation"
+                                            Row="1"
+                                            Column="1"
+                                            ColumnSpan="{OnPlatform WinUI=3,MacCatalyst=3,Android=2,iOS=2}" />
+
+                <!-- Row 2 -->
+
+                <sfgrid:DataGridTextColumn  MappingName="City"
+                                            HeaderText="City"
+                                            Row="2"
+                                            Column="1" />
+
+                <sfgrid:DataGridTextColumn  MappingName="Country"
+                                            HeaderText="Country"
+                                            Row="2"                    
+                                            Column="2" />
+
+            </sfgrid:SfDataGrid.Columns>
+
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

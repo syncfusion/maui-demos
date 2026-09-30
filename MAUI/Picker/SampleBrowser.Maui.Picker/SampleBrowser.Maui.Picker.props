@@ -1,0 +1,139 @@
+﻿<Project>
+  <ItemGroup>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Picker\FlightBooking\FlightBooking.xaml.cs">
+		  <Link>Samples\Picker\FlightBooking\FlightBooking.xaml.cs</Link>
+		  <DependentUpon>FlightBooking.xaml</DependentUpon>
+	  </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\DatePicker\Customization\View\Customization.xaml.cs">
+      <Link>Samples\DatePicker\Customization\View\Customization.xaml.cs</Link>
+      <DependentUpon>Customization.xaml</DependentUpon>
+    </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DatePicker\GettingStarted\View\GettingStarted.xaml.cs">
+		  <Link>Samples\DatePicker\GettingStarted\View\GettingStarted.xaml.cs</Link>
+		  <DependentUpon>GettingStarted.xaml</DependentUpon>
+	  </Compile>
+    
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\DatePicker\GettingStarted\Behavior\GettingStartedBehavior.cs">
+      <Link>Samples\DatePicker\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
+    </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\DateTimePicker\GettingStarted\View\GettingStarted.xaml.cs">
+		  <Link>Samples\DateTimePicker\GettingStarted\View\GettingStarted.xaml.cs</Link>
+		  <DependentUpon>GettingStarted.xaml</DependentUpon>
+	  </Compile>
+    
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\DateTimePicker\GettingStarted\Behavior\GettingStartedBehavior.cs">
+      <Link>Samples\DateTimePicker\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
+    </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Picker\GettingStarted\View\GettingStarted.xaml.cs">
+		  <Link>Samples\Picker\GettingStarted\View\GettingStarted.xaml.cs</Link>
+		  <DependentUpon>GettingStarted.xaml</DependentUpon>
+	  </Compile>
+    
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Picker\GettingStarted\Behavior\GettingStartedBehavior.cs">
+      <Link>Samples\Picker\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Picker\GettingStarted\ViewModel.cs">
+      <Link>Samples\Picker\GettingStarted\ViewModel.cs</Link>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Picker\Customization\View\Customization.xaml.cs">
+      <Link>Samples\Picker\Customization\View\Customization.xaml.cs</Link>
+      <DependentUpon>Customization.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Picker\Customization\StringValueToColorConverter.cs">
+      <Link>Samples\Picker\Customization\StringValueToColorConverter.cs</Link>
+    </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\GettingStarted\View\GettingStarted.xaml.cs">
+		  <Link>Samples\TimePicker\GettingStarted\View\GettingStarted.xaml.cs</Link>
+		  <DependentUpon>GettingStarted.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\GettingStarted\Behavior\GettingStartedBehavior.cs">
+		  <Link>Samples\TimePicker\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\Customization\View\Customization.xaml.cs">
+		  <Link>Samples\TimePicker\Customization\View\Customization.xaml.cs</Link>
+		  <DependentUpon>Customization.xaml</DependentUpon>
+	  </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\Customization\AlarmViewModel.cs">
+		  <Link>Samples\TimePicker\Customization\AlarmViewModel.cs</Link>
+      </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\Customization\TimeSpanConverter.cs">
+		  <Link>Samples\TimePicker\Customization\TimeSpanConverter.cs</Link>
+      </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\Customization\AlarmTimer.cs">
+		  <Link>Samples\TimePicker\Customization\AlarmTimer.cs</Link>
+      </Compile>
+
+	  <Compile Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\Customization\AlarmPopup.cs">
+		  <Link>Samples\TimePicker\Customization\AlarmTimer.cs</Link>
+	  </Compile>
+	  
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\PickerSamplesList.xml" >
+      <Link>PickerSamplesList.xml</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Picker\FlightBooking\FlightBooking.xaml">
+			<Link>Samples\Picker\FlightBooking\FlightBooking.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DatePicker\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\DatePicker\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DateTimePicker\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\DateTimePicker\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Picker\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\Picker\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\DatePicker\Customization\View\Customization.xaml">
+      <Link>Samples\DatePicker\Customization\View\Customization.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Picker\Customization\View\Customization.xaml">
+      <Link>Samples\Picker\Customization\View\Customization.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+  
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\TimePicker\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TimePicker\Customization\View\Customization.xaml">
+			<Link>Samples\TimePicker\Customization\View\Customization.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>
