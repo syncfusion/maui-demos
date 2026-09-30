@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<SampleBrowser>
-	<Assemblies Prefix="SampleBrowser.Maui.ListView" QualifiedInfo="Version=1.0.0.0, Culture=neutral, PublickeyToken=null">
-		<Assembly Name="ListView"/>
-	</Assemblies>	
-</SampleBrowser>
