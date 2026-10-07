@@ -10,15 +10,18 @@
       <Sample SampleName="GettingStarted"
               Title="Getting Started"
               SearchTags="interactiveviewer,viewer,interactive"
-              StatusTag="New"/>
+              StatusTag="New"
+              CodeViewerPath ="InteractiveViewer/GettingStarted"/>
       <Sample SampleName="CircuitDiagramViewer"
               Title="Interactive Circuit Diagram"
               SearchTags="interactiveviewer,viewer,interactive,circuit"
-              StatusTag="New"/>
+              StatusTag="New"
+              CodeViewerPath ="InteractiveViewer/CircuitDiagramViewer"/>
       <Sample SampleName="FloorPlanViewer"
               Title="Interactive Floor Plan"
               SearchTags="interactiveviewer,viewer,interactive,floorplan"
-              StatusTag="New"/>
+              StatusTag="New"
+              CodeViewerPath ="InteractiveViewer/FloorPlanViewer"/>
     </Control>
   </ControlCategory>
 </SyncfusionControls>
