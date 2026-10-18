@@ -67,7 +67,7 @@ public class AnamolyDetectionBehaviour : Behavior<SampleView>
             };
             var gridReportJson = GetSerializedGridReport(gridReport);
             string userInput = ValidateAndGeneratePrompt(gridReportJson);
-            var result = await openAi.GetResponseFromOpenAI(userInput);
+            var result = await openAi.GetResultsFromAI(userInput);
 
             // If result is null, need to process predefined AI response.
             if (result == null)

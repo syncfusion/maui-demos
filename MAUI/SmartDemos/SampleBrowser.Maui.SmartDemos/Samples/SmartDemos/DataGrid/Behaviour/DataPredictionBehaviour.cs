@@ -70,7 +70,7 @@ public class DataPredictionBehaviour : Behavior<SampleView>
             };
             var gridReportJson = GetSerializedGridReport(gridReport);
             string userInput = ValidateAndGeneratePrompt(gridReportJson, prompt);
-            var result = await openAi.GetResponseFromOpenAI(userInput);
+            var result = await openAi.GetResultsFromAI(userInput);
 
             if (result == null)
             {

@@ -15,7 +15,7 @@
         /// </summary>
         /// <param name="userPrompt">The user prompt.</param>
         /// <returns>The AI response.</returns>
-        internal async Task<string> GetAnswerFromGPT(string userPrompt)
+        internal async Task<string> GetResultsFromAI(string userPrompt)
         {
             ChatHistory = string.Empty;
             if (IsCredentialValid && Client != null && ChatHistory != null)
