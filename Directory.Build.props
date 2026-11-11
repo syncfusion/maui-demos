@@ -1,0 +1,13 @@
+<Project>
+  <!--
+    CombinedSampleBrowser is set by SampleBrowser.Maui.Combined.sln via SolutionName,
+    or by the Meteor launch task passing -p:CombinedSampleBrowser=true.
+    Meteor builds the host .csproj directly, so SolutionName is empty in that path.
+    The property must be global: a property set only in the host does not flow to ProjectReferences.
+    NuGetAudit is disabled only for this switch. Document samples treat NU1902/NU1903 as errors.
+  -->
+  <PropertyGroup Condition="'$(SolutionName)' == 'SampleBrowser.Maui.Combined' Or '$(CombinedSampleBrowser)' == 'true'">
+    <CombinedSampleBrowser>true</CombinedSampleBrowser>
+    <NuGetAudit>false</NuGetAudit>
+  </PropertyGroup>
+</Project>

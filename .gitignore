@@ -7,3 +7,9 @@ bin/
 
 # Cursor
 .cursor/
+
+# Local Apple signing. The empty example file stays tracked.
+signing.props
+*.mobileprovision
+*.p12
+*.p8

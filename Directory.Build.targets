@@ -1,0 +1,102 @@
+<Project>
+  <PropertyGroup Condition="'$(CombinedSampleBrowser)' == 'true' And '$(MSBuildProjectName)' != 'SampleBrowser.Maui.Combined'">
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <!--
+    Library mode for samples referenced by the combined host. See
+    openspec/changes/combined-demo-app/design.md, "Combined-build fixes".
+    App.xaml stays: samples call App.Current. AppDelegate is removed so every
+    sample does not register the native name AppDelegate. iOS Resources is
+    removed because that directory name is illegal in a MAUI library.
+    Icons and splash screens are removed so the host keeps its own icon.
+  -->
+  <ItemGroup Condition="'$(CombinedSampleBrowser)' == 'true' And '$(MSBuildProjectName)' != 'SampleBrowser.Maui.Combined'">
+    <Compile Remove="MauiProgram.cs" />
+    <Compile Remove="Platforms\Android\MainActivity.cs" />
+    <Compile Remove="Platforms\Android\MainApplication.cs" />
+    <Compile Remove="Platforms\iOS\AppDelegate.cs" />
+    <Compile Remove="Platforms\iOS\Program.cs" />
+    <Compile Remove="Platforms\MacCatalyst\AppDelegate.cs" />
+    <Compile Remove="Platforms\MacCatalyst\Program.cs" />
+    <Compile Remove="Platforms\Tizen\Main.cs" />
+    <Compile Remove="Platforms\Windows\App.xaml.cs" />
+    <MauiIcon Remove="@(MauiIcon)" />
+    <MauiSplashScreen Remove="@(MauiSplashScreen)" />
+    <BundleResource Remove="Platforms\iOS\Resources\**" />
+    <InterfaceDefinition Remove="Platforms\iOS\Resources\**" />
+    <Content Remove="Platforms\iOS\Resources\**" />
+    <None Remove="Platforms\iOS\Resources\**" />
+    <EmbeddedResource Remove="Platforms\iOS\Resources\**" />
+    <MauiXaml Remove="Platforms\Windows\App.xaml" />
+    <None Remove="Platforms\Windows\App.xaml" />
+    <ApplicationDefinition Remove="Platforms\Windows\App.xaml" />
+  </ItemGroup>
+
+  <!--
+    Quick Look helpers are copied into several sample projects under the same class names.
+    iOS registers those names globally, so the combined app rewrites the copies in obj/
+    and leaves the upstream files untouched.
+  -->
+  <UsingTask TaskName="PrefixRegistrarNames" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)/Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Files ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+      <Prefix ParameterType="System.String" Required="true" />
+      <OutputDirectory ParameterType="System.String" Required="true" />
+      <Outputs ParameterType="Microsoft.Build.Framework.ITaskItem[]" Output="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.Collections.Generic" />
+      <Using Namespace="System.IO" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+        var results = new List<Microsoft.Build.Framework.ITaskItem>();
+        Directory.CreateDirectory(OutputDirectory);
+        string[] classes = { "PreviewControllerDS", "QLPreviewItemFileSystem", "QLPreviewItemBundle" };
+        foreach (var file in Files)
+        {
+          var text = File.ReadAllText(file.ItemSpec);
+          var changed = false;
+          foreach (var cls in classes)
+          {
+            var needle = "public class " + cls + " ";
+            var attribute = "[Foundation.Register(\"" + Prefix + cls + "\")]\n";
+            if (text.Contains(needle) && !text.Contains(attribute.Trim()))
+            {
+              text = text.Replace(needle, attribute + needle);
+              changed = true;
+            }
+          }
+          if (!changed)
+          {
+            continue;
+          }
+          var destination = Path.Combine(OutputDirectory, Path.GetFileName(file.ItemSpec));
+          File.WriteAllText(destination, text);
+          results.Add(new Microsoft.Build.Utilities.TaskItem(destination));
+        }
+        Outputs = results.ToArray();
+      ]]></Code>
+    </Task>
+  </UsingTask>
+
+  <Target Name="PrefixQuickLookNativeNames"
+          BeforeTargets="CoreCompile"
+          Condition="'$(CombinedSampleBrowser)' == 'true' And '$(MSBuildProjectName)' != 'SampleBrowser.Maui.Combined'">
+    <ItemGroup>
+      <_QuickLookSource Include="Platforms\iOS\PreviewControllerDS.cs" Condition="'$(TargetPlatformIdentifier)' == 'ios' and Exists('Platforms\iOS\PreviewControllerDS.cs')" />
+      <_QuickLookSource Include="Platforms\iOS\QLPreviewItemFileSystem.cs" Condition="'$(TargetPlatformIdentifier)' == 'ios' and Exists('Platforms\iOS\QLPreviewItemFileSystem.cs')" />
+      <_QuickLookSource Include="Platforms\MacCatalyst\SaveMac.cs" Condition="'$(TargetPlatformIdentifier)' == 'maccatalyst' and Exists('Platforms\MacCatalyst\SaveMac.cs')" />
+    </ItemGroup>
+    <PrefixRegistrarNames
+        Files="@(_QuickLookSource)"
+        Prefix="$([System.String]::Copy('$(MSBuildProjectName)').Replace('SampleBrowser.Maui.', ''))"
+        OutputDirectory="$(IntermediateOutputPath)quicklook/"
+        Condition="'@(_QuickLookSource)' != ''">
+      <Output TaskParameter="Outputs" ItemName="_QuickLookGenerated" />
+    </PrefixRegistrarNames>
+    <ItemGroup Condition="'@(_QuickLookGenerated)' != ''">
+      <Compile Remove="@(_QuickLookSource)" />
+      <Compile Include="@(_QuickLookGenerated)" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="signing.props" Condition="Exists('signing.props')" />
+  <PropertyGroup>
+    <TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SampleBrowser.Maui.Combined</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NoWarn>$(NoWarn);NU1803</NoWarn>
+    <MauiXamlInflator>SourceGen</MauiXamlInflator>
+    <ApplicationTitle>Combined Sample Browser</ApplicationTitle>
+    <ApplicationId>net.prestonmccormick.syncfusion.maui.combined</ApplicationId>
+    <ApplicationIdGuid>7C4E1A2B-9F30-4D6E-A1B8-2E5C9A0D4F17</ApplicationIdGuid>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <!-- Duplicate MauiImage names across samples (dotnet_bot and others). See design.md, Combined-build fixes. -->
+    <ResizetizerErrorOnDuplicateOutputFilename>false</ResizetizerErrorOnDuplicateOutputFilename>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.18362.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.18362.0</TargetPlatformMinVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageReference Include="SampleBrowser.Maui.Base" Version="35.1.37" />
+  </ItemGroup>
+  <ItemGroup>
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#EF492D" />
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#EF492D" BaseSize="*,*" />
+    <MauiFont Include="Resources\Fonts\*" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SyncfusionLicense.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../Accordion/SampleBrowser.Maui.Accordion/SampleBrowser.Maui.Accordion.csproj" />
+    <ProjectReference Include="../../AIAssistView/SampleBrowser.Maui.AIAssistView/SampleBrowser.Maui.AIAssistView.csproj" />
+    <ProjectReference Include="../../AvatarView/SampleBrowser.Maui.AvatarView/SampleBrowser.Maui.AvatarView.csproj" />
+    <ProjectReference Include="../../Backdrop/SampleBrowser.Maui.Backdrop/SampleBrowser.Maui.Backdrop.csproj" />
+    <ProjectReference Include="../../BadgeView/SampleBrowser.Maui.BadgeView/SampleBrowser.Maui.BadgeView.csproj" />
+    <ProjectReference Include="../../Barcode/SampleBrowser.Maui.Barcode/SampleBrowser.Maui.Barcode.csproj" />
+    <ProjectReference Include="../../BulletChart/SampleBrowser.Maui.BulletChart/SampleBrowser.Maui.BulletChart.csproj" />
+    <ProjectReference Include="../../BusyIndicator/SampleBrowser.Maui.BusyIndicator/SampleBrowser.Maui.BusyIndicator.csproj" />
+    <ProjectReference Include="../../Buttons/SampleBrowser.Maui.Buttons/SampleBrowser.Maui.Buttons.csproj" />
+    <ProjectReference Include="../../Calendar/SampleBrowser.Maui.Calendar/SampleBrowser.Maui.Calendar.csproj" />
+    <ProjectReference Include="../../Cards/SampleBrowser.Maui.Cards/SampleBrowser.Maui.Cards.csproj" />
+    <ProjectReference Include="../../Carousel/SampleBrowser.Maui.Carousel/SampleBrowser.Maui.Carousel.csproj" />
+    <ProjectReference Include="../../CartesianChart/SampleBrowser.Maui.CartesianChart/SampleBrowser.Maui.CartesianChart.csproj" />
+    <ProjectReference Include="../../Chat/SampleBrowser.Maui.Chat/SampleBrowser.Maui.Chat.csproj" />
+    <ProjectReference Include="../../Chips/SampleBrowser.Maui.Chips/SampleBrowser.Maui.Chips.csproj" />
+    <ProjectReference Include="../../CircularChart/SampleBrowser.Maui.CircularChart/SampleBrowser.Maui.CircularChart.csproj" />
+    <ProjectReference Include="../../DataForm/SampleBrowser.Maui.DataForm/SampleBrowser.Maui.DataForm.csproj" />
+    <ProjectReference Include="../../DataGrid/SampleBrowser.Maui.DataGrid/SampleBrowser.Maui.DataGrid.csproj" />
+    <ProjectReference Include="../../DataPager/SampleBrowser.Maui.DataPager/SampleBrowser.Maui.DataPager.csproj" />
+    <ProjectReference Include="../../Diagram/SampleBrowser.Maui.Diagram/SampleBrowser.Maui.Diagram.csproj" />
+    <ProjectReference Include="../../DocIO/SampleBrowser.Maui.DocIO/SampleBrowser.Maui.DocIO.csproj" />
+    <ProjectReference Include="../../DockLayout/SampleBrowser.Maui.DockLayout/SampleBrowser.Maui.DockLayout.csproj" />
+    <ProjectReference Include="../../EffectsView/SampleBrowser.Maui.EffectsView/SampleBrowser.Maui.EffectsView.csproj" />
+    <ProjectReference Include="../../Expander/SampleBrowser.Maui.Expander/SampleBrowser.Maui.Expander.csproj" />
+    <ProjectReference Include="../../FunnelChart/SampleBrowser.Maui.FunnelChart/SampleBrowser.Maui.FunnelChart.csproj" />
+    <ProjectReference Include="../../Gauges/SampleBrowser.Maui.Gauges/SampleBrowser.Maui.Gauges.csproj" />
+    <ProjectReference Include="../../GridSplitter/SampleBrowser.Maui.GridSplitter/SampleBrowser.Maui.GridSplitter.csproj" />
+    <ProjectReference Include="../../ImageEditor/SampleBrowser.Maui.ImageEditor/SampleBrowser.Maui.ImageEditor.csproj" />
+    <ProjectReference Include="../../Inputs/SampleBrowser.Maui.Inputs/SampleBrowser.Maui.Inputs.csproj" />
+    <ProjectReference Include="../../InteractiveViewer/SampleBrowser.Maui.InteractiveViewer/SampleBrowser.Maui.InteractiveViewer.csproj" />
+    <ProjectReference Include="../../Kanban/SampleBrowser.Maui.Kanban/SampleBrowser.Maui.Kanban.csproj" />
+    <!-- LiquidGlass does not target Android. Omit it for that host TFM only. -->
+    <ProjectReference Include="../../LiquidGlass/SampleBrowser.Maui.LiquidGlass/SampleBrowser.Maui.LiquidGlass.csproj" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'android'" />
+    <ProjectReference Include="../../ListView/SampleBrowser.Maui.ListView/SampleBrowser.Maui.ListView.csproj" />
+    <ProjectReference Include="../../Maps/SampleBrowser.Maui.Maps/SampleBrowser.Maui.Maps.csproj" />
+    <ProjectReference Include="../../MarkdownViewer/SampleBrowser.Maui.MarkdownViewer/SampleBrowser.Maui.MarkdownViewer.csproj" />
+    <ProjectReference Include="../../NavigationDrawer/SampleBrowser.Maui.NavigationDrawer/SampleBrowser.Maui.NavigationDrawer.csproj" />
+    <ProjectReference Include="../../ParallaxView/SampleBrowser.Maui.ParallaxView/SampleBrowser.Maui.ParallaxView.csproj" />
+    <ProjectReference Include="../../PDF/SampleBrowser.Maui.Pdf/SampleBrowser.Maui.Pdf.csproj" />
+    <ProjectReference Include="../../PdfViewer/SampleBrowser.Maui.PdfViewer/SampleBrowser.Maui.PdfViewer.csproj" />
+    <ProjectReference Include="../../Picker/SampleBrowser.Maui.Picker/SampleBrowser.Maui.Picker.csproj" />
+    <ProjectReference Include="../../PolarChart/SampleBrowser.Maui.PolarChart/SampleBrowser.Maui.PolarChart.csproj" />
+    <ProjectReference Include="../../Popup/SampleBrowser.Maui.Popup/SampleBrowser.Maui.Popup.csproj" />
+    <ProjectReference Include="../../Presentation/SampleBrowser.Maui.Presentation/SampleBrowser.Maui.Presentation.csproj" />
+    <ProjectReference Include="../../ProgressBar/SampleBrowser.Maui.ProgressBar/SampleBrowser.Maui.ProgressBar.csproj" />
+    <ProjectReference Include="../../PullToRefresh/SampleBrowser.Maui.PullToRefresh/SampleBrowser.Maui.PullToRefresh.csproj" />
+    <ProjectReference Include="../../PyramidChart/SampleBrowser.Maui.PyramidChart/SampleBrowser.Maui.PyramidChart.csproj" />
+    <ProjectReference Include="../../Radialmenu/SampleBrowser.Maui.RadialMenu/SampleBrowser.Maui.RadialMenu.csproj" />
+    <ProjectReference Include="../../RadialSliders/SampleBrowser.Maui.RadialSliders/SampleBrowser.Maui.RadialSliders.csproj" />
+    <ProjectReference Include="../../RichTextEditor/SampleBrowser.Maui.RichTextEditor/SampleBrowser.Maui.RichTextEditor.csproj" />
+    <ProjectReference Include="../../Rotator/SampleBrowser.Maui.Rotator/SampleBrowser.Maui.Rotator.csproj" />
+    <ProjectReference Include="../../Scheduler/SampleBrowser.Maui.Scheduler/SampleBrowser.Maui.Scheduler.csproj" />
+    <ProjectReference Include="../../Shimmer/SampleBrowser.Maui.Shimmer/SampleBrowser.Maui.Shimmer.csproj" />
+    <ProjectReference Include="../../SignaturePad/SampleBrowser.Maui.SignaturePad/SampleBrowser.Maui.SignaturePad.csproj" />
+    <ProjectReference Include="../../Sliders/SampleBrowser.Maui.Sliders/SampleBrowser.Maui.Sliders.csproj" />
+    <ProjectReference Include="../../SmartComponents/SampleBrowser.Maui.SmartComponents/SampleBrowser.Maui.SmartComponents.csproj" />
+    <ProjectReference Include="../../SmartDataGrid/SampleBrowser.Maui.SmartDataGrid/SampleBrowser.Maui.SmartDataGrid.csproj" />
+    <ProjectReference Include="../../SmartDemos/SampleBrowser.Maui.SmartDemos/SampleBrowser.Maui.SmartDemos.csproj" />
+    <ProjectReference Include="../../SmartPdfViewer/SampleBrowser.Maui.SmartPdfViewer/SampleBrowser.Maui.SmartPdfViewer.csproj" />
+    <ProjectReference Include="../../SmartScheduler/SampleBrowser.Maui.SmartScheduler/SampleBrowser.Maui.SmartScheduler.csproj" />
+    <ProjectReference Include="../../SunburstChart/SampleBrowser.Maui.SunburstChart/SampleBrowser.Maui.SunburstChart.csproj" />
+    <ProjectReference Include="../../TabView/SampleBrowser.Maui.TabView/SampleBrowser.Maui.TabView.csproj" />
+    <ProjectReference Include="../../TextInputLayout/SampleBrowser.Maui.TextInputLayout/SampleBrowser.Maui.TextInputLayout.csproj" />
+    <ProjectReference Include="../../Toolbar/SampleBrowser.Maui.Toolbar/SampleBrowser.Maui.Toolbar.csproj" />
+    <ProjectReference Include="../../TreeGrid/SampleBrowser.Maui.TreeGrid/SampleBrowser.Maui.TreeGrid.csproj" />
+    <ProjectReference Include="../../TreeMap/SampleBrowser.Maui.TreeMap/SampleBrowser.Maui.TreeMap.csproj" />
+    <ProjectReference Include="../../TreeView/SampleBrowser.Maui.TreeView/SampleBrowser.Maui.TreeView.csproj" />
+    <ProjectReference Include="../../Xlsio/SampleBrowser.Maui.XlsIO/SampleBrowser.Maui.XlsIO.csproj" />
+  </ItemGroup>
+</Project>

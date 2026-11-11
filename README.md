@@ -1,4 +1,12 @@
-﻿# Syncfusion® .NET MAUI examples 
+﻿# Combined sample browser
+
+This fork adds one app that hosts every control demo. Open `SampleBrowser.Maui.Combined.sln` and run the combined project.
+
+`MAUI/Combined/SampleBrowser.Maui.Combined/SyncfusionLicense.txt` is committed empty. After you paste a license key into that file, run `git update-index --skip-worktree` on it so the key is not committed. Apple certificates and provisioning profiles stay on your machine. Copy `signing.props.example` to `signing.props` and fill in your own signing values there.
+
+The sections below are the upstream Syncfusion catalog.
+
+# Syncfusion® .NET MAUI examples 
  
 This repository contains awesome demos of [Syncfusion .NET MAUI controls](https://www.syncfusion.com/maui-controls?utm_source=github&utm_medium=listing). This is the best place to check our controls to get more insight about the usage of APIs. 
 
