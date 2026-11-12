@@ -18,6 +18,12 @@ public partial class App : Application
 	{
 		var page = BaseConfig.MainPageInit(typeof(App).Assembly);
 		SampleCatalog.AssignAssemblies(page.BindingContext);
+		CatalogCardEffects.Hook(page);
+		if (page is VisualElement visual)
+		{
+			visual.Loaded += (_, _) => CatalogCardEffects.Hook(page);
+		}
+
 		return new Window(page);
 	}
 }
