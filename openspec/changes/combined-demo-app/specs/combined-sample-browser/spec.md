@@ -51,11 +51,11 @@ The repository README SHALL identify the combined app in a preamble at the top o
 - **THEN** the preamble states that the committed license file is empty and that Apple certificates and profiles are not in the repository
 
 ### Requirement: Distinct app icon
-The combined app icon SHALL show the Syncfusion square mark in `#4822E3` on an `#EF492D` background.
+The combined app icon SHALL show the Syncfusion square mark in `#3843A2`, with the rotated block and the square beneath it in `#EF8C34`. The middle square of the 3×3 grid SHALL be centered in the icon. The name under the icon SHALL be `Syncfusion MAUI`. On iOS, the default appearance SHALL use a white background, the dark appearance a black background, and the tinted appearance a grayscale mark.
 
 #### Scenario: Installed icon
 - **WHEN** the combined app is installed
-- **THEN** its icon is a purple Syncfusion mark on an orange background, distinct from the standalone demos' purple-background icons
+- **THEN** its icon is the purple-and-orange Syncfusion mark, distinct from the standalone demos' purple-background icons, and the home screen name is `Syncfusion MAUI`
 
 ### Requirement: Host license file
 The combined app SHALL read its Syncfusion license from its own license file. The copy stored in git SHALL be empty. A license key written only in the local working tree SHALL NOT appear in a commit.

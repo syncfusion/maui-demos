@@ -12,7 +12,9 @@
     <Nullable>enable</Nullable>
     <NoWarn>$(NoWarn);NU1803</NoWarn>
     <MauiXamlInflator>SourceGen</MauiXamlInflator>
-    <ApplicationTitle>Combined Sample Browser</ApplicationTitle>
+    <ApplicationTitle>Syncfusion MAUI</ApplicationTitle>
+    <!-- iOS and Mac Catalyst use LaunchScreen.storyboard, which can follow light and dark. -->
+    <EnableBlankMauiSplashScreen>false</EnableBlankMauiSplashScreen>
     <ApplicationId>net.prestonmccormick.syncfusion.maui.combined</ApplicationId>
     <ApplicationIdGuid>7C4E1A2B-9F30-4D6E-A1B8-2E5C9A0D4F17</ApplicationIdGuid>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -30,12 +32,24 @@
     <PackageReference Include="SampleBrowser.Maui.Base" Version="35.1.37" />
   </ItemGroup>
   <ItemGroup>
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#EF492D" />
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#EF492D" BaseSize="*,*" />
+    <!-- iOS supplies its own icon appearances in Platforms/iOS/Assets.xcassets. Android's adaptive mask crops the edges, so its foreground is scaled down. -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" ForegroundScale="0.70" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" />
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'ios' And $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'android'" />
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" BaseSize="456,456" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android' Or $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" />
     <MauiFont Include="Resources\Fonts\*" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SyncfusionLicense.txt" />
+  </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+    <!-- Relink so actool sees Assets.xcassets/appicon.appiconset, matching XSAppIconAssets. -->
+    <ImageAsset Remove="Platforms\iOS\Assets.xcassets\**\*" />
+    <ImageAsset Include="Platforms\iOS\Assets.xcassets\**\*" Exclude="**\.DS_Store">
+      <Link>Assets.xcassets\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'ios'">
+    <ImageAsset Remove="Platforms\iOS\Assets.xcassets\appicon.appiconset\**\*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../Accordion/SampleBrowser.Maui.Accordion/SampleBrowser.Maui.Accordion.csproj" />

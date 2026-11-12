@@ -58,7 +58,7 @@ These look like unused cleanup. Each one is a build failure that appears only wh
 
 - **NuGet audit.** DataGrid, DocIO, PDF, PdfViewer, Presentation, and XlsIO set `TreatWarningsAsErrors`. Their document packages pull in `System.Security.Cryptography.Pkcs` and `System.Security.Cryptography.Xml` 10.0.11, which NuGet reports as `NU1902` and `NU1903`. `NuGetAudit` is set false only while `CombinedSampleBrowser` is true. Standalone solutions keep their own audit policy.
 - **Keep sample `App.xaml`.** Backdrop, Calendar, and AIAssistView call `App.Current` and read resources from that `App` type. Removing `App.xaml` / `App.xaml.cs` does not compile. Remove `MauiProgram.cs` and the platform entry points (`MainActivity`, `AppDelegate`, `Program`, and so on) so the samples are not second applications. Removing `AppDelegate.cs` also avoids dozens of `[Register("AppDelegate")]` collisions.
-- **Icons and splash screens.** The resizetizer requires unique image output names. Every sample contributes `appicon` and a splash screen, and many contribute `dotnet_bot`. Libraries drop `MauiIcon` and `MauiSplashScreen` so the host icon stays the orange one. The host sets `ResizetizerErrorOnDuplicateOutputFilename` to false so the remaining duplicate `MauiImage` files do not fail the build. Do not remove `MauiImage`; samples still need their own images.
+- **Icons and splash screens.** The resizetizer requires unique image output names. Every sample contributes `appicon` and a splash screen, and many contribute `dotnet_bot`. Libraries drop `MauiIcon` and `MauiSplashScreen` so the host icon stays the combined app's mark. The host sets `ResizetizerErrorOnDuplicateOutputFilename` to false so the remaining duplicate `MauiImage` files do not fail the build. Do not remove `MauiImage`; samples still need their own images.
 - **`Platforms/iOS/Resources`.** Presentation, XlsIO, and DocIO ship `LaunchScreen.xib` under that folder. MAUI accepts a `Resources` directory in an app and rejects it in a library (`The name 'Resources' is reserved`). The combined build removes those items. Standalone apps still include them.
 - **Quick Look native names.** DataGrid, DocIO, PDF, Presentation, and XlsIO each define `PreviewControllerDS`, `QLPreviewItemFileSystem`, and `QLPreviewItemBundle`. iOS registers the class name globally (`MT4118`, reported again as `IL7000`, `MT4116`, `MT2431`, and `NETSDK1144`). `PrefixQuickLookNativeNames` copies only the current platform's files into `obj/` and adds a unique `[Foundation.Register]`. Do not edit the upstream files: that collides on every Syncfusion merge, and including the Mac Catalyst copy during an iOS build compiles the classes twice. `AppDelegate` is already excluded, so its shared native name is not the same problem.
 - **LiquidGlass has no Android target.** Its `ProjectReference` is omitted when the host target is Android. The other samples target Android, iOS, and Mac Catalyst.
@@ -69,9 +69,13 @@ These look like unused cleanup. Each one is a build failure that appears only wh
 
 ### Distinct host icon
 
-The host `MauiIcon` uses background `#EF492D`. `appicon.svg` is that same orange fill. `appiconfg.svg` is only the square mark from the standalone demos, filled `#4822E3`, with no full-bleed rectangle. The standalone foreground SVG paints a purple rectangle behind the white mark, which would hide the orange background.
+The home screen name is `Syncfusion MAUI` (`ApplicationTitle`).
 
-`#EF492D` is the orange listed in Syncfusion's published brand palette. This repo does not define an orange of its own.
+The mark is the Syncfusion 3×3, squares `#3843A2`, with the rotated block and the square directly under it in `#EF8C34`. That rotated block sits up and to the right of its grid cell. The icon is positioned so the middle square is at the canvas center, then scaled to 85% of the first large version so the rotated block stays inside the iOS mask. `appiconfg.svg` is only that mark. `appicon.svg` is a white fill.
+
+iOS does not use `MauiIcon`. `Platforms/iOS/Assets.xcassets/appicon.appiconset` supplies the appearances actool accepts: default on white, dark on black, and a grayscale tinted image. There is no asset-catalog slot for the Clear appearance. iOS derives Clear from the icon, so a separate transparent image is not compiled. Android uses the same mark with `ForegroundScale` `0.60` because the adaptive-icon mask would clip the rotated block. Other platforms use the full-size white `MauiIcon`.
+
+The iOS and Mac Catalyst splash is `LaunchScreen.storyboard`: the mark sized to most of the screen, then "Syncfusion" in `#3843A2` and "MAUI Component Demos" in `#EF8C34`. The page background is the system background, so it is white in light mode and black in dark mode. The mark image is opaque on that same background, with a dark variant, because a transparent launch-screen image was not drawn. `EnableBlankMauiSplashScreen` is false so MAUI does not also emit an empty launch storyboard. Android and Windows keep a `MauiSplashScreen` of the mark on white.
 
 ### Empty license file, skip-worktree after staging
 
@@ -103,7 +107,7 @@ Add a short block at the top of `README.md` that names `SampleBrowser.Maui.Combi
 - [The combined binary includes every control package] → Accepted. The pilot build is the full solution; fix link or packaging failures as they appear rather than splitting the host.
 - [`skip-worktree` is easy to forget on a new clone] → The committed file stays empty, and the README says to mark the file again after pasting a key. `git status` will show the key if that step is skipped.
 - [A wildcard profile only covers bundle ids under its prefix] → Choose the host `ApplicationId` to match the owner's existing wildcard. Do not commit the profile itself.
-- [`#EF492D` may not match the orange the owner pictures] → It is the published brand orange. Swap the two icon fills if the installed icon looks wrong. That does not change the signing or license plan.
+- [iOS Clear icon mode has no image slot] → Default, Dark, and Tinted are supplied. Clear is the system treatment of that icon.
 
 ## Migration Plan
 

@@ -11,7 +11,7 @@ The repository ships each Syncfusion .NET MAUI control as its own executable, so
 - Keep upstream sample projects unmodified. A repo-root `Directory.Build.props` and `Directory.Build.targets` apply only when the combined build sets a property: sample projects become libraries and their app entry points drop out, while platform helpers such as save and print services stay.
 - Leave `BaseConfig.IsIndividualSB` set to `true` so existing embedded-resource names keep resolving inside each sample assembly.
 - Keep at most the active sample alive. When a sample is left, call `SampleView.OnDisappearing` and disconnect its handler before dropping the last reference. Do not prefetch the next sample.
-- Give the host its own app icon: the Syncfusion square mark in `#4822E3` on an `#EF492D` background, so it is distinct from the standalone demos.
+- Give the host its own app icon: the Syncfusion square mark in `#3843A2` with the rotated block and the square beneath it in `#EF8C34`, centered on the middle square, so it is distinct from the standalone demos. The home screen name is `Syncfusion MAUI`.
 - Add a host `SyncfusionLicense.txt` that git stores empty. After the blank file is staged, mark it `skip-worktree` so a locally filled key is not committed. 1Password stays out of scope.
 - Sign iOS and Mac Catalyst builds with the owner's personal Apple Developer wildcard profile. Keep certificates, provisioning profiles, private keys, and team credentials out of the repository so the fork can be made public.
 - Add a short fork preamble at the top of `README.md`. Leave the upstream catalog below it unchanged. The preamble notes the empty license file and that Apple signing stays on the local machine.

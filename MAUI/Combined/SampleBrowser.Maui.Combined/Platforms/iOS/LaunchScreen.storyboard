@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="launch-vc">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="launch-scene">
+            <objects>
+                <viewController id="launch-vc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="launch-view">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="launch-stack">
+                                <rect key="frame" x="72" y="180" width="880" height="1006"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="SplashMark" translatesAutoresizingMaskIntoConstraints="NO" id="launch-mark">
+                                        <rect key="frame" x="0.0" y="0.0" width="880" height="880"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="launch-mark" secondAttribute="height" multiplier="1:1" id="mark-aspect"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Syncfusion" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="YES" minimumScaleFactor="0.4" translatesAutoresizingMaskIntoConstraints="NO" id="launch-title">
+                                        <rect key="frame" x="230" y="892" width="420" height="52"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="64"/>
+                                        <color key="textColor" name="SplashPurple"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAUI Component Demos" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="YES" minimumScaleFactor="0.4" translatesAutoresizingMaskIntoConstraints="NO" id="launch-subtitle">
+                                        <rect key="frame" x="250" y="956" width="380" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="44"/>
+                                        <color key="textColor" name="SplashOrange"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="launch-stack" firstAttribute="centerX" secondItem="launch-view" secondAttribute="centerX" id="stack-cx"/>
+                            <constraint firstItem="launch-stack" firstAttribute="centerY" secondItem="launch-view" secondAttribute="centerY" id="stack-cy"/>
+                            <constraint firstItem="launch-mark" firstAttribute="width" secondItem="launch-view" secondAttribute="width" multiplier="0.78" priority="999" id="mark-w"/>
+                            <constraint firstItem="launch-mark" firstAttribute="width" relation="lessThanOrEqual" secondItem="launch-view" secondAttribute="width" multiplier="0.78" id="mark-w-max"/>
+                            <constraint firstItem="launch-mark" firstAttribute="height" relation="lessThanOrEqual" secondItem="launch-view" secondAttribute="height" multiplier="0.62" id="mark-h-max"/>
+                            <constraint firstItem="launch-title" firstAttribute="width" relation="lessThanOrEqual" secondItem="launch-view" secondAttribute="width" multiplier="0.92" id="title-w"/>
+                            <constraint firstItem="launch-subtitle" firstAttribute="width" relation="lessThanOrEqual" secondItem="launch-view" secondAttribute="width" multiplier="0.92" id="subtitle-w"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="launch-first" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SplashMark" width="2048" height="2048"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <namedColor name="SplashOrange">
+            <color red="0.93725490196078431" green="0.5490196078431373" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SplashPurple">
+            <color red="0.2196078431372549" green="0.2627450980392157" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

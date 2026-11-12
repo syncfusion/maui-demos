@@ -4,7 +4,7 @@
 
 - [x] 1.1 Create `MAUI/Combined/SampleBrowser.Maui.Combined/` as a .NET 10 MAUI app with the same target frameworks as the sample apps, referencing `SampleBrowser.Maui.Base` 35.1.37. Set `ApplicationId` to a new bundle id covered by the owner's personal Apple wildcard. Verify the project restores with `dotnet restore` on that project.
 - [x] 1.2 Add `SampleBrowser.Maui.Combined.sln` at the repository root, containing the host and every sample `.csproj`. Verify `dotnet sln SampleBrowser.Maui.Combined.sln list` includes the host and all 67 sample projects.
-- [x] 1.3 Add `appicon.svg` filled `#EF492D` and `appiconfg.svg` containing only the Syncfusion square mark filled `#4822E3`, and set the host `MauiIcon` color to `#EF492D`. Verify those two fills in the SVG files and that the foreground SVG has no full-bleed rectangle.
+- [x] 1.3 Add the host icon: Syncfusion mark centered on the middle square, squares `#3843A2`, rotated block and the square beneath it `#EF8C34`, with iOS default/dark/tinted appearances. Home screen name is `Syncfusion MAUI`.
 
 ## 2. Combined-build switch
 

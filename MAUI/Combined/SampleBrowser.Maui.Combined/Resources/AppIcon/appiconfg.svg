@@ -1,13 +1,10 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.9">
-<rect x="15" y="17.3984" width="4.8406" height="4.80195" fill="#4822E3"/>
-<rect x="15" y="22.8086" width="4.8406" height="4.80195" fill="#4822E3"/>
-<rect x="15" y="28.1992" width="4.8406" height="4.80195" fill="#4822E3"/>
-<rect x="20.4473" y="17.3984" width="4.8406" height="4.80195" fill="#4822E3"/>
-<rect x="20.4473" y="22.8086" width="4.8406" height="4.80195" fill="#4822E3"/>
-<rect x="20.4473" y="28.1992" width="4.8406" height="4.80195" fill="#4822E3"/>
-<rect width="4.82131" height="4.82131" transform="matrix(0.709935 0.704267 -0.709935 0.704267 30.5234 15)" fill="#4822E3"/>
-<rect x="25.8906" y="22.8086" width="4.8406" height="4.80195" fill="#4822E3"/>
-<rect x="25.8906" y="28.1992" width="4.8406" height="4.80195" fill="#4822E3"/>
-</g>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><rect x="217.75" y="219.86" width="181.04" height="179.59" fill="#3843A2"/>
+<rect x="217.75" y="422.20" width="181.04" height="179.59" fill="#3843A2"/>
+<rect x="217.75" y="623.81" width="181.04" height="179.59" fill="#3843A2"/>
+<rect x="421.48" y="219.86" width="181.04" height="179.59" fill="#3843A2"/>
+<rect x="421.48" y="422.20" width="181.04" height="179.59" fill="#3843A2"/>
+<rect x="421.48" y="623.81" width="181.04" height="179.59" fill="#3843A2"/>
+<rect x="625.06" y="623.81" width="181.04" height="179.59" fill="#3843A2"/>
+<rect x="625.06" y="422.20" width="181.04" height="179.59" fill="#EF8C34"/>
+<polygon points="798.33,130.16 926.34,257.15 798.33,384.14 670.31,257.15" fill="#EF8C34"/>
 </svg>
