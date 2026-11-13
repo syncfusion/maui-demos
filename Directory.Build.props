@@ -10,4 +10,11 @@
     <CombinedSampleBrowser>true</CombinedSampleBrowser>
     <NuGetAudit>false</NuGetAudit>
   </PropertyGroup>
+  <!--
+    Must be set before the SDK computes output paths. A later change does not
+    remove android-arm64 from a path that was already expanded.
+  -->
+  <PropertyGroup Condition="'$(CombinedSampleBrowser)' == 'true' And '$(MSBuildProjectName)' != 'SampleBrowser.Maui.Combined' And $(TargetFramework.Contains('-android'))">
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
 </Project>

@@ -1,6 +1,22 @@
 <Project>
   <PropertyGroup Condition="'$(CombinedSampleBrowser)' == 'true' And '$(MSBuildProjectName)' != 'SampleBrowser.Maui.Combined'">
     <OutputType>Library</OutputType>
+    <!--
+      The sample projects are executables in their own csproj, so the SDK still
+      wants a runtimeconfig.json. After they become libraries, that file is not
+      packaged, and the RID output directory it writes into does not exist.
+    -->
+    <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
+  </PropertyGroup>
+  <!--
+    Release uses XamlC, which cannot resolve Syncfusion.Maui.Core.LegendItem
+    through the shared maui XML namespace. These three samples are the ones
+    that hit that. Runtime inflation skips that compile step. SourceGen compiles
+    the XAML but then fails nullable event-handler warnings as errors.
+  -->
+  <PropertyGroup Condition="'$(CombinedSampleBrowser)' == 'true' And ('$(MSBuildProjectName)' == 'SampleBrowser.Maui.FunnelChart' Or '$(MSBuildProjectName)' == 'SampleBrowser.Maui.PolarChart' Or '$(MSBuildProjectName)' == 'SampleBrowser.Maui.PyramidChart')">
+    <MauiXamlInflator>Runtime</MauiXamlInflator>
+    <NoWarn>$(NoWarn);MAUI1001</NoWarn>
   </PropertyGroup>
 
   <!--
@@ -10,6 +26,8 @@
     sample does not register the native name AppDelegate. iOS Resources is
     removed because that directory name is illegal in a MAUI library.
     Icons and splash screens are removed so the host keeps its own icon.
+    Sample manifests still name mipmap/appicon, so Android library builds
+    use a copy in obj/ with those attributes removed.
   -->
   <ItemGroup Condition="'$(CombinedSampleBrowser)' == 'true' And '$(MSBuildProjectName)' != 'SampleBrowser.Maui.Combined'">
     <Compile Remove="MauiProgram.cs" />
@@ -98,5 +116,60 @@
       <Compile Remove="@(_QuickLookSource)" />
       <Compile Include="@(_QuickLookGenerated)" />
     </ItemGroup>
+  </Target>
+
+  <!--
+    Dropping MauiIcon leaves @mipmap/appicon in the sample AndroidManifest.
+    aapt then fails the library build. Rewrite a copy under obj/ and leave
+    the upstream manifest unchanged.
+  -->
+  <Target Name="StripCombinedLibraryLauncherIcon"
+          BeforeTargets="_GetAndroidPackageName"
+          Condition="'$(CombinedSampleBrowser)' == 'true' And '$(MSBuildProjectName)' != 'SampleBrowser.Maui.Combined' And '$(TargetPlatformIdentifier)' == 'android' And '$(AndroidManifest)' != '' And Exists('$(MSBuildProjectDirectory)/$(AndroidManifest)')">
+    <PropertyGroup>
+      <_StrippedAndroidManifest>$(IntermediateOutputPath)combined-android-manifest.xml</_StrippedAndroidManifest>
+      <_StripAndroidIconScript>$(IntermediateOutputPath)strip-android-icon.py</_StripAndroidIconScript>
+    </PropertyGroup>
+    <WriteLinesToFile File="$(_StripAndroidIconScript)" Overwrite="true" Lines="import pathlib, re, sys; src, dst = sys.argv[1], sys.argv[2]; text = pathlib.Path(src).read_text(encoding='utf-8'); text = re.sub(' android:icon=&quot;[^&quot;]*&quot;', '', text); text = re.sub(' android:roundIcon=&quot;[^&quot;]*&quot;', '', text); path = pathlib.Path(dst); path.parent.mkdir(parents=True, exist_ok=True); path.write_text(text, encoding='utf-8')" />
+    <Exec Command="python3 &quot;$(MSBuildProjectDirectory)/$(_StripAndroidIconScript)&quot; &quot;$(MSBuildProjectDirectory)/$(AndroidManifest)&quot; &quot;$(MSBuildProjectDirectory)/$(_StrippedAndroidManifest)&quot;" />
+    <PropertyGroup>
+      <AndroidManifest>$(_StrippedAndroidManifest)</AndroidManifest>
+    </PropertyGroup>
+  </Target>
+
+  <!--
+    The Android app's per-RID build reenters every project with
+    AppendRuntimeIdentifierToOutputPath=true and SkipCompilerExecution=true.
+    Those are global properties, so the sample still compiles to
+    obj/Debug/net10.0-android/ while the app links the copy under android-arm64/.
+    Put the assembly that was already compiled in both of those places.
+  -->
+  <Target Name="SupplyCombinedAndroidLibraryAssembly"
+          BeforeTargets="CopyFilesToOutputDirectory;_GetAssemblyInfoFromTemplateFile"
+          Condition="'$(CombinedSampleBrowser)' == 'true' And '$(MSBuildProjectName)' != 'SampleBrowser.Maui.Combined' And '$(TargetPlatformIdentifier)' == 'android' And '$(RuntimeIdentifier)' != ''">
+    <PropertyGroup>
+      <_CombinedLibraryAssemblySource>$(MSBuildProjectDirectory)/obj/$(Configuration)/$(TargetFramework)/$(TargetName)$(TargetExt)</_CombinedLibraryAssemblySource>
+      <_CombinedLibraryAssembly>$(IntermediateOutputPath)$(TargetName)$(TargetExt)</_CombinedLibraryAssembly>
+      <_CombinedLibraryPdbSource>$(MSBuildProjectDirectory)/obj/$(Configuration)/$(TargetFramework)/$(TargetName).pdb</_CombinedLibraryPdbSource>
+      <_CombinedLibraryPdb>$(IntermediateOutputPath)$(TargetName).pdb</_CombinedLibraryPdb>
+      <_CombinedLibraryBin>$(MSBuildProjectDirectory)/bin/$(Configuration)/$(TargetFramework)/$(RuntimeIdentifier)/$(TargetName)$(TargetExt)</_CombinedLibraryBin>
+      <_CombinedLibraryBinPdb>$(MSBuildProjectDirectory)/bin/$(Configuration)/$(TargetFramework)/$(RuntimeIdentifier)/$(TargetName).pdb</_CombinedLibraryBinPdb>
+    </PropertyGroup>
+    <Copy SourceFiles="$(_CombinedLibraryAssemblySource)"
+          DestinationFiles="$(_CombinedLibraryAssembly)"
+          SkipUnchangedFiles="true"
+          Condition="!Exists('$(_CombinedLibraryAssembly)') And Exists('$(_CombinedLibraryAssemblySource)')" />
+    <Copy SourceFiles="$(_CombinedLibraryPdbSource)"
+          DestinationFiles="$(_CombinedLibraryPdb)"
+          SkipUnchangedFiles="true"
+          Condition="!Exists('$(_CombinedLibraryPdb)') And Exists('$(_CombinedLibraryPdbSource)')" />
+    <Copy SourceFiles="$(_CombinedLibraryAssemblySource)"
+          DestinationFiles="$(_CombinedLibraryBin)"
+          SkipUnchangedFiles="true"
+          Condition="Exists('$(_CombinedLibraryAssemblySource)')" />
+    <Copy SourceFiles="$(_CombinedLibraryPdbSource)"
+          DestinationFiles="$(_CombinedLibraryBinPdb)"
+          SkipUnchangedFiles="true"
+          Condition="Exists('$(_CombinedLibraryPdbSource)')" />
   </Target>
 </Project>
