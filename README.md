@@ -4,6 +4,28 @@ This fork adds one app that hosts every control demo. Open `SampleBrowser.Maui.C
 
 `MAUI/Combined/SampleBrowser.Maui.Combined/SyncfusionLicense.txt` is committed empty. After you paste a license key into that file, run `git update-index --skip-worktree` on it so the key is not committed. Apple certificates and provisioning profiles stay on your machine. Copy `signing.props.example` to `signing.props` and fill in your own signing values there.
 
+## Building the combined app
+
+`SampleBrowser.Maui.Combined.sln` builds the host and every sample. Use that when `Directory.Build.props`, `Directory.Build.targets`, or a sample project has changed, or when that configuration does not have sample output yet.
+
+Day-to-day changes belong in the host. The upstream sample projects stay as they are, so the usual build compiles the host and reuses the sample libraries already in each sample `bin` folder:
+
+```bash
+dotnet build MAUI/Combined/SampleBrowser.Maui.Combined/SampleBrowser.Maui.Combined.csproj -c Release -f net10.0-android -p:CombinedSampleBrowser=true -p:BuildProjectReferences=false -p:AndroidSdkDirectory="$HOME/Library/Android/sdk"
+```
+
+`CombinedSampleBrowser` is set by the solution name. A direct project build has to pass it. `BuildProjectReferences=false` skips the sample projects. The host still packages the DLLs those projects already produced for the same configuration and target framework. Packaging those libraries takes a few minutes. It does not recompile the samples.
+
+If one sample did change, build that sample project with `-p:CombinedSampleBrowser=true`, then build the host with `-p:BuildProjectReferences=false`.
+
+The signed Android package is `MAUI/Combined/SampleBrowser.Maui.Combined/bin/Release/net10.0-android/net.prestonmccormick.syncfusion.maui.combined-Signed.apk`. Install that file on each device:
+
+```bash
+adb -s <serial> install -r MAUI/Combined/SampleBrowser.Maui.Combined/bin/Release/net10.0-android/net.prestonmccormick.syncfusion.maui.combined-Signed.apk
+```
+
+`adb devices -l` lists connected phones and running emulators. `emulator -list-avds` lists virtual devices, and `emulator -avd <name>` starts one. Build once, then install the same package everywhere.
+
 The sections below are the upstream Syncfusion catalog.
 
 # Syncfusion® .NET MAUI examples 
