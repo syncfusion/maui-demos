@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Replaces MAUI's splash theme. Android 12+ draws an icon and an optional
+      branding image; it does not draw arbitrary labels. The branding image is
+      the title and subtitle. The background follows the system night mode and
+      matches the catalog page.
+    -->
+    <style name="Maui.SplashTheme" parent="Maui.MainTheme.NoActionBar">
+        <item name="maui_splash">true</item>
+        <item name="android:windowBackground">@drawable/splash_window</item>
+        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/maui_splash_image</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/splash_branding</item>
+    </style>
+</resources>

@@ -52,6 +52,10 @@ The host project references every sample `.csproj`. Those references live only i
 
 Alternative considered: editing each sample project to be a library all the time. That makes every upstream merge touch those projects and stops the per-control solutions from producing apps.
 
+### Partial builds
+
+Host edits do not require recompiling the samples. Build the host project with `-p:CombinedSampleBrowser=true -p:BuildProjectReferences=false`. MSBuild then packages the sample libraries already in `bin` for that configuration and target framework. Rebuild one sample, with `CombinedSampleBrowser` set, only when that sample's sources changed, then build the host the same way. Rebuild the solution when `Directory.Build.props` or `Directory.Build.targets` change, because those files change how every sample compiles. Commands are in the README section "Building the combined app" and in `AGENTS.md`.
+
 ### Combined-build fixes
 
 These look like unused cleanup. Each one is a build failure that appears only when the samples are libraries inside the host. Do not delete them, and do not push the workaround into the upstream sample files.
@@ -65,7 +69,7 @@ These look like unused cleanup. Each one is a build failure that appears only wh
 
 ### Catalog wiring found while building
 
-`MainPageInit` records only the assembly it is given, then tags every sample with that assembly. The host therefore fills `AvailableControlStreamList` from the sample DLLs beside the running app before calling `MainPageInit`, and then points each sample model at the assembly that actually contains its type. The host DLL does not reference those assemblies directly, because no host source uses their types, so scanning the output directory is required. `SampleBrowser.Maui.SmartPdfViewer` and `SampleBrowser.Maui.PdfViewer` both use the control key `PdfViewer`; the second one is stored under its assembly name so both lists survive.
+`MainPageInit` records only the assembly it is given, then tags every sample with that assembly. The host therefore fills `AvailableControlStreamList` from the sample DLLs beside the running app before calling `MainPageInit`, and then points each sample model at the assembly that actually contains its type. The host DLL does not reference those assemblies directly, because no host source uses their types. iOS and Mac Catalyst leave the DLLs beside the host assembly, so the catalog scans that directory. Android Release packs them into the assembly store and `Assembly.Location` is empty, so the host compiles the project-reference names into `SampleAssemblyNames` and loads those assemblies by name. `SampleBrowser.Maui.SmartPdfViewer` and `SampleBrowser.Maui.PdfViewer` both use the control key `PdfViewer`; the second one is stored under its assembly name so both lists survive.
 
 ### Distinct host icon
 
@@ -75,7 +79,7 @@ The mark is the Syncfusion 3×3, squares `#3843A2`, with the rotated block and t
 
 iOS does not use `MauiIcon`. `Platforms/iOS/Assets.xcassets/appicon.appiconset` supplies the appearances actool accepts: default on white, dark on black, and a grayscale tinted image. There is no asset-catalog slot for the Clear appearance. iOS derives Clear from the icon, so a separate transparent image is not compiled. Android uses the same mark with `ForegroundScale` `0.60` because the adaptive-icon mask would clip the rotated block. Other platforms use the full-size white `MauiIcon`.
 
-The iOS and Mac Catalyst splash is `LaunchScreen.storyboard`: the mark sized to most of the screen, then "Syncfusion" in `#3843A2` and "MAUI Component Demos" in `#EF8C34`. The page background is the system background, so it is white in light mode and black in dark mode. The mark image is opaque on that same background, with a dark variant, because a transparent launch-screen image was not drawn. `EnableBlankMauiSplashScreen` is false so MAUI does not also emit an empty launch storyboard. Android and Windows keep a `MauiSplashScreen` of the mark on white.
+The iOS and Mac Catalyst splash is `LaunchScreen.storyboard`: the mark sized to most of the screen, then "Syncfusion" in `#3843A2` and "MAUI Component Demos" in `#EF8C34`. The page background is the system background, so it is white in light mode and black in dark mode. The mark image is opaque on that same background, with a dark variant, because a transparent launch-screen image was not drawn. `EnableBlankMauiSplashScreen` is false so MAUI does not also emit an empty launch storyboard. Android keeps the mark as the splash icon. Android 12 and later draw that icon and one branding image, not free-form labels, so the title and subtitle are a branding image at the bottom. The splash background is `#FFFBFE` in light mode and `#1C1B1F` in dark mode, the same colors as the catalog page, and follows the system night mode. The launcher icon is one adaptive icon on white. Android does not have iOS's Default, Dark, Tinted, and Clear slots, so that icon stays the same in dark mode. Windows keeps a `MauiSplashScreen` of the mark.
 
 ### Empty license file, skip-worktree after staging
 

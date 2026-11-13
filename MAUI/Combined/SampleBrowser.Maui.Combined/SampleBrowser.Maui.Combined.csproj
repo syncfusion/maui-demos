@@ -35,7 +35,7 @@
     <!-- iOS supplies its own icon appearances in Platforms/iOS/Assets.xcassets. Android's adaptive mask crops the edges, so its foreground is scaled down. -->
     <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" ForegroundScale="0.70" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" />
     <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'ios' And $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'android'" />
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" BaseSize="456,456" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android' Or $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" />
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFBFE" BaseSize="456,456" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android' Or $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" />
     <MauiFont Include="Resources\Fonts\*" />
   </ItemGroup>
   <ItemGroup>
@@ -121,4 +121,29 @@
     <ProjectReference Include="../../TreeView/SampleBrowser.Maui.TreeView/SampleBrowser.Maui.TreeView.csproj" />
     <ProjectReference Include="../../Xlsio/SampleBrowser.Maui.XlsIO/SampleBrowser.Maui.XlsIO.csproj" />
   </ItemGroup>
+  <!--
+    The host never mentions sample types, so the compiler emits no assembly
+    references. Android Release stores the DLLs in the assembly store, where a
+    directory scan cannot see them. Compile the project-reference names into
+    the host and load those assemblies by name.
+  -->
+  <Target Name="GenerateSampleAssemblyNames" BeforeTargets="CoreCompile">
+    <ItemGroup>
+      <_SampleAssemblyNameLine Include="namespace SampleBrowser.Maui.Combined%3B" />
+      <_SampleAssemblyNameLine Include="internal static class SampleAssemblyNames" />
+      <_SampleAssemblyNameLine Include="{" />
+      <_SampleAssemblyNameLine Include="    public static readonly string[] All = new[]" />
+      <_SampleAssemblyNameLine Include="    {" />
+      <_SampleAssemblyNameLine Include="@(ProjectReference->'        &quot;%(Filename)&quot;,')" />
+      <_SampleAssemblyNameLine Include="    }%3B" />
+      <_SampleAssemblyNameLine Include="}" />
+    </ItemGroup>
+    <WriteLinesToFile
+      File="$(IntermediateOutputPath)SampleAssemblyNames.g.cs"
+      Lines="@(_SampleAssemblyNameLine)"
+      Overwrite="true" />
+    <ItemGroup>
+      <Compile Include="$(IntermediateOutputPath)SampleAssemblyNames.g.cs" />
+    </ItemGroup>
+  </Target>
 </Project>

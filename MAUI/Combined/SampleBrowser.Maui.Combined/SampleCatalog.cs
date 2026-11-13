@@ -6,61 +6,91 @@ namespace SampleBrowser.Maui.Combined;
 
 // Loads every sample list into BaseConfig before MainPageInit.
 // MainPageInit tags every sample with the single assembly it is passed, so AssignAssemblies
-// retargets each model afterward. Assemblies are loaded from the app directory because the
-// host project never mentions their types, so they are not assembly references.
+// retargets each model afterward. The host never mentions sample types, so they are not
+// assembly references. File layouts are scanned when the DLLs sit beside the host. Android
+// Release loads them by the names compiled from the project references.
 // SmartPdfViewer and PdfViewer both use the control key "PdfViewer"; the second key is the assembly name.
 static class SampleCatalog
 {
 	static readonly Dictionary<string, Assembly> Assemblies = new(StringComparer.Ordinal);
 
+	static readonly HashSet<string> LoadedNames = new(StringComparer.Ordinal);
+
 	public static void Load()
 	{
+		// iOS, Mac Catalyst, and Android fast deployment leave the sample DLLs
+		// beside the host assembly. Android Release puts them in the assembly
+		// store instead, so Assembly.Location is empty and that scan finds nothing.
 		var directory = Path.GetDirectoryName(typeof(SampleCatalog).Assembly.Location);
-		if (string.IsNullOrEmpty(directory))
+		if (!string.IsNullOrEmpty(directory) && Directory.Exists(directory))
+		{
+			foreach (var file in Directory.GetFiles(directory, "SampleBrowser.Maui.*.dll"))
+			{
+				AddAssembly(Assembly.LoadFrom(file));
+			}
+		}
+
+		foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+		{
+			AddAssembly(assembly);
+		}
+
+		foreach (var name in SampleAssemblyNames.All)
+		{
+			try
+			{
+				AddAssembly(Assembly.Load(name));
+			}
+			catch (FileNotFoundException)
+			{
+			}
+			catch (FileLoadException)
+			{
+			}
+		}
+	}
+
+	static void AddAssembly(Assembly assembly)
+	{
+		var name = assembly.GetName().Name;
+		if (string.IsNullOrEmpty(name)
+			|| !name.StartsWith("SampleBrowser.Maui.", StringComparison.Ordinal)
+			|| name is "SampleBrowser.Maui.Base" or "SampleBrowser.Maui.Combined"
+			|| !LoadedNames.Add(name))
 		{
 			return;
 		}
 
-		foreach (var file in Directory.GetFiles(directory, "SampleBrowser.Maui.*.dll"))
+		using var controlList = OpenResource(assembly, ".ControlList.xml");
+		if (controlList == null)
 		{
-			var fileName = Path.GetFileName(file);
-			if (fileName is "SampleBrowser.Maui.Base.dll" or "SampleBrowser.Maui.Combined.dll")
+			return;
+		}
+
+		var document = XDocument.Load(controlList);
+		foreach (var element in document.Descendants("Assembly"))
+		{
+			var shortName = element.Attribute("Name")?.Value;
+			if (string.IsNullOrEmpty(shortName))
 			{
 				continue;
 			}
 
-			var assembly = Assembly.LoadFrom(file);
-			using var controlList = OpenResource(assembly, ".ControlList.xml");
-			if (controlList == null)
+			var samples = OpenResource(assembly, "." + shortName + "SamplesList.xml")
+				?? OpenSingleResource(assembly, "SamplesList.xml");
+			if (samples == null)
 			{
 				continue;
 			}
 
-			var document = XDocument.Load(controlList);
-			foreach (var element in document.Descendants("Assembly"))
+			var key = shortName;
+			if (BaseConfig.AvailableControlStreamList.ContainsKey(key))
 			{
-				var shortName = element.Attribute("Name")?.Value;
-				if (string.IsNullOrEmpty(shortName))
-				{
-					continue;
-				}
-
-				var samples = OpenResource(assembly, "." + shortName + "SamplesList.xml")
-					?? OpenSingleResource(assembly, "SamplesList.xml");
-				if (samples == null)
-				{
-					continue;
-				}
-
-				var key = shortName;
-				if (BaseConfig.AvailableControlStreamList.ContainsKey(key))
-				{
-					key = assembly.GetName().Name?.Replace("SampleBrowser.Maui.", "", StringComparison.Ordinal) ?? shortName;
-				}
-
-				BaseConfig.AvailableControlStreamList[key] = samples;
-				Assemblies[key] = assembly;
+				key = name.Replace("SampleBrowser.Maui.", "", StringComparison.Ordinal);
 			}
+
+			BaseConfig.AvailableControlStreamList[key] = samples;
+			Assemblies[key] = assembly;
 		}
 	}
 
