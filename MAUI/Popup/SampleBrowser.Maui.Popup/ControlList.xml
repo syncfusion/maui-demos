@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SampleBrowser>
+	<Assemblies Prefix="SampleBrowser.Maui.Popup" QualifiedInfo="Version=1.0.0.0, Culture=neutral, PublickeyToken=null">
+		<Assembly Name="Popup"/>
+	</Assemblies>	
+</SampleBrowser>

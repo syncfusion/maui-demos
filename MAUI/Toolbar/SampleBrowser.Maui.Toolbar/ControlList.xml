@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SampleBrowser>
+  <Assemblies Prefix="SampleBrowser.Maui.Toolbar" 
+			  QualifiedInfo="Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Assembly Name="Toolbar" />
+  </Assemblies>
+</SampleBrowser>

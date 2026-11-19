@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.DetailsViewStackedHeader"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid">
+
+    <localCore:SampleView.BindingContext>
+        <local:DetailsViewViewModel/>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="visible" x:TypeArguments="x:Boolean">
+            <On Platform="WinUI,MacCatalyst" Value="True"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="width" x:TypeArguments="x:Double">
+            <On Platform="Android" Value="113"></On>
+            <On Platform="iOS" Value="125"></On>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Style TargetType="sfgrid:DataGridStackedHeaderCell">
+            <Setter Property="FontFamily" Value="Roboto-Medium"/>
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfDataGrid Margin='{OnPlatform WinUI="-5",MacCatalyst="-5"}'
+                           x:Name="dataGrid"
+                           HeaderRowHeight="52"
+                           AutoGenerateColumnsMode="None"
+                           RowHeight="48"
+                           ColumnWidthMode="Fill"
+                           AutoGenerateRelations="False"
+                           x:DataType="local:DetailsViewViewModel"
+                           ItemsSource="{Binding OrderList}"
+                           DetailsViewPadding="20,5,5,5"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           HeaderGridLinesVisibility="Both"
+                           DataGridLoaded="dataGrid_DataGridLoaded">
+            <sfgrid:SfDataGrid.Columns>
+                <sfgrid:DataGridTextColumn Format="D" MappingName="OrderID" HeaderText="Order ID"></sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn MappingName="CustomerID" HeaderText="Customer"/>
+                <sfgrid:DataGridDateColumn MappingName="ShippingDate" HeaderText="Shipped Date" Visible="{StaticResource visible}"/>
+                <sfgrid:DataGridNumericColumn Format="D" MappingName="SupplierID" HeaderText="Supplier ID" Visible="{StaticResource visible}"/>
+                <sfgrid:DataGridTextColumn MappingName="ShipCity" HeaderText="Ship City"/>
+                <sfgrid:DataGridTextColumn MappingName="ShipCountry" HeaderText="Ship Country"/>
+                <sfgrid:DataGridNumericColumn Format="C" MappingName="Freight" HeaderText="Freight" Visible="{StaticResource visible}"/>
+            </sfgrid:SfDataGrid.Columns>
+
+            <sfgrid:SfDataGrid.DefaultStyle>
+                <sfgrid:DataGridStyle GridLineStrokeThickness='{OnPlatform Android="2"}' HeaderGridLineStrokeThickness='{OnPlatform Android="2"}'/>
+            </sfgrid:SfDataGrid.DefaultStyle>
+
+            <sfgrid:SfDataGrid.DetailsViewDefinition>
+                <sfgrid:DataGridViewDefinition RelationalColumn="OrdersList">
+                    <sfgrid:DataGridViewDefinition.DataGrid>
+                        <sfgrid:SfDataGrid  x:Name="FirstLevelNestedGrid"
+                                            x:DataType="local:OrderDetails"
+                                            AutoGenerateColumnsMode="None"
+                                            DefaultColumnWidth="{OnPlatform WinUI=125, MacCatalyst=105}"
+                                            HeaderGridLinesVisibility="Both">
+                            <sfgrid:SfDataGrid.Columns>
+                                <sfgrid:DataGridNumericColumn Format="D" MinimumWidth="{StaticResource width}" MappingName="OrderID" HeaderText="Order ID" />
+                                <sfgrid:DataGridDateColumn MinimumWidth="{OnPlatform WinUI='125',Android='113',iOS='105',MacCatalyst='120'}" MappingName="OrderDate" HeaderText="Order Date" />
+                                <sfgrid:DataGridTextColumn MinimumWidth="{OnPlatform WinUI='125',Android='113',iOS='110',MacCatalyst='120'}" MappingName="CustomerID" HeaderText="Customer ID" />
+                                <sfgrid:DataGridTextColumn MinimumWidth="{OnPlatform WinUI='125',Android='140',iOS='140',MacCatalyst='120'}" MappingName="CustomerName" HeaderText="Customer"  />
+                                <sfgrid:DataGridNumericColumn Format="D" MinimumWidth="{StaticResource width}" MappingName="ProductID" HeaderText="Product ID"  Visible="{StaticResource visible}" />
+                                <sfgrid:DataGridNumericColumn Format="C" MinimumWidth="{StaticResource width}" MappingName="UnitPrice" HeaderText="Unit Price"  Visible="{StaticResource visible}" />
+                                <sfgrid:DataGridNumericColumn Format="N0" MinimumWidth="{StaticResource width}" MappingName="Quantity" HeaderText="Quantity"  Visible="{StaticResource visible}" />
+                            </sfgrid:SfDataGrid.Columns>
+                            <sfgrid:SfDataGrid.StackedHeaderRows>
+                                <sfgrid:DataGridStackedHeaderRow>
+                                    <sfgrid:DataGridStackedHeaderRow.Columns>
+                                        <sfgrid:DataGridStackedColumn ColumnMappingNames="OrderID,OrderDate"
+                                                                      MappingName="second Details"
+                                                                      Text="Order Details"/>
+                                        <sfgrid:DataGridStackedColumn ColumnMappingNames="CustomerID,CustomerName"
+                                                                      MappingName="third Details"
+                                                                      Text="Customer Details"/>
+                                        <sfgrid:DataGridStackedColumn ColumnMappingNames="ProductID,UnitPrice,Quantity"
+                                                                      MappingName="fourth Details"
+                                                                      Text="Product Details"/>
+                                    </sfgrid:DataGridStackedHeaderRow.Columns>
+                                </sfgrid:DataGridStackedHeaderRow>
+                            </sfgrid:SfDataGrid.StackedHeaderRows>
+
+                            <sfgrid:SfDataGrid.DefaultStyle>
+                                <sfgrid:DataGridStyle GridLineStrokeThickness='{OnPlatform Android="2"}' HeaderGridLineStrokeThickness='{OnPlatform Android="2"}'/>
+                            </sfgrid:SfDataGrid.DefaultStyle>
+
+                        </sfgrid:SfDataGrid>
+                    </sfgrid:DataGridViewDefinition.DataGrid>
+                </sfgrid:DataGridViewDefinition>
+            </sfgrid:SfDataGrid.DetailsViewDefinition>
+        </sfgrid:SfDataGrid>
+
+    </localCore:SampleView.Content>
+</localCore:SampleView>

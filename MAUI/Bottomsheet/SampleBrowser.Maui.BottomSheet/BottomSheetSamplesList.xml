@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+		<ControlCategory Name="Layouts" StatusTag="New">
+		<Control ControlName="SfBottomSheet"
+             Title="Bottom Sheet"
+             Image="bottomsheet.png"
+             StatusTag="New"
+           IsPreview="true"
+           Description="The Bottom Sheet is a flexible UI component that displays supplementary content in a draggable panel from the bottom of the screen." >
+			<Sample SampleName="GettingStarted"
+					Title="Getting Started" StatusTag="New"
+					SearchTags="bottomsheet,sheet,panel,drawer,layout,overlay"
+					CodeViewerPath="BottomSheet/GettingStarted/"/>
+		</Control>
+		</ControlCategory>
+	
+</SyncfusionControls>

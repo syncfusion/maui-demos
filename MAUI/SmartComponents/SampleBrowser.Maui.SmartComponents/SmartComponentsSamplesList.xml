@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Smart Components">
+		<Control Title="Smart Text Editor"
+            ControlName="SmartTextEditor" Image="smarttexteditor.png"
+              Description="The smart text editor predicts and suggests text to improve typing efficiency and user experience">
+			<Sample Title="Smart Text Editor" SampleName="GettingStarted" CodeViewerPath="SmartTextEditor/View" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

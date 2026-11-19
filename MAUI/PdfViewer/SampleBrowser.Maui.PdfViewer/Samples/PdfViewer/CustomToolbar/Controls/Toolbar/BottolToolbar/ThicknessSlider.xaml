@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:DataType="local:CustomToolbarViewModel"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.ThicknessSlider"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.PdfViewer.SfPdfViewer">
+
+    <Grid x:Name="MyGrid" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Thickness" TextColor="#1C1B1F" HorizontalOptions="Start" Margin="15,0,0,0"/>
+            <sliders:SfSlider x:Name="thicknessSlider" Grid.Row="1" Minimum="{Binding MinimumThickness}" Value="{Binding SelectedThickness}" ValueChangeEnd="ThicknessValue_Changed" Maximum="{Binding MaximumThickness}" HorizontalOptions="Start" >
+                <sliders:SfSlider.TrackStyle>
+                    <sliders:SliderTrackStyle ActiveFill="#6750A4" InactiveFill="#1F000000"/>
+                </sliders:SfSlider.TrackStyle>
+                <sliders:SfSlider.ThumbStyle>
+                    <sliders:SliderThumbStyle Fill="#6750A4"/>
+                </sliders:SfSlider.ThumbStyle>
+                <sliders:SfSlider.ThumbOverlayStyle>
+                    <sliders:SliderThumbOverlayStyle Fill="#DFD8F7" Radius="20"/>
+                </sliders:SfSlider.ThumbOverlayStyle>
+            </sliders:SfSlider>
+        </Grid>
+    </Grid>
+
+</ContentView>

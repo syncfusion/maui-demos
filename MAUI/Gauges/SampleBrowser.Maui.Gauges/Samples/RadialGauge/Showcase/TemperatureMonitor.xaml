@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.TemperatureMonitor"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="temperatureMonitorGauge"
+                             HorizontalOptions="Center">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis Interval="10"
+                                                  Minimum="-50"
+                                                  Maximum="150"
+                                                  ShowAxisLine="False"
+                                                  MinorTicksPerInterval="9"
+                                                  EnableLoadingAnimation="True"
+                                                  AnimationDuration="2500">
+
+                    <gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.265"
+                                                             Stroke="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                                                             StrokeThickness="1.5" />
+                    </gauge:RadialAxis.MajorTickStyle>
+                    <gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialTickStyle LengthUnit="Factor"
+                                                             Length="0.13"
+                                                             Stroke="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                    </gauge:RadialAxis.MinorTickStyle>
+
+                    <gauge:RadialAxis.Ranges>
+                        <gauge:RadialRange StartValue="-50"
+                                                          EndValue="0"
+                                                          Fill="#bf2290c7"
+                                                          StartWidth="0.265"
+                                                          EndWidth="0.265"
+                                                          WidthUnit="Factor" />
+                        <gauge:RadialRange StartValue="0"
+                                                          EndValue="10"
+                                                          Fill="#bf22c3c7"
+                                                          StartWidth="0.265"
+                                                          EndWidth="0.265"
+                                                          WidthUnit="Factor" />
+                        <gauge:RadialRange StartValue="10"
+                                                          EndValue="30"
+                                                          Fill="#bf7bc722"
+                                                          StartWidth="0.265"
+                                                          EndWidth="0.265"
+                                                          WidthUnit="Factor" />
+                        <gauge:RadialRange StartValue="30"
+                                                          EndValue="40"
+                                                          Fill="#bfeec222"
+                                                          StartWidth="0.265"
+                                                          EndWidth="0.265"
+                                                          WidthUnit="Factor" />
+                        <gauge:RadialRange StartValue="40"
+                                                          EndValue="150"
+                                                          Fill="#bfee4f22"
+                                                          StartWidth="0.265"
+                                                          EndWidth="0.265"
+                                                          WidthUnit="Factor" />
+                    </gauge:RadialAxis.Ranges>
+
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:NeedlePointer Value="22.5"
+                                                             NeedleFill="#F8B195"
+                                                             NeedleLength="0.6"
+                                                             NeedleStartWidth="1"
+                                                             NeedleEndWidth="16"
+                                                             KnobFill="White"
+                                                             KnobStroke="#F8B195"
+                                                             KnobStrokeThickness="0.04"
+                                                             KnobRadius="0.1"
+                                                             TailFill="#F8B195"
+                                                             TailLength="0.2"
+                                                             TailWidth="16" />
+                    </gauge:RadialAxis.Pointers>
+
+                    <gauge:RadialAxis.Annotations>
+                        <gauge:GaugeAnnotation PositionFactor="0.8"
+                                                               DirectionValue="90">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="22.5"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                                       FontSize="20" />
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+                        <gauge:GaugeAnnotation PositionFactor="0.4"
+                                                               DirectionValue="90">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="Temp.°C"
+                                                       TextColor="#F8B195"
+                                                       FontSize="15" />
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+                    </gauge:RadialAxis.Annotations>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

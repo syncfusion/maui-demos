@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Miscellaneous">
+		
+		<Control Title="Rich Text Editor"
+				 ControlName="RichTextEditor"
+				 Image="richtexteditor.png"
+				 Description="Enables users to create, format, and edit rich text content with advanced editing tools.">
+
+			<Sample Title="Getting Started"
+					SampleName="GettingStarted"
+					CodeViewerPath="RichTextEditor/GettingStarted"
+					VideoLink="https://youtu.be/1r8OrZxG_HI?si=p20P3ENM_of2EC5r"
+					SearchTags="richtext,editor,formatting,texteditor,toolbar,content" />
+
+			<Sample Title="Notes"
+					SampleName="NotesSample"
+					CodeViewerPath="RichTextEditor/NotesSample"
+					VideoLink="https://youtu.be/1r8OrZxG_HI?si=p20P3ENM_of2EC5r"
+					SearchTags="richtext,forum,thread,editor,comment,formatting,ticket"/>
+
+		</Control>
+
+	</ControlCategory>
+</SyncfusionControls>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Smart Components">
+		<Control Title="Smart Scheduler"
+              ControlName="SmartScheduler" Image="smartscheduler.png"
+              Description="This AI powered scheduler books appointments, detects conflicts, and summarizes events.">
+			<Sample Title="Smart Scheduler" SampleName="GettingStarted" CodeViewerPath="SmartScheduler/View" />
+		</Control>
+
+	</ControlCategory>
+
+</SyncfusionControls>

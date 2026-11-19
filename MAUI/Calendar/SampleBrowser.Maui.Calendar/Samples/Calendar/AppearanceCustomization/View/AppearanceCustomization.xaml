@@ -1,0 +1,70 @@
+﻿<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Calendar.SfCalendar.AppearanceCustomization"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Calendar.SfCalendar"
+             xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             x:DataType="local:AppearanceViewModel"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs" Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}" Margin="-4, -4, -6, -6">
+    <localCore:SampleView.Content>
+
+        <Grid WidthRequest="350" HeightRequest="350">
+            <Border IsVisible="False" x:Name="border" Background="Transparent" HorizontalOptions="Center" VerticalOptions="Center" Margin="0" Padding="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="{OnPlatform Default=12, Android=0, iOS=0}" />
+                </Border.StrokeShape>
+                <calendar:SfCalendar x:Name="iOSCircleCalendar" BackgroundColor="{AppThemeBinding Default={StaticResource ContentBackgroundAlt1}}"
+                                 ShowTrailingAndLeadingDates="False"
+                                 NavigationDirection="Horizontal"
+                                 AllowViewNavigation="False"
+                                 CornerRadius="{OnPlatform Default=12, Android=0, iOS=0}">
+                    <calendar:SfCalendar.MonthView>
+                        <calendar:CalendarMonthView CellTemplate="{Binding Template}">
+                            <calendar:CalendarMonthView.HeaderView>
+                                <calendar:CalendarMonthHeaderView Background="{AppThemeBinding Default={StaticResource ContentBackgroundAlt3}}"/>
+                            </calendar:CalendarMonthView.HeaderView>
+                        </calendar:CalendarMonthView>
+                    </calendar:SfCalendar.MonthView>
+                    <calendar:SfCalendar.HeaderView>
+                        <calendar:CalendarHeaderView Background="{AppThemeBinding Default={StaticResource ContentBackgroundAlt3}}">
+                        </calendar:CalendarHeaderView>
+                    </calendar:SfCalendar.HeaderView>
+                    <calendar:SfCalendar.BindingContext>
+                        <local:AppearanceViewModel/>
+                    </calendar:SfCalendar.BindingContext>
+                </calendar:SfCalendar>
+            </Border>
+        </Grid>
+
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView Padding="0, 0, 5, 0">
+                <StackLayout Orientation="Vertical">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Shape"  Margin="0,15,0,0" 
+                        Grid.Column="0"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+
+                        <editors:SfComboBox x:Name="comboBox" Grid.Column="1" IsClearButtonVisible="False"
+                                Margin="0,15,0,0" VerticalOptions="Center"
+                                TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextColourLight}, Dark={StaticResource PlaceholderTextColour}}"
+                                HorizontalOptions="Start"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:AppearanceCustomizationBehavior/>
+    </localCore:SampleView.Behaviors>
+
+</localCore:SampleView>

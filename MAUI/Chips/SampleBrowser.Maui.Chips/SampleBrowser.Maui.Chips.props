@@ -1,0 +1,112 @@
+<Project>
+	<ItemGroup>            
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipGettingStarted\ChipGettingStarted.xaml.cs">
+			<Link>Samples\Chips\ChipGettingStarted\ChipGettingStarted.xaml.cs</Link>
+			<DependentUpon>ChipGettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipGettingStarted\ChipGettingStaredMobile.xaml.cs">
+			<Link>Samples\Chips\ChipGettingStarted\ChipGettingStaredMobile.xaml.cs</Link>
+			<DependentUpon>ChipGettingStaredMobile.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipGettingStarted\ChipGettingStartedDesktop.xaml.cs">
+			<Link>Samples\Chips\ChipGettingStarted\ChipGettingStartedDesktop.xaml.cs</Link>
+			<DependentUpon>ChipGettingStartedDesktop.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipTypes\ChipTypes.xaml.cs">
+			<Link>Samples\Chips\ChipTypes\ChipTypes.xaml.cs</Link>
+			<DependentUpon>ChipTypes.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipTypes\ChipTypesDesktop.xaml.cs">
+			<Link>Samples\Chips\ChipTypes\ChipTypesDesktop.xaml.cs</Link>
+			<DependentUpon>ChipTypesDesktop.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipTypes\ChipTypesMobile.xaml.cs">
+			<Link>Samples\Chips\ChipTypes\ChipTypesMobile.xaml.cs</Link>
+			<DependentUpon>ChipTypesMobile.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipCustomization\ChipCustomization.xaml.cs">
+			<Link>Samples\Chips\ChipCustomization\ChipCustomization.xaml.cs</Link>
+			<DependentUpon>ChipCustomization.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipCustomization\ChipCustomizationDesktop.xaml.cs">
+			<Link>Samples\Chips\ChipCustomization\ChipCustomizationDesktop.xaml.cs</Link>
+			<DependentUpon>ChipCustomizationDesktop.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipCustomization\ChipCustomizationMobile.xaml.cs">
+			<Link>Samples\Chips\ChipCustomization\ChipCustomizationMobile.xaml.cs</Link>
+			<DependentUpon>ChipCustomizationMobile.xaml</DependentUpon>
+		</Compile>
+        	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\ViewModel\ChipViewModel.cs">
+			<Link>Samples\Chips\ViewModel\ChipViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Chips\Helper\Behaviors.cs">
+			<Link>Samples\Chips\Helper\Behaviors.cs</Link>
+		</Compile>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipGettingStarted\ChipGettingStarted.xaml">
+			<Link>Samples\Chips\ChipGettingStarted\ChipGettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipGettingStarted\ChipGettingStaredMobile.xaml">
+			<Link>Samples\Chips\ChipGettingStarted\ChipGettingStaredMobile.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipGettingStarted\ChipGettingStartedDesktop.xaml">
+			<Link>Samples\Chips\ChipGettingStarted\ChipGettingStartedDesktop.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipTypes\ChipTypes.xaml">
+			<Link>Samples\Chips\ChipTypes\ChipTypes.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+   <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipTypes\ChipTypesDesktop.xaml">
+			<Link>Samples\Chips\ChipTypes\ChipTypesDesktop.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipTypes\ChipTypesMobile.xaml">
+			<Link>Samples\Chips\ChipTypes\ChipTypesMobile.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipCustomization\ChipCustomization.xaml">
+			<Link>Samples\Chips\ChipCustomization\ChipCustomization.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipCustomization\ChipCustomizationDesktop.xaml">
+			<Link>Samples\Chips\ChipCustomization\ChipCustomizationDesktop.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Chips\ChipCustomization\ChipCustomizationMobile.xaml">
+			<Link>Samples\Chips\ChipCustomization\ChipCustomizationMobile.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\ChipsSamplesList.xml" >
+			<Link>ChipsSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+  
+	
+</Project>

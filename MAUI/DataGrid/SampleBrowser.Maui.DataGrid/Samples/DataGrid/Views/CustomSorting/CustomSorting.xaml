@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView 
+             x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.CustomSorting"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    xmlns:data="clr-namespace:Syncfusion.Maui.Data;assembly=Syncfusion.Maui.Data">
+    <localCore:SampleView.Resources>
+        <local:CustomSortComparer x:Key="Comparer" />
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="115"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="shippingDateColumn" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-5"/>
+        </OnPlatform>
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel>
+        </local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Content>
+        
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
+                           RowHeight="48"
+                           SortingMode="Single"
+                           HeaderRowHeight="52"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always"
+                           x:DataType="local:OrderInfoViewModel"
+                           ItemsSource="{Binding OrdersInfo}"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfDataGrid.Columns>
+
+                <sfgrid:DataGridNumericColumn Format="D" 
+                                           MappingName="OrderID" 
+                                           HeaderText="ID"
+                                           MinimumWidth="{StaticResource minimumWidth}"
+                                          >
+                </sfgrid:DataGridNumericColumn>
+                <sfgrid:DataGridTextColumn MinimumWidth="{StaticResource minimumWidth}"
+                                           HeaderText="Name"
+                                           MappingName="FirstName"
+                                          >
+                </sfgrid:DataGridTextColumn>
+
+                <sfgrid:DataGridTextColumn  MinimumWidth="{StaticResource minimumWidth}"
+                                           HeaderText="Country"
+                                           MappingName="ShipCountry"
+                                           >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridTextColumn  MinimumWidth="{StaticResource minimumWidth}"
+                                           HeaderText="City"
+                                           MappingName="ShipCity"
+                                           >
+                </sfgrid:DataGridTextColumn>
+                <sfgrid:DataGridDateColumn  MinimumWidth="{StaticResource shippingDateColumn}"
+                                           HeaderText="Shipping Date"
+                                           MappingName="ShippingDate">
+                </sfgrid:DataGridDateColumn>
+                <sfgrid:DataGridNumericColumn MinimumWidth="{StaticResource minimumWidth}"
+                                       Format="C"
+                                       HeaderText="Freight"
+                                       MappingName="Freight"
+                                       >
+                </sfgrid:DataGridNumericColumn>
+
+            </sfgrid:SfDataGrid.Columns>
+
+            <sfgrid:SfDataGrid.SortComparers>
+                <data:SortComparer Comparer="{StaticResource Comparer}" PropertyName="FirstName" />
+            </sfgrid:SfDataGrid.SortComparers>
+
+            <sfgrid:SfDataGrid.SortColumnDescriptions>
+                <sfgrid:SortColumnDescription ColumnName="FirstName" SortDirection="Descending" />
+            </sfgrid:SfDataGrid.SortColumnDescriptions>
+        </sfgrid:SfDataGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

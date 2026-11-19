@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TreeMap.SfTreeMap"
+             x:Class="SampleBrowser.Maui.TreeMap.Samples.TreeMap.TreeMapResource.TreeMapColorResource">
+
+            <Color x:Key="lightThemeColor1">#2196F3</Color>
+            <Color x:Key="darkThemeColor1">#0D71C1</Color>
+            <Color x:Key="lightThemeColor2">#9215F3</Color>
+            <Color x:Key="darkThemeColor2">#8B40C6</Color>
+            <Color x:Key="lightThemeColor3">#FF4E4E</Color>
+            <Color x:Key="darkThemeColor3">#FF4E4E</Color>
+            <Color x:Key="lightThemeColor4">#614570</Color>
+            <Color x:Key="darkThemeColor4">#614570</Color>
+            <Color x:Key="lightThemeColor5">#964169</Color>
+            <Color x:Key="darkThemeColor5">#964169</Color>
+            <Color x:Key="lightThemeColor6">#116DF9</Color>
+            <Color x:Key="darkThemeColor6">#BF3B49</Color>
+            <Color x:Key="lightThemeColor7">#F4890B</Color>
+            <Color x:Key="darkThemeColor7">#F4890B</Color>
+            <Color x:Key="lightThemeColor8">#E2227E</Color>
+            <Color x:Key="darkThemeColor8">#C9588E</Color>
+            <Color x:Key="BackgroundLight">#ffffff</Color>
+            <Color x:Key="BackgroundDark">#D0BCFF</Color>
+            <Color x:Key="TextColorDark">#381E72</Color>
+            <Color x:Key="TextColorLight">#000000</Color>
+
+</ResourceDictionary>

@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localcore:SampleView
+    x:Class="SampleBrowser.Maui.Buttons.Switch.FeaturesDesktop"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ev="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:local="clr-namespace:SampleBrowser.Maui.Buttons.Switch"
+    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+    <localcore:SampleView.Resources>
+        
+        <Style x:Key="AndroidStyle" TargetType="syncfusion:SfSwitch">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <Setter.Value>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="On">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="#005FB8"
+                                                ThumbCornerRadius="15"
+                                                ThumbHeightRequest="30"
+                                                ThumbStroke="#005FB8"
+                                                ThumbStrokeThickness="1"
+                                                ThumbWidthRequest="30"
+                                                TrackBackground="#91caff"
+                                                TrackHeightRequest="22"
+                                                TrackStroke="#91caff"
+                                                TrackStrokeThickness="0"
+                                                TrackWidthRequest="52" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Off">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="White"
+                                                ThumbCornerRadius="15"
+                                                ThumbHeightRequest="30"
+                                                ThumbStroke="Gray"
+                                                ThumbStrokeThickness="1"
+                                                ThumbWidthRequest="30"
+                                                TrackBackground="DimGray"
+                                                TrackHeightRequest="22"
+                                                TrackStroke="Black"
+                                                TrackStrokeThickness="0"
+                                                TrackWidthRequest="52" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="WindowsStyle" TargetType="syncfusion:SfSwitch">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <Setter.Value>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Off">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="#A19F9D"
+                                                ThumbCornerRadius="6"
+                                                ThumbHeightRequest="11"
+                                                ThumbStroke="#A19F9D"
+                                                ThumbWidthRequest="11"
+                                                TrackBackground="Transparent"
+                                                TrackHeightRequest="19"
+                                                TrackStroke="#A19F9D"
+                                                ThumbStrokeThickness="1"
+                                                TrackStrokeThickness="1"
+                                                TrackWidthRequest="39" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="OffPressed">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="#A19F9D"
+                                                ThumbCornerRadius="7"
+                                                ThumbHeightRequest="13"
+                                                ThumbStroke="#A19F9D"
+                                                ThumbWidthRequest="13"
+                                                TrackBackground="Transparent"
+                                                TrackHeightRequest="19"
+                                                TrackStroke="#A19F9D"
+                                                ThumbStrokeThickness="1"
+                                                TrackStrokeThickness="1"
+                                                TrackWidthRequest="39" />   
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="OffHovered">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="#A19F9D"
+                                                ThumbCornerRadius="7"
+                                                ThumbHeightRequest="13"
+                                                ThumbStroke="#A19F9D"
+                                                ThumbWidthRequest="13"
+                                                TrackBackground="Transparent"
+                                                TrackHeightRequest="19"
+                                                TrackStroke="#A19F9D"
+                                                ThumbStrokeThickness="1"
+                                                TrackStrokeThickness="1"
+                                                TrackWidthRequest="39" />   
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="On">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="#1B1A19"
+                                                ThumbCornerRadius="6"
+                                                ThumbHeightRequest="11"
+                                                ThumbStroke="#1B1A19"
+                                                ThumbWidthRequest="11"
+                                                TrackBackground="#0078D4"
+                                                TrackHeightRequest="19"
+                                                TrackStroke="#0078D4"
+                                                ThumbStrokeThickness="1"
+                                                TrackStrokeThickness="1"
+                                                TrackWidthRequest="39" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="OnPressed">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="#1B1A19"
+                                                ThumbCornerRadius="7"
+                                                ThumbHeightRequest="13"
+                                                ThumbStroke="#1B1A19"
+                                                ThumbWidthRequest="13"
+                                                TrackBackground="#0078D4"
+                                                TrackHeightRequest="19"
+                                                TrackStroke="#0078D4"
+                                                ThumbStrokeThickness="1"
+                                                TrackStrokeThickness="1"
+                                                TrackWidthRequest="39" />   
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="OnHovered">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                 ThumbBackground="#1B1A19"
+                                                 ThumbCornerRadius="7"
+                                                 ThumbHeightRequest="13"
+                                                 ThumbStroke="#1B1A19"
+                                                 ThumbWidthRequest="13"
+                                                 TrackBackground="#0078D4"
+                                                 TrackHeightRequest="19"
+                                                 TrackStroke="#0078D4"
+                                                 ThumbStrokeThickness="1"
+                                                 TrackStrokeThickness="1"
+                                                 TrackWidthRequest="39" />  
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="iOSStyle" TargetType="syncfusion:SfSwitch">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <Setter.Value>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="On">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="White"
+                                                ThumbCornerRadius="15"
+                                                ThumbHeightRequest="26"
+                                                ThumbStroke="White"
+                                                ThumbStrokeThickness="1"
+                                                ThumbWidthRequest="26"
+                                                TrackBackground="#0078D4"
+                                                TrackHeightRequest="28"
+                                                TrackStroke="#0078D4"
+                                                TrackStrokeThickness="1.5"
+                                                TrackWidthRequest="48" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Off">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="White"
+                                                ThumbCornerRadius="15"
+                                                ThumbHeightRequest="26"
+                                                ThumbStroke="White"
+                                                ThumbStrokeThickness="1"
+                                                ThumbWidthRequest="26"
+                                                TrackBackground="#39393D"
+                                                TrackHeightRequest="28"
+                                                TrackStroke="#39393D"
+                                                TrackStrokeThickness="1.5"
+                                                TrackWidthRequest="48" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SolidStyle" TargetType="syncfusion:SfSwitch">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <Setter.Value>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="On">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="#FF029BFF"
+                                                ThumbHeightRequest="24"
+                                                ThumbStroke="#FF029BFF"
+                                                ThumbStrokeThickness="0.5"
+                                                ThumbWidthRequest="24"
+                                                TrackBackground="#22029BFF"
+                                                TrackStroke="#22029BFF"
+                                                TrackStrokeThickness="0.5" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Off">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbBackground="#FFFF0199"
+                                                ThumbStroke="#FFFF0199"
+                                                ThumbStrokeThickness="0.5"
+                                                TrackBackground="#22FF0199"
+                                                TrackStroke="#22FF0199"
+                                                TrackStrokeThickness="0.5" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Indeterminate">
+                                <VisualState.Setters>
+                                    <Setter Property="SwitchSettings">
+                                        <Setter.Value>
+                                            <syncfusion:SwitchSettings
+                                                ThumbHeightRequest="20"
+                                                ThumbWidthRequest="20"
+                                                ThumbBackground="#9ACB0D"
+                                                ThumbStroke="#9ACB0D"
+                                                ThumbStrokeThickness="0.5"
+                                                TrackBackground="#D2F768"
+                                                TrackStroke="#D2F768"
+                                                TrackStrokeThickness="0.5" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </VisualState.Setters>
+                            </VisualState>
+                            
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="syncfusion:SfSwitch" x:Key="DisabledSwitch">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="OnDisabled">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <syncfusion:SwitchSettings TrackBackground="{AppThemeBinding Light={StaticResource SwitchActiveThumbColourPressed}, Dark={StaticResource PreviewAreaBorder}}" 
+                                         ThumbBackground="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource SidebarBackground}}"
+                                         IconColor="{AppThemeBinding Light={StaticResource PreviewAreaBorderLight}, Dark={StaticResource PreviewAreaBorder}}"
+                                         TrackStroke="{AppThemeBinding Light={StaticResource PreviewAreaBorderLight}, Dark={StaticResource PreviewAreaBorder}}"
+                                         ThumbStroke="{AppThemeBinding Light={StaticResource PreviewAreaBorderLight}, Dark={StaticResource SidebarBackground}}"
+                                         ThumbWidthRequest="{DynamicResource SfSwitchOnThumbWidthRequest}"
+                                         ThumbHeightRequest="{DynamicResource SfSwitchOnThumbHeightRequest}"
+                                         CustomPath="M14.2051 0.744141L15.207 1.74609L5.69727 11.2559L0.792969 6.35156L1.79492 5.34961L5.69727 9.25195L14.2051 0.744141Z"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="OffDisabled">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <syncfusion:SwitchSettings TrackBackground="{AppThemeBinding Light={StaticResource TileBorderLight}, Dark={StaticResource SampleBrowserBackground}}"
+                                         ThumbBackground="{AppThemeBinding Light={StaticResource SwitchActiveThumbColourPressed}, Dark={StaticResource TileHeaderBorder}}"
+                                         TrackStroke="{AppThemeBinding Light={StaticResource TextColour1}, Dark={StaticResource SwitchInactiveBackground}}"
+                                         ThumbStroke="{AppThemeBinding Light={StaticResource SwitchActiveThumbColourPressed}, Dark={StaticResource TileHeaderBorder}}"
+                                         ThumbWidthRequest="{DynamicResource SfSwitchOffThumbWidthRequest}"
+                                         ThumbHeightRequest="{DynamicResource SfSwitchOffThumbHeightRequest}"
+                                         TrackStrokeThickness="{DynamicResource SfSwitchTrackStrokeThickness}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="IndeterminateDisabled">
+                            <VisualState.Setters>
+                                <Setter Property="SwitchSettings">
+                                    <Setter.Value>
+                                        <syncfusion:SwitchSettings TrackBackground="{AppThemeBinding Light={StaticResource SwitchActiveThumbColourPressed}, Dark={StaticResource PreviewAreaBorder}}"
+                                         ThumbBackground="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource SidebarBackground}}"
+                                        IconColor="{AppThemeBinding Light={StaticResource PreviewAreaBorderLight}, Dark={StaticResource PreviewAreaBorder}}"
+                                        TrackStroke="{AppThemeBinding Light={StaticResource PreviewAreaBorderLight}, Dark={StaticResource PreviewAreaBorder}}"
+                                        ThumbStroke="{AppThemeBinding Light={StaticResource PreviewAreaBorderLight}, Dark={StaticResource SidebarBackground}}"
+                                        ThumbWidthRequest="{DynamicResource SfSwitchOnThumbWidthRequest}"
+                                        ThumbHeightRequest="{DynamicResource SfSwitchOnThumbHeightRequest}"
+                                         CustomPath="M0.617188 0.910156H15.3828V3.08984H0.617188V0.910156Z"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+    </localcore:SampleView.Resources>
+
+
+    <localcore:SampleView.Content>
+        <ScrollView x:Name="scrollView" HorizontalScrollBarVisibility="Never">
+            <ScrollView.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Label">
+                        <Setter Property="Margin" Value="15,0" />
+                        <Setter Property="FontFamily" Value="Roboto" />
+                        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource SidebaritemTextColourLight}, Dark={StaticResource SidebaritemTextColour}}" />
+                        <Setter Property="VerticalOptions" Value="Center" />
+                        <Setter Property="HorizontalOptions" Value="Center" />
+                    </Style>
+                </ResourceDictionary>
+            </ScrollView.Resources>
+            <VerticalStackLayout
+                x:Name="mainStack"
+                HorizontalOptions="Start"
+                WidthRequest="350">
+                <Label
+                    FontSize="16"
+                    Margin="30,10,10,0"
+                    HorizontalOptions="Start"
+                    Text="Visual Types"
+                    VerticalOptions="Center" />
+
+                <Grid Margin="0,10,10,10"
+                      HeightRequest="75">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <syncfusion:SfSwitch
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        AllowIndeterminateState="False"
+                        IsOn="True"/>
+                    <syncfusion:SfSwitch
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        AllowIndeterminateState="False"
+                        IsOn="True"
+                        Style="{StaticResource iOSStyle}" />
+                    <syncfusion:SfSwitch
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        AllowIndeterminateState="False"
+                        IsOn="True"
+                        Style="{StaticResource WindowsStyle}" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontSize="12"
+                        Text="Material"/>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="12"
+                        Text="Cupertino" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontSize="12"
+                        Text="Fluent"/>
+                </Grid>
+
+                <Grid HeightRequest="10" />
+                <Label
+                    FontSize="16"
+                    Margin="30,0,10,0"
+                    HorizontalOptions="Start"
+                    Text="Enabled States" />
+
+                <Grid
+                    Margin="0,10,10,10"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                    HeightRequest="75">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <syncfusion:SfSwitch
+                        x:Name="OnStateSwitch"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        AllowIndeterminateState="True"
+                        IsOn="False"
+                        StateChanged="SfSwitch_StateChanged" />
+                    <syncfusion:SfSwitch
+                        x:Name="IndeterminateStateSwitch"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        AllowIndeterminateState="True"
+                        IsOn="{x:Null}"
+                        StateChanged="SfSwitch_StateChanged_1" />
+                    <syncfusion:SfSwitch
+                        x:Name="OffStateSwitch"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        AllowIndeterminateState="True"
+                        IsOn="True"
+                        StateChanged="SfSwitch_StateChanged_2" />
+                    <Label
+                        x:Name="OnStateLabel"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontSize="12"
+                        Text="Off" Margin="10,0"/>
+                    <Label
+                        x:Name="IndeterminateStateLabel"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="12"
+                        Text="Indeterminate" Margin="10,0"/>
+                    <Label
+                        x:Name="OffStateLabel"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontSize="12"
+                        Text="On" Margin="10,0"/>
+                </Grid>
+                <Grid HeightRequest="10" />
+
+                <Label
+                    FontSize="16"
+                    Margin="30,0,10,0"
+                    HorizontalOptions="Start"
+                    Text="Disabled States"/>
+
+                <Grid
+                    Margin="0,10,10,10"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                    HeightRequest="70">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <syncfusion:SfSwitch
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        AllowIndeterminateState="True"
+                        IsEnabled="False" Style="{StaticResource DisabledSwitch}"
+                        IsOn="False" />
+                    <syncfusion:SfSwitch
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        AllowIndeterminateState="True"
+                        IsEnabled="False" Style="{StaticResource DisabledSwitch}"
+                        IsOn="{x:Null}" />
+                    <syncfusion:SfSwitch
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        AllowIndeterminateState="True"
+                        IsEnabled="False" Style="{StaticResource DisabledSwitch}"
+                        IsOn="True" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontSize="12"
+                        Text="Off" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="12"
+                        Text="Indeterminate" Margin="10,0"/>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontSize="12"
+                        Text="On"/>
+                </Grid>
+
+                <Grid HeightRequest="10" />
+
+                <Label
+                    FontSize="16"
+                    Margin="30,0,10,0"
+                    HorizontalOptions="Start"
+                    Text="Colors"/>
+
+
+                <Grid
+                    Margin="0,10,10,10"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                    HeightRequest="70">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <syncfusion:SfSwitch Style="{StaticResource SolidStyle}"
+                        x:Name="solidOnSwitch"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        AllowIndeterminateState="True"
+                        IsOn="False"
+                        StateChanged="SolidSfSwitch_StateChanged" />
+
+                    <syncfusion:SfSwitch Style="{StaticResource SolidStyle}" 
+                        x:Name="solidIndeterminateSwitch"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        AllowIndeterminateState="True"
+                        IsOn="{x:Null}"
+                        StateChanged="SolidSfSwitch_StateChanged_1"/>
+
+                    <syncfusion:SfSwitch Style="{StaticResource SolidStyle}"
+                        x:Name="solidOffSwitch"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        AllowIndeterminateState="True"
+                        IsOn="True"
+                        StateChanged="SolidSfSwitch_StateChanged_2" />
+
+                    <Label x:Name="solidOnLabel"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontSize="12"
+                        Text="Off" Margin="10,0"/>
+                    <Label x:Name="solidIndeterminateLabel"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="12"
+                        Text="Indeterminate" Margin="10,0"/>
+
+                    <Label x:Name="solidOffLabel"
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        FontSize="12"
+                        Text="On" Margin="10,0"/>
+
+                </Grid>
+
+                <Grid HeightRequest="10" />
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </localcore:SampleView.Content>
+
+</localcore:SampleView>

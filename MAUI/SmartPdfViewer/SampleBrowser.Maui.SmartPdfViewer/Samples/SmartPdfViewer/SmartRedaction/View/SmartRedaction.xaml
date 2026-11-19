@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:LocalViewModel="clr-namespace:SampleBrowser.Maui.SmartPdfViewer.SfSmartPdfViewer"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.SmartPdfViewer;assembly=Syncfusion.Maui.SmartPdfViewer"
+             x:Class="SampleBrowser.Maui.SmartPdfViewer.SfSmartPdfViewer.SmartRedaction">
+    <localCore:SampleView.BindingContext>
+        <LocalViewModel:SmartRedactionViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Content>
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}, Default=#CAC4D0}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <syncfusion:SfSmartPdfViewer  Grid.Row="1" x:Name="PdfViewer" ShowToolbars="False"  DocumentSource="{Binding PdfFile}"/>
+            <ActivityIndicator 
+                Grid.Row="1"
+                x:Name="loadingIndicator"
+                IsRunning="False"
+                IsVisible="False" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"/>
+            <Grid Grid.Row="0" Grid.Column="0" BackgroundColor="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                <!--Define columns: two auto-sized columns for buttons and one star-sized column for spacing-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Two buttons at the start-->
+                <HorizontalStackLayout Grid.Column="0" HorizontalOptions="Start">
+                    <Button x:Name="Save" 
+        Text="&#xe75f;" 
+        Padding="5" 
+        HeightRequest="40" 
+        BorderWidth="0" 
+        Clicked="SavePDF" 
+        ToolTipProperties.Text="Click to save the document" 
+        CornerRadius="5" 
+        TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}" 
+        FontSize="24" 
+        FontFamily="MauiMaterialAssets" 
+        HorizontalOptions="Center" 
+                            WidthRequest="40"
+                            BackgroundColor="Transparent"
+        VerticalOptions="Center" 
+        Margin="12,0">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#1C1B1F14,Dark=#717177}" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#1C1B1E00" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+                    </Button>
+
+                    <Button x:Name="Print" 
+                            Text="&#xe77f;"
+                            BorderWidth="0"
+                            Padding="05"
+                            Clicked="PrintPDF"
+                            HeightRequest="40"
+                            WidthRequest="40" 
+                            CornerRadius="5"
+                            ToolTipProperties.Text="Click to print the document" 
+                            TextColor="{AppThemeBinding Light={StaticResource IconColourLight}, Dark={StaticResource IconColour}}"
+                            BackgroundColor="Transparent"
+                            FontSize="24" FontFamily="MauiMaterialAssets"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#1C1B1F14,Dark=#717177}" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#1C1B1E00" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+                    </Button>
+                </HorizontalStackLayout>
+
+                <!--Button at the end-->
+                <buttons:SfButton
+    x:Name="SmartRedactionButton"
+    Grid.Column="1"
+    Text="Smart Redaction"
+    ToolTipProperties.Text="Click to smart redact the document"
+    VerticalTextAlignment="Center"
+    CornerRadius="20"
+    HeightRequest="40"
+    Clicked="SmartRedaction_Clicked"
+    VerticalOptions="Center"
+    FontSize="14"
+    FontFamily = "MauiMaterialAssets"
+    FontAttributes="Bold"
+    HorizontalOptions="End"
+    IsEnabled="True" 
+    Margin="10,5"
+    IsVisible="{OnPlatform WinUI=true, MacCatalyst=true}"
+    BackgroundColor="Transparent" />
+            </Grid>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

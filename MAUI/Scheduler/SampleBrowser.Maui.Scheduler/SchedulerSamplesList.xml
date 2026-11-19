@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+  <ControlCategory Name="Calendar">
+    <Control Title="Scheduler" Image="scheduler.png" ControlName="SfScheduler" Description="Allows you to easily visualize and schedule appointments." StatusTag="Updated">
+	  <Sample Title="Getting Started" SampleName="GettingStarted" CodeViewerPath="Scheduler/GettingStarted/" VideoLink="https://www.youtube.com/watch?v=Io2ElO8ORSQ"/> <!--Description="This sample showcases the schedule views such as day, week, workweek and month views with scheduler appointments added. It also showcases the date navigation restriction within min and max schedule date range." SearchTags="scheduler"/>-->
+      <Sample  SampleName="TimelineViews" Title="Timeline Views" CodeViewerPath="Scheduler/TimelineViews/" VideoLink="https://www.youtube.com/watch?v=QZJ_fcuym64" /> <!--Description="This sample showcases the scheduler timeline day, timeline week, timeline work week and timeline month views. It also showcases the capabilities of creating recurring appointments on daily, weekly, monthly, and yearly intervals in timeline day, timeline week, timeline work week and timeline month views, creating the recurrence appointment with exception date and changed occurrence of recurring series appointments."/>-->
+      <Sample  SampleName="RecursiveAppointments" Title="Recursive Appointments" CodeViewerPath="Scheduler/RecursiveAppointments/" VideoLink="https://www.youtube.com/watch?v=2QRyCBIVKFk"/> <!--Description="This sample showcases the capabilities of creating recurring appointments on daily, weekly, monthly, and yearly intervals in day, week, workweek and month views."/>-->
+		<Category Title="Resources">
+			<SubCategory Platforms="Windows,Mac">
+				<Sample SampleName="HorizontalGrouping" Title="Horizontal Grouping" CodeViewerPath="Scheduler/ResourceView/View"/>
+			</SubCategory>
+			<SubCategory Platforms="Windows,Mac">
+				<Sample SampleName="DateWiseGrouping" Title="Date-wise Grouping" CodeViewerPath="Scheduler/ResourceView/View"/>
+			</SubCategory>
+			<SubCategory Platforms="Android,iOS">
+				<Sample SampleName="AdaptiveResourceGrouping" Title="Adaptive-ResourceView Grouping" CodeViewerPath="Scheduler/ResourceView/View"/>
+			</SubCategory>
+			<SubCategory>
+				<Sample SampleName="ResourceView" Title="Timeline Grouping" CodeViewerPath="Scheduler/ResourceView/View"/>
+			</SubCategory>
+			<SubCategory Platforms="Windows,Mac">
+				<Sample SampleName="MonthGrouping" Title="Month Grouping" CodeViewerPath="Scheduler/ResourceView/View"/>
+			</SubCategory>
+		</Category>
+		<Category Title="Hierarchical Resources" StatusTag="New">
+			<SubCategory Platforms="Windows,Mac" StatusTag="New">
+				<Sample SampleName="HorizontalHierarchicalGrouping" WhatsNew="This sample demonstrates horizontal hierarchical resource grouping support in the .NET MAUI Scheduler" Title="Horizontal Grouping" CodeViewerPath="Scheduler/HierarchicalResourceView/View/"/>
+			</SubCategory>
+			<SubCategory Platforms="Android,iOS" StatusTag="New">
+				<Sample SampleName="HierarchicalAdaptiveResourceGrouping" WhatsNew="This sample demonstrates adaptive hierarchical resource grouping support in the .NET MAUI Scheduler" Title="AdaptiveResource Grouping" CodeViewerPath="Scheduler/HierarchicalResourceView/View/"/>
+			</SubCategory>
+			<SubCategory StatusTag="New">
+				<Sample SampleName="TimelineHierarchicalGrouping" WhatsNew="This sample demonstrates timeline hierarchical resource grouping support in the .NET MAUI Scheduler" Title="Timeline Grouping" CodeViewerPath="Scheduler/HierarchicalResourceView/View/"/>
+			</SubCategory>
+		</Category>
+	  <Sample SampleName="AppointmentEditor" Title="Appointment Editor" CodeViewerPath="Scheduler/AppointmentEditor/"/> <!--Description="This sample showcases the scheduler appointment editor."/>-->
+	  <Sample SampleName="AppointmentTooltip" Title="Appointment Tooltip" CodeViewerPath="Scheduler/AppointmentTooltip/"/> <!--Description="This sample showcases the scheduler appointment tooltip."/>-->
+	  <Sample SampleName="DragAndDrop" Title="Drag and Drop" CodeViewerPath="Scheduler/DragAndDrop/"/>
+	  <Sample SampleName="Resize" Title="Appointment Resize" Platforms="Windows,Mac" CodeViewerPath="Scheduler/Resize/"/>
+	  <Sample SampleName="AgendaView" Title="Agenda View" CodeViewerPath="Scheduler/AgendaView/"/> <!--Description="This sample showcases the scheduler agenda view."/>-->
+      <Sample SampleName="MonthAgendaView" Title="Month Agenda View" CodeViewerPath="Scheduler/MonthAgendaView/"/>
+      <Sample SampleName="MonthInlineView" Title="Month Inline View" CodeViewerPath="Scheduler/MonthInlineView/"/>
+      <Sample SampleName="SpecialTimeRegion" Title="Special Time Region" CodeViewerPath="Scheduler/SpecialTimeRegion/"/>  <!--Description="This sample showcases the capabilities of highlighting specific regions in timeslot cells and restricting user interactions such as selection, appointment creations the appearance of highlighted timeslot cells."/>-->
+      <Sample SampleName="LoadOnDemand" Title="Load on Demand" CodeViewerPath="Scheduler/LoadOnDemand/"/>  <!--Description="This sample showcases the appointment on demand loading capability of the scheduler with business event object binding"/>-->
+      <Sample SampleName="CalendarType" Title="Calendar Type" CodeViewerPath="Scheduler/CalendarType/"/>  <!--Description="This sample showcases the different types of calendar types."/>-->
+      <Sample SampleName="HeatMap" Title="Heat Map" CodeViewerPath="Scheduler/MonthCellCustomization/"/>  <!--Description="This sample showcases the customization capabilities of a scheduler month cell."/>-->
+      <Sample SampleName="AppearanceCustomization" Title="Customization" CodeViewerPath="Scheduler/AppearanceCustomization/"/>  <!--Description="This sample showcases the customization capabilities of the scheduler appointment view."/>-->
+	  <Sample Title="Context Menu" SampleName="ContextMenu" CodeViewerPath="Scheduler/ContextMenu/"/> 
+	  <Sample Title="Clipboard" SampleName="Clipboard" CodeViewerPath="Scheduler/Clipboard/"/>
+	  <Sample SampleName="MajorAndMinorTick" Title="Major and Minor Tick" StatusTag="New" WhatsNew="This sample demonstrates major and minor tick support by splitting each time interval into equal minor slots in the .NET MAUI Scheduler" CodeViewerPath="Scheduler/MajorAndMinorTick/"/>
+	  <Sample SampleName="ICSExportImport" Title="Export and Import ICS" StatusTag="New" WhatsNew="This sample demonstrates exporting Scheduler appointments to an .ics file and importing external iCalendar events into the .NET MAUI Scheduler" CodeViewerPath="Scheduler/ICSExportImport/"/>
+	  <Sample SampleName="LimitConcurrentEvent" Title="Limit Concurrent Event" StatusTag="New" WhatsNew="This sample demonstrates capping the number of overlapping events displayed per time slot in Day, Week, and WorkWeek views of the .NET MAUI Scheduler" CodeViewerPath="Scheduler/LimitConcurrentEvent/"/>
+	  <Sample SampleName="AllowOverlap" Title="Allow Overlap" StatusTag="New" WhatsNew="This sample demonstrates restricting appointments to prevent overlapping within the same time range in the .NET MAUI Scheduler" CodeViewerPath="Scheduler/AllowOverlap/"/>
+	  <Sample Title="Appointment Actions" SampleName="AppointmentActions" StatusTag="New" WhatsNew="This sample demonstrates programmatic appointment actions support in the .NET MAUI Scheduler" CodeViewerPath="Scheduler/AppointmentActions/"/>		
+	  <Sample Title="Holiday Calendar" SampleName="HolidayCalendar" StatusTag="New" WhatsNew="This sample demonstrates holiday calendar support in the .NET MAUI Scheduler" CodeViewerPath="Scheduler/HolidayCalendar/"/>
+    </Control>
+  </ControlCategory>
+</SyncfusionControls>

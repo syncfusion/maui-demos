@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sb:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:sb="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+               xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+               x:Class="SampleBrowser.Maui.Sliders.VerticalSlider.VerticalSliderStepSample">
+
+    <sb:SampleView.Resources>
+        <Style TargetType="sliders:SfSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="Tooltip">
+                <Setter.Value>
+                    <sliders:SliderTooltip Position="Right"  Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}" 
+                                           TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="sliders:SfDateTimeSlider">
+            <Setter Property="Orientation"
+                    Value="Vertical" />
+            <Setter Property="ShowTicks"
+                    Value="True" />
+            <Setter Property="ShowLabels"
+                    Value="True" />
+            <Setter Property="Tooltip">
+                <Setter.Value>
+                    <sliders:SliderTooltip  Position="Right" Fill="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipFillBrush}}" 
+                                            TextColor="{AppThemeBinding Default={StaticResource SfSliderNormalTooltipTextColor}}"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="MaximumHeightRequest"
+                    Value="300" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Default={StaticResource ContentForeground}}"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+    </sb:SampleView.Resources>
+
+    <sb:SampleView.Content>
+        <ScrollView>
+            <Grid RowDefinitions="300,Auto"
+                  ColumnDefinitions="*,*"
+                  WidthRequest="350"
+                  VerticalOptions="Center">
+
+                <sliders:SfSlider Grid.Row="0"
+                                  Grid.Column="0"
+                                  Minimum="-10"
+                                  Maximum="10"
+                                  Value="0"
+                                  Interval="5"
+                                  StepSize="5" />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Numeric"
+                       Margin="-30,0,0,0" />
+
+                <sliders:SfDateTimeSlider Grid.Row="0"
+                                          Grid.Column="1"
+                                          Minimum="2010-01-01"
+                                          Maximum="2018-01-01"
+                                          Value="2014-01-01"
+                                          StepDuration="2"
+                                          IntervalType="Years"
+                                          Interval="2" />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Date"
+                       Margin="-10,0,0,0" />
+            </Grid>
+        </ScrollView>
+    </sb:SampleView.Content>
+</sb:SampleView>

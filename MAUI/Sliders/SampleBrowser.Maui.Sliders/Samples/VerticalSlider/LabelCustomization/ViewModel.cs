@@ -1,0 +1,72 @@
+﻿using System.ComponentModel;
+
+namespace SampleBrowser.Maui.Sliders.VerticalSlider
+{
+    public class VerticalSliderLabelCustomizationSampleViewModel : INotifyPropertyChanged
+    {
+        private readonly SolidColorBrush[] brushes;
+
+        private int value = 3;
+
+        private SolidColorBrush activeFill = null!;
+
+        private SolidColorBrush overlayFill = null!;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public VerticalSliderLabelCustomizationSampleViewModel()
+        {
+            brushes = new SolidColorBrush[4]
+            {
+                new SolidColorBrush(Color.FromRgba(237, 86, 59, 255)),
+                new SolidColorBrush(Color.FromRgba(246, 213, 92, 255)),
+                new SolidColorBrush(Color.FromRgba(60, 174, 163, 255)),
+                new SolidColorBrush(Color.FromRgba(32, 100, 155, 255)),
+            };
+
+            UpdateActiveBrush();
+        }
+
+        public int Value
+        {
+            get { return value; }
+            set
+            {
+                this.value = value;
+                UpdateActiveBrush();
+            }
+        }
+
+        public SolidColorBrush ActiveFill
+        {
+            get { return activeFill; }
+            set
+            {
+                activeFill = value;
+                OnPropertyChanged(nameof(ActiveFill));
+            }
+        }
+
+        public SolidColorBrush OverlayFill
+        {
+            get { return overlayFill; }
+            set
+            {
+                overlayFill = value;
+                OnPropertyChanged(nameof(OverlayFill));
+            }
+        }
+
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        private void UpdateActiveBrush()
+        {
+            ActiveFill = brushes[Value - 1];
+
+            OverlayFill = new SolidColorBrush(activeFill.Color.WithAlpha(0.24f));
+        }
+    }
+}

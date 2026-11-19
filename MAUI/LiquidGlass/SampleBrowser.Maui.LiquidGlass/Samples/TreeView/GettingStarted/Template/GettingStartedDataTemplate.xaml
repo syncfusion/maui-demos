@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:converters="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+      x:Class="SampleBrowser.Maui.LiquidGlass.GettingStartedDataTemplate">
+
+    <Grid.Resources>
+        <converters:SfImageSourceConverter x:Key="imageConverter"/>
+    </Grid.Resources>
+
+    <Grid x:Name="grid" RowSpacing="0" BackgroundColor="Transparent">
+        <Grid RowSpacing="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Image Source="{Binding ImageIcon,Converter={StaticResource imageConverter}}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           HeightRequest="24" 
+                           WidthRequest="24"/>
+            </Grid>
+            <Grid Grid.Column="1" RowSpacing="1" Padding="1,0,0,0" VerticalOptions="Center">
+                <Label LineBreakMode="NoWrap"
+                           Margin="5,0,0,0"
+                           Text="{Binding FolderName}"
+                           CharacterSpacing="0.25" 
+                           FontFamily="Roboto-Regular" 
+                           FontSize="14"
+                           VerticalTextAlignment="Center" />
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Grid>

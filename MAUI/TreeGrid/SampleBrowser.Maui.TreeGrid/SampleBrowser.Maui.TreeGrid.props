@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!-- Converters, Helpers, Models, ViewModels, and Code-behind -->
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Helpers\Converters\HikeBackgroundConverter.cs">
+			<Link>Samples\TreeGrid\Helpers\Converters\HikeBackgroundConverter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Helpers\Converters\SalaryBackgroundConverter.cs">
+			<Link>Samples\TreeGrid\Helpers\Converters\SalaryBackgroundConverter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Helpers\Converters\RowStylingConverter.cs">
+			<Link>Samples\TreeGrid\Helpers\Converters\RowStylingConverter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\GettingStarted\SelfRelationalCollection.xaml.cs">
+			<Link>Samples\TreeGrid\Views\GettingStarted\SelfRelationalCollection.xaml.cs</Link>
+			<DependentUpon>SelfRelationalCollection.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\GettingStarted\NestedCollection.xaml.cs">
+			<Link>Samples\TreeGrid\Views\GettingStarted\NestedCollection.xaml.cs</Link>
+			<DependentUpon>NestedCollection.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Columns\ColumnTypes.xaml.cs">
+			<Link>Samples\TreeGrid\Views\Columns\ColumnTypes.xaml.cs</Link>
+			<DependentUpon>ColumnTypes.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Columns\ColumnSizing.xaml.cs">
+			<Link>Samples\TreeGrid\Views\Columns\ColumnSizing.xaml.cs</Link>
+			<DependentUpon>ColumnSizing.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Appearance\ConditionalStyling\ConditionalStyling.xaml.cs">
+			<Link>Samples\TreeGrid\Views\Appearance\ConditionalStyling\ConditionalStyling.xaml.cs</Link>
+			<DependentUpon>ConditionalStyling.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Appearance\Styling\Styling.xaml.cs">
+			<Link>Samples\TreeGrid\Views\Appearance\Styling\Styling.xaml.cs</Link>
+			<DependentUpon>Styling.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\FreezePanes\FreezePanes.xaml.cs">
+			<Link>Samples\TreeGrid\Views\FreezePanes\FreezePanes.xaml.cs</Link>
+			<DependentUpon>FreezePanes.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\DataPresentation\Sorting.xaml.cs">
+			<Link>Samples\TreeGrid\Views\DataPresentation\Sorting.xaml.cs</Link>
+			<DependentUpon>Sorting.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Selection\Selection.xaml.cs">
+			<Link>Samples\TreeGrid\Views\Selection\Selection.xaml.cs</Link>
+			<DependentUpon>Styling.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Filtering\Filtering.xaml.cs">
+			<Link>Samples\TreeGrid\Views\Filtering\Filtering.xaml.cs</Link>
+			<DependentUpon>Styling.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\ViewModels\EmployeeViewModel.cs">
+			<Link>Samples\TreeGrid\ViewModels\EmployeeViewModel.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Models\EmployeeInfo.cs">
+			<Link>Samples\TreeGrid\Models\EmployeeInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\ViewModels\ProjectViewModel.cs">
+			<Link>Samples\TreeGrid\ViewModels\ProjectViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Models\ProjectInfo.cs">
+			<Link>Samples\TreeGrid\Models\ProjectInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Helpers\Behaviors\ColumnSizingBehavior.cs">
+			<Link>Samples\TreeGrid\Helpers\Behaviors\ColumnSizingBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Helpers\Behaviors\SortingBehavior.cs">
+			<Link>Samples\TreeGrid\Helpers\Behaviors\SortingBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Helpers\Behaviors\FilteringBehavior.cs">
+			<Link>Samples\TreeGrid\Helpers\Behaviors\FilteringBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Helpers\Behaviors\SelectionBehavior.cs">
+			<Link>Samples\TreeGrid\Helpers\Behaviors\SelectionBehavior.cs</Link>
+		</Compile>
+	</ItemGroup>
+
+	<!-- XAML Resources -->
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\TreeGridSamplesList.xml" >
+			<Link>TreeGridSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<!-- XAML Views -->
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\GettingStarted\SelfRelationalCollection.xaml">
+			<Link>Samples\TreeGrid\Views\GettingStarted\SelfRelationalCollection.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\GettingStarted\NestedCollection.xaml">
+			<Link>Samples\TreeGrid\Views\GettingStarted\NestedCollection.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Appearance\ConditionalStyling\ConditionalStyling.xaml">
+			<Link>Samples\TreeGrid\Views\Appearance\ConditionalStyling\ConditionalStyling.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Appearance\Styling\Styling.xaml">
+			<Link>Samples\TreeGrid\Views\Appearance\Styling\Styling.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Columns\ColumnTypes.xaml">
+			<Link>Samples\TreeGrid\Views\Columns\ColumnTypes.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Columns\ColumnSizing.xaml">
+			<Link>Samples\TreeGrid\Views\Columns\ColumnSizing.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\FreezePanes\FreezePanes.xaml">
+			<Link>Samples\TreeGrid\Views\FreezePanes\FreezePanes.xaml</Link>
+		</MauiXaml>
+		
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\DataPresentation\Sorting.xaml">
+			<Link>Samples\TreeGrid\Views\DataPresentation\Sorting.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Selection\Selection.xaml">
+			<Link>Samples\TreeGrid\Views\Selection\Selection.xaml</Link>
+		</MauiXaml>
+
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\TreeGrid\Views\Filtering\Filtering.xaml">
+			<Link>Samples\TreeGrid\Views\Filtering\Filtering.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

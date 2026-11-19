@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.BulletChart.BulletChart.BulletChartDemo"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.BulletChart.BulletChart"
+                      xmlns:gauge="http://schemas.syncfusion.com/maui">
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ContentView x:Name="contentView"
+                     VerticalOptions="Center">
+                <ContentView.Content>
+                    <OnPlatform x:TypeArguments="ContentView">
+                        <On Platform="Android">
+                            <local:BulletChartVerticalDemo />
+                        </On>
+                        <On Platform="iOS">
+                            <local:BulletChartVerticalDemo />
+                        </On>
+                        <On Platform="WinUI">
+                            <local:BulletChartHorizontalDemo />
+                        </On>
+                        <On Platform="MacCatalyst">
+                            <local:BulletChartHorizontalDemo />
+                        </On>
+                    </OnPlatform>
+                </ContentView.Content>
+            </ContentView>
+
+            <HorizontalStackLayout Grid.Row="1"
+                                   HorizontalOptions="End"
+                                   Margin="0,0,10,0">
+                <Label Text="Source:"/>
+                <Label Margin="5,0,0,0"
+                       Text="en.wikipedia.org" 
+                       TextColor="Blue">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Uri_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

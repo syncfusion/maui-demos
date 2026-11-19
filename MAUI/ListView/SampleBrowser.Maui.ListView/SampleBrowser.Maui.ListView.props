@@ -1,0 +1,367 @@
+﻿
+<Project>
+	<ItemGroup>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\AutoFit\View\AutoFit.xaml.cs">
+			<Link>Samples\ListView\AutoFit\View\AutoFit.xaml.cs</Link>
+			<DependentUpon>AutoFit.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\AutoFit\Helper\Converter.cs">
+			<Link>Samples\ListView\AutoFit\Helper\Converter.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\AutoFit\Model\ProductReviewInfo.cs">
+			<Link>Samples\ListView\AutoFit\Model\ProductReviewInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\AutoFit\Model\ProductReviewInfoRepository.cs">
+			<Link>Samples\ListView\AutoFit\Model\ProductReviewInfoRepository.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\AutoFit\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\AutoFit\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ExpandableView\View\ExpandableView.xaml.cs">
+			<Link>Samples\ListView\ExpandableView\View\ExpandableView.xaml.cs</Link>
+			<DependentUpon> ExpandableView.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ExpandableView\Helper\Behavior.cs">
+			<Link>Samples\ListView\ExpandableView\Helper\Behavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ExpandableView\Helper\Converter.cs">
+			<Link>Samples\ListView\ExpandableView\Helper\Converter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ExpandableView\Model\FoodCategory.cs">
+			<Link>Samples\ListView\ExpandableView\Model\FoodCategory.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ExpandableView\Model\FoodMenu.cs">
+			<Link>Samples\ListView\ExpandableView\Model\FoodMenu.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ExpandableView\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\ExpandableView\ViewModel\ViewModel.cs</Link>
+		</Compile>
+				
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GettingStarted\View\GettingStarted.xaml.cs">
+			<Link>Samples\ListView\GettingStarted\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GettingStarted\Model\RecipeInfo.cs">
+			<Link>Samples\ListView\GettingStarted\Model\RecipeInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GettingStarted\Model\RecipeInfoRepository.cs">
+			<Link>Samples\ListView\GettingStarted\Model\RecipeInfoRepository.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GettingStarted\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\GettingStarted\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GridLayout\View\GridLayout.xaml.cs">
+			<Link>Samples\ListView\GridLayout\View\GridLayout.xaml.cs</Link>
+			<DependentUpon> GridLayout.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GridLayout\Helper\Behavior.cs">
+			<Link>Samples\ListView\GridLayout\Helper\Behavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GridLayout\Helper\Converter.cs">
+			<Link>Samples\ListView\GridLayout\Helper\Converter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GridLayout\Model\GalleryInfo.cs">
+			<Link>Samples\ListView\GridLayout\Model\GalleryInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GridLayout\Model\GalleryInfoRepository.cs">
+			<Link>Samples\ListView\GridLayout\Model\GalleryInfoRepository.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\GridLayout\ViewModel\GridViewModel.cs">
+			<Link>Samples\ListView\GridLayout\ViewModel\GridViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Grouping\View\Grouping.xaml.cs">
+			<Link>Samples\ListView\Grouping\View\Grouping.xaml.cs</Link>
+			<DependentUpon> Grouping.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Grouping\Helper\Behaviors.cs">
+			<Link>Samples\ListView\Grouping\Helper\Behaviors.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Grouping\Model\ListViewContactsInfo.cs">
+			<Link>Samples\ListView\Grouping\Model\ListViewContactsInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Grouping\Model\ListViewContactsInfoRepository.cs">
+			<Link>Samples\ListView\Grouping\Model\ListViewContactsInfoRepository.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Grouping\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\Grouping\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\HorizontalOrientation\View\HorizontalOrientation.xaml.cs">
+			<Link>Samples\ListView\HorizontalOrientation\View\HorizontalOrientation.xaml.cs</Link>
+			<DependentUpon> HorizontalOrientation.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\HorizontalOrientation\Model\PlaceInfo.cs">
+			<Link>Samples\ListView\HorizontalOrientation\Model\PlaceInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\HorizontalOrientation\Model\PlaceInfoRepository.cs">
+			<Link>Samples\ListView\HorizontalOrientation\Model\PlaceInfoRepository.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\HorizontalOrientation\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\HorizontalOrientation\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\HorizontalOrientation\Helper\Converter.cs">
+			<Link>Samples\ListView\HorizontalOrientation\Helper\Converter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\LoadMore\View\LoadMore.xaml.cs">
+			<Link>Samples\ListView\LoadMore\View\LoadMore.xaml.cs</Link>
+			<DependentUpon> LoadMore.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\LoadMore\Helper\Behavior.cs">
+			<Link>Samples\ListView\LoadMore\Helper\Behavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\LoadMore\ViewModel\LoadMoreViewModel.cs">
+			<Link>Samples\ListView\LoadMore\ViewModel\LoadMoreViewModel.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Selection\View\Selection.xaml.cs">
+			<Link>Samples\ListView\Selection\View\Selection.xaml.cs</Link>
+			<DependentUpon> Selection.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Selection\Helper\Behaviors.cs">
+			<Link>Samples\ListView\Selection\Helper\Behaviors.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Selection\Helper\Converter.cs">
+			<Link>Samples\ListView\Selection\Helper\Converter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Selection\Model\DocumentInfo.cs">
+			<Link>Samples\ListView\Selection\Model\DocumentInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Selection\Model\DocumentInfoRepository.cs">
+			<Link>Samples\ListView\Selection\Model\DocumentInfoRepository.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Selection\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\Selection\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\SortingFiltering\View\SortingFiltering.xaml.cs">
+			<Link>Samples\ListView\SortingFiltering\View\SortingFiltering.xaml.cs</Link>
+			<DependentUpon> SortingFiltering.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\SortingFiltering\Helper\Behaviors.cs">
+			<Link>Samples\ListView\SortingFiltering\Helper\Behaviors.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\SortingFiltering\Helper\Converter.cs">
+			<Link>Samples\ListView\SortingFiltering\Helper\Converter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\SortingFiltering\Helper\SfEntry.cs">
+			<Link>Samples\ListView\SortingFiltering\Helper\SfEntry.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\SortingFiltering\Model\ProductInfo.cs">
+			<Link>Samples\ListView\SortingFiltering\Model\ProductInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\SortingFiltering\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\SortingFiltering\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Swiping\View\Swiping.xaml.cs">
+			<Link>Samples\ListView\Swiping\View\Swiping.xaml.cs</Link>
+			<DependentUpon> Swiping.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Swiping\Helper\Behavior.cs">
+			<Link>Samples\ListView\Swiping\Helper\Behavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Swiping\Helper\Converter.cs">
+			<Link>Samples\ListView\Swiping\Helper\Converter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Swiping\Model\ListViewInboxInfo.cs">
+			<Link>Samples\ListView\Swiping\Model\ListViewInboxInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Swiping\Model\ListViewInboxInfoRepository.cs">
+			<Link>Samples\ListView\Swiping\Model\ListViewInboxInfoRepository.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Swiping\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\Swiping\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ItemReordering\View\ItemReordering.xaml.cs">
+			<Link>Samples\ListView\ItemReordering\View\ItemReordering.xaml.cs</Link>
+			<DependentUpon> ItemReordering.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ItemReordering\Model\SongInfo.cs">
+			<Link>Samples\ListView\ItemReordering\Model\SongInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ItemReordering\ViewModel\ViewModel.cs">
+			<Link>Samples\ListView\ItemReordering\ViewModel\ViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\ItemReordering\Helper\SfEffectsViewAdv.cs">
+			<Link>Samples\ListView\ItemReordering\Helper\SfEffectsViewAdv.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\PullToRefresh\View\PullToRefresh.xaml.cs">
+			<Link>Samples\ListView\PullToRefresh\View\PullToRefresh.xaml.cs</Link>
+			<DependentUpon> PullToRefresh.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\PullToRefresh\ViewModel\InboxInfoViewModel.cs">
+			<Link>Samples\ListView\PullToRefresh\ViewModel\InboxInfoViewModel.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\PullToRefresh\Model\InboxInfo.cs">
+			<Link>Samples\ListView\PullToRefresh\Model\InboxInfo.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\PullToRefresh\Model\InboxInfoRepository.cs">
+			<Link>Samples\ListView\PullToRefresh\Model\InboxInfoRepository.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\PullToRefresh\Helper\PullToRefreshBehavior.cs">
+			<Link>Samples\ListView\PullToRefresh\Helper\PullToRefreshBehavior.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\PullToRefresh\Helper\PullToRefreshConverter.cs">
+			<Link>Samples\ListView\PullToRefresh\Helper\PullToRefreshConverter.cs</Link>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\PullToRefresh\Helper\CustomGroupComparer.cs">
+			<Link>Samples\ListView\PullToRefresh\Helper\CustomGroupComparer.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Paging\View\Paging.xaml.cs">
+			<Link>Samples\ListView\Paging\View\Paging.xaml.cs</Link>
+			<DependentUpon>Paging.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Paging\Helper\Behaviors.cs">
+			<Link>Samples\ListView\Paging\Helper\Behaviors.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\ListView\Paging\ViewModel\PagingViewModel.cs">
+			<Link>Samples\ListView\Paging\ViewModel\PagingViewModel.cs</Link>
+		</Compile>
+		
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\ListViewSamplesList.xml" >
+			<Link>ListViewSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\AutoFit\View\AutoFit.xaml">
+			<Link>Samples\ListView\AutoFit\View\AutoFit.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\ExpandableView\View\ExpandableView.xaml">
+			<Link>Samples\ListView\ExpandableView\View\ExpandableView.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\ListView\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\GridLayout\View\GridLayout.xaml">
+			<Link>Samples\ListView\GridLayout\View\GridLayout.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\Grouping\View\Grouping.xaml">
+			<Link>Samples\ListView\Grouping\View\Grouping.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\HorizontalOrientation\View\HorizontalOrientation.xaml">
+			<Link>Samples\ListView\HorizontalOrientation\View\HorizontalOrientation.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\LoadMore\View\LoadMore.xaml">
+			<Link>Samples\ListView\LoadMore\View\LoadMore.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\Selection\View\Selection.xaml">
+			<Link>Samples\ListView\Selection\View\Selection.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\SortingFiltering\View\SortingFiltering.xaml">
+			<Link>Samples\ListView\SortingFiltering\View\SortingFiltering.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\Swiping\View\Swiping.xaml">
+			<Link>Samples\ListView\Swiping\View\Swiping.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\ItemReordering\View\ItemReordering.xaml">
+			<Link>Samples\ListView\ItemReordering\View\ItemReordering.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\PullToRefresh\View\PullToRefresh.xaml">
+			<Link>Samples\ListView\PullToRefresh\View\PullToRefresh.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+
+    <ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\ListView\Paging\View\Paging.xaml">
+			<Link>Samples\ListView\Paging\View\Paging.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

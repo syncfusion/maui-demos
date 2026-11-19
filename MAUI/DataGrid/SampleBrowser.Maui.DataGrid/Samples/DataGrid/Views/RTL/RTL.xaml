@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataGrid.SfDataGrid.RTL"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataGrid"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+                      xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.BindingContext>
+        <local:OrderInfoViewModel>
+            <x:Arguments>
+                <x:String>ar-AE</x:String>
+            </x:Arguments>
+        </local:OrderInfoViewModel>
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+
+        <OnPlatform x:Key="minimumWidth"
+                    x:TypeArguments="x:Double">
+            <On Platform="Android,iOS"
+                Value="120"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="nameMinimumWidth"
+                    x:TypeArguments="x:Double">
+            <On Platform="Android,iOS"
+                Value="70"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="orderIdMinimumWidth"
+                    x:TypeArguments="x:Double">
+            <On Platform="Android,iOS"
+                Value="100"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="customerIdMinimumWidth"
+                    x:TypeArguments="x:Double">
+            <On Platform="Android,iOS"
+                Value="110"/>
+        </OnPlatform>
+
+        <OnPlatform x:Key="margin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-5"/>
+        </OnPlatform>
+
+        <Style TargetType="sfgrid:DataGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium"/>
+            <Setter Property="FontSize"
+                    Value="14"/>
+        </Style>
+
+        <Style TargetType="sfgrid:DataGridCell">
+            <Setter Property="FontSize"
+                    Value="14"/>
+        </Style>
+
+    </localCore:SampleView.Resources>
+
+    <!-- DataGrid -->
+    <localCore:SampleView.Content>
+
+        <sfgrid:SfDataGrid x:Name="dataGrid"
+                           Margin="{StaticResource margin}"
+                           x:DataType="local:OrderInfoViewModel"
+                           ItemsSource="{Binding OrdersInfo}"
+                           AutoGenerateColumnsMode="None"
+                           ColumnWidthMode="Fill"
+                           RowHeight="48"
+                           FlowDirection="RightToLeft"
+                           HorizontalScrollBarVisibility="Always"
+                           VerticalScrollBarVisibility="Always">
+
+            <sfgrid:SfDataGrid.Columns>
+
+                <sfgrid:DataGridNumericColumn
+                    MappingName="OrderID"
+                    HeaderText="رقم الطلب"
+                    Format="D"
+                    MinimumWidth="{StaticResource orderIdMinimumWidth}"/>
+
+                <sfgrid:DataGridNumericColumn
+                    MappingName="EmployeeID"
+                    HeaderText="هوية الزبون"
+                    Format="D"
+                    MinimumWidth="{StaticResource customerIdMinimumWidth}"/>
+
+                <sfgrid:DataGridTextColumn
+                    MappingName="FirstName"
+                    HeaderText="اسم"
+                    MinimumWidth="{StaticResource nameMinimumWidth}"/>
+
+                <sfgrid:DataGridNumericColumn
+                    x:Name="FreightColumn"
+                    MappingName="Freight"
+                    HeaderText="شحن"
+                    Format="E£0.00"
+                    MinimumWidth="{StaticResource minimumWidth}"/>
+
+                <sfgrid:DataGridTextColumn
+                    MappingName="ShipCity"
+                    HeaderText="مدينة"
+                    MinimumWidth="{StaticResource minimumWidth}"/>
+
+                <sfgrid:DataGridNumericColumn
+                    x:Name="PriceColumn"
+                    MappingName="Price"
+                    HeaderText="السعر"
+                    Format="E£0"
+                    MinimumWidth="{StaticResource minimumWidth}"/>
+
+            </sfgrid:SfDataGrid.Columns>
+
+        </sfgrid:SfDataGrid>
+
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.TreeGrid.SfTreeGrid.SelfRelationalCollection"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TreeGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.TreeGrid;assembly=Syncfusion.Maui.TreeGrid">
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-10,-12,-10,-12" />
+        </OnPlatform>
+
+        <Style TargetType="sfgrid:TreeGridHeaderCell">
+            <Setter Property="FontFamily" Value="Roboto-Medium" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst" Value="16,14" />
+                        <On Platform="Android" Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="sfgrid:TreeGridCell">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:EmployeeViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfTreeGrid x:Name="treeGrid"
+                           Margin="{StaticResource margin}"
+                           x:DataType="local:EmployeeViewModel"
+                           ItemsSource="{Binding EmployeeList}"
+                           ChildPropertyName="ReportsTo"
+                           ParentPropertyName="ID"
+                           SelfRelationRootValue="-1"
+                           AutoExpandMode="RootNodesExpanded"
+                           ExpanderColumn="FirstName"
+                           AutoGenerateColumnsMode="None"
+                           HeaderRowHeight="56"
+                           RowHeight="48"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfTreeGrid.Columns>
+                <sfgrid:TreeGridTextColumn MappingName="FirstName"
+                                           HeaderText="First Name"
+                                           ColumnWidthMode="Auto"
+                                           MinimumWidth="120" 
+                                           CellPadding="0,14,16,14" />
+                
+                <sfgrid:TreeGridTextColumn MappingName="LastName"
+                                           HeaderText="Last Name"
+                                           ColumnWidthMode="Auto"
+                                           MinimumWidth="120" />
+
+                <sfgrid:TreeGridNumericColumn MappingName="ID"
+                                           HeaderText="Employee ID"
+                                           CellTextAlignment="Center"
+                                           HeaderTextAlignment="Center"
+                                           ColumnWidthMode="Auto"
+                                           MinimumWidth="120" />
+
+                <sfgrid:TreeGridTextColumn MappingName="Title"
+                                           HeaderText="Title"
+                                           MinimumWidth="120" />
+
+                <sfgrid:TreeGridTextColumn MappingName="Department"
+                                           HeaderText="Department"
+                                           MinimumWidth="120" />
+
+                <sfgrid:TreeGridNumericColumn HeaderText="Reports To" 
+                                               MappingName="ReportsTo"
+                                              MinimumWidth="120" />
+            </sfgrid:SfTreeGrid.Columns>
+        </sfgrid:SfTreeGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

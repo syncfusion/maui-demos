@@ -1,0 +1,149 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.TreeGrid.SfTreeGrid.ColumnTypes"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.TreeGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.TreeGrid;assembly=Syncfusion.Maui.TreeGrid">
+
+    <localCore:SampleView.Resources>
+        <!-- High -->
+        <Color x:Key="HighLightBorder">#E5B3B8</Color>
+        <Color x:Key="HighDarkBorder">#A94A5D</Color>
+        <Color x:Key="HighLightText">#C2414D</Color>
+        <Color x:Key="HighDarkText">#F07A87</Color>
+
+        <!-- Medium -->
+        <Color x:Key="MediumLightBorder">#E8D7A3</Color>
+        <Color x:Key="MediumDarkBorder">#A8872A</Color>
+        <Color x:Key="MediumLightText">#B7791F</Color>
+        <Color x:Key="MediumDarkText">#E0B24A</Color>
+
+        <!-- Low -->
+        <Color x:Key="LowLightBorder">#B7D9CD</Color>
+        <Color x:Key="LowDarkBorder">#3D8C6D</Color>
+        <Color x:Key="LowLightText">#2F855A</Color>
+        <Color x:Key="LowDarkText">#67C397</Color>
+
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst" Value="-10,-12,-10,-12" />
+        </OnPlatform>
+        <OnPlatform x:Key="minimumWidth" x:TypeArguments="x:Double">
+            <On Platform="Android,iOS" Value="120"></On>
+        </OnPlatform>
+
+        <Style TargetType="sfgrid:TreeGridHeaderCell">
+            <Setter Property="FontFamily" Value="Roboto-Medium" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst" Value="16,14" />
+                        <On Platform="Android" Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="sfgrid:TreeGridCell">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:ProjectViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+
+        <sfgrid:SfTreeGrid x:Name="treeGrid"
+                           Margin="{StaticResource margin}"
+                           ItemsSource="{Binding Projects}"
+                           AutoGenerateColumnsMode="None"
+                           AutoExpandMode="RootNodesExpanded"
+                           ChildPropertyName="Tasks"
+                           HeaderRowHeight="56"
+                           RowHeight="48"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both"
+                           ColumnWidthMode="Fill">
+
+            <sfgrid:SfTreeGrid.Columns>
+
+                <!-- Text Column -->
+                <sfgrid:TreeGridTextColumn MappingName="Id"
+                                           HeaderText="Project ID" 
+                                           MinimumWidth="120" 
+                                           ColumnWidthMode="Auto"
+                                           CellPadding="0,14,16,14"/>
+
+                <!-- Expander Column -->
+                <sfgrid:TreeGridTextColumn MappingName="Name"
+                                           HeaderText="Name" 
+                                           MinimumWidth="200"/>
+
+                <!-- Date Column -->
+                <sfgrid:TreeGridDateColumn MappingName="StartDate"
+                                           HeaderText="Start Date" MinimumWidth="120"/>
+
+                <!-- Template Column -->
+                <sfgrid:TreeGridTemplateColumn MappingName="Priority"
+                                               HeaderText="Priority"
+                                               MinimumWidth="120">
+
+                    <sfgrid:TreeGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:DataType="local:ProjectInfo">
+
+                            <Grid HorizontalOptions="Center" VerticalOptions="Center">
+
+                                <Border x:Name="PriorityBorder"
+                                        BackgroundColor="Transparent"
+                                        Padding="14,5"
+                                        StrokeThickness="1.2"
+                                        StrokeShape="RoundRectangle 10">
+
+                                    <Label x:Name="PriorityText"
+                                           Text="{Binding Priority}"
+                                           FontSize="12"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center" />
+
+                                    <Border.Triggers>
+
+                                        <!-- High -->
+                                        <DataTrigger TargetType="Border" Binding="{Binding Priority}" Value="High">
+                                            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource HighLightBorder}, Dark={StaticResource HighDarkBorder}}" />
+                                            <Setter TargetName="PriorityText" Property="Label.TextColor" Value="{AppThemeBinding Light={StaticResource HighLightText}, Dark={StaticResource HighDarkText}}"/>
+                                        </DataTrigger>
+
+                                        <!-- Medium -->
+                                        <DataTrigger TargetType="Border" Binding="{Binding Priority}" Value="Medium">
+                                            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource MediumLightBorder}, Dark={StaticResource MediumDarkBorder}}" />
+                                            <Setter TargetName="PriorityText" Property="Label.TextColor" Value="{AppThemeBinding Light={StaticResource MediumLightText}, Dark={StaticResource MediumDarkText}}" />
+                                        </DataTrigger>
+
+                                        <!-- Low -->
+                                        <DataTrigger TargetType="Border" Binding="{Binding Priority}" Value="Low">
+                                            <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource LowLightBorder}, Dark={StaticResource LowDarkBorder}}" />
+                                            <Setter TargetName="PriorityText" Property="Label.TextColor" Value="{AppThemeBinding Light={StaticResource LowLightText}, Dark={StaticResource LowDarkText}}" />
+                                        </DataTrigger>
+
+                                    </Border.Triggers>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </sfgrid:TreeGridTemplateColumn.CellTemplate>
+
+                </sfgrid:TreeGridTemplateColumn>
+
+                <!-- Numeric Column -->
+                <sfgrid:TreeGridNumericColumn MappingName="Progress" HeaderText="Progress" MinimumWidth="120" Format="{}{0}%" />
+
+                <!-- CheckBox Column -->
+                <sfgrid:TreeGridCheckBoxColumn MappingName="IsCompleted" HeaderText="Completed" MinimumWidth="120"/>
+
+            </sfgrid:SfTreeGrid.Columns>
+        </sfgrid:SfTreeGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

@@ -1,0 +1,100 @@
+<Project>
+	<ItemGroup>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Alignment.xaml.cs">
+			<Link>Samples\BadgeView\Customization\Alignment.xaml.cs</Link>
+			<DependentUpon>Alignment.xaml</DependentUpon>
+		</Compile>
+	
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Border.xaml.cs">
+			<Link>Samples\BadgeView\Customization\Border.xaml.cs</Link>
+			<DependentUpon>Border.xaml</DependentUpon>
+		</Compile>
+  
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Font.xaml.cs">
+			<Link>Samples\BadgeView\Customization\Font.xaml.cs</Link>
+			<DependentUpon> Font.xaml</DependentUpon>
+		</Compile>
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Icon.xaml.cs">
+			<Link>Samples\BadgeView\Customization\Icon.xaml.cs</Link>
+			<DependentUpon> Icon.xaml</DependentUpon>
+		</Compile>
+		 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Offset.xaml.cs">
+			<Link>Samples\BadgeView\Customization\Offset.xaml.cs</Link>
+			<DependentUpon> Offset.xaml</DependentUpon>
+		</Compile>
+ 
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Position.xaml.cs">
+			<Link>Samples\BadgeView\Customization\Position.xaml.cs</Link>
+			<DependentUpon> Position.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Type.xaml.cs">
+			<Link>Samples\BadgeView\Customization\Type.xaml.cs</Link>
+			<DependentUpon> Type.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Notification\Notification.xaml.cs">
+			<Link>Samples\BadgeView\Notification\Notification.xaml.cs</Link>
+			<DependentUpon> Notification.xaml</DependentUpon>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Notification\NotificationModel.cs">
+			<Link>Samples\BadgeView\Notification\NotificationModel.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Notification\NotificationViewModel.cs">
+			<Link>Samples\BadgeView\Notification\NotificationViewModel.cs</Link>
+		</Compile>
+	</ItemGroup>
+ 
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\BadgeViewSamplesList.xml" >
+			<Link>BadgeViewSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Alignment.xaml">
+			<Link>Samples\BadgeView\Customization\Alignment.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Border.xaml">
+			<Link>Samples\BadgeView\Customization\Border.xaml</Link>
+		</MauiXaml>
+	</ItemGroup> 
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Font.xaml">
+			<Link>Samples\BadgeView\Customization\Font.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Icon.xaml">
+			<Link>Samples\BadgeView\Customization\Icon.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Offset.xaml">
+			<Link>Samples\BadgeView\Customization\Offset.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Position.xaml">
+			<Link>Samples\BadgeView\Customization\Position.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Customization\Type.xaml">
+			<Link>Samples\BadgeView\Customization\Type.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\BadgeView\Notification\Notification.xaml">
+			<Link>Samples\BadgeView\Notification\Notification.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.TreeGrid.SfTreeGrid.Styling"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.TreeGrid"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:sfgrid="clr-namespace:Syncfusion.Maui.TreeGrid;assembly=Syncfusion.Maui.TreeGrid">
+
+    <localCore:SampleView.Resources>
+        <Color x:Key="headerLightThemeColor">#C4D4FD</Color>
+        <Color x:Key="headerDarkThemeColor">#1849A9</Color>
+
+        <OnPlatform x:Key="margin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-10,-12,-10,-12" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="visible"
+                    x:TypeArguments="x:Boolean">
+            <On Platform="WinUI,MacCatalyst"
+                Value="True"></On>
+        </OnPlatform>
+
+        <OnPlatform x:Key="minimumWidth"
+                    x:TypeArguments="x:Double">
+            <On Platform="WinUI,MacCatalyst"
+                Value="120"></On>
+            <On Platform="Android,iOS"
+                Value="90"></On>
+        </OnPlatform>
+
+        <local:RowStylingConverter x:Key="RowStylingConverter" />
+
+        <Style TargetType="sfgrid:TreeGridHeaderRow">
+            <Setter Property="Background"
+                    Value="{AppThemeBinding Light={StaticResource headerLightThemeColor}, Dark={StaticResource headerDarkThemeColor}}" />
+        </Style>
+
+        <Style TargetType="sfgrid:TreeGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="sfgrid:TreeGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+
+        </Style>
+
+        <Style TargetType="sfgrid:TreeGridRow">
+            <Setter Property="Background"
+                    Value="{Binding Source={RelativeSource Self}, Converter={StaticResource RowStylingConverter}}" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:ProjectViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfTreeGrid x:Name="treeGrid"
+                           Margin="{StaticResource margin}"
+                           ItemsSource="{Binding Projects}"
+                           ColumnWidthMode="Fill"
+                           AutoExpandMode="RootNodesExpanded"
+                           AutoGenerateColumnsMode="None"
+                           HeaderRowHeight="56"
+                           RowHeight="48"
+                           ChildPropertyName="Tasks">
+            <sfgrid:SfTreeGrid.Columns>
+                <sfgrid:TreeGridTextColumn MappingName="Id"
+                                           MinimumWidth="150"
+                                           HeaderText="Project ID"
+                                           CellPadding="0,14,16,14" />
+                <sfgrid:TreeGridTextColumn MappingName="Name"
+                                           HeaderText="Name"
+                                           MinimumWidth="200" />
+                <sfgrid:TreeGridTextColumn MappingName="Owner"
+                                           HeaderText="Engineer"
+                                           MinimumWidth="150"/>
+                <sfgrid:TreeGridTextColumn MappingName="Status" />
+                <sfgrid:TreeGridNumericColumn MappingName="Progress"
+                                              MaximumWidth="150"
+                                              HeaderTextAlignment="Start"
+                                              CellTextAlignment="Start"
+                                              Visible="{StaticResource visible}"
+                                              Format="0'%'" />
+            </sfgrid:SfTreeGrid.Columns>
+        </sfgrid:SfTreeGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

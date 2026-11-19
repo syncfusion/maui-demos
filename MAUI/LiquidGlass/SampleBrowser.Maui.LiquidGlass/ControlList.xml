@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SampleBrowser>
+	<Assemblies Prefix="SampleBrowser.Maui.LiquidGlass" 
+              QualifiedInfo="Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+		<Assembly Name="LiquidGlass" />
+	</Assemblies>
+</SampleBrowser>

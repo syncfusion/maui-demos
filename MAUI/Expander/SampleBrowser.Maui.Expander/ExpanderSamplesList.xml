@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Layouts">
+		<Control Title="Expander" ControlName="SfExpander" Image="expander.png"  Description="Expander is a layout control for toggling UI views in header and content sections with a tap.">
+			<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="Expander/GettingStarted/" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>

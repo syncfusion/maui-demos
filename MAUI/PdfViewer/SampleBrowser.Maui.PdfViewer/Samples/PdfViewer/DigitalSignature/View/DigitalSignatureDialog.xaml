@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="SampleBrowser.Maui.PdfViewer.SfPdfViewer.DigitalSignatureDialog">
+    <ContentView.Resources>
+        <Style x:Key="DialogContainerStyle" TargetType="Border">
+            <Setter Property="BackgroundColor"
+            Value="{AppThemeBinding Light={StaticResource SampleBrowserBackgroundLight}, Dark={StaticResource BackgroundDark},Default=#F3EDF7}"/>            
+            <Setter Property="StrokeThickness"
+            Value="1"/>
+            <Setter Property="Stroke"
+            Value="{AppThemeBinding Light=#E5E5E5, Dark=#3F3F46}"/>
+            <Setter Property="Padding"
+            Value="24"/>
+        </Style>
+
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextColor"
+            Value="{AppThemeBinding Light=#1F1F1F, Dark=#FFFFFF}"/>
+            <Setter Property="Margin"
+            Value="0,12,0,6"/>
+        </Style>
+
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BackgroundColor"
+            Value="{AppThemeBinding Light=#F3F3F3, Dark=#3A3A3A}"/>
+            <Setter Property="TextColor"
+            Value="{AppThemeBinding Light=#1F1F1F, Dark=#FFFFFF}"/>
+            <Setter Property="PlaceholderColor"
+            Value="{AppThemeBinding Light=#8A8886, Dark=#A0A0A0}"/>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Margin" Value="0,12,0,0"/>
+        </Style>
+
+        <Style x:Key="TextInputLayoutStyle"
+       TargetType="inputLayout:SfTextInputLayout">
+
+            <Setter Property="ContainerBackground"
+            Value="{AppThemeBinding Light=#F8F8F8, Dark=#3A3A3A}" />
+
+            <Setter Property="Margin"
+            Value="0,6,0,0" />
+
+            <Setter Property="HeightRequest"
+            Value="40" />
+
+            <Setter Property="ShowHint"
+            Value="True" />
+
+            <Setter Property="IsHintAlwaysFloated"
+            Value="False" />
+
+            <Setter Property="ReserveSpaceForAssistiveLabels"
+            Value="False" />
+
+            <Setter Property="InputViewPadding">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="Thickness">
+                        <OnIdiom.Phone>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="Android">16,10,0,0</On>
+                                <On Platform="iOS">16,0,0,0</On>
+                            </OnPlatform>
+                        </OnIdiom.Phone>
+
+                        <OnIdiom.Tablet>16,10,0,0</OnIdiom.Tablet>
+                        <OnIdiom.Desktop>16,0,0,0</OnIdiom.Desktop>
+                    </OnIdiom>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackgroundLight},Default=#6750A4}"/>
+            <Setter Property="TextColor" Value="#FFFFFF"/>
+        </Style>
+
+
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#EDEBE9, Dark=#3A3A3A}"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#323130, Dark=#FFFFFF}"/>
+        </Style>
+    </ContentView.Resources>
+    <Grid>
+        <Border x:Name="DesktopContainer"
+                Grid.Row="0" Grid.Column="0"
+                Style="{StaticResource DialogContainerStyle}"
+                MaximumWidthRequest="500"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="True"                
+                Padding="20">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16"/>
+            </Border.StrokeShape>
+
+            <ScrollView>
+                <VerticalStackLayout Spacing="0">
+                    <!-- Title -->
+                    <Label Text="Sign with Digital ID"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"
+                           Margin="0,0,0,16"/>
+                    
+                    <!-- NEW: Info banner -->
+                    <Border Padding="12"
+                            Margin="0,0,0,16"
+                            BackgroundColor="{AppThemeBinding Light=#EADDFF, Dark=#4F378B}"
+                            StrokeThickness="0"
+                            HorizontalOptions="Fill">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8"/>
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="Auto,*"
+                              ColumnSpacing="8"
+                              HorizontalOptions="Fill">
+
+                            <Label Grid.Column="0"
+                                   Text="&#9432;"
+                                   FontSize="14"
+                                   TextColor="{AppThemeBinding Light=#6750A4, Dark=#D0BCFF}"
+                                   VerticalOptions="Start"
+                                   LineBreakMode="NoWrap"/>
+
+                            <Label Grid.Column="1"
+                                   LineBreakMode="WordWrap"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalOptions="Fill"
+                                   VerticalTextAlignment="Start">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Select a Digital ID to sign the document. If no Digital ID is selected, "
+                                              FontSize="12"
+                                              TextColor="{AppThemeBinding Light=#1D192B, Dark=#EADDFF}"/>
+                                        <Span Text="the default Digital ID will be used automatically."
+                                              FontSize="12"
+                                              FontAttributes="Bold"
+                                              TextColor="{AppThemeBinding Light=#1D192B, Dark=#EADDFF}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </Border>
+                    
+                    <!-- Certificate Section -->
+                    <Label Text="Certificate File"
+                           Style="{StaticResource LabelStyle}"
+                           FontAttributes="Bold"/>
+
+                    <Button x:Name="SelectCertificateButton"
+                            Text="Select Certificate (.pfx)"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Clicked="OnSelectCertificateClicked"/>
+
+                    <Label x:Name="CertificateFileName"
+                           Text="No certificate selected"
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light=#666666, Dark=#CCCCCC}"
+                           Margin="0,8,0,0"/>
+
+                    <!-- Password Section -->
+                    <!-- Password -->
+                    <Label Text="Certificate Password *"
+                           Style="{StaticResource LabelStyle}"
+                           FontAttributes="Bold"/>
+
+                    <inputLayout:SfTextInputLayout
+                                x:Name="passwordInputLayout"
+                                Style="{StaticResource TextInputLayoutStyle}"
+                                Hint="Enter password"
+                                HintLabelStyle="{AppThemeBinding Light=#8A8886, Dark=#A0A0A0}">
+
+                        <Entry x:Name="PasswordEntry"
+                               BackgroundColor="Transparent"
+                               TextChanged="PasswordEntry_TextChanged"
+                               IsPassword="True"
+                               Placeholder="Enter password"
+                               TextColor="{AppThemeBinding Light=#1F1F1F, Dark=#FFFFFF}"
+                               PlaceholderColor="{AppThemeBinding Light=#8A8886, Dark=#A0A0A0}"
+                               Focused="PasswordEntry_Focused"
+                               Unfocused="PasswordEntry_Unfocused"
+                               ClearButtonVisibility="Never"
+                               VerticalTextAlignment="Center"/>
+                    </inputLayout:SfTextInputLayout>
+                    <Label x:Name="PasswordErrorLabel"
+                           Text=""
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light=#B3261E, Dark=#F2B8B5}"
+                           Margin="0,4,0,0"
+                           IsVisible="False"/>
+
+                    <!-- Location -->
+                    <Label Text="Location (Optional)"
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <inputLayout:SfTextInputLayout
+                                x:Name="locationInputLayout"
+                                Style="{StaticResource TextInputLayoutStyle}"
+                                Hint="e.g., Vancouver, BC, Canada">
+
+                        <Entry x:Name="LocationEntry"
+                               BackgroundColor="Transparent"
+                               TextColor="{AppThemeBinding Light=#1F1F1F, Dark=#FFFFFF}"
+                               PlaceholderColor="{AppThemeBinding Light=#8A8886, Dark=#A0A0A0}"
+                               Placeholder="e.g., Vancouver, BC, Canada"
+                               Focused="LocationEntry_Focused"
+                               Unfocused="LocationEntry_Unfocused"
+                               ClearButtonVisibility="Never"
+                               VerticalTextAlignment="Center"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <!-- Reason -->
+                    <Label Text="Reason (Optional)"
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <inputLayout:SfTextInputLayout
+                                x:Name="reasonInputLayout"
+                                Style="{StaticResource TextInputLayoutStyle}"
+                                Hint="e.g., Document approved">
+
+                        <Entry x:Name="ReasonEntry"
+                               BackgroundColor="#F3F3F3"
+                               TextColor="{AppThemeBinding Light=#1F1F1F, Dark=#FFFFFF}"
+                               PlaceholderColor="{AppThemeBinding Light=#8A8886, Dark=#A0A0A0}"
+                               Placeholder="e.g., Document approved"
+                               Focused="ReasonEntry_Focused"
+                               Unfocused="ReasonEntry_Unfocused"
+                               ClearButtonVisibility="Never"
+                               VerticalTextAlignment="Center"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <!-- Contact Information -->
+                    <Label Text="Contact Information (Optional)"
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <inputLayout:SfTextInputLayout
+                                x:Name="contactinfoInputLayout"
+                                Style="{StaticResource TextInputLayoutStyle}"
+                                Hint="e.g., john@company.com">
+                        
+                        <Entry x:Name="ContactInfoEntry"
+                               BackgroundColor="#F3F3F3"
+                               TextColor="{AppThemeBinding Light=#1F1F1F, Dark=#FFFFFF}"
+                               PlaceholderColor="{AppThemeBinding Light=#8A8886, Dark=#A0A0A0}"
+                               Placeholder="e.g., john@company.com"
+                               Focused="ContactInfoEntry_Focused"
+                               Unfocused="ContactInfoEntry_Unfocused"
+                               ClearButtonVisibility="Never"
+                               VerticalTextAlignment="Center"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <!-- Buttons -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12" Margin="0,24,0,0">
+                        <Button Grid.Column="0"
+                                Text="Cancel"
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Clicked="OnCancelClicked"/>
+
+                        <Button Grid.Column="1"
+                                x:Name="ApplySignatureButtonDesktop"
+                                Text="Apply Signature"
+                                Style="{StaticResource PrimaryButtonStyle}"
+                                Clicked="OnApplySignatureClicked"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </Grid>
+</ContentView>

@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1131" width="100%" height="100%">
+    <defs>
+        <!-- Gradients -->
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0a0524" />
+            <stop offset="100%" stop-color="#191350" />
+        </linearGradient>
+        <linearGradient id="circle-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2a309e" />
+            <stop offset="100%" stop-color="#141753" />
+        </linearGradient>
+        <!-- Bottom wave gradients -->
+        <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#5a229c" />
+            <stop offset="100%" stop-color="#2a105f" />
+        </linearGradient>
+        
+        <!-- Filters for drop shadows -->
+        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="3" dy="5" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+        </filter>
+        <filter id="light-shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+        </filter>
+        
+        <!-- Background Pattern -->
+        <pattern id="hex-pattern" x="0" y="0" width="80" height="138.56" patternUnits="userSpaceOnUse">
+            <path d="M40 0 L80 23.09 L80 69.28 L40 92.38 L0 69.28 L0 23.09 Z" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1.5"/>
+            <path d="M40 138.56 L80 115.47 L80 69.28 L40 92.38 L0 69.28 L0 115.47 Z" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1.5"/>
+        </pattern>
+        
+        <!-- Clip path for the center shadow -->
+        <clipPath id="center-circle-clip">
+            <circle cx="400" cy="540" r="260" />
+        </clipPath>
+    </defs>
+
+    <!-- Background Elements -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" />
+    <rect width="100%" height="100%" fill="url(#hex-pattern)" />
+    
+    <!-- Central Large Circle -->
+    <circle cx="400" cy="540" r="260" fill="url(#circle-grad)" filter="url(#shadow)" />
+    
+    <!-- Long Shadow Effect for inner components inside the circle -->
+    <path d="M 270 360 L 800 890 L 800 1131 L 350 1131 Z" fill="#000000" opacity="0.15" clip-path="url(#center-circle-clip)"/>
+    
+    <!-- Bottom Wave Designs -->
+    <path d="M 0 951 Q 300 1011, 800 911 L 800 1131 L 0 1131 Z" fill="url(#wave-grad)" filter="url(#shadow)" />
+    <path d="M 0 981 Q 400 1031, 800 941 L 800 1131 L 0 1131 Z" fill="#301569" />
+    <path d="M 0 1011 Q 450 1111, 800 981 L 800 1131 L 0 1131 Z" fill="#1b0a40" />
+
+    <!-- Robot Character (Bottom Left) -->
+    <g transform="translate(60, 891)">
+        <!-- Antenna -->
+        <line x1="45" y1="30" x2="45" y2="5" stroke="#ff7c00" stroke-width="4"/>
+        <rect x="41" y="-3" width="8" height="8" fill="#ff7c00" rx="2"/>
+        
+        <!-- Arms -->
+        <rect x="-15" y="90" width="30" height="12" fill="#ff7c00" rx="4" transform="rotate(-30, 0, 90)"/>
+        <rect x="75" y="90" width="30" height="12" fill="#ff7c00" rx="4" transform="rotate(30, 80, 90)"/>
+        
+        <!-- Hands (Black) -->
+        <circle cx="-16" cy="80" r="7" fill="#000000"/>
+        <!-- Right hand pointing up variant -->
+        <rect x="91" y="65" width="8" height="16" fill="#000000" rx="4" transform="rotate(20, 95, 75)"/>
+        <circle cx="98" cy="81" r="7" fill="#000000"/>
+
+        <!-- Legs -->
+        <rect x="25" y="140" width="12" height="25" fill="#ff7c00"/>
+        <rect x="53" y="140" width="12" height="25" fill="#ff7c00"/>
+        
+        <!-- Feet -->
+        <rect x="15" y="165" width="22" height="14" fill="#000000" rx="3"/>
+        <rect x="49" y="165" width="22" height="14" fill="#000000" rx="3"/>
+        
+        <!-- Body -->
+        <rect x="15" y="100" width="60" height="40" fill="#f05b00" rx="5"/>
+        <rect x="20" y="105" width="25" height="20" fill="rgba(255,255,255,0.2)" rx="3"/>
+        <!-- Details on body -->
+        <circle cx="55" cy="115" r="4" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="65" cy="115" r="4" fill="rgba(255,255,255,0.5)"/>
+        
+        <!-- Head -->
+        <rect x="0" y="30" width="90" height="70" fill="#ff7c00" rx="5"/>
+        <rect x="0" y="55" width="90" height="45" fill="#f05b00" rx="5"/>
+        <!-- Remove bottom curve of top part to look seamless -->
+        <rect x="0" y="30" width="90" height="40" fill="#ff7c00"/>
+        <rect x="0" y="30" width="90" height="70" fill="none" stroke="#e05200" stroke-width="2" rx="5"/>
+
+        <!-- Eyes Frame -->
+        <rect x="8" y="42" width="35" height="35" fill="#ffffff" rx="3"/>
+        <rect x="52" y="45" width="30" height="25" fill="#ffffff" rx="3"/>
+        
+        <!-- Pupils -->
+        <rect x="16" y="50" width="16" height="16" fill="#111111" rx="2"/>
+        <rect x="57" y="50" width="12" height="12" fill="#111111" rx="2"/>
+        <circle cx="21" cy="55" r="3" fill="#ffffff"/>
+        <circle cx="61" cy="54" r="2" fill="#ffffff"/>
+        
+        <!-- Mouth -->
+        <path d="M 35 78 Q 45 88 55 78" fill="none" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+        <path d="M 39 80 Q 45 86 51 80" fill="#cc0000" />
+    </g>
+
+    <!-- Syncfusion Logo Placeholder (Bottom Right) -->
+    <g transform="translate(560, 1071)">
+        <path d="M 0 0 h 8 v 8 h -8 z" fill="#ffffff"/>
+        <path d="M 12 0 h 8 v 8 h -8 z" fill="#ffffff"/>
+        <path d="M 0 12 h 8 v 8 h -8 z" fill="#ffffff"/>
+        <path d="M 12 12 h 8 v 8 h -8 z" fill="#ffffff"/>
+        <path d="M 24 12 h 8 v 8 h -8 z" fill="#ffffff"/>
+        <path d="M 24 0 h 8 v 8 h -8 z" fill="#ffffff"/>
+        <text x="40" y="15" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="bold">Syncfusion</text>
+    </g>
+
+    <!-- Title and Subtitle -->
+    <text x="400" y="160" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="46" font-weight="bold" text-anchor="middle" filter="url(#light-shadow)">Syncfusion SVG Processing</text>
+    <text x="400" y="215" fill="#ffd000" font-family="'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="600" text-anchor="middle" filter="url(#light-shadow)">Convert SVG to PDF using .NET</text>
+
+    <!-- Interactive Inner Elements/Features -->
+    <g id="center-nodes" transform="translate(0, 160)">
+        
+        <!-- Connecting Flow Lines -->
+        <line x1="270" y1="240" x2="400" y2="370" stroke="#ffffff" stroke-width="3" stroke-dasharray="8,6" opacity="0.6"/>
+        <line x1="530" y1="240" x2="400" y2="370" stroke="#ffffff" stroke-width="3" stroke-dasharray="8,6" opacity="0.6"/>
+        <line x1="400" y1="370" x2="270" y2="510" stroke="#ffffff" stroke-width="3" stroke-dasharray="8,6" opacity="0.6"/>
+        <line x1="400" y1="370" x2="530" y2="510" stroke="#ffffff" stroke-width="3" stroke-dasharray="8,6" opacity="0.6"/>
+        
+        <!-- White pulse dots on lines -->
+        <circle cx="335" cy="305" r="5" fill="#ffffff"/>
+        <circle cx="465" cy="305" r="5" fill="#ffffff"/>
+        <circle cx="335" cy="440" r="5" fill="#ffffff"/>
+        <circle cx="465" cy="440" r="5" fill="#ffffff"/>
+
+        <!-- IMAGE Node (Top Right) -->
+        <circle cx="530" cy="240" r="55" fill="#2d3436" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/>
+        <!-- Tiny Icon for Image -->
+        <rect x="505" y="215" width="50" height="35" rx="3" fill="none" stroke="#a29bfe" stroke-width="2"/>
+        <circle cx="518" cy="225" r="4" fill="#a29bfe"/>
+        <path d="M 505 250 L 525 230 L 535 240 L 550 225 L 555 240 L 555 250 Z" fill="#6c5ce7"/>
+        <text x="530" y="275" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="1" text-anchor="middle">IMAGE</text>
+        
+        <!-- VECTOR Node (Top Left) -->
+        <circle cx="270" cy="240" r="55" fill="#2d3436" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/>
+        <!-- Tiny Icon for Vector -->
+        <polygon points="270,210 290,240 250,240" fill="none" stroke="#00cec9" stroke-width="2"/>
+        <circle cx="270" cy="210" r="4" fill="#ffffff"/>
+        <circle cx="290" cy="240" r="4" fill="#ffffff"/>
+        <circle cx="250" cy="240" r="4" fill="#ffffff"/>
+        <text x="270" y="275" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="1" text-anchor="middle">VECTOR</text>
+        
+        <!-- SVG ENGINE Node (Center) -->
+        <rect x="300" y="330" width="200" height="80" rx="10" fill="#ff7a00" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/>
+        <!-- Gear Icon -->
+        <circle cx="335" cy="370" r="14" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="5,3"/>
+        <circle cx="335" cy="370" r="6" fill="#fff"/>
+        <circle cx="365" cy="375" r="9" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4,2"/>
+        <circle cx="365" cy="375" r="4" fill="#fff"/>
+        <text x="435" y="377" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">SVG ENGINE</text>
+
+        <!-- PDF Node (Bottom Left - Circle) -->
+        <circle cx="270" cy="510" r="60" fill="#d32f2f" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/>
+        <text x="270" y="520" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" text-anchor="middle">PDF</text>
+        
+        <!-- .NET Node (Bottom Right - Square) -->
+        <rect x="470" y="450" width="120" height="120" rx="15" fill="#68217a" stroke="#ffffff" stroke-width="3" filter="url(#shadow)"/>
+        <text x="530" y="520" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">.NET</text>
+        
+    </g>
+</svg>

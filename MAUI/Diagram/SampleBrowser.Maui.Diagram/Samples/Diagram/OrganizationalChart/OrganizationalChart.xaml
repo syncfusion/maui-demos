@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:diagram="clr-namespace:Syncfusion.Maui.Diagram;assembly=Syncfusion.Maui.Diagram"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Diagram.SfDiagram"
+                      xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+                      x:Class="SampleBrowser.Maui.Diagram.SfDiagram.OrganizationalChart">
+
+    <localCore:SampleView.BindingContext>
+        <local:OrganizationalChartViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <diagram:SfDiagram x:Name="sfDiagram"
+                               BackgroundColor="#FAFAFA"
+                               HorizontalOptions="Fill"
+                               VerticalOptions="Fill"
+                               DataSourceSettings="{Binding DataSourceSettings}"
+                               NodeDefaults="{Binding NodeDefaults}"
+                               ConnectorDefaults="{Binding ConnectorDefaults}"
+                               Layout="{Binding AutoLayout}">
+                <diagram:SfDiagram.Behaviors>
+                    <local:DiagramLayoutBehavior LayoutRequestId="{Binding LayoutRequestId}" />
+                </diagram:SfDiagram.Behaviors>
+            </diagram:SfDiagram>
+        </Grid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView Padding="0,0,5,0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Layout" Margin="0,15,0,0" FontSize="15" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+
+                    <Grid ColumnDefinitions="0.5*,0.5*">
+                        <Label Text="Orientation" FontSize="14" VerticalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+                        <editors:SfComboBox Grid.Column="1" FontSize="12" IsClearButtonVisible="False"
+                                            ItemsSource="{Binding OrientationOptions}"
+                                            SelectedItem="{Binding Orientation, Mode=TwoWay}" />
+                    </Grid>
+
+                    <Label Text="Subtree Alignment" FontSize="14" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+                    <editors:SfComboBox FontSize="12" IsClearButtonVisible="False"
+                                        ItemsSource="{Binding SubtreeAlignmentOptions}"
+                                        SelectedItem="{Binding SubtreeAlignment, Mode=TwoWay}" />
+
+                    <Label Text="Behavior" Margin="0,5,0,0" FontSize="15" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+
+                    <Grid ColumnDefinitions="0.5*,0.5*">
+                        <Label Text="Horizontal Spacing" FontSize="14" VerticalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+                        <editors:SfNumericEntry Grid.Column="1" FontSize="12" Minimum="0" Maximum="200" UpDownPlacementMode="Inline"
+                                                Value="{Binding HorizontalSpacing, Mode=TwoWay}" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="0.5*,0.5*">
+                        <Label Text="Vertical Spacing" FontSize="14" VerticalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+                        <editors:SfNumericEntry Grid.Column="1" FontSize="12" Minimum="0" Maximum="200" UpDownPlacementMode="Inline"
+                                                Value="{Binding VerticalSpacing, Mode=TwoWay}" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="0.5*,0.5*">
+                        <Label Text="Expandable" FontSize="14" VerticalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+                        <Switch Grid.Column="1" HorizontalOptions="End"
+                                IsToggled="True"
+                                Toggled="Switch_Toggled" />
+                    </Grid>
+                </VerticalStackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+	<ControlCategory Name="Layouts">
+		<Control Title="Accordion" ControlName="SfAccordion" Image="accordion.png"  Description="Vertical collapsible panel with stacked headers for simultaneous expansion or collapse of items.">
+			<Sample SearchTags="GettingStarted" SampleName="GettingStarted" Title="Getting Started" CodeViewerPath="Accordion/GettingStarted/" />
+		</Control>
+	</ControlCategory>
+</SyncfusionControls>
+

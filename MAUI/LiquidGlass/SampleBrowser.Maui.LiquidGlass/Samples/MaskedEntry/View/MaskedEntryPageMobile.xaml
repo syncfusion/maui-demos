@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.LiquidGlass.SfMaskedEntry.MaskedEntryPageMobile"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base">
+
+    <localCore:SampleView.Resources>
+        <Style TargetType="syncfusion:SfMaskedEntry">
+            <Setter Property="WidthRequest" Value="290"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black }" />
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="WidthRequest" Value="290"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black }" />
+            <Setter Property="FontFamily" Value="Roboto-Regular"/>
+
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <Grid>
+        <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
+            <Grid
+        Padding="16"
+        RowSpacing="5"
+        ColumnSpacing="0"
+        MaximumWidthRequest="700"
+        WidthRequest="400"
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+
+                <Grid.RowDefinitions>
+                    <!-- Email -->
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!-- Date -->
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!-- Time -->
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!-- Phone -->
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!-- IP -->
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!-- Card No -->
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+
+                </Grid.RowDefinitions>
+
+                <!-- Email -->
+                <Label Grid.Row="0" Text="Email" />
+                <core:SfGlassEffectView Grid.Row="1" CornerRadius="25" Margin="0,0,0,20" EnableShadowEffect="True">
+                    <syncfusion:SfMaskedEntry
+            x:Name="emailMask"
+            Background="Transparent"
+            Padding="16,0"
+            HeightRequest="50"
+            ShowBorder="False"
+            MaskType="RegEx" 
+            Mask="[A-Za-z0-9._%-]+@[A-Za-z0-9]+\.[A-Za-z]{2,3}"
+             />
+                </core:SfGlassEffectView>
+
+                <!-- Date -->
+                <Label Grid.Row="2" Text="Date" />
+                <core:SfGlassEffectView CornerRadius="25" Grid.Row="3" Margin="0,0,0,20" EnableShadowEffect="True">
+                    <syncfusion:SfMaskedEntry
+            x:Name="dateMask"
+            Padding="16,0"
+            MaskType="Simple"
+            ShowBorder="False"
+            Background="Transparent"
+            HeightRequest="50"
+            Mask="00/00/0000"
+            HorizontalOptions="Fill"
+             />
+                </core:SfGlassEffectView>
+
+                <!-- Time -->
+                <Label Grid.Row="4" Text="Time" />
+                <core:SfGlassEffectView CornerRadius="25" Margin="0,0,0,20" Grid.Row="5" EnableShadowEffect="True">
+                    <syncfusion:SfMaskedEntry
+            x:Name="timeMask"
+            Padding="16,0"
+            MaskType="RegEx"
+            HeightRequest="50"
+            ShowBorder="False"
+            Background="Transparent"
+            Mask="(0[0-9]|1[1-9]|2[1-3]){2}:[0-5][0-9]:[0-5][0-9]"
+            />
+                </core:SfGlassEffectView>
+
+                <!-- Phone -->
+                <Label Grid.Row="6" Text="Phone" />
+                <core:SfGlassEffectView CornerRadius="25" Grid.Row="7" Margin="0,0,0,20"  EnableShadowEffect="True">
+                    <syncfusion:SfMaskedEntry
+            x:Name="phoneMask"
+            Padding="16,0"
+             MaskType="Simple" 
+                HeightRequest="50"
+             ShowBorder="False"
+             Background="Transparent"
+             Mask="000-000-0000"
+            />
+                </core:SfGlassEffectView>
+
+                <!-- IP -->
+                <Label Grid.Row="8" Text="IP Address" />
+                <core:SfGlassEffectView CornerRadius="25" Grid.Row="9" Margin="0,0,0,20" EnableShadowEffect="True">
+                    <syncfusion:SfMaskedEntry
+            x:Name="ipMask"
+            Padding="16,0"
+            MaskType="Simple" 
+                HeightRequest="50"
+            ShowBorder="False"
+            Background="Transparent"
+            Mask="000:000:000"
+             />
+                </core:SfGlassEffectView>
+
+                <!-- Debit card -->
+                <Label Grid.Row="10" Text="Debit Card" />
+                <core:SfGlassEffectView CornerRadius="25" Grid.Row="11" Margin="0,0,0,20" EnableShadowEffect="True">
+                    <syncfusion:SfMaskedEntry
+            x:Name="debitMask"
+            MaskType="RegEx" 
+            Padding="16,0"
+                HeightRequest="50"
+            Mask="\d{4}-\d{4}-\d{4}-\d{4}"
+            ShowBorder="False"
+            Background="Transparent"
+            />
+                </core:SfGlassEffectView>
+            </Grid>
+        </ScrollView>
+    </Grid>
+    <localCore:SampleView.OptionView>
+        <Grid>
+            <VerticalStackLayout VerticalOptions="Start">
+                <HorizontalStackLayout Margin="10,20,10,10"  Spacing="10">
+                    <Label Text="Validation mode" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center" WidthRequest="110"/>
+                    <syncfusion:SfComboBox x:Name="validationModeComboBox" SelectedDropDownItemBackground="Transparent" DropDownBackground="Transparent" EnableLiquidGlassEffect="True" IsClearButtonVisible="False" FontFamily="Roboto-Regular" WidthRequest="130" SelectedIndex="1" SelectionChanged="ValidationModeComboBox_SelectionChanged" >
+                        <syncfusion:SfComboBox.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Lost Focus</x:String>
+                                <x:String>Key Press</x:String>
+                            </x:Array>
+                        </syncfusion:SfComboBox.ItemsSource>
+                    </syncfusion:SfComboBox>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Margin="10,20,10,10"  Spacing="10">
+                    <Label Text="Prompt char" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center" WidthRequest="110"/>
+                    <syncfusion:SfComboBox x:Name="promptCharComboBox" SelectedDropDownItemBackground="Transparent" DropDownBackground="Transparent" EnableLiquidGlassEffect="True" IsClearButtonVisible="False" FontFamily="Roboto-Regular" WidthRequest="130" SelectedIndex="0" SelectionChanged="PromptCharComboBox_SelectionChanged" >
+                        <syncfusion:SfComboBox.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>_</x:String>
+                                <x:String>*</x:String>
+                                <x:String>#</x:String>
+                            </x:Array>
+                        </syncfusion:SfComboBox.ItemsSource>
+                    </syncfusion:SfComboBox>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Margin="10,20,10,10"  Spacing="10">
+                    <Label Text="Password char" FontSize="14" FontFamily="Roboto-Regular" VerticalOptions="Center" WidthRequest="110"/>
+                    <syncfusion:SfComboBox x:Name="passwordCharComboBox" SelectedDropDownItemBackground="Transparent" DropDownBackground="Transparent" EnableLiquidGlassEffect="True" IsClearButtonVisible="False" FontFamily="Roboto-Regular" WidthRequest="130" SelectedIndex="3" SelectionChanged="PasswordCharComboBox_SelectionChanged" >
+                        <syncfusion:SfComboBox.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>●</x:String>
+                                <x:String>★</x:String>
+                                <x:String>■</x:String>
+                                <x:String>None</x:String>
+                            </x:Array>
+                        </syncfusion:SfComboBox.ItemsSource>
+                    </syncfusion:SfComboBox>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

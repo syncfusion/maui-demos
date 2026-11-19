@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.TreeGrid.SfTreeGrid.FreezePanes"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.TreeGrid"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:sfgrid="clr-namespace:Syncfusion.Maui.TreeGrid;assembly=Syncfusion.Maui.TreeGrid">
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="margin" x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-10,-12,-10,-12" />
+        </OnPlatform>
+
+        <Style TargetType="sfgrid:TreeGridHeaderCell">
+            <Setter Property="FontFamily" Value="Roboto-Medium" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst" Value="16,14" />
+                        <On Platform="Android" Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="sfgrid:TreeGridCell">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.BindingContext>
+        <local:EmployeeViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Content>
+        <sfgrid:SfTreeGrid x:Name="treeGrid"
+                           Margin="{StaticResource margin}"
+                           x:DataType="local:EmployeeViewModel"
+                           ItemsSource="{Binding EmployeeList}"
+                           ChildPropertyName="ReportsTo"
+                           ParentPropertyName="ID"
+                           SelfRelationRootValue="-1"
+                           AutoExpandMode="RootNodesExpanded"
+                           ExpanderColumn="FirstName"
+                           HeaderRowHeight="56"
+                           FrozenColumnCount="1"
+                           FooterFrozenColumnCount="{OnPlatform WinUI=1,MacCatalyst=1}"
+                           AutoGenerateColumnsMode="None"
+                           RowHeight="48"
+                           ColumnWidthMode="{OnPlatform WinUI=Auto,MacCatalyst=Auto}">
+
+            <sfgrid:SfTreeGrid.Columns>
+                <sfgrid:TreeGridTextColumn MappingName="FirstName"
+                                           HeaderText="First Name" />
+
+                <sfgrid:TreeGridTextColumn MappingName="LastName"
+                                           HeaderText="Last Name"          
+                                            />
+
+                <sfgrid:TreeGridNumericColumn MappingName="ID"
+                                              HeaderText="Employee ID"
+                                              CellTextAlignment="Center"
+                                              HeaderTextAlignment="Center"    
+                                               />
+
+                <sfgrid:TreeGridTextColumn MappingName="Title"
+                                           HeaderText="Title"
+                                           />
+
+                <sfgrid:TreeGridTextColumn MappingName="City"
+                                           HeaderText="City"
+                                         />
+
+                <sfgrid:TreeGridTextColumn MappingName="Rating"
+                                           HeaderText="Rating"
+                                           />
+
+                <sfgrid:TreeGridCheckBoxColumn MappingName="Availability"
+                                               HeaderText="Availability"
+                                           />
+
+                <sfgrid:TreeGridDateColumn MappingName="JoiningDate" 
+                                           Format="dd/MM/yyyy"
+                                           HeaderText="Joining Date"
+                                            />
+
+                <sfgrid:TreeGridTextColumn MappingName="Department"
+                                           HeaderText="Department"
+                                        />
+            </sfgrid:SfTreeGrid.Columns>
+        </sfgrid:SfTreeGrid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

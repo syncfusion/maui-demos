@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SyncfusionControls>
+		<ControlCategory Name="Layouts" StatusTag="New">
+		<Control ControlName="SfGridSplitter"
+             Title="Grid Splitter"
+             Image="gridsplitter.png"
+             StatusTag="New"
+           IsPreview="true"
+             Description="The Grid Splitter is a UI control that allows users to resize columns or rows in a grid layout." >
+			<Sample SampleName="GettingStarted"
+					Title="Getting Started" StatusTag="New"
+					SearchTags="gridsplitter,splitters,grid,layout"
+					CodeViewerPath="GridSplitter/GettingStarted/"/>
+		</Control>
+		</ControlCategory>
+	
+</SyncfusionControls>

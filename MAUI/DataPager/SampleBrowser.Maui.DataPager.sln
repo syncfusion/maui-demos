@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.320.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBrowser.Maui.DataPager", "SampleBrowser.Maui.DataPager\SampleBrowser.Maui.DataPager.csproj", "{9AB776A8-985D-26C6-7405-99378742016A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Release-Xml|Any CPU = Release-Xml|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AB776A8-985D-26C6-7405-99378742016A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AB776A8-985D-26C6-7405-99378742016A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AB776A8-985D-26C6-7405-99378742016A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9AB776A8-985D-26C6-7405-99378742016A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AB776A8-985D-26C6-7405-99378742016A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AB776A8-985D-26C6-7405-99378742016A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9AB776A8-985D-26C6-7405-99378742016A}.Release-Xml|Any CPU.ActiveCfg = Release-Xml|Any CPU
+		{9AB776A8-985D-26C6-7405-99378742016A}.Release-Xml|Any CPU.Build.0 = Release-Xml|Any CPU
+		{9AB776A8-985D-26C6-7405-99378742016A}.Release-Xml|Any CPU.Deploy.0 = Release-Xml|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1712C649-98A5-4349-B7EF-6BDBE4989B85}
+	EndGlobalSection
+EndGlobal
+

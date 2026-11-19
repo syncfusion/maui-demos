@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localCore:SampleView
+    x:Class="SampleBrowser.Maui.LiquidGlass.SfAutoComplete.AutoCompletePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+    xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    xmlns:button="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+     xmlns:local="clr-namespace:SampleBrowser.Maui.LiquidGlass.SfAutoComplete">
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <ScrollView
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            HorizontalScrollBarVisibility="Never"
+            VerticalScrollBarVisibility="Never">
+                <Grid
+                ColumnDefinitions="350"
+                HorizontalOptions="Center"
+                RowSpacing="50">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label
+                    x:Name="jobSearchLabel"
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Job Search"
+                    VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Row="1" Spacing="30">
+                        <core:SfGlassEffectView CornerRadius="25" EffectType="Regular" EnableShadowEffect="false">
+                            <editors:SfAutocomplete Padding="16,0"
+                            x:Name="countryAutoComplete"
+                            FontSize="16"
+                            Background="Transparent"
+                                EnableLiquidGlassEffect="True"
+                                ShowBorder="False"
+                            IsClearButtonVisible="False"
+                            SelectedDropDownItemBackground="Transparent"
+                            ItemsSource="{Binding CountryList}"
+                            DropDownBackground="Transparent"
+                            MaxDropDownHeight="150"
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                            HeightRequest="50"
+                            Placeholder="Country Name"
+                            DropDownStrokeThickness="{OnPlatform Android=0}"
+                            VerticalOptions="Center">
+                            <editors:SfAutocomplete.SelectedDropDownItemTextStyle>
+                                <editors:DropDownTextStyle TextColor="Blue" />
+                            </editors:SfAutocomplete.SelectedDropDownItemTextStyle>
+                            </editors:SfAutocomplete>
+                        </core:SfGlassEffectView>
+
+                        <core:SfGlassEffectView CornerRadius="25" EffectType="Regular" EnableShadowEffect="false">
+                            <editors:SfAutocomplete Padding="16,0"
+                            x:Name="jobFieldAutoComplete"
+                            FontSize="16"
+                            Background="Transparent"
+                                EnableLiquidGlassEffect="True"
+                            IsClearButtonVisible="False"
+                            ShowBorder="false"
+                            HeightRequest="50"
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                            SelectedDropDownItemBackground="Transparent"
+                            DropDownBackground="Transparent"
+                            DropDownStrokeThickness="{OnPlatform Android=0}"
+                            ItemsSource="{Binding JobList}"
+                            MaxDropDownHeight="150"
+                            Placeholder="Job Title"
+                            VerticalOptions="Center">
+                            <editors:SfAutocomplete.SelectedDropDownItemTextStyle>
+                                <editors:DropDownTextStyle TextColor="Blue" />
+                            </editors:SfAutocomplete.SelectedDropDownItemTextStyle>
+                            </editors:SfAutocomplete>
+                        </core:SfGlassEffectView>
+
+                        <core:SfGlassEffectView CornerRadius="25" EffectType="Regular" EnableShadowEffect="false">
+                            <editors:SfAutocomplete Padding="16,0"
+                            x:Name="experienceAutoComplete"
+                                EnableLiquidGlassEffect="True"
+                                Background="Transparent"
+                            FontSize="16"
+                            ShowBorder="False"
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                            IsClearButtonVisible="False"
+                            HeightRequest="50"
+                            SelectedDropDownItemBackground="Transparent"
+                            DropDownBackground="Transparent"
+                            DropDownStrokeThickness="{OnPlatform Android=0}"
+                            ItemsSource="{Binding ExperienceList}"
+                            Placeholder="Experience"
+                            TextSearchMode="Contains"
+                            VerticalOptions="Center">
+                            <editors:SfAutocomplete.SelectedDropDownItemTextStyle>
+                                <editors:DropDownTextStyle TextColor="Blue" />
+                            </editors:SfAutocomplete.SelectedDropDownItemTextStyle>
+                            </editors:SfAutocomplete>
+                        </core:SfGlassEffectView>
+
+                        <core:SfGlassEffectView EffectType="Regular" CornerRadius="20" HeightRequest="40" EnableShadowEffect="false">
+                            <button:SfButton
+                                x:Name="searchButton"
+                                Padding="20,0"
+                                Clicked="Handle_Clicked"
+                                FontSize="16"
+                                Background="Transparent"
+                                Text="Search"
+                                TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                                VerticalOptions="Center"/>
+                        </core:SfGlassEffectView>
+
+                    </VerticalStackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

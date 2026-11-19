@@ -1,0 +1,70 @@
+<Project>
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\GettingStarted\View\GettingStarted.xaml.cs">
+			<Link>Samples\SmartPdfViewer\GettingStarted\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\GettingStarted\ViewModel\ViewModel.cs">
+			<Link>Samples\SmartPdfViewer\GettingStarted\ViewModel\ViewModel.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\GettingStarted\FileService.cs">
+			<Link>Samples\SmartPdfViewer\GettingStarted\FileService.cs</Link>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\GettingStarted\PdfFileData.cs">
+			<Link>Samples\SmartPdfViewer\GettingStarted\PdfFileData.cs</Link>
+		</Compile>
+			<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\SmartFill\View\SmartFillView.xaml.cs">
+			<Link>Samples\SmartPdfViewer\SmartFill\View\SmartFillView.xaml.cs</Link>
+			<DependentUpon>SmartFillView.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\SmartFill\ViewModel\SmartFillViewModel.cs">
+			<Link>Samples\SmartPdfViewer\SmartFill\ViewModel\SmartFillViewModel.cs</Link>
+	   </Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\SmartRedaction\View\SmartRedaction.xaml.cs">
+			<Link>Samples\SmartPdfViewer\SmartRedaction\View\SmartRedaction.xaml.cs</Link>
+			<DependentUpon>SmartRedaction.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\SmartRedaction\ViewModel\SmartRedactionViewModel.cs">
+			<Link>Samples\SmartPdfViewer\SmartRedaction\ViewModel\SmartRedactionViewModel.cs</Link>
+		</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\DocumentSummaries\View\Summarizer.xaml.cs">
+			<Link>Samples\SmartPdfViewer\DocumentSummaries\View\Summarizer.xaml.cs</Link>
+			<DependentUpon>Summarizer.xaml</DependentUpon>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\DocumentSummaries\ViewModel\SmartRedactionViewModel.cs">
+			<Link>Samples\SmartPdfViewer\DocumentSummaries\ViewModel\SummarizerViewModel.cs</Link>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\PdfViewerSamplesList.xml" >
+			<Link>PdfViewerSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\PDF_Succinctly.pdf">
+			<Link>Resources\Pdf\PDF_Succinctly.pdf</Link>
+		</EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\smart-form.pdf">
+      <Link>Resources\Pdf\form_document.pdf</Link>
+    </EmbeddedResource>
+       <EmbeddedResource Include="$(MSBuildThisFileDirectory)\Samples\Pdf\redaction.pdf">
+      <Link>Resources\Pdf\redaction.pdf</Link>
+    </EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\SmartPdfViewer\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>	
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\SmartFill\View\SmartFillView.xaml">
+			<Link>Samples\SmartPdfViewer\SmartFill\View\SmartFillView.xaml</Link>
+		</MauiXaml>	
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\SmartRedaction\View\SmartRedaction.xaml">
+			<Link>Samples\SmartPdfViewer\SmartRedaction\View\SmartRedaction.xaml</Link>
+		</MauiXaml>	
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\SmartPdfViewer\DocumentSummaries\View\Summarizer.xaml">
+			<Link>Samples\SmartPdfViewer\DocumentSummaries\View\Summarizer.xaml</Link>
+		</MauiXaml>	
+	</ItemGroup>
+</Project>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.AIAssistView.SfAIAssistView.Agent"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:aiAssist="clr-namespace:Syncfusion.Maui.AIAssistView;assembly=Syncfusion.Maui.AIAssistView"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.AIAssistView.SfAIAssistView"
+             xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             x:Name="sampleView">
+
+    <localCore:SampleView.BindingContext>
+        <local:GettingStartedViewModel x:Name="viewModel"/>
+    </localCore:SampleView.BindingContext>
+    <localCore:SampleView.Behaviors>
+        <local:SfAIAssistViewAgentBehavior/>
+    </localCore:SampleView.Behaviors>
+
+    <localCore:SampleView.Content>
+
+        <aiAssist:SfAIAssistView x:Name="sfAIAssistView"
+                     EnableConversationHistory="True"
+                     ShowToolbar="True"
+                     ShowHeader="True"
+                     AssistProfile="{Binding AsssistProfile}"
+                     ShowScrollToBottomButton="True"
+                     FooterSuggestions="{Binding FooterSuggestions}"
+                     Agents="{Binding AgentCollection}"
+                     SelectedAgent="{Binding CurrentAgent}"
+                     StopRespondingCommand="{Binding StopRespondingCommand}"
+                     AssistItems="{Binding Messages}" 
+                     ItemCopyCommand="{Binding CopyCommand}" 
+                     RequestCommand="{Binding AssistViewRequestCommand}"
+                     ItemRetryCommand="{Binding RetryCommand}">
+        </aiAssist:SfAIAssistView>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

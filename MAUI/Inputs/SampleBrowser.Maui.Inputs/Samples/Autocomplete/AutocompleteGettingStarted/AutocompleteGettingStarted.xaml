@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localCore:SampleView
+    x:Class="SampleBrowser.Maui.Inputs.SfAutocomplete.AutocompleteGettingStarted"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+    xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight},
+                                      Dark={StaticResource BackgroundDark}}"
+     xmlns:local="clr-namespace:SampleBrowser.Maui.Inputs.SfAutocomplete"
+     x:DataType="local:AutocompleteGettingStarted">
+
+    <localCore:SampleView.Content>
+        <ScrollView
+            HorizontalOptions="Center"
+            HorizontalScrollBarVisibility="Never"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+                Padding="0,50,0,0"
+                ColumnDefinitions="350"
+                HorizontalOptions="Center"
+                RowSpacing="50">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+                    x:Name="jobSearchLabel"
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Job Search"
+                    VerticalOptions="Center" />
+                <VerticalStackLayout Grid.Row="1" Spacing="30">
+                    <core:SfTextInputLayout
+                        ContainerType="Filled"
+                        HeightRequest="56"
+                        Hint="Country Name"
+                        ReserveSpaceForAssistiveLabels="False">
+                        <editors:SfAutocomplete
+                            x:Name="countryAutoComplete"
+                            FontSize="16"
+                            IsClearButtonVisible="False"
+                            ItemsSource="{Binding CountryList}"
+                            MaxDropDownHeight="150"
+                            Placeholder="Enter Country Name" 
+                            DropDownStrokeThickness="{OnPlatform Android=0}"
+                            SelectionTextHighlightColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight},
+                                                                          Dark={StaticResource PrimaryBackground}}"
+                            VerticalOptions="Center" />
+                    </core:SfTextInputLayout>
+
+                    <core:SfTextInputLayout
+                        ContainerType="Filled"
+                        HeightRequest="56"
+                        Hint="Job Title"
+                        ReserveSpaceForAssistiveLabels="False">
+
+                        <editors:SfAutocomplete
+                            x:Name="jobFieldAutoComplete"
+                            FontSize="16"
+                            IsClearButtonVisible="False"
+                            DropDownStrokeThickness="{OnPlatform Android=0}"
+                            ItemsSource="{Binding JobList}"
+                            MaxDropDownHeight="150"
+                            Placeholder="Enter 'B' , 'S' , 'M' to start"
+                            SelectionTextHighlightColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight},
+                                                                          Dark={StaticResource PrimaryBackground}}"
+                            VerticalOptions="Center" />
+                    </core:SfTextInputLayout>
+
+                    <core:SfTextInputLayout
+                        ContainerType="Filled"
+                        HeightRequest="56"
+                        Hint="Experience"
+                        ReserveSpaceForAssistiveLabels="False">
+
+                        <editors:SfAutocomplete
+                            x:Name="experienceAutoComplete"
+                            FontSize="16"
+                            IsClearButtonVisible="False"
+                            DropDownStrokeThickness="{OnPlatform Android=0}"
+                            ItemsSource="{Binding ExperienceList}"
+                            Placeholder="Choose years of experience"
+                            SelectionTextHighlightColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight},
+                                                                          Dark={StaticResource PrimaryBackground}}"
+                            TextSearchMode="Contains"
+                            VerticalOptions="Center" />
+                    </core:SfTextInputLayout>
+
+                    <Button
+                        x:Name="searchButton"
+                        Margin="0,30,0,0"
+                        Clicked="Handle_Clicked"
+                        FontSize="16"
+                        CornerRadius="20"
+                        Text="Search"
+                        VerticalOptions="Center"
+                         />
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

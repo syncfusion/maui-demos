@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Gauges.SfRadialGauge.BounceInAnimation"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges">
+
+    <localCore:SampleView.Content>
+        <gauge:SfRadialGauge x:Name="bounceInAnimationGauge" HorizontalOptions="Center">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis ShowTicks="False">
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:NeedlePointer AnimationEasing="{x:Static Easing.BounceIn}"
+                                             Value="60"
+                                             EnableAnimation="True"
+                                             AnimationDuration="2000"
+                                             NeedleLength="0.7"
+                                             NeedleStartWidth="2"
+                                             NeedleEndWidth="10"
+                                             KnobRadius="0.05"
+                                             TailLength="0.1"
+                                             TailWidth="10">
+                        </gauge:NeedlePointer>
+                    </gauge:RadialAxis.Pointers>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

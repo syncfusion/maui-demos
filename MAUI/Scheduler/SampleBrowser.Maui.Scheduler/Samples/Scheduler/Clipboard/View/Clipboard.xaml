@@ -1,0 +1,66 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.Clipboard"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+                      xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <schedule:SfScheduler x:Name="Scheduler" 
+                                  x:DataType="local:SchedulerClipboardViewModel"
+                                  AppointmentsSource="{Binding Events}"
+								  AppointmentEditorMode="Add,Edit"
+                                  DisplayDate="{Binding DisplayDate}"
+                                  ShowDatePickerButton="True"
+                                  AllowAppointmentDrag="False"
+                                  AllowedViews="Day,Week,WorkWeek,Month"
+                                  View="Month">
+                <schedule:SfScheduler.Behaviors>
+                    <local:SchedulerBehavior/>
+                </schedule:SfScheduler.Behaviors>
+                <schedule:SfScheduler.BindingContext>
+                    <local:SchedulerClipboardViewModel/>
+                </schedule:SfScheduler.BindingContext>
+                <schedule:SfScheduler.AppointmentContextMenu>
+                    <schedule:MenuItemCollection>
+                        <schedule:MenuItem Text="Copy"
+                                           Command="{x:Static local:ClipboardCommands.Copy}"
+                                           CommandParameter="{Binding}">
+                            <schedule:MenuItem.Icon>
+                                <FontImageSource Glyph="&#xE7A0;"
+                                                 FontFamily="MauiMaterialAssets"/>
+                            </schedule:MenuItem.Icon>
+                        </schedule:MenuItem>
+                        <schedule:MenuItem Text="Cut"
+                                           Command="{x:Static local:ClipboardCommands.Cut}"
+                                           CommandParameter="{Binding}">
+                            <schedule:MenuItem.Icon>
+                                <FontImageSource Glyph="&#xE7F1;"
+                                                 FontFamily="MauiMaterialAssets"/>
+                            </schedule:MenuItem.Icon>
+                        </schedule:MenuItem>
+                    </schedule:MenuItemCollection>
+                </schedule:SfScheduler.AppointmentContextMenu>
+                <schedule:SfScheduler.CellContextMenu>
+                    <schedule:MenuItemCollection>
+                        <schedule:MenuItem Text="Paste"
+                                           Command="{x:Static local:ClipboardCommands.Paste}"
+                                           CommandParameter="{Binding}">
+                            <schedule:MenuItem.Icon>
+                                <FontImageSource Glyph="&#xE7F2;"
+                                                 FontFamily="MauiMaterialAssets"/>
+                            </schedule:MenuItem.Icon>
+                        </schedule:MenuItem>
+                    </schedule:MenuItemCollection>
+                </schedule:SfScheduler.CellContextMenu>
+            </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+</localCore:SampleView>

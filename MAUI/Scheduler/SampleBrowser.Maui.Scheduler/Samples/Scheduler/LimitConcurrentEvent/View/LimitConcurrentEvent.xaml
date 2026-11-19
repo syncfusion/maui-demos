@@ -1,0 +1,60 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleBrowser.Maui.Scheduler.SfScheduler.LimitConcurrentEvent"
+             xmlns:local="clr-namespace:SampleBrowser.Maui.Scheduler.SfScheduler"
+             xmlns:thickness="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:slider="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler">
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="-4,0,-4,0"/>
+                    <On Platform="UWP" Value="-4,0,-6,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <schedule:SfScheduler x:Name="Scheduler" x:DataType="local:SchedulerLimitConcurrentEventViewModel"
+                                 AppointmentsSource="{Binding Events}"
+                                 MinimumDateTime="{Binding MinDateTime}"
+                                 MaximumDateTime="{Binding MaxDateTime}"
+                                 DisplayDate="{Binding DisplayDate}"
+                                 ShowDatePickerButton="True"
+                                 AllowViewNavigation="True"
+                                 AllowedViews="Day,Week,WorkWeek"
+                                 View="Week">
+                <schedule:SfScheduler.BindingContext>
+                    <local:SchedulerLimitConcurrentEventViewModel/>
+                </schedule:SfScheduler.BindingContext>
+            </schedule:SfScheduler>
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Maximum events per slot"
+                           LineBreakMode="WordWrap"
+                           FontSize="16"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"
+                           TextColor="{DynamicResource SfSchedulerNormalCurrentMonthTextColor}"/>
+                    <slider:SfSlider x:Name="maxEventStackSlider"
+                                     Value="1"
+                                     Minimum="0"
+                                     Maximum="4"
+                                     StepSize="1"
+                                     Interval="1"
+                                     ShowTicks="True"
+                                     ShowLabels="True"
+                                     MinorTicksPerInterval="0"
+                                     HorizontalOptions="Start"
+                                     VerticalOptions="Center"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+    <localCore:SampleView.Behaviors>
+        <local:LimitConcurrentEventBehavior/>
+    </localCore:SampleView.Behaviors>
+</localCore:SampleView>

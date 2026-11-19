@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\InteractiveViewer\GettingStarted\View\GettingStarted.xaml.cs">
+      <Link>Samples\InteractiveViewer\GettingStarted\View\GettingStarted.xaml.cs</Link>
+      <DependentUpon>GettingStarted.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\InteractiveViewer\CircuitDiagramViewer\View\CircuitDiagramViewer.xaml.cs">
+      <Link>Samples\InteractiveViewer\CircuitDiagramViewer\View\CircuitDiagramViewer.xaml.cs</Link>
+      <DependentUpon>CircuitDiagramViewer.xaml</DependentUpon>
+    </Compile>
+     
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\InteractiveViewer\FloorPlanViewer\View\FloorPlanViewer.xaml.cs">
+      <Link>Samples\InteractiveViewer\FloorPlanViewer\View\FloorPlanViewer.xaml.cs</Link>
+      <DependentUpon>FloorPlanViewer.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\InteractiveViewer\Common\InteractiveViewerBehavior.cs">
+      <Link>Samples\InteractiveViewer\Common\InteractiveViewerBehavior.cs</Link>
+    </Compile>  
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\InteractiveViewerSamplesList.xml" >
+      <Link>InteractiveViewerSamplesList.xml</Link>
+    </EmbeddedResource>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\InteractiveViewer\GettingStarted\View\GettingStarted.xaml">
+      <Link>Samples\InteractiveViewer\GettingStarted\View\GettingStarted.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\InteractiveViewer\CircuitDiagramViewer\View\CircuitDiagramViewer.xaml">
+      <Link>Samples\InteractiveViewer\CircuitDiagramViewer\View\CircuitDiagramViewer.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\InteractiveViewer\FloorPlanViewer\View\FloorPlanViewer.xaml">
+      <Link>Samples\InteractiveViewer\FloorPlanViewer\View\FloorPlanViewer.xaml</Link>
+    </MauiXaml>
+  </ItemGroup>
+</Project>

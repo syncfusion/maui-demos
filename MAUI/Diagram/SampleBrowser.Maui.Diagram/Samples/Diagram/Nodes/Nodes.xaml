@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:diagram="clr-namespace:Syncfusion.Maui.Diagram;assembly=Syncfusion.Maui.Diagram"
+             xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             x:Class="SampleBrowser.Maui.Diagram.SfDiagram.Nodes">
+
+    <localCore:SampleView.Content>
+        <Grid x:Name="grid" RowDefinitions="*">
+            <!-- Diagram Control -->
+            <diagram:SfDiagram x:Name="Diagram" Nodes="{Binding NodeCollection}"
+                               Grid.Row="0"
+                               BackgroundColor="#FAFAFA"
+                               HorizontalOptions="Fill"
+                               VerticalOptions="Fill"
+                               Created="OnCreated">
+            </diagram:SfDiagram>
+        </Grid>
+    </localCore:SampleView.Content>
+
+    <localCore:SampleView.OptionView>
+        <ContentView>
+            <ScrollView Padding="0, 0, 5, 0">
+                <StackLayout Orientation="Vertical">
+                    <!-- Basic Shapes Category -->
+                    <Label Text="Basic Shapes" 
+                           Margin="0,15,0,8" 
+                           FontSize="15" 
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+
+                    <!-- Basic Shape Selection -->
+                    <Grid x:Name="basicShapeGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Shape" 
+                               Margin="0,0,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfComboBox x:Name="basicShapeComboBox" 
+                                            FontSize="12" 
+                                            Grid.Column="1"
+                                            Margin="5,0,0,0" 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End" 
+                                            IsClearButtonVisible="False" />
+                    </Grid>
+
+                    <!-- Flow Shapes Category -->
+                    <Label Text="Flow Shapes" 
+                           Margin="0,20,0,8" 
+                           FontSize="15" 
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+
+                    <!-- Flow Shape Selection -->
+                    <Grid x:Name="flowShapeGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Shape" 
+                               Margin="0,0,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfComboBox x:Name="flowShapeComboBox" 
+                                            FontSize="12" 
+                                            Grid.Column="1"
+                                            Margin="5,0,0,0" 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End" 
+                                            IsClearButtonVisible="False" />
+                    </Grid>
+
+                    <!-- Styling Options Category -->
+                    <Label Text="Styling" 
+                           Margin="0,20,0,8" 
+                           FontSize="15" 
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+
+                    <!-- Fill Color -->
+                    <Grid x:Name="fillColorGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Fill Color" 
+                               Margin="0,0,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfComboBox x:Name="fillColorComboBox" 
+                                            FontSize="12" 
+                                            Grid.Column="1"
+                                            Margin="5,0,0,0" 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End" 
+                                            IsClearButtonVisible="False" />
+                    </Grid>
+
+                    <!-- Text Color -->
+                    <Grid x:Name="textColorGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Text Color" 
+                               Margin="0,15,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfComboBox x:Name="textColorComboBox" 
+                                            FontSize="12" 
+                                            Grid.Column="1"
+                                            Margin="5,15,0,0" 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End" 
+                                            IsClearButtonVisible="False" />
+                    </Grid>
+
+                    <!-- Stroke Color -->
+                    <Grid x:Name="strokeColorGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Stroke Color" 
+                               Margin="0,15,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfComboBox x:Name="strokeColorComboBox" 
+                                            FontSize="12" 
+                                            Grid.Column="1"
+                                            Margin="5,15,0,0" 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End" 
+                                            IsClearButtonVisible="False" />
+                    </Grid>
+
+                    <!-- Stroke Dash Style -->
+                    <Grid x:Name="strokeDashGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Dash Style" 
+                               Margin="0,15,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfComboBox x:Name="dashStyleComboBox" 
+                                            FontSize="12" 
+                                            Grid.Column="1"
+                                            Margin="5,15,0,0" 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="End" 
+                                            IsClearButtonVisible="False" />
+                    </Grid>
+
+                    <!-- Stroke Width -->
+                    <Grid x:Name="strokeWidthGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Stroke Width" 
+                               Margin="0,15,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfNumericEntry x:Name="strokeWidthEntry" 
+                                                FontSize="12" 
+                                                Grid.Column="1"
+                                                Margin="5,15,0,0" 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="End"
+                                                Minimum="1"
+                                                Maximum="10" />
+                    </Grid>
+
+                    <!-- Size Options Category -->
+                    <Label Text="Size" 
+                           Margin="0,20,0,8" 
+                           FontSize="15" 
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}" />
+
+                    <!-- Node Width -->
+                    <Grid x:Name="nodeWidthGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Node Width" 
+                               Margin="0,0,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfNumericEntry x:Name="nodeWidthEntry" 
+                                                FontSize="12" 
+                                                Grid.Column="1"
+                                                Margin="5,0,0,0" 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="End"
+                                                Minimum="50"
+                                                Maximum="300" />
+                    </Grid>
+
+                    <!-- Node Height -->
+                    <Grid x:Name="nodeHeightGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Node Height" 
+                               Margin="0,15,0,0" 
+                               LineBreakMode="WordWrap" 
+                               FontSize="14" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               TextColor="{AppThemeBinding Light={StaticResource TileTextColourAlt1Light}, Dark={StaticResource TileTextColourAlt1}}"/>
+                        <editors:SfNumericEntry x:Name="nodeHeightEntry" 
+                                                FontSize="12" 
+                                                Grid.Column="1"
+                                                Margin="5,15,0,0" 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="End"
+                                                Minimum="50"
+                                                Maximum="300" />
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+    </localCore:SampleView.OptionView>
+
+</localCore:SampleView>

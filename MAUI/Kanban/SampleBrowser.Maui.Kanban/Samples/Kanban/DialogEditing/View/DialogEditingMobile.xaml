@@ -1,0 +1,211 @@
+<localCore:SampleView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="SampleBrowser.Maui.Kanban.SfKanban.DialogEditingMobile"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.Kanban.SfKanban"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:kanban="clr-namespace:Syncfusion.Maui.Kanban;assembly=Syncfusion.Maui.Kanban"
+                      xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+                      xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+                      xmlns:textInputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+                      xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs">
+
+    <localCore:SampleView.BindingContext>
+        <local:DialogEditingViewModel x:Name="ViewModel" />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="LightEntry">#E7E0EC</Color>
+            <Color x:Key="DarkEntry">#49454F</Color>
+            <Color x:Key="LightButton">#6750A4</Color>
+            <Color x:Key="DarkButton">#D0BCFF</Color>
+            <Color x:Key="LightAddCardButtonBackground">#F7F2FB</Color>
+            <Color x:Key="DarkAddCardButtonBackground">#25232A</Color>
+            <Color x:Key="LightAddCardButton">#EEE8F4</Color>
+            <Color x:Key="DarkAddCardButton">#302D38</Color>
+            <Color x:Key="LightAddCardButtonText">#302D38</Color>
+            <Color x:Key="DarkAddCardButtonText">#E6E1E5</Color>
+            <Color x:Key="LightStroke">#79747E</Color>
+            <Color x:Key="DarkStroke">#938F99</Color>
+            <Color x:Key="LightHighlightBackground">#6750A414</Color>
+            <Color x:Key="DarkHighlightBackground">#D0BCFF14</Color>
+            <Color x:Key="LightRippleBackground">#6750A41F</Color>
+            <Color x:Key="DarkRippleBackground">#D0BCFF1F</Color>
+        </ResourceDictionary>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid ColumnSpacing="10">
+            <kanban:SfKanban x:Name="kanban"
+                             CardTapped="OnKanbanCardTapped"
+                             AutoGenerateColumns="False"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill"
+                             ItemsSource="{Binding Cards}">
+                <kanban:KanbanColumn Title="To Do"
+                                     AllowDrag="False"
+                                     Categories="Open"
+                                     MinimumLimit="5"
+                                     MaximumLimit="15" />
+                <kanban:KanbanColumn Title="In Progress"
+                                     AllowDrag="False"
+                                     Categories="In Progress"
+                                     MinimumLimit="3"
+                                     MaximumLimit="8" />
+                <kanban:KanbanColumn Title="Code Review"
+                                     AllowDrag="False"
+                                     Categories="Code Review"
+                                     MinimumLimit="5"
+                                     MaximumLimit="10" />
+                <kanban:KanbanColumn Title="Done"
+                                     AllowDrag="False"
+                                     Categories="Done"
+                                     MinimumLimit="8" />
+            </kanban:SfKanban>
+
+            <popup:SfPopup x:Name="popup" InputTransparent="{OnPlatform iOS=True}"
+                           IsOpen="{Binding IsEditorOpen}"
+                           HeightRequest="750"
+                           WidthRequest="400"
+                           ShowHeader="True"
+                           ShowFooter="True"
+                           AutoSizeMode="None">
+
+                <popup:SfPopup.HeaderTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding EditorTitle}"
+                               FontSize="22"
+                               Padding="24" />
+                    </DataTemplate>
+                </popup:SfPopup.HeaderTemplate>
+
+                <popup:SfPopup.ContentTemplate>
+                    <DataTemplate>
+                        <ScrollView>
+                            <VerticalStackLayout Padding="24,0,24,0">
+
+                                <!-- Title -->
+                                <textInputLayout:SfTextInputLayout Hint="Title" ContainerType="Outlined">
+                                    <Entry Text="{Binding EditingTitle}" Placeholder="Enter title" />
+                                </textInputLayout:SfTextInputLayout>
+
+                                <!-- Status -->
+                                <textInputLayout:SfTextInputLayout Hint="Status" ContainerType="Outlined">
+                                    <inputs:SfComboBox ItemsSource="{Binding Statuses}"
+                                                       SelectedItem="{Binding EditingStatus}"
+                                                       IsClearButtonVisible="False"
+                                                       Placeholder="Select status" />
+                                </textInputLayout:SfTextInputLayout>
+
+                                <!-- Tag -->
+                                <textInputLayout:SfTextInputLayout Hint="Tag" ContainerType="Outlined">
+                                    <Entry Text="{Binding EditingTag}" Placeholder="Enter tags" />
+                                </textInputLayout:SfTextInputLayout>
+
+                                <!-- Assignee -->
+                                <textInputLayout:SfTextInputLayout Hint="Assignee" ContainerType="Outlined">
+                                    <inputs:SfComboBox ItemsSource="{Binding Assignees}"
+                                                       SelectedItem="{Binding EditingAssignee}"
+                                                       IsClearButtonVisible="False"
+                                                       Placeholder="Select assignee" />
+                                </textInputLayout:SfTextInputLayout>
+
+                                <!-- Priority -->
+                                <textInputLayout:SfTextInputLayout Hint="Priority" ContainerType="Outlined">
+                                    <inputs:SfComboBox ItemsSource="{Binding Priorities}"
+                                                       SelectedItem="{Binding EditingPriority}"
+                                                       IsClearButtonVisible="False"
+                                                       Placeholder="Select priority" />
+                                </textInputLayout:SfTextInputLayout>
+
+                                <!-- Description -->
+                                <textInputLayout:SfTextInputLayout Hint="Description" ContainerType="Outlined">
+                                    <Editor Text="{Binding EditingSummary}" AutoSize="TextChanges"
+                                            Placeholder="Enter summary" />
+                                </textInputLayout:SfTextInputLayout>
+
+                            </VerticalStackLayout>
+                        </ScrollView>
+                    </DataTemplate>
+                </popup:SfPopup.ContentTemplate>
+
+                <popup:SfPopup.FooterTemplate>
+                    <DataTemplate>
+                        <Grid Padding="24" ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="15">
+                            <!-- Delete button (only visible in edit mode) -->
+                            <Border Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding IsEditMode}" Stroke="Transparent">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="15"/>
+                                </Border.StrokeShape>
+                                <local:SfEffectsViewAdv RippleBackground="{AppThemeBinding Light={StaticResource LightRippleBackground}, Dark={StaticResource DarkRippleBackground}}" 
+                                                        HighlightBackground="{AppThemeBinding Light={StaticResource LightHighlightBackground}, Dark={StaticResource DarkHighlightBackground}}">
+                                    <local:SfEffectsViewAdv.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding DeleteCommand}"/>
+                                    </local:SfEffectsViewAdv.GestureRecognizers>
+                                    <Label Text="Delete" Padding="10"
+                                           TextColor="{AppThemeBinding Light={StaticResource LightButton}, Dark={StaticResource DarkButton}}" FontSize="14">
+                                    </Label>
+                                </local:SfEffectsViewAdv>
+                            </Border>
+
+                            <!-- Spacer -->
+                            <BoxView Grid.Column="1" />
+
+                            <!-- Save button -->
+                            <Border Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" Stroke="Transparent">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="15"/>
+                                </Border.StrokeShape>
+                                <local:SfEffectsViewAdv RippleBackground="{AppThemeBinding Light={StaticResource LightRippleBackground}, Dark={StaticResource DarkRippleBackground}}" 
+                                                        HighlightBackground="{AppThemeBinding Light={StaticResource LightHighlightBackground}, Dark={StaticResource DarkHighlightBackground}}" >
+                                    <local:SfEffectsViewAdv.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SaveCommand}"/>
+                                    </local:SfEffectsViewAdv.GestureRecognizers>
+                                    <Label Text="Save" Padding="10"
+                                           TextColor="{AppThemeBinding Light={StaticResource LightButton}, Dark={StaticResource DarkButton}}" FontSize="14">
+                                    </Label>
+                                </local:SfEffectsViewAdv>
+                            </Border>
+
+                            <!-- Cancel button -->
+                            <Border Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Stroke="Transparent">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20"/>
+                                </Border.StrokeShape>
+                                <local:SfEffectsViewAdv RippleBackground="{AppThemeBinding Light={StaticResource LightRippleBackground}, Dark={StaticResource DarkRippleBackground}}" 
+                                                        HighlightBackground="{AppThemeBinding Light={StaticResource LightHighlightBackground}, Dark={StaticResource DarkHighlightBackground}}">
+                                    <local:SfEffectsViewAdv.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding CancelCommand}"/>
+                                    </local:SfEffectsViewAdv.GestureRecognizers>
+                                    <Label Text="Cancel" Padding="10"
+                                           TextColor="{AppThemeBinding Light={StaticResource LightButton}, Dark={StaticResource DarkButton}}" FontSize="14">
+                                    </Label>
+                                </local:SfEffectsViewAdv>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </popup:SfPopup.FooterTemplate>
+            </popup:SfPopup>
+
+        </Grid>
+    </localCore:SampleView.Content>
+    <localCore:SampleView.OptionView>
+        <Border Background="{AppThemeBinding Light={StaticResource LightAddCardButtonBackground}, Dark={StaticResource DarkAddCardButtonBackground}}"
+        Grid.Column="1">
+            <Grid>
+                <Border StrokeThickness="1" Stroke="{AppThemeBinding Light={StaticResource LightStroke}, Dark={StaticResource DarkStroke}}" VerticalOptions="Center" HorizontalOptions="Center" Margin="24">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <local:SfEffectsViewAdv RippleBackground="{AppThemeBinding Light={StaticResource LightRippleBackground}, Dark={StaticResource DarkRippleBackground}}"
+                                HighlightBackground="{AppThemeBinding Light={StaticResource LightHighlightBackground}, Dark={StaticResource DarkHighlightBackground}}">
+                        <local:SfEffectsViewAdv.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAddNewCardButtonClicked"/>
+                        </local:SfEffectsViewAdv.GestureRecognizers>
+                        <Label Text="Add New Card" Padding="24" FontSize="14" />
+                    </local:SfEffectsViewAdv>
+                </Border>
+            </Grid>
+        </Border>
+    </localCore:SampleView.OptionView>
+</localCore:SampleView>

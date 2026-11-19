@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localCore:SampleView x:Class="SampleBrowser.Maui.DataPager.SfDataPager.PaginatedTreeGrid"
+                      xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+                      xmlns:local="clr-namespace:SampleBrowser.Maui.DataPager.SfDataPager"
+                      xmlns:localCore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+                      xmlns:sftreegrid="clr-namespace:Syncfusion.Maui.TreeGrid;assembly=Syncfusion.Maui.TreeGrid"
+                      xmlns:sfpager="clr-namespace:Syncfusion.Maui.DataPager;assembly=Syncfusion.Maui.DataPager">
+
+    <localCore:SampleView.BindingContext>
+        <local:EmployeeInfoViewModel />
+    </localCore:SampleView.BindingContext>
+
+    <localCore:SampleView.Resources>
+        <OnPlatform x:Key="optionRowSpacing"
+                    x:TypeArguments="x:Double">
+            <On Platform="iOS, WinUI, MacCatalyst"
+                Value="5"></On>
+        </OnPlatform>
+        <OnPlatform x:Key="datagridMargin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-12,-12,-12,0" />
+        </OnPlatform>
+        <OnPlatform x:Key="datapagerMargin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-12,0,-12,-12" />
+        </OnPlatform>
+        <OnPlatform x:Key="borderMargin"
+                    x:TypeArguments="Thickness">
+            <On Platform="WinUI,MacCatalyst"
+                Value="-12,0,-12,0" />
+        </OnPlatform>
+        <Style TargetType="sftreegrid:TreeGridHeaderCell">
+            <Setter Property="FontFamily"
+                    Value="Roboto-Medium" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS,WinUI,MacCatalyst"
+                            Value="16,14" />
+                        <On Platform="Android"
+                            Value="16,17" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="sftreegrid:TreeGridCell">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+        <Color x:Key="lightThemeColor">#CAC4D0</Color>
+        <Color x:Key="darkThemeColor">#49454F</Color>
+    </localCore:SampleView.Resources>
+
+    <localCore:SampleView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+
+            <!--SfTreeGrid-->
+            <sftreegrid:SfTreeGrid x:Name="treeGrid"
+                                   Margin="{StaticResource datagridMargin}"
+                                   Grid.Row="0"
+                                   AutoGenerateColumnsMode="None"
+                                   HeaderRowHeight="52"
+                                   RowHeight="48"
+                                   ColumnWidthMode="Fill"
+                                   HeaderGridLinesVisibility="Both"
+                                   GridLinesVisibility="Both"
+                                   AutoExpandMode="AllNodesExpanded"
+                                   ChildPropertyName="Children"
+                                   ItemsSource="{Binding Source={x:Reference dataPager}, Path=PagedSource }">
+                <sftreegrid:SfTreeGrid.Columns>
+                    <sftreegrid:TreeGridTextColumn HeaderText="First Name"
+                                                   MappingName="FirstName"
+                                                   ColumnWidthMode="Auto" />
+                    <sftreegrid:TreeGridTextColumn HeaderText="Last Name"
+                                                   MappingName="LastName"
+                                                   MinimumWidth="115" />
+                    <sftreegrid:TreeGridTextColumn HeaderText="Title"
+                                                   MappingName="Title"
+                                                   ColumnWidthMode="Auto" />
+                    <sftreegrid:TreeGridDateColumn HeaderText="Joining Date"
+                                                       MappingName="JoiningDate"
+                                                       MinimumWidth="115" />
+                    <sftreegrid:TreeGridNumericColumn MappingName="Salary"
+                                                      HeaderText="Salary"
+                                                      Format="C"
+                                                      MinimumWidth="115" />
+                    <sftreegrid:TreeGridNumericColumn HeaderText="Reports To"
+                                                      MappingName="ReportsTo"
+                                                      ColumnWidthMode="Auto" />
+                </sftreegrid:SfTreeGrid.Columns>
+            </sftreegrid:SfTreeGrid>
+
+            <!--Border-->
+            <Border Grid.Row="1"
+                    Margin="{StaticResource borderMargin}"
+                    HeightRequest="1"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource lightThemeColor}, Dark={StaticResource darkThemeColor}}" />
+
+            <!--SfDataPager-->
+            <sfpager:SfDataPager x:Name="dataPager"
+                                 Grid.Row="2"
+                                 Margin="{StaticResource datapagerMargin}"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Center"
+                                 HeightRequest="36"
+                                 ButtonSize="36"
+                                 ButtonSpacing="8"
+                                 ButtonFontSize="14"
+                                 PageSize="3"
+                                 PageCount="6"
+                                 NumericButtonCount="{OnPlatform iOS='6',MacCatalyst='8',Android='6',WinUI='8'}"
+                                 x:DataType="local:EmployeeInfoViewModel"
+                                 Source="{Binding PersonDetails}">
+            </sfpager:SfDataPager>
+        </Grid>
+    </localCore:SampleView.Content>
+
+</localCore:SampleView>

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localcore:SampleView
+    x:Class="SampleBrowser.Maui.Carousel.Carousel.LoadMoreDesktop"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:carousel="clr-namespace:Syncfusion.Maui.Carousel;assembly=Syncfusion.Maui.Carousel"
+    xmlns:imageExtension="clr-namespace:SampleBrowser.Maui.Base.Converters;assembly=SampleBrowser.Maui.Base"
+    xmlns:local="clr-namespace:SampleBrowser.Maui.Carousel.Carousel"
+    xmlns:localcore="clr-namespace:SampleBrowser.Maui.Base;assembly=SampleBrowser.Maui.Base"
+    xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    x:DataType="local:CarouselViewModel"
+    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+
+
+    <localcore:SampleView.Resources>
+        <imageExtension:SfImageSourceConverter x:Key="imageconverter" />
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Margin" Value="8,0,0,16" />
+        </Style>
+        <Style TargetType="carousel:SfCarousel">
+            <Setter Property="AllowLoadMore" Value="True" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="ItemHeight" Value="160" />
+            <Setter Property="ItemWidth" Value="160" />
+            <Setter Property="LoadMoreItemsCount" Value="3" />
+            <Setter Property="ViewMode" Value="Linear" />
+        </Style>
+    </localcore:SampleView.Resources>
+    <localcore:SampleView.BindingContext>
+        <local:CarouselViewModel />
+    </localcore:SampleView.BindingContext>
+    <localcore:SampleView.Content>
+
+
+        <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center">
+
+            <Label Text="Food" ></Label>
+
+            <carousel:SfCarousel
+                x:Name="touristLoadMore"
+                ItemHeight="200"
+                ItemWidth="200"
+                ItemsSource="{Binding TransportCollection}">
+                <carousel:SfCarousel.ItemTemplate>
+                    <DataTemplate x:DataType="local:CarouselModel">
+                        <Border
+                                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                HeightRequest="200"
+                                HorizontalOptions="Center"
+                                Stroke="#CAC4D0"
+                                StrokeShape="RoundRectangle 8,8,8,8"
+                                StrokeThickness="1"
+                                WidthRequest="200">
+                            <Label
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                    FontFamily="CarouselIcon"
+                                    FontSize="75"
+                                    HeightRequest="100"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Unicode}"
+                                    TextColor="{Binding ItemColor}"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="100" />
+                        </Border>
+                    </DataTemplate>
+                </carousel:SfCarousel.ItemTemplate>
+                <carousel:SfCarousel.LoadMoreView>
+                    <core:SfEffectsView>
+                        <Grid HeightRequest="200" WidthRequest="200">
+                            <Border
+                                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                HeightRequest="200"
+                                HorizontalOptions="Center"
+                                Stroke="#CAC4D0"
+                                StrokeShape="RoundRectangle 8,8,8,8"
+                                StrokeThickness="1"
+                                WidthRequest="200">
+
+                                <Label
+                                    Margin="0"
+                                    FontFamily="RobotoMedium"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Load More"
+                                    TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="106" />
+                            </Border>
+                        </Grid>
+                    </core:SfEffectsView>
+                </carousel:SfCarousel.LoadMoreView>
+            </carousel:SfCarousel>
+
+            <Label Margin="8,24,0,16" Text="Banking" />
+
+            <carousel:SfCarousel
+                x:Name="iconsLoadMore"
+                ItemHeight="200"
+                ItemSpacing="12"
+                ItemWidth="200"
+                ItemsSource="{Binding OfficeCollection}"
+                ViewMode="Linear">
+                <carousel:SfCarousel.ItemTemplate>
+                    <DataTemplate x:DataType="local:CarouselModel">
+                        <Border
+                                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                HeightRequest="200"
+                                HorizontalOptions="Center"
+                                Stroke="#CAC4D0"
+                                StrokeShape="RoundRectangle 8,8,8,8"
+                                StrokeThickness="1"
+                                WidthRequest="200">
+                            <Label
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                    FontFamily="CarouselIcon"
+                                    FontSize="75"
+                                    HeightRequest="100"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Unicode}"
+                                    TextColor="{Binding ItemColor}"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="100" />
+                        </Border>
+                    </DataTemplate>
+                </carousel:SfCarousel.ItemTemplate>
+                <carousel:SfCarousel.LoadMoreView>
+                    <core:SfEffectsView>
+                        <Grid HeightRequest="200" WidthRequest="200" BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}">
+                            <Border
+                                Background="{AppThemeBinding Light={StaticResource BackgroundLight}, Dark={StaticResource BackgroundDark}}"
+                                HeightRequest="200"
+                                HorizontalOptions="Center"
+                                Stroke="#CAC4D0"
+                                StrokeShape="RoundRectangle 8,8,8,8"
+                                StrokeThickness="1"
+                                WidthRequest="200">
+
+                                <Label
+                                    Margin="0"
+                                    FontFamily="RobotoMedium"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Load More"
+                                    TextColor="{AppThemeBinding Light={StaticResource TextColourLight}, Dark={StaticResource TextColour}}"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="106" />
+                            </Border>
+                        </Grid>
+                    </core:SfEffectsView>
+                </carousel:SfCarousel.LoadMoreView>
+            </carousel:SfCarousel>
+        </VerticalStackLayout>
+
+    </localcore:SampleView.Content>
+
+</localcore:SampleView>

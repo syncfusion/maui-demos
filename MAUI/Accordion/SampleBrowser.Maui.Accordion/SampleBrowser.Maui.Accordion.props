@@ -1,0 +1,33 @@
+﻿
+<Project>
+	<ItemGroup>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Accordion\GettingStarted\View\GettingStarted.xaml.cs">
+			<Link>Samples\Accordion\GettingStarted\View\GettingStarted.xaml.cs</Link>
+			<DependentUpon>GettingStarted.xaml</DependentUpon>
+		</Compile>
+
+
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Accordion\GettingStarted\Model\EmployeeInfo.cs">
+			<Link>Samples\Accordion\GettingStarted\Model\EmployeeInfo.cs</Link>
+		</Compile>
+		
+		<Compile Include="$(MSBuildThisFileDirectory)\Samples\Accordion\GettingStarted\ViewModel\EmployeeDetails.cs">
+			<Link>Samples\Accordion\GettingStarted\ViewModel\EmployeeDetails.cs</Link>
+		</Compile>
+		
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)\AccordionSamplesList.xml" >
+			<Link>AccordionSamplesList.xml</Link>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Accordion\GettingStarted\View\GettingStarted.xaml">
+			<Link>Samples\Accordion\GettingStarted\View\GettingStarted.xaml</Link>
+		</MauiXaml>
+	</ItemGroup>
+	
+</Project>

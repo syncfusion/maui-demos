@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AgendaView\View\AgendaView.xaml.cs">
+    <Link>Samples\Scheduler\AgendaView\View\AgendaView.xaml.cs</Link>
+    <DependentUpon>AgendaView.xaml</DependentUpon>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AgendaView\ViewModel\AgendaViewModel.cs">
+    <Link>Samples\Scheduler\AgendaView\ViewModel\AgendaViewModel.cs</Link>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AgendaView\Converter\MonthToImageConverter.cs">
+    <Link>Samples\Scheduler\AgendaView\Converter\MonthToImageConverter.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AgendaView\Behavior\AgendaViewBehavior.cs">
+    <Link>Samples\Scheduler\AgendaView\Behavior\AgendaViewBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentEditor\View\AppointmentEditor.xaml.cs">
+    <Link>Samples\Scheduler\AppointmentEditor\View\AppointmentEditor.xaml.cs</Link>
+    <DependentUpon>AppointmentEditor.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentEditor\ViewModel\SchedulerAppointmentEditorViewModel.cs">
+    <Link>Samples\Scheduler\AppointmentEditor\ViewModel\SchedulerAppointmentEditorViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentEditor\Behavior\AppointmentEditorBehavior.cs">
+    <Link>Samples\Scheduler\AppointmentEditor\Behavior\AppointmentEditorBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentTooltip\View\AppointmentTooltip.xaml.cs">
+    <Link>Samples\Scheduler\AppointmentTooltip\View\AppointmentTooltip.xaml.cs</Link>
+    <DependentUpon>AppointmentTooltip.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentTooltip\ViewModel\SchedulerAppointmentTooltipViewModel.cs">
+    <Link>Samples\Scheduler\AppointmentTooltip\ViewModel\SchedulerAppointmentTooltipViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentTooltip\Behavior\AppointmentTooltipBehavior.cs">
+    <Link>Samples\Scheduler\AppointmentTooltip\Behavior\AppointmentTooltipBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppearanceCustomization\View\AppearanceCustomization.xaml.cs">
+    <Link>Samples\Scheduler\AppearanceCustomization\View\AppearanceCustomization.xaml.cs</Link>
+    <DependentUpon>AppearanceCustomization.xaml</DependentUpon>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppearanceCustomization\Behavior\AppearanceCustomizationBehavior.cs">
+    <Link>Samples\Scheduler\AppearanceCustomization\Behavior\AppearanceCustomizationBehavior.cs</Link>
+  </Compile>
+    
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Common\Meeting.cs">
+    <Link>Samples\Scheduler\Common\Meeting.cs</Link>
+  </Compile>
+  
+   <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Common\SchedulerBehavior.cs">
+    <Link>Samples\Scheduler\Common\SchedulerBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Common\SchedulerHelper.cs">
+    <Link>Samples\Scheduler\Common\SchedulerHelper.cs</Link>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Common\SchedulerDataBindingViewModel.cs">
+    <Link>Samples\Scheduler\Common\SchedulerDataBindingViewModel.cs</Link>
+  </Compile>
+      
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\GettingStarted\View\GettingStarted.xaml.cs">
+    <Link>Samples\Scheduler\GettingStarted\View\GettingStarted.xaml.cs</Link>
+    <DependentUpon>GettingStarted.xaml</DependentUpon>
+  </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Resize\View\Resize.xaml.cs">
+		<Link>Samples\Scheduler\Resize\View\Resize.xaml.cs</Link>
+		<DependentUpon>Resize.xaml</DependentUpon>
+	</Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\GettingStarted\ViewModel\SchedulerGettingStartedViewModel.cs">
+    <Link>Samples\Scheduler\GettingStarted\ViewModel\SchedulerGettingStartedViewModel.cs</Link>
+  </Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Resize\ViewModel\SchedulerResizeViewModel.cs">
+		<Link>Samples\Scheduler\Resize\ViewModel\SchedulerResizeViewModel.cs</Link>
+	</Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\GettingStarted\Behavior\GettingStartedBehavior.cs">
+    <Link>Samples\Scheduler\GettingStarted\Behavior\GettingStartedBehavior.cs</Link>
+  </Compile>
+    
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\LoadOnDemand\View\LoadOnDemand.xaml.cs">
+    <Link>Samples\Scheduler\LoadOnDemand\View\LoadOnDemand.xaml.cs</Link>
+    <DependentUpon>LoadOnDemand.xaml</DependentUpon>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\LoadOnDemand\ViewModel\LoadOnDemandViewModel.cs">
+    <Link>Samples\Scheduler\LoadOnDemand\ViewModel\LoadOnDemandViewModel.cs</Link>
+  </Compile>
+    
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthCellCustomization\View\HeatMap.xaml.cs">
+    <Link>Samples\Scheduler\MonthCellCustomization\View\HeatMap.xaml.cs</Link>
+    <DependentUpon>HeatMap.xaml</DependentUpon>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthCellCustomization\Converters\BackgroundToTextColorConverter.cs">
+    <Link>Samples\Scheduler\MonthCellCustomization\Converters\BackgroundToTextColorConverter.cs</Link>
+  </Compile>
+  
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthCellCustomization\Converters\DateToColorConverter.cs">
+    <Link>Samples\Scheduler\MonthCellCustomization\Converters\DateToColorConverter.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthCellCustomization\Behavior\HeatMapBehavior.cs">
+    <Link>Samples\Scheduler\MonthCellCustomization\Behavior\HeatMapBehavior.cs</Link>
+  </Compile>
+    
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\RecursiveAppointments\View\RecursiveAppointments.xaml.cs">
+    <Link>Samples\Scheduler\RecursiveAppointments\View\RecursiveAppointments.xaml.cs</Link>
+    <DependentUpon>RecursiveAppointments.xaml</DependentUpon>
+  </Compile>
+    
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Scheduling\Views\Scheduling.xaml.cs">
+    <Link>Samples\Scheduler\Scheduling\Views\Scheduling.xaml.cs</Link>
+    <DependentUpon>Scheduling.xaml</DependentUpon>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Scheduling\ViewModel\TimeZoneCollection.cs">
+    <Link>Samples\Scheduler\Scheduling\ViewModel\TimeZoneCollection.cs</Link>
+  </Compile>
+  
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Scheduling\Helper\AppointmentEditorClosedEventArgs.cs">
+    <Link>Samples\Scheduler\Scheduling\Helper\AppointmentEditorClosedEventArgs.cs</Link>
+  </Compile>
+  
+   <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Scheduling\Helper\AppointmentHelper.cs">
+    <Link>Samples\Scheduler\Scheduling\Helper\AppointmentHelper.cs</Link>
+  </Compile>
+    
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\SpecialTimeRegion\View\SpecialTimeRegion.xaml.cs">
+    <Link>Samples\Scheduler\SpecialTimeRegion\View\SpecialTimeRegion.xaml.cs</Link>
+    <DependentUpon>SpecialTimeRegion.xaml</DependentUpon>
+  </Compile>
+    
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\TimelineViews\View\TimelineViews.xaml.cs">
+    <Link>Samples\Scheduler\TimelineViews\View\TimelineViews.xaml.cs</Link>
+    <DependentUpon>TimelineViews.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\CalendarType\View\CalendarType.xaml.cs">
+    <Link>Samples\Scheduler\CalendarType\View\CalendarType.xaml.cs</Link>
+    <DependentUpon>CalendarType.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\ResourceView.xaml.cs">
+    <Link>Samples\Scheduler\ResourceView\View\ResourceView.xaml.cs</Link>
+    <DependentUpon>ResourceView.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\DateWiseGrouping.xaml.cs">
+	<Link>Samples\Scheduler\ResourceView\View\DateWiseGrouping.xaml.cs</Link>
+	<DependentUpon>DateWiseGrouping.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\HorizontalGrouping.xaml.cs">
+	<Link>Samples\Scheduler\ResourceView\View\HorizontalGrouping.xaml.cs</Link>
+	<DependentUpon>HorizontalGrouping.xaml</DependentUpon>
+  </Compile>
+
+    <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\AdaptiveResourceGrouping.xaml.cs">
+		<Link>Samples\Scheduler\ResourceView\View\AdaptiveResourceGrouping.xaml.cs</Link>
+		<DependentUpon>AdaptiveResourceGrouping.xaml</DependentUpon>
+	</Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\DragAndDrop\View\DragAndDrop.xaml.cs">
+	<Link>Samples\Scheduler\DragAndDrop\View\DragAndDrop.xaml.cs</Link>
+	<DependentUpon>DragAndDrop.xaml</DependentUpon>
+  </Compile>
+	
+   <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\ViewModel\ResourceViewViewModel.cs">
+    <Link>Samples\Scheduler\ResourceView\ViewModel\ResourceViewViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\ViewModel\HorizontalResourceViewViewModel.cs">
+	<Link>Samples\Scheduler\ResourceView\ViewModel\HorizontalResourceViewViewModel.cs</Link>
+  </Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\ViewModel\AdaptiveResourceViewModel.cs">
+		<Link>Samples\Scheduler\ResourceView\ViewModel\AdaptiveResourceViewModel.cs</Link>
+	</Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\Model\Employee.cs">
+    <Link>Samples\Scheduler\ResourceView\Model\Employee.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthAgendaView\View\MonthAgendaView.xaml.cs">
+    <Link>Samples\Scheduler\MonthAgendaView\View\MonthAgendaView.xaml.cs</Link>
+    <DependentUpon>MonthAgendaView.xaml</DependentUpon>
+  </Compile>
+
+   <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthAgendaView\ViewModel\MonthAgendaViewViewModel.cs">
+    <Link>Samples\Scheduler\MonthAgendaView\ViewModel\MonthAgendaViewViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthAgendaView\Behavior\MonthAgendaViewBehavior.cs">
+    <Link>Samples\Scheduler\MonthAgendaView\Behavior\MonthAgendaViewBehavior.cs</Link>
+  </Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\MonthGrouping.xaml.cs">
+		<Link>Samples\Scheduler\ResourceView\View\MonthGrouping.xaml.cs</Link>
+		<DependentUpon>MonthGrouping.xaml</DependentUpon>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\ViewModel\MonthResourceViewModel.cs">
+		<Link>Samples\Scheduler\ResourceView\ViewModel\MonthResourceViewModel.cs</Link>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthInlineView\View\MonthInlineView.xaml.cs">
+		<Link>Samples\Scheduler\MonthInlineView\View\MonthInlineView.xaml.cs</Link>
+		<DependentUpon>MonthInlineView.xaml</DependentUpon>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthInlineView\ViewModel\MonthInlineViewViewModel.cs">
+		<Link>Samples\Scheduler\MonthInlineView\ViewModel\MonthInlineViewViewModel.cs</Link>
+	</Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\Behavior\ResourceViewBehavior.cs">
+    <Link>Samples\Scheduler\ResourceView\Behavior\ResourceViewBehavior.cs</Link>
+  </Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\DragAndDrop\Behavior\DragAndDropBehavior.cs">
+		<Link>Samples\Scheduler\DragAndDrop\Behavior\DragAndDropBehavior.cs</Link>
+	</Compile>
+	
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\CalendarType\Behavior\CalendarTypeBehavior.cs">
+    <Link>Samples\Scheduler\CalendarType\Behavior\CalendarTypeBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\CalendarType\ViewModel\CalendarTypeViewModel.cs">
+    <Link>Samples\Scheduler\CalendarType\ViewModel\CalendarTypeViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Clipboard\View\Clipboard.xaml.cs">
+    <Link>Samples\Scheduler\Clipboard\View\Clipboard.xaml.cs</Link>
+    <DependentUpon>Clipboard.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Clipboard\ViewModel\SchedulerClipboardViewModel.cs">
+    <Link>Samples\Scheduler\Clipboard\ViewModel\SchedulerClipboardViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Clipboard\Helper\ClipboardCommands.cs">
+    <Link>Samples\Scheduler\Clipboard\Helper\ClipboardCommands.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ContextMenu\View\ContextMenu.xaml.cs">
+    <Link>Samples\Scheduler\ContextMenu\View\ContextMenu.xaml.cs</Link>
+    <DependentUpon>ContextMenu.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentActions\View\AppointmentActions.xaml.cs">
+		<Link>Samples\Scheduler\AppointmentActions\View\AppointmentActions.xaml.cs</Link>
+		<DependentUpon>AppointmentActions.xaml</DependentUpon>
+  </Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentActions\ViewModel\AppointmentActionsViewModel.cs" >
+		<Link>Samples\Scheduler\AppointmentActions\ViewModel\AppointmentActionsViewModel.cs</Link>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HolidayCalendar\View\HolidayCalendar.xaml.cs">
+		<Link>Samples\Scheduler\HolidayCalendar\View\HolidayCalendar.xaml.cs</Link>
+		<DependentUpon>HolidayCalendar.xaml</DependentUpon>
+	</Compile>
+	
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HolidayCalendar\ViewModel\SchedulerHolidayCalendarViewModel.cs">
+		<Link>Samples\Scheduler\HolidayCalendar\ViewModel\SchedulerHolidayCalendarViewModel.cs</Link>
+	</Compile>
+
+	<Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HolidayCalendar\Behavior\HolidayCalendarBehavior.cs">
+		<Link>Samples\Scheduler\HolidayCalendar\Behavior\HolidayCalendarBehavior.cs</Link>
+	</Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AllowOverlap\View\AllowOverlap.xaml.cs">
+    <Link>Samples\Scheduler\AllowOverlap\View\AllowOverlap.xaml.cs</Link>
+    <DependentUpon>AllowOverlap.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AllowOverlap\ViewModel\AllowOverlapViewModel.cs">
+	<Link>Samples\Scheduler\AllowOverlap\ViewModel\AllowOverlapViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AllowOverlap\Behavior\AllowOverlapBehavior.cs">
+    <Link>Samples\Scheduler\AllowOverlap\Behavior\AllowOverlapBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MajorAndMinorTick\View\MajorAndMinorTick.xaml.cs">
+    <Link>Samples\Scheduler\MajorAndMinorTick\View\MajorAndMinorTick.xaml.cs</Link>
+    <DependentUpon>MajorAndMinorTick.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MajorAndMinorTick\ViewModel\SchedulerMajorAndMinorTickViewModel.cs">
+    <Link>Samples\Scheduler\MajorAndMinorTick\ViewModel\SchedulerMajorAndMinorTickViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MajorAndMinorTick\Behavior\MajorAndMinorTickBehavior.cs">
+    <Link>Samples\Scheduler\MajorAndMinorTick\Behavior\MajorAndMinorTickBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ICSExportImport\View\ICSExportImport.xaml.cs">
+    <Link>Samples\Scheduler\ICSExportImport\View\ICSExportImport.xaml.cs</Link>
+    <DependentUpon>ICSExportImport.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ICSExportImport\ViewModel\ICSExportImportViewModel.cs">
+    <Link>Samples\Scheduler\ICSExportImport\ViewModel\ICSExportImportViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ICSExportImport\Behavior\ICSExportImportBehavior.cs">
+    <Link>Samples\Scheduler\ICSExportImport\Behavior\ICSExportImportBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\LimitConcurrentEvent\View\LimitConcurrentEvent.xaml.cs">
+    <Link>Samples\Scheduler\LimitConcurrentEvent\View\LimitConcurrentEvent.xaml.cs</Link>
+    <DependentUpon>LimitConcurrentEvent.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\LimitConcurrentEvent\ViewModel\SchedulerLimitConcurrentEventViewModel.cs">
+    <Link>Samples\Scheduler\LimitConcurrentEvent\ViewModel\SchedulerLimitConcurrentEventViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\LimitConcurrentEvent\Behavior\LimitConcurrentEventBehavior.cs">
+    <Link>Samples\Scheduler\LimitConcurrentEvent\Behavior\LimitConcurrentEventBehavior.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\Model\TeamMember.cs">
+    <Link>Samples\Scheduler\HierarchicalResourceView\Model\TeamMember.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\View\HorizontalHierarchicalGrouping.xaml.cs">
+    <Link>Samples\Scheduler\HierarchicalResourceView\View\HorizontalHierarchicalGrouping.xaml.cs</Link>
+    <DependentUpon>HorizontalHierarchicalGrouping.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\View\TimelineHierarchicalGrouping.xaml.cs">
+    <Link>Samples\Scheduler\HierarchicalResourceView\View\TimelineHierarchicalGrouping.xaml.cs</Link>
+    <DependentUpon>TimelineHierarchicalGrouping.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\View\HierarchicalAdaptiveResourceGrouping.xaml.cs">
+    <Link>Samples\Scheduler\HierarchicalResourceView\View\HierarchicalAdaptiveResourceGrouping.xaml.cs</Link>
+    <DependentUpon>HierarchicalAdaptiveResourceGrouping.xaml</DependentUpon>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\ViewModel\HierarchicalResourceViewModel.cs">
+    <Link>Samples\Scheduler\HierarchicalResourceView\ViewModel\HierarchicalResourceViewModel.cs</Link>
+  </Compile>
+
+  <Compile Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\ViewModel\HierarchicalAdaptiveResourceViewModel.cs">
+    <Link>Samples\Scheduler\HierarchicalResourceView\ViewModel\HierarchicalAdaptiveResourceViewModel.cs</Link>
+  </Compile>
+</ItemGroup> 
+  
+<ItemGroup>
+
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\SchedulerSamplesList.xml" >
+			<Link>SchedulerSamplesList.xml</Link>
+    </EmbeddedResource>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\DataBinding\View\DataBinding.xaml">
+		<Link>Samples\Scheduler\DataBinding\View\DataBinding.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AgendaView\View\AgendaView.xaml">
+		<Link>Samples\Scheduler\AgendaView\View\AgendaView.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentEditor\View\AppointmentEditor.xaml">
+      <Link>Samples\Scheduler\AppointmentEditor\View\AppointmentEditor.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentTooltip\View\AppointmentTooltip.xaml">
+      <Link>Samples\Scheduler\AppointmentTooltip\View\AppointmentTooltip.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppearanceCustomization\View\AppearanceCustomization.xaml">
+		<Link>Samples\Scheduler\AppearanceCustomization\View\AppearanceCustomization.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\GettingStarted\View\GettingStarted.xaml">
+		<Link>Samples\Scheduler\GettingStarted\View\GettingStarted.xaml</Link>
+    </MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Resize\View\Resize.xaml">
+		<Link>Samples\Scheduler\Resize\View\Resize.xaml</Link>
+	</MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\LoadOnDemand\View\LoadOnDemand.xaml">
+		<Link>Samples\Scheduler\LoadOnDemand\View\LoadOnDemand.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthCellCustomization\View\HeatMap.xaml">
+		<Link>Samples\Scheduler\MonthCellCustomization\View\HeatMap.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Scheduling\Views\Scheduling.xaml">
+		<Link>Samples\Scheduler\Scheduling\Views\Scheduling.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\SpecialTimeRegion\View\SpecialTimeRegion.xaml">
+		<Link>Samples\Scheduler\SpecialTimeRegion\View\SpecialTimeRegion.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\TimelineViews\View\TimelineViews.xaml">
+		<Link>Samples\Scheduler\TimelineViews\View\TimelineViews.xaml</Link>
+    </MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\CalendarType\View\CalendarType.xaml">
+		<Link>Samples\Scheduler\CalendarType\View\CalendarType.xaml</Link>
+    </MauiXaml>
+
+     <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\ResourceView.xaml">
+		<Link>Samples\Scheduler\ResourceView\View\ResourceView.xaml</Link>
+    </MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\DateWiseGrouping.xaml">
+		<Link>Samples\Scheduler\ResourceView\View\DateWiseGrouping.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\HorizontalGrouping.xaml">
+		<Link>Samples\Scheduler\ResourceView\View\HorizontalGrouping.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\AdaptiveResourceGrouping.xaml">
+		<Link>Samples\Scheduler\ResourceView\View\AdaptiveResourceGrouping.xaml</Link>
+	</MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ResourceView\View\MonthGrouping.xaml">
+		<Link>Samples\Scheduler\ResourceView\View\MonthGrouping.xaml</Link>
+	</MauiXaml>
+	
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\DragAndDrop\View\DragAndDrop.xaml">
+		<Link>Samples\Scheduler\DragAndDrop\View\DragAndDrop.xaml</Link>
+	</MauiXaml>
+
+     <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthAgendaView\View\MonthAgendaView.xaml">
+		<Link>Samples\Scheduler\MonthAgendaView\View\MonthAgendaView.xaml</Link>
+    </MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MonthInlineView\View\MonthInlineView.xaml">
+		<Link>Samples\Scheduler\MonthInlineView\View\MonthInlineView.xaml</Link>
+	</MauiXaml>
+
+    <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\RecursiveAppointments\View\RecursiveAppointments.xaml">
+		<Link>Samples\Scheduler\RecursiveAppointments\View\RecursiveAppointments.xaml</Link>
+    </MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\Clipboard\View\Clipboard.xaml">
+    <Link>Samples\Scheduler\Clipboard\View\Clipboard.xaml</Link>
+  </MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ContextMenu\View\ContextMenu.xaml">
+    <Link>Samples\Scheduler\ContextMenu\View\ContextMenu.xaml</Link>
+  </MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AppointmentActions\View\AppointmentActions.xaml">
+		<Link>Samples\Scheduler\AppointmentActions\View\AppointmentActions.xaml</Link>
+  </MauiXaml>
+
+	<MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HolidayCalendar\View\HolidayCalendar.xaml">
+		<Link>Samples\Scheduler\HolidayCalendar\View\HolidayCalendar.xaml</Link>
+	</MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\AllowOverlap\View\AllowOverlap.xaml">
+    <Link>Samples\Scheduler\AllowOverlap\View\AllowOverlap.xaml</Link>
+  </MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\MajorAndMinorTick\View\MajorAndMinorTick.xaml">
+    <Link>Samples\Scheduler\MajorAndMinorTick\View\MajorAndMinorTick.xaml</Link>
+  </MauiXaml>
+	
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\View\HorizontalHierarchicalGrouping.xaml">
+    <Link>Samples\Scheduler\HierarchicalResourceView\View\HorizontalHierarchicalGrouping.xaml</Link>
+  </MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\View\TimelineHierarchicalGrouping.xaml">
+    <Link>Samples\Scheduler\HierarchicalResourceView\View\TimelineHierarchicalGrouping.xaml</Link>
+  </MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\HierarchicalResourceView\View\HierarchicalAdaptiveResourceGrouping.xaml">
+    <Link>Samples\Scheduler\HierarchicalResourceView\View\HierarchicalAdaptiveResourceGrouping.xaml</Link>
+  </MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\ICSExportImport\View\ICSExportImport.xaml">
+    <Link>Samples\Scheduler\ICSExportImport\View\ICSExportImport.xaml</Link>
+  </MauiXaml>
+
+  <MauiXaml Include="$(MSBuildThisFileDirectory)\Samples\Scheduler\LimitConcurrentEvent\View\LimitConcurrentEvent.xaml">
+    <Link>Samples\Scheduler\LimitConcurrentEvent\View\LimitConcurrentEvent.xaml</Link>
+  </MauiXaml>
+
+</ItemGroup> 
+</Project>
