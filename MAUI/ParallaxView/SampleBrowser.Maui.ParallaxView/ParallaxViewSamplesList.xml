@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<SyncfusionControls>
-  <ControlCategory Name="Layouts">
-	  <Control Title="Parallax View" Image="parallaxview.png"  ControlName="SfParallaxView" Description="Experience a visually appealing parallax effect with Parallax View.">
-		  <Sample Title = "Getting Started" SampleName = "GettingStarted" SearchTags = "Parallax" CodeViewerPath="ParallaxView/GettingStartedDemo/" />
-	  </Control>
-  </ControlCategory>
-</SyncfusionControls>
-

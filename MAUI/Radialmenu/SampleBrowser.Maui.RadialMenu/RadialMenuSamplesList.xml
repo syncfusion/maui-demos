@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<SyncfusionControls>
-		<ControlCategory Name="Navigation">
-			<Control Title="Radial Menu" Image="radialmenu.png" ControlName="SfRadialMenu" Description="The radial menu control is a circular layout for quick navigation to options.">
-				<Sample SearchTags="GettingStarted" SampleName="GettingStarted" VideoLink="https://youtu.be/VxufXFzSh0M?si=UrV9Ny6qrUvGMx2u"  Title="Getting Started" CodeViewerPath="RadialMenu/GettingStarted/" />
-			</Control>
-		</ControlCategory>
-</SyncfusionControls>
